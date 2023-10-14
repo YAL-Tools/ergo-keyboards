@@ -1,0 +1,46 @@
+body {
+    font: 15px sans-serif;
+}
+table {
+	border: 1px solid #ddd;
+	width: 100%;
+	margin-bottom: 0.5em;
+	th, td {
+		text-align: left;
+		vertical-align: top;
+	}
+}
+#filter {
+	columns: 2;
+}
+#data {
+	border-spacing: 0;
+	td, th {
+		padding: 2px;
+	}
+	th.can-sort {
+		cursor: pointer;
+		position: relative;
+		&.sort-column:after {
+			position: absolute;
+			right: 0.2em;
+			content: "↓";
+		}
+		&.sort-column.sort-ascending:after {
+			content: "↑";
+		}
+	}
+	td {
+		border-top: 1px solid #ddd;
+	}
+	tr:hover {
+		background-color: #FFE03730;
+	}
+}
+input[invalid] {
+	outline: 2px solid red;
+}
+.tippy-photo {
+	max-width: 100%;
+	border-radius: 3px;
+}
