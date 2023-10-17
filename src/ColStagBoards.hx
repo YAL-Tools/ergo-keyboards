@@ -27,6 +27,9 @@ class ColStagBoards {
 		kb.setHotswap([MX, Choc]);
 		kb.displays = [0, 2];
 		kb.source = "https://github.com/foostan/crkbd";
+		kb.kit = [
+			"https://splitkb.com/collections/keyboard-kits/products/aurora-corne",
+		];
 		kb.img = "crkbd.jpg";
 		add(kb);
 		
@@ -67,6 +70,7 @@ class ColStagBoards {
 			source: "https://github.com/kata0510/Lily58",
 			kit: [
 				"https://mechboards.co.uk/collections/kits/products/lily58-kit",
+				"https://splitkb.com/collections/keyboard-kits/products/aurora-lily58"
 			],
 			prebuilt: "https://shop.yushakobo.jp/products/lily58-pro/",
 			img: "lily58.jpg",
@@ -396,19 +400,34 @@ class ColStagBoards {
 		kb.setQMK();
 		add(kb);
 		
-		kb = {
-			name: "Hillside 52",
-			navCluster: Arrows,
-			pinkyStagger: 0.8,
-			source: "https://github.com/mmccoyd/hillside",
-			prebuilt: "https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/",
-			img: "Hillside52.jpg"
-		};
-		kb.setHotswap(Choc, Choc);
-		kb.setMatrix(52, 6, 3);
-		kb.setExtras(5, 0, 0, 4);
-		kb.setQMK();
-		add(kb);
+		function addHillside(kb:ColStagKeyboard) {
+			kb.splay = Splay.Optional;
+			kb.setHotswap(Choc, Choc);
+			kb.setQMK();
+			kb.pinkyStagger = 0.8;
+			kb.source = "https://github.com/mmccoyd/hillside";
+			kb.kit = "https://shop.beekeeb.com/product/hillside-keyboard-kit/";
+			kb.prebuilt = "https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/";
+			add(kb);
+		}
+		kb = new ColStagKeyboard("Hillside 52/56");
+		kb.setMatrix([44, 56], [5, 6], 3);
+		kb.setExtras(5, 0, 0, [3, 4]);
+		kb.navCluster = Arrows;
+		kb.img = [
+			"Hillside-52.webp",
+			"Hillside-56.jpg",
+		];
+		addHillside(kb);
+		
+		kb = new ColStagKeyboard("Hillside 46/48");
+		kb.setMatrix([40, 48], [5, 6], 3);
+		kb.setExtras(5, 0, 0, [0, 1]);
+		kb.img = [
+			"Hillside-46.jpg",
+			"Hillside-48.jpg",
+		];
+		addHillside(kb);
 		
 		kb = {
 			name: "Drift",

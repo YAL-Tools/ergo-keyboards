@@ -23,11 +23,11 @@ class FancyTableNameColumn<KB:Keyboard> extends FancyTableColumn<KB> {
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
 		if (kb.img != null || kb.notes != null) {
-			var src = kb.img != null ? "img/" + kb.img : null;
+			var srcs = kb.img != null ? kb.img.map(s -> "img/" + s) : null;
 			
 			var link = document.createAnchorElement();
 			link.appendTextNode(getter(kb));
-			link.href = src;
+			link.href = srcs != null ? srcs[0] : null;
 			link.onclick = function() {
 				return false;
 			}
@@ -39,11 +39,13 @@ class FancyTableNameColumn<KB:Keyboard> extends FancyTableColumn<KB> {
 			opts.maxWidth = 640;
 			opts.content = function(_) {
 				var div = document.createDivElement();
-				if (src != null) {
+				if (srcs != null) for (src in srcs) {
 					var img = document.createImageElement();
 					img.src = src;
-					img.className = "tippy-photo";
-					div.appendChild(img);
+					var p = document.createParagraphElement();
+					p.classList.add("img");
+					p.appendChild(img);
+					div.appendChild(p);
 				}
 				if (kb.notes != null) for (note in kb.notes) {
 					div.appendParaTextNode(note);
