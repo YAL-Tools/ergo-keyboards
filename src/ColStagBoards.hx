@@ -1,6 +1,4 @@
 package ;
-import js.lib.webassembly.CompileError;
-import js.html.AbortController;
 import type.Firmware;
 import type.Software;
 import type.Connection;
@@ -23,6 +21,15 @@ class ColStagBoards {
 		var pimoroniSize = 4.4;
 		var kb:ColStagKeyboard;
 		
+		kb = new ColStagKeyboard("Corne/crkbd");
+		kb.setMatrix(42, 6, 3);
+		kb.setExtras(3);
+		kb.setHotswap([MX, Choc]);
+		kb.displays = [0, 2];
+		kb.source = "https://github.com/foostan/crkbd";
+		kb.img = "crkbd.jpg";
+		add(kb);
+		
 		kb = {
 			name: "Sofle",
 			knobs: 2,
@@ -32,6 +39,7 @@ class ColStagBoards {
 			kit: [
 				"https://keebd.com/en-us/products/sofle-v2-keyboard-kit",
 				"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2",
+				"https://mechboards.co.uk/collections/kits/products/sofle-kit",
 			],
 			img: "sofle.jpg",
 		};
@@ -57,12 +65,25 @@ class ColStagBoards {
 		kb = {
 			name: "Lily58",
 			source: "https://github.com/kata0510/Lily58",
+			kit: [
+				"https://mechboards.co.uk/collections/kits/products/lily58-kit",
+			],
 			prebuilt: "https://shop.yushakobo.jp/products/lily58-pro/",
 			img: "lily58.jpg",
 		};
 		kb.setMatrix(58, 6, 4);
 		kb.setExtras(4, 1, 0, 0);
 		kb.setHotswap([MX, Choc], MX);
+		add(kb);
+		
+		kb = new ColStagKeyboard("Kyria");
+		kb.setMatrix(48, 6, 3);
+		kb.setExtras(6);
+		kb.knobs = 2;
+		kb.pinkyStagger = 0.6;
+		kb.source = "https://github.com/splitkb/kyria";
+		kb.kit = "https://splitkb.com/products/kyria-rev3-pcb-kit";
+		kb.img = "Kyria.jpg";
 		add(kb);
 		
 		function addEgg(kb:ColStagKeyboard) {
@@ -149,19 +170,6 @@ class ColStagBoards {
 		kb.setHotswap(MX);
 		kb.setMatrix(60, 6, 4);
 		kb.setQMK();
-		add(kb);
-		
-		kb = {
-			name: "simplyKeeb 60K",
-			stagger: Ortho,
-			thumbKeys: 3,
-			cornerKeys: 3,
-			source: "https://github.com/geaz/simplyKeeb-60K",
-			img: "simplyKeeb-60K.jpg",
-		};
-		kb.setHotswap(MX);
-		kb.setMatrix(60, 6, 4);
-		kb.setQMK(Vial);
 		add(kb);
 		
 		kb = {
@@ -581,18 +589,6 @@ class ColStagBoards {
 		kb.img = "buzzard.webp";
 		add(kb);
 		
-		kb = new ColStagKeyboard("Skywatch");
-		kb.setMatrix(36, 5, 3);
-		kb.setExtras(3);
-		kb.shape = Unibody;
-		kb.pinkyStagger = 0.3;
-		kb.stagger = Ortho;
-		kb.trackballSize = pimoroniSize;
-		kb.trackballs = [0, 1];
-		kb.source = "https://github.com/ozkan/skywatch";
-		kb.img = "Skywatch.jpg";
-		add(kb);
-		
 		kb = new ColStagKeyboard("Trackball Reviung41");
 		kb.setMatrix(41, 6, 3);
 		kb.setExtras(3);
@@ -610,34 +606,6 @@ class ColStagBoards {
 		kb.setQMK();
 		kb.source = "https://github.com/vvhg1/fisk";
 		kb.img = "fisk.jpg";
-		add(kb);
-		
-		kb = new ColStagKeyboard("Bancouver40");
-		kb.shape = Monoblock;
-		kb.stagger = Ortho;
-		kb.setMatrix(40, 5, 4);
-		kb.setHotswap(Choc, CFX);
-		kb.source = "https://github.com/ChrisChrisLoLo/bancouver40";
-		kb.img = "Bancouver40.jpeg";
-		add(kb);
-		
-		kb = new ColStagKeyboard("ChonkV");
-		kb.setMatrix(58, 6, 4);
-		kb.setExtras(5);
-		kb.setHotswap(Choc, Choc);
-		kb.splay = PinkyOnly;
-		kb.shape = Unibody;
-		kb.stagger = Ortho;
-		kb.source = "https://github.com/ImStuBTW/chonkv";
-		kb.img = "ChonkV.jpg";
-		add(kb);
-		
-		kb = new ColStagKeyboard("BFO-9000");
-		kb.setMatrix([56, 108], [7, 9], [4, 6]);
-		kb.shape = Split;
-		kb.stagger = Ortho;
-		kb.kit = "https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear";
-		kb.img = "bfo-9000.jpg";
 		add(kb);
 		
 		function addIris(kb:ColStagKeyboard) {
@@ -667,6 +635,87 @@ class ColStagBoards {
 		kb.prebuilt = "https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/";
 		kb.img = "Truly-Ergonomic-Cleave-keyboard-1x1-2.jpg";
 		kb.notes = "Flexibility of on-board software is unclear, but it's got a fairly normal keymap";
+		add(kb);
+		
+		kb = new ColStagKeyboard("Glove80");
+		kb.setMatrix(80, 6, 5);
+		kb.setExtras(6, -1, 0, 5);
+		kb.hotswap = false;
+		kb.connection = [Wired, Bluetooth];
+		kb.prebuilt = "http://www.moergo.com";
+		kb.img = "glove80.jpg";
+		add(kb);
+		
+		kb = new ColStagKeyboard("MOMOKA ERGO");
+		kb.setMatrix(70, 6, 4);
+		kb.setExtras(6, 0, 0, 5);
+		kb.setHotswap(MX);
+		kb.setQMK();
+		kb.web = "https://www.momoka.co/ergo";
+		kb.prebuilt = "https://momoka.store/collections/keyboards/products/momoka-ergo";
+		kb.img = "momoka-ergo.webp";
+		add(kb);
+		
+		kb = new ColStagKeyboard("Keyboardio Model 100");
+		kb.setMatrix(64, 6, 4);
+		kb.setExtras(5, 3, 0, 0);
+		kb.setHotswap(MX);
+		kb.prebuilt = "https://shop.keyboard.io/products/model-100";
+		kb.img = "keyboardio-m100.webp";
+		add(kb);
+		
+		kb = new ColStagKeyboard("ZSA Voyager");
+		kb.setMatrix(52, 6, 4);
+		kb.setExtras(2, 0, 0, 0);
+		kb.setHotswap(Choc, Choc);
+		kb.setQMK(Custom);
+		kb.prebuilt = "https://www.zsa.io/voyager/";
+		kb.img = "zsa-voyager.jpg";
+		add(kb);
+		
+		kb = new ColStagKeyboard("ZSA Moonlander");
+		kb.setMatrix(72, 6, 4);
+		kb.setExtras(4, 3, 0, 5);
+		kb.setHotswap(MX);
+		kb.setQMK(Custom);
+		kb.prebuilt = "https://www.zsa.io/moonlander/";
+		kb.img = "zsa-moonlander.avif";
+		add(kb);
+		
+		kb = new ColStagKeyboard("ErgoDox EZ");
+		kb.setMatrix(76, 6, 4);
+		kb.setExtras(6, 3, 0, 5);
+		kb.setHotswap(MX);
+		kb.setQMK(Custom);
+		kb.prebuilt = "https://ergodox-ez.com/";
+		kb.img = "ergodox-ez.avif";
+		add(kb);
+		
+		kb = new ColStagKeyboard("Dygma Defy");
+		kb.setMatrix(68, 6, 4);
+		kb.setExtras(7, 3, 0, 0);
+		kb.setHotswap(MX);
+		kb.connection = [Wired, Bluetooth];
+		kb.prebuilt = "https://dygma.com/pages/defy";
+		kb.img = "dygma-defy.webp";
+		add(kb);
+		
+		kb = new ColStagKeyboard("Osprey");
+		kb.setMatrix(74, 7, 4);
+		kb.setExtras(7, 3, -1, 2);
+		kb.hotswap = true;
+		kb.shape = Unibody;
+		kb.pinkyStagger = 0.5;
+		kb.source = "https://github.com/nshie/osprey";
+		kb.img = "osprey.jpg";
+		add(kb);
+		
+		kb = new ColStagKeyboard("ErgoTravel");
+		kb.setMatrix(54, 6, 3);
+		kb.setExtras([2, 3], 2, 0, 4);
+		kb.setHotswap([MX, Alps, Choc]);
+		kb.source = "https://github.com/jpconstantineau/ErgoTravel";
+		kb.img = "Ergotravel.jpg";
 		add(kb);
 	}
 }

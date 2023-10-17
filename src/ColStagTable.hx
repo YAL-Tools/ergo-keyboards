@@ -296,5 +296,6 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		var col:FancyTableColumn<ColStagKeyboard>;
 		
 		ColStagBoards.init(keyboards);
+		OrthoBoards.init(keyboards);
 	}
 }
