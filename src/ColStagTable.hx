@@ -54,7 +54,8 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		col.shortName = "#inner";
 		col.show = false;
 		col.notes.appendParaTextNode(
-			"Sometimes keyboards have keys between teh two halves"
+			"Sometimes keyboards have keys between the two halves that aren't part of the main area, " +
+			"but still convenient enough to access."
 		);
 		addImagePara(col.notes, "inner-keys.png", 450, 200, "Inner keys on a Redox keyboard");
 		addColumn(col);

@@ -655,7 +655,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		});
 		col.shortName = "#inner";
 		col.show = false;
-		tools_HtmlTools.appendParaTextNode(col.notes,"Sometimes keyboards have keys between teh two halves");
+		tools_HtmlTools.appendParaTextNode(col.notes,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
 		this.addImagePara(col.notes,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
 		this.addColumn(col);
 		col = new table_FancyTableIntRangeColumn("Outer keys",function(q) {
