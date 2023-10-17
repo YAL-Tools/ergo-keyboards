@@ -5,14 +5,17 @@ import type.Keyboard;
 import type.Software;
 import type.SwitchProfile;
 import type.ValList;
-import type.Firmware;
+import type.*;
 
 /**
  * @author YellowAfterlife
  */
 @:forward abstract ColStagKeyboard(ColStagKeyboardBase)
 from ColStagKeyboardBase to ColStagKeyboardBase {
-	public function setMatrix(keys:IntRange, cols:Int, rows:Int) {
+	public inline function new(name:String) {
+		this = { name: name };
+	}
+	public function setMatrix(keys:IntRange, cols:IntRange, rows:IntRange) {
 		this.keys = keys;
 		this.cols = cols;
 		this.rows = rows;
@@ -32,16 +35,20 @@ from ColStagKeyboardBase to ColStagKeyboardBase {
 		this.keySpacing = spacing;
 	}
 	public function setQMK(?sw:ValList<Software>) {
-		this.firmware = QMK;
+		this.firmware = Firmware.QMK;
 		this.software = sw;
 	}
 }
 typedef ColStagKeyboardBase = {> Keyboard,
-	?cols:Int,
-	?rows:Int,
+	?cols:IntRange,
+	?rows:IntRange,
+	/** right-side columns */
+	?rcols:Int,
 	?thumbKeys:IntRange,
 	?innerKeys:IntRange,
 	?outerKeys:IntRange,
 	?cornerKeys:IntRange,
+	
 	?pinkyStagger:Float,
+	?splay:Splay,
 };

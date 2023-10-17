@@ -5,18 +5,50 @@
 	<title>Keyboards, huh?</title>
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="style.css" /> 
+	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
 <body>
-	<table id="filter">
-		<tr>
-			<th width="1%">Show</th>
-			<th width="1%">Filter</th>
-			<th>Column</th>
-		</tr>
-	</table>
+	<h1>What's this</h1>
+	<p>
+		This is a collection of column-staggered and ortholinear ergonomic keyboards.
+	</p><p>
+		It is not as large as some other collections, but you can sort and filter the keyboards.
+	</p>
+	<details>
+		<summary>"The rules"</summary>
+		<ul>
+			<li>
+				Column-staggered and ortholinear keyboards only.<br>
+				This avoids some ambiguity with counting columns and similar.
+			</li><li>
+				Keyboards have to be buildable or obtainable in some way - no teasers.
+			</li>
+		</ul>
+	</details>
+	<details>
+		<summary>Where else to look for keyboards</summary>
+		<ul>
+			<li><a href="https://golem.hu/board/">golem.hu</a></li>
+			<li><a href="https://kbd.news/column/project/">kbd.news</a></li>
+			<li><a href="https://mechdb.net/keyboards/">MechDB</a></li>
+		</ul>
+	</details>
+	<h2>What to show and what to filter</h2>
+	<div id="filter"></div>
+	<div>
+		Showing <span id="count">0</span> keyboard(s)
+		<input type="button" value="Shuffle" id="shuffle"/>
+	</div>
 	<table id="data">
 		
 	</table>
+	<h2>Credits</h2>
+	<p>
+		A tool by YellowAfterlife.<br>
+		Written in <a href="https://haxe.org">Haxe</a>.<br/>
+		Special thanks to people on the <a href="https://discord.gg/69UM9sQF8q">low-profile keyboard Discord server</a>
+		for answering my questions about classifying keyboards.
+	</p>
 	<script src="lib/popper.min.js"></script>
 	<script src="lib/tippy-bundle.umd.js"></script>
 	<script src="script.js"></script>

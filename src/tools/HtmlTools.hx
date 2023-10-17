@@ -47,6 +47,18 @@ class HtmlTools {
 		e.appendChild(div);
 		return div;
 	}
+	public static function appendParaTextNode(e:Element, text:String) {
+		var p = Browser.document.createParagraphElement();
+		p.appendChild(Browser.document.createTextNode(text));
+		e.appendChild(p);
+		return p;
+	}
+	public static function appendElTextNode(e:Element, tag:String, text:String) {
+		var p = Browser.document.createElement(tag);
+		p.appendChild(Browser.document.createTextNode(text));
+		e.appendChild(p);
+		return p;
+	}
 	
 	public static function addFieldChangeEventListener(e:Element, f:Event->Void) {
 		e.addEventListener("change", f);

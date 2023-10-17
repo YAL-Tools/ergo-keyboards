@@ -7,5 +7,5 @@ package type;
 enum Connection {
 	Wired;
 	Bluetooth;
-	Proprietary;
+	Wireless;
 }

@@ -1,20 +1,47 @@
 body {
   font: 15px sans-serif;
 }
-table {
+#data {
   border: 1px solid #ddd;
-  width: 100%;
-  margin-bottom: 0.5em;
 }
-table th,
-table td {
+table {
+  width: 100%;
+}
+th,
+td {
   text-align: left;
   vertical-align: top;
 }
 #filter {
   columns: 2;
+  margin-bottom: 0.5em;
+}
+#filter > details {
+  border: 1px solid #ddd;
+  padding-left: 0.5em;
+  margin-bottom: 0.3em;
+  break-inside: avoid;
+}
+#filter .item {
+  display: flex;
+  align-items: start;
+}
+#filter .column-name.has-notes {
+  cursor: help;
+  text-decoration: underline;
+  /*&:after {
+			content: "?";
+			vertical-align: super;
+			font-size: 50%;
+		}*/
+}
+@media only screen and (min-width: 1200px) {
+  #filter {
+    columns: 3;
+  }
 }
 #data {
+  margin-top: 0.5em;
   border-spacing: 0;
 }
 #data td,
@@ -42,7 +69,37 @@ table td {
 input[invalid] {
   outline: 2px solid red;
 }
-.tippy-photo {
+.tippy-content .tippy-photo {
   max-width: 100%;
+  height: auto;
   border-radius: 3px;
+}
+.tippy-content p,
+.tippy-content ul {
+  margin: 0.5em 0;
+}
+.tippy-content p:first-child,
+.tippy-content ul:first-child {
+  margin-top: 0;
+}
+.tippy-content p:last-child,
+.tippy-content ul:last-child {
+  margin-bottom: 0;
+}
+.tippy-content ul {
+  padding-left: 1em;
+}
+.tippy-content a,
+.tippy-content a:visited {
+  color: white;
+}
+.tippy-content p.img {
+  text-align: center;
+  font-size: 85%;
+}
+.tippy-content p.img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+  outline: 1px solid currentColor;
 }

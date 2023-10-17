@@ -8,6 +8,5 @@ enum SwitchKind {
 	Linear;
 	Tactile;
 	Clicky;
-	Optic;
 	Other;
 }

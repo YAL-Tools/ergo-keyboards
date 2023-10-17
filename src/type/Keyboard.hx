@@ -10,7 +10,11 @@ import type.ValList;
 typedef Keyboard = {
 	name:String,
 	?keys:IntRange,
+	
 	?img:String,
+	?notes:ValList<String>,
+	
+	?shape:Shape,
 	?stagger:StaggerType,
 	?connection:ValList<Connection>,
 	
@@ -22,10 +26,15 @@ typedef Keyboard = {
 	
 	?knobs:IntRange,
 	?trackballs:IntRange,
+	/** in mm */
 	?trackballSize:Float,
 	?trackpads:IntRange,
+	/** in mm */
 	?trackpadSize:Float,
+	/** aka "pointing sticks" */
+	?trackpoints:IntRange,
 	?dpads:IntRange,
+	?displays:IntRange,
 	?navCluster:NavCluster,
 	
 	?firmware:ValList<Firmware>,
@@ -37,4 +46,5 @@ typedef Keyboard = {
 	?prebuilt:ValList<String>,
 	
 	?assembly:ValList<Assembly>,
+	// TODO: palmrest and tenting
 }

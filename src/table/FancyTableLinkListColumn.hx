@@ -3,6 +3,7 @@ import externs.Tippy;
 import externs.TippyOptions;
 import js.html.DivElement;
 import js.html.Element;
+import js.html.URL;
 import type.IntRange;
 import type.Keyboard;
 import js.Browser.*;
@@ -34,9 +35,28 @@ class FancyTableLinkListColumn<KB:Keyboard> extends FancyTableColumn<KB> {
 			link.href = lines[0];
 			out.appendChild(link);
 		} else {
-			for (i => lines in lines) {
-				
+			var list = document.createUListElement();
+			lines.sort((a, b)->Math.random() < 0.5 ? -1 : 1);
+			for (i => href in lines) {
+				var item = document.createLIElement();
+				var link = document.createAnchorElement();
+				link.href = href;
+				var url = new URL(href);
+				link.appendTextNode(url.hostname);
+				item.appendChild(link);
+				list.appendChild(item);
 			}
+			var link = document.createAnchorElement();
+			link.appendTextNode("➜");
+			link.href = "javascript:void(0)";
+			out.appendChild(link);
+			
+			var opts = new TippyOptions();
+			opts.trigger = "click";
+			opts.interactive = true;
+			opts.appendTo = () -> out;
+			opts.content = function(_) return list;
+			Tippy.bind(link, opts);
 		}
 	}
 }

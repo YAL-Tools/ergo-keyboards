@@ -1,19 +1,46 @@
 body {
     font: 15px sans-serif;
 }
-table {
+#data {
 	border: 1px solid #ddd;
+}
+table {
 	width: 100%;
-	margin-bottom: 0.5em;
-	th, td {
-		text-align: left;
-		vertical-align: top;
-	}
+}
+th, td {
+	text-align: left;
+	vertical-align: top;
 }
 #filter {
 	columns: 2;
+	margin-bottom: 0.5em;
+	> details {
+		border: 1px solid #ddd;
+		padding-left: 0.5em;
+		margin-bottom: 0.3em;
+		break-inside: avoid;
+	}
+	.item {
+		display: flex;
+		align-items: start;
+	}
+	.column-name.has-notes {
+		cursor: help;
+		text-decoration: underline;
+		/*&:after {
+			content: "?";
+			vertical-align: super;
+			font-size: 50%;
+		}*/
+	}
+}
+@media only screen and (min-width: 1200px) {
+	#filter {
+		columns: 3;
+	}
 }
 #data {
+	margin-top: 0.5em;
 	border-spacing: 0;
 	td, th {
 		padding: 2px;
@@ -40,7 +67,29 @@ table {
 input[invalid] {
 	outline: 2px solid red;
 }
-.tippy-photo {
-	max-width: 100%;
-	border-radius: 3px;
+.tippy-content {
+	.tippy-photo {
+		max-width: 100%;
+		height: auto;
+		border-radius: 3px;
+	}
+	p, ul {
+		margin: 0.5em 0;
+		&:first-child { margin-top: 0; }
+		&:last-child { margin-bottom: 0; }
+	}
+	ul {
+		padding-left: 1em;
+	}
+	a, a:visited { color: white }
+	p.img {
+		text-align: center;
+		font-size: 85%;
+		img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 3px;
+			outline: 1px solid currentColor;
+		}
+	}
 }

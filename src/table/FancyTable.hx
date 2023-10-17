@@ -1,4 +1,6 @@
 package table ;
+import externs.Tippy;
+import externs.TippyOptions;
 import js.html.Element;
 import js.html.TableCellElement;
 import js.html.TableRowElement;
@@ -19,6 +21,7 @@ class FancyTable<KB:Keyboard> {
 	public var keyboards:Array<KB> = [];
 	public var header:FancyTableRow<KB> = null;
 	public var rows:Array<FancyTableRow<KB>> = [];
+	public var countElement:Element = null;
 	public function new() {
 		
 	}
@@ -31,21 +34,23 @@ class FancyTable<KB:Keyboard> {
 		filterOrder.push(Header(text));
 	}
 	public function buildFilters(out:Element) {
+		var dest:Element = out;
 		for (item in filterOrder) {
 			var column = switch (item) {
 				case Header(text):
-					var sh = document.createTableRowElement();
-					var th:TableCellElement = cast document.createElement("th");
-					th.colSpan = 3;
-					th.appendTextNode(text);
-					sh.appendChild(th);
-					out.appendChild(sh);
+					var details = document.createDetailsElement();
+					details.open = true;
+					var summary = document.createElement("summary");
+					summary.appendTextNode(text);
+					details.appendChild(summary);
+					out.appendChild(details);
+					dest = details;
 					continue;
 				case Column(col): col;
 			}
-			var tr = document.createTableRowElement();
+			var tr = document.createDivElement();
+			tr.classList.add("item");
 			
-			var td = document.createTableCellElement();
 			var cbShow = document.createInputElement();
 			cbShow.type = "checkbox";
 			cbShow.checked = column.show;
@@ -60,15 +65,13 @@ class FancyTable<KB:Keyboard> {
 					}
 				}
 			}
-			td.appendChild(cbShow);
-			tr.appendChild(td);
+			tr.appendChild(cbShow);
 			
 			var divFilters = document.createDivElement();
 			column.buildFilter(divFilters);
 			divFilters.setDisplayFlag(false);
 			divFilters.classList.add("filters");
 			
-			td = document.createTableCellElement();
 			var cbFilter = document.createInputElement();
 			cbFilter.type = "checkbox";
 			cbFilter.checked = false;
@@ -78,29 +81,43 @@ class FancyTable<KB:Keyboard> {
 				divFilters.setDisplayFlag(cbFilter.checked);
 				updateFilters();
 			}
-			td.appendChild(cbFilter);
-			tr.appendChild(td);
+			tr.appendChild(cbFilter);
 			
-			td = document.createTableCellElement();
-			var title = column.filterName ?? column.name;
-			if (column.notes.childNodes.length == 0) {
-				td.appendTextNode(title);
-			} else {
-				var details = document.createDetailsElement();
-				var summary = document.createElement("summary");
-				summary.appendTextNode(title);
-				details.appendChild(summary);
-				details.appendChild(column.notes);
-				details.classList.add("notes");
-				td.appendChild(details);
+			var meta = document.createDivElement();
+			meta.classList.add("name");
+			
+			var colName = column.filterName ?? column.name;
+			var colNameEl = document.createSpanElement();
+			colNameEl.appendTextNode(colName);
+			colNameEl.classList.add("column-name");
+			
+			if (column.notes.childNodes.length > 0) {
+				colNameEl.classList.add("has-notes");
+				colNameEl.title = "(click to view notes)";
+				var opts = new TippyOptions();
+				opts.trigger = "click";
+				opts.interactive = true;
+				opts.appendTo = () -> meta;
+				opts.maxWidth = 480;
+				opts.content = function(_) return column.notes;
+				Tippy.bind(colNameEl, opts);
 			}
-			td.appendChild(divFilters);
-			tr.appendChild(td);
+			meta.appendChild(colNameEl);
+			meta.appendChild(divFilters);
+			tr.appendChild(meta);
 			
-			out.appendChild(tr);
+			dest.appendChild(tr);
 		}
 	}
 	
+	public function sortBy(sortColumn:FancyTableColumn<KB>, ascending:Bool) {
+		var sortRows = rows.copy();
+		sortRows.sort(function(a, b) {
+			return sortColumn.compareKeyboards(a.keyboard, b.keyboard, ascending);
+		});
+		sortRows.reverse();
+		for (row in sortRows) header.element.after(row.element);
+	}
 	public var sortColHead:FancyTableHeaderCell<KB> = null;
 	public var sortAscending:Bool = false;
 	public function buildTable(out:Element) {
@@ -133,13 +150,7 @@ class FancyTable<KB:Keyboard> {
 						sortAscending = !sortAscending;
 						sortColHead.element.classList.setTokenFlag("sort-ascending", sortAscending);
 					}
-					var sortRows = rows.copy();
-					var sortColumn = sortColHead.column;
-					sortRows.sort(function(a, b) {
-						return sortColumn.compareKeyboards(a.keyboard, b.keyboard, sortAscending);
-					});
-					sortRows.reverse();
-					for (row in sortRows) header.element.after(row.element);
+					sortBy(sortColHead.column, sortAscending);
 				}
 			}
 			header.cells.push(cell);
@@ -159,8 +170,10 @@ class FancyTable<KB:Keyboard> {
 			rows.push(row);
 			out.appendChild(row.element);
 		}
+		if (countElement != null) countElement.innerText = "" + keyboards.length;
 	}
 	public function updateFilters() {
+		var found = 0;
 		for (row in rows) {
 			var keyboard = row.keyboard;
 			var show = true;
@@ -170,7 +183,9 @@ class FancyTable<KB:Keyboard> {
 				break;
 			}
 			row.element.setDisplayFlag(show);
+			if (show) found++;
 		}
+		if (countElement != null) countElement.innerText = "" + found;
 	}
 }
 enum FancyTableFilterOrder<KB:Keyboard> {

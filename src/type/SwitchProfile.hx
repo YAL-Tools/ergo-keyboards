@@ -9,5 +9,7 @@ enum SwitchProfile {
 	MX;
 	Choc;
 	GateronLP;
+	CherryULP;
+	Optical;
 	Other;
 }
