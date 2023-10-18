@@ -33,6 +33,9 @@ class FancyTableColumn<KB:Keyboard> {
 	public function buildFilter(out:Element):Void {
 		
 	}
+	public function buildEditor(out:Element, get:Void->KB):Void {
+		
+	}
 	public function matchesFilter(kb:KB):Bool {
 		return true;
 	}

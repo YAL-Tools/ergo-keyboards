@@ -2,7 +2,7 @@ package tools;
 import haxe.macro.ComplexTypeTools;
 import haxe.macro.Context;
 import haxe.macro.Expr;
-import haxe.macro.TypeTools;
+using haxe.macro.TypeTools;
 
 /**
  * ...
@@ -14,13 +14,22 @@ class FancyTableMacro {
 		switch (expr.expr) {
 			case EField(e, field, kind):
 				var fdx = { expr: EField(macro q, field, kind), pos: expr.pos };
-				var fx = macro @:pos(expr.pos) function(q) return $fdx;
+				var fx = macro @:pos(expr.pos) function(q, ?wantSet, ?setValue) {
+					if (wantSet) {
+						$fdx = setValue;
+						return null;
+					} else return $fdx;
+				}
 				var f = switch (fx.expr) {
 					case EFunction(_, _f): _f;
 					default: throw "?";
 				}
-				var t = Context.typeExpr(e).t;
-				f.args[0].type = TypeTools.toComplexType(t);
+				var ctxType = Context.typeExpr(e).t.toComplexType();
+				var valType = Context.typeExpr(expr).t.toComplexType();
+				f.args[0].type = ctxType;
+				f.args[1].type = macro:Bool;
+				f.args[2].type = macro:Null<$valType>;
+				f.ret = macro:Null<$valType>;
 				return fx;
 			default:
 				throw "no";

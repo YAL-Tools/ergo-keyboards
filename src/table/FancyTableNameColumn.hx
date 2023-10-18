@@ -3,6 +3,7 @@ import externs.Tippy;
 import externs.TippyOptions;
 import js.html.DivElement;
 import js.html.Element;
+import type.GetSetOn;
 import type.IntRange;
 import type.Keyboard;
 import js.Browser.*;
@@ -14,10 +15,10 @@ using tools.HtmlTools;
  * @author YellowAfterlife
  */
 class FancyTableNameColumn<KB:Keyboard> extends FancyTableColumn<KB> {
-	public var getter:KB->String;
-	public function new(name:String, getter:KB->String) {
+	public var access:GetSetOn<KB, String>;
+	public function new(name:String, access:GetSetOn<KB, String>) {
 		super(name);
-		this.getter = getter;
+		this.access = access;
 		canFilter = false;
 		canSort = true;
 	}
@@ -26,7 +27,7 @@ class FancyTableNameColumn<KB:Keyboard> extends FancyTableColumn<KB> {
 			var srcs = kb.img != null ? kb.img.map(s -> "img/" + s) : null;
 			
 			var link = document.createAnchorElement();
-			link.appendTextNode(getter(kb));
+			link.appendTextNode(access(kb));
 			link.href = srcs != null ? srcs[0] : null;
 			link.onclick = function() {
 				return false;
@@ -54,14 +55,17 @@ class FancyTableNameColumn<KB:Keyboard> extends FancyTableColumn<KB> {
 			}
 			Tippy.bind(link, opts);
 		} else {
-			out.appendTextNode(getter(kb));
+			out.appendTextNode(access(kb));
 		}
 	}
 	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
-		var an = getter(a).toUpperCase();
-		var bn = getter(b).toUpperCase();
+		var an = access(a).toUpperCase();
+		var bn = access(b).toUpperCase();
 		var sign = an == bn ? 0 : (an < bn ? -1 : 1);
 		if (ascending) sign = -sign;
 		return sign;
+	}
+	override public function buildEditor(out:Element, get:Void->KB):Void {
+		
 	}
 }

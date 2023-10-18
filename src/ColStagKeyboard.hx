@@ -43,7 +43,7 @@ typedef ColStagKeyboardBase = {> Keyboard,
 	?cols:IntRange,
 	?rows:IntRange,
 	/** right-side columns */
-	?rcols:Int,
+	?rcols:IntRange,
 	?thumbKeys:IntRange,
 	?innerKeys:IntRange,
 	?outerKeys:IntRange,

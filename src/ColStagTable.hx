@@ -185,10 +185,13 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		col.shortName = "Cols";
 		
-		col = new FancyTableIntRangeColumn("Right-side columns", function(kb:ColStagKeyboard) {
-			var r = kb.rcols;
-			if (r == null) return kb.cols;
-			return r;
+		col = new FancyTableIntRangeColumn("Right-side columns", function(kb:ColStagKeyboard, ?set, ?val) {
+			if (set) {
+				kb.rcols = val;
+				return null;
+			} else {
+				return kb.rcols ?? kb.cols;
+			}
 		});
 		col.show = false;
 		col.shortName = "ColsR";

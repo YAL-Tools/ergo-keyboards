@@ -1,6 +1,7 @@
 package table;
 import js.html.Element;
 import table.FancyTableColumn;
+import type.GetSetOn;
 import type.Keyboard;
 import js.Browser.*;
 import type.ValList;
@@ -72,16 +73,16 @@ class FancyTableEnumColumn<KB:Keyboard, ET:EnumValue> extends FancyTableColumn<K
 	}
 }
 class FancyTableTagColumn<KB:Keyboard, ET:EnumValue> extends FancyTableEnumColumn<KB, ET> {
-	public var getter:KB->ET;
+	public var access:GetSetOn<KB, ET>;
 	public var defaultValue:ET = null;
-	public function new(name:String, getter:KB->ET, et:Enum<ET>) {
+	public function new(name:String, access:GetSetOn<KB, ET>, et:Enum<ET>) {
 		super(name, et);
 		defaultValue = et.createByIndex(0);
-		this.getter = getter;
+		this.access = access;
 		this.type = et;
 	}
 	function getValue(kb:KB) {
-		return getter(kb) ?? defaultValue;
+		return access(kb) ?? defaultValue;
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
 		var val = getValue(kb);
@@ -108,16 +109,16 @@ class FancyTableTagColumn<KB:Keyboard, ET:EnumValue> extends FancyTableEnumColum
 	}
 }
 class FancyTableTagListColumn<KB:Keyboard, ET:EnumValue> extends FancyTableEnumColumn<KB, ET> {
-	public var getter:KB->ValList<ET>;
+	public var access:GetSetOn<KB, ValList<ET>>;
 	public var defaultValue:ValList<ET> = null;
-	public function new(name:String, getter:KB->ValList<ET>, et:Enum<ET>) {
+	public function new(name:String, access:GetSetOn<KB, ValList<ET>>, et:Enum<ET>) {
 		super(name, et);
 		defaultValue = et.createByIndex(0);
-		this.getter = getter;
+		this.access = access;
 		this.type = et;
 	}
 	function getValue(kb:KB) {
-		return getter(kb) ?? defaultValue;
+		return access(kb) ?? defaultValue;
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
 		var vals = getValue(kb);

@@ -7,5 +7,6 @@ package type;
 enum Assembly {
 	Unspecified;
 	Handwired;
+	Printed;
 	Adjustable;
 }
