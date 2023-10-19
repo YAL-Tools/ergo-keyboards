@@ -25,13 +25,26 @@ ColStagBoards.init = function(keyboards) {
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	add(kb);
-	kb = { name : "Sofle", knobs : type_NumRange.fromInt(2), displays : type_NumRange.fromArray([0,2]), web : type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/"), source : type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard"), kit : ["https://keebd.com/en-us/products/sofle-v2-keyboard-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2","https://mechboards.co.uk/collections/kits/products/sofle-kit"], img : type_ValList.fromValue("sofle.jpg")};
+	kb = { name : "Sofle", encoders : type_NumRange.fromInt(2), displays : type_NumRange.fromArray([0,2]), web : type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/"), source : type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard"), kit : ["https://keebd.com/en-us/products/sofle-v2-keyboard-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2","https://mechboards.co.uk/collections/kits/products/sofle-kit"], img : type_ValList.fromValue("sofle.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 	add(kb);
-	kb = { name : "Soufflé", pinkyStagger : 0.7, knobs : type_NumRange.fromInt(2), source : type_ValList.fromValue("https://github.com/climent/SouffleKeyboard"), img : type_ValList.fromValue("Soufflé.jpg")};
+	kb = { name : "Sofle PLUS (xcmkb)"};
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
+	kb.displays = type_NumRange.fromInt(2);
+	kb.encoders = type_NumRange.fromInt(2);
+	kb.encoderType = [type_EncoderType.Knob,type_EncoderType.Wheel];
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	kb.trackballs = type_NumRange.fromInt(1);
+	kb.trackballSize = pimoroniSize;
+	kb.prebuilt = type_ValList.fromValue("https://github.com/superxc3/xcmkb");
+	kb.img = type_ValList.fromValue("xcmkb-sofle-plus.jpg");
+	kb.notes = type_ValList.fromValue("A number of small improvements over regular Sofle.");
+	add(kb);
+	kb = { name : "Soufflé", pinkyStagger : 0.7, encoders : type_NumRange.fromInt(2), source : type_ValList.fromValue("https://github.com/climent/SouffleKeyboard"), img : type_ValList.fromValue("Soufflé.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(1));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -45,7 +58,8 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Kyria"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(48),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6));
-	kb.knobs = type_NumRange.fromInt(2);
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
+	kb.encoders = type_NumRange.fromInt(2);
 	kb.pinkyStagger = 0.6;
 	kb.source = type_ValList.fromValue("https://github.com/splitkb/kyria");
 	kb.kit = type_ValList.fromValue("https://splitkb.com/products/kyria-rev3-pcb-kit");
@@ -64,7 +78,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(60),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	add(kb);
-	kb = { name : "Pangaea", assembly : type_ValList.fromValue(type_Assembly.Adjustable), knobs : type_NumRange.fromArray([0,2]), source : type_ValList.fromValue("https://github.com/e3w2q/Pangaea-keyboard"), img : type_ValList.fromValue("Pangaea.jpg"), notes : type_ValList.fromValue("Pinky columns and thumb row can be moved and rotated.")};
+	kb = { name : "Pangaea", assembly : type_ValList.fromValue(type_Assembly.Adjustable), encoders : type_NumRange.fromArray([0,2]), source : type_ValList.fromValue("https://github.com/e3w2q/Pangaea-keyboard"), img : type_ValList.fromValue("Pangaea.jpg"), notes : type_ValList.fromValue("Pinky columns and thumb row can be moved and rotated.")};
 	kb.splay = type_SplayBase.Optional;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([58,60]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
@@ -76,7 +90,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([42,44]),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	add(kb);
-	kb = { name : "Cantaloupe", thumbKeys : type_NumRange.fromInt(3), cornerKeys : type_NumRange.fromInt(3), knobs : type_NumRange.fromInt(2), source : type_ValList.fromValue("https://github.com/Ariamelon/Cantaloupe"), img : type_ValList.fromValue("Cantaloupe.jpg")};
+	kb = { name : "Cantaloupe", thumbKeys : type_NumRange.fromInt(3), cornerKeys : type_NumRange.fromInt(3), encoders : type_NumRange.fromInt(2), source : type_ValList.fromValue("https://github.com/Ariamelon/Cantaloupe"), img : type_ValList.fromValue("Cantaloupe.jpg")};
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(60),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setQMK(kb);
@@ -92,7 +106,7 @@ ColStagBoards.init = function(keyboards) {
 	var addAvalanche = function(kb) {
 		kb.outerKeys = type_NumRange.fromArray([0,1]);
 		kb.thumbKeys = type_NumRange.fromArray([6,7]);
-		kb.knobs = type_NumRange.fromArray([0,2]);
+		kb.encoders = type_NumRange.fromArray([0,2]);
 		kb.source = type_ValList.fromValue("https://github.com/vlkv/avalanche");
 		kb.img = type_ValList.fromValue("avalanche_v4-1.jpg");
 		kb.displays = type_NumRange.fromInt(2);
@@ -132,22 +146,22 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	kb = { name : "Breeze", navCluster : type_NavCluster.Full, thumbKeys : type_NumRange.fromInt(4), web : type_ValList.fromValue("https://www.afternoonlabs.com/breeze/"), source : type_ValList.fromValue("https://github.com/afternoonlabs/BreezeKeyboard"), kit : type_ValList.fromValue("https://keeb.io/products/afternoon-labs-breeze-keyboard-kit/?afmc=yal"), img : type_ValList.fromValue("breeze.avif")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	kb.rcols = 9;
+	kb.rcols = type_NumRange.fromInt(9);
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.VIA));
 	add(kb);
-	kb = { name : "ErgoNICE", navCluster : type_NavCluster.Arrows, thumbKeys : type_NumRange.fromInt(4), knobs : type_NumRange.fromInt(1), firmware : type_ValList.fromValue(type_Firmware.Custom), web : type_ValList.fromValue("https://val.packett.cool/blog/ergonice/"), source : type_ValList.fromValue("https://codeberg.org/valpackett/ergonice"), img : type_ValList.fromValue("ergoNICE.jpg")};
+	kb = { name : "ErgoNICE", navCluster : type_NavCluster.Arrows, thumbKeys : type_NumRange.fromInt(4), encoders : type_NumRange.fromInt(1), firmware : type_ValList.fromValue(type_Firmware.Custom), web : type_ValList.fromValue("https://val.packett.cool/blog/ergonice/"), source : type_ValList.fromValue("https://codeberg.org/valpackett/ergonice"), img : type_ValList.fromValue("ergoNICE.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(69),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	kb.rcols = 7;
+	kb.rcols = type_NumRange.fromInt(7);
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	add(kb);
 	kb = { name : "Willow64", thumbKeys : type_NumRange.fromInt(5), source : type_ValList.fromValue("https://github.com/hanachi-ap/willow64-doc"), img : type_ValList.fromValue("Willow64.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	kb.rcols = 8;
+	kb.rcols = type_NumRange.fromInt(8);
 	kb.splay = type_SplayBase.Yes;
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.VIA));
 	add(kb);
-	kb = { name : "Chunky", knobs : type_NumRange.fromInt(2), trackballs : type_NumRange.fromArray([0,2]), trackpads : type_NumRange.fromArray([0,2]), trackpadSize : 40, source : type_ValList.fromValue("https://github.com/freznel10/ChunkyV2"), img : type_ValList.fromValue("chunky-v2.jpg"), notes : type_ValList.fromValue("TODO: Author has a bunch of revisions of this keyboard - figure out if this entry needs to be split up.")};
+	kb = { name : "Chunky", encoders : type_NumRange.fromInt(2), trackballs : type_NumRange.fromArray([0,2]), trackpads : type_NumRange.fromArray([0,2]), trackpadSize : 40, source : type_ValList.fromValue("https://github.com/freznel10/ChunkyV2"), img : type_ValList.fromValue("chunky-v2.jpg"), notes : type_ValList.fromValue("TODO: Author has a bunch of revisions of this keyboard - figure out if this entry needs to be split up.")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	add(kb);
@@ -169,12 +183,12 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(-1),type_NumRange.fromInt(4));
 	add(kb);
-	kb = { name : "Djinn", source : type_ValList.fromValue("https://github.com/tzarc/djinn"), dpads : type_NumRange.fromInt(2), displays : type_NumRange.fromInt(2), img : type_ValList.fromValue("djinn.jfif")};
+	kb = { name : "Djinn", source : type_ValList.fromValue("https://github.com/tzarc/djinn"), dpads : type_NumRange.fromInt(2), dpadDirs : type_NumRange.fromInt(5), displays : type_NumRange.fromInt(2), img : type_ValList.fromValue("djinn.jfif")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4));
 	ColStagKeyboard.setQMK(kb);
 	add(kb);
-	kb = { name : "Kapl", source : type_ValList.fromValue("https://github.com/keyzog/kapl"), knobs : type_NumRange.fromArray([0,1]), img : type_ValList.fromValue("Kapl.jpg")};
+	kb = { name : "Kapl", source : type_ValList.fromValue("https://github.com/keyzog/kapl"), encoders : type_NumRange.fromArray([0,1]), img : type_ValList.fromValue("Kapl.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([63,64]),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setQMK(kb);
@@ -197,10 +211,10 @@ ColStagBoards.init = function(keyboards) {
 	addHillside(kb);
 	kb = { name : "Hillside 46/48"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([40,48]),type_NumRange.fromArray([5,6]),type_NumRange.fromInt(3));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([5,6]),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([0,1]));
 	kb.img = ["Hillside-46.jpg","Hillside-48.jpg"];
 	addHillside(kb);
-	kb = { name : "Drift", source : type_ValList.fromValue(""), knobs : type_NumRange.fromInt(2), displays : type_NumRange.fromInt(2), img : type_ValList.fromValue("Drift.jpg")};
+	kb = { name : "Drift", source : type_ValList.fromValue(""), encoders : type_NumRange.fromInt(2), displays : type_NumRange.fromInt(2), img : type_ValList.fromValue("Drift.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(8),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(-1),type_NumRange.fromInt(0));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
@@ -210,9 +224,10 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	var addDilemma = function(kb) {
 		kb.trackpads = type_NumRange.fromInt(1);
-		kb.knobs = type_NumRange.fromArray([0,2]);
+		kb.encoders = type_NumRange.fromArray([0,2]);
 		kb.hotswap = type_HotSwap.fromBool(false);
 		kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc];
+		ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.VIA));
 		add(kb);
 	};
 	addDilemma({ name : "Dilemma", keys : type_NumRange.fromArray([34,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromArray([2,4]), source : type_ValList.fromValue("https://github.com/Bastardkb/Dilemma"), kit : type_ValList.fromValue("https://bastardkb.com/product/dilemma/"), prebuilt : type_ValList.fromValue("https://bastardkb.com/product/dilemma-prebuilt-preorder/"), img : type_ValList.fromValue("Dilemma.jpg")});
@@ -230,12 +245,12 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Tern", keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.CFX, source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
 	kb.splay = type_SplayBase.Yes;
 	add(kb);
-	kb = { name : "Rolio", knobs : type_NumRange.fromInt(2), thumbKeys : type_NumRange.fromInt(5), connection : [type_Connection.Wired,type_Connection.Bluetooth], firmware : type_ValList.fromValue(type_Firmware.ZMK), pinkyStagger : 0.25, source : type_ValList.fromValue("https://github.com/MickiusMousius/RolioKeyboard"), img : type_ValList.fromValue("Rolio.jpg")};
+	kb = { name : "Rolio", encoders : type_NumRange.fromInt(2), thumbKeys : type_NumRange.fromInt(5), connection : [type_Connection.Wired,type_Connection.Bluetooth], firmware : type_ValList.fromValue(type_Firmware.ZMK), pinkyStagger : 0.25, source : type_ValList.fromValue("https://github.com/MickiusMousius/RolioKeyboard"), img : type_ValList.fromValue("Rolio.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(46),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	add(kb);
 	kb = { name : "Chrumm 1.0"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([64,70]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	kb.rcols = 7;
+	kb.rcols = type_NumRange.fromInt(7);
 	kb.shape = type_Shape.Unibody;
 	kb.hotswap = type_HotSwap.fromBool(false);
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.MX);
@@ -243,7 +258,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.thumbKeys = type_NumRange.fromInt(4);
 	kb.navCluster = type_NavCluster.Arrows;
 	kb.cornerKeys = type_NumRange.fromInt(1);
-	kb.knobs = type_NumRange.fromInt(1);
+	kb.encoders = type_NumRange.fromInt(1);
 	kb.source = type_ValList.fromValue("https://github.com/sevmeyer/chrumm-keyboard/");
 	kb.img = type_ValList.fromValue("Chrumm.jpg");
 	add(kb);
@@ -264,7 +279,8 @@ ColStagBoards.init = function(keyboards) {
 	kb.splay = type_SplayBase.Yes;
 	kb.displays = type_NumRange.fromInt(2);
 	kb.trackpoints = type_NumRange.fromInt(1);
-	kb.source = type_ValList.fromValue("https://github.com/crehmann/Buzzard/wiki");
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
+	kb.source = type_ValList.fromValue("https://github.com/crehmann/Buzzard");
 	kb.img = type_ValList.fromValue("buzzard.webp");
 	add(kb);
 	kb = { name : "Trackball Reviung41"};
@@ -299,7 +315,7 @@ ColStagBoards.init = function(keyboards) {
 	addIris(kb);
 	kb = { name : "TE Cleave"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(91),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	kb.rcols = 7;
+	kb.rcols = type_NumRange.fromInt(7);
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(2),type_NumRange.fromInt(3),type_NumRange.fromInt(2),type_NumRange.fromInt(2));
 	kb.navCluster = type_NavCluster.Full;
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.Optical);
@@ -313,6 +329,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(80),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(-1),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	kb.hotswap = type_HotSwap.fromBool(false);
+	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.Choc);
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
 	kb.prebuilt = type_ValList.fromValue("http://www.moergo.com");
 	kb.img = type_ValList.fromValue("glove80.jpg");
@@ -412,6 +429,8 @@ ColStagKeyboard.setQMK = function(this1,sw) {
 var table_FancyTable = function() {
 	this.sortAscending = false;
 	this.sortColHead = null;
+	this.outElement = null;
+	this.testRow = null;
 	this.countElement = null;
 	this.rows = [];
 	this.header = null;
@@ -430,133 +449,7 @@ table_FancyTable.prototype = {
 		this.filterOrder.push(table_FancyTableFilterOrder.Header(text));
 	}
 	,buildFilters: function(out) {
-		var _gthis = this;
-		var dest = out;
-		var _g = 0;
-		var _g1 = this.filterOrder;
-		while(_g < _g1.length) {
-			var item = _g1[_g];
-			++_g;
-			var column;
-			switch(item._hx_index) {
-			case 0:
-				var col = item.col;
-				column = col;
-				break;
-			case 1:
-				var text = item.text;
-				var details = window.document.createElement("details");
-				details.open = true;
-				var summary = window.document.createElement("summary");
-				summary.appendChild(window.document.createTextNode(text));
-				details.appendChild(summary);
-				out.appendChild(details);
-				dest = details;
-				continue;
-			}
-			var column1 = [column];
-			var tr = window.document.createElement("div");
-			tr.classList.add("item");
-			var cbShow = window.document.createElement("input");
-			cbShow.type = "checkbox";
-			cbShow.checked = column1[0].show;
-			cbShow.onchange = (function(column) {
-				return function(_) {
-					column[0].show = !column[0].show;
-					var _g = 0;
-					var _g1 = [];
-					var _g2 = 0;
-					var _g3 = _gthis.header.cells;
-					while(_g2 < _g3.length) {
-						var v = _g3[_g2];
-						++_g2;
-						if(v.column == column[0]) {
-							_g1.push(v);
-						}
-					}
-					var _g2 = _g1;
-					while(_g < _g2.length) {
-						var cell = _g2[_g];
-						++_g;
-						tools_HtmlTools.setDisplayFlag(cell.element,column[0].show);
-					}
-					var _g = 0;
-					var _g1 = _gthis.rows;
-					while(_g < _g1.length) {
-						var row = _g1[_g];
-						++_g;
-						var _g2 = 0;
-						var _g3 = [];
-						var _g4 = 0;
-						var _g5 = row.cells;
-						while(_g4 < _g5.length) {
-							var v = _g5[_g4];
-							++_g4;
-							if(v.column == column[0]) {
-								_g3.push(v);
-							}
-						}
-						var _g6 = _g3;
-						while(_g2 < _g6.length) {
-							var cell = _g6[_g2];
-							++_g2;
-							tools_HtmlTools.setDisplayFlag(cell.element,column[0].show);
-						}
-					}
-				};
-			})(column1);
-			tr.appendChild(cbShow);
-			var divFilters = [window.document.createElement("div")];
-			column1[0].buildFilter(divFilters[0]);
-			tools_HtmlTools.setDisplayFlag(divFilters[0],false);
-			divFilters[0].classList.add("filters");
-			var cbFilter = [window.document.createElement("input")];
-			cbFilter[0].type = "checkbox";
-			cbFilter[0].checked = false;
-			cbFilter[0].disabled = !column1[0].canFilter;
-			cbFilter[0].onchange = (function(cbFilter,divFilters,column) {
-				return function(_) {
-					column[0].wantFilter = cbFilter[0].checked;
-					tools_HtmlTools.setDisplayFlag(divFilters[0],cbFilter[0].checked);
-					_gthis.updateFilters();
-				};
-			})(cbFilter,divFilters,column1);
-			tr.appendChild(cbFilter[0]);
-			var meta = [window.document.createElement("div")];
-			meta[0].classList.add("name");
-			var tmp = column1[0].filterName;
-			var colName = tmp != null ? tmp : column1[0].name;
-			var colNameEl = window.document.createElement("span");
-			colNameEl.appendChild(window.document.createTextNode(colName));
-			colNameEl.classList.add("column-name");
-			if(column1[0].notes.childNodes.length > 0) {
-				colNameEl.classList.add("has-notes");
-				colNameEl.title = "(click to view notes)";
-				var this1 = { };
-				this1["theme"] = "translucent";
-				var opts = this1;
-				opts["trigger"] = "click";
-				opts["interactive"] = true;
-				var v = (function(meta) {
-					return function() {
-						return meta[0];
-					};
-				})(meta);
-				opts["appendTo"] = v;
-				opts["maxWidth"] = 480;
-				var v1 = (function(column) {
-					return function(_) {
-						return column[0].notes;
-					};
-				})(column1);
-				opts["content"] = v1;
-				Tippy(colNameEl,opts);
-			}
-			meta[0].appendChild(colNameEl);
-			meta[0].appendChild(divFilters[0]);
-			tr.appendChild(meta[0]);
-			dest.appendChild(tr);
-		}
+		table_FancyTableFilters.build(this,out);
 	}
 	,sortBy: function(sortColumn,ascending) {
 		var sortRows = this.rows.slice();
@@ -571,9 +464,25 @@ table_FancyTable.prototype = {
 			this.header.element.after(row.element);
 		}
 	}
+	,createRow: function(keyboard) {
+		var row = new table_FancyRow(keyboard);
+		var _g = 0;
+		var _g1 = this.columns;
+		while(_g < _g1.length) {
+			var column = _g1[_g];
+			++_g;
+			var cell = new table_FancyTableCell(column);
+			tools_HtmlTools.setDisplayFlag(cell.element,column.show);
+			column.buildValue(cell.element,keyboard);
+			row.cells.push(cell);
+			row.element.appendChild(cell.element);
+		}
+		return row;
+	}
 	,buildTable: function(out) {
 		var _gthis = this;
-		this.header = new table_FancyTableRow(null);
+		this.outElement = out;
+		this.header = new table_FancyRow(null);
 		var _g = 0;
 		var _g1 = this.columns;
 		while(_g < _g1.length) {
@@ -624,18 +533,7 @@ table_FancyTable.prototype = {
 		while(_g < _g1.length) {
 			var keyboard = _g1[_g];
 			++_g;
-			var row = new table_FancyTableRow(keyboard);
-			var _g2 = 0;
-			var _g3 = this.columns;
-			while(_g2 < _g3.length) {
-				var column = _g3[_g2];
-				++_g2;
-				var cell1 = new table_FancyTableCell(column);
-				tools_HtmlTools.setDisplayFlag(cell1.element,column.show);
-				column.buildValue(cell1.element,keyboard);
-				row.cells.push(cell1);
-				row.element.appendChild(cell1.element);
-			}
+			var row = this.createRow(keyboard);
 			this.rows.push(row);
 			out.appendChild(row.element);
 		}
@@ -674,6 +572,22 @@ table_FancyTable.prototype = {
 			this.countElement.innerText = "" + found;
 		}
 	}
+	,loadTest: function(kb) {
+		if(this.testRow != null) {
+			this.testRow.element.parentElement.removeChild(this.testRow.element);
+			HxOverrides.remove(this.keyboards,this.testRow.keyboard);
+		}
+		var _g = 0;
+		var _g1 = this.columns;
+		while(_g < _g1.length) {
+			var col = _g1[_g];
+			++_g;
+			col.load(kb);
+		}
+		this.testRow = this.createRow(kb);
+		this.outElement.appendChild(this.testRow.element);
+		this.rows.push(this.testRow);
+	}
 };
 var ColStagTable = function() {
 	table_FancyTable.call(this);
@@ -685,6 +599,23 @@ var ColStagTable = function() {
 	var col;
 	ColStagBoards.init(this.keyboards);
 	OrthoBoards.init(this.keyboards);
+	var kbs = window.keyboardData;
+	var _g = 0;
+	while(_g < kbs.length) {
+		var kb = kbs[_g];
+		++_g;
+		if(kb == null || !Reflect.isObject(kb)) {
+			continue;
+		}
+		var _g1 = 0;
+		var _g2 = this.columns;
+		while(_g1 < _g2.length) {
+			var col = _g2[_g1];
+			++_g1;
+			col.load(kb);
+		}
+		this.keyboards.push(kb);
+	}
 };
 ColStagTable.__name__ = true;
 ColStagTable.__super__ = table_FancyTable;
@@ -706,8 +637,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 	,initClusters: function(kb) {
 		this.addFilterHeader("Key clusters and specifics");
 		var notes;
-		var col = new table_FancyTableIntRangeColumn("Thumb keys",function(q) {
-			return q.thumbKeys;
+		var col = new table_IntRangeColumn("Thumb keys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.thumbKeys = setValue;
+				return null;
+			} else {
+				return q.thumbKeys;
+			}
 		});
 		col.shortName = "#thumb";
 		tools_HtmlTools.appendParaTextNode(col.notes,"Keys below the main area that are (mostly) intended to be pressed with a thumb. " + "Counted per keyboard half.");
@@ -715,16 +651,26 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		tools_HtmlTools.appendParaTextNode(col.notes,"On wider keyboards thumb keys tend to smoothly transition into a key row" + " so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:");
 		this.addImagePara(col.notes,"thumb-keys-2.png",450,200,"Thumb keys on a Redox keyboard");
 		this.addColumn(col);
-		col = new table_FancyTableIntRangeColumn("Inner keys",function(q) {
-			return q.innerKeys;
+		col = new table_IntRangeColumn("Inner keys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.innerKeys = setValue;
+				return null;
+			} else {
+				return q.innerKeys;
+			}
 		});
 		col.shortName = "#inner";
 		col.show = false;
 		tools_HtmlTools.appendParaTextNode(col.notes,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
 		this.addImagePara(col.notes,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
 		this.addColumn(col);
-		col = new table_FancyTableIntRangeColumn("Outer keys",function(q) {
-			return q.outerKeys;
+		col = new table_IntRangeColumn("Outer keys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.outerKeys = setValue;
+				return null;
+			} else {
+				return q.outerKeys;
+			}
 		});
 		this.addColumn(col);
 		col.shortName = "#outer";
@@ -733,8 +679,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addImagePara(col.notes,"outer-keys.png",450,150,"Outer keys on an Avalanche keyboard");
 		tools_HtmlTools.appendParaTextNode(col.notes,"And if it's missing keys on the outer columns, this can be negative.");
 		this.addImagePara(col.notes,"outer-keys-2.png",450,150,"A missing outer key on a Drift keyboard");
-		col = new table_FancyTableIntRangeColumn("Corner keys",function(q) {
-			return q.cornerKeys;
+		col = new table_IntRangeColumn("Corner keys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.cornerKeys = setValue;
+				return null;
+			} else {
+				return q.cornerKeys;
+			}
 		});
 		this.addColumn(col);
 		col.shortName = "#corner";
@@ -744,22 +695,37 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		tools_HtmlTools.appendParaTextNode(col.notes,"Such keys are often used for modifiers (on the left half) or " + "65%-style inline arrow key cluster / arrow key row (on the right half).");
 		tools_HtmlTools.appendParaTextNode(col.notes,"If corner keys transition into thumb keys, this is capped at 5.");
 		this.addImagePara(col.notes,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
-		var navCluster = new table_FancyTableTagColumn("Navigation cluster",function(q) {
-			return q.navCluster;
+		var navCluster = new table_TagColumn("Navigation cluster",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.navCluster = setValue;
+				return null;
+			} else {
+				return q.navCluster;
+			}
 		},type_NavCluster);
 		col.show = false;
 		navCluster.shortName = "nav";
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
-		col = new table_FancyTableFloatColumn("Pinky stagger",function(q) {
-			return q.pinkyStagger;
+		col = new table_FloatColumn("Pinky stagger",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.pinkyStagger = setValue;
+				return null;
+			} else {
+				return q.pinkyStagger;
+			}
 		});
 		this.addColumn(col);
 		col.show = false;
 		col.shortName = "pkStag";
 		tools_HtmlTools.appendParaTextNode(col.notes,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
-		var splay = new table_FancyTableTagColumn("Splay",function(q) {
-			return q.splay;
+		var splay = new table_TagColumn("Splay",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.splay = setValue;
+				return null;
+			} else {
+				return q.splay;
+			}
 		},type_SplayBase);
 		splay.show = false;
 		tools_HtmlTools.appendParaTextNode(splay.notes,"Most keyboards have columns of keys parallel to each other, " + "but you can also have them at a slight angle for convenience.");
@@ -772,13 +738,23 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(splay);
 	}
 	,initGeneral: function(kb) {
-		var col = new table_FancyTableNameColumn("Name & photo",function(q) {
-			return q.name;
+		var col = new table_NameColumn("Name & photo",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.name = setValue;
+				return null;
+			} else {
+				return q.name;
+			}
 		});
 		this.addColumn(col);
 		this.addFilterHeader("General");
-		var shape = new table_FancyTableTagColumn("Shape",function(q) {
-			return q.shape;
+		var shape = new table_TagColumn("Shape",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.shape = setValue;
+				return null;
+			} else {
+				return q.shape;
+			}
 		},type_Shape);
 		shape.show = false;
 		shape.shortLabels.set(type_Shape.Monoblock,"Mono");
@@ -788,8 +764,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		tools_HtmlTools.appendElTextNode(shapeUL,"li","Unibody means a single-piece keyboard with " + "some sort of a gap in the middle of it.");
 		tools_HtmlTools.appendElTextNode(shapeUL,"li","Split means a keyboard consisting of two or more physical pieces that are connected " + "together with a cable or wirelessly.");
 		this.addColumn(shape);
-		var staggerType = new table_FancyTableTagColumn("Stagger type",function(q) {
-			return q.stagger;
+		var staggerType = new table_TagColumn("Stagger type",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.stagger = setValue;
+				return null;
+			} else {
+				return q.stagger;
+			}
 		},type_StaggerType);
 		staggerType.show = false;
 		staggerType.shortName = "Stag";
@@ -798,8 +779,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		staggerType.shortLabels.set(type_StaggerType.Column,"Col");
 		staggerType.shortLabels.set(type_StaggerType.Ortho,"OL");
 		this.addColumn(staggerType);
-		var conType = new table_FancyTableTagListColumn("Connection",function(q) {
-			return q.connection;
+		var conType = new table_TagListColumn("Connection",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.connection = setValue;
+				return null;
+			} else {
+				return q.connection;
+			}
 		},type_Connection);
 		conType.shortName = "Con";
 		conType.shortLabels.set(type_Connection.Wired,"W");
@@ -807,31 +793,52 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		conType.shortLabels.set(type_Connection.Wireless,"P");
 		conType.filterLabels.set(type_Connection.Wireless,"Proprietary/other wireless");
 		this.addColumn(conType);
-		col = new table_FancyTableIntRangeColumn("Key count",function(q) {
-			return q.keys;
+		col = new table_IntRangeColumn("Key count",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.keys = setValue;
+				return null;
+			} else {
+				return q.keys;
+			}
 		});
 		this.addColumn(col);
 		col.shortName = "#keys";
-		col = new table_FancyTableIntRangeColumn("Rows",function(q) {
-			return q.rows;
+		col = new table_IntRangeColumn("Rows",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.rows = setValue;
+				return null;
+			} else {
+				return q.rows;
+			}
 		});
 		this.addColumn(col);
 		tools_HtmlTools.appendParaTextNode(col.notes,"The number of rows in a keyboard's main area, " + "not counting thumb rows or extension columns.");
 		this.addImagePara(col.notes,"matrix.png",450,250,"Key matrix on a Redox keyboard");
 		tools_HtmlTools.appendParaTextNode(col.notes,"4th row is typically used for digits and 5th row is typically used for F-keys " + "or media controls, but don't let anyone tell you what to do - most of these " + "keyboards are reprogrammable.");
-		col = new table_FancyTableIntRangeColumn("Columns",function(q) {
-			return q.cols;
+		col = new table_IntRangeColumn("Columns",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.cols = setValue;
+				return null;
+			} else {
+				return q.cols;
+			}
 		});
 		this.addColumn(col);
 		tools_HtmlTools.appendParaTextNode(col.notes,"If your language has more letters than English, you may want a ≥6-column keyboard " + "to avoid holding down an extra key to type some of them.");
 		this.addImagePara(col.notes,"sofle.png",684,210,"Cyrillic letters occupying most of a Sofle keyboard");
 		col.shortName = "Cols";
-		col = new table_FancyTableIntRangeColumn("Right-side columns",function(kb) {
-			var r = kb.rcols;
-			if(r == null) {
-				return kb.cols;
+		col = new table_IntRangeColumn("Right-side columns",function(kb,set,val) {
+			if(set) {
+				kb.rcols = val;
+				return null;
+			} else {
+				var tmp = kb.rcols;
+				if(tmp != null) {
+					return tmp;
+				} else {
+					return kb.cols;
+				}
 			}
-			return type_NumRange.fromInt(r);
 		});
 		col.show = false;
 		col.shortName = "ColsR";
@@ -843,32 +850,53 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 	}
 	,initSwitch: function(kb) {
 		this.addFilterHeader("Switches and keycaps");
-		var hotswap = new table_FancyTableTagColumn("Hot-swappable switches",function(q) {
-			return q.hotswap;
+		var hotswap = new table_TagColumn("Hot-swappable switches",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.hotswap = setValue;
+				return null;
+			} else {
+				return q.hotswap;
+			}
 		},type_HotSwapBase);
 		hotswap.shortName = "hs";
 		hotswap.shortLabels.set(type_HotSwapBase.Unspecified,"");
 		hotswap.shortLabels.set(type_HotSwapBase.Yes,"+");
 		hotswap.shortLabels.set(type_HotSwapBase.No,"-");
 		this.addColumn(hotswap);
-		var switchType = new table_FancyTableTagListColumn("Switch profile",function(q) {
-			return q.switchProfile;
+		var switchType = new table_TagListColumn("Switch profile",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.switchProfile = setValue;
+				return null;
+			} else {
+				return q.switchProfile;
+			}
 		},type_SwitchProfile);
 		switchType.shortName = "SwP";
 		switchType.filterLabels.set(type_SwitchProfile.Choc,"Kailh Choc V1");
 		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron low-profile");
+		switchType.shortLabels.set(type_SwitchProfile.Unknown,"");
 		switchType.shortLabels.set(type_SwitchProfile.GateronLP,"GLP");
+		switchType.shortLabels.set(type_SwitchProfile.CherryULP,"CULP");
 		switchType.shortLabels.set(type_SwitchProfile.Optical,"Opt");
 		this.addColumn(switchType);
-		var switchForce = new table_FancyTableIntListColumn("Switch actuation force (if not hotswap)",function(q) {
-			return q.switchForce;
+		var switchForce = new table_IntListColumn("Switch actuation force (if not hotswap)",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.switchForce = setValue;
+				return null;
+			} else {
+				return q.switchForce;
+			}
 		});
 		switchForce.shortName = "gf";
 		switchForce.nullCaption = "*";
 		switchForce.filterIncludeNullLabel = "Include keyboards with hotswap switches";
-		this.addColumn(switchForce);
-		var switchKind = new table_FancyTableTagListColumn("Switch feel (if not hotswap)",function(q) {
-			return q.switchKind;
+		var switchKind = new table_TagListColumn("Switch feel (if not hotswap)",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.switchKind = setValue;
+				return null;
+			} else {
+				return q.switchKind;
+			}
 		},type_SwitchKind);
 		switchKind.defaultValue = null;
 		switchKind.shortName = "SwF";
@@ -877,9 +905,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		switchKind.shortLabels.set(type_SwitchKind.Clicky,"C");
 		switchKind.shortLabels.set(type_SwitchKind.Other,"#");
 		switchKind.nullCaption = "*";
-		this.addColumn(switchKind);
-		var colSpacing = new table_FancyTableTagColumn("Key spacing",function(q) {
-			return q.keySpacing;
+		var colSpacing = new table_TagColumn("Key spacing",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.keySpacing = setValue;
+				return null;
+			} else {
+				return q.keySpacing;
+			}
 		},type_KeySpacing);
 		colSpacing.shortName = "kSp";
 		colSpacing.show = false;
@@ -890,29 +922,113 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(colSpacing);
 	}
 	,initCuriosities: function(kb) {
+		this.addFilterHeader("Other input devices");
+		var col = new table_IntRangeColumn("Encoders",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.encoders = setValue;
+				return null;
+			} else {
+				return q.encoders;
+			}
+		});
+		this.addColumn(col);
+		col.shortName = "#enc";
+		var enct = new table_TagListColumn("Encoder type",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.encoderType = setValue;
+				return null;
+			} else {
+				return q.encoderType;
+			}
+		},type_EncoderType);
+		enct.show = false;
+		enct.shortName = "EncT";
+		enct.shortLabels.set(type_EncoderType.Unknown,"");
+		enct.shortLabels.set(type_EncoderType.Knob,"K");
+		enct.shortLabels.set(type_EncoderType.Wheel,"W");
+		this.addColumn(enct);
+		col = new table_IntRangeColumn("Trackballs",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.trackballs = setValue;
+				return null;
+			} else {
+				return q.trackballs;
+			}
+		});
+		this.addColumn(col);
+		col.show = false;
+		col = new table_FloatColumn("Trackball size",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.trackballSize = setValue;
+				return null;
+			} else {
+				return q.trackballSize;
+			}
+		});
+		this.addColumn(col);
+		col.filterName = col.name + " (mm)";
+		col.show = false;
+		col = new table_IntRangeColumn("Touchpads",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.trackpads = setValue;
+				return null;
+			} else {
+				return q.trackpads;
+			}
+		});
+		this.addColumn(col);
+		col.show = false;
+		col = new table_FloatColumn("Touchpad size",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.trackpadSize = setValue;
+				return null;
+			} else {
+				return q.trackpadSize;
+			}
+		});
+		this.addColumn(col);
+		col.filterName = col.name + " (mm)";
+		col.show = false;
+		col = new table_IntRangeColumn("D-pads",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.dpads = setValue;
+				return null;
+			} else {
+				return q.dpads;
+			}
+		});
+		this.addColumn(col);
+		col.show = false;
+		col.notes.appendChild(window.document.createTextNode("Due to component diversity, anything that has 2 or more clicky " + "directional inputs counts as a dpad."));
+		col = new table_IntRangeColumn("D-pad directions",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.dpadDirs = setValue;
+				return null;
+			} else {
+				return q.dpadDirs;
+			}
+		});
+		this.addColumn(col);
+		col.show = false;
+		col.notes.appendChild(window.document.createTextNode("If it's 3, it's probably a so-called rocker switch."));
 		this.addFilterHeader("Other curiosities");
-		var col = new table_FancyTableIntRangeColumn("Encoders",function(q) {
-			return q.knobs;
-		});
-		this.addColumn(col);
-		col.shortName = "Knobs";
-		col = new table_FancyTableIntRangeColumn("Trackballs",function(q) {
-			return q.trackballs;
-		});
-		this.addColumn(col);
-		col.show = false;
-		col = new table_FancyTableIntRangeColumn("Trackpads",function(q) {
-			return q.trackpads;
+		col = new table_IntRangeColumn("Displays",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.displays = setValue;
+				return null;
+			} else {
+				return q.displays;
+			}
 		});
 		this.addColumn(col);
 		col.show = false;
-		col = new table_FancyTableIntRangeColumn("Displays",function(q) {
-			return q.displays;
-		});
-		this.addColumn(col);
-		col.show = false;
-		var asm = new table_FancyTableTagListColumn("Assembly specifics",function(q) {
-			return q.assembly;
+		var asm = new table_TagListColumn("Assembly specifics",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.assembly = setValue;
+				return null;
+			} else {
+				return q.assembly;
+			}
 		},type_Assembly);
 		asm.defaultValue = [];
 		asm.shortName = "Assembly";
@@ -921,23 +1037,43 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 	}
 	,initLinks: function(kb) {
 		this.addFilterHeader("Links");
-		var lc = new table_FancyTableLinkListColumn("Website",function(q) {
-			return q.web;
+		var lc = new table_LinkListColumn("Website",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.web = setValue;
+				return null;
+			} else {
+				return q.web;
+			}
 		});
 		this.addColumn(lc);
 		lc.shortName = "web";
-		lc = new table_FancyTableLinkListColumn("Open-source",function(q) {
-			return q.source;
+		lc = new table_LinkListColumn("Open-source",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.source = setValue;
+				return null;
+			} else {
+				return q.source;
+			}
 		});
 		this.addColumn(lc);
 		lc.shortName = "OSH";
-		lc = new table_FancyTableLinkListColumn("Kits",function(q) {
-			return q.kit;
+		lc = new table_LinkListColumn("Kits",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.kit = setValue;
+				return null;
+			} else {
+				return q.kit;
+			}
 		});
 		this.addColumn(lc);
 		lc.shortName = "Kit";
-		lc = new table_FancyTableLinkListColumn("Pre-built",function(q) {
-			return q.prebuilt;
+		lc = new table_LinkListColumn("Pre-built",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.prebuilt = setValue;
+				return null;
+			} else {
+				return q.prebuilt;
+			}
 		});
 		this.addColumn(lc);
 		lc.shortName = "PB";
@@ -945,6 +1081,25 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 });
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
+HxOverrides.cca = function(s,index) {
+	var x = s.charCodeAt(index);
+	if(x != x) {
+		return undefined;
+	}
+	return x;
+};
+HxOverrides.substr = function(s,pos,len) {
+	if(len == null) {
+		len = s.length;
+	} else if(len < 0) {
+		if(pos == 0) {
+			len = s.length + len;
+		} else {
+			return "";
+		}
+	}
+	return s.substr(pos,len);
+};
 HxOverrides.remove = function(a,obj) {
 	var i = a.indexOf(obj);
 	if(i == -1) {
@@ -964,6 +1119,10 @@ Main.main = function() {
 	t.countElement = tmp;
 	t.buildFilters(window.document.querySelector("#filter"));
 	t.buildTable(window.document.querySelector("#data"));
+	table_FancyTableEditor.build(t,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
+	if($global.location.hostname == "localhost") {
+		var editorDetails = window.document.querySelector("#editor-outer");
+	}
 	var shuffler = new table_FancyTableShuffler("");
 	t.sortBy(shuffler,false);
 	window.document.querySelector("#shuffle").onclick = function() {
@@ -985,11 +1144,17 @@ OrthoBoards.init = function(keyboards) {
 		keyboards.push(kb);
 	};
 	var pimoroniSize = 4.4;
-	var kb = { name : "simplyKeeb 60K", thumbKeys : type_NumRange.fromInt(3), cornerKeys : type_NumRange.fromInt(3), source : type_ValList.fromValue("https://github.com/geaz/simplyKeeb-60K"), img : type_ValList.fromValue("simplyKeeb-60K.jpg")};
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(60),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
-	add(kb);
+	var addSimplyKeeb = function(kb) {
+		ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+		ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(60),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+		ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(3));
+		ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
+		add(kb);
+	};
+	var kb = { name : "simplyKeeb 60K", source : type_ValList.fromValue("https://github.com/geaz/simplyKeeb-60K"), img : type_ValList.fromValue("simplyKeeb-60K.jpg")};
+	addSimplyKeeb(kb);
+	kb = { name : "simplyKeeb 60Kph", source : type_ValList.fromValue("https://github.com/geaz/simplyKeeb-60K/tree/main/printedmx"), assembly : type_ValList.fromValue(type_Assembly.Printed), img : type_ValList.fromValue("simplyKeeb-60K.jpg"), notes : type_ValList.fromValue("Like the regular simplyKeeb 60K, but fully 3d-printable.")};
+	addSimplyKeeb(kb);
 	kb = { name : "Skywatch"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
@@ -1033,6 +1198,7 @@ OrthoBoards.init = function(keyboards) {
 	kb = { name : "BFO-9000"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([56,108]),type_NumRange.fromArray([7,9]),type_NumRange.fromArray([3,5]));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
+	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
 	kb.shape = type_Shape.Split;
 	kb.stagger = type_StaggerType.Ortho;
 	kb.kit = type_ValList.fromValue("https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear");
@@ -1051,7 +1217,7 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([48,60]),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.shape = type_Shape.Unibody;
-	kb.rcols = 8;
+	kb.rcols = type_NumRange.fromInt(8);
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([3,4]),type_NumRange.fromArray([3,4]),type_NumRange.fromInt(0),type_NumRange.fromInt(3));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
 	kb.source = type_ValList.fromValue("https://github.com/weteor/ChonkyKong");
@@ -1064,23 +1230,30 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
 	kb.shape = type_Shape.Unibody;
-	kb.knobs = type_NumRange.fromInt(1);
+	kb.encoders = type_NumRange.fromInt(1);
 	kb.source = type_ValList.fromValue("https://github.com/ScatteredDrifter/Buran-Ortho");
 	kb.img = type_ValList.fromValue("buran-no-acryl-isp.jpg");
 	add(kb);
 	kb = { name : "Helix"};
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.source = type_ValList.fromValue("https://github.com/MakotoKurauchi/helix");
 	kb.kit = type_ValList.fromValue("https://mechboards.co.uk/products/helix-kit");
 	kb.img = type_ValList.fromValue("helix.webp");
 	add(kb);
+	kb = { name : "Viterbi"};
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps]);
+	kb.kit = type_ValList.fromValue("https://keeb.io/products/viterbi-keyboard-pcbs-5x7-70-split-ortholinear");
+	kb.img = type_ValList.fromValue("viterbi.webp");
+	add(kb);
 	var addRebound = function(kb) {
 		ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([42,50]),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 		ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([1,4]));
 		ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
-		kb.knobs = type_NumRange.fromInt(1);
+		kb.encoders = type_NumRange.fromInt(1);
 		add(kb);
 	};
 	kb = { name : "Rebound"};
@@ -1127,6 +1300,21 @@ Reflect.compare = function(a,b) {
 		return -1;
 	}
 };
+Reflect.isObject = function(v) {
+	if(v == null) {
+		return false;
+	}
+	var t = typeof(v);
+	if(!(t == "string" || t == "object" && v.__enum__ == null)) {
+		if(t == "function") {
+			return (v.__name__ || v.__ename__) != null;
+		} else {
+			return false;
+		}
+	} else {
+		return true;
+	}
+};
 Reflect.isEnumValue = function(v) {
 	if(v != null) {
 		return v.__enum__ != null;
@@ -1148,6 +1336,37 @@ Std.parseInt = function(x) {
 };
 var StringTools = function() { };
 StringTools.__name__ = true;
+StringTools.isSpace = function(s,pos) {
+	var c = HxOverrides.cca(s,pos);
+	if(!(c > 8 && c < 14)) {
+		return c == 32;
+	} else {
+		return true;
+	}
+};
+StringTools.ltrim = function(s) {
+	var l = s.length;
+	var r = 0;
+	while(r < l && StringTools.isSpace(s,r)) ++r;
+	if(r > 0) {
+		return HxOverrides.substr(s,r,l - r);
+	} else {
+		return s;
+	}
+};
+StringTools.rtrim = function(s) {
+	var l = s.length;
+	var r = 0;
+	while(r < l && StringTools.isSpace(s,l - r - 1)) ++r;
+	if(r > 0) {
+		return HxOverrides.substr(s,0,l - r);
+	} else {
+		return s;
+	}
+};
+StringTools.trim = function(s) {
+	return StringTools.ltrim(StringTools.rtrim(s));
+};
 StringTools.replace = function(s,sub,by) {
 	return s.split(sub).join(by);
 };
@@ -1623,12 +1842,7 @@ js_Boot.__string_rec = function(o,s) {
 		return String(o);
 	}
 };
-var table_FancyTableFilterOrder = $hxEnums["table.FancyTableFilterOrder"] = { __ename__:true,__constructs__:null
-	,Column: ($_=function(col) { return {_hx_index:0,col:col,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Column",$_.__params__ = ["col"],$_)
-	,Header: ($_=function(text) { return {_hx_index:1,text:text,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Header",$_.__params__ = ["text"],$_)
-};
-table_FancyTableFilterOrder.__constructs__ = [table_FancyTableFilterOrder.Column,table_FancyTableFilterOrder.Header];
-var table_FancyTableColumn = function(name) {
+var table_FancyColumn = function(name) {
 	this.canSort = false;
 	this.nullCaption = "";
 	this.filterPrefix = null;
@@ -1642,11 +1856,13 @@ var table_FancyTableColumn = function(name) {
 	this.name = name;
 	this.notes = window.document.createElement("div");
 };
-table_FancyTableColumn.__name__ = true;
-table_FancyTableColumn.prototype = {
+table_FancyColumn.__name__ = true;
+table_FancyColumn.prototype = {
 	buildValue: function(out,kb) {
 	}
 	,buildFilter: function(out) {
+	}
+	,buildEditor: function(out,store,restore) {
 	}
 	,matchesFilter: function(kb) {
 		return true;
@@ -1654,263 +1870,323 @@ table_FancyTableColumn.prototype = {
 	,compareKeyboards: function(a,b,ascending) {
 		return 0;
 	}
-};
-var table_FancyTableEnumColumn = function(name,et) {
-	this.filterMode = table_FancyTableTagFilterMode.AnyOf;
-	this.isMulti = false;
-	this.filterTags = [];
-	this.shortLabels = new haxe_ds_EnumValueMap();
-	this.filterLabels = new haxe_ds_EnumValueMap();
-	table_FancyTableColumn.call(this,name);
-	this.type = et;
-};
-table_FancyTableEnumColumn.__name__ = true;
-table_FancyTableEnumColumn.__super__ = table_FancyTableColumn;
-table_FancyTableEnumColumn.prototype = $extend(table_FancyTableColumn.prototype,{
-	buildFilter: function(out) {
-		var _gthis = this;
-		var modeSelect = window.document.createElement("select");
-		var _g = 0;
-		var _this = table_FancyTableTagFilterMode.__constructs__;
-		var result = new Array(_this.length);
-		var _g1 = 0;
-		var _g2 = _this.length;
-		while(_g1 < _g2) {
-			var i = _g1++;
-			result[i] = _this[i]._hx_name;
-		}
-		var _g1 = result;
-		while(_g < _g1.length) {
-			var ctr = _g1[_g];
-			++_g;
-			var val = Type.createEnum(table_FancyTableTagFilterMode,ctr,null);
-			var name;
-			switch(val._hx_index) {
-			case 0:
-				name = "Any of these";
-				break;
-			case 1:
-				if(!this.isMulti) {
-					continue;
-				}
-				name = "All of these";
-				break;
-			case 2:
-				name = "None of these";
-				break;
-			}
-			var opt = window.document.createElement("option");
-			opt.value = ctr;
-			opt.appendChild(window.document.createTextNode(name));
-			if(val == table_FancyTableTagFilterMode.AnyOf) {
-				opt.selected = true;
-			}
-			modeSelect.appendChild(opt);
-		}
-		modeSelect.onchange = function(_) {
-			var old = _gthis.filterMode;
-			var tmp = Type.createEnum(table_FancyTableTagFilterMode,modeSelect.value,null);
-			_gthis.filterMode = tmp != null ? tmp : table_FancyTableTagFilterMode.AnyOf;
-			if(old != _gthis.filterMode) {
-				_gthis.table.updateFilters();
-			}
-		};
-		out.appendChild(modeSelect);
-		var _g = 0;
-		var _this = this.type.__constructs__;
-		var result = new Array(_this.length);
-		var _g1 = 0;
-		var _g2 = _this.length;
-		while(_g1 < _g2) {
-			var i = _g1++;
-			result[i] = _this[i]._hx_name;
-		}
-		var _g1 = result;
-		while(_g < _g1.length) {
-			var ctr = _g1[_g];
-			++_g;
-			var val = [Type.createEnum(this.type,ctr)];
-			var tmp = this.filterLabels.get(val[0]);
-			var name = tmp != null ? tmp : ctr;
-			var cb = [tools_HtmlTools.createCheckboxElement(window.document)];
-			cb[0].onchange = (function(cb,val) {
-				return function(_) {
-					if(cb[0].checked) {
-						if(_gthis.filterTags.indexOf(val[0]) == -1) {
-							_gthis.filterTags.push(val[0]);
-							_gthis.table.updateFilters();
-						}
-					} else if(HxOverrides.remove(_gthis.filterTags,val[0])) {
-						_gthis.table.updateFilters();
-					}
-				};
-			})(cb,val);
-			var lb = window.document.createElement("label");
-			lb.appendChild(cb[0]);
-			lb.appendChild(window.document.createTextNode(name));
-			var div = window.document.createElement("div");
-			div.appendChild(lb);
-			out.appendChild(div);
-		}
+	,save: function(kb) {
 	}
+	,load: function(kb) {
+	}
+};
+var table_FancyRow = function(kb) {
+	this.cells = [];
+	this.keyboard = kb;
+	this.element = window.document.createElement("tr");
+};
+table_FancyRow.__name__ = true;
+var table_FancyTableCellBase = function(col) {
+	this.column = col;
+};
+table_FancyTableCellBase.__name__ = true;
+var table_FancyTableCell = function(col) {
+	table_FancyTableCellBase.call(this,col);
+	this.element = window.document.createElement("td");
+};
+table_FancyTableCell.__name__ = true;
+table_FancyTableCell.__super__ = table_FancyTableCellBase;
+table_FancyTableCell.prototype = $extend(table_FancyTableCellBase.prototype,{
 });
-var table_FancyTableTagColumn = function(name,getter,et) {
-	this.defaultValue = null;
-	table_FancyTableEnumColumn.call(this,name,et);
-	this.defaultValue = Type.createEnumIndex(et,0,null);
-	this.getter = getter;
-	this.type = et;
+var table_FancyTableHeaderCell = function(col) {
+	table_FancyTableCellBase.call(this,col);
+	this.element = window.document.createElement("th");
 };
-table_FancyTableTagColumn.__name__ = true;
-table_FancyTableTagColumn.__super__ = table_FancyTableEnumColumn;
-table_FancyTableTagColumn.prototype = $extend(table_FancyTableEnumColumn.prototype,{
-	getValue: function(kb) {
-		var tmp = this.getter(kb);
-		if(tmp != null) {
-			return tmp;
-		} else {
-			return this.defaultValue;
-		}
-	}
-	,buildValue: function(out,kb) {
-		var val = this.getValue(kb);
-		if(val != null) {
-			var name = $hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name;
-			var tmp = this.shortLabels.get(val);
-			out.appendChild(window.document.createTextNode(tmp != null ? tmp : name));
-			var kb1 = kb.name;
-			var tmp = this.name + ":";
-			var tmp1 = this.filterLabels.get(val);
-			out.title = [kb1,tmp,tmp1 != null ? tmp1 : name].join("\n");
-		} else {
-			var text = this.nullCaption;
-			out.appendChild(window.document.createTextNode(text));
-		}
-	}
-	,matchesFilter: function(kb) {
-		if(this.filterTags.length == 0) {
-			return true;
-		}
-		var val = this.getValue(kb);
-		switch(this.filterMode._hx_index) {
-		case 0:
-			return this.filterTags.indexOf(val) != -1;
-		case 2:
-			return this.filterTags.indexOf(val) == -1;
-		default:
-			return true;
-		}
-	}
+table_FancyTableHeaderCell.__name__ = true;
+table_FancyTableHeaderCell.__super__ = table_FancyTableCellBase;
+table_FancyTableHeaderCell.prototype = $extend(table_FancyTableCellBase.prototype,{
 });
-var table_FancyTableTagListColumn = function(name,getter,et) {
-	this.defaultValue = null;
-	table_FancyTableEnumColumn.call(this,name,et);
-	this.defaultValue = type_ValList.fromValue(Type.createEnumIndex(et,0,null));
-	this.getter = getter;
-	this.type = et;
+var table_FancyTableFilterOrder = $hxEnums["table.FancyTableFilterOrder"] = { __ename__:true,__constructs__:null
+	,Column: ($_=function(col) { return {_hx_index:0,col:col,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Column",$_.__params__ = ["col"],$_)
+	,Header: ($_=function(text) { return {_hx_index:1,text:text,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Header",$_.__params__ = ["text"],$_)
 };
-table_FancyTableTagListColumn.__name__ = true;
-table_FancyTableTagListColumn.__super__ = table_FancyTableEnumColumn;
-table_FancyTableTagListColumn.prototype = $extend(table_FancyTableEnumColumn.prototype,{
-	getValue: function(kb) {
-		var tmp = this.getter(kb);
-		if(tmp != null) {
-			return tmp;
-		} else {
-			return this.defaultValue;
-		}
-	}
-	,buildValue: function(out,kb) {
-		var vals = this.getValue(kb);
-		if(vals != null) {
-			var tip = [kb.name,this.name + ":"];
-			var _g_current = 0;
-			var _g_array = vals;
-			while(_g_current < _g_array.length) {
-				var _g_value = _g_array[_g_current];
-				var _g_key = _g_current++;
-				var i = _g_key;
-				var val = _g_value;
-				if(i > 0) {
-					out.appendChild(window.document.createTextNode(", "));
-				}
-				var name = $hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name;
-				var tmp = this.shortLabels.get(val);
-				out.appendChild(window.document.createTextNode(tmp != null ? tmp : name));
-				var tmp1 = this.filterLabels.get(val);
-				tip.push("· " + (tmp1 != null ? tmp1 : name));
-			}
-			out.title = tip.join("\n");
-		} else {
-			var text = this.nullCaption;
-			out.appendChild(window.document.createTextNode(text));
-		}
-	}
-	,matchesFilter: function(kb) {
-		if(this.filterTags.length == 0) {
-			return true;
-		}
-		var vals = this.getValue(kb);
-		if(vals == null) {
-			vals = this.defaultValue;
-			if(vals == null) {
-				vals = [];
-			}
-		}
-		switch(this.filterMode._hx_index) {
+table_FancyTableFilterOrder.__constructs__ = [table_FancyTableFilterOrder.Column,table_FancyTableFilterOrder.Header];
+var table_FancyTableEditor = function() { };
+table_FancyTableEditor.__name__ = true;
+table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,fdJSON) {
+	var dest = out;
+	var store = [];
+	var restore = [];
+	var _g = 0;
+	var _g1 = table.filterOrder;
+	while(_g < _g1.length) {
+		var item = _g1[_g];
+		++_g;
+		var column;
+		switch(item._hx_index) {
 		case 0:
-			var _g = 0;
-			var _g1 = vals;
-			while(_g < _g1.length) {
-				var val = _g1[_g];
-				++_g;
-				if(this.filterTags.indexOf(val) != -1) {
-					return true;
-				}
-			}
-			return false;
+			var col = item.col;
+			column = col;
+			break;
 		case 1:
-			var _g = 0;
-			var _g1 = vals;
-			while(_g < _g1.length) {
-				var val = _g1[_g];
-				++_g;
-				if(this.filterTags.indexOf(val) == -1) {
-					return false;
-				}
+			var text = item.text;
+			var details = window.document.createElement("details");
+			details.open = true;
+			var summary = window.document.createElement("summary");
+			summary.appendChild(window.document.createTextNode(text));
+			details.appendChild(summary);
+			out.appendChild(details);
+			dest = details;
+			continue;
+		}
+		var tr = window.document.createElement("div");
+		tr.classList.add("item");
+		var divFilters = window.document.createElement("div");
+		column.buildEditor(divFilters,store,restore);
+		divFilters.classList.add("filters");
+		var meta = window.document.createElement("div");
+		meta.classList.add("name");
+		var tmp = column.filterName;
+		var colName = tmp != null ? tmp : column.name;
+		var colNameEl = window.document.createElement("span");
+		colNameEl.appendChild(window.document.createTextNode(colName));
+		colNameEl.classList.add("column-name");
+		table_FancyTableFilters.addNotes(column,colNameEl);
+		meta.appendChild(colNameEl);
+		meta.appendChild(divFilters);
+		tr.appendChild(meta);
+		dest.appendChild(tr);
+	}
+	var buildKeyboard = function() {
+		var kb = { };
+		var _g = 0;
+		while(_g < store.length) {
+			var fn = store[_g];
+			++_g;
+			fn(kb);
+		}
+		var _g = 0;
+		var _g1 = table.columns;
+		while(_g < _g1.length) {
+			var col = _g1[_g];
+			++_g;
+			col.save(kb);
+		}
+		return kb;
+	};
+	btBuild.onclick = function() {
+		var kb = buildKeyboard();
+		fdJSON.value = JSON.stringify(kb,null,"\t");
+	};
+	btReset.onclick = function() {
+		if(!window.confirm("Are you sure that you want to reset all fields? This cannot be undone!")) {
+			return;
+		}
+		out.reset();
+	};
+	var kbs = table.keyboards;
+	kbs.sort(function(a,b) {
+		var an = a.name.toUpperCase();
+		var bn = b.name.toUpperCase();
+		if(an < bn) {
+			return -1;
+		} else {
+			return 1;
+		}
+	});
+	var _g = 0;
+	while(_g < kbs.length) {
+		var kb = kbs[_g];
+		++_g;
+		var option = window.document.createElement("option");
+		var text = kb.name;
+		option.appendChild(window.document.createTextNode(text));
+		ddLoad.appendChild(option);
+	}
+	ddLoad.onchange = function() {
+		if(ddLoad.value == "") {
+			return;
+		}
+		var name = ddLoad.value;
+		if(!window.confirm("Are you sure that you want to replace fields with those of \"" + name + "\"? This cannot be undone!")) {
+			return;
+		}
+		ddLoad.value = "";
+		var _g = [];
+		var _g1 = 0;
+		var _g2 = table.keyboards;
+		while(_g1 < _g2.length) {
+			var v = _g2[_g1];
+			++_g1;
+			if(v.name == name) {
+				_g.push(v);
 			}
-			return true;
-		case 2:
-			var _g = 0;
-			var _g1 = vals;
-			while(_g < _g1.length) {
-				var val = _g1[_g];
-				++_g;
-				if(this.filterTags.indexOf(val) != -1) {
-					return false;
+		}
+		var kb = _g[0];
+		if(kb == null) {
+			return;
+		}
+		var _g = 0;
+		while(_g < restore.length) {
+			var fn = restore[_g];
+			++_g;
+			fn(kb);
+		}
+	};
+	btTest.onclick = function() {
+		table.loadTest(buildKeyboard());
+	};
+};
+var table_FancyTableFilters = function() { };
+table_FancyTableFilters.__name__ = true;
+table_FancyTableFilters.addNotes = function(column,el) {
+	if(column.notes.childNodes.length > 0) {
+		el.classList.add("has-notes");
+		el.title = "(click to view notes)";
+		var this1 = { };
+		this1["theme"] = "translucent";
+		var opts = this1;
+		opts["trigger"] = "click";
+		opts["interactive"] = true;
+		var v = function() {
+			return el.parentElement;
+		};
+		opts["appendTo"] = v;
+		opts["maxWidth"] = 480;
+		var notes = column.notes.cloneNode(true);
+		var v = function(_) {
+			return notes;
+		};
+		opts["content"] = v;
+		Tippy(el,opts);
+	}
+};
+table_FancyTableFilters.build = function(table,out) {
+	var dest = out;
+	var _g = 0;
+	var _g1 = table.filterOrder;
+	while(_g < _g1.length) {
+		var item = _g1[_g];
+		++_g;
+		var column;
+		switch(item._hx_index) {
+		case 0:
+			var col = item.col;
+			column = col;
+			break;
+		case 1:
+			var text = item.text;
+			var details = window.document.createElement("details");
+			details.open = true;
+			var summary = window.document.createElement("summary");
+			summary.appendChild(window.document.createTextNode(text));
+			details.appendChild(summary);
+			out.appendChild(details);
+			dest = details;
+			continue;
+		}
+		var column1 = [column];
+		var tr = window.document.createElement("div");
+		tr.classList.add("item");
+		var cbShow = window.document.createElement("input");
+		cbShow.type = "checkbox";
+		cbShow.checked = column1[0].show;
+		cbShow.onchange = (function(column) {
+			return function(_) {
+				column[0].show = !column[0].show;
+				var _g = 0;
+				var _g1 = [];
+				var _g2 = 0;
+				var _g3 = table.header.cells;
+				while(_g2 < _g3.length) {
+					var v = _g3[_g2];
+					++_g2;
+					if(v.column == column[0]) {
+						_g1.push(v);
+					}
 				}
-			}
-			return true;
+				var _g2 = _g1;
+				while(_g < _g2.length) {
+					var cell = _g2[_g];
+					++_g;
+					tools_HtmlTools.setDisplayFlag(cell.element,column[0].show);
+				}
+				var _g = 0;
+				var _g1 = table.rows;
+				while(_g < _g1.length) {
+					var row = _g1[_g];
+					++_g;
+					var _g2 = 0;
+					var _g3 = [];
+					var _g4 = 0;
+					var _g5 = row.cells;
+					while(_g4 < _g5.length) {
+						var v = _g5[_g4];
+						++_g4;
+						if(v.column == column[0]) {
+							_g3.push(v);
+						}
+					}
+					var _g6 = _g3;
+					while(_g2 < _g6.length) {
+						var cell = _g6[_g2];
+						++_g2;
+						tools_HtmlTools.setDisplayFlag(cell.element,column[0].show);
+					}
+				}
+			};
+		})(column1);
+		tr.appendChild(cbShow);
+		var divFilters = [window.document.createElement("div")];
+		column1[0].buildFilter(divFilters[0]);
+		tools_HtmlTools.setDisplayFlag(divFilters[0],false);
+		divFilters[0].classList.add("filters");
+		var cbFilter = [window.document.createElement("input")];
+		cbFilter[0].type = "checkbox";
+		cbFilter[0].checked = false;
+		cbFilter[0].disabled = !column1[0].canFilter;
+		cbFilter[0].onchange = (function(cbFilter,divFilters,column) {
+			return function(_) {
+				column[0].wantFilter = cbFilter[0].checked;
+				tools_HtmlTools.setDisplayFlag(divFilters[0],cbFilter[0].checked);
+				table.updateFilters();
+			};
+		})(cbFilter,divFilters,column1);
+		tr.appendChild(cbFilter[0]);
+		var meta = window.document.createElement("div");
+		meta.classList.add("name");
+		var tmp = column1[0].filterName;
+		var colName = tmp != null ? tmp : column1[0].name;
+		var colNameEl = window.document.createElement("span");
+		colNameEl.appendChild(window.document.createTextNode(colName));
+		colNameEl.classList.add("column-name");
+		table_FancyTableFilters.addNotes(column1[0],colNameEl);
+		meta.appendChild(colNameEl);
+		meta.appendChild(divFilters[0]);
+		tr.appendChild(meta);
+		dest.appendChild(tr);
+	}
+};
+var table_FancyTableShuffler = function(name) {
+	table_FancyColumn.call(this,name);
+};
+table_FancyTableShuffler.__name__ = true;
+table_FancyTableShuffler.__super__ = table_FancyColumn;
+table_FancyTableShuffler.prototype = $extend(table_FancyColumn.prototype,{
+	compareKeyboards: function(a,b,ascending) {
+		if(Math.random() < 0.5) {
+			return -1;
+		} else {
+			return 1;
 		}
 	}
 });
-var table_FancyTableTagFilterMode = $hxEnums["table.FancyTableTagFilterMode"] = { __ename__:true,__constructs__:null
-	,AnyOf: {_hx_name:"AnyOf",_hx_index:0,__enum__:"table.FancyTableTagFilterMode",toString:$estr}
-	,AllOf: {_hx_name:"AllOf",_hx_index:1,__enum__:"table.FancyTableTagFilterMode",toString:$estr}
-	,NoneOf: {_hx_name:"NoneOf",_hx_index:2,__enum__:"table.FancyTableTagFilterMode",toString:$estr}
-};
-table_FancyTableTagFilterMode.__constructs__ = [table_FancyTableTagFilterMode.AnyOf,table_FancyTableTagFilterMode.AllOf,table_FancyTableTagFilterMode.NoneOf];
-var table_FancyTableNumberColumnBase = function(name) {
+var table_NumberColumnBase = function(name) {
 	this.filterIncludeNullLabel = null;
 	this.filterIncludeNull = false;
 	this.filterMax = null;
 	this.filterMin = null;
-	table_FancyTableColumn.call(this,name);
+	table_FancyColumn.call(this,name);
 	this.canSort = true;
 };
-table_FancyTableNumberColumnBase.__name__ = true;
-table_FancyTableNumberColumnBase.__super__ = table_FancyTableColumn;
-table_FancyTableNumberColumnBase.prototype = $extend(table_FancyTableColumn.prototype,{
+table_NumberColumnBase.__name__ = true;
+table_NumberColumnBase.__super__ = table_FancyColumn;
+table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 	parseFilterValue: function(val) {
 		return null;
 	}
@@ -2006,27 +2282,40 @@ table_FancyTableNumberColumnBase.prototype = $extend(table_FancyTableColumn.prot
 		}
 	}
 });
-var table_FancyTableIntColumnBase = function(name) {
-	table_FancyTableNumberColumnBase.call(this,name);
-};
-table_FancyTableIntColumnBase.__name__ = true;
-table_FancyTableIntColumnBase.__super__ = table_FancyTableNumberColumnBase;
-table_FancyTableIntColumnBase.prototype = $extend(table_FancyTableNumberColumnBase.prototype,{
-	parseFilterValue: function(val) {
-		if(val == null) {
-			return null;
-		}
-		return Std.parseInt(val);
-	}
-});
-var table_FancyTableIntColumn = function(name,getter) {
+var table_NumberColumn = function(name,access) {
 	this.defaultValue = 0;
-	table_FancyTableIntColumnBase.call(this,name);
-	this.getter = getter;
+	table_NumberColumnBase.call(this,name);
+	this.access = access;
 };
-table_FancyTableIntColumn.__name__ = true;
-table_FancyTableIntColumn.__super__ = table_FancyTableIntColumnBase;
-table_FancyTableIntColumn.prototype = $extend(table_FancyTableIntColumnBase.prototype,{
+table_NumberColumn.__name__ = true;
+table_NumberColumn.parseIntValue = function(val) {
+	if(val == null) {
+		return null;
+	}
+	return Std.parseInt(val);
+};
+table_NumberColumn.parseFloatValue = function(val) {
+	if(val == null) {
+		return null;
+	}
+	val = StringTools.replace(val,",",".");
+	var f = parseFloat(val);
+	if(isNaN(f)) {
+		return null;
+	}
+	return f;
+};
+table_NumberColumn.compareValues = function(a,b) {
+	if(a < b) {
+		return -1;
+	}
+	if(a > b) {
+		return 1;
+	}
+	return 0;
+};
+table_NumberColumn.__super__ = table_NumberColumnBase;
+table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 	getKnownRange: function(keyboards) {
 		var min = null;
 		var max = null;
@@ -2034,7 +2323,7 @@ table_FancyTableIntColumn.prototype = $extend(table_FancyTableIntColumnBase.prot
 		while(_g < keyboards.length) {
 			var keyboard = keyboards[_g];
 			++_g;
-			var val = this.getter(keyboard);
+			var val = this.access(keyboard);
 			if(val != null) {
 				if(min == null || val < min) {
 					min = val;
@@ -2051,12 +2340,32 @@ table_FancyTableIntColumn.prototype = $extend(table_FancyTableIntColumnBase.prot
 		}
 	}
 	,buildValue: function(out,kb) {
-		var val = this.getter(kb);
-		var text = val != null ? "" + val : this.nullCaption;
+		var val = this.access(kb);
+		var text = val != null ? "" + Std.string(val) : this.nullCaption;
 		out.appendChild(window.document.createTextNode(text));
 	}
+	,buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		var fd = window.document.createElement("input");
+		fd.type = "number";
+		fd.onchange = function() {
+			var val = _gthis.parseFilterValue(fd.value);
+			tools_HtmlTools.setAttributeFlag(fd,"invalid",fd.value != "" && val == null);
+		};
+		out.appendChild(fd);
+		store.push(function(kb) {
+			var val = _gthis.parseFilterValue(fd.value);
+			if(val != null) {
+				_gthis.access(kb,true,val);
+			}
+		});
+		restore.push(function(kb) {
+			var val = _gthis.access(kb);
+			fd.value = val != null ? "" + Std.string(val) : "";
+		});
+	}
 	,matchesFilter: function(kb) {
-		var val = this.getter(kb);
+		var val = this.access(kb);
 		if(val == null) {
 			if(this.filterIncludeNull) {
 				return true;
@@ -2072,24 +2381,34 @@ table_FancyTableIntColumn.prototype = $extend(table_FancyTableIntColumnBase.prot
 		return true;
 	}
 	,compareKeyboards: function(a,b,ascending) {
-		var tmp = this.getter(a);
+		var tmp = this.access(a);
 		var av = tmp != null ? tmp : this.defaultValue;
-		var tmp = this.getter(b);
+		var tmp = this.access(b);
 		var bv = tmp != null ? tmp : this.defaultValue;
 		if(ascending) {
-			return av - bv;
+			return table_NumberColumn.compareValues(av,bv);
 		}
-		return bv - av;
+		return table_NumberColumn.compareValues(bv,av);
 	}
 });
-var table_FancyTableIntListColumn = function(name,getter) {
-	this.defaultValue = [];
-	table_FancyTableIntColumnBase.call(this,name);
-	this.getter = getter;
+var table_FloatColumn = function(name,access) {
+	table_NumberColumn.call(this,name,access);
 };
-table_FancyTableIntListColumn.__name__ = true;
-table_FancyTableIntListColumn.__super__ = table_FancyTableIntColumnBase;
-table_FancyTableIntListColumn.prototype = $extend(table_FancyTableIntColumnBase.prototype,{
+table_FloatColumn.__name__ = true;
+table_FloatColumn.__super__ = table_NumberColumn;
+table_FloatColumn.prototype = $extend(table_NumberColumn.prototype,{
+	parseFilterValue: function(val) {
+		return table_NumberColumn.parseFloatValue(val);
+	}
+});
+var table_NumberListColumn = function(name,access) {
+	this.defaultValue = [];
+	table_NumberColumnBase.call(this,name);
+	this.access = access;
+};
+table_NumberListColumn.__name__ = true;
+table_NumberListColumn.__super__ = table_NumberColumnBase;
+table_NumberListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 	getKnownRange: function(keyboards) {
 		var min = null;
 		var max = null;
@@ -2097,7 +2416,7 @@ table_FancyTableIntListColumn.prototype = $extend(table_FancyTableIntColumnBase.
 		while(_g < keyboards.length) {
 			var keyboard = keyboards[_g];
 			++_g;
-			var list = this.getter(keyboard);
+			var list = this.access(keyboard);
 			if(list != null) {
 				var _g1 = 0;
 				var _g2 = list;
@@ -2120,12 +2439,12 @@ table_FancyTableIntListColumn.prototype = $extend(table_FancyTableIntColumnBase.
 		}
 	}
 	,buildValue: function(out,kb) {
-		var val = this.getter(kb);
+		var val = this.access(kb);
 		var text = val != null && val.length > 0 ? val.join(" ") : this.nullCaption;
 		out.appendChild(window.document.createTextNode(text));
 	}
 	,matchesFilter: function(kb) {
-		var vals = this.getter(kb);
+		var vals = this.access(kb);
 		if(vals == null) {
 			if(this.filterIncludeNull) {
 				return true;
@@ -2152,9 +2471,9 @@ table_FancyTableIntListColumn.prototype = $extend(table_FancyTableIntColumnBase.
 		}
 	}
 	,compareKeyboards: function(a,b,ascending) {
-		var tmp = this.getter(a);
+		var tmp = this.access(a);
 		var al = tmp != null ? tmp : [];
-		var tmp = this.getter(b);
+		var tmp = this.access(b);
 		var bl = tmp != null ? tmp : [];
 		var am = null;
 		var bm = null;
@@ -2185,7 +2504,7 @@ table_FancyTableIntListColumn.prototype = $extend(table_FancyTableIntColumnBase.
 			if(bm == null) {
 				return 1;
 			}
-			return am - bm;
+			return table_NumberColumn.compareValues(am,bm);
 		} else {
 			var _g = 0;
 			while(_g < al.length) {
@@ -2213,18 +2532,28 @@ table_FancyTableIntListColumn.prototype = $extend(table_FancyTableIntColumnBase.
 			if(bm == null) {
 				return -1;
 			}
-			return bm - am;
+			return table_NumberColumn.compareValues(bm,am);
 		}
 	}
 });
-var table_FancyTableIntRangeColumn = function(name,getter) {
-	this.defaultValue = { min : 0, max : 0};
-	table_FancyTableIntColumnBase.call(this,name);
-	this.getter = getter;
+var table_IntListColumn = function(name,access) {
+	table_NumberListColumn.call(this,name,access);
 };
-table_FancyTableIntRangeColumn.__name__ = true;
-table_FancyTableIntRangeColumn.__super__ = table_FancyTableIntColumnBase;
-table_FancyTableIntRangeColumn.prototype = $extend(table_FancyTableIntColumnBase.prototype,{
+table_IntListColumn.__name__ = true;
+table_IntListColumn.__super__ = table_NumberListColumn;
+table_IntListColumn.prototype = $extend(table_NumberListColumn.prototype,{
+	parseFilterValue: function(val) {
+		return table_NumberColumn.parseIntValue(val);
+	}
+});
+var table_NumberRangeColumn = function(name,access) {
+	this.defaultValue = { min : 0, max : 0};
+	table_NumberColumnBase.call(this,name);
+	this.access = access;
+};
+table_NumberRangeColumn.__name__ = true;
+table_NumberRangeColumn.__super__ = table_NumberColumnBase;
+table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 	getKnownRange: function(keyboards) {
 		var min = null;
 		var max = null;
@@ -2232,7 +2561,7 @@ table_FancyTableIntRangeColumn.prototype = $extend(table_FancyTableIntColumnBase
 		while(_g < keyboards.length) {
 			var keyboard = keyboards[_g];
 			++_g;
-			var range = this.getter(keyboard);
+			var range = this.access(keyboard);
 			if(range != null) {
 				if(min == null || range.min < min) {
 					min = range.min;
@@ -2249,12 +2578,12 @@ table_FancyTableIntRangeColumn.prototype = $extend(table_FancyTableIntColumnBase
 		}
 	}
 	,buildValue: function(out,kb) {
-		var range = this.getter(kb);
+		var range = this.access(kb);
 		var text = range != null ? type_NumRange.toString(range) : this.nullCaption;
 		out.appendChild(window.document.createTextNode(text));
 	}
 	,matchesFilter: function(kb) {
-		var tmp = this.getter(kb);
+		var tmp = this.access(kb);
 		var val = tmp != null ? tmp : this.defaultValue;
 		if(this.filterMin != null && val.max < this.filterMin) {
 			return false;
@@ -2265,97 +2594,97 @@ table_FancyTableIntRangeColumn.prototype = $extend(table_FancyTableIntColumnBase
 		return true;
 	}
 	,compareKeyboards: function(a,b,ascending) {
-		var tmp = this.getter(a);
+		var tmp = this.access(a);
 		var ar = tmp != null ? tmp : this.defaultValue;
-		var tmp = this.getter(b);
+		var tmp = this.access(b);
 		var br = tmp != null ? tmp : this.defaultValue;
 		if(ascending) {
-			return ar.min - br.min;
+			return table_NumberColumn.compareValues(ar.min,br.min);
 		} else {
-			return br.max - ar.max;
+			return table_NumberColumn.compareValues(br.max,ar.max);
 		}
 	}
-});
-var table_FancyTableFloatColumn = function(name,getter) {
-	this.defaultValue = 0.;
-	table_FancyTableNumberColumnBase.call(this,name);
-	this.getter = getter;
-};
-table_FancyTableFloatColumn.__name__ = true;
-table_FancyTableFloatColumn.__super__ = table_FancyTableNumberColumnBase;
-table_FancyTableFloatColumn.prototype = $extend(table_FancyTableNumberColumnBase.prototype,{
-	parseFilterValue: function(val) {
-		if(val == null) {
-			return null;
-		}
-		val = StringTools.replace(val,",",".");
-		var f = parseFloat(val);
-		if(isNaN(f)) {
-			return null;
-		}
-		return f;
-	}
-	,getKnownRange: function(keyboards) {
-		var min = null;
-		var max = null;
-		var _g = 0;
-		while(_g < keyboards.length) {
-			var keyboard = keyboards[_g];
-			++_g;
-			var val = this.getter(keyboard);
-			if(val != null) {
-				if(min == null || val < min) {
-					min = val;
-				}
-				if(max == null || val > max) {
-					max = val;
-				}
-			}
-		}
-		if(min != null) {
-			return { min : min, max : max};
-		} else {
-			return null;
-		}
-	}
-	,buildValue: function(out,kb) {
-		var val = this.getter(kb);
-		var text = val != null ? "" + val : this.nullCaption;
+	,buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		var fds = [];
+		out.classList.add("range");
+		var fd = window.document.createElement("input");
+		fd.type = "number";
+		fd.onchange = function() {
+			var val = _gthis.parseFilterValue(fd.value);
+			tools_HtmlTools.setAttributeFlag(fd,"invalid",fd.value != "" && val == null);
+		};
+		fd.placeholder = "min";
+		fds.push(fd);
+		out.appendChild(fd);
+		var text = String.fromCodePoint(160) + ".." + String.fromCodePoint(160);
 		out.appendChild(window.document.createTextNode(text));
+		var fd1 = window.document.createElement("input");
+		fd1.type = "number";
+		fd1.onchange = function() {
+			var val = _gthis.parseFilterValue(fd1.value);
+			tools_HtmlTools.setAttributeFlag(fd1,"invalid",fd1.value != "" && val == null);
+		};
+		fd1.placeholder = "max";
+		fds.push(fd1);
+		out.appendChild(fd1);
+		store.push(function(kb) {
+			var min = _gthis.parseFilterValue(fds[0].value);
+			var max = _gthis.parseFilterValue(fds[1].value);
+			if(min == null && max == null) {
+				return;
+			}
+			if(max == null) {
+				max = min;
+			} else if(min == null) {
+				min = max;
+			}
+			_gthis.access(kb,true,{ min : min, max : max});
+		});
+		restore.push(function(kb) {
+			var range = _gthis.access(kb);
+			if(range == null) {
+				fds[0].value = "";
+				fds[1].value = "";
+			} else {
+				fds[0].value = "" + Std.string(range.min);
+				fds[1].value = range.max != range.min ? "" + Std.string(range.max) : "";
+			}
+		});
 	}
-	,matchesFilter: function(kb) {
-		var tmp = this.getter(kb);
-		var val = tmp != null ? tmp : this.defaultValue;
-		if(this.filterMin != null && val < this.filterMin) {
-			return false;
+	,save: function(kb) {
+		var val = this.access(kb);
+		if(val != null && val.min == val.max) {
+			this.access(kb,true,val.min);
 		}
-		if(this.filterMax != null && val > this.filterMax) {
-			return false;
-		}
-		return true;
 	}
-	,compareKeyboards: function(a,b,ascending) {
-		var tmp = this.getter(a);
-		var av = tmp != null ? tmp : this.defaultValue;
-		var tmp = this.getter(b);
-		var bv = tmp != null ? tmp : this.defaultValue;
-		var sign = av < bv ? -1 : av > bv ? 1 : 0;
-		if(!ascending) {
-			sign = -sign;
+	,load: function(kb) {
+		var val = this.access(kb);
+		if(typeof(val) == "number") {
+			this.access(kb,true,{ min : val, max : val});
 		}
-		return sign;
 	}
 });
-var table_FancyTableLinkListColumn = function(name,getter) {
-	this.defaultValue = "";
-	table_FancyTableColumn.call(this,name);
-	this.getter = getter;
+var table_IntRangeColumn = function(name,access) {
+	table_NumberRangeColumn.call(this,name,access);
 };
-table_FancyTableLinkListColumn.__name__ = true;
-table_FancyTableLinkListColumn.__super__ = table_FancyTableColumn;
-table_FancyTableLinkListColumn.prototype = $extend(table_FancyTableColumn.prototype,{
+table_IntRangeColumn.__name__ = true;
+table_IntRangeColumn.__super__ = table_NumberRangeColumn;
+table_IntRangeColumn.prototype = $extend(table_NumberRangeColumn.prototype,{
+	parseFilterValue: function(val) {
+		return table_NumberColumn.parseIntValue(val);
+	}
+});
+var table_LinkListColumn = function(name,access) {
+	this.defaultValue = "";
+	table_FancyColumn.call(this,name);
+	this.access = access;
+};
+table_LinkListColumn.__name__ = true;
+table_LinkListColumn.__super__ = table_FancyColumn;
+table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 	matchesFilter: function(kb) {
-		var lines = this.getter(kb);
+		var lines = this.access(kb);
 		if(lines != null) {
 			return lines.length != 0;
 		} else {
@@ -2363,7 +2692,7 @@ table_FancyTableLinkListColumn.prototype = $extend(table_FancyTableColumn.protot
 		}
 	}
 	,buildValue: function(out,kb) {
-		var lines = this.getter(kb);
+		var lines = this.access(kb);
 		if(!(lines == null || lines.length == 0)) {
 			if(lines.length == 1) {
 				var link = window.document.createElement("a");
@@ -2416,34 +2745,70 @@ table_FancyTableLinkListColumn.prototype = $extend(table_FancyTableColumn.protot
 			}
 		}
 	}
+	,buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		var textarea = window.document.createElement("textarea");
+		textarea.placeholder = "one per line";
+		out.appendChild(textarea);
+		store.push(function(kb) {
+			var text = textarea.value;
+			if(StringTools.trim(text) == "") {
+				return;
+			}
+			_gthis.access(kb,true,text.split("\n"));
+		});
+		restore.push(function(kb) {
+			var arr = _gthis.access(kb);
+			if(arr == null) {
+				textarea.value = "";
+			} else {
+				textarea.value = arr.join("\n");
+			}
+		});
+	}
+	,save: function(kb) {
+		var arr = this.access(kb);
+		if(arr != null && arr.length == 1) {
+			arr = arr[0];
+			this.access(kb,true,arr);
+		}
+	}
+	,load: function(kb) {
+		var val = this.access(kb);
+		if(typeof(val) == "string") {
+			this.access(kb,true,[val]);
+		}
+	}
 });
-var table_FancyTableNameColumn = function(name,getter) {
-	table_FancyTableColumn.call(this,name);
-	this.getter = getter;
+var table_NameColumn = function(name,access) {
+	table_FancyColumn.call(this,name);
+	this.access = access;
 	this.canFilter = false;
 	this.canSort = true;
 };
-table_FancyTableNameColumn.__name__ = true;
-table_FancyTableNameColumn.__super__ = table_FancyTableColumn;
-table_FancyTableNameColumn.prototype = $extend(table_FancyTableColumn.prototype,{
+table_NameColumn.__name__ = true;
+table_NameColumn.__super__ = table_FancyColumn;
+table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 	buildValue: function(out,kb) {
 		if(kb.img != null || kb.notes != null) {
 			var srcs;
 			if(kb.img != null) {
+				var rxLink = new RegExp("^https?://","");
 				var _this = kb.img;
 				var result = new Array(_this.length);
 				var _g = 0;
 				var _g1 = _this.length;
 				while(_g < _g1) {
 					var i = _g++;
-					result[i] = "img/" + _this[i];
+					var s = _this[i];
+					result[i] = rxLink.test(s) ? s : "img/" + s;
 				}
 				srcs = result;
 			} else {
 				srcs = null;
 			}
 			var link = window.document.createElement("a");
-			var text = this.getter(kb);
+			var text = this.access(kb);
 			link.appendChild(window.document.createTextNode(text));
 			link.href = srcs != null ? srcs[0] : null;
 			link.onclick = function() {
@@ -2485,57 +2850,438 @@ table_FancyTableNameColumn.prototype = $extend(table_FancyTableColumn.prototype,
 			opts["content"] = v;
 			Tippy(link,opts);
 		} else {
-			var text = this.getter(kb);
+			var text = this.access(kb);
 			out.appendChild(window.document.createTextNode(text));
 		}
 	}
 	,compareKeyboards: function(a,b,ascending) {
-		var an = this.getter(a).toUpperCase();
-		var bn = this.getter(b).toUpperCase();
+		var an = this.access(a).toUpperCase();
+		var bn = this.access(b).toUpperCase();
 		var sign = an == bn ? 0 : an < bn ? -1 : 1;
 		if(ascending) {
 			sign = -sign;
 		}
 		return sign;
 	}
+	,buildEditor: function(out,store,restore) {
+		var fd = window.document.createElement("input");
+		fd.type = "text";
+		store.push(function(kb) {
+			kb.name = fd.value;
+		});
+		restore.push(function(kb) {
+			fd.value = kb.name;
+		});
+		fd.placeholder = "Cool Keyboard";
+		out.appendChild(fd);
+		out.appendChild(window.document.createElement("br"));
+		var textarea = window.document.createElement("textarea");
+		textarea.style.marginTop = "0.25em";
+		textarea.placeholder = "one image URL per line";
+		out.appendChild(textarea);
+		store.push(function(kb) {
+			var text = textarea.value;
+			if(StringTools.trim(text) == "") {
+				return;
+			}
+			kb.img = text.split("\n");
+		});
+		restore.push(function(kb) {
+			var arr = kb.img;
+			if(arr == null) {
+				textarea.value = "";
+			} else {
+				textarea.value = arr.join("\n");
+			}
+		});
+	}
+	,load: function(kb) {
+		if(typeof(kb.img) == "string") {
+			kb.img = [kb.img];
+		}
+	}
 });
-var table_FancyTableRow = function(kb) {
-	this.cells = [];
-	this.keyboard = kb;
-	this.element = window.document.createElement("tr");
+var table_TagColumnBase = function(name,et) {
+	this.filterMode = table_TagFilterMode.AnyOf;
+	this.isMulti = false;
+	this.filterTags = [];
+	this.shortLabels = new haxe_ds_EnumValueMap();
+	this.filterLabels = new haxe_ds_EnumValueMap();
+	table_FancyColumn.call(this,name);
+	this.type = et;
 };
-table_FancyTableRow.__name__ = true;
-var table_FancyTableCellBase = function(col) {
-	this.column = col;
-};
-table_FancyTableCellBase.__name__ = true;
-var table_FancyTableCell = function(col) {
-	table_FancyTableCellBase.call(this,col);
-	this.element = window.document.createElement("td");
-};
-table_FancyTableCell.__name__ = true;
-table_FancyTableCell.__super__ = table_FancyTableCellBase;
-table_FancyTableCell.prototype = $extend(table_FancyTableCellBase.prototype,{
+table_TagColumnBase.__name__ = true;
+table_TagColumnBase.__super__ = table_FancyColumn;
+table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
+	buildFilter: function(out) {
+		var _gthis = this;
+		var modeSelect = window.document.createElement("select");
+		var _g = 0;
+		var _this = table_TagFilterMode.__constructs__;
+		var result = new Array(_this.length);
+		var _g1 = 0;
+		var _g2 = _this.length;
+		while(_g1 < _g2) {
+			var i = _g1++;
+			result[i] = _this[i]._hx_name;
+		}
+		var _g1 = result;
+		while(_g < _g1.length) {
+			var ctr = _g1[_g];
+			++_g;
+			var val = Type.createEnum(table_TagFilterMode,ctr,null);
+			var name;
+			switch(val._hx_index) {
+			case 0:
+				name = "Any of these";
+				break;
+			case 1:
+				if(!this.isMulti) {
+					continue;
+				}
+				name = "All of these";
+				break;
+			case 2:
+				name = "None of these";
+				break;
+			}
+			var opt = window.document.createElement("option");
+			opt.value = ctr;
+			opt.appendChild(window.document.createTextNode(name));
+			if(val == table_TagFilterMode.AnyOf) {
+				opt.selected = true;
+			}
+			modeSelect.appendChild(opt);
+		}
+		modeSelect.onchange = function(_) {
+			var old = _gthis.filterMode;
+			var tmp = Type.createEnum(table_TagFilterMode,modeSelect.value,null);
+			_gthis.filterMode = tmp != null ? tmp : table_TagFilterMode.AnyOf;
+			if(old != _gthis.filterMode) {
+				_gthis.table.updateFilters();
+			}
+		};
+		out.appendChild(modeSelect);
+		var _g = 0;
+		var _this = this.type.__constructs__;
+		var result = new Array(_this.length);
+		var _g1 = 0;
+		var _g2 = _this.length;
+		while(_g1 < _g2) {
+			var i = _g1++;
+			result[i] = _this[i]._hx_name;
+		}
+		var _g1 = result;
+		while(_g < _g1.length) {
+			var ctr = _g1[_g];
+			++_g;
+			var val = [Type.createEnum(this.type,ctr)];
+			var tmp = this.filterLabels.get(val[0]);
+			var name = tmp != null ? tmp : ctr;
+			var cb = [tools_HtmlTools.createCheckboxElement(window.document)];
+			cb[0].onchange = (function(cb,val) {
+				return function(_) {
+					if(cb[0].checked) {
+						if(_gthis.filterTags.indexOf(val[0]) == -1) {
+							_gthis.filterTags.push(val[0]);
+							_gthis.table.updateFilters();
+						}
+					} else if(HxOverrides.remove(_gthis.filterTags,val[0])) {
+						_gthis.table.updateFilters();
+					}
+				};
+			})(cb,val);
+			var lb = window.document.createElement("label");
+			lb.appendChild(cb[0]);
+			lb.appendChild(window.document.createTextNode(name));
+			var div = window.document.createElement("div");
+			div.appendChild(lb);
+			out.appendChild(div);
+		}
+	}
 });
-var table_FancyTableHeaderCell = function(col) {
-	table_FancyTableCellBase.call(this,col);
-	this.element = window.document.createElement("th");
+var table_TagColumn = function(name,access,et) {
+	this.defaultValue = null;
+	table_TagColumnBase.call(this,name,et);
+	this.defaultValue = Type.createEnumIndex(et,0,null);
+	this.access = access;
+	this.type = et;
 };
-table_FancyTableHeaderCell.__name__ = true;
-table_FancyTableHeaderCell.__super__ = table_FancyTableCellBase;
-table_FancyTableHeaderCell.prototype = $extend(table_FancyTableCellBase.prototype,{
-});
-var table_FancyTableShuffler = function(name) {
-	table_FancyTableColumn.call(this,name);
-};
-table_FancyTableShuffler.__name__ = true;
-table_FancyTableShuffler.__super__ = table_FancyTableColumn;
-table_FancyTableShuffler.prototype = $extend(table_FancyTableColumn.prototype,{
-	compareKeyboards: function(a,b,ascending) {
-		if(Math.random() < 0.5) {
-			return -1;
+table_TagColumn.__name__ = true;
+table_TagColumn.__super__ = table_TagColumnBase;
+table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
+	getValue: function(kb) {
+		var tmp = this.access(kb);
+		if(tmp != null) {
+			return tmp;
 		} else {
-			return 1;
+			return this.defaultValue;
+		}
+	}
+	,buildValue: function(out,kb) {
+		var val = this.getValue(kb);
+		if(val != null) {
+			var name = $hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name;
+			var tmp = this.shortLabels.get(val);
+			out.appendChild(window.document.createTextNode(tmp != null ? tmp : name));
+			var kb1 = kb.name;
+			var tmp = this.name + ":";
+			var tmp1 = this.filterLabels.get(val);
+			out.title = [kb1,tmp,tmp1 != null ? tmp1 : name].join("\n");
+		} else {
+			var text = this.nullCaption;
+			out.appendChild(window.document.createTextNode(text));
+		}
+	}
+	,buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		var select = window.document.createElement("select");
+		var _this = this.type.__constructs__;
+		var result = new Array(_this.length);
+		var _g = 0;
+		var _g1 = _this.length;
+		while(_g < _g1) {
+			var i = _g++;
+			result[i] = _this[i]._hx_name;
+		}
+		var ctrs = [""].concat(result);
+		var _g = 0;
+		while(_g < ctrs.length) {
+			var ctr = ctrs[_g];
+			++_g;
+			var name;
+			if(ctr != "") {
+				var val = Type.createEnum(this.type,ctr);
+				var tmp = this.filterLabels.get(val);
+				name = tmp != null ? tmp : ctr;
+			} else {
+				name = "";
+			}
+			var option = window.document.createElement("option");
+			option.appendChild(window.document.createTextNode(name));
+			option.value = ctr;
+			select.appendChild(option);
+		}
+		store.push(function(kb) {
+			var val = select.value;
+			if(val != "") {
+				_gthis.access(kb,true,Type.createEnum(_gthis.type,val,null));
+			}
+		});
+		restore.push(function(kb) {
+			var val = _gthis.access(kb);
+			if(val != null) {
+				select.value = $hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name;
+			} else {
+				select.value = "";
+			}
+		});
+		out.appendChild(select);
+	}
+	,matchesFilter: function(kb) {
+		if(this.filterTags.length == 0) {
+			return true;
+		}
+		var val = this.getValue(kb);
+		switch(this.filterMode._hx_index) {
+		case 0:
+			return this.filterTags.indexOf(val) != -1;
+		case 2:
+			return this.filterTags.indexOf(val) == -1;
+		default:
+			return true;
+		}
+	}
+	,save: function(kb) {
+		var val = this.access(kb);
+		if(val != null) {
+			this.access(kb,true,$hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name);
+		}
+	}
+	,load: function(kb) {
+		var val = this.access(kb);
+		if(val != null) {
+			this.access(kb,true,Type.createEnum(this.type,val,null));
+		}
+	}
+});
+var table_TagFilterMode = $hxEnums["table.TagFilterMode"] = { __ename__:true,__constructs__:null
+	,AnyOf: {_hx_name:"AnyOf",_hx_index:0,__enum__:"table.TagFilterMode",toString:$estr}
+	,AllOf: {_hx_name:"AllOf",_hx_index:1,__enum__:"table.TagFilterMode",toString:$estr}
+	,NoneOf: {_hx_name:"NoneOf",_hx_index:2,__enum__:"table.TagFilterMode",toString:$estr}
+};
+table_TagFilterMode.__constructs__ = [table_TagFilterMode.AnyOf,table_TagFilterMode.AllOf,table_TagFilterMode.NoneOf];
+var table_TagListColumn = function(name,access,et) {
+	this.defaultValue = null;
+	table_TagColumnBase.call(this,name,et);
+	this.defaultValue = type_ValList.fromValue(Type.createEnumIndex(et,0,null));
+	this.access = access;
+	this.type = et;
+};
+table_TagListColumn.__name__ = true;
+table_TagListColumn.__super__ = table_TagColumnBase;
+table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
+	getValue: function(kb) {
+		var tmp = this.access(kb);
+		if(tmp != null) {
+			return tmp;
+		} else {
+			return this.defaultValue;
+		}
+	}
+	,buildValue: function(out,kb) {
+		var vals = this.getValue(kb);
+		if(vals != null) {
+			var tip = [kb.name,this.name + ":"];
+			var _g_current = 0;
+			var _g_array = vals;
+			while(_g_current < _g_array.length) {
+				var _g_value = _g_array[_g_current];
+				var _g_key = _g_current++;
+				var i = _g_key;
+				var val = _g_value;
+				if(i > 0) {
+					out.appendChild(window.document.createTextNode(", "));
+				}
+				var name = $hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name;
+				var tmp = this.shortLabels.get(val);
+				out.appendChild(window.document.createTextNode(tmp != null ? tmp : name));
+				var tmp1 = this.filterLabels.get(val);
+				tip.push("· " + (tmp1 != null ? tmp1 : name));
+			}
+			out.title = tip.join("\n");
+		} else {
+			var text = this.nullCaption;
+			out.appendChild(window.document.createTextNode(text));
+		}
+	}
+	,buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		var _g = 0;
+		var _this = this.type.__constructs__;
+		var result = new Array(_this.length);
+		var _g1 = 0;
+		var _g2 = _this.length;
+		while(_g1 < _g2) {
+			var i = _g1++;
+			result[i] = _this[i]._hx_name;
+		}
+		var _g1 = result;
+		while(_g < _g1.length) {
+			var ctr = _g1[_g];
+			++_g;
+			var val = [Type.createEnum(this.type,ctr)];
+			var tmp = this.filterLabels.get(val[0]);
+			var name = tmp != null ? tmp : ctr;
+			var cb = [tools_HtmlTools.createCheckboxElement(window.document)];
+			store.push((function(cb,val) {
+				return function(kb) {
+					if(!cb[0].checked) {
+						return;
+					}
+					var arr = _gthis.access(kb);
+					if(arr == null) {
+						arr = [];
+						_gthis.access(kb,true,arr);
+					}
+					arr.push(val[0]);
+				};
+			})(cb,val));
+			restore.push((function(cb,val) {
+				return function(kb) {
+					var arr = _gthis.access(kb);
+					cb[0].checked = arr != null && arr.indexOf(val[0]) != -1;
+				};
+			})(cb,val));
+			var label = window.document.createElement("label");
+			var row = window.document.createElement("div");
+			label.appendChild(cb[0]);
+			label.appendChild(window.document.createTextNode(name));
+			row.appendChild(label);
+			out.appendChild(row);
+		}
+	}
+	,matchesFilter: function(kb) {
+		if(this.filterTags.length == 0) {
+			return true;
+		}
+		var vals = this.getValue(kb);
+		if(vals == null) {
+			vals = this.defaultValue;
+			if(vals == null) {
+				vals = [];
+			}
+		}
+		switch(this.filterMode._hx_index) {
+		case 0:
+			var _g = 0;
+			var _g1 = vals;
+			while(_g < _g1.length) {
+				var val = _g1[_g];
+				++_g;
+				if(this.filterTags.indexOf(val) != -1) {
+					return true;
+				}
+			}
+			return false;
+		case 1:
+			var _g = 0;
+			var _g1 = vals;
+			while(_g < _g1.length) {
+				var val = _g1[_g];
+				++_g;
+				if(this.filterTags.indexOf(val) == -1) {
+					return false;
+				}
+			}
+			return true;
+		case 2:
+			var _g = 0;
+			var _g1 = vals;
+			while(_g < _g1.length) {
+				var val = _g1[_g];
+				++_g;
+				if(this.filterTags.indexOf(val) != -1) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	,save: function(kb) {
+		var arr = this.access(kb);
+		if(arr != null) {
+			var result = new Array(arr.length);
+			var _g = 0;
+			var _g1 = arr.length;
+			while(_g < _g1) {
+				var i = _g++;
+				var e = arr[i];
+				result[i] = $hxEnums[e.__enum__].__constructs__[e._hx_index]._hx_name;
+			}
+			var names = result;
+			if(names.length == 1) {
+				names = names[0];
+			}
+			this.access(kb,true,names);
+		}
+	}
+	,load: function(kb) {
+		var _gthis = this;
+		var names = this.access(kb);
+		if(names != null) {
+			if(typeof(names) == "string") {
+				names = [names];
+			}
+			var result = new Array(names.length);
+			var _g = 0;
+			var _g1 = names.length;
+			while(_g < _g1) {
+				var i = _g++;
+				result[i] = Type.createEnum(_gthis.type,names[i],null);
+			}
+			var arr = result;
+			this.access(kb,true,arr);
 		}
 	}
 });
@@ -2684,15 +3430,22 @@ tools_HtmlTools.setDisplayFlag = function(el,visible) {
 var type_Assembly = $hxEnums["type.Assembly"] = { __ename__:true,__constructs__:null
 	,Unspecified: {_hx_name:"Unspecified",_hx_index:0,__enum__:"type.Assembly",toString:$estr}
 	,Handwired: {_hx_name:"Handwired",_hx_index:1,__enum__:"type.Assembly",toString:$estr}
-	,Adjustable: {_hx_name:"Adjustable",_hx_index:2,__enum__:"type.Assembly",toString:$estr}
+	,Printed: {_hx_name:"Printed",_hx_index:2,__enum__:"type.Assembly",toString:$estr}
+	,Adjustable: {_hx_name:"Adjustable",_hx_index:3,__enum__:"type.Assembly",toString:$estr}
 };
-type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.Handwired,type_Assembly.Adjustable];
+type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.Handwired,type_Assembly.Printed,type_Assembly.Adjustable];
 var type_Connection = $hxEnums["type.Connection"] = { __ename__:true,__constructs__:null
 	,Wired: {_hx_name:"Wired",_hx_index:0,__enum__:"type.Connection",toString:$estr}
 	,Bluetooth: {_hx_name:"Bluetooth",_hx_index:1,__enum__:"type.Connection",toString:$estr}
 	,Wireless: {_hx_name:"Wireless",_hx_index:2,__enum__:"type.Connection",toString:$estr}
 };
 type_Connection.__constructs__ = [type_Connection.Wired,type_Connection.Bluetooth,type_Connection.Wireless];
+var type_EncoderType = $hxEnums["type.EncoderType"] = { __ename__:true,__constructs__:null
+	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.EncoderType",toString:$estr}
+	,Knob: {_hx_name:"Knob",_hx_index:1,__enum__:"type.EncoderType",toString:$estr}
+	,Wheel: {_hx_name:"Wheel",_hx_index:2,__enum__:"type.EncoderType",toString:$estr}
+};
+type_EncoderType.__constructs__ = [type_EncoderType.Unknown,type_EncoderType.Knob,type_EncoderType.Wheel];
 var type_Firmware = $hxEnums["type.Firmware"] = { __ename__:true,__constructs__:null
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.Firmware",toString:$estr}
 	,QMK: {_hx_name:"QMK",_hx_index:1,__enum__:"type.Firmware",toString:$estr}
@@ -2716,6 +3469,19 @@ var type_HotSwapBase = $hxEnums["type.HotSwapBase"] = { __ename__:true,__constru
 	,Yes: {_hx_name:"Yes",_hx_index:2,__enum__:"type.HotSwapBase",toString:$estr}
 };
 type_HotSwapBase.__constructs__ = [type_HotSwapBase.Unspecified,type_HotSwapBase.No,type_HotSwapBase.Yes];
+var type_KeySpacing = $hxEnums["type.KeySpacing"] = { __ename__:true,__constructs__:null
+	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.KeySpacing",toString:$estr}
+	,MX: {_hx_name:"MX",_hx_index:1,__enum__:"type.KeySpacing",toString:$estr}
+	,Choc: {_hx_name:"Choc",_hx_index:2,__enum__:"type.KeySpacing",toString:$estr}
+	,CFX: {_hx_name:"CFX",_hx_index:3,__enum__:"type.KeySpacing",toString:$estr}
+};
+type_KeySpacing.__constructs__ = [type_KeySpacing.Unknown,type_KeySpacing.MX,type_KeySpacing.Choc,type_KeySpacing.CFX];
+var type_NavCluster = $hxEnums["type.NavCluster"] = { __ename__:true,__constructs__:null
+	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.NavCluster",toString:$estr}
+	,Arrows: {_hx_name:"Arrows",_hx_index:1,__enum__:"type.NavCluster",toString:$estr}
+	,Full: {_hx_name:"Full",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
+};
+type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Full];
 var type_NumRange = {};
 type_NumRange._new = function(min,max) {
 	return { min : min, max : max};
@@ -2738,19 +3504,6 @@ type_NumRange.toString = function(this1) {
 	}
 	return Std.string(this1.min) + ".." + Std.string(this1.max);
 };
-var type_KeySpacing = $hxEnums["type.KeySpacing"] = { __ename__:true,__constructs__:null
-	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.KeySpacing",toString:$estr}
-	,MX: {_hx_name:"MX",_hx_index:1,__enum__:"type.KeySpacing",toString:$estr}
-	,Choc: {_hx_name:"Choc",_hx_index:2,__enum__:"type.KeySpacing",toString:$estr}
-	,CFX: {_hx_name:"CFX",_hx_index:3,__enum__:"type.KeySpacing",toString:$estr}
-};
-type_KeySpacing.__constructs__ = [type_KeySpacing.Unknown,type_KeySpacing.MX,type_KeySpacing.Choc,type_KeySpacing.CFX];
-var type_NavCluster = $hxEnums["type.NavCluster"] = { __ename__:true,__constructs__:null
-	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.NavCluster",toString:$estr}
-	,Arrows: {_hx_name:"Arrows",_hx_index:1,__enum__:"type.NavCluster",toString:$estr}
-	,Full: {_hx_name:"Full",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
-};
-type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Full];
 var type_Shape = $hxEnums["type.Shape"] = { __ename__:true,__constructs__:null
 	,Monoblock: {_hx_name:"Monoblock",_hx_index:0,__enum__:"type.Shape",toString:$estr}
 	,Unibody: {_hx_name:"Unibody",_hx_index:1,__enum__:"type.Shape",toString:$estr}
@@ -2818,9 +3571,10 @@ type_ValList.fromValue = function(val) {
 if(typeof(performance) != "undefined" ? typeof(performance.now) == "function" : false) {
 	HxOverrides.now = performance.now.bind(performance);
 }
+if( String.fromCodePoint == null ) String.fromCodePoint = function(c) { return c < 0x10000 ? String.fromCharCode(c) : String.fromCharCode((c>>10)+0xD7C0)+String.fromCharCode((c&0x3FF)+0xDC00); }
 String.__name__ = true;
 Array.__name__ = true;
 var Tippy = window["tippy"];
 js_Boot.__toStr = ({ }).toString;
 Main.main();
-})({});
+})(typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);

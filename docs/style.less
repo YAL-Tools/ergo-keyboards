@@ -11,12 +11,13 @@ th, td {
 	text-align: left;
 	vertical-align: top;
 }
-#filter {
+#filter, #editor {
 	columns: 2;
 	margin-bottom: 0.5em;
 	> details {
 		border: 1px solid #ddd;
 		padding-left: 0.5em;
+		padding-right: 0.5em;
 		margin-bottom: 0.3em;
 		break-inside: avoid;
 	}
@@ -34,8 +35,38 @@ th, td {
 		}*/
 	}
 }
+#editor-outer {
+	margin-top: 1em;
+	&>summary {
+		font-size: 125%;
+		font-weight: bold;
+	}
+	&>input {
+		margin: 0.5em 0;
+	}
+	.item {
+		margin: 0.25em 0;
+		width: 100%;
+		> .name {
+			flex-grow: 1;
+		}
+	}
+	textarea {
+		width: 100%;
+		resize: vertical;
+	}
+	.filters.range {
+		display: flex;
+		width: 100%;
+		margin-top: 0.15em;
+		>input {
+			flex-grow: 1;
+			max-width: 4em;
+		}
+	}
+}
 @media only screen and (min-width: 1200px) {
-	#filter {
+	#filter, #editor {
 		columns: 3;
 	}
 }

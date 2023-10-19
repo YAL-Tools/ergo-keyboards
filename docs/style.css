@@ -12,21 +12,26 @@ td {
   text-align: left;
   vertical-align: top;
 }
-#filter {
+#filter,
+#editor {
   columns: 2;
   margin-bottom: 0.5em;
 }
-#filter > details {
+#filter > details,
+#editor > details {
   border: 1px solid #ddd;
   padding-left: 0.5em;
+  padding-right: 0.5em;
   margin-bottom: 0.3em;
   break-inside: avoid;
 }
-#filter .item {
+#filter .item,
+#editor .item {
   display: flex;
   align-items: start;
 }
-#filter .column-name.has-notes {
+#filter .column-name.has-notes,
+#editor .column-name.has-notes {
   cursor: help;
   text-decoration: underline;
   /*&:after {
@@ -35,8 +40,39 @@ td {
 			font-size: 50%;
 		}*/
 }
+#editor-outer {
+  margin-top: 1em;
+}
+#editor-outer > summary {
+  font-size: 125%;
+  font-weight: bold;
+}
+#editor-outer > input {
+  margin: 0.5em 0;
+}
+#editor-outer .item {
+  margin: 0.25em 0;
+  width: 100%;
+}
+#editor-outer .item > .name {
+  flex-grow: 1;
+}
+#editor-outer textarea {
+  width: 100%;
+  resize: vertical;
+}
+#editor-outer .filters.range {
+  display: flex;
+  width: 100%;
+  margin-top: 0.15em;
+}
+#editor-outer .filters.range > input {
+  flex-grow: 1;
+  max-width: 4em;
+}
 @media only screen and (min-width: 1200px) {
-  #filter {
+  #filter,
+  #editor {
     columns: 3;
   }
 }
