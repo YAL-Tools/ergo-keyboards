@@ -8,6 +8,7 @@ enum SwitchProfile {
 	Unknown;
 	MX;
 	Choc;
+	ChocV2;
 	Alps;
 	GateronLP;
 	CherryULP;

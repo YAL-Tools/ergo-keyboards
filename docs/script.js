@@ -12,7 +12,7 @@ ColStagBoards.__name__ = true;
 ColStagBoards.init = function(keyboards) {
 	var add = function(kb) {
 		kb.stagger = kb.stagger != null ? kb.stagger : type_StaggerType.Column;
-		kb.shape = kb.shape != null ? kb.shape : type_Shape.Split;
+		kb.shape = kb.shape != null ? kb.shape : type_ValList.fromValue(type_Shape.Split);
 		keyboards.push(kb);
 	};
 	var pimoroniSize = 4.4;
@@ -251,7 +251,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Chrumm 1.0"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([64,70]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.rcols = type_NumRange.fromInt(7);
-	kb.shape = type_Shape.Unibody;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.hotswap = type_HotSwap.fromBool(false);
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.MX);
 	kb.firmware = type_ValList.fromValue(type_Firmware.Custom);
@@ -267,7 +267,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.thumbKeys = type_NumRange.fromInt(3);
 	kb.hotswap = type_HotSwap.fromBool(false);
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.MX);
-	kb.shape = type_Shape.Monoblock;
+	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.VIA));
 	kb.source = type_ValList.fromValue("https://github.com/protieusz/ScottoFly/blob/main/ScottoInvader/Alien%20Invader%20Integrated%20PCB%20from%20Scotto%20Invader/README.md");
 	kb.img = type_ValList.fromValue("alien-invader.jpg");
@@ -386,7 +386,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(74),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(3),type_NumRange.fromInt(-1),type_NumRange.fromInt(2));
 	kb.hotswap = type_HotSwap.fromBool(true);
-	kb.shape = type_Shape.Unibody;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.pinkyStagger = 0.5;
 	kb.source = type_ValList.fromValue("https://github.com/nshie/osprey");
 	kb.img = type_ValList.fromValue("osprey.jpg");
@@ -748,7 +748,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		});
 		this.addColumn(col);
 		this.addFilterHeader("General");
-		var shape = new table_TagColumn("Shape",function(q,wantSet,setValue) {
+		var shape = new table_TagListColumn("Shape",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.shape = setValue;
 				return null;
@@ -873,6 +873,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		},type_SwitchProfile);
 		switchType.shortName = "SwP";
 		switchType.filterLabels.set(type_SwitchProfile.Choc,"Kailh Choc V1");
+		switchType.filterLabels.set(type_SwitchProfile.ChocV2,"Kailh Choc V2");
 		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron low-profile");
 		switchType.shortLabels.set(type_SwitchProfile.Unknown,"");
 		switchType.shortLabels.set(type_SwitchProfile.GateronLP,"GLP");
@@ -1022,6 +1023,28 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		});
 		this.addColumn(col);
 		col.show = false;
+		var fw = new table_TagListColumn("Firmware",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.firmware = setValue;
+				return null;
+			} else {
+				return q.firmware;
+			}
+		},type_Firmware);
+		fw.shortLabels.set(type_Firmware.Unknown,"");
+		fw.shortLabels.set(type_Firmware.Custom,"");
+		fw.show = false;
+		this.addColumn(fw);
+		var sw = new table_TagListColumn("Software",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.software = setValue;
+				return null;
+			} else {
+				return q.software;
+			}
+		},type_Software);
+		sw.show = false;
+		this.addColumn(sw);
 		var asm = new table_TagListColumn("Assembly specifics",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.assembly = setValue;
@@ -1140,7 +1163,7 @@ OrthoBoards.__name__ = true;
 OrthoBoards.init = function(keyboards) {
 	var add = function(kb) {
 		kb.stagger = kb.stagger != null ? kb.stagger : type_StaggerType.Ortho;
-		kb.shape = kb.shape != null ? kb.shape : type_Shape.Split;
+		kb.shape = kb.shape != null ? kb.shape : type_ValList.fromValue(type_Shape.Split);
 		keyboards.push(kb);
 	};
 	var pimoroniSize = 4.4;
@@ -1158,7 +1181,7 @@ OrthoBoards.init = function(keyboards) {
 	kb = { name : "Skywatch"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
-	kb.shape = type_Shape.Unibody;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.pinkyStagger = 0.3;
 	kb.stagger = type_StaggerType.Ortho;
 	kb.trackballSize = pimoroniSize;
@@ -1167,7 +1190,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("Skywatch.jpg");
 	add(kb);
 	kb = { name : "Bancouver40"};
-	kb.shape = type_Shape.Monoblock;
+	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
 	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
@@ -1180,7 +1203,7 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	kb.splay = type_SplayBase.PinkyOnly;
-	kb.shape = type_Shape.Unibody;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.stagger = type_StaggerType.Ortho;
 	kb.source = type_ValList.fromValue("https://github.com/ImStuBTW/chonkv");
 	kb.img = type_ValList.fromValue("ChocV.jpg");
@@ -1190,7 +1213,7 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	kb.splay = type_SplayBase.PinkyOnly;
-	kb.shape = type_Shape.Unibody;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.stagger = type_StaggerType.Ortho;
 	kb.source = type_ValList.fromValue("https://github.com/ImStuBTW/chonkv");
 	kb.img = type_ValList.fromValue("ChonkV.jpg");
@@ -1199,7 +1222,7 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([56,108]),type_NumRange.fromArray([7,9]),type_NumRange.fromArray([3,5]));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
-	kb.shape = type_Shape.Split;
+	kb.shape = type_ValList.fromValue(type_Shape.Split);
 	kb.stagger = type_StaggerType.Ortho;
 	kb.kit = type_ValList.fromValue("https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear");
 	kb.img = type_ValList.fromValue("bfo-9000.jpg");
@@ -1216,7 +1239,7 @@ OrthoBoards.init = function(keyboards) {
 	kb = { name : "Kong"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([48,60]),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
-	kb.shape = type_Shape.Unibody;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.rcols = type_NumRange.fromInt(8);
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([3,4]),type_NumRange.fromArray([3,4]),type_NumRange.fromInt(0),type_NumRange.fromInt(3));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
@@ -1229,7 +1252,7 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
-	kb.shape = type_Shape.Unibody;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.encoders = type_NumRange.fromInt(1);
 	kb.source = type_ValList.fromValue("https://github.com/ScatteredDrifter/Buran-Ortho");
 	kb.img = type_ValList.fromValue("buran-no-acryl-isp.jpg");
@@ -2895,6 +2918,13 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 			}
 		});
 	}
+	,save: function(kb) {
+		var arr = kb.img;
+		if(arr != null && arr.length == 1) {
+			arr = arr[0];
+			kb.img = arr;
+		}
+	}
 	,load: function(kb) {
 		if(typeof(kb.img) == "string") {
 			kb.img = [kb.img];
@@ -3508,8 +3538,9 @@ var type_Shape = $hxEnums["type.Shape"] = { __ename__:true,__constructs__:null
 	,Monoblock: {_hx_name:"Monoblock",_hx_index:0,__enum__:"type.Shape",toString:$estr}
 	,Unibody: {_hx_name:"Unibody",_hx_index:1,__enum__:"type.Shape",toString:$estr}
 	,Split: {_hx_name:"Split",_hx_index:2,__enum__:"type.Shape",toString:$estr}
+	,Keywell: {_hx_name:"Keywell",_hx_index:3,__enum__:"type.Shape",toString:$estr}
 };
-type_Shape.__constructs__ = [type_Shape.Monoblock,type_Shape.Unibody,type_Shape.Split];
+type_Shape.__constructs__ = [type_Shape.Monoblock,type_Shape.Unibody,type_Shape.Split,type_Shape.Keywell];
 var type_Software = $hxEnums["type.Software"] = { __ename__:true,__constructs__:null
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.Software",toString:$estr}
 	,VIA: {_hx_name:"VIA",_hx_index:1,__enum__:"type.Software",toString:$estr}
@@ -3548,13 +3579,14 @@ var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__con
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.SwitchProfile",toString:$estr}
 	,MX: {_hx_name:"MX",_hx_index:1,__enum__:"type.SwitchProfile",toString:$estr}
 	,Choc: {_hx_name:"Choc",_hx_index:2,__enum__:"type.SwitchProfile",toString:$estr}
-	,Alps: {_hx_name:"Alps",_hx_index:3,__enum__:"type.SwitchProfile",toString:$estr}
-	,GateronLP: {_hx_name:"GateronLP",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
-	,CherryULP: {_hx_name:"CherryULP",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
-	,Optical: {_hx_name:"Optical",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
+	,ChocV2: {_hx_name:"ChocV2",_hx_index:3,__enum__:"type.SwitchProfile",toString:$estr}
+	,Alps: {_hx_name:"Alps",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
+	,GateronLP: {_hx_name:"GateronLP",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
+	,CherryULP: {_hx_name:"CherryULP",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
+	,Optical: {_hx_name:"Optical",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Other];
 var type_ValList = {};
 type_ValList.get_length = function(this1) {
 	return this1.length;

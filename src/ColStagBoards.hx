@@ -675,6 +675,7 @@ class ColStagBoards {
 		add(kb);
 		
 		kb = new ColStagKeyboard("Glove80");
+		kb.shape = [Split, Keywell];
 		kb.setMatrix(80, 6, 5);
 		kb.setExtras(6, -1, 0, 5);
 		kb.hotswap = false;

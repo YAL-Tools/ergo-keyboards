@@ -105,6 +105,13 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 			}
 		});
 	}
+	override public function save(kb:KB):Void {
+		var arr:Array<String> = kb.img;
+		if (arr != null && arr.length == 1) {
+			arr = cast arr[0];
+			kb.img = arr;
+		}
+	}
 	override public function load(kb:KB):Void {
 		if (kb.img is String) kb.img = cast [kb.img];
 	}

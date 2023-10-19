@@ -2,6 +2,7 @@ package ;
 import js.Browser;
 import type.*;
 import js.html.Element;
+import table.TagColumn;
 import table.TagListColumn;
 import type.Keyboard;
 import type.HotSwap;
@@ -123,7 +124,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		addFilterHeader("General");
 		
-		var shape = new TagColumn("Shape", mgf(kb.shape), Shape);
+		var shape = new TagListColumn("Shape", mgf(kb.shape), Shape);
 		shape.show = false;
 		shape.shortLabels[Shape.Monoblock] = "Mono";
 		shape.shortLabels[Shape.Unibody] = "Uni";
@@ -221,6 +222,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		var switchType = new TagListColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
 		switchType.shortName = "SwP";
 		switchType.filterLabels[SwitchProfile.Choc] = "Kailh Choc V1";
+		switchType.filterLabels[SwitchProfile.ChocV2] = "Kailh Choc V2";
 		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron low-profile";
 		switchType.shortLabels[SwitchProfile.Unknown] = "";
 		switchType.shortLabels[SwitchProfile.GateronLP] = "GLP";
@@ -296,6 +298,16 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		addFilterHeader("Other curiosities");
 		mAddColumn(col = new IntRangeColumn("Displays", kb.displays));
 		col.show = false;
+		
+		var fw = new TagListColumn("Firmware", mgf(kb.firmware), Firmware);
+		fw.shortLabels[Firmware.Unknown] = "";
+		fw.shortLabels[Firmware.Custom] = "";
+		fw.show = false;
+		addColumn(fw);
+		
+		var sw = new TagListColumn("Software", mgf(kb.software), Software);
+		sw.show = false;
+		addColumn(sw);
 		
 		var asm = new TagListColumn("Assembly specifics", mgf(kb.assembly), Assembly);
 		asm.defaultValue = [];

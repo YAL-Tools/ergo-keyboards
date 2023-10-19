@@ -8,4 +8,5 @@ enum Shape {
 	Monoblock;
 	Unibody;
 	Split;
+	Keywell;
 }
