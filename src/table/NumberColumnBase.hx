@@ -1,6 +1,6 @@
 package table;
 import js.html.Element;
-import type.IntRange;
+import type.NumRange;
 import type.Keyboard;
 import js.Browser.*;
 import type.ValList;
@@ -10,20 +10,21 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class FancyTableNumberColumnBase<KB:Keyboard, NumType:Float> extends FancyTableColumn<KB> {
+class NumberColumnBase<KB:Keyboard, NT:Float> extends FancyColumn<KB> {
 	public function new(name:String) {
 		super(name);
 		canSort = true;
 	}
 	
-	public var filterMin:Null<NumType> = null;
-	public var filterMax:Null<NumType> = null;
+	public var filterMin:Null<NT> = null;
+	public var filterMax:Null<NT> = null;
 	public var filterIncludeNull = false;
 	public var filterIncludeNullLabel:String = null;
-	public function parseFilterValue(val:String):NumType {
+	
+	public function parseFilterValue(val:String):NT {
 		return null;
 	}
-	public function getKnownRange(keyboards:Array<KB>):NumRange<NumType> {
+	public function getKnownRange(keyboards:Array<KB>):NumRange<NT> {
 		return null;
 	}
 	override public function buildFilter(out:Element):Void {
@@ -33,10 +34,10 @@ class FancyTableNumberColumnBase<KB:Keyboard, NumType:Float> extends FancyTableC
 		}
 		for (step in 0 ... 2) {
 			var isMin = step == 0;
-			inline function get():NumType {
+			inline function get():NT {
 				return isMin ? filterMin : filterMax;
 			}
-			inline function set(val:NumType):Void {
+			inline function set(val:NT):Void {
 				if (isMin) filterMin = val; else filterMax = val;
 			}
 			
@@ -45,7 +46,7 @@ class FancyTableNumberColumnBase<KB:Keyboard, NumType:Float> extends FancyTableC
 			fd.type = "number";
 			fd.disabled = startVal == null;
 			if (startVal != null) fd.value = "" + startVal;
-			function setValue(val:Null<NumType>) {
+			function setValue(val:Null<NT>) {
 				var old = get();
 				if (old != val) {
 					set(val);

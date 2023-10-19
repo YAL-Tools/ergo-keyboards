@@ -5,8 +5,8 @@ import externs.TippyOptions;
 import js.html.Element;
 import js.html.TableCellElement;
 import js.html.TableRowElement;
-import table.FancyTableColumn;
-import table.FancyTableRow;
+import table.FancyColumn;
+import table.FancyRow;
 import type.IntRange;
 import type.Keyboard;
 using tools.HtmlTools;
@@ -17,7 +17,21 @@ import js.Browser.*;
  * @author YellowAfterlife
  */
 class FancyTableFilters {
-	public static function build<KB>(table:FancyTable<KB>, out:Element) {
+	public static function addNotes<KB:Keyboard>(column:FancyColumn<KB>, el:Element) {
+		if (column.notes.childNodes.length > 0) {
+			el.classList.add("has-notes");
+			el.title = "(click to view notes)";
+			var opts = new TippyOptions();
+			opts.trigger = "click";
+			opts.interactive = true;
+			opts.appendTo = () -> el.parentElement;
+			opts.maxWidth = 480;
+			var notes:Element = cast column.notes.cloneNode(true);
+			opts.content = function(_) return notes;
+			Tippy.bind(el, opts);
+		}
+	}
+	public static function build<KB:Keyboard>(table:FancyTable<KB>, out:Element) {
 		var dest:Element = out;
 		for (item in table.filterOrder) {
 			var column = switch (item) {
@@ -40,10 +54,10 @@ class FancyTableFilters {
 			cbShow.checked = column.show;
 			cbShow.onchange = function(_) {
 				column.show = !column.show;
-				for (cell in header.cells.filter(c -> c.column == column)) {
+				for (cell in table.header.cells.filter(c -> c.column == column)) {
 					cell.element.setDisplayFlag(column.show);
 				}
-				for (row in rows) {
+				for (row in table.rows) {
 					for (cell in row.cells.filter(c -> c.column == column)) {
 						cell.element.setDisplayFlag(column.show);
 					}
@@ -63,7 +77,7 @@ class FancyTableFilters {
 			cbFilter.onchange = function(_) {
 				column.wantFilter = cbFilter.checked;
 				divFilters.setDisplayFlag(cbFilter.checked);
-				updateFilters();
+				table.updateFilters();
 			}
 			tr.appendChild(cbFilter);
 			
@@ -75,17 +89,7 @@ class FancyTableFilters {
 			colNameEl.appendTextNode(colName);
 			colNameEl.classList.add("column-name");
 			
-			if (column.notes.childNodes.length > 0) {
-				colNameEl.classList.add("has-notes");
-				colNameEl.title = "(click to view notes)";
-				var opts = new TippyOptions();
-				opts.trigger = "click";
-				opts.interactive = true;
-				opts.appendTo = () -> meta;
-				opts.maxWidth = 480;
-				opts.content = function(_) return column.notes;
-				Tippy.bind(colNameEl, opts);
-			}
+			addNotes(column, colNameEl);
 			meta.appendChild(colNameEl);
 			meta.appendChild(divFilters);
 			tr.appendChild(meta);

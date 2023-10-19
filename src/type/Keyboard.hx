@@ -24,16 +24,23 @@ typedef Keyboard = {
 	?switchKind:ValList<SwitchKind>,
 	?keySpacing:KeySpacing,
 	
-	?knobs:IntRange,
+	?encoders:IntRange,
+	?encoderType:ValList<EncoderType>,
+	
 	?trackballs:IntRange,
 	/** in mm */
 	?trackballSize:Float,
+	
 	?trackpads:IntRange,
 	/** in mm */
 	?trackpadSize:Float,
+	
 	/** aka "pointing sticks" */
 	?trackpoints:IntRange,
+	
 	?dpads:IntRange,
+	?dpadDirs:IntRange,
+	
 	?displays:IntRange,
 	?navCluster:NavCluster,
 	

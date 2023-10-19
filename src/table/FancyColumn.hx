@@ -10,7 +10,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class FancyTableColumn<KB:Keyboard> {
+class FancyColumn<KB:Keyboard> {
 	public var table:FancyTable<KB> = null;
 	public var name:String;
 	public var filterName:String = null;
@@ -33,7 +33,7 @@ class FancyTableColumn<KB:Keyboard> {
 	public function buildFilter(out:Element):Void {
 		
 	}
-	public function buildEditor(out:Element, get:Void->KB):Void {
+	public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		
 	}
 	public function matchesFilter(kb:KB):Bool {
@@ -43,5 +43,12 @@ class FancyTableColumn<KB:Keyboard> {
 	public var canSort = false;
 	public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
 		return 0;
+	}
+	// if saving/loading requires preprocessing, these two should apply/undo that
+	public function save(kb:KB):Void {
+		
+	}
+	public function load(kb:KB):Void {
+		
 	}
 }

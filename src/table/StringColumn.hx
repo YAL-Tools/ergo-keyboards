@@ -12,7 +12,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class FancyTableStringColumn<KB:Keyboard> extends FancyTableColumn<KB> {
+class StringColumn<KB:Keyboard> extends FancyColumn<KB> {
 	public var getter:KB->String;
 	public function new(name:String, getter:KB->String) {
 		super(name);

@@ -15,7 +15,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class FancyTableLinkListColumn<KB:Keyboard> extends FancyTableColumn<KB> {
+class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 	public var access:GetSetOn<KB, ValList<String>>;
 	public var defaultValue = "";
 	public function new(name:String, access:GetSetOn<KB, ValList<String>>) {
@@ -59,5 +59,34 @@ class FancyTableLinkListColumn<KB:Keyboard> extends FancyTableColumn<KB> {
 			opts.content = function(_) return list;
 			Tippy.bind(link, opts);
 		}
+	}
+	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
+		var textarea = document.createTextAreaElement();
+		textarea.placeholder = "one per line";
+		out.appendChild(textarea);
+		store.push(function(kb) {
+			var text = textarea.value;
+			if (StringTools.trim(text) == "") return;
+			access(kb, true, text.split("\n"));
+		});
+		restore.push(function(kb) {
+			var arr = access(kb);
+			if (arr == null) {
+				textarea.value = "";
+			} else {
+				textarea.value = arr.join("\n");
+			}
+		});
+	}
+	override public function save(kb:KB):Void {
+		var arr = access(kb);
+		if (arr != null && arr.length == 1) {
+			arr = cast arr[0];
+			access(kb, true, arr);
+		}
+	}
+	override public function load(kb:KB):Void {
+		var val = access(kb);
+		if (val is String) access(kb, true, cast [val]);
 	}
 }

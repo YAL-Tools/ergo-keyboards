@@ -2,7 +2,7 @@ package table;
 import js.Browser.*;
 import js.html.Element;
 import js.html.TableCellElement;
-import table.FancyTableColumn;
+import table.FancyColumn;
 import type.Keyboard;
 import js.html.TableRowElement;
 
@@ -10,7 +10,7 @@ import js.html.TableRowElement;
  * A row in the data table
  * @author YellowAfterlife
  */
-class FancyTableRow<KB:Keyboard> {
+class FancyRow<KB:Keyboard> {
 	public var keyboard:KB;
 	public var element:TableRowElement;
 	public var show:Bool;
@@ -22,19 +22,19 @@ class FancyTableRow<KB:Keyboard> {
 }
 class FancyTableCellBase<KB:Keyboard> {
 	public var element:Element;
-	public var column:FancyTableColumn<KB>;
-	public function new(col:FancyTableColumn<KB>) {
+	public var column:FancyColumn<KB>;
+	public function new(col:FancyColumn<KB>) {
 		column = col;
 	}
 }
 class FancyTableCell<KB:Keyboard> extends FancyTableCellBase<KB> {
-	public function new(col:FancyTableColumn<KB>) {
+	public function new(col:FancyColumn<KB>) {
 		super(col);
 		element = document.createTableCellElement();
 	}
 }
 class FancyTableHeaderCell<KB:Keyboard> extends FancyTableCellBase<KB> {
-	public function new(col:FancyTableColumn<KB>) {
+	public function new(col:FancyColumn<KB>) {
 		super(col);
 		element = document.createElement("th");
 	}

@@ -2,13 +2,13 @@ package ;
 import js.Browser;
 import type.*;
 import js.html.Element;
+import table.TagListColumn;
 import type.Keyboard;
 import type.HotSwap;
 import tools.FancyTableMacro.*;
 import table.FancyTable;
-import table.FancyTableColumn;
-import table.FancyTableIntColumn;
-import table.FancyTableEnumColumn;
+import table.FancyColumn;
+import table.TagColumnBase;
 import table.*;
 import type.Splay.SplayBase;
 using tools.HtmlTools;
@@ -34,9 +34,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	}
 	function initClusters(kb:ColStagKeyboard) {
 		addFilterHeader("Key clusters and specifics");
-		var notes:Element, col:FancyTableColumn<ColStagKeyboard>;
+		var notes:Element, col:FancyColumn<ColStagKeyboard>;
 		
-		col = new FancyTableIntRangeColumn("Thumb keys", mgf(kb.thumbKeys));
+		col = new IntRangeColumn("Thumb keys", mgf(kb.thumbKeys));
 		col.shortName = "#thumb";
 		col.notes.appendParaTextNode(
 			"Keys below the main area that are (mostly) intended to be pressed with a thumb. " +
@@ -50,7 +50,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		addImagePara(col.notes, "thumb-keys-2.png", 450, 200, "Thumb keys on a Redox keyboard");
 		addColumn(col);
 		
-		col = new FancyTableIntRangeColumn("Inner keys", mgf(kb.innerKeys));
+		col = new IntRangeColumn("Inner keys", mgf(kb.innerKeys));
 		col.shortName = "#inner";
 		col.show = false;
 		col.notes.appendParaTextNode(
@@ -60,7 +60,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		addImagePara(col.notes, "inner-keys.png", 450, 200, "Inner keys on a Redox keyboard");
 		addColumn(col);
 		
-		mAddColumn(col = new FancyTableIntRangeColumn("Outer keys", kb.outerKeys));
+		mAddColumn(col = new IntRangeColumn("Outer keys", kb.outerKeys));
 		col.shortName = "#outer";
 		col.show = false;
 		col.notes.appendParaTextNode("Sometimes a keyboard has an extra key or two on the outer edges.");
@@ -68,7 +68,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		col.notes.appendParaTextNode("And if it's missing keys on the outer columns, this can be negative.");
 		addImagePara(col.notes, "outer-keys-2.png", 450, 150, "A missing outer key on a Drift keyboard");
 		
-		mAddColumn(col = new FancyTableIntRangeColumn("Corner keys", kb.cornerKeys));
+		mAddColumn(col = new IntRangeColumn("Corner keys", kb.cornerKeys));
 		col.shortName = "#corner";
 		col.show = false;
 		col.notes.appendParaTextNode(
@@ -85,13 +85,13 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		);
 		addImagePara(col.notes, "corner-keys-2.png", 450, 200, "A continuous bottom row of keys on a Kapl keyboard");
 		
-		var navCluster = new FancyTableTagColumn("Navigation cluster", mgf(kb.navCluster), NavCluster);
+		var navCluster = new TagColumn("Navigation cluster", mgf(kb.navCluster), NavCluster);
 		col.show = false;
 		navCluster.shortName = "nav";
 		navCluster.shortLabels[NavCluster.None] = "";
 		addColumn(navCluster);
 		
-		mAddColumn(col = new FancyTableFloatColumn("Pinky stagger", kb.pinkyStagger));
+		mAddColumn(col = new FloatColumn("Pinky stagger", kb.pinkyStagger));
 		col.show = false;
 		col.shortName = "pkStag";
 		col.notes.appendParaTextNode(
@@ -99,7 +99,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			"measured in key-size units (0.5 is half a key step down)."
 		);
 		
-		var splay = new FancyTableTagColumn("Splay", mgf(kb.splay), SplayBase);
+		var splay = new TagColumn("Splay", mgf(kb.splay), SplayBase);
 		splay.show = false;
 		splay.notes.appendParaTextNode(
 			"Most keyboards have columns of keys parallel to each other, " +
@@ -118,12 +118,12 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	}
 	
 	function initGeneral(kb:ColStagKeyboard) {
-		var col:FancyTableColumn<ColStagKeyboard>;
-		mAddColumn(col = new FancyTableNameColumn("Name & photo", kb.name));
+		var col:FancyColumn<ColStagKeyboard>;
+		mAddColumn(col = new NameColumn("Name & photo", kb.name));
 		
 		addFilterHeader("General");
 		
-		var shape = new FancyTableTagColumn("Shape", mgf(kb.shape), Shape);
+		var shape = new TagColumn("Shape", mgf(kb.shape), Shape);
 		shape.show = false;
 		shape.shortLabels[Shape.Monoblock] = "Mono";
 		shape.shortLabels[Shape.Unibody] = "Uni";
@@ -143,7 +143,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			
 		addColumn(shape);
 		
-		var staggerType = new FancyTableTagColumn("Stagger type", mgf(kb.stagger), StaggerType);
+		var staggerType = new TagColumn("Stagger type", mgf(kb.stagger), StaggerType);
 		staggerType.show = false;
 		staggerType.shortName = "Stag";
 		staggerType.filterLabels[StaggerType.Column] = "Columnar";
@@ -152,7 +152,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		staggerType.shortLabels[StaggerType.Ortho] = "OL";
 		addColumn(staggerType);
 		
-		var conType = new FancyTableTagListColumn("Connection", mgf(kb.connection), Connection);
+		var conType = new TagListColumn("Connection", mgf(kb.connection), Connection);
 		conType.shortName = "Con";
 		conType.shortLabels[Connection.Wired] = "W";
 		conType.shortLabels[Connection.Bluetooth] = "BT";
@@ -160,10 +160,10 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		conType.filterLabels[Connection.Wireless] = "Proprietary/other wireless";
 		addColumn(conType);
 		
-		mAddColumn(col = new FancyTableIntRangeColumn("Key count", kb.keys));
+		mAddColumn(col = new IntRangeColumn("Key count", kb.keys));
 		col.shortName = "#keys";
 		
-		mAddColumn(col = new FancyTableIntRangeColumn("Rows", kb.rows));
+		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));
 		col.notes.appendParaTextNode(
 			"The number of rows in a keyboard's main area, " +
 			"not counting thumb rows or extension columns."
@@ -175,7 +175,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			"keyboards are reprogrammable."
 		);
 		
-		mAddColumn(col = new FancyTableIntRangeColumn("Columns", kb.cols));
+		mAddColumn(col = new IntRangeColumn("Columns", kb.cols));
 		col.notes.appendParaTextNode(
 			"If your language has more letters than English, you may want a ≥6-column keyboard " +
 			"to avoid holding down an extra key to type some of them."
@@ -185,7 +185,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		col.shortName = "Cols";
 		
-		col = new FancyTableIntRangeColumn("Right-side columns", function(kb:ColStagKeyboard, ?set, ?val) {
+		col = new IntRangeColumn("Right-side columns", function(kb:ColStagKeyboard, ?set, ?val) {
 			if (set) {
 				kb.rcols = val;
 				return null;
@@ -211,29 +211,31 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	function initSwitch(kb:ColStagKeyboard) {
 		addFilterHeader("Switches and keycaps");
 		
-		var hotswap = new FancyTableTagColumn("Hot-swappable switches", mgf(kb.hotswap), HotSwapBase);
+		var hotswap = new TagColumn("Hot-swappable switches", mgf(kb.hotswap), HotSwapBase);
 		hotswap.shortName = "hs";
 		hotswap.shortLabels[HotSwapBase.Unspecified] = "";
 		hotswap.shortLabels[HotSwapBase.Yes] = "+";
 		hotswap.shortLabels[HotSwapBase.No] = "-";
 		addColumn(hotswap);
 		
-		var switchType = new FancyTableTagListColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
+		var switchType = new TagListColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
 		switchType.shortName = "SwP";
 		switchType.filterLabels[SwitchProfile.Choc] = "Kailh Choc V1";
 		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron low-profile";
+		switchType.shortLabels[SwitchProfile.Unknown] = "";
 		switchType.shortLabels[SwitchProfile.GateronLP] = "GLP";
+		switchType.shortLabels[SwitchProfile.CherryULP] = "CULP";
 		switchType.shortLabels[SwitchProfile.Optical] = "Opt";
 		addColumn(switchType);
 		
-		var switchForce = new FancyTableIntListColumn(
+		var switchForce = new IntListColumn(
 			"Switch actuation force (if not hotswap)", mgf(kb.switchForce));
 		switchForce.shortName = "gf";
 		switchForce.nullCaption = "*";
 		switchForce.filterIncludeNullLabel = "Include keyboards with hotswap switches";
-		addColumn(switchForce);
+		//addColumn(switchForce);
 		
-		var switchKind = new FancyTableTagListColumn(
+		var switchKind = new TagListColumn(
 			"Switch feel (if not hotswap)", mgf(kb.switchKind), SwitchKind);
 		switchKind.defaultValue = null;
 		switchKind.shortName = "SwF";
@@ -242,9 +244,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		switchKind.shortLabels[SwitchKind.Clicky] = "C";
 		switchKind.shortLabels[SwitchKind.Other] = "#";
 		switchKind.nullCaption = "*";
-		addColumn(switchKind);
+		//addColumn(switchKind);
 		
-		var colSpacing = new FancyTableTagColumn("Key spacing", mgf(kb.keySpacing), KeySpacing);
+		var colSpacing = new TagColumn("Key spacing", mgf(kb.keySpacing), KeySpacing);
 		colSpacing.shortName = "kSp";
 		colSpacing.show = false;
 		colSpacing.filterLabels[KeySpacing.MX] = "MX (19mm x 19mm)";
@@ -254,18 +256,48 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		addColumn(colSpacing);
 	}
 	function initCuriosities(kb:ColStagKeyboard) {
-		addFilterHeader("Other curiosities");
-		var col:FancyTableColumn<ColStagKeyboard>;
-		mAddColumn(col = new FancyTableIntRangeColumn("Encoders", kb.knobs));
-		col.shortName = "Knobs";
-		mAddColumn(col = new FancyTableIntRangeColumn("Trackballs", kb.trackballs));
+		addFilterHeader("Other input devices");
+		var col:FancyColumn<ColStagKeyboard>;
+		
+		mAddColumn(col = new IntRangeColumn("Encoders", kb.encoders));
+		col.shortName = "#enc";
+		var enct = new TagListColumn("Encoder type", mgf(kb.encoderType), EncoderType);
+		enct.show = false;
+		enct.shortName = "EncT";
+		enct.shortLabels[EncoderType.Unknown] = "";
+		enct.shortLabels[EncoderType.Knob] = "K";
+		enct.shortLabels[EncoderType.Wheel] = "W";
+		addColumn(enct);
+		
+		mAddColumn(col = new IntRangeColumn("Trackballs", kb.trackballs));
 		col.show = false;
-		mAddColumn(col = new FancyTableIntRangeColumn("Trackpads", kb.trackpads));
-		col.show = false;
-		mAddColumn(col = new FancyTableIntRangeColumn("Displays", kb.displays));
+		mAddColumn(col = new FloatColumn("Trackball size", kb.trackballSize));
+		col.filterName = col.name + " (mm)";
 		col.show = false;
 		
-		var asm = new FancyTableTagListColumn("Assembly specifics", mgf(kb.assembly), Assembly);
+		mAddColumn(col = new IntRangeColumn("Touchpads", kb.trackpads));
+		col.show = false;
+		mAddColumn(col = new FloatColumn("Touchpad size", kb.trackpadSize));
+		col.filterName = col.name + " (mm)";
+		col.show = false;
+		
+		mAddColumn(col = new IntRangeColumn("D-pads", kb.dpads));
+		col.show = false;
+		col.notes.appendTextNode(
+			"Due to component diversity, anything that has 2 or more clicky "+
+			"directional inputs counts as a dpad."
+		);
+		mAddColumn(col = new IntRangeColumn("D-pad directions", kb.dpadDirs));
+		col.show = false;
+		col.notes.appendTextNode(
+			"If it's 3, it's probably a so-called rocker switch."
+		);
+		
+		addFilterHeader("Other curiosities");
+		mAddColumn(col = new IntRangeColumn("Displays", kb.displays));
+		col.show = false;
+		
+		var asm = new TagListColumn("Assembly specifics", mgf(kb.assembly), Assembly);
 		asm.defaultValue = [];
 		//asm.shortLabels[Assembly.Unspecified] = "";
 		asm.shortName = "Assembly";
@@ -274,18 +306,18 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	}
 	function initLinks(kb:ColStagKeyboard) {
 		addFilterHeader("Links");
-		var lc:FancyTableLinkListColumn<ColStagKeyboard>;
+		var lc:LinkListColumn<ColStagKeyboard>;
 		
-		mAddColumn(lc = new FancyTableLinkListColumn("Website", kb.web));
+		mAddColumn(lc = new LinkListColumn("Website", kb.web));
 		lc.shortName = "web";
 		
-		mAddColumn(lc = new FancyTableLinkListColumn("Open-source", kb.source));
+		mAddColumn(lc = new LinkListColumn("Open-source", kb.source));
 		lc.shortName = "OSH";
 		
-		mAddColumn(lc = new FancyTableLinkListColumn("Kits", kb.kit));
+		mAddColumn(lc = new LinkListColumn("Kits", kb.kit));
 		lc.shortName = "Kit";
 		
-		mAddColumn(lc = new FancyTableLinkListColumn("Pre-built", kb.prebuilt));
+		mAddColumn(lc = new LinkListColumn("Pre-built", kb.prebuilt));
 		lc.shortName = "PB";
 	}
 	public function new() {
@@ -296,9 +328,16 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		initSwitch(kb);
 		initCuriosities(kb);
 		initLinks(kb);
-		var col:FancyTableColumn<ColStagKeyboard>;
+		
+		var col:FancyColumn<ColStagKeyboard>;
 		
 		ColStagBoards.init(keyboards);
 		OrthoBoards.init(keyboards);
+		var kbs:Array<ColStagKeyboard> = (cast Browser.window).keyboardData;
+		for (kb in kbs) {
+			if (kb == null || !Reflect.isObject(kb)) continue;
+			for (col in columns) col.load(kb);
+			keyboards.push(kb);
+		}
 	}
 }

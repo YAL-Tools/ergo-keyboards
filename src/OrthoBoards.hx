@@ -21,17 +21,27 @@ class OrthoBoards {
 		var pimoroniSize = 4.4;
 		var kb:ColStagKeyboard;
 		
+		function addSimplyKeeb(kb:ColStagKeyboard) {
+			kb.setHotswap(MX);
+			kb.setMatrix(60, 6, 4);
+			kb.setExtras(3, 0, 0, 3);
+			kb.setQMK(Vial);
+			add(kb);
+		}
 		kb = {
 			name: "simplyKeeb 60K",
-			thumbKeys: 3,
-			cornerKeys: 3,
 			source: "https://github.com/geaz/simplyKeeb-60K",
 			img: "simplyKeeb-60K.jpg",
 		};
-		kb.setHotswap(MX);
-		kb.setMatrix(60, 6, 4);
-		kb.setQMK(Vial);
-		add(kb);
+		addSimplyKeeb(kb);
+		kb = {
+			name: "simplyKeeb 60Kph",
+			source: "https://github.com/geaz/simplyKeeb-60K/tree/main/printedmx",
+			assembly: Printed,
+			img: "simplyKeeb-60K.jpg",
+			notes: "Like the regular simplyKeeb 60K, but fully 3d-printable."
+		};
+		addSimplyKeeb(kb);
 		
 		kb = new ColStagKeyboard("Skywatch");
 		kb.setMatrix(36, 5, 3);
@@ -80,6 +90,7 @@ class OrthoBoards {
 		kb = new ColStagKeyboard("BFO-9000");
 		kb.setMatrix([56, 108], [7, 9], [3, 5]);
 		kb.setExtras(4, 0, 0, 4);
+		kb.switchProfile = [MX, Choc, Alps];
 		kb.shape = Split;
 		kb.stagger = Ortho;
 		kb.kit = "https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear";
@@ -114,13 +125,13 @@ class OrthoBoards {
 		kb.setHotswap([MX, Choc]);
 		kb.setQMK(Vial);
 		kb.shape = Unibody;
-		kb.knobs = 1;
+		kb.encoders = 1;
 		kb.source = "https://github.com/ScatteredDrifter/Buran-Ortho";
 		kb.img = "buran-no-acryl-isp.jpg";
 		add(kb);
 		
 		kb = new ColStagKeyboard("Helix");
-		kb.setMatrix(70, 6, 4);
+		kb.setMatrix(64, 6, 4);
 		kb.setExtras(4, 1, 0, 4);
 		kb.setHotswap([MX, Choc]);
 		kb.source = "https://github.com/MakotoKurauchi/helix";
@@ -128,11 +139,19 @@ class OrthoBoards {
 		kb.img = "helix.webp";
 		add(kb);
 		
+		kb = new ColStagKeyboard("Viterbi");
+		kb.setMatrix(70, 7, 4);
+		kb.setExtras(4, 0, 0, 4);
+		kb.setHotswap([MX, Alps]);
+		kb.kit = "https://keeb.io/products/viterbi-keyboard-pcbs-5x7-70-split-ortholinear";
+		kb.img = "viterbi.webp";
+		add(kb);
+		
 		function addRebound(kb:ColStagKeyboard) {
 			kb.setMatrix([42, 50], 6, 3);
 			kb.setExtras([2, 4], 0, 0, [1, 4]);
 			kb.setHotswap([MX, Choc]);
-			kb.knobs = 1;
+			kb.encoders = 1;
 			add(kb);
 		}
 		kb = new ColStagKeyboard("Rebound");
