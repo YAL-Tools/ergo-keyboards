@@ -562,6 +562,7 @@ class ColStagBoards {
 		
 		kb = {
 			name: "Tern",
+			shape: Unibody,
 			keys: 30,
 			cols: 5, rows: 3,
 			innerKeys: -1,

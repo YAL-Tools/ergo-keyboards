@@ -403,5 +403,193 @@ window.keyboardData = [
 	"firmware": "ZMK",
 	"source": "https://github.com/dnlbauer/corax56-keyboard"
 },
+{
+	"name": "https://github.com/Dwctor/Kaly",
+	"img": "Kaly.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"firmware": "QMK",
+	"software": "Vial",
+	"source": "https://github.com/Dwctor/Kaly"
+},
+{
+	"name": "CB34S",
+	"img": "CB34S.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"source": "https://github.com/bubbleology/CB34S"
+},
+{
+	"name": "compression (4c)",
+	"img": "compression4c.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 58,
+	"rows": 6,
+	"cols": 4,
+	"thumbKeys": 5,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"displays": 2,
+	"firmware": "ZMK",
+	"source": "https://github.com/compressionKeyboards/compression4c"
+},
+{
+	"name": "Charybdis",
+	"img": [
+		"Charybdis.jpg",
+		"Charybdis-2.jpg"
+	],
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"keys": {
+		"min": 35,
+		"max": 56
+	},
+	"rows": {
+		"min": 3,
+		"max": 4
+	},
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
+	"thumbKeys": {
+		"min": 3,
+		"max": 5
+	},
+	"trackballs": 1,
+	"source": "https://github.com/Bastardkb/Charybdis",
+	"kit": "https://bastardkb.com/charybdis/",
+	"prebuilt": "https://bastardkb.com/prebuilts/"
+},
+{
+	"name": "Rommana",
+	"img": "Rommana.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 30,
+	"thumbKeys": 2,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"source": "https://github.com/AlaaSaadAbdo/Rommana"
+},
+{
+	"name": "Ghoul",
+	"img": "Ghoul.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 40,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"displays": 1,
+	"firmware": "QMK",
+	"source": "https://github.com/tzarc/ghoul"
+},
+{
+	"name": "Fissure",
+	"img": "Fissure.jpg",
+	"shape": ["Split", "Special"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 40,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"outerKeys": -1,
+	"pinkyStagger": 1.2,
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"displays": 1,
+	"firmware": "QMK",
+	"source": "https://github.com/crides/fissure"
+},
+{
+	"name": "Fusion",
+	"img": "Fusion.jpg",
+	"shape": [
+		"Unibody",
+		"Special"
+	],
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 1.5,
+	"switchProfile": "Other",
+	"trackpads": 1,
+	"displays": 1,
+	"source": "https://github.com/crides/fusion"
+},
+{
+	"name": "Btrfld",
+	"img": "btrfld.jpg",
+	"shape": [
+		"Unibody",
+		"Special"
+	],
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 46,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 5,
+	"cornerKeys": 3,
+	"switchProfile": "Choc",
+	"firmware": "ZMK",
+	"source": "https://github.com/SolidHal/btrfld"
+},
 null
 ];

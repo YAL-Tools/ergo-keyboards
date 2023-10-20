@@ -104,6 +104,24 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 				textarea.value = arr.join("\n");
 			}
 		});
+		
+		var notes = document.createTextAreaElement();
+		notes.style.marginTop = "0.25em";
+		notes.placeholder = "One paragraph of notes per line";
+		out.appendChild(notes);
+		store.push(function(kb) {
+			var text = textarea.value;
+			if (StringTools.trim(text) == "") return;
+			kb.img = text.split("\n");
+		});
+		restore.push(function(kb) {
+			var arr = kb.img;
+			if (arr == null) {
+				textarea.value = "";
+			} else {
+				textarea.value = arr.join("\n");
+			}
+		});
 	}
 	override public function save(kb:KB):Void {
 		var arr:Array<String> = kb.img;
@@ -111,8 +129,15 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 			arr = cast arr[0];
 			kb.img = arr;
 		}
+		
+		arr = kb.img;
+		if (arr != null && arr.length == 1) {
+			arr = cast arr[0];
+			kb.notes = arr;
+		}
 	}
 	override public function load(kb:KB):Void {
 		if (kb.img is String) kb.img = cast [kb.img];
+		if (kb.notes is String) kb.notes = cast [kb.notes];
 	}
 }

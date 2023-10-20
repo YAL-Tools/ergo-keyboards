@@ -128,6 +128,8 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		shape.show = false;
 		shape.shortLabels[Shape.Monoblock] = "Mono";
 		shape.shortLabels[Shape.Unibody] = "Uni";
+		shape.shortLabels[Shape.Keywell] = "KW";
+		shape.shortLabels[Shape.Special] = "*";
 		var shapeUL = shape.notes.appendElTextNode("ul", "");
 		shapeUL.appendElTextNode("li",
 			"Monoblock means a single-piece keyboard with no gaps, "+
@@ -140,6 +142,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		shapeUL.appendElTextNode("li",
 			"Split means a keyboard consisting of two or more physical pieces that are connected " +
 			"together with a cable or wirelessly."
+		);
+		shapeUL.appendElTextNode("li",
+			"Special means something interesting - folding keyboards, layered keyboards, and so on."
 		);
 			
 		addColumn(shape);

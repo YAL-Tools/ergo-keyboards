@@ -242,7 +242,7 @@ ColStagBoards.init = function(keyboards) {
 	add({ name : "3w6", keys : type_NumRange.fromArray([35,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromInt(3), trackballs : type_NumRange.fromArray([0,1]), trackballSize : pimoroniSize, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.Choc, source : type_ValList.fromValue("https://github.com/weteor/3W6"), img : type_ValList.fromValue("3w6_rev2.jpg")});
 	add({ name : "CozyKeys Bloomer", keys : type_NumRange.fromInt(87), cols : type_NumRange.fromInt(6), rows : type_NumRange.fromInt(5), thumbKeys : type_NumRange.fromInt(5), cornerKeys : type_NumRange.fromInt(6), navCluster : type_NavCluster.Full, switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), source : type_ValList.fromValue("https://github.com/cozykeys/Bloomer"), img : type_ValList.fromValue("Bloomer.jfif")});
 	add({ name : "Keyclicks W-Ergolite", keys : type_NumRange.fromInt(66), cols : type_NumRange.fromInt(7), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromInt(5), switchProfile : [type_SwitchProfile.MX,type_SwitchProfile.GateronLP], connection : [type_Connection.Bluetooth,type_Connection.Wired], firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.Vial), source : type_ValList.fromValue("https://github.com/KeyClicks/Split-Keyboard/tree/main/W-ERGOLITE"), prebuilt : type_ValList.fromValue("https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2"), img : type_ValList.fromValue("W-Ergolite.webp")});
-	kb = { name : "Tern", keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.CFX, source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
+	kb = { name : "Tern", shape : type_ValList.fromValue(type_Shape.Unibody), keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.CFX, source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
 	kb.splay = type_SplayBase.Yes;
 	add(kb);
 	kb = { name : "Rolio", encoders : type_NumRange.fromInt(2), thumbKeys : type_NumRange.fromInt(5), connection : [type_Connection.Wired,type_Connection.Bluetooth], firmware : type_ValList.fromValue(type_Firmware.ZMK), pinkyStagger : 0.25, source : type_ValList.fromValue("https://github.com/MickiusMousius/RolioKeyboard"), img : type_ValList.fromValue("Rolio.jpg")};
@@ -326,6 +326,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.notes = type_ValList.fromValue("Flexibility of on-board software is unclear, but it's got a fairly normal keymap");
 	add(kb);
 	kb = { name : "Glove80"};
+	kb.shape = [type_Shape.Split,type_Shape.Keywell];
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(80),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(-1),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	kb.hotswap = type_HotSwap.fromBool(false);
@@ -2917,6 +2918,25 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 				textarea.value = arr.join("\n");
 			}
 		});
+		var notes = window.document.createElement("textarea");
+		notes.style.marginTop = "0.25em";
+		notes.placeholder = "One paragraph of notes per line";
+		out.appendChild(notes);
+		store.push(function(kb) {
+			var text = textarea.value;
+			if(StringTools.trim(text) == "") {
+				return;
+			}
+			kb.img = text.split("\n");
+		});
+		restore.push(function(kb) {
+			var arr = kb.img;
+			if(arr == null) {
+				textarea.value = "";
+			} else {
+				textarea.value = arr.join("\n");
+			}
+		});
 	}
 	,save: function(kb) {
 		var arr = kb.img;
@@ -2924,10 +2944,18 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 			arr = arr[0];
 			kb.img = arr;
 		}
+		arr = kb.img;
+		if(arr != null && arr.length == 1) {
+			arr = arr[0];
+			kb.notes = arr;
+		}
 	}
 	,load: function(kb) {
 		if(typeof(kb.img) == "string") {
 			kb.img = [kb.img];
+		}
+		if(typeof(kb.notes) == "string") {
+			kb.notes = [kb.notes];
 		}
 	}
 });
@@ -3539,8 +3567,9 @@ var type_Shape = $hxEnums["type.Shape"] = { __ename__:true,__constructs__:null
 	,Unibody: {_hx_name:"Unibody",_hx_index:1,__enum__:"type.Shape",toString:$estr}
 	,Split: {_hx_name:"Split",_hx_index:2,__enum__:"type.Shape",toString:$estr}
 	,Keywell: {_hx_name:"Keywell",_hx_index:3,__enum__:"type.Shape",toString:$estr}
+	,Special: {_hx_name:"Special",_hx_index:4,__enum__:"type.Shape",toString:$estr}
 };
-type_Shape.__constructs__ = [type_Shape.Monoblock,type_Shape.Unibody,type_Shape.Split,type_Shape.Keywell];
+type_Shape.__constructs__ = [type_Shape.Monoblock,type_Shape.Unibody,type_Shape.Split,type_Shape.Keywell,type_Shape.Special];
 var type_Software = $hxEnums["type.Software"] = { __ename__:true,__constructs__:null
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.Software",toString:$estr}
 	,VIA: {_hx_name:"VIA",_hx_index:1,__enum__:"type.Software",toString:$estr}
