@@ -84,7 +84,8 @@ class ColStagBoards {
 			source: "https://github.com/kata0510/Lily58",
 			kit: [
 				"https://mechboards.co.uk/collections/kits/products/lily58-kit",
-				"https://splitkb.com/collections/keyboard-kits/products/aurora-lily58"
+				"https://splitkb.com/collections/keyboard-kits/products/aurora-lily58",
+				"https://www.boardsource.xyz/products/lulu"
 			],
 			prebuilt: "https://shop.yushakobo.jp/products/lily58-pro/",
 			img: "lily58.jpg",

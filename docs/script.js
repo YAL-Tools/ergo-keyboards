@@ -50,7 +50,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 	add(kb);
-	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58"], prebuilt : type_ValList.fromValue("https://shop.yushakobo.jp/products/lily58-pro/"), img : type_ValList.fromValue("lily58.jpg")};
+	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58","https://www.boardsource.xyz/products/lulu"], prebuilt : type_ValList.fromValue("https://shop.yushakobo.jp/products/lily58-pro/"), img : type_ValList.fromValue("lily58.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
@@ -760,10 +760,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		shape.show = false;
 		shape.shortLabels.set(type_Shape.Monoblock,"Mono");
 		shape.shortLabels.set(type_Shape.Unibody,"Uni");
+		shape.shortLabels.set(type_Shape.Keywell,"KW");
+		shape.shortLabels.set(type_Shape.Special,"*");
 		var shapeUL = tools_HtmlTools.appendElTextNode(shape.notes,"ul","");
 		tools_HtmlTools.appendElTextNode(shapeUL,"li","Monoblock means a single-piece keyboard with no gaps, " + "such as with common non-ergonomic keyboards.");
 		tools_HtmlTools.appendElTextNode(shapeUL,"li","Unibody means a single-piece keyboard with " + "some sort of a gap in the middle of it.");
 		tools_HtmlTools.appendElTextNode(shapeUL,"li","Split means a keyboard consisting of two or more physical pieces that are connected " + "together with a cable or wirelessly.");
+		tools_HtmlTools.appendElTextNode(shapeUL,"li","Special means something interesting - folding keyboards, layered keyboards, and so on.");
 		this.addColumn(shape);
 		var staggerType = new table_TagColumn("Stagger type",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -991,6 +994,17 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(col);
 		col.filterName = col.name + " (mm)";
 		col.show = false;
+		col = new table_IntRangeColumn("Trackpoints",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.trackpoints = setValue;
+				return null;
+			} else {
+				return q.trackpoints;
+			}
+		});
+		this.addColumn(col);
+		tools_HtmlTools.appendParaTextNode(col.notes,"Those little pointing sticks. Usually found somewhere between the keys.");
+		col.show = false;
 		col = new table_IntRangeColumn("D-pads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.dpads = setValue;
@@ -1055,6 +1069,8 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		},type_Assembly);
 		asm.defaultValue = [];
+		tools_HtmlTools.appendParaTextNode(asm.notes,"Assume keyboards to have PCBs unless specified otherwise.");
+		tools_HtmlTools.appendParaTextNode(asm.notes,"If a keyboard is marked as both PCB and handwire, it has two versions.");
 		asm.shortName = "Assembly";
 		asm.show = false;
 		this.addColumn(asm);
@@ -1144,11 +1160,12 @@ Main.main = function() {
 	t.buildFilters(window.document.querySelector("#filter"));
 	t.buildTable(window.document.querySelector("#data"));
 	table_FancyTableEditor.build(t,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
+	var shuffler = new table_FancyTableShuffler("");
 	if($global.location.hostname == "localhost") {
 		var editorDetails = window.document.querySelector("#editor-outer");
+	} else {
+		t.sortBy(shuffler,false);
 	}
-	var shuffler = new table_FancyTableShuffler("");
-	t.sortBy(shuffler,false);
 	window.document.querySelector("#shuffle").onclick = function() {
 		if(t.sortColHead != null) {
 			t.sortColHead.element.classList.remove("sort-column");
@@ -3487,11 +3504,13 @@ tools_HtmlTools.setDisplayFlag = function(el,visible) {
 };
 var type_Assembly = $hxEnums["type.Assembly"] = { __ename__:true,__constructs__:null
 	,Unspecified: {_hx_name:"Unspecified",_hx_index:0,__enum__:"type.Assembly",toString:$estr}
-	,Handwired: {_hx_name:"Handwired",_hx_index:1,__enum__:"type.Assembly",toString:$estr}
-	,Printed: {_hx_name:"Printed",_hx_index:2,__enum__:"type.Assembly",toString:$estr}
-	,Adjustable: {_hx_name:"Adjustable",_hx_index:3,__enum__:"type.Assembly",toString:$estr}
+	,PCB: {_hx_name:"PCB",_hx_index:1,__enum__:"type.Assembly",toString:$estr}
+	,ThroughHole: {_hx_name:"ThroughHole",_hx_index:2,__enum__:"type.Assembly",toString:$estr}
+	,Handwired: {_hx_name:"Handwired",_hx_index:3,__enum__:"type.Assembly",toString:$estr}
+	,Printed: {_hx_name:"Printed",_hx_index:4,__enum__:"type.Assembly",toString:$estr}
+	,Adjustable: {_hx_name:"Adjustable",_hx_index:5,__enum__:"type.Assembly",toString:$estr}
 };
-type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.Handwired,type_Assembly.Printed,type_Assembly.Adjustable];
+type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.PCB,type_Assembly.ThroughHole,type_Assembly.Handwired,type_Assembly.Printed,type_Assembly.Adjustable];
 var type_Connection = $hxEnums["type.Connection"] = { __ename__:true,__constructs__:null
 	,Wired: {_hx_name:"Wired",_hx_index:0,__enum__:"type.Connection",toString:$estr}
 	,Bluetooth: {_hx_name:"Bluetooth",_hx_index:1,__enum__:"type.Connection",toString:$estr}

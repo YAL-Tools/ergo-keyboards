@@ -288,6 +288,10 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		col.filterName = col.name + " (mm)";
 		col.show = false;
 		
+		mAddColumn(col = new IntRangeColumn("Trackpoints", kb.trackpoints));
+		col.notes.appendParaTextNode("Those little pointing sticks. Usually found somewhere between the keys.");
+		col.show = false;
+		
 		mAddColumn(col = new IntRangeColumn("D-pads", kb.dpads));
 		col.show = false;
 		col.notes.appendTextNode(
@@ -316,6 +320,12 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		var asm = new TagListColumn("Assembly specifics", mgf(kb.assembly), Assembly);
 		asm.defaultValue = [];
+		asm.notes.appendParaTextNode(
+			"Assume keyboards to have PCBs unless specified otherwise."
+		);
+		asm.notes.appendParaTextNode(
+			"If a keyboard is marked as both PCB and handwire, it has two versions."
+		);
 		//asm.shortLabels[Assembly.Unspecified] = "";
 		asm.shortName = "Assembly";
 		asm.show = false;

@@ -261,8 +261,8 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Column",
 	"keys": 38,
-	"rows": 6,
-	"cols": 3,
+	"rows": 3,
+	"cols": 6,
 	"thumbKeys": 3,
 	"outerKeys": -2,
 	"switchProfile": [
@@ -404,7 +404,7 @@ window.keyboardData = [
 	"source": "https://github.com/dnlbauer/corax56-keyboard"
 },
 {
-	"name": "https://github.com/Dwctor/Kaly",
+	"name": "Kaly",
 	"img": "Kaly.jpg",
 	"shape": "Split",
 	"stagger": "Column",
@@ -449,15 +449,16 @@ window.keyboardData = [
 		"Bluetooth"
 	],
 	"keys": 58,
-	"rows": 6,
-	"cols": 4,
+	"rows": 4,
+	"cols": 6,
 	"thumbKeys": 5,
 	"pinkyStagger": 0.3,
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
 	"displays": 2,
 	"firmware": "ZMK",
-	"source": "https://github.com/compressionKeyboards/compression4c"
+	"source": "https://github.com/compressionKeyboards/compression4c",
+	"prebuilt": "https://compressionkeyboards.com/collections/all"
 },
 {
 	"name": "Charybdis",
@@ -590,6 +591,516 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"firmware": "ZMK",
 	"source": "https://github.com/SolidHal/btrfld"
+},
+{
+	"name": "sok42",
+	"img": "sok42.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 84,
+	"rows": 5,
+	"cols": 7,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"switchProfile": "Optical",
+	"software": "Custom",
+	"source": "https://github.com/Dachtire/sok42"
+},
+{
+	"name": "Lil Chonky Bois",
+	"img": "lil-chonky-bois.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"source": "https://github.com/sanderboer/chonkybois"
+},
+{
+	"name": "Harper",
+	"img": "harper.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 62,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.3,
+	"encoders": 2,
+	"encoderType": "Knob",
+	"firmware": "ZMK",
+	"prebuilt": "https://t.me/splitted_space"
+},
+{
+	"name": "Torn",
+	"img": "torn.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 42,
+		"max": 44
+	},
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 3,
+		"max": 4
+	},
+	"pinkyStagger": 0.3,
+	"encoders": {
+		"min": 0,
+		"max": 2
+	},
+	"encoderType": "Knob",
+	"firmware": "QMK",
+	"software": "VIA",
+	"assembly": "ThroughHole",
+	"kit": "https://github.com/rtitmuss/torn"
+},
+{
+	"name": "oddball",
+	"img": "oddball.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": {
+		"min": 38,
+		"max": 40
+	},
+	"thumbKeys": {
+		"min": 1,
+		"max": 2
+	},
+	"pinkyStagger": 0.3,
+	"trackballs": {
+		"min": 0,
+		"max": 2
+	},
+	"firmware": "QMK",
+	"source": "https://github.com/atulloh/oddball"
+},
+{
+	"name": "Choctopus44",
+	"img": "choctopus44v2.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "Vial",
+	"source": "https://github.com/SlightHeadache/choctopus44"
+},
+{
+	"name": "Santoku",
+	"img": "Santoku.webp",
+	"shape": [
+		"Unibody",
+		"Split"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"encoders": 1,
+	"encoderType": "Wheel",
+	"trackpoints": 1,
+	"displays": 1,
+	"firmware": "QMK",
+	"kit": "https://gestaltinput.com/products/santoku-keyboard-kit-black"
+},
+{
+	"name": "Microdox",
+	"img": "microdox.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": {
+		"min": 34,
+		"max": 36
+	},
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"encoders": 2,
+	"firmware": "QMK",
+	"kit": "https://www.boardsource.xyz/products/microdox"
+},
+{
+	"name": "Kinesis Advantage360",
+	"img": "kinesis-advantage360.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 76,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 6,
+	"innerKeys": 3,
+	"cornerKeys": 5,
+	"pinkyStagger": 0.25,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "Custom",
+	"prebuilt": "https://kinesis-ergo.com/products/#adv360"
+},
+{
+	"name": "Kinesis Advantage 2",
+	"img": "kinesis-advantage2",
+	"shape": [
+		"Unibody",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 86,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 6,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.25,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "Custom",
+	"prebuilt": "https://kinesis-ergo.com/products/#advantage2"
+},
+{
+	"name": "Thumbs Up!",
+	"img": "thumbsup.jpg",
+	"shape": [
+		"Unibody",
+		"Special"
+	],
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 38,
+		"max": 58
+	},
+	"rows": {
+		"min": 3,
+		"max": 4
+	},
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
+	"thumbKeys": {
+		"min": 4,
+		"max": 5
+	},
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc",
+		"Alps"
+	],
+	"firmware": "QMK",
+	"web": "https://www.thumbsup.shop",
+	"prebuilt": "https://www.thumbsup.shop/shop"
+},
+{
+	"name": "Planeta",
+	"img": "planeta.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"innerKeys": 1,
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"prebuilt": "https://ergohaven.xyz/shop/tproduct/339856256-880659810681-planeta"
+},
+{
+	"name": "K:02",
+	"img": "k-02.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"displays": 2,
+	"firmware": "QMK",
+	"software": "Vial",
+	"prebuilt": "https://ergohaven.xyz/shop/tproduct/339856256-523210054391-k02"
+},
+{
+	"name": "Abomination",
+	"img": "abomination.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"innerKeys": 2,
+	"pinkyStagger": 0.45,
+	"splay": "PinkyOnly",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"trackpads": 1,
+	"firmware": "QMK",
+	"source": "https://github.com/sebastian-stumpf/abomination"
+},
+{
+	"name": "Sweep",
+	"img": "sweep.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"switchProfile": [
+		"Choc",
+		"ChocV2",
+		"Alps"
+	],
+	"keySpacing": "Choc",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"source": "https://github.com/davidphilipbarr/Sweep"
+},
+{
+	"name": "splitreus62",
+	"img": "splitreus62.jpg",
+	"shape": "Split",
+	"keys": 62,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.3,
+	"source": "https://github.com/Na-Cly/splitreus62"
+},
+{
+	"name": "Spleeb",
+	"img": "spleeb.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 62,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"innerKeys": 3,
+	"outerKeys": -1,
+	"pinkyStagger": 0.7,
+	"switchProfile": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"trackpads": 1,
+	"displays": 1,
+	"firmware": "QMK",
+	"source": "https://github.com/chrishoage/spleeb"
+},
+{
+	"name": "Smudge",
+	"img": "smudge.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 46,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 1.5,
+	"assembly": "Handwired",
+	"source": "https://github.com/Sandalmoth/keyboards/tree/master/smudge"
+},
+{
+	"name": "Lörtsy",
+	"img": "lortsyboard.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 74,
+		"max": 76
+	},
+	"rows": 5,
+	"cols": 6,
+	"thumbKeys": 2,
+	"innerKeys": 1,
+	"cornerKeys": 5,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"source": "https://github.com/Cedutus/LortsyBoard"
+},
+{
+	"name": "Essence",
+	"img": "Essence.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 64,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 3,
+	"cornerKeys": 1,
+	"pinkyStagger": 0.25,
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"source": "https://github.com/Hyper-works/Essence"
+},
+{
+	"name": "Manta60",
+	"img": "manta60.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 64,
+		"max": 66
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 4,
+		"max": 5
+	},
+	"innerKeys": 3,
+	"cornerKeys": 1,
+	"source": "https://github.com/KamoNanban/Manta60"
+},
+{
+	"name": "Nyx",
+	"img": "nyx.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 64,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"firmware": "ZMK",
+	"source": "https://github.com/tadfisher/nyx-kb"
+},
+{
+	"name": "Centromere Plus",
+	"img": "Centromere-Plus.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Wireless"
+	],
+	"keys": {
+		"min": 60,
+		"max": 62
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 3,
+		"max": 4
+	},
+	"innerKeys": 3,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"firmware": "QMK",
+	"kit": "https://southpawdesign.net/collections/all"
 },
 null
 ];

@@ -29,12 +29,13 @@ class Main {
 			document.querySelectorAuto("#editor-test"),
 			document.querySelectorAuto("#editor-output")
 		);
+		var shuffler = new FancyTableShuffler<ColStagKeyboard>("");
 		if (location.hostname == "localhost") {
 			var editorDetails:DetailsElement = document.querySelectorAuto("#editor-outer");
 			//editorDetails.open = true;
+		} else {
+			t.sortBy(shuffler, false);
 		}
-		var shuffler = new FancyTableShuffler<ColStagKeyboard>("");
-		t.sortBy(shuffler, false);
 		document.querySelectorAuto("#shuffle", InputElement).onclick = function() {
 			if (t.sortColHead != null) {
 				t.sortColHead.element.classList.remove("sort-column");
