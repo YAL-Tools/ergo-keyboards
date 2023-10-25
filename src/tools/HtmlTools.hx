@@ -1,6 +1,7 @@
 package tools;
 import haxe.DynamicAccess;
 import haxe.Json;
+import haxe.Rest;
 import js.html.*;
 import haxe.extern.EitherType;
 import js.Browser;
@@ -47,11 +48,15 @@ class HtmlTools {
 		e.appendChild(div);
 		return div;
 	}
-	public static function appendParaTextNode(e:Element, text:String) {
-		var p = Browser.document.createParagraphElement();
-		p.appendChild(Browser.document.createTextNode(text));
-		e.appendChild(p);
-		return p;
+	public static function appendParaTextNode(e:Element, paras:Rest<String>) {
+		var result:ParagraphElement = null;
+		for (text in paras) {
+			var p = Browser.document.createParagraphElement();
+			p.appendChild(Browser.document.createTextNode(text));
+			e.appendChild(p);
+			if (result == null) result = p;
+		}
+		return result;
 	}
 	public static function appendElTextNode(e:Element, tag:String, text:String) {
 		var p = Browser.document.createElement(tag);

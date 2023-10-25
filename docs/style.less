@@ -91,12 +91,46 @@ th, td {
 	td {
 		border-top: 1px solid #ddd;
 	}
+	tr.latest {
+		background-color: #374bff10;
+	}
 	tr:hover {
 		background-color: #FFE03730;
 	}
 }
 input[invalid] {
-	outline: 2px solid red;
+	outline: 2px solid #f77;
+}
+body.night {
+	background-color: #405070;
+	color: white;
+	
+}
+body.night, .tippy-content {
+	@border: #a5b5ce;
+	a {
+		color: #9DEC76;
+		&:visited {
+			color: #7ef0ff;
+		}
+	}
+	#filter {
+		details {
+			border-color: @border;
+		}
+	}
+	#data {
+		border-color: @border;
+		td {
+			border-color: @border;
+		}
+		tr.latest {
+			background-color: #37ff6919;
+		}
+		tr:hover {
+			background-color: #3794ff30;
+		}
+	}
 }
 .tippy-content {
 	.tippy-photo {
@@ -112,7 +146,6 @@ input[invalid] {
 	ul {
 		padding-left: 1em;
 	}
-	a, a:visited { color: white }
 	p.img {
 		text-align: center;
 		font-size: 85%;

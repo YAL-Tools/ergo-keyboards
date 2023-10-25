@@ -32,7 +32,9 @@ class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT> 
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
 		var range = access(kb);
-		out.appendTextNode(range != null ? range.toString() : nullCaption);
+		var text = range != null ? range.toString() + suffix : nullCaption;
+		out.appendTextNode(text);
+		out.title = [kb.name, name + ":", text].join("\n");
 	}
 	override public function matchesFilter(kb:KB):Bool {
 		var val:NumRange<NT> = access(kb) ?? defaultValue;
@@ -86,6 +88,13 @@ class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT> 
 	}
 	override public function load(kb:KB):Void {
 		var val = access(kb);
-		if (val is Float) access(kb, true, new NumRange(cast val, cast val));
+		if (val is Array) {
+			var arr:Array<NT> = cast val;
+			access(kb, true, new NumRange(arr[0], arr[1]));
+		}
+		else if (val is Float) {
+			var num:NT = cast val;
+			access(kb, true, new NumRange(num, num));
+		}
 	}
 }

@@ -20,6 +20,7 @@ class NumberColumnBase<KB:Keyboard, NT:Float> extends FancyColumn<KB> {
 	public var filterMax:Null<NT> = null;
 	public var filterIncludeNull = false;
 	public var filterIncludeNullLabel:String = null;
+	public var suffix:String = "";
 	
 	public function parseFilterValue(val:String):NT {
 		return null;
@@ -44,6 +45,9 @@ class NumberColumnBase<KB:Keyboard, NT:Float> extends FancyColumn<KB> {
 			var startVal = get();
 			var fd = document.createInputElement();
 			fd.type = "number";
+			if (knownRange != null) {
+				fd.value = "" + (isMin ? knownRange.min : knownRange.max);
+			}
 			fd.disabled = startVal == null;
 			if (startVal != null) fd.value = "" + startVal;
 			function setValue(val:Null<NT>) {

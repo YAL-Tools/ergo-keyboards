@@ -18,6 +18,12 @@ class FancyRow<KB:Keyboard> {
 	public function new(kb:KB) {
 		keyboard = kb;
 		element = document.createTableRowElement();
+		element.addEventListener("click", function(_) {
+			var cur = element.parentElement.querySelector("tr.latest");
+			if (cur != null) cur.classList.remove("latest");
+			
+			element.classList.add("latest");
+		});
 	}
 }
 class FancyTableCellBase<KB:Keyboard> {

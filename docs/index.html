@@ -8,6 +8,30 @@
 	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
 <body>
+	<label>
+		<input type="checkbox" id="cb-night"/>
+		Dark mode
+	</label><script>
+		(function() {
+			var cb = document.getElementById("cb-night");
+			function set(val) {
+				if (val) document.body.classList.add("night");
+				else document.body.classList.remove("night")
+			}
+			try {
+				var val = localStorage.getItem("yal-ergo-night");
+				if (val) {
+					cb.checked = val;
+					set(val == "1");
+				}
+			} catch (_) {}
+			cb.onchange = function() {
+				var val = cb.checked;
+				set(val);
+				localStorage.setItem("yal-ergo-night", val ? "1" : "0")
+			}
+		})();
+	</script>
 	<h1>What's this</h1>
 	<p>
 		This is a collection of column-staggered and ortholinear ergonomic keyboards.
@@ -62,6 +86,62 @@
 		or <a href="https://yal.cc/about/" target="_blank">otherwise</a>
 		)<br>
 		<textarea id="editor-output" rows="10"></textarea>
+	</details>
+	<h2>Frequently asked questions</h2>
+	<details>
+		<summary>A keyboard is missing!</summary>
+		<p>
+			Please fill out and submit keyboards using the above editor -
+			I try to add interesting keyboards when I encounter them,
+			but there are hundreds of open-source keyboards alone so help is always welcome.
+		</p><p>
+			Generally it takes a few minutes (or even less if you made the thing and know the specifics) to fill out the metadata for a keyboard.
+		</p>
+	</details>
+	<details>
+		<summary>Something's wrong / amiss about a keyboard</summary>
+		<p>
+			You can submit corrections as simple notes
+			or by loading an existing keyboard in the above editor, making edits, and submitting the updated JSON.
+		</p><p>
+			Personally I tend to go over 5-10 keyboards at a time based on readily available information,
+			so if something cannot be derived from the description, photos, or part list, I won't be filling that out.
+		</p><p>
+			And if you make open-source hardware and are reading this,
+			if you do not have a part list/feature list in your repo,
+			please at least mention whether the keyboard is made for hotswap sockets or not,
+			and the switch type(s) if it's not just MX.
+			The reader shouldn't have to look at KiCAD files .
+		</p>
+	</details>
+	<details>
+		<summary>Can you add a column?</summary>
+		<p>
+			I can generally add additional columns to the table so long as it's something that:
+		</p><ul><li>
+			Can be easily derived
+		</li><li>
+			Is of value to the average reader
+		</li><li>
+			Appears on more than just a couple keyboards
+		</li></ul><p>
+			Bonus points if you're willing to go over the existing keyboards
+			and add a new bit of metadata to them yourself.
+		</p><p>
+			Some examples:
+		</p><ul><li>
+			Microcontroller type could be valuable,
+			but is not commonly mentioned in open-source projects -
+			you might recognize from a photo or guess based on slot size,
+			but otherwise you'd have to look at the source files.
+		</li><li>
+			Splay could have been measured in degrees, but this adds a
+			bunch of columns and a certain amount of overhead
+			(in measuring angles between columns) when going over keyboards with splay.
+		</li><li>
+			Measuring tilt and tenting is problematic, but kind of important for unibody keyboards,
+			so that gets a pass.
+		</li></ul>
 	</details>
 	<h2>Credits</h2>
 	<p>

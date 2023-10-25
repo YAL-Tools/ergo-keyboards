@@ -59,6 +59,10 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 			opts.content = function(_) return list;
 			Tippy.bind(link, opts);
 		}
+		out.title = [
+			kb.name,
+			name + " (" + (lines != null ? lines.length : 0) + ")"
+		].join("\n");
 	}
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var textarea = document.createTextAreaElement();

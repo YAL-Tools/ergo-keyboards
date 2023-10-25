@@ -2,6 +2,7 @@ package ;
 import js.Browser;
 import type.*;
 import js.html.Element;
+import table.IntRangeColumn;
 import table.TagColumn;
 import table.TagListColumn;
 import type.Keyboard;
@@ -262,7 +263,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		colSpacing.shortLabels[KeySpacing.Unknown] = "?";
 		addColumn(colSpacing);
 	}
-	function initCuriosities(kb:ColStagKeyboard) {
+	function initInputs(kb:ColStagKeyboard) {
 		addFilterHeader("Other input devices");
 		var col:FancyColumn<ColStagKeyboard>;
 		
@@ -303,8 +304,78 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		col.notes.appendTextNode(
 			"If it's 3, it's probably a so-called rocker switch."
 		);
+	}
+	function initConveniences(kb:ColStagKeyboard) {
+		addFilterHeader("Conveniences");
+		var col:FancyColumn<ColStagKeyboard>;
 		
+		var palm = new TagColumn("Palm/wrist pads", mgf(kb.wristPads), WristPads);
+		palm.show = false;
+		palm.shortLabels[WristPads.None] = "";
+		palm.shortLabels[WristPads.Integrated] = "+";
+		palm.shortLabels[WristPads.Detachable] = "±";
+		palm.notes.appendParaTextNode(
+			"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them"
+			+ " separately, or use any other semi-soft object of your choice"
+			+ " (such as a folded little towel or a Purple Squishy)",
+			"Some people argue that making your own palm rest is often preferable as you can"
+			+ " pick the height/firmness."
+		);
+		addColumn(palm);
+		
+		var irCol:IntRangeColumn<ColStagKeyboard>;
+		mAddColumn(irCol = new IntRangeColumn("Tilt", kb.tilt));
+		irCol.suffix = "°";
+		irCol.show = false;
+		irCol.notes.appendParaTextNode(
+			"Measured in degrees, approximately (unless specified by author/manufacturer).",
+			"Positive values mean that the back edge of the keyboard is positioned higher than"
+			+ " the front edge relative to the surface it's sitting on.",
+			"A range usually means that keyboard has a pair (or few) legs on front/back.",
+			"Not filled out for keywell keyboards since this doesn't make sense there.",
+			"If the keyboard has no legs, you can always add your own - adhesive legs for laptops"
+			+ " work perfectly well for keyboards too."
+		);
+		
+		mAddColumn(irCol = new IntRangeColumn("Tenting", kb.tenting));
+		irCol.suffix = "°";
+		irCol.show = false;
+		irCol.notes.appendParaTextNode(
+			"Some keyboards have an integrated system to raise the middle part of the keyboard"
+			+ " to keep palms at a more natural angle - usually either holes for tenting-legs"
+			+ " or magnets hidden in the bottom plate."
+		);
+		addImagePara(irCol.notes, "high-stakes-tenting.jpg", 450, 244,
+			'30mm vs 15mm tenting legs on ErgoHaven\'s K:02'
+		);
+		irCol.notes.appendParaTextNode(
+			"Measured in degrees, approximately (unless specified by author/manufacturer).",
+			"Much like with above, you can always make up for this yourself."
+		);
+		
+		var ctCol = new TagListColumn("Case", mgf(kb.caseType), CaseType);
+		ctCol.notes.appendParaTextNode(
+			"For pre-built/kit keyboards, Included means that it comes with the keyboard.",
+			"For open-source keyboards, Included means that case files can be found in the repo.",
+			"Third-party means that cases can be found or bought elsewhere.",
+		);
+		ctCol.shortName = "Case";
+		ctCol.shortLabels[CaseType.Unknown] = "";
+		ctCol.shortLabels[CaseType.None] = "-";
+		ctCol.shortLabels[CaseType.Included] = "+";
+		ctCol.shortLabels[CaseType.ThirdParty] = "3p";
+		ctCol.show = false;
+		addColumn(ctCol);
+		
+		var clCol = new LinkListColumn("CL", mgf(kb.caseList));
+		clCol.show = false;
+		clCol.shortName = "cl";
+		addColumn(clCol);
+	}
+	function initCuriosities(kb:ColStagKeyboard) {
 		addFilterHeader("Other curiosities");
+		var col:FancyColumn<ColStagKeyboard>;
+		
 		mAddColumn(col = new IntRangeColumn("Displays", kb.displays));
 		col.show = false;
 		
@@ -353,7 +424,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		var kb:ColStagKeyboard = null;
 		initGeneral(kb);
 		initSwitch(kb);
+		initInputs(kb);
 		initCuriosities(kb);
+		initConveniences(kb);
 		initLinks(kb);
 		
 		var col:FancyColumn<ColStagKeyboard>;

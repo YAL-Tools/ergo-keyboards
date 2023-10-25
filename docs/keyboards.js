@@ -10,6 +10,7 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 4,
 	"cornerKeys": 4,
+	"caseType": "Included",
 	"source": "https://github.com/profet23/atreus62/",
 	"kit": "https://shop.profetkeyboards.com/category/atreus62"
 },
@@ -31,6 +32,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 1
 	},
+	"caseType": "Included",
 	"source": "https://github.com/TweetyDaBird/Lotus-Keyboard",
 	"kit": "https://lectronz.com/stores/tweetys-wild-thinking"
 },
@@ -68,6 +70,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 2
 	},
+	"caseType": "Included",
 	"kit": [
 		"https://fingerpunch.xyz/product/ximi/"
 	]
@@ -105,6 +108,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 1
 	},
+	"caseType": "Included",
 	"kit": [
 		"https://fingerpunch.xyz/product/faux-fox-keyboard-v3/"
 	]
@@ -136,6 +140,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "VIA",
 	"encoderType": "Knob",
+	"caseType": "Included",
 	"kit": "https://keeb.io/collections/nyquist-keyboard-collection",
 	"prebuilt": "https://keeb.io/collections/pre-built-keyboards/products/nyquist-keyboard-pre-built"
 },
@@ -157,6 +162,7 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"firmware": "Custom",
 	"software": "Custom",
+	"caseType": "Included",
 	"prebuilt": "https://shop.keyboard.io/collections/keyboardio-atreus/products/keyboardio-atreus"
 },
 {
@@ -198,6 +204,7 @@ window.keyboardData = [
 		"QMK",
 		"ZMK"
 	],
+	"caseType": "Included",
 	"source": "https://github.com/GEIGEIGEIST/KLOR",
 	"img": "KLOR_polydactyl_DES01.jpg",
 	"notes": ["Also supports haptic feedback and speakers (?)"]
@@ -224,6 +231,7 @@ window.keyboardData = [
 		"ZMK"
 	],
 	"software": "Vial",
+	"caseType": "Included",
 	"source": "https://github.com/zzeneg/picachoc36"
 },
 {
@@ -253,6 +261,7 @@ window.keyboardData = [
 	"encoderType": "Wheel",
 	"trackballs": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/Ariamelon/Honeydew"
 },
 {
@@ -280,6 +289,7 @@ window.keyboardData = [
 	"displays": 1,
 	"firmware": "QMK",
 	"software": "Vial",
+	"caseType": "Included",
 	"source": "https://github.com/zzeneg/stront"
 },
 {
@@ -311,6 +321,7 @@ window.keyboardData = [
 		"QMK",
 		"ZMK"
 	],
+	"caseType": "Included",
 	"source": "https://github.com/zzeneg/pica40"
 },
 {
@@ -326,6 +337,7 @@ window.keyboardData = [
 	"switchProfile": "GateronLP",
 	"firmware": "QMK",
 	"software": "VIA",
+	"caseType": "Included",
 	"source": "https://showcase.beekeeb.com/corne-glp/",
 	"kit": "https://shop.beekeeb.com/product/corne-glp-kit/"
 },
@@ -377,6 +389,7 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"displays": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/jstevej/fidrildi"
 },
 {
@@ -401,6 +414,7 @@ window.keyboardData = [
 	"encoderType": "Wheel",
 	"displays": 2,
 	"firmware": "ZMK",
+	"caseType": "Included",
 	"source": "https://github.com/dnlbauer/corax56-keyboard"
 },
 {
@@ -457,6 +471,7 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"displays": 2,
 	"firmware": "ZMK",
+	"caseType": "Included",
 	"source": "https://github.com/compressionKeyboards/compression4c",
 	"prebuilt": "https://compressionkeyboards.com/collections/all"
 },
@@ -488,6 +503,7 @@ window.keyboardData = [
 		"max": 5
 	},
 	"trackballs": 1,
+	"caseType": "Included",
 	"source": "https://github.com/Bastardkb/Charybdis",
 	"kit": "https://bastardkb.com/charybdis/",
 	"prebuilt": "https://bastardkb.com/prebuilts/"
@@ -509,6 +525,7 @@ window.keyboardData = [
 	"splay": "Yes",
 	"hotswap": "Yes",
 	"switchProfile": "MX",
+	"caseType": "Included",
 	"source": "https://github.com/AlaaSaadAbdo/Rommana"
 },
 {
@@ -528,6 +545,7 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"displays": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/tzarc/ghoul"
 },
 {
@@ -545,7 +563,9 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"keySpacing": "Choc",
 	"displays": 1,
+	"tenting": 5,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/crides/fissure"
 },
 {
@@ -569,6 +589,7 @@ window.keyboardData = [
 	"switchProfile": "Other",
 	"trackpads": 1,
 	"displays": 1,
+	"caseType": "None",
 	"source": "https://github.com/crides/fusion"
 },
 {
@@ -588,8 +609,10 @@ window.keyboardData = [
 	"cols": 5,
 	"thumbKeys": 5,
 	"cornerKeys": 3,
+	"tenting": [0, 30],
 	"switchProfile": "Choc",
 	"firmware": "ZMK",
+	"caseType": "Included",
 	"source": "https://github.com/SolidHal/btrfld"
 },
 {
@@ -629,6 +652,7 @@ window.keyboardData = [
 		"QMK",
 		"ZMK"
 	],
+	"caseType": "Included",
 	"source": "https://github.com/sanderboer/chonkybois"
 },
 {
@@ -649,6 +673,7 @@ window.keyboardData = [
 	"encoders": 2,
 	"encoderType": "Knob",
 	"firmware": "ZMK",
+	"caseType": "Included",
 	"prebuilt": "https://t.me/splitted_space"
 },
 {
@@ -676,6 +701,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "VIA",
 	"assembly": "ThroughHole",
+	"caseType": "Included",
 	"kit": "https://github.com/rtitmuss/torn"
 },
 {
@@ -696,7 +722,9 @@ window.keyboardData = [
 		"min": 0,
 		"max": 2
 	},
+	"tenting": 7.5,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/atulloh/oddball"
 },
 {
@@ -723,7 +751,9 @@ window.keyboardData = [
 		"ZMK"
 	],
 	"software": "Vial",
-	"source": "https://github.com/SlightHeadache/choctopus44"
+	"caseType": "Included",
+	"source": "https://github.com/SlightHeadache/choctopus44",
+	"prebuilt": "https://shop.beekeeb.com/product/presoldered-choctopus44-keyboard/"
 },
 {
 	"name": "Santoku",
@@ -745,6 +775,7 @@ window.keyboardData = [
 	"trackpoints": 1,
 	"displays": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"kit": "https://gestaltinput.com/products/santoku-keyboard-kit-black"
 },
 {
@@ -769,6 +800,7 @@ window.keyboardData = [
 	],
 	"encoders": 2,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"kit": "https://www.boardsource.xyz/products/microdox"
 },
 {
@@ -793,11 +825,13 @@ window.keyboardData = [
 	"hotswap": "No",
 	"switchProfile": "MX",
 	"firmware": "Custom",
+	"wristPads": "Integrated",
+	"caseType": "Included",
 	"prebuilt": "https://kinesis-ergo.com/products/#adv360"
 },
 {
 	"name": "Kinesis Advantage 2",
-	"img": "kinesis-advantage2",
+	"img": "kinesis-advantage2.jpg",
 	"shape": [
 		"Unibody",
 		"Keywell"
@@ -816,6 +850,8 @@ window.keyboardData = [
 	"hotswap": "No",
 	"switchProfile": "MX",
 	"firmware": "Custom",
+	"wristPads": "Integrated",
+	"caseType": "Included",
 	"prebuilt": "https://kinesis-ergo.com/products/#advantage2"
 },
 {
@@ -852,7 +888,9 @@ window.keyboardData = [
 		"Choc",
 		"Alps"
 	],
+	"tenting": 15,
 	"firmware": "QMK",
+	"caseType": "None",
 	"web": "https://www.thumbsup.shop",
 	"prebuilt": "https://www.thumbsup.shop/shop"
 },
@@ -872,6 +910,8 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"firmware": "QMK",
 	"software": "Vial",
+	"caseType": "Included",
+	"kit": "https://ergohaven.xyz/shop/tproduct/339856256-451576977141-diy-kits",
 	"prebuilt": "https://ergohaven.xyz/shop/tproduct/339856256-880659810681-planeta"
 },
 {
@@ -888,8 +928,10 @@ window.keyboardData = [
 	"hotswap": "Yes",
 	"switchProfile": "MX",
 	"displays": 2,
+	"tenting": { "min": 0, "max": 15 },
 	"firmware": "QMK",
 	"software": "Vial",
+	"caseType": "Included",
 	"prebuilt": "https://ergohaven.xyz/shop/tproduct/339856256-523210054391-k02"
 },
 {
@@ -911,6 +953,7 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"trackpads": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/sebastian-stumpf/abomination"
 },
 {
@@ -936,7 +979,11 @@ window.keyboardData = [
 		"QMK",
 		"ZMK"
 	],
-	"source": "https://github.com/davidphilipbarr/Sweep"
+	"caseType": "Included",
+	"source": "https://github.com/davidphilipbarr/Sweep",
+	"kit": [
+		"https://holykeebs.com"
+	]
 },
 {
 	"name": "splitreus62",
@@ -948,6 +995,12 @@ window.keyboardData = [
 	"thumbKeys": 5,
 	"cornerKeys": 4,
 	"pinkyStagger": 0.3,
+	"switchProfile": [
+		"MX",
+		"Choc",
+		"Alps"
+	],
+	"caseType": "Included",
 	"source": "https://github.com/Na-Cly/splitreus62"
 },
 {
@@ -969,6 +1022,7 @@ window.keyboardData = [
 	"trackpads": 1,
 	"displays": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/chrishoage/spleeb"
 },
 {
@@ -986,6 +1040,7 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"pinkyStagger": 1.5,
 	"assembly": "Handwired",
+	"caseType": "Included",
 	"source": "https://github.com/Sandalmoth/keyboards/tree/master/smudge"
 },
 {
@@ -1008,6 +1063,7 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"firmware": "QMK",
 	"software": "Vial",
+	"caseType": "Included",
 	"source": "https://github.com/Cedutus/LortsyBoard"
 },
 {
@@ -1026,6 +1082,7 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"encoders": 1,
 	"encoderType": "Knob",
+	"caseType": "Included",
 	"source": "https://github.com/Hyper-works/Essence"
 },
 {
@@ -1049,6 +1106,7 @@ window.keyboardData = [
 	},
 	"innerKeys": 3,
 	"cornerKeys": 1,
+	"caseType": "Included",
 	"source": "https://github.com/KamoNanban/Manta60"
 },
 {
@@ -1071,6 +1129,7 @@ window.keyboardData = [
 		"Choc"
 	],
 	"firmware": "ZMK",
+	"caseType": "Included",
 	"source": "https://github.com/tadfisher/nyx-kb"
 },
 {
@@ -1100,7 +1159,295 @@ window.keyboardData = [
 		"Choc"
 	],
 	"firmware": "QMK",
+	"caseType": "Included",
 	"kit": "https://southpawdesign.net/collections/all"
+},
+{
+	"name": "NISSE",
+	"img": "NISSE.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 76,
+	"rows": 5,
+	"cols": 6,
+	"thumbKeys": 5,
+	"innerKeys": 2,
+	"outerKeys": 1,
+	"tenting": 12,
+	"tilt": 10,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "Custom",
+	"caseType": "Included",
+	"web": "https://www.esrille.com/keyboard/",
+	"prebuilt": "https://www.esrille.com/keyboard/store.html"
+},
+{
+	"name": "Chocofly",
+	"img": "chocofly.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 6,
+	"pinkyStagger": 0.2,
+	"splay": "PinkyOnly",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"encoders": 1,
+	"encoderType": "Wheel",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/vlkv/chocofly"
+},
+{
+	"name": "Sotka",
+	"img": "sotka.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": {
+		"min": 54,
+		"max": 60
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"encoders": {
+		"min": 0,
+		"max": 2
+	},
+	"encoderType": "Knob",
+	"caseType": "Included",
+	"source": "https://github.com/pohjolaworks/Sotka"
+},
+{
+	"name": "Frame 48",
+	"img": "frame48.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 52,
+		"max": 54
+	},
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": {
+		"min": 0,
+		"max": 1
+	},
+	"cornerKeys": 3,
+	"pinkyStagger": 0.4,
+	"switchProfile": "Choc",
+	"encoders": {
+		"min": 0,
+		"max": 2
+	},
+	"encoderType": "Knob",
+	"firmware": "QMK",
+	"software": "VIA",
+	"assembly": [
+		"Handwired"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/gregsqueeb/Frame-48"
+},
+{
+	"name": "Hotreus62",
+	"img": "Hotreus62.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"keys": 62,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/beekeeb/hotreus62",
+	"kit": "https://shop.beekeeb.com/product/hotreus62-pcb-kit/",
+	"prebuilt": "https://shop.beekeeb.com/product/pre-soldered-hotreus62/"
+},
+{
+	"name": "ErgoTravelXT",
+	"img": "ErgoTravelXT.jpg",
+	"shape": [
+		"Unibody",
+		"Split"
+	],
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 2,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.2,
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"caseType": "Included",
+	"source": "https://github.com/FIXMBR/ErgoTravelXT"
+},
+{
+	"name": "Cheapino",
+	"img": "cheapino.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.5,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"tenting": [0, 5],
+	"caseType": "Included",
+	"source": "https://github.com/tompi/cheapino"
+},
+{
+	"name": "Klavyl",
+	"img": "klavyl.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 62,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.4,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"assembly": "Handwired",
+	"wristPads": "Detachable",
+	"caseType": "Included",
+	"source": "https://github.com/klavgen/klavyl"
+},
+{
+	"name": "Ergo S-1",
+	"img": "S-1.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 68,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 6,
+	"firmware": "ZMK",
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"source": "https://github.com/wizarddata/Ergo-S-1"
+},
+{
+	"name": "JONKEY",
+	"img": "jonkey-v1.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 72,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 5,
+	"cornerKeys": 5,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/AtomicJon/jonkey"
+},
+{
+	"name": "7x5-split-ergo",
+	"img": "7x5-split-ergo.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 70,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/kai9240/7x5-split-ergo"
+},
+{
+	"name": "Protocol Seven",
+	"img": "protocol-seven.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"keys": 106,
+	"rows": 5,
+	"cols": 7,
+	"rcols": 11,
+	"thumbKeys": 2,
+	"cornerKeys": 2,
+	"navCluster": "Full",
+	"pinkyStagger": 0.8,
+	"source": "https://github.com/dotleon/protocol_seven"
+},
+{
+	"name": "Span",
+	"img": "span.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"trackballs": {
+		"min": 0,
+		"max": 1
+	},
+	"trackpoints": {
+		"min": 0,
+		"max": 1
+	},
+	"displays": {
+		"min": 0,
+		"max": 1
+	},
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/idank/spankbd",
+	"kit": "https://holykeebs.com/products/span",
+	"prebuilt": "https://holykeebs.com/products/span"
 },
 null
 ];

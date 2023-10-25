@@ -9,6 +9,5 @@ enum Assembly {
 	PCB;
 	ThroughHole;
 	Handwired;
-	Printed;
 	Adjustable;
 }

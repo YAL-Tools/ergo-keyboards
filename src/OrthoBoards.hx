@@ -37,7 +37,7 @@ class OrthoBoards {
 		kb = {
 			name: "simplyKeeb 60Kph",
 			source: "https://github.com/geaz/simplyKeeb-60K/tree/main/printedmx",
-			assembly: Printed,
+			assembly: Handwired,
 			img: "simplyKeeb-60K.jpg",
 			notes: "Like the regular simplyKeeb 60K, but fully 3d-printable."
 		};
