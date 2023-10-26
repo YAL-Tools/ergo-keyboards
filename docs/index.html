@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width" />
+	<meta property="theme-color" content="#FFF037" />
 	<title>YAL's ergo keyboard list</title>
-	<meta name="description" content="" />
+	<meta name="description" content="A sortable and filterable list of ergonomic keyboards!" />
 	<link rel="stylesheet" href="style.css?v=2023-10-26" /> 
 	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
@@ -24,8 +26,9 @@
 					val = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 				}
 				if (val) {
+					val = val == "1";
 					cb.checked = val;
-					set(val == "1");
+					set(val);
 				}
 			} catch (_) {}
 			cb.onchange = function() {
@@ -157,5 +160,15 @@
 	<script src="lib/tippy-bundle.umd.js"></script>
 	<script src="keyboards.js?v=2023-10-26"></script>
 	<script src="script.js?v=2023-10-26"></script>
+	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4R5QPPHC8M"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-4R5QPPHC8M');
+	</script>
 </body>
 </html>

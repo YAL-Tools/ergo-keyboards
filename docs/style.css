@@ -14,7 +14,7 @@ td {
 }
 #filter,
 #editor {
-  columns: 2;
+  columns: 1;
   margin-bottom: 0.5em;
 }
 #filter > details,
@@ -39,6 +39,18 @@ td {
 			vertical-align: super;
 			font-size: 50%;
 		}*/
+}
+@media only screen and (min-width: 600px) {
+  #filter,
+  #editor {
+    columns: 2;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  #filter,
+  #editor {
+    columns: 3;
+  }
 }
 #editor-outer {
   margin-top: 1em;
@@ -69,12 +81,6 @@ td {
 #editor-outer .filters.range > input {
   flex-grow: 1;
   max-width: 4em;
-}
-@media only screen and (min-width: 1200px) {
-  #filter,
-  #editor {
-    columns: 3;
-  }
 }
 #data {
   margin-top: 0.5em;
