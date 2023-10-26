@@ -46,11 +46,13 @@ class FancyTableFilters {
 					continue;
 				case Column(col): col;
 			}
+			var colName = column.filterName ?? column.name;
 			var tr = document.createDivElement();
 			tr.classList.add("item");
 			
 			var cbShow = document.createInputElement();
 			cbShow.type = "checkbox";
+			cbShow.title = 'Show "$colName"';
 			cbShow.checked = column.show;
 			cbShow.onchange = function(_) {
 				column.show = !column.show;
@@ -72,6 +74,7 @@ class FancyTableFilters {
 			
 			var cbFilter = document.createInputElement();
 			cbFilter.type = "checkbox";
+			cbFilter.title = 'Filter "$colName"';
 			cbFilter.checked = false;
 			cbFilter.disabled = !column.canFilter; //divFilters.children.length == 0;
 			cbFilter.onchange = function(_) {
@@ -84,7 +87,6 @@ class FancyTableFilters {
 			var meta = document.createDivElement();
 			meta.classList.add("name");
 			
-			var colName = column.filterName ?? column.name;
 			var colNameEl = document.createSpanElement();
 			colNameEl.appendTextNode(colName);
 			colNameEl.classList.add("column-name");

@@ -48,7 +48,7 @@ typedef Keyboard = {
 	?tenting:IntRange,
 	?tilt:IntRange,
 	?caseType:ValList<CaseType>,
-	?caseList:ValList<String>,
+	?extras:ValList<String>,
 	
 	?firmware:ValList<Firmware>,
 	?software:ValList<Software>,

@@ -367,10 +367,11 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		ctCol.show = false;
 		addColumn(ctCol);
 		
-		var clCol = new LinkListColumn("CL", mgf(kb.caseList));
-		clCol.show = false;
-		clCol.shortName = "cl";
-		addColumn(clCol);
+		var xCol = new LinkListColumn("Extras", mgf(kb.extras));
+		xCol.notes.appendParaTextNode("Cases, tenting kits, and so on");
+		xCol.show = false;
+		xCol.shortName = "xt";
+		addColumn(xCol);
 	}
 	function initCuriosities(kb:ColStagKeyboard) {
 		addFilterHeader("Other curiosities");

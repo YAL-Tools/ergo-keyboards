@@ -4,7 +4,7 @@
 	<meta charset="utf-8"/>
 	<title>YAL's ergo keyboard list</title>
 	<meta name="description" content="" />
-	<link rel="stylesheet" href="style.css?v=2023-10-20" /> 
+	<link rel="stylesheet" href="style.css?v=2023-10-26" /> 
 	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
 <body>
@@ -20,6 +20,9 @@
 			}
 			try {
 				var val = localStorage.getItem("yal-ergo-night");
+				if (val == null) {
+					val = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+				}
 				if (val) {
 					cb.checked = val;
 					set(val == "1");
@@ -152,7 +155,7 @@
 	</p>
 	<script src="lib/popper.min.js"></script>
 	<script src="lib/tippy-bundle.umd.js"></script>
-	<script src="keyboards.js?v=2023-10-20b"></script>
-	<script src="script.js?v=2023-10-20a"></script>
+	<script src="keyboards.js?v=2023-10-26"></script>
+	<script src="script.js?v=2023-10-26"></script>
 </body>
 </html>

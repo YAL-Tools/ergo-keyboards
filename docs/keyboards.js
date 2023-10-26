@@ -1449,5 +1449,55 @@ window.keyboardData = [
 	"kit": "https://holykeebs.com/products/span",
 	"prebuilt": "https://holykeebs.com/products/span"
 },
+{
+	"name": "Ergodonk",
+	"img": "ergodonk.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"innerKeys": -1,
+	"outerKeys": 2,
+	"switchProfile": "MX",
+	"assembly": "Handwired",
+	"wristPads": "Integrated",
+	"source": [
+		"https://imgur.com/a/Lt5Mwwv",
+		"https://www.thingiverse.com/thing:4892740"
+	]
+},
+{
+	"name": "Pluckey",
+	"img": "pluckey.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": {
+		"min": 66,
+		"max": 68
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 5,
+		"max": 6
+	},
+	"innerKeys": {
+		"min": 3,
+		"max": 4
+	},
+	"outerKeys": 4,
+	"pinkyStagger": 0.6,
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"tenting": {
+		"min": 0,
+		"max": 5
+	},
+	"caseType": "Included",
+	"source": "https://github.com/floookay/pluckey"
+},
 null
 ];

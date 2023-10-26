@@ -1162,17 +1162,18 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		ctCol.shortLabels.set(type_CaseType.ThirdParty,"3p");
 		ctCol.show = false;
 		this.addColumn(ctCol);
-		var clCol = new table_LinkListColumn("CL",function(q,wantSet,setValue) {
+		var xCol = new table_LinkListColumn("Extras",function(q,wantSet,setValue) {
 			if(wantSet) {
-				q.caseList = setValue;
+				q.extras = setValue;
 				return null;
 			} else {
-				return q.caseList;
+				return q.extras;
 			}
 		});
-		clCol.show = false;
-		clCol.shortName = "cl";
-		this.addColumn(clCol);
+		tools_HtmlTools.appendParaTextNode(xCol.notes,"Cases, tenting kits, and so on");
+		xCol.show = false;
+		xCol.shortName = "xt";
+		this.addColumn(xCol);
 	}
 	,initCuriosities: function(kb) {
 		this.addFilterHeader("Other curiosities");
@@ -2278,10 +2279,13 @@ table_FancyTableFilters.build = function(table,out) {
 			continue;
 		}
 		var column1 = [column];
+		var tmp = column1[0].filterName;
+		var colName = tmp != null ? tmp : column1[0].name;
 		var tr = window.document.createElement("div");
 		tr.classList.add("item");
 		var cbShow = window.document.createElement("input");
 		cbShow.type = "checkbox";
+		cbShow.title = "Show \"" + colName + "\"";
 		cbShow.checked = column1[0].show;
 		cbShow.onchange = (function(column) {
 			return function(_) {
@@ -2335,6 +2339,7 @@ table_FancyTableFilters.build = function(table,out) {
 		divFilters[0].classList.add("filters");
 		var cbFilter = [window.document.createElement("input")];
 		cbFilter[0].type = "checkbox";
+		cbFilter[0].title = "Filter \"" + colName + "\"";
 		cbFilter[0].checked = false;
 		cbFilter[0].disabled = !column1[0].canFilter;
 		cbFilter[0].onchange = (function(cbFilter,divFilters,column) {
@@ -2347,8 +2352,6 @@ table_FancyTableFilters.build = function(table,out) {
 		tr.appendChild(cbFilter[0]);
 		var meta = window.document.createElement("div");
 		meta.classList.add("name");
-		var tmp = column1[0].filterName;
-		var colName = tmp != null ? tmp : column1[0].name;
 		var colNameEl = window.document.createElement("span");
 		colNameEl.appendChild(window.document.createTextNode(colName));
 		colNameEl.classList.add("column-name");
