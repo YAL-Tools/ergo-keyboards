@@ -1499,5 +1499,51 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/floookay/pluckey"
 },
+{
+	"name": "BumWings",
+	"img": "bumwings_v001R64_rp2040zero_build_daily.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 54,
+		"max": 64
+	},
+	"rows": {
+		"min": 3,
+		"max": 4
+	},
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": {
+		"min": 2,
+		"max": 6
+	},
+	"innerKeys": {
+		"min": 2,
+		"max": 4
+	},
+	"cornerKeys": 2,
+	"navCluster": "Full",
+	"pinkyStagger": 0.7,
+	"splay": "Yes",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"assembly": [
+		"PCB",
+		"ThroughHole"
+	],
+	"wristPads": "None",
+	"caseType": "None",
+	"source": "https://github.com/tubbytwins/bumwings-kbd"
+},
 null
 ];
