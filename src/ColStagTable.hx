@@ -93,13 +93,15 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		navCluster.shortLabels[NavCluster.None] = "";
 		addColumn(navCluster);
 		
-		mAddColumn(col = new FloatColumn("Pinky stagger", kb.pinkyStagger));
-		col.show = false;
-		col.shortName = "pkStag";
-		col.notes.appendParaTextNode(
+		var pinkyStag = new FloatColumn("Pinky stagger", mgf(kb.pinkyStagger));
+		pinkyStag.show = false;
+		pinkyStag.shortName = "pkStag";
+		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
+		pinkyStag.notes.appendParaTextNode(
 			"Stagger between pinky finger column(s) and the ring finger column, " +
 			"measured in key-size units (0.5 is half a key step down)."
 		);
+		addColumn(pinkyStag);
 		
 		var splay = new TagColumn("Splay", mgf(kb.splay), SplayBase);
 		splay.show = false;
@@ -408,6 +410,10 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		var lc:LinkListColumn<ColStagKeyboard>;
 		
 		mAddColumn(lc = new LinkListColumn("Website", kb.web));
+		lc.notes.appendParaTextNode(
+			"If a keyboard has a separate page/website/post explaining the project motivation/etc."
+			+ " that's different from the rest of the links, that goes here."
+		);
 		lc.shortName = "web";
 		
 		mAddColumn(lc = new LinkListColumn("Open-source", kb.source));

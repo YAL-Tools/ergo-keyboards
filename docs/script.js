@@ -783,7 +783,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		navCluster.shortName = "nav";
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
-		col = new table_FloatColumn("Pinky stagger",function(q,wantSet,setValue) {
+		var pinkyStag = new table_FloatColumn("Pinky stagger",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.pinkyStagger = setValue;
 				return null;
@@ -791,10 +791,11 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.pinkyStagger;
 			}
 		});
-		this.addColumn(col);
-		col.show = false;
-		col.shortName = "pkStag";
-		tools_HtmlTools.appendParaTextNode(col.notes,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
+		pinkyStag.show = false;
+		pinkyStag.shortName = "pkStag";
+		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
+		tools_HtmlTools.appendParaTextNode(pinkyStag.notes,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
+		this.addColumn(pinkyStag);
 		var splay = new table_TagColumn("Splay",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.splay = setValue;
@@ -2285,7 +2286,6 @@ table_FancyTableFilters.build = function(table,out) {
 		tr.classList.add("item");
 		var cbShow = window.document.createElement("input");
 		cbShow.type = "checkbox";
-		cbShow.title = "Show \"" + colName + "\"";
 		cbShow.checked = column1[0].show;
 		cbShow.onchange = (function(column) {
 			return function(_) {
@@ -2333,13 +2333,18 @@ table_FancyTableFilters.build = function(table,out) {
 			};
 		})(column1);
 		tr.appendChild(cbShow);
+		var this1 = { };
+		this1["theme"] = "translucent";
+		var toShow = this1;
+		var v = "Show \"" + colName + "\"";
+		toShow["content"] = v;
+		Tippy(cbShow,toShow);
 		var divFilters = [window.document.createElement("div")];
 		column1[0].buildFilter(divFilters[0]);
 		tools_HtmlTools.setDisplayFlag(divFilters[0],false);
 		divFilters[0].classList.add("filters");
 		var cbFilter = [window.document.createElement("input")];
 		cbFilter[0].type = "checkbox";
-		cbFilter[0].title = "Filter \"" + colName + "\"";
 		cbFilter[0].checked = false;
 		cbFilter[0].disabled = !column1[0].canFilter;
 		cbFilter[0].onchange = (function(cbFilter,divFilters,column) {
@@ -2350,6 +2355,12 @@ table_FancyTableFilters.build = function(table,out) {
 			};
 		})(cbFilter,divFilters,column1);
 		tr.appendChild(cbFilter[0]);
+		var this2 = { };
+		this2["theme"] = "translucent";
+		var toFilter = this2;
+		var v1 = "Filter \"" + colName + "\"";
+		toFilter["content"] = v1;
+		Tippy(cbFilter[0],toFilter);
 		var meta = window.document.createElement("div");
 		meta.classList.add("name");
 		var colNameEl = window.document.createElement("span");

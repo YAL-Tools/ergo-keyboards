@@ -52,7 +52,6 @@ class FancyTableFilters {
 			
 			var cbShow = document.createInputElement();
 			cbShow.type = "checkbox";
-			cbShow.title = 'Show "$colName"';
 			cbShow.checked = column.show;
 			cbShow.onchange = function(_) {
 				column.show = !column.show;
@@ -66,6 +65,9 @@ class FancyTableFilters {
 				}
 			}
 			tr.appendChild(cbShow);
+			var toShow = new TippyOptions();
+			toShow.content = 'Show "$colName"';
+			Tippy.bind(cbShow, toShow);
 			
 			var divFilters = document.createDivElement();
 			column.buildFilter(divFilters);
@@ -74,7 +76,6 @@ class FancyTableFilters {
 			
 			var cbFilter = document.createInputElement();
 			cbFilter.type = "checkbox";
-			cbFilter.title = 'Filter "$colName"';
 			cbFilter.checked = false;
 			cbFilter.disabled = !column.canFilter; //divFilters.children.length == 0;
 			cbFilter.onchange = function(_) {
@@ -83,6 +84,9 @@ class FancyTableFilters {
 				table.updateFilters();
 			}
 			tr.appendChild(cbFilter);
+			var toFilter = new TippyOptions();
+			toFilter.content = 'Filter "$colName"';
+			Tippy.bind(cbFilter, toFilter);
 			
 			var meta = document.createDivElement();
 			meta.classList.add("name");

@@ -30,15 +30,9 @@ td {
   display: flex;
   align-items: start;
 }
-#filter .column-name.has-notes,
-#editor .column-name.has-notes {
+.has-notes {
   cursor: help;
   text-decoration: underline;
-  /*&:after {
-			content: "?";
-			vertical-align: super;
-			font-size: 50%;
-		}*/
 }
 @media only screen and (min-width: 600px) {
   #filter,
