@@ -1,5 +1,5 @@
 ---
-name: keyboard
+name: Keyboard
 about: Add/update a keyboard
 title: ''
 labels: ''
