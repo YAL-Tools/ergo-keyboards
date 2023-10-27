@@ -19,22 +19,48 @@ window.keyboardData = [
 	"img": "lotus58.webp",
 	"shape": "Split",
 	"stagger": "Column",
+	"connection": "Wired",
 	"keys": 58,
 	"rows": 4,
 	"cols": 6,
+	"rcols": 6,
 	"thumbKeys": 4,
 	"innerKeys": 1,
+	"pinkyStagger": 0,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
 	"encoders": {
 		"min": 0,
-		"max": 3
+		"max": 2
 	},
+	"encoderType": "Knob",
 	"displays": {
 		"min": 0,
-		"max": 1
+		"max": 2
 	},
-	"caseType": "Included",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": [
+		"PCB",
+		"ThroughHole"
+	],
+	"wristPads": "None",
+	"tilt": {
+		"min": 0,
+		"max": 20
+	},
+	"tenting": {
+		"min": 0,
+		"max": 20
+	},
+	"caseType": [
+		"Included",
+		"ThirdParty"
+	],
 	"source": "https://github.com/TweetyDaBird/Lotus-Keyboard",
-	"kit": "https://lectronz.com/stores/tweetys-wild-thinking"
+	"kit": "https://lectronz.com/stores/tweetys-wild-thinking",
+	"prebuilt": "https://lectronz.com/stores/tweetys-wild-thinking"
 },
 {
 	"name": "ximi",
@@ -1545,5 +1571,6 @@ window.keyboardData = [
 	"caseType": "None",
 	"source": "https://github.com/tubbytwins/bumwings-kbd"
 },
+// https://www.slicemk.com/collections/all?page=2
 null
 ];
