@@ -17,8 +17,8 @@ import js.Browser.*;
  * @author YellowAfterlife
  */
 class FancyTableFilters {
-	public static function addNotes<KB:Keyboard>(column:FancyColumn<KB>, el:Element) {
-		if (column.notes.childNodes.length > 0) {
+	public static function addNotesFor(notes:Element, el:Element) {
+		if (notes.childNodes.length > 0) {
 			el.classList.add("has-notes");
 			el.title = "(click to view notes)";
 			var opts = new TippyOptions();
@@ -26,16 +26,20 @@ class FancyTableFilters {
 			opts.interactive = true;
 			opts.appendTo = () -> el.parentElement;
 			opts.maxWidth = 480;
-			var notes:Element = cast column.notes.cloneNode(true);
+			var notes:Element = cast notes.cloneNode(true);
 			opts.content = function(_) return notes;
 			Tippy.bind(el, opts);
 		}
+	}
+	public static function addNotes<KB:Keyboard>(column:FancyColumn<KB>, el:Element) {
+		addNotesFor(column.notes, el);
 	}
 	public static function build<KB:Keyboard>(table:FancyTable<KB>, out:Element) {
 		var dest:Element = out;
 		for (item in table.filterOrder) {
 			var column = switch (item) {
-				case Header(text):
+				case Header(header):
+					var text = header.text;
 					var details = document.createDetailsElement();
 					details.open = true;
 					var summary = document.createElement("summary");
@@ -43,6 +47,12 @@ class FancyTableFilters {
 					details.appendChild(summary);
 					out.appendChild(details);
 					dest = details;
+					if (header.noticeText != null) {
+						var notice = document.createSpanElement();
+						notice.appendTextNode(header.noticeText);
+						addNotesFor(header.noticeNode, notice);
+						details.appendChild(notice);
+					}
 					continue;
 				case Column(col): col;
 			}

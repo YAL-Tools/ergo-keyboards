@@ -266,7 +266,16 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		addColumn(colSpacing);
 	}
 	function initInputs(kb:ColStagKeyboard) {
-		addFilterHeader("Other input devices");
+		var header = addFilterHeader("Other input devices");
+		header.noticeText = "ZMK + Wireless note";
+		header.noticeNode.appendParaTextNode(
+		"As of Nov 2023, ZMK firmware has limited support for pointing devices,"
+		+ " therefore wireless keyboards with pointing devices typically only support them"
+			+ " in (wired) QMK mode."
+		);
+		header.noticeNode.appendParaTextNode(
+			"Please double-check documentation for keyboards to avoid disappointment."
+		);
 		var col:FancyColumn<ColStagKeyboard>;
 		
 		mAddColumn(col = new IntRangeColumn("Encoders", kb.encoders));

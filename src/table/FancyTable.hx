@@ -35,7 +35,9 @@ class FancyTable<KB:Keyboard> {
 		filterOrder.push(Column(col));
 	}
 	public function addFilterHeader(text:String) {
-		filterOrder.push(Header(text));
+		var h = new FancyFilterHeader(text);
+		filterOrder.push(Header(h));
+		return h;
 	}
 	public function buildFilters(out:Element) {
 		FancyTableFilters.build(this, out);
@@ -136,5 +138,14 @@ class FancyTable<KB:Keyboard> {
 }
 enum FancyTableFilterOrder<KB:Keyboard> {
 	Column(col:FancyColumn<KB>);
-	Header(text:String);
+	Header(h:FancyFilterHeader);
+}
+class FancyFilterHeader {
+	public var text:String;
+	public var noticeText:String = null;
+	public var noticeNode:Element;
+	public function new(text:String) {
+		this.text = text;
+		noticeNode = document.createDivElement();
+	}
 }

@@ -36,11 +36,11 @@ class FancyTableEditor {
 		var restore:Array<KB->Void> = [];
 		for (item in table.filterOrder) {
 			var column = switch (item) {
-				case Header(text):
+				case Header(header):
 					var details = document.createDetailsElement();
 					details.open = true;
 					var summary = document.createElement("summary");
-					summary.appendTextNode(text);
+					summary.appendTextNode(header.text);
 					details.appendChild(summary);
 					out.appendChild(details);
 					dest = details;

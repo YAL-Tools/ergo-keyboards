@@ -520,7 +520,9 @@ table_FancyTable.prototype = {
 		this.filterOrder.push(table_FancyTableFilterOrder.Column(col));
 	}
 	,addFilterHeader: function(text) {
-		this.filterOrder.push(table_FancyTableFilterOrder.Header(text));
+		var h = new table_FancyFilterHeader(text);
+		this.filterOrder.push(table_FancyTableFilterOrder.Header(h));
+		return h;
 	}
 	,buildFilters: function(out) {
 		table_FancyTableFilters.build(this,out);
@@ -1003,7 +1005,10 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(colSpacing);
 	}
 	,initInputs: function(kb) {
-		this.addFilterHeader("Other input devices");
+		var header = this.addFilterHeader("Other input devices");
+		header.noticeText = "ZMK + Wireless note";
+		tools_HtmlTools.appendParaTextNode(header.noticeNode,"As of Nov 2023, ZMK firmware has limited support for pointing devices," + " therefore wireless keyboards with pointing devices typically only support them" + " in (wired) QMK mode.");
+		tools_HtmlTools.appendParaTextNode(header.noticeNode,"Please double-check documentation for keyboards to avoid disappointment.");
 		var col = new table_IntRangeColumn("Encoders",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.encoders = setValue;
@@ -1236,6 +1241,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		});
 		this.addColumn(lc);
+		tools_HtmlTools.appendParaTextNode(lc.notes,"If a keyboard has a separate page/website/post explaining the project motivation/etc." + " that's different from the rest of the links, that goes here.");
 		lc.shortName = "web";
 		lc = new table_LinkListColumn("Open-source",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2102,9 +2108,15 @@ table_FancyTableHeaderCell.prototype = $extend(table_FancyTableCellBase.prototyp
 });
 var table_FancyTableFilterOrder = $hxEnums["table.FancyTableFilterOrder"] = { __ename__:true,__constructs__:null
 	,Column: ($_=function(col) { return {_hx_index:0,col:col,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Column",$_.__params__ = ["col"],$_)
-	,Header: ($_=function(text) { return {_hx_index:1,text:text,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Header",$_.__params__ = ["text"],$_)
+	,Header: ($_=function(h) { return {_hx_index:1,h:h,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Header",$_.__params__ = ["h"],$_)
 };
 table_FancyTableFilterOrder.__constructs__ = [table_FancyTableFilterOrder.Column,table_FancyTableFilterOrder.Header];
+var table_FancyFilterHeader = function(text) {
+	this.noticeText = null;
+	this.text = text;
+	this.noticeNode = window.document.createElement("div");
+};
+table_FancyFilterHeader.__name__ = true;
 var table_FancyTableEditor = function() { };
 table_FancyTableEditor.__name__ = true;
 table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,fdJSON) {
@@ -2123,10 +2135,11 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 			column = col;
 			break;
 		case 1:
-			var text = item.text;
+			var header = item.h;
 			var details = window.document.createElement("details");
 			details.open = true;
 			var summary = window.document.createElement("summary");
+			var text = header.text;
 			summary.appendChild(window.document.createTextNode(text));
 			details.appendChild(summary);
 			out.appendChild(details);
@@ -2233,8 +2246,8 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 };
 var table_FancyTableFilters = function() { };
 table_FancyTableFilters.__name__ = true;
-table_FancyTableFilters.addNotes = function(column,el) {
-	if(column.notes.childNodes.length > 0) {
+table_FancyTableFilters.addNotesFor = function(notes,el) {
+	if(notes.childNodes.length > 0) {
 		el.classList.add("has-notes");
 		el.title = "(click to view notes)";
 		var this1 = { };
@@ -2247,13 +2260,16 @@ table_FancyTableFilters.addNotes = function(column,el) {
 		};
 		opts["appendTo"] = v;
 		opts["maxWidth"] = 480;
-		var notes = column.notes.cloneNode(true);
+		var notes1 = notes.cloneNode(true);
 		var v = function(_) {
-			return notes;
+			return notes1;
 		};
 		opts["content"] = v;
 		Tippy(el,opts);
 	}
+};
+table_FancyTableFilters.addNotes = function(column,el) {
+	table_FancyTableFilters.addNotesFor(column.notes,el);
 };
 table_FancyTableFilters.build = function(table,out) {
 	var dest = out;
@@ -2269,7 +2285,8 @@ table_FancyTableFilters.build = function(table,out) {
 			column = col;
 			break;
 		case 1:
-			var text = item.text;
+			var header = item.h;
+			var text = header.text;
 			var details = window.document.createElement("details");
 			details.open = true;
 			var summary = window.document.createElement("summary");
@@ -2277,6 +2294,13 @@ table_FancyTableFilters.build = function(table,out) {
 			details.appendChild(summary);
 			out.appendChild(details);
 			dest = details;
+			if(header.noticeText != null) {
+				var notice = window.document.createElement("span");
+				var text1 = header.noticeText;
+				notice.appendChild(window.document.createTextNode(text1));
+				table_FancyTableFilters.addNotesFor(header.noticeNode,notice);
+				details.appendChild(notice);
+			}
 			continue;
 		}
 		var column1 = [column];

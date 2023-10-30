@@ -1571,6 +1571,34 @@ window.keyboardData = [
 	"caseType": "None",
 	"source": "https://github.com/tubbytwins/bumwings-kbd"
 },
-// https://www.slicemk.com/collections/all?page=2
+{
+	"name": "Bad Wings",
+	"img": "bad-wings.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.6,
+	"splay": "PinkyOnly",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"trackpads": 1,
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "Vial",
+	"caseType": "Included",
+	"kit": "https://shop.hazel.cc/products/bad-wings-kit",
+	"prebuilt": "https://shop.hazel.cc/products/bad-wings"
+},
+// todo: https://www.slicemk.com/collections/all
 null
 ];
