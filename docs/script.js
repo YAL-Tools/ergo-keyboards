@@ -833,7 +833,8 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		var _gthis = this;
 		this.addFilterHeader("Key clusters and specifics");
 		var notes;
-		var col = new table_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
+		var col;
+		var irCol = new table_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.thumbKeys = setValue;
 				return null;
@@ -841,15 +842,16 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.thumbKeys;
 			}
 		}));
-		col.shortName = "#thumb";
-		col.onNotes = function(div) {
+		irCol.shortName = "#thumb";
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Keys below the main area that are (mostly) intended to be pressed with a thumb. " + "Counted per keyboard half.");
 			_gthis.addImagePara(div,"thumb-keys.png",450,120,"Thumb keys on a Breeze keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"On wider keyboards thumb keys tend to smoothly transition into a key row" + " so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:");
 			_gthis.addImagePara(div,"thumb-keys-2.png",450,200,"Thumb keys on a Redox keyboard");
 		};
-		this.addColumn(col);
-		col = new table_IntRangeColumn("Inner keys",new table_FancyField("innerKeys",function(q,wantSet,setValue) {
+		this.addColumn(irCol);
+		irCol = new table_IntRangeColumn("Inner keys",new table_FancyField("innerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.innerKeys = setValue;
 				return null;
@@ -857,14 +859,15 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.innerKeys;
 			}
 		}));
-		col.shortName = "#inner";
-		col.show = false;
-		col.onNotes = function(div) {
+		irCol.shortName = "#inner";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
 			_gthis.addImagePara(div,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
 		};
-		this.addColumn(col);
-		col = new table_IntRangeColumn("Outer keys",new table_FancyField("outerKeys",function(q,wantSet,setValue) {
+		this.addColumn(irCol);
+		irCol = new table_IntRangeColumn("Outer keys",new table_FancyField("outerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.outerKeys = setValue;
 				return null;
@@ -872,16 +875,17 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.outerKeys;
 			}
 		}));
-		this.addColumn(col);
-		col.shortName = "#outer";
-		col.show = false;
-		col.onNotes = function(div) {
+		this.addColumn(irCol);
+		irCol.shortName = "#outer";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has an extra key or two on the outer edges.");
 			_gthis.addImagePara(div,"outer-keys.png",450,150,"Outer keys on an Avalanche keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"And if it's missing keys on the outer columns, this can be negative.");
 			_gthis.addImagePara(div,"outer-keys-2.png",450,150,"A missing outer key on a Drift keyboard");
 		};
-		col = new table_IntRangeColumn("Corner keys",new table_FancyField("cornerKeys",function(q,wantSet,setValue) {
+		irCol = new table_IntRangeColumn("Corner keys",new table_FancyField("cornerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.cornerKeys = setValue;
 				return null;
@@ -889,10 +893,11 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.cornerKeys;
 			}
 		}));
-		this.addColumn(col);
-		col.shortName = "#corner";
-		col.show = false;
-		col.onNotes = function(div) {
+		this.addColumn(irCol);
+		irCol.shortName = "#corner";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " + "this is the number of such keys that are positioned in a convenient row.");
 			_gthis.addImagePara(div,"corner-keys.png",450,150,"Corner keys on an ErgoNICE keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"Such keys are often used for modifiers (on the left half) or " + "65%-style inline arrow key cluster / arrow key row (on the right half).");
@@ -907,8 +912,9 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.navCluster;
 			}
 		}),type_NavCluster);
-		col.show = false;
+		navCluster.show = false;
 		navCluster.shortName = "nav";
+		navCluster.filterTags = [type_NavCluster.Arrows,type_NavCluster.Full];
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
 		var pinkyStag = new table_FloatColumn("Pinky stagger",new table_FancyField("pinkyStagger",function(q,wantSet,setValue) {
@@ -1153,7 +1159,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 			tools_HtmlTools.appendParaTextNode(div,"As of Nov 2023, ZMK firmware has limited support for pointing devices," + " therefore wireless keyboards with pointing devices typically only support them" + " in (wired) QMK mode.");
 			tools_HtmlTools.appendParaTextNode(div,"Please double-check documentation for keyboards to avoid disappointment.");
 		};
-		var col = new table_IntRangeColumn("Encoders",new table_FancyField("encoders",function(q,wantSet,setValue) {
+		var irCol = new table_IntRangeColumn("Encoders",new table_FancyField("encoders",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.encoders = setValue;
 				return null;
@@ -1161,8 +1167,9 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.encoders;
 			}
 		}));
-		this.addColumn(col);
-		col.shortName = "#enc";
+		this.addColumn(irCol);
+		irCol.shortName = "#enc";
+		irCol.filterMinDefault = 1;
 		var enct = new table_TagListColumn("Encoder type",new table_FancyField("encoderType",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.encoderType = setValue;
@@ -1177,7 +1184,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		enct.shortLabels.set(type_EncoderType.Knob,"K");
 		enct.shortLabels.set(type_EncoderType.Wheel,"W");
 		this.addColumn(enct);
-		col = new table_IntRangeColumn("Trackballs",new table_FancyField("trackballs",function(q,wantSet,setValue) {
+		irCol = new table_IntRangeColumn("Trackballs",new table_FancyField("trackballs",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackballs = setValue;
 				return null;
@@ -1185,9 +1192,10 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.trackballs;
 			}
 		}));
-		this.addColumn(col);
-		col.show = false;
-		col = new table_FloatColumn("Trackball size",new table_FancyField("trackballSize",function(q,wantSet,setValue) {
+		this.addColumn(irCol);
+		irCol.show = false;
+		irCol.filterMinDefault = 1;
+		var col = new table_FloatColumn("Trackball size",new table_FancyField("trackballSize",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackballSize = setValue;
 				return null;
@@ -1198,7 +1206,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(col);
 		col.filterName = col.name + " (mm)";
 		col.show = false;
-		col = new table_IntRangeColumn("Touchpads",new table_FancyField("trackpads",function(q,wantSet,setValue) {
+		irCol = new table_IntRangeColumn("Touchpads",new table_FancyField("trackpads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackpads = setValue;
 				return null;
@@ -1206,8 +1214,9 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.trackpads;
 			}
 		}));
-		this.addColumn(col);
-		col.show = false;
+		this.addColumn(irCol);
+		irCol.show = false;
+		irCol.filterMinDefault = 1;
 		col = new table_FloatColumn("Touchpad size",new table_FancyField("trackpadSize",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackpadSize = setValue;
@@ -1219,7 +1228,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(col);
 		col.filterName = col.name + " (mm)";
 		col.show = false;
-		col = new table_IntRangeColumn("Trackpoints",new table_FancyField("trackpoints",function(q,wantSet,setValue) {
+		irCol = new table_IntRangeColumn("Trackpoints",new table_FancyField("trackpoints",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackpoints = setValue;
 				return null;
@@ -1227,12 +1236,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.trackpoints;
 			}
 		}));
-		this.addColumn(col);
-		col.onNotes = function(div) {
+		this.addColumn(irCol);
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Those little pointing sticks. Usually found somewhere between the keys.");
 		};
-		col.show = false;
-		col = new table_IntRangeColumn("D-pads",new table_FancyField("dpads",function(q,wantSet,setValue) {
+		irCol.show = false;
+		irCol = new table_IntRangeColumn("D-pads",new table_FancyField("dpads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.dpads = setValue;
 				return null;
@@ -1240,9 +1250,10 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.dpads;
 			}
 		}));
-		this.addColumn(col);
-		col.show = false;
-		col.onNotes = function(div) {
+		this.addColumn(irCol);
+		irCol.show = false;
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
 			div.appendChild(window.document.createTextNode("Due to component diversity, anything that has 2 or more clicky " + "directional inputs counts as a dpad."));
 		};
 		col = new table_IntRangeColumn("D-pad directions",new table_FancyField("dpadDirs",function(q,wantSet,setValue) {
@@ -1275,6 +1286,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		palm.shortLabels.set(type_WristPads.None,"");
 		palm.shortLabels.set(type_WristPads.Integrated,"+");
 		palm.shortLabels.set(type_WristPads.Detachable,"±");
+		palm.filterTags = [type_WristPads.Integrated,type_WristPads.Detachable];
 		palm.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them" + " separately, or use any other semi-soft object of your choice" + " (such as a folded little towel or a Purple Squishy)","Some people argue that making your own palm rest is often preferable as you can" + " pick the height/firmness.");
 		};
@@ -1325,6 +1337,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		ctCol.shortLabels.set(type_CaseType.None,"-");
 		ctCol.shortLabels.set(type_CaseType.Included,"+");
 		ctCol.shortLabels.set(type_CaseType.ThirdParty,"3p");
+		ctCol.filterTags = [type_CaseType.Included,type_CaseType.ThirdParty];
 		ctCol.show = false;
 		this.addColumn(ctCol);
 		var xCol = new table_LinkListColumn("Extras",new table_FancyField("extras",function(q,wantSet,setValue) {
@@ -2664,9 +2677,11 @@ var table_NumberColumnBase = function(name) {
 	this.filterIncludeNull = false;
 	this.filterMaxCheckbox = null;
 	this.filterMaxField = null;
+	this.filterMaxDefault = null;
 	this.filterMax = null;
 	this.filterMinCheckbox = null;
 	this.filterMinField = null;
+	this.filterMinDefault = null;
 	this.filterMin = null;
 	table_FancyColumn.call(this,name);
 	this.canSort = true;
@@ -2704,7 +2719,13 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			}
 			fd[0].type = "number";
 			if(knownRange != null) {
-				fd[0].value = "" + Std.string(isMin[0] ? knownRange.min : knownRange.max);
+				if(isMin[0]) {
+					var tmp = this.filterMinDefault;
+					fd[0].value = "" + Std.string(tmp != null ? tmp : knownRange.min);
+				} else {
+					var tmp1 = this.filterMaxDefault;
+					fd[0].value = "" + Std.string(tmp1 != null ? tmp1 : knownRange.max);
+				}
 			}
 			fd[0].disabled = startVal == null;
 			if(startVal != null) {
@@ -2809,50 +2830,50 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		var ret = false;
 		var val = obj[this.field.name];
 		if(val != null) {
-			while(true) {
-				ret = true;
-				var pos = val.indexOf("~");
-				if(pos < 0) {
-					if(!false) {
-						break;
-					} else {
-						continue;
-					}
-				}
-				this.filterMinCheckbox.checked = true;
-				tools_HtmlTools.triggerChange(this.filterMinCheckbox);
-				this.filterMinField.value = val.substring(0,pos);
-				tools_HtmlTools.triggerChange(this.filterMinField);
-				this.filterMaxCheckbox.checked = true;
-				tools_HtmlTools.triggerChange(this.filterMaxCheckbox);
-				this.filterMaxField.value = val.substring(pos + 1);
-				tools_HtmlTools.triggerChange(this.filterMaxField);
-				if(!false) {
-					break;
-				}
-			}
-		}
-		val = obj[this.field.name + "-min"];
-		if(val != null) {
 			ret = true;
+			var pos = val.indexOf("~");
+			var minv;
+			var maxv;
+			if(pos >= 0) {
+				minv = val.substring(0,pos);
+				maxv = val.substring(pos + 1);
+			} else {
+				minv = val;
+				maxv = val;
+			}
 			this.filterMinCheckbox.checked = true;
 			tools_HtmlTools.triggerChange(this.filterMinCheckbox);
-			this.filterMinField.value = val;
+			this.filterMinField.value = minv;
 			tools_HtmlTools.triggerChange(this.filterMinField);
-		}
-		val = obj[this.field.name + "-max"];
-		if(val != null) {
-			ret = true;
 			this.filterMaxCheckbox.checked = true;
 			tools_HtmlTools.triggerChange(this.filterMaxCheckbox);
-			this.filterMaxField.value = val;
+			this.filterMaxField.value = maxv;
 			tools_HtmlTools.triggerChange(this.filterMaxField);
+		} else {
+			val = obj[this.field.name + "-min"];
+			this.filterMinCheckbox.checked = val != null;
+			tools_HtmlTools.triggerChange(this.filterMinCheckbox);
+			if(val != null) {
+				ret = true;
+				this.filterMinField.value = val;
+				tools_HtmlTools.triggerChange(this.filterMinField);
+			}
+			val = obj[this.field.name + "-max"];
+			this.filterMaxCheckbox.checked = val != null;
+			tools_HtmlTools.triggerChange(this.filterMaxCheckbox);
+			if(val != null) {
+				ret = true;
+				this.filterMaxField.value = val;
+				tools_HtmlTools.triggerChange(this.filterMaxField);
+			}
 		}
-		val = obj[this.field.name + "-null"];
-		if(val != null) {
-			ret = true;
-			this.filterIncludeNullCheckbox.checked = true;
+		if(this.filterIncludeNullCheckbox != null) {
+			val = obj[this.field.name + "-null"];
+			this.filterIncludeNullCheckbox.checked = val != null;
 			tools_HtmlTools.triggerChange(this.filterIncludeNullCheckbox);
+			if(val != null) {
+				ret = true;
+			}
 		}
 		return ret;
 	}
@@ -2954,17 +2975,6 @@ table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 			return false;
 		}
 		return true;
-	}
-	,saveFilterParams: function(out) {
-		if(this.filterMin != null) {
-			out[this.field.name + "-min"] = "" + Std.string(this.filterMin);
-		}
-		if(this.filterMax != null) {
-			out[this.field.name + "-max"] = "" + Std.string(this.filterMax);
-		}
-		if(this.filterIncludeNull != null) {
-			out[this.field.name + "-null"] = "";
-		}
 	}
 	,compareKeyboards: function(a,b,ascending) {
 		var tmp = this.field.access(a);
@@ -3684,7 +3694,15 @@ table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		}
 		var listStr = obj[name];
 		if(listStr != null) {
-			var list = listStr.split("-");
+			var list = listStr.split("~");
+			var _g = 0;
+			var _g1 = this.filterCheckboxes;
+			while(_g < _g1.length) {
+				var cb = _g1[_g];
+				++_g;
+				cb.checked = false;
+				tools_HtmlTools.triggerChange(cb);
+			}
 			var _g = 0;
 			while(_g < list.length) {
 				var item = list[_g];
@@ -3695,7 +3713,7 @@ table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 				while(_g2 < _g3.length) {
 					var v = _g3[_g2];
 					++_g2;
-					if(v.id == name + "~" + item) {
+					if(v.id == name + "-" + item) {
 						_g1.push(v);
 					}
 				}

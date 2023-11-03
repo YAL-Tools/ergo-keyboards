@@ -75,11 +75,6 @@ class NumberColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NT> {
 		if (filterMax != null && val > filterMax) return false;
 		return true;
 	}
-	override public function saveFilterParams(out:DynamicAccess<String>):Void {
-		if (filterMin != null) out[field.name + "-min"] = "" + filterMin;
-		if (filterMax != null) out[field.name + "-max"] = "" + filterMax;
-		if (filterIncludeNull != null) out[field.name + "-null"] = "";
-	}
 	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
 		var av = field.access(a) ?? defaultValue;
 		var bv = field.access(b) ?? defaultValue;

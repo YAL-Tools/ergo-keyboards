@@ -37,11 +37,12 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	}
 	function initClusters(kb:ColStagKeyboard) {
 		addFilterHeader("Key clusters and specifics");
-		var notes:Element, col:FancyColumn<ColStagKeyboard>;
+		var notes:Element, col:FancyColumn<ColStagKeyboard>, irCol:IntRangeColumn<ColStagKeyboard>;
 		
-		col = new IntRangeColumn("Thumb keys", mgf(kb.thumbKeys));
-		col.shortName = "#thumb";
-		col.onNotes = function(div:Element) {
+		irCol = new IntRangeColumn("Thumb keys", mgf(kb.thumbKeys));
+		irCol.shortName = "#thumb";
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div:Element) {
 			div.appendParaTextNode(
 				"Keys below the main area that are (mostly) intended to be pressed with a thumb. " +
 				"Counted per keyboard half."
@@ -53,34 +54,37 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			);
 			addImagePara(div, "thumb-keys-2.png", 450, 200, "Thumb keys on a Redox keyboard");
 		};
-		addColumn(col);
+		addColumn(irCol);
 		
-		col = new IntRangeColumn("Inner keys", mgf(kb.innerKeys));
-		col.shortName = "#inner";
-		col.show = false;
-		col.onNotes = function(div) {
+		irCol = new IntRangeColumn("Inner keys", mgf(kb.innerKeys));
+		irCol.shortName = "#inner";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"Sometimes keyboards have keys between the two halves that aren't part of the main area, " +
 				"but still convenient enough to access."
 			);
 			addImagePara(div, "inner-keys.png", 450, 200, "Inner keys on a Redox keyboard");
 		};
-		addColumn(col);
+		addColumn(irCol);
 		
-		mAddColumn(col = new IntRangeColumn("Outer keys", kb.outerKeys));
-		col.shortName = "#outer";
-		col.show = false;
-		col.onNotes = function(div) {
+		mAddColumn(irCol = new IntRangeColumn("Outer keys", kb.outerKeys));
+		irCol.shortName = "#outer";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
 			div.appendParaTextNode("Sometimes a keyboard has an extra key or two on the outer edges.");
 			addImagePara(div, "outer-keys.png", 450, 150, "Outer keys on an Avalanche keyboard");
 			div.appendParaTextNode("And if it's missing keys on the outer columns, this can be negative.");
 			addImagePara(div, "outer-keys-2.png", 450, 150, "A missing outer key on a Drift keyboard");
 		};
 		
-		mAddColumn(col = new IntRangeColumn("Corner keys", kb.cornerKeys));
-		col.shortName = "#corner";
-		col.show = false;
-		col.onNotes = function(div) {
+		mAddColumn(irCol = new IntRangeColumn("Corner keys", kb.cornerKeys));
+		irCol.shortName = "#corner";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " +
 				"this is the number of such keys that are positioned in a convenient row."
@@ -97,8 +101,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		};
 		
 		var navCluster = new TagColumn("Navigation cluster", mgf(kb.navCluster), NavCluster);
-		col.show = false;
+		navCluster.show = false;
 		navCluster.shortName = "nav";
+		navCluster.filterTags = [NavCluster.Arrows, NavCluster.Full];
 		navCluster.shortLabels[NavCluster.None] = "";
 		addColumn(navCluster);
 		
@@ -301,9 +306,12 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			);
 		};
 		var col:FancyColumn<ColStagKeyboard>;
+		var irCol:IntRangeColumn<ColStagKeyboard>;
 		
-		mAddColumn(col = new IntRangeColumn("Encoders", kb.encoders));
-		col.shortName = "#enc";
+		mAddColumn(irCol = new IntRangeColumn("Encoders", kb.encoders));
+		irCol.shortName = "#enc";
+		irCol.filterMinDefault = 1;
+		
 		var enct = new TagListColumn("Encoder type", mgf(kb.encoderType), EncoderType);
 		enct.show = false;
 		enct.shortName = "EncT";
@@ -312,27 +320,35 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		enct.shortLabels[EncoderType.Wheel] = "W";
 		addColumn(enct);
 		
-		mAddColumn(col = new IntRangeColumn("Trackballs", kb.trackballs));
-		col.show = false;
+		mAddColumn(irCol = new IntRangeColumn("Trackballs", kb.trackballs));
+		irCol.show = false;
+		irCol.filterMinDefault = 1;
+		
 		mAddColumn(col = new FloatColumn("Trackball size", kb.trackballSize));
 		col.filterName = col.name + " (mm)";
 		col.show = false;
 		
-		mAddColumn(col = new IntRangeColumn("Touchpads", kb.trackpads));
-		col.show = false;
+		mAddColumn(irCol = new IntRangeColumn("Touchpads", kb.trackpads));
+		irCol.show = false;
+		irCol.filterMinDefault = 1;
+		
 		mAddColumn(col = new FloatColumn("Touchpad size", kb.trackpadSize));
 		col.filterName = col.name + " (mm)";
 		col.show = false;
 		
-		mAddColumn(col = new IntRangeColumn("Trackpoints", kb.trackpoints));
-		col.onNotes = function(div) {
-			div.appendParaTextNode("Those little pointing sticks. Usually found somewhere between the keys.");
+		mAddColumn(irCol = new IntRangeColumn("Trackpoints", kb.trackpoints));
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Those little pointing sticks. Usually found somewhere between the keys."
+			);
 		}
-		col.show = false;
+		irCol.show = false;
 		
-		mAddColumn(col = new IntRangeColumn("D-pads", kb.dpads));
-		col.show = false;
-		col.onNotes = function(div) {
+		mAddColumn(irCol = new IntRangeColumn("D-pads", kb.dpads));
+		irCol.show = false;
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
 			div.appendTextNode(
 				"Due to component diversity, anything that has 2 or more clicky "+
 				"directional inputs counts as a dpad."
@@ -356,6 +372,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		palm.shortLabels[WristPads.None] = "";
 		palm.shortLabels[WristPads.Integrated] = "+";
 		palm.shortLabels[WristPads.Detachable] = "±";
+		palm.filterTags = [WristPads.Integrated, WristPads.Detachable];
 		palm.onNotes = function(div) {
 			div.appendParaTextNode(
 				"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them"
@@ -414,6 +431,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		ctCol.shortLabels[CaseType.None] = "-";
 		ctCol.shortLabels[CaseType.Included] = "+";
 		ctCol.shortLabels[CaseType.ThirdParty] = "3p";
+		ctCol.filterTags = [CaseType.Included, CaseType.ThirdParty];
 		ctCol.show = false;
 		addColumn(ctCol);
 		

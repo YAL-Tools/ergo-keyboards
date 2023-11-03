@@ -24,10 +24,12 @@ class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
 	}
 	
 	public var filterMin:Null<NT> = null;
+	public var filterMinDefault:Null<NT> = null;
 	public var filterMinField:InputElement = null;
 	public var filterMinCheckbox:InputElement = null;
 	
 	public var filterMax:Null<NT> = null;
+	public var filterMaxDefault:Null<NT> = null;
 	public var filterMaxField:InputElement = null;
 	public var filterMaxCheckbox:InputElement = null;
 	
@@ -68,7 +70,11 @@ class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
 			}
 			fd.type = "number";
 			if (knownRange != null) {
-				fd.value = "" + (isMin ? knownRange.min : knownRange.max);
+				if (isMin) {
+					fd.value = "" + (filterMinDefault ?? knownRange.min);
+				} else {
+					fd.value = "" + (filterMaxDefault ?? knownRange.max);
+				}
 			}
 			fd.disabled = startVal == null;
 			if (startVal != null) fd.value = "" + startVal;
@@ -149,45 +155,54 @@ class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
 		var ret = false, val:String;
 		
 		val = obj[field.name];
-		if (val != null) do {
+		if (val != null) {
 			ret = true;
 			var pos = val.indexOf("~");
-			if (pos < 0) continue;
+			var minv:String, maxv:String;
+			if (pos >= 0) {
+				minv = val.substring(0, pos);
+				maxv = val.substring(pos + 1);
+			} else {
+				minv = val;
+				maxv = val;
+			}
 			
 			filterMinCheckbox.checked = true;
 			filterMinCheckbox.triggerChange();
-			filterMinField.value = val.substring(0, pos);
+			filterMinField.value = minv;
 			filterMinField.triggerChange();
 			
 			filterMaxCheckbox.checked = true;
 			filterMaxCheckbox.triggerChange();
-			filterMaxField.value = val.substring(pos + 1);
+			filterMaxField.value = maxv;
 			filterMaxField.triggerChange();
-		} while (false);
-		
-		val = obj[field.name + "-min"];
-		if (val != null) {
-			ret = true;
-			filterMinCheckbox.checked = true;
+		} else {
+			val = obj[field.name + "-min"];
+			filterMinCheckbox.checked = val != null;
 			filterMinCheckbox.triggerChange();
-			filterMinField.value = val;
-			filterMinField.triggerChange();
-		}
-		
-		val = obj[field.name + "-max"];
-		if (val != null) {
-			ret = true;
-			filterMaxCheckbox.checked = true;
+			if (val != null) {
+				ret = true;
+				filterMinField.value = val;
+				filterMinField.triggerChange();
+			}
+			
+			val = obj[field.name + "-max"];
+			filterMaxCheckbox.checked = val != null;
 			filterMaxCheckbox.triggerChange();
-			filterMaxField.value = val;
-			filterMaxField.triggerChange();
+			if (val != null) {
+				ret = true;
+				filterMaxField.value = val;
+				filterMaxField.triggerChange();
+			}
 		}
 		
-		val = obj[field.name + "-null"];
-		if (val != null) {
-			ret = true;
-			filterIncludeNullCheckbox.checked = true;
+		if (filterIncludeNullCheckbox != null) {
+			val = obj[field.name + "-null"];
+			filterIncludeNullCheckbox.checked = val != null;
 			filterIncludeNullCheckbox.triggerChange();
+			if (val != null) {
+				ret = true;
+			}
 		}
 		
 		return ret;

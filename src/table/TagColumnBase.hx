@@ -110,9 +110,13 @@ class TagColumnBase<KB:Keyboard, ET:EnumValue, FT> extends FancyColumn<KB> {
 		
 		var listStr = obj[name];
 		if (listStr != null) {
-			var list = listStr.split("-");
+			var list = listStr.split("~");
+			for (cb in filterCheckboxes) {
+				cb.checked = false;
+				cb.triggerChange();
+			}
 			for (item in list) {
-				var cb = filterCheckboxes.filter(cb->cb.id == name + "~" + item)[0];
+				var cb = filterCheckboxes.filter(cb->cb.id == name + "-" + item)[0];
 				if (cb != null) {
 					cb.checked = true;
 					cb.triggerChange();
