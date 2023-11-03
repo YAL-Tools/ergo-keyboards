@@ -11,6 +11,7 @@ enum SwitchProfile {
 	ChocV2;
 	Alps;
 	GateronLP;
+	OutemuLP;
 	CherryULP;
 	Optical;
 	Other;

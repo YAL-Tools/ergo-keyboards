@@ -17,8 +17,8 @@ import js.Browser.*;
  * @author YellowAfterlife
  */
 class FancyTableFilters {
-	public static function addNotesFor(notes:Element, el:Element) {
-		if (notes.childNodes.length > 0) {
+	public static function addNotesFor(onNotes:Element->Void, el:Element) {
+		if (onNotes != null) {
 			el.classList.add("has-notes");
 			el.title = "(click to view notes)";
 			var opts = new TippyOptions();
@@ -26,13 +26,16 @@ class FancyTableFilters {
 			opts.interactive = true;
 			opts.appendTo = () -> el.parentElement;
 			opts.maxWidth = 480;
-			var notes:Element = cast notes.cloneNode(true);
-			opts.content = function(_) return notes;
+			opts.setLazyContent(function() {
+				var div = document.createDivElement();
+				onNotes(div);
+				return div;
+			});
 			Tippy.bind(el, opts);
 		}
 	}
 	public static function addNotes<KB:Keyboard>(column:FancyColumn<KB>, el:Element) {
-		addNotesFor(column.notes, el);
+		addNotesFor(column.onNotes, el);
 	}
 	public static function build<KB:Keyboard>(table:FancyTable<KB>, out:Element) {
 		var dest:Element = out;
@@ -50,7 +53,7 @@ class FancyTableFilters {
 					if (header.noticeText != null) {
 						var notice = document.createSpanElement();
 						notice.appendTextNode(header.noticeText);
-						addNotesFor(header.noticeNode, notice);
+						addNotesFor(header.noticeFunc, notice);
 						details.appendChild(notice);
 					}
 					continue;
@@ -93,6 +96,7 @@ class FancyTableFilters {
 				divFilters.setDisplayFlag(cbFilter.checked);
 				table.updateFilters();
 			}
+			column.filterCheckbox = cbFilter;
 			tr.appendChild(cbFilter);
 			var toFilter = new TippyOptions();
 			toFilter.content = 'Filter "$colName"';
@@ -104,7 +108,6 @@ class FancyTableFilters {
 			var colNameEl = document.createSpanElement();
 			colNameEl.appendTextNode(colName);
 			colNameEl.classList.add("column-name");
-			
 			addNotes(column, colNameEl);
 			meta.appendChild(colNameEl);
 			meta.appendChild(divFilters);

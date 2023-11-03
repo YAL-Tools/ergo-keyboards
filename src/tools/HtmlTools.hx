@@ -140,6 +140,9 @@ class HtmlTools {
 	public static function setDisplayFlag(el:Element, visible:Bool):Void {
 		el.style.display = visible ? "" : "none";
 	}
+	public static function triggerChange(el:Element):Void {
+		el.dispatchEvent(new CustomEvent("change"));
+	}
 }
 typedef FilePickCallback<T> = (file:T, then:Void->Void)->Void;
 extern class ElementList implements ArrayAccess<Element> {

@@ -196,7 +196,7 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	kb = { name : "JiaEX", source : type_ValList.fromValue("https://github.com/osenchenko/jiaex"), img : type_ValList.fromValue("jiaex.jpg"), notes : type_ValList.fromValue("This keyboard is hard to classify due to its uncommon key placement")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.wristPads = type_WristPads.Integrated;
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(68),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(3),type_NumRange.fromInt(1),type_NumRange.fromInt(3));
 	ColStagKeyboard.setQMK(kb);
@@ -278,7 +278,7 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	add({ name : "3w6", keys : type_NumRange.fromArray([35,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromInt(3), trackballs : type_NumRange.fromArray([0,1]), trackballSize : pimoroniSize, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.Choc, caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/weteor/3W6"), img : type_ValList.fromValue("3w6_rev2.jpg")});
 	add({ name : "CozyKeys Bloomer", keys : type_NumRange.fromInt(87), cols : type_NumRange.fromInt(6), rows : type_NumRange.fromInt(5), thumbKeys : type_NumRange.fromInt(5), cornerKeys : type_NumRange.fromInt(6), navCluster : type_NavCluster.Full, switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/cozykeys/Bloomer"), img : type_ValList.fromValue("Bloomer.jfif")});
-	add({ name : "Keyclicks W-Ergolite", keys : type_NumRange.fromInt(66), cols : type_NumRange.fromInt(7), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromInt(5), switchProfile : [type_SwitchProfile.MX,type_SwitchProfile.GateronLP], connection : [type_Connection.Bluetooth,type_Connection.Wired], firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.Vial), caseType : type_ValList.fromValue(type_CaseType.Included), prebuilt : type_ValList.fromValue("https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2"), img : type_ValList.fromValue("W-Ergolite.webp")});
+	add({ name : "Keyclicks W-Ergolite", keys : type_NumRange.fromInt(66), cols : type_NumRange.fromInt(7), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromInt(5), switchProfile : [type_SwitchProfile.MX,type_SwitchProfile.GateronLP], connection : [type_Connection.Wireless], firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.Vial), caseType : type_ValList.fromValue(type_CaseType.Included), prebuilt : type_ValList.fromValue("https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2"), img : type_ValList.fromValue("W-Ergolite.webp")});
 	kb = { name : "Tern", shape : type_ValList.fromValue(type_Shape.Unibody), keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.CFX, caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
 	kb.splay = type_SplayBase.Yes;
 	add(kb);
@@ -296,7 +296,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.navCluster = type_NavCluster.Arrows;
 	kb.cornerKeys = type_NumRange.fromInt(1);
 	kb.encoders = type_NumRange.fromInt(1);
-	kb.wristPads = type_WristPads.Detachable;
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
 	kb.tenting = type_NumRange.fromInt(6);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.source = type_ValList.fromValue("https://github.com/sevmeyer/chrumm-keyboard/");
@@ -361,7 +361,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.kit = type_ValList.fromValue("https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard");
 	addIris(kb);
 	kb = { name : "TE Cleave"};
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(91),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(91),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.rcols = type_NumRange.fromInt(7);
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(2),type_NumRange.fromInt(3),type_NumRange.fromInt(2),type_NumRange.fromInt(2));
@@ -370,7 +370,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.hotswap = type_HotSwap.fromBool(true);
 	kb.firmware = type_ValList.fromValue(type_Firmware.Custom);
 	kb.software = type_ValList.fromValue(type_Software.Custom);
-	kb.wristPads = type_WristPads.Integrated;
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.tilt = type_NumRange.fromInt(2);
 	kb.prebuilt = type_ValList.fromValue("https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/");
@@ -402,7 +402,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
-	kb.wristPads = type_WristPads.Integrated;
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
 	kb.tenting = type_NumRange.fromArray([0,15]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("https://shop.keyboard.io/products/model-100");
@@ -423,7 +423,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Custom));
-	kb.wristPads = type_WristPads.Detachable;
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
 	kb.tenting = type_NumRange.fromArray([0,40]);
 	kb.tilt = type_NumRange.fromArray([-10,0]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -435,7 +435,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Custom));
-	kb.wristPads = type_WristPads.Detachable;
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
 	kb.tenting = type_NumRange.fromArray([0,11]);
 	kb.tilt = type_NumRange.fromArray([-10,0]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -447,7 +447,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
-	kb.wristPads = type_WristPads.Integrated;
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
 	kb.tenting = type_NumRange.fromArray([0,60]);
 	kb.tilt = type_NumRange.fromArray([-10,0]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -470,6 +470,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps,type_SwitchProfile.Choc]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.source = type_ValList.fromValue("https://github.com/jpconstantineau/ErgoTravel");
+	kb.kit = type_ValList.fromValue("https://mechboards.co.uk/products/ergotravel-kit");
 	kb.img = type_ValList.fromValue("Ergotravel.jpg");
 	add(kb);
 };
@@ -501,6 +502,9 @@ ColStagKeyboard.setQMK = function(this1,sw) {
 	this1.software = sw;
 };
 var table_FancyTable = function() {
+	this.baseURL = "https://yal-tools.github.io/ergo-keyboards/";
+	this.canUpdateURL = true;
+	this.canUpdateFilters = false;
 	this.sortAscending = false;
 	this.sortColHead = null;
 	this.outElement = null;
@@ -566,6 +570,8 @@ table_FancyTable.prototype = {
 			++_g;
 			var cell = [new table_FancyTableHeaderCell(column)];
 			tools_HtmlTools.setDisplayFlag(cell[0].element,column.show);
+			var tmp = column.getId();
+			cell[0].element.id = "header-" + tmp;
 			if(column.shortName != null) {
 				var text = column.shortName;
 				cell[0].element.appendChild(window.document.createTextNode(text));
@@ -597,6 +603,7 @@ table_FancyTable.prototype = {
 							tools_HtmlTools.setTokenFlag(_gthis.sortColHead.element.classList,"sort-ascending",_gthis.sortAscending);
 						}
 						_gthis.sortBy(_gthis.sortColHead.column,_gthis.sortAscending);
+						_gthis.updateURL();
 					};
 				})(cell);
 			}
@@ -617,7 +624,13 @@ table_FancyTable.prototype = {
 			this.countElement.innerText = "" + this.keyboards.length;
 		}
 	}
-	,updateFilters: function() {
+	,updateFilters: function(_updateURL) {
+		if(_updateURL == null) {
+			_updateURL = true;
+		}
+		if(!this.canUpdateFilters) {
+			return;
+		}
 		var found = 0;
 		var _g = 0;
 		var _g1 = this.rows;
@@ -646,6 +659,110 @@ table_FancyTable.prototype = {
 		}
 		if(this.countElement != null) {
 			this.countElement.innerText = "" + found;
+		}
+		if(_updateURL) {
+			this.updateURL();
+		}
+	}
+	,saveFilters: function() {
+		var params = { };
+		var _g = 0;
+		var _g1 = this.columns;
+		while(_g < _g1.length) {
+			var column = _g1[_g];
+			++_g;
+			if(column.wantFilter) {
+				column.saveFilterParams(params);
+			}
+		}
+		if(this.sortColHead != null) {
+			var id = this.sortColHead.column.getId();
+			if(!this.sortAscending) {
+				id = "-" + id;
+			}
+			params["sort"] = id;
+		}
+		var paramKeys = Reflect.fields(params);
+		if(paramKeys.length == 0) {
+			return "";
+		}
+		var paramPairs = [];
+		var _g = 0;
+		while(_g < paramKeys.length) {
+			var key = paramKeys[_g];
+			++_g;
+			var val = params[key];
+			if(val != "") {
+				val = window.encodeURIComponent(params[key]);
+				paramPairs.push(key + "=" + val);
+			} else {
+				paramPairs.push(key);
+			}
+		}
+		if(paramPairs.length == 0) {
+			return "";
+		}
+		return "?" + paramPairs.join("&");
+	}
+	,updateURL: function() {
+		if(!this.canUpdateURL) {
+			return;
+		}
+		var search = this.saveFilters();
+		var loc = window.document.location;
+		var prefix = Main.baseURL;
+		if(loc.protocol == "file:") {
+			prefix = "https://yal-tools.github.io/ergo-keyboards/";
+		} else {
+			prefix = loc.origin + loc.pathname;
+		}
+		var url = prefix + search + loc.hash;
+		try {
+			window.history.replaceState("","",url);
+			return;
+		} catch( _g ) {
+		}
+		var fd = window.document.querySelector("#share-field");
+		fd.style.display = "inherit";
+		fd.value = url;
+	}
+	,loadFilters: function(search) {
+		var params = new URLSearchParams(search);
+		var obj = { };
+		params.forEach(function(val,key,_) {
+			obj[key] = val;
+		});
+		this.canUpdateFilters = false;
+		var wantFilter = false;
+		var _g = 0;
+		var _g1 = this.columns;
+		while(_g < _g1.length) {
+			var column = _g1[_g];
+			++_g;
+			var filter = column.loadFilterParams(obj);
+			column.filterCheckbox.checked = filter;
+			if(filter) {
+				column.filterCheckbox.onchange(null);
+				wantFilter = true;
+			}
+		}
+		this.canUpdateFilters = true;
+		var sort = obj["sort"];
+		if(sort != null) {
+			var desc = sort.charAt(0) == "-";
+			if(desc) {
+				sort = HxOverrides.substr(sort,1,null);
+			}
+			var th = window.document.getElementById("header-" + sort);
+			if(th != null) {
+				th.click();
+				if(!desc) {
+					th.click();
+				}
+			}
+		}
+		if(wantFilter) {
+			this.updateFilters(false);
 		}
 	}
 	,loadTest: function(kb) {
@@ -713,102 +830,115 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		return img;
 	}
 	,initClusters: function(kb) {
+		var _gthis = this;
 		this.addFilterHeader("Key clusters and specifics");
 		var notes;
-		var col = new table_IntRangeColumn("Thumb keys",function(q,wantSet,setValue) {
+		var col = new table_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.thumbKeys = setValue;
 				return null;
 			} else {
 				return q.thumbKeys;
 			}
-		});
+		}));
 		col.shortName = "#thumb";
-		tools_HtmlTools.appendParaTextNode(col.notes,"Keys below the main area that are (mostly) intended to be pressed with a thumb. " + "Counted per keyboard half.");
-		this.addImagePara(col.notes,"thumb-keys.png",450,120,"Thumb keys on a Breeze keyboard");
-		tools_HtmlTools.appendParaTextNode(col.notes,"On wider keyboards thumb keys tend to smoothly transition into a key row" + " so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:");
-		this.addImagePara(col.notes,"thumb-keys-2.png",450,200,"Thumb keys on a Redox keyboard");
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Keys below the main area that are (mostly) intended to be pressed with a thumb. " + "Counted per keyboard half.");
+			_gthis.addImagePara(div,"thumb-keys.png",450,120,"Thumb keys on a Breeze keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"On wider keyboards thumb keys tend to smoothly transition into a key row" + " so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:");
+			_gthis.addImagePara(div,"thumb-keys-2.png",450,200,"Thumb keys on a Redox keyboard");
+		};
 		this.addColumn(col);
-		col = new table_IntRangeColumn("Inner keys",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Inner keys",new table_FancyField("innerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.innerKeys = setValue;
 				return null;
 			} else {
 				return q.innerKeys;
 			}
-		});
+		}));
 		col.shortName = "#inner";
 		col.show = false;
-		tools_HtmlTools.appendParaTextNode(col.notes,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
-		this.addImagePara(col.notes,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
+			_gthis.addImagePara(div,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
+		};
 		this.addColumn(col);
-		col = new table_IntRangeColumn("Outer keys",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Outer keys",new table_FancyField("outerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.outerKeys = setValue;
 				return null;
 			} else {
 				return q.outerKeys;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.shortName = "#outer";
 		col.show = false;
-		tools_HtmlTools.appendParaTextNode(col.notes,"Sometimes a keyboard has an extra key or two on the outer edges.");
-		this.addImagePara(col.notes,"outer-keys.png",450,150,"Outer keys on an Avalanche keyboard");
-		tools_HtmlTools.appendParaTextNode(col.notes,"And if it's missing keys on the outer columns, this can be negative.");
-		this.addImagePara(col.notes,"outer-keys-2.png",450,150,"A missing outer key on a Drift keyboard");
-		col = new table_IntRangeColumn("Corner keys",function(q,wantSet,setValue) {
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has an extra key or two on the outer edges.");
+			_gthis.addImagePara(div,"outer-keys.png",450,150,"Outer keys on an Avalanche keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"And if it's missing keys on the outer columns, this can be negative.");
+			_gthis.addImagePara(div,"outer-keys-2.png",450,150,"A missing outer key on a Drift keyboard");
+		};
+		col = new table_IntRangeColumn("Corner keys",new table_FancyField("cornerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.cornerKeys = setValue;
 				return null;
 			} else {
 				return q.cornerKeys;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.shortName = "#corner";
 		col.show = false;
-		tools_HtmlTools.appendParaTextNode(col.notes,"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " + "this is the number of such keys that are positioned in a convenient row.");
-		this.addImagePara(col.notes,"corner-keys.png",450,150,"Corner keys on an ErgoNICE keyboard");
-		tools_HtmlTools.appendParaTextNode(col.notes,"Such keys are often used for modifiers (on the left half) or " + "65%-style inline arrow key cluster / arrow key row (on the right half).");
-		tools_HtmlTools.appendParaTextNode(col.notes,"If corner keys transition into thumb keys, this is capped at 5.");
-		this.addImagePara(col.notes,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
-		var navCluster = new table_TagColumn("Navigation cluster",function(q,wantSet,setValue) {
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " + "this is the number of such keys that are positioned in a convenient row.");
+			_gthis.addImagePara(div,"corner-keys.png",450,150,"Corner keys on an ErgoNICE keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"Such keys are often used for modifiers (on the left half) or " + "65%-style inline arrow key cluster / arrow key row (on the right half).");
+			tools_HtmlTools.appendParaTextNode(div,"If corner keys transition into thumb keys, this is capped at 5.");
+			_gthis.addImagePara(div,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
+		};
+		var navCluster = new table_TagColumn("Navigation cluster",new table_FancyField("navCluster",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.navCluster = setValue;
 				return null;
 			} else {
 				return q.navCluster;
 			}
-		},type_NavCluster);
+		}),type_NavCluster);
 		col.show = false;
 		navCluster.shortName = "nav";
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
-		var pinkyStag = new table_FloatColumn("Pinky stagger",function(q,wantSet,setValue) {
+		var pinkyStag = new table_FloatColumn("Pinky stagger",new table_FancyField("pinkyStagger",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.pinkyStagger = setValue;
 				return null;
 			} else {
 				return q.pinkyStagger;
 			}
-		});
+		}));
 		pinkyStag.show = false;
 		pinkyStag.shortName = "pkStag";
 		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
-		tools_HtmlTools.appendParaTextNode(pinkyStag.notes,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
+		pinkyStag.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
+		};
 		this.addColumn(pinkyStag);
-		var splay = new table_TagColumn("Splay",function(q,wantSet,setValue) {
+		var splay = new table_TagColumn("Splay",new table_FancyField("splay",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.splay = setValue;
 				return null;
 			} else {
 				return q.splay;
 			}
-		},type_SplayBase);
+		}),type_SplayBase);
 		splay.show = false;
-		tools_HtmlTools.appendParaTextNode(splay.notes,"Most keyboards have columns of keys parallel to each other, " + "but you can also have them at a slight angle for convenience.");
-		tools_HtmlTools.appendParaTextNode(splay.notes,"\"Optional\" usually means that there are two versions of the keyboard - " + "one with parallel columns and one with angled columns.");
+		splay.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Most keyboards have columns of keys parallel to each other, " + "but you can also have them at a slight angle for convenience.");
+			tools_HtmlTools.appendParaTextNode(div,"\"Optional\" usually means that there are two versions of the keyboard - " + "one with parallel columns and one with angled columns.");
+		};
 		splay.filterLabels.set(type_SplayBase.PinkyOnly,"Pinky columns only");
 		splay.shortLabels.set(type_SplayBase.No,"-");
 		splay.shortLabels.set(type_SplayBase.Yes,"+");
@@ -817,43 +947,46 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(splay);
 	}
 	,initGeneral: function(kb) {
-		var col = new table_NameColumn("Name & photo",function(q,wantSet,setValue) {
+		var _gthis = this;
+		var col = new table_NameColumn("Name & photo",new table_FancyField("name",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.name = setValue;
 				return null;
 			} else {
 				return q.name;
 			}
-		});
+		}));
 		this.addColumn(col);
 		this.addFilterHeader("General");
-		var shape = new table_TagListColumn("Shape",function(q,wantSet,setValue) {
+		var shape = new table_TagListColumn("Shape",new table_FancyField("shape",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.shape = setValue;
 				return null;
 			} else {
 				return q.shape;
 			}
-		},type_Shape);
+		}),type_Shape);
 		shape.show = false;
 		shape.shortLabels.set(type_Shape.Monoblock,"Mono");
 		shape.shortLabels.set(type_Shape.Unibody,"Uni");
 		shape.shortLabels.set(type_Shape.Keywell,"KW");
 		shape.shortLabels.set(type_Shape.Special,"*");
-		var shapeUL = tools_HtmlTools.appendElTextNode(shape.notes,"ul","");
-		tools_HtmlTools.appendElTextNode(shapeUL,"li","Monoblock means a single-piece keyboard with no gaps, " + "such as with common non-ergonomic keyboards.");
-		tools_HtmlTools.appendElTextNode(shapeUL,"li","Unibody means a single-piece keyboard with " + "some sort of a gap in the middle of it.");
-		tools_HtmlTools.appendElTextNode(shapeUL,"li","Split means a keyboard consisting of two or more physical pieces that are connected " + "together with a cable or wirelessly.");
-		tools_HtmlTools.appendElTextNode(shapeUL,"li","Special means something interesting - folding keyboards, layered keyboards, and so on.");
+		shape.onNotes = function(div) {
+			var shapeUL = tools_HtmlTools.appendElTextNode(div,"ul","");
+			tools_HtmlTools.appendElTextNode(shapeUL,"li","Monoblock means a single-piece keyboard with no gaps, " + "such as with common non-ergonomic keyboards.");
+			tools_HtmlTools.appendElTextNode(shapeUL,"li","Unibody means a single-piece keyboard with " + "some sort of a gap in the middle of it.");
+			tools_HtmlTools.appendElTextNode(shapeUL,"li","Split means a keyboard consisting of two or more physical pieces that are connected " + "together with a cable or wirelessly.");
+			tools_HtmlTools.appendElTextNode(shapeUL,"li","Special means something interesting - folding keyboards, layered keyboards, and so on.");
+		};
 		this.addColumn(shape);
-		var staggerType = new table_TagColumn("Stagger type",function(q,wantSet,setValue) {
+		var staggerType = new table_TagColumn("Stagger type",new table_FancyField("stagger",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.stagger = setValue;
 				return null;
 			} else {
 				return q.stagger;
 			}
-		},type_StaggerType);
+		}),type_StaggerType);
 		staggerType.show = false;
 		staggerType.shortName = "Stag";
 		staggerType.filterLabels.set(type_StaggerType.Column,"Columnar");
@@ -861,55 +994,59 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		staggerType.shortLabels.set(type_StaggerType.Column,"Col");
 		staggerType.shortLabels.set(type_StaggerType.Ortho,"OL");
 		this.addColumn(staggerType);
-		var conType = new table_TagListColumn("Connection",function(q,wantSet,setValue) {
+		var conType = new table_TagListColumn("Connection",new table_FancyField("connection",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.connection = setValue;
 				return null;
 			} else {
 				return q.connection;
 			}
-		},type_Connection);
+		}),type_Connection);
 		conType.shortName = "Con";
 		conType.shortLabels.set(type_Connection.Wired,"W");
 		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
 		conType.shortLabels.set(type_Connection.Wireless,"P");
 		conType.filterLabels.set(type_Connection.Wireless,"Proprietary/other wireless");
 		this.addColumn(conType);
-		col = new table_IntRangeColumn("Key count",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Key count",new table_FancyField("keys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.keys = setValue;
 				return null;
 			} else {
 				return q.keys;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.shortName = "#keys";
-		col = new table_IntRangeColumn("Rows",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.rows = setValue;
 				return null;
 			} else {
 				return q.rows;
 			}
-		});
+		}));
 		this.addColumn(col);
-		tools_HtmlTools.appendParaTextNode(col.notes,"The number of rows in a keyboard's main area, " + "not counting thumb rows or extension columns.");
-		this.addImagePara(col.notes,"matrix.png",450,250,"Key matrix on a Redox keyboard");
-		tools_HtmlTools.appendParaTextNode(col.notes,"4th row is typically used for digits and 5th row is typically used for F-keys " + "or media controls, but don't let anyone tell you what to do - most of these " + "keyboards are reprogrammable.");
-		col = new table_IntRangeColumn("Columns",function(q,wantSet,setValue) {
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard's main area, " + "not counting thumb rows or extension columns.");
+			_gthis.addImagePara(div,"matrix.png",450,250,"Key matrix on a Redox keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"4th row is typically used for digits and 5th row is typically used for F-keys " + "or media controls, but don't let anyone tell you what to do - most of these " + "keyboards are reprogrammable.");
+		};
+		col = new table_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.cols = setValue;
 				return null;
 			} else {
 				return q.cols;
 			}
-		});
+		}));
 		this.addColumn(col);
-		tools_HtmlTools.appendParaTextNode(col.notes,"If your language has more letters than English, you may want a ≥6-column keyboard " + "to avoid holding down an extra key to type some of them.");
-		this.addImagePara(col.notes,"sofle.png",684,210,"Cyrillic letters occupying most of a Sofle keyboard");
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"If your language has more letters than English, you may want a ≥6-column keyboard " + "to avoid holding down an extra key to type some of them.");
+			_gthis.addImagePara(div,"sofle.png",684,210,"Cyrillic letters occupying most of a Sofle keyboard");
+		};
 		col.shortName = "Cols";
-		col = new table_IntRangeColumn("Right-side columns",function(kb,set,val) {
+		var rcolsFn = function(kb,set,val) {
 			if(set) {
 				kb.rcols = val;
 				return null;
@@ -921,66 +1058,71 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 					return kb.cols;
 				}
 			}
-		});
+		};
+		var rcolsFd = new table_FancyField("rcols",rcolsFn);
+		col = new table_IntRangeColumn("Right-side columns",rcolsFd);
 		col.show = false;
 		col.shortName = "ColsR";
-		tools_HtmlTools.appendParaTextNode(col.notes,"Sometimes a keyboard has more columns on the right side than on the left. " + "This can be handy to imitate a standard 65%/75% layout better, " + "or to make space for language-specific keys.");
-		this.addImagePara(col.notes,"rcols.png",450,150,"Additional columns on Articulation80");
-		tools_HtmlTools.appendParaTextNode(col.notes,"Depending on the keyboard, not all of these might be fully filled with keys.");
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has more columns on the right side than on the left. " + "This can be handy to imitate a standard 65%/75% layout better, " + "or to make space for language-specific keys.");
+			_gthis.addImagePara(div,"rcols.png",450,150,"Additional columns on Articulation80");
+			tools_HtmlTools.appendParaTextNode(div,"Depending on the keyboard, not all of these might be fully filled with keys.");
+		};
 		this.addColumn(col);
 		this.initClusters(kb);
 	}
 	,initSwitch: function(kb) {
 		this.addFilterHeader("Switches and keycaps");
-		var hotswap = new table_TagColumn("Hot-swappable switches",function(q,wantSet,setValue) {
+		var hotswap = new table_TagColumn("Hot-swappable switches",new table_FancyField("hotswap",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.hotswap = setValue;
 				return null;
 			} else {
 				return q.hotswap;
 			}
-		},type_HotSwapBase);
+		}),type_HotSwapBase);
 		hotswap.shortName = "hs";
 		hotswap.shortLabels.set(type_HotSwapBase.Unspecified,"");
 		hotswap.shortLabels.set(type_HotSwapBase.Yes,"+");
 		hotswap.shortLabels.set(type_HotSwapBase.No,"-");
 		this.addColumn(hotswap);
-		var switchType = new table_TagListColumn("Switch profile",function(q,wantSet,setValue) {
+		var switchType = new table_TagListColumn("Switch profile",new table_FancyField("switchProfile",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.switchProfile = setValue;
 				return null;
 			} else {
 				return q.switchProfile;
 			}
-		},type_SwitchProfile);
+		}),type_SwitchProfile);
 		switchType.shortName = "SwP";
 		switchType.filterLabels.set(type_SwitchProfile.Choc,"Kailh Choc V1");
 		switchType.filterLabels.set(type_SwitchProfile.ChocV2,"Kailh Choc V2");
 		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron low-profile");
 		switchType.shortLabels.set(type_SwitchProfile.Unknown,"");
 		switchType.shortLabels.set(type_SwitchProfile.GateronLP,"GLP");
+		switchType.shortLabels.set(type_SwitchProfile.OutemuLP,"OLP");
 		switchType.shortLabels.set(type_SwitchProfile.CherryULP,"CULP");
 		switchType.shortLabels.set(type_SwitchProfile.Optical,"Opt");
 		this.addColumn(switchType);
-		var switchForce = new table_IntListColumn("Switch actuation force (if not hotswap)",function(q,wantSet,setValue) {
+		var switchForce = new table_IntListColumn("Switch actuation force (if not hotswap)",new table_FancyField("switchForce",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.switchForce = setValue;
 				return null;
 			} else {
 				return q.switchForce;
 			}
-		});
+		}));
 		switchForce.shortName = "gf";
 		switchForce.nullCaption = "*";
 		switchForce.filterIncludeNullLabel = "Include keyboards with hotswap switches";
-		var switchKind = new table_TagListColumn("Switch feel (if not hotswap)",function(q,wantSet,setValue) {
+		var switchKind = new table_TagListColumn("Switch feel (if not hotswap)",new table_FancyField("switchKind",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.switchKind = setValue;
 				return null;
 			} else {
 				return q.switchKind;
 			}
-		},type_SwitchKind);
+		}),type_SwitchKind);
 		switchKind.defaultValue = null;
 		switchKind.shortName = "SwF";
 		switchKind.shortLabels.set(type_SwitchKind.Linear,"L");
@@ -988,14 +1130,14 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		switchKind.shortLabels.set(type_SwitchKind.Clicky,"C");
 		switchKind.shortLabels.set(type_SwitchKind.Other,"#");
 		switchKind.nullCaption = "*";
-		var colSpacing = new table_TagColumn("Key spacing",function(q,wantSet,setValue) {
+		var colSpacing = new table_TagColumn("Key spacing",new table_FancyField("keySpacing",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.keySpacing = setValue;
 				return null;
 			} else {
 				return q.keySpacing;
 			}
-		},type_KeySpacing);
+		}),type_KeySpacing);
 		colSpacing.shortName = "kSp";
 		colSpacing.show = false;
 		colSpacing.filterLabels.set(type_KeySpacing.MX,"MX (19mm x 19mm)");
@@ -1007,160 +1149,177 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 	,initInputs: function(kb) {
 		var header = this.addFilterHeader("Other input devices");
 		header.noticeText = "ZMK + Wireless note";
-		tools_HtmlTools.appendParaTextNode(header.noticeNode,"As of Nov 2023, ZMK firmware has limited support for pointing devices," + " therefore wireless keyboards with pointing devices typically only support them" + " in (wired) QMK mode.");
-		tools_HtmlTools.appendParaTextNode(header.noticeNode,"Please double-check documentation for keyboards to avoid disappointment.");
-		var col = new table_IntRangeColumn("Encoders",function(q,wantSet,setValue) {
+		header.noticeFunc = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"As of Nov 2023, ZMK firmware has limited support for pointing devices," + " therefore wireless keyboards with pointing devices typically only support them" + " in (wired) QMK mode.");
+			tools_HtmlTools.appendParaTextNode(div,"Please double-check documentation for keyboards to avoid disappointment.");
+		};
+		var col = new table_IntRangeColumn("Encoders",new table_FancyField("encoders",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.encoders = setValue;
 				return null;
 			} else {
 				return q.encoders;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.shortName = "#enc";
-		var enct = new table_TagListColumn("Encoder type",function(q,wantSet,setValue) {
+		var enct = new table_TagListColumn("Encoder type",new table_FancyField("encoderType",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.encoderType = setValue;
 				return null;
 			} else {
 				return q.encoderType;
 			}
-		},type_EncoderType);
+		}),type_EncoderType);
 		enct.show = false;
 		enct.shortName = "EncT";
 		enct.shortLabels.set(type_EncoderType.Unknown,"");
 		enct.shortLabels.set(type_EncoderType.Knob,"K");
 		enct.shortLabels.set(type_EncoderType.Wheel,"W");
 		this.addColumn(enct);
-		col = new table_IntRangeColumn("Trackballs",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Trackballs",new table_FancyField("trackballs",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackballs = setValue;
 				return null;
 			} else {
 				return q.trackballs;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.show = false;
-		col = new table_FloatColumn("Trackball size",function(q,wantSet,setValue) {
+		col = new table_FloatColumn("Trackball size",new table_FancyField("trackballSize",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackballSize = setValue;
 				return null;
 			} else {
 				return q.trackballSize;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.filterName = col.name + " (mm)";
 		col.show = false;
-		col = new table_IntRangeColumn("Touchpads",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Touchpads",new table_FancyField("trackpads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackpads = setValue;
 				return null;
 			} else {
 				return q.trackpads;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.show = false;
-		col = new table_FloatColumn("Touchpad size",function(q,wantSet,setValue) {
+		col = new table_FloatColumn("Touchpad size",new table_FancyField("trackpadSize",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackpadSize = setValue;
 				return null;
 			} else {
 				return q.trackpadSize;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.filterName = col.name + " (mm)";
 		col.show = false;
-		col = new table_IntRangeColumn("Trackpoints",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Trackpoints",new table_FancyField("trackpoints",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackpoints = setValue;
 				return null;
 			} else {
 				return q.trackpoints;
 			}
-		});
+		}));
 		this.addColumn(col);
-		tools_HtmlTools.appendParaTextNode(col.notes,"Those little pointing sticks. Usually found somewhere between the keys.");
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Those little pointing sticks. Usually found somewhere between the keys.");
+		};
 		col.show = false;
-		col = new table_IntRangeColumn("D-pads",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("D-pads",new table_FancyField("dpads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.dpads = setValue;
 				return null;
 			} else {
 				return q.dpads;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.show = false;
-		col.notes.appendChild(window.document.createTextNode("Due to component diversity, anything that has 2 or more clicky " + "directional inputs counts as a dpad."));
-		col = new table_IntRangeColumn("D-pad directions",function(q,wantSet,setValue) {
+		col.onNotes = function(div) {
+			div.appendChild(window.document.createTextNode("Due to component diversity, anything that has 2 or more clicky " + "directional inputs counts as a dpad."));
+		};
+		col = new table_IntRangeColumn("D-pad directions",new table_FancyField("dpadDirs",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.dpadDirs = setValue;
 				return null;
 			} else {
 				return q.dpadDirs;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.show = false;
-		col.notes.appendChild(window.document.createTextNode("If it's 3, it's probably a so-called rocker switch."));
+		col.onNotes = function(div) {
+			div.appendChild(window.document.createTextNode("If it's 3, it's probably a so-called rocker switch."));
+		};
 	}
 	,initConveniences: function(kb) {
+		var _gthis = this;
 		this.addFilterHeader("Conveniences");
 		var col;
-		var palm = new table_TagColumn("Palm/wrist pads",function(q,wantSet,setValue) {
+		var palm = new table_TagListColumn("Palm/wrist pads",new table_FancyField("wristPads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.wristPads = setValue;
 				return null;
 			} else {
 				return q.wristPads;
 			}
-		},type_WristPads);
+		}),type_WristPads);
 		palm.show = false;
 		palm.shortLabels.set(type_WristPads.None,"");
 		palm.shortLabels.set(type_WristPads.Integrated,"+");
 		palm.shortLabels.set(type_WristPads.Detachable,"±");
-		tools_HtmlTools.appendParaTextNode(palm.notes,"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them" + " separately, or use any other semi-soft object of your choice" + " (such as a folded little towel or a Purple Squishy)","Some people argue that making your own palm rest is often preferable as you can" + " pick the height/firmness.");
+		palm.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them" + " separately, or use any other semi-soft object of your choice" + " (such as a folded little towel or a Purple Squishy)","Some people argue that making your own palm rest is often preferable as you can" + " pick the height/firmness.");
+		};
 		this.addColumn(palm);
-		var irCol = new table_IntRangeColumn("Tilt",function(q,wantSet,setValue) {
+		var irCol = new table_IntRangeColumn("Tilt",new table_FancyField("tilt",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.tilt = setValue;
 				return null;
 			} else {
 				return q.tilt;
 			}
-		});
+		}));
 		this.addColumn(irCol);
 		irCol.suffix = "°";
 		irCol.show = false;
-		tools_HtmlTools.appendParaTextNode(irCol.notes,"Measured in degrees, approximately (unless specified by author/manufacturer).","Positive values mean that the back edge of the keyboard is positioned higher than" + " the front edge relative to the surface it's sitting on.","A range usually means that keyboard has a pair (or few) legs on front/back.","Not filled out for keywell keyboards since this doesn't make sense there.","If the keyboard has no legs, you can always add your own - adhesive legs for laptops" + " work perfectly well for keyboards too.");
-		irCol = new table_IntRangeColumn("Tenting",function(q,wantSet,setValue) {
+		irCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Measured in degrees, approximately (unless specified by author/manufacturer).","Positive values mean that the back edge of the keyboard is positioned higher than" + " the front edge relative to the surface it's sitting on.","A range usually means that keyboard has a pair (or few) legs on front/back.","Not filled out for keywell keyboards since this doesn't make sense there.","If the keyboard has no legs, you can always add your own - adhesive legs for laptops" + " work perfectly well for keyboards too.");
+		};
+		irCol = new table_IntRangeColumn("Tenting",new table_FancyField("tenting",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.tenting = setValue;
 				return null;
 			} else {
 				return q.tenting;
 			}
-		});
+		}));
 		this.addColumn(irCol);
 		irCol.suffix = "°";
 		irCol.show = false;
-		tools_HtmlTools.appendParaTextNode(irCol.notes,"Some keyboards have an integrated system to raise the middle part of the keyboard" + " to keep palms at a more natural angle - usually either holes for tenting-legs" + " or magnets hidden in the bottom plate.");
-		this.addImagePara(irCol.notes,"high-stakes-tenting.jpg",450,244,"30mm vs 15mm tenting legs on ErgoHaven's K:02");
-		tools_HtmlTools.appendParaTextNode(irCol.notes,"Measured in degrees, approximately (unless specified by author/manufacturer).","Much like with above, you can always make up for this yourself.");
-		var ctCol = new table_TagListColumn("Case",function(q,wantSet,setValue) {
+		irCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Some keyboards have an integrated system to raise the middle part of the keyboard" + " to keep palms at a more natural angle - usually either holes for tenting-legs" + " or magnets hidden in the bottom plate.");
+			_gthis.addImagePara(div,"high-stakes-tenting.jpg",450,244,"30mm vs 15mm tenting legs on ErgoHaven's K:02");
+			tools_HtmlTools.appendParaTextNode(div,"Measured in degrees, approximately (unless specified by author/manufacturer).","Much like with above, you can always make up for this yourself.");
+		};
+		var ctCol = new table_TagListColumn("Case",new table_FancyField("caseType",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.caseType = setValue;
 				return null;
 			} else {
 				return q.caseType;
 			}
-		},type_CaseType);
-		tools_HtmlTools.appendParaTextNode(ctCol.notes,"For pre-built/kit keyboards, Included means that it comes with the keyboard.","For open-source keyboards, Included means that case files can be found in the repo.","Third-party means that cases can be found or bought elsewhere.");
+		}),type_CaseType);
+		ctCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"For pre-built/kit keyboards, Included means that it comes with the keyboard.","For open-source keyboards, Included means that case files can be found in the repo.","Third-party means that cases can be found or bought elsewhere.");
+		};
 		ctCol.shortName = "Case";
 		ctCol.shortLabels.set(type_CaseType.Unknown,"");
 		ctCol.shortLabels.set(type_CaseType.None,"-");
@@ -1168,109 +1327,115 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		ctCol.shortLabels.set(type_CaseType.ThirdParty,"3p");
 		ctCol.show = false;
 		this.addColumn(ctCol);
-		var xCol = new table_LinkListColumn("Extras",function(q,wantSet,setValue) {
+		var xCol = new table_LinkListColumn("Extras",new table_FancyField("extras",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.extras = setValue;
 				return null;
 			} else {
 				return q.extras;
 			}
-		});
-		tools_HtmlTools.appendParaTextNode(xCol.notes,"Cases, tenting kits, and so on");
+		}));
+		xCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Cases, tenting kits, and so on");
+		};
 		xCol.show = false;
 		xCol.shortName = "xt";
 		this.addColumn(xCol);
 	}
 	,initCuriosities: function(kb) {
 		this.addFilterHeader("Other curiosities");
-		var col = new table_IntRangeColumn("Displays",function(q,wantSet,setValue) {
+		var col = new table_IntRangeColumn("Displays",new table_FancyField("displays",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.displays = setValue;
 				return null;
 			} else {
 				return q.displays;
 			}
-		});
+		}));
 		this.addColumn(col);
 		col.show = false;
-		var fw = new table_TagListColumn("Firmware",function(q,wantSet,setValue) {
+		var fw = new table_TagListColumn("Firmware",new table_FancyField("firmware",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.firmware = setValue;
 				return null;
 			} else {
 				return q.firmware;
 			}
-		},type_Firmware);
+		}),type_Firmware);
 		fw.shortLabels.set(type_Firmware.Unknown,"");
 		fw.shortLabels.set(type_Firmware.Custom,"");
 		fw.show = false;
 		this.addColumn(fw);
-		var sw = new table_TagListColumn("Software",function(q,wantSet,setValue) {
+		var sw = new table_TagListColumn("Software",new table_FancyField("software",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.software = setValue;
 				return null;
 			} else {
 				return q.software;
 			}
-		},type_Software);
+		}),type_Software);
 		sw.show = false;
 		this.addColumn(sw);
-		var asm = new table_TagListColumn("Assembly specifics",function(q,wantSet,setValue) {
+		var asm = new table_TagListColumn("Assembly specifics",new table_FancyField("assembly",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.assembly = setValue;
 				return null;
 			} else {
 				return q.assembly;
 			}
-		},type_Assembly);
+		}),type_Assembly);
 		asm.defaultValue = [];
-		tools_HtmlTools.appendParaTextNode(asm.notes,"Assume keyboards to have PCBs unless specified otherwise.");
-		tools_HtmlTools.appendParaTextNode(asm.notes,"If a keyboard is marked as both PCB and handwire, it has two versions.");
+		asm.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Assume keyboards to have PCBs unless specified otherwise.");
+			tools_HtmlTools.appendParaTextNode(div,"If a keyboard is marked as both PCB and handwire, it has two versions.");
+		};
 		asm.shortName = "Assembly";
 		asm.show = false;
 		this.addColumn(asm);
 	}
 	,initLinks: function(kb) {
 		this.addFilterHeader("Links");
-		var lc = new table_LinkListColumn("Website",function(q,wantSet,setValue) {
+		var lc = new table_LinkListColumn("Website",new table_FancyField("web",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.web = setValue;
 				return null;
 			} else {
 				return q.web;
 			}
-		});
+		}));
 		this.addColumn(lc);
-		tools_HtmlTools.appendParaTextNode(lc.notes,"If a keyboard has a separate page/website/post explaining the project motivation/etc." + " that's different from the rest of the links, that goes here.");
+		lc.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a separate page/website/post explaining the project motivation/etc." + " that's different from the rest of the links, that goes here.");
+		};
 		lc.shortName = "web";
-		lc = new table_LinkListColumn("Open-source",function(q,wantSet,setValue) {
+		lc = new table_LinkListColumn("Open-source",new table_FancyField("source",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.source = setValue;
 				return null;
 			} else {
 				return q.source;
 			}
-		});
+		}));
 		this.addColumn(lc);
 		lc.shortName = "OSH";
-		lc = new table_LinkListColumn("Kits",function(q,wantSet,setValue) {
+		lc = new table_LinkListColumn("Kits",new table_FancyField("kit",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.kit = setValue;
 				return null;
 			} else {
 				return q.kit;
 			}
-		});
+		}));
 		this.addColumn(lc);
 		lc.shortName = "Kit";
-		lc = new table_LinkListColumn("Pre-built",function(q,wantSet,setValue) {
+		lc = new table_LinkListColumn("Pre-built",new table_FancyField("prebuilt",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.prebuilt = setValue;
 				return null;
 			} else {
 				return q.prebuilt;
 			}
-		});
+		}));
 		this.addColumn(lc);
 		lc.shortName = "PB";
 	}
@@ -1316,6 +1481,49 @@ Main.main = function() {
 	t.buildFilters(window.document.querySelector("#filter"));
 	t.buildTable(window.document.querySelector("#data"));
 	table_FancyTableEditor.build(t,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
+	var loc = window.document.location;
+	if(loc.protocol != "file:") {
+		t.baseURL = loc.origin + loc.pathname;
+	}
+	var cbAutoUpdateURL = window.document.querySelector("#auto-update-url");
+	t.canUpdateURL = cbAutoUpdateURL.checked;
+	cbAutoUpdateURL.addEventListener("change",function(_) {
+		t.canUpdateURL = cbAutoUpdateURL.checked;
+	});
+	var btShare = window.document.querySelector("#copy-share-url");
+	var this1 = { };
+	this1["theme"] = "translucent";
+	var shareOpt = this1;
+	shareOpt["trigger"] = "manual";
+	shareOpt["content"] = "Copied!";
+	var shareTippy = Tippy(btShare,shareOpt);
+	var shareTippyHide = 0;
+	btShare.onclick = function() {
+		var search = t.saveFilters();
+		var url = t.baseURL + search;
+		var fallback = function() {
+			window.prompt("Failed to copy - here's your link:",url);
+		};
+		try {
+			$global.navigator.clipboard.writeText(url).catch(function(e) {
+				$global.console.error("Failed to copy",e);
+				fallback();
+			}).then(function(_) {
+				shareTippy["show"]();
+				if(shareTippyHide != 0) {
+					window.clearTimeout(shareTippyHide);
+				}
+				shareTippyHide = window.setTimeout(function() {
+					shareTippyHide = 0;
+					shareTippy["hide"]();
+				},1200);
+			});
+		} catch( _g ) {
+			var x = haxe_Exception.caught(_g).unwrap();
+			$global.console.error("Failed to copy",x);
+			fallback();
+		}
+	};
 	var shuffler = new table_FancyTableShuffler("");
 	if($global.location.hostname == "localhost") {
 		var editorDetails = window.document.querySelector("#editor-outer");
@@ -1329,7 +1537,9 @@ Main.main = function() {
 			t.sortColHead = null;
 		}
 		t.sortBy(shuffler,false);
+		t.updateURL();
 	};
+	t.loadFilters(window.document.location.search);
 };
 Math.__name__ = true;
 var OrthoBoards = function() { };
@@ -1481,6 +1691,18 @@ Reflect.field = function(o,field) {
 		return null;
 	}
 };
+Reflect.fields = function(o) {
+	var a = [];
+	if(o != null) {
+		var hasOwnProperty = Object.prototype.hasOwnProperty;
+		for( var f in o ) {
+		if(f != "__id__" && f != "hx__closures__" && hasOwnProperty.call(o,f)) {
+			a.push(f);
+		}
+		}
+	}
+	return a;
+};
 Reflect.isFunction = function(f) {
 	if(typeof(f) == "function") {
 		return !(f.__name__ || f.__ename__);
@@ -1623,6 +1845,17 @@ externs_TippyOptions._new = function() {
 };
 externs_TippyOptions.bind = function(this1,el) {
 	Tippy(el,this1);
+};
+externs_TippyOptions.setLazyContent = function(this1,fn) {
+	var ready = false;
+	var v = function(tippy) {
+		if(!ready) {
+			ready = true;
+			var content = fn();
+			tippy["setContent"](content);
+		}
+	};
+	this1["onShow"] = v;
 };
 externs_TippyOptions.setHoverOnly = function(this1,fn) {
 	this1["onShow"] = fn;
@@ -2042,20 +2275,22 @@ js_Boot.__string_rec = function(o,s) {
 var table_FancyColumn = function(name) {
 	this.canSort = false;
 	this.nullCaption = "";
-	this.filterPrefix = null;
+	this.filterCheckbox = null;
 	this.wantFilter = false;
 	this.canFilter = true;
 	this.show = true;
-	this.notes = null;
+	this.onNotes = null;
 	this.shortName = null;
 	this.filterName = null;
 	this.table = null;
 	this.name = name;
-	this.notes = window.document.createElement("div");
 };
 table_FancyColumn.__name__ = true;
 table_FancyColumn.prototype = {
-	buildValue: function(out,kb) {
+	getId: function() {
+		return this.name;
+	}
+	,buildValue: function(out,kb) {
 	}
 	,buildFilter: function(out) {
 	}
@@ -2063,6 +2298,11 @@ table_FancyColumn.prototype = {
 	}
 	,matchesFilter: function(kb) {
 		return true;
+	}
+	,saveFilterParams: function(obj) {
+	}
+	,loadFilterParams: function(obj) {
+		return false;
 	}
 	,compareKeyboards: function(a,b,ascending) {
 		return 0;
@@ -2072,6 +2312,11 @@ table_FancyColumn.prototype = {
 	,load: function(kb) {
 	}
 };
+var table_FancyField = function(name,access) {
+	this.name = name;
+	this.access = access;
+};
+table_FancyField.__name__ = true;
 var table_FancyRow = function(kb) {
 	this.cells = [];
 	var _gthis = this;
@@ -2112,9 +2357,9 @@ var table_FancyTableFilterOrder = $hxEnums["table.FancyTableFilterOrder"] = { __
 };
 table_FancyTableFilterOrder.__constructs__ = [table_FancyTableFilterOrder.Column,table_FancyTableFilterOrder.Header];
 var table_FancyFilterHeader = function(text) {
+	this.noticeFunc = null;
 	this.noticeText = null;
 	this.text = text;
-	this.noticeNode = window.document.createElement("div");
 };
 table_FancyFilterHeader.__name__ = true;
 var table_FancyTableEditor = function() { };
@@ -2246,8 +2491,8 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 };
 var table_FancyTableFilters = function() { };
 table_FancyTableFilters.__name__ = true;
-table_FancyTableFilters.addNotesFor = function(notes,el) {
-	if(notes.childNodes.length > 0) {
+table_FancyTableFilters.addNotesFor = function(onNotes,el) {
+	if(onNotes != null) {
 		el.classList.add("has-notes");
 		el.title = "(click to view notes)";
 		var this1 = { };
@@ -2260,16 +2505,16 @@ table_FancyTableFilters.addNotesFor = function(notes,el) {
 		};
 		opts["appendTo"] = v;
 		opts["maxWidth"] = 480;
-		var notes1 = notes.cloneNode(true);
-		var v = function(_) {
-			return notes1;
-		};
-		opts["content"] = v;
+		externs_TippyOptions.setLazyContent(opts,function() {
+			var div = window.document.createElement("div");
+			onNotes(div);
+			return div;
+		});
 		Tippy(el,opts);
 	}
 };
 table_FancyTableFilters.addNotes = function(column,el) {
-	table_FancyTableFilters.addNotesFor(column.notes,el);
+	table_FancyTableFilters.addNotesFor(column.onNotes,el);
 };
 table_FancyTableFilters.build = function(table,out) {
 	var dest = out;
@@ -2298,7 +2543,7 @@ table_FancyTableFilters.build = function(table,out) {
 				var notice = window.document.createElement("span");
 				var text1 = header.noticeText;
 				notice.appendChild(window.document.createTextNode(text1));
-				table_FancyTableFilters.addNotesFor(header.noticeNode,notice);
+				table_FancyTableFilters.addNotesFor(header.noticeFunc,notice);
 				details.appendChild(notice);
 			}
 			continue;
@@ -2378,6 +2623,7 @@ table_FancyTableFilters.build = function(table,out) {
 				table.updateFilters();
 			};
 		})(cbFilter,divFilters,column1);
+		column1[0].filterCheckbox = cbFilter[0];
 		tr.appendChild(cbFilter[0]);
 		var this2 = { };
 		this2["theme"] = "translucent";
@@ -2413,9 +2659,14 @@ table_FancyTableShuffler.prototype = $extend(table_FancyColumn.prototype,{
 });
 var table_NumberColumnBase = function(name) {
 	this.suffix = "";
+	this.filterIncludeNullCheckbox = null;
 	this.filterIncludeNullLabel = null;
 	this.filterIncludeNull = false;
+	this.filterMaxCheckbox = null;
+	this.filterMaxField = null;
 	this.filterMax = null;
+	this.filterMinCheckbox = null;
+	this.filterMinField = null;
 	this.filterMin = null;
 	table_FancyColumn.call(this,name);
 	this.canSort = true;
@@ -2423,7 +2674,10 @@ var table_NumberColumnBase = function(name) {
 table_NumberColumnBase.__name__ = true;
 table_NumberColumnBase.__super__ = table_FancyColumn;
 table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
-	parseFilterValue: function(val) {
+	getId: function() {
+		return this.field.name;
+	}
+	,parseFilterValue: function(val) {
 		return null;
 	}
 	,getKnownRange: function(keyboards) {
@@ -2441,6 +2695,13 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			var isMin = [step == 0];
 			var startVal = isMin[0] ? _gthis.filterMin : _gthis.filterMax;
 			var fd = [window.document.createElement("input")];
+			if(isMin[0]) {
+				fd[0].id = this.field.name + "-min";
+				this.filterMinField = fd[0];
+			} else {
+				fd[0].id = this.field.name + "-max";
+				this.filterMaxField = fd[0];
+			}
 			fd[0].type = "number";
 			if(knownRange != null) {
 				fd[0].value = "" + Std.string(isMin[0] ? knownRange.min : knownRange.max);
@@ -2496,6 +2757,13 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 					}
 				};
 			})(cb,setFdValue,setValue,fd);
+			if(isMin[0]) {
+				this.filterMinCheckbox = cb[0];
+				cb[0].id = this.field.name + "-min-cb";
+			} else {
+				this.filterMaxCheckbox = cb[0];
+				cb[0].id = this.field.name + "-max-cb";
+			}
 			var lb = window.document.createElement("label");
 			lb.appendChild(cb[0]);
 			lb.appendChild(window.document.createTextNode((isMin[0] ? "min" : "max") + ": "));
@@ -2507,10 +2775,12 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		if(this.filterIncludeNullLabel != null) {
 			var cb1 = tools_HtmlTools.createCheckboxElement(window.document);
 			cb1.checked = this.filterIncludeNull;
+			cb1.id = this.field.name + "-null-cb";
 			cb1.onchange = function(_) {
 				_gthis.filterIncludeNull = cb1.checked;
 				_gthis.table.updateFilters();
 			};
+			this.filterIncludeNullCheckbox = cb1;
 			var lb = window.document.createElement("label");
 			lb.appendChild(cb1);
 			var text = this.filterIncludeNullLabel;
@@ -2520,11 +2790,77 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			out.appendChild(div);
 		}
 	}
+	,saveFilterParams: function(out) {
+		if(this.filterMin != null && this.filterMax != null) {
+			out[this.field.name] = Std.string(this.filterMin) + "~" + Std.string(this.filterMax);
+		} else {
+			if(this.filterMin != null) {
+				out[this.field.name + "-min"] = "" + Std.string(this.filterMin);
+			}
+			if(this.filterMax != null) {
+				out[this.field.name + "-max"] = "" + Std.string(this.filterMax);
+			}
+		}
+		if(this.filterIncludeNullLabel != null && this.filterIncludeNull) {
+			out[this.field.name + "-null"] = "";
+		}
+	}
+	,loadFilterParams: function(obj) {
+		var ret = false;
+		var val = obj[this.field.name];
+		if(val != null) {
+			while(true) {
+				ret = true;
+				var pos = val.indexOf("~");
+				if(pos < 0) {
+					if(!false) {
+						break;
+					} else {
+						continue;
+					}
+				}
+				this.filterMinCheckbox.checked = true;
+				tools_HtmlTools.triggerChange(this.filterMinCheckbox);
+				this.filterMinField.value = val.substring(0,pos);
+				tools_HtmlTools.triggerChange(this.filterMinField);
+				this.filterMaxCheckbox.checked = true;
+				tools_HtmlTools.triggerChange(this.filterMaxCheckbox);
+				this.filterMaxField.value = val.substring(pos + 1);
+				tools_HtmlTools.triggerChange(this.filterMaxField);
+				if(!false) {
+					break;
+				}
+			}
+		}
+		val = obj[this.field.name + "-min"];
+		if(val != null) {
+			ret = true;
+			this.filterMinCheckbox.checked = true;
+			tools_HtmlTools.triggerChange(this.filterMinCheckbox);
+			this.filterMinField.value = val;
+			tools_HtmlTools.triggerChange(this.filterMinField);
+		}
+		val = obj[this.field.name + "-max"];
+		if(val != null) {
+			ret = true;
+			this.filterMaxCheckbox.checked = true;
+			tools_HtmlTools.triggerChange(this.filterMaxCheckbox);
+			this.filterMaxField.value = val;
+			tools_HtmlTools.triggerChange(this.filterMaxField);
+		}
+		val = obj[this.field.name + "-null"];
+		if(val != null) {
+			ret = true;
+			this.filterIncludeNullCheckbox.checked = true;
+			tools_HtmlTools.triggerChange(this.filterIncludeNullCheckbox);
+		}
+		return ret;
+	}
 });
-var table_NumberColumn = function(name,access) {
+var table_NumberColumn = function(name,field) {
 	this.defaultValue = 0;
 	table_NumberColumnBase.call(this,name);
-	this.access = access;
+	this.field = field;
 };
 table_NumberColumn.__name__ = true;
 table_NumberColumn.parseIntValue = function(val) {
@@ -2562,7 +2898,7 @@ table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		while(_g < keyboards.length) {
 			var keyboard = keyboards[_g];
 			++_g;
-			var val = this.access(keyboard);
+			var val = this.field.access(keyboard);
 			if(val != null) {
 				if(min == null || val < min) {
 					min = val;
@@ -2579,7 +2915,7 @@ table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		}
 	}
 	,buildValue: function(out,kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		var text = val != null ? "" + Std.string(val) : this.nullCaption;
 		out.appendChild(window.document.createTextNode(text));
 	}
@@ -2595,16 +2931,16 @@ table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		store.push(function(kb) {
 			var val = _gthis.parseFilterValue(fd.value);
 			if(val != null) {
-				_gthis.access(kb,true,val);
+				_gthis.field.access(kb,true,val);
 			}
 		});
 		restore.push(function(kb) {
-			var val = _gthis.access(kb);
+			var val = _gthis.field.access(kb);
 			fd.value = val != null ? "" + Std.string(val) : "";
 		});
 	}
 	,matchesFilter: function(kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		if(val == null) {
 			if(this.filterIncludeNull) {
 				return true;
@@ -2619,10 +2955,21 @@ table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		}
 		return true;
 	}
+	,saveFilterParams: function(out) {
+		if(this.filterMin != null) {
+			out[this.field.name + "-min"] = "" + Std.string(this.filterMin);
+		}
+		if(this.filterMax != null) {
+			out[this.field.name + "-max"] = "" + Std.string(this.filterMax);
+		}
+		if(this.filterIncludeNull != null) {
+			out[this.field.name + "-null"] = "";
+		}
+	}
 	,compareKeyboards: function(a,b,ascending) {
-		var tmp = this.access(a);
+		var tmp = this.field.access(a);
 		var av = tmp != null ? tmp : this.defaultValue;
-		var tmp = this.access(b);
+		var tmp = this.field.access(b);
 		var bv = tmp != null ? tmp : this.defaultValue;
 		if(ascending) {
 			return table_NumberColumn.compareValues(av,bv);
@@ -2630,8 +2977,8 @@ table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		return table_NumberColumn.compareValues(bv,av);
 	}
 });
-var table_FloatColumn = function(name,access) {
-	table_NumberColumn.call(this,name,access);
+var table_FloatColumn = function(name,field) {
+	table_NumberColumn.call(this,name,field);
 };
 table_FloatColumn.__name__ = true;
 table_FloatColumn.__super__ = table_NumberColumn;
@@ -2640,10 +2987,10 @@ table_FloatColumn.prototype = $extend(table_NumberColumn.prototype,{
 		return table_NumberColumn.parseFloatValue(val);
 	}
 });
-var table_NumberListColumn = function(name,access) {
+var table_NumberListColumn = function(name,field) {
 	this.defaultValue = [];
 	table_NumberColumnBase.call(this,name);
-	this.access = access;
+	this.field = field;
 };
 table_NumberListColumn.__name__ = true;
 table_NumberListColumn.__super__ = table_NumberColumnBase;
@@ -2655,7 +3002,7 @@ table_NumberListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		while(_g < keyboards.length) {
 			var keyboard = keyboards[_g];
 			++_g;
-			var list = this.access(keyboard);
+			var list = this.field.access(keyboard);
 			if(list != null) {
 				var _g1 = 0;
 				var _g2 = list;
@@ -2678,12 +3025,12 @@ table_NumberListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		}
 	}
 	,buildValue: function(out,kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		var text = val != null && val.length > 0 ? val.join(" ") : this.nullCaption;
 		out.appendChild(window.document.createTextNode(text));
 	}
 	,matchesFilter: function(kb) {
-		var vals = this.access(kb);
+		var vals = this.field.access(kb);
 		if(vals == null) {
 			if(this.filterIncludeNull) {
 				return true;
@@ -2710,9 +3057,9 @@ table_NumberListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		}
 	}
 	,compareKeyboards: function(a,b,ascending) {
-		var tmp = this.access(a);
+		var tmp = this.field.access(a);
 		var al = tmp != null ? tmp : [];
-		var tmp = this.access(b);
+		var tmp = this.field.access(b);
 		var bl = tmp != null ? tmp : [];
 		var am = null;
 		var bm = null;
@@ -2775,8 +3122,8 @@ table_NumberListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		}
 	}
 });
-var table_IntListColumn = function(name,access) {
-	table_NumberListColumn.call(this,name,access);
+var table_IntListColumn = function(name,field) {
+	table_NumberListColumn.call(this,name,field);
 };
 table_IntListColumn.__name__ = true;
 table_IntListColumn.__super__ = table_NumberListColumn;
@@ -2785,10 +3132,10 @@ table_IntListColumn.prototype = $extend(table_NumberListColumn.prototype,{
 		return table_NumberColumn.parseIntValue(val);
 	}
 });
-var table_NumberRangeColumn = function(name,access) {
+var table_NumberRangeColumn = function(name,field) {
 	this.defaultValue = { min : 0, max : 0};
 	table_NumberColumnBase.call(this,name);
-	this.access = access;
+	this.field = field;
 };
 table_NumberRangeColumn.__name__ = true;
 table_NumberRangeColumn.__super__ = table_NumberColumnBase;
@@ -2800,7 +3147,7 @@ table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		while(_g < keyboards.length) {
 			var keyboard = keyboards[_g];
 			++_g;
-			var range = this.access(keyboard);
+			var range = this.field.access(keyboard);
 			if(range != null) {
 				if(min == null || range.min < min) {
 					min = range.min;
@@ -2816,14 +3163,18 @@ table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 			return null;
 		}
 	}
+	,buildFilter: function(out) {
+		this.filterIncludeNull = false;
+		table_NumberColumnBase.prototype.buildFilter.call(this,out);
+	}
 	,buildValue: function(out,kb) {
-		var range = this.access(kb);
+		var range = this.field.access(kb);
 		var text = range != null ? type_NumRange.toString(range) + this.suffix : this.nullCaption;
 		out.appendChild(window.document.createTextNode(text));
 		out.title = [kb.name,this.name + ":",text].join("\n");
 	}
 	,matchesFilter: function(kb) {
-		var tmp = this.access(kb);
+		var tmp = this.field.access(kb);
 		var val = tmp != null ? tmp : this.defaultValue;
 		if(this.filterMin != null && val.max < this.filterMin) {
 			return false;
@@ -2834,9 +3185,9 @@ table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		return true;
 	}
 	,compareKeyboards: function(a,b,ascending) {
-		var tmp = this.access(a);
+		var tmp = this.field.access(a);
 		var ar = tmp != null ? tmp : this.defaultValue;
-		var tmp = this.access(b);
+		var tmp = this.field.access(b);
 		var br = tmp != null ? tmp : this.defaultValue;
 		if(ascending) {
 			return table_NumberColumn.compareValues(ar.min,br.min);
@@ -2879,10 +3230,10 @@ table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 			} else if(min == null) {
 				min = max;
 			}
-			_gthis.access(kb,true,{ min : min, max : max});
+			_gthis.field.access(kb,true,{ min : min, max : max});
 		});
 		restore.push(function(kb) {
-			var range = _gthis.access(kb);
+			var range = _gthis.field.access(kb);
 			if(range == null) {
 				fds[0].value = "";
 				fds[1].value = "";
@@ -2893,24 +3244,24 @@ table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		});
 	}
 	,save: function(kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		if(val != null && val.min == val.max) {
-			this.access(kb,true,val.min);
+			this.field.access(kb,true,val.min);
 		}
 	}
 	,load: function(kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		if(((val) instanceof Array)) {
 			var arr = val;
-			this.access(kb,true,{ min : arr[0], max : arr[1]});
+			this.field.access(kb,true,{ min : arr[0], max : arr[1]});
 		} else if(typeof(val) == "number") {
 			var num = val;
-			this.access(kb,true,{ min : num, max : num});
+			this.field.access(kb,true,{ min : num, max : num});
 		}
 	}
 });
-var table_IntRangeColumn = function(name,access) {
-	table_NumberRangeColumn.call(this,name,access);
+var table_IntRangeColumn = function(name,field) {
+	table_NumberRangeColumn.call(this,name,field);
 };
 table_IntRangeColumn.__name__ = true;
 table_IntRangeColumn.__super__ = table_NumberRangeColumn;
@@ -2919,16 +3270,19 @@ table_IntRangeColumn.prototype = $extend(table_NumberRangeColumn.prototype,{
 		return table_NumberColumn.parseIntValue(val);
 	}
 });
-var table_LinkListColumn = function(name,access) {
+var table_LinkListColumn = function(name,field) {
 	this.defaultValue = "";
 	table_FancyColumn.call(this,name);
-	this.access = access;
+	this.field = field;
 };
 table_LinkListColumn.__name__ = true;
 table_LinkListColumn.__super__ = table_FancyColumn;
 table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
-	matchesFilter: function(kb) {
-		var lines = this.access(kb);
+	getId: function() {
+		return this.field.name;
+	}
+	,matchesFilter: function(kb) {
+		var lines = this.field.access(kb);
 		if(lines != null) {
 			return lines.length != 0;
 		} else {
@@ -2936,7 +3290,7 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 		}
 	}
 	,buildValue: function(out,kb) {
-		var lines = this.access(kb);
+		var lines = this.field.access(kb);
 		if(!(lines == null || lines.length == 0)) {
 			if(lines.length == 1) {
 				var link = window.document.createElement("a");
@@ -3000,10 +3354,10 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 			if(StringTools.trim(text) == "") {
 				return;
 			}
-			_gthis.access(kb,true,text.split("\n"));
+			_gthis.field.access(kb,true,text.split("\n"));
 		});
 		restore.push(function(kb) {
-			var arr = _gthis.access(kb);
+			var arr = _gthis.field.access(kb);
 			if(arr == null) {
 				textarea.value = "";
 			} else {
@@ -3012,22 +3366,30 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 		});
 	}
 	,save: function(kb) {
-		var arr = this.access(kb);
+		var arr = this.field.access(kb);
 		if(arr != null && arr.length == 1) {
 			arr = arr[0];
-			this.access(kb,true,arr);
+			this.field.access(kb,true,arr);
 		}
 	}
 	,load: function(kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		if(typeof(val) == "string") {
-			this.access(kb,true,[val]);
+			this.field.access(kb,true,[val]);
 		}
 	}
+	,saveFilterParams: function(obj) {
+		if(this.filterCheckbox.checked) {
+			obj[this.field.name] = "";
+		}
+	}
+	,loadFilterParams: function(obj) {
+		return obj[this.field.name] != null;
+	}
 });
-var table_NameColumn = function(name,access) {
+var table_NameColumn = function(name,field) {
 	table_FancyColumn.call(this,name);
-	this.access = access;
+	this.field = field;
 	this.canFilter = false;
 	this.canSort = true;
 };
@@ -3053,7 +3415,7 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 				srcs = null;
 			}
 			var link = window.document.createElement("a");
-			var text = this.access(kb);
+			var text = this.field.access(kb);
 			link.appendChild(window.document.createTextNode(text));
 			link.href = srcs != null ? srcs[0] : null;
 			link.onclick = function() {
@@ -3066,7 +3428,7 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 			opts["trigger"] = "click";
 			opts["interactive"] = true;
 			opts["maxWidth"] = 640;
-			var v = function(_) {
+			externs_TippyOptions.setLazyContent(opts,function() {
 				var div = window.document.createElement("div");
 				if(srcs != null) {
 					var _g = 0;
@@ -3091,17 +3453,16 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 					}
 				}
 				return div;
-			};
-			opts["content"] = v;
+			});
 			Tippy(link,opts);
 		} else {
-			var text = this.access(kb);
+			var text = this.field.access(kb);
 			out.appendChild(window.document.createTextNode(text));
 		}
 	}
 	,compareKeyboards: function(a,b,ascending) {
-		var an = this.access(a).toUpperCase();
-		var bn = this.access(b).toUpperCase();
+		var an = this.field.access(a).toUpperCase();
+		var bn = this.field.access(b).toUpperCase();
 		var sign = an == bn ? 0 : an < bn ? -1 : 1;
 		if(ascending) {
 			sign = -sign;
@@ -3181,8 +3542,10 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 	}
 });
 var table_TagColumnBase = function(name,et) {
+	this.filterModeSelect = null;
 	this.filterMode = table_TagFilterMode.AnyOf;
 	this.isMulti = false;
+	this.filterCheckboxes = [];
 	this.filterTags = [];
 	this.shortLabels = new haxe_ds_EnumValueMap();
 	this.filterLabels = new haxe_ds_EnumValueMap();
@@ -3192,7 +3555,10 @@ var table_TagColumnBase = function(name,et) {
 table_TagColumnBase.__name__ = true;
 table_TagColumnBase.__super__ = table_FancyColumn;
 table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
-	buildFilter: function(out) {
+	getId: function() {
+		return this.field.name;
+	}
+	,buildFilter: function(out) {
 		var _gthis = this;
 		var modeSelect = window.document.createElement("select");
 		var _g = 0;
@@ -3240,6 +3606,7 @@ table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 				_gthis.table.updateFilters();
 			}
 		};
+		this.filterModeSelect = modeSelect;
 		out.appendChild(modeSelect);
 		var _g = 0;
 		var _this = this.type.__constructs__;
@@ -3258,6 +3625,8 @@ table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			var tmp = this.filterLabels.get(val[0]);
 			var name = tmp != null ? tmp : ctr;
 			var cb = [tools_HtmlTools.createCheckboxElement(window.document)];
+			cb[0].checked = this.filterTags.indexOf(val[0]) != -1;
+			cb[0].id = this.field.name + "-" + $hxEnums[val[0].__enum__].__constructs__[val[0]._hx_index]._hx_name;
 			cb[0].onchange = (function(cb,val) {
 				return function(_) {
 					if(cb[0].checked) {
@@ -3270,6 +3639,7 @@ table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 					}
 				};
 			})(cb,val);
+			this.filterCheckboxes.push(cb[0]);
 			var lb = window.document.createElement("label");
 			lb.appendChild(cb[0]);
 			lb.appendChild(window.document.createTextNode(name));
@@ -3278,19 +3648,80 @@ table_TagColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			out.appendChild(div);
 		}
 	}
+	,saveFilterParams: function(obj) {
+		var name = this.field.name;
+		if(this.filterMode != table_TagFilterMode.AnyOf) {
+			var e = this.filterMode;
+			obj[name + "-mode"] = $hxEnums[e.__enum__].__constructs__[e._hx_index]._hx_name;
+		}
+		var _this = this.filterTags;
+		var result = new Array(_this.length);
+		var _g = 0;
+		var _g1 = _this.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var t = _this[i];
+			result[i] = $hxEnums[t.__enum__].__constructs__[t._hx_index]._hx_name;
+		}
+		var list = result;
+		if(list.length > 0) {
+			obj[name] = list.join("~");
+		}
+	}
+	,loadFilterParams: function(obj) {
+		var name = this.field.name;
+		var mode = obj[name + "-mode"];
+		var ret = false;
+		if(mode != null) {
+			try {
+				this.filterMode = Type.createEnum(table_TagFilterMode,mode,null);
+				this.filterModeSelect.value = mode;
+				tools_HtmlTools.triggerChange(this.filterModeSelect);
+				ret = true;
+			} catch( _g ) {
+				$global.console.error("Invalid filter mode " + mode + " for " + name);
+			}
+		}
+		var listStr = obj[name];
+		if(listStr != null) {
+			var list = listStr.split("-");
+			var _g = 0;
+			while(_g < list.length) {
+				var item = list[_g];
+				++_g;
+				var _g1 = [];
+				var _g2 = 0;
+				var _g3 = this.filterCheckboxes;
+				while(_g2 < _g3.length) {
+					var v = _g3[_g2];
+					++_g2;
+					if(v.id == name + "~" + item) {
+						_g1.push(v);
+					}
+				}
+				var cb = _g1[0];
+				if(cb != null) {
+					cb.checked = true;
+					tools_HtmlTools.triggerChange(cb);
+					ret = true;
+				}
+			}
+		}
+		return ret;
+	}
 });
-var table_TagColumn = function(name,access,et) {
+var table_TagColumn = function(name,field,et) {
 	this.defaultValue = null;
 	table_TagColumnBase.call(this,name,et);
 	this.defaultValue = Type.createEnumIndex(et,0,null);
-	this.access = access;
+	this.field = field;
 	this.type = et;
 };
 table_TagColumn.__name__ = true;
 table_TagColumn.__super__ = table_TagColumnBase;
 table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 	getValue: function(kb) {
-		var tmp = this.access(kb);
+		var tmp = this.field.access(kb);
 		if(tmp != null) {
 			return tmp;
 		} else {
@@ -3344,11 +3775,11 @@ table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		store.push(function(kb) {
 			var val = select.value;
 			if(val != "") {
-				_gthis.access(kb,true,Type.createEnum(_gthis.type,val,null));
+				_gthis.field.access(kb,true,Type.createEnum(_gthis.type,val,null));
 			}
 		});
 		restore.push(function(kb) {
-			var val = _gthis.access(kb);
+			var val = _gthis.field.access(kb);
 			if(val != null) {
 				select.value = $hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name;
 			} else {
@@ -3372,15 +3803,15 @@ table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		}
 	}
 	,save: function(kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		if(val != null) {
-			this.access(kb,true,$hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name);
+			this.field.access(kb,true,$hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name);
 		}
 	}
 	,load: function(kb) {
-		var val = this.access(kb);
+		var val = this.field.access(kb);
 		if(val != null) {
-			this.access(kb,true,Type.createEnum(this.type,val,null));
+			this.field.access(kb,true,Type.createEnum(this.type,val,null));
 		}
 	}
 });
@@ -3390,18 +3821,18 @@ var table_TagFilterMode = $hxEnums["table.TagFilterMode"] = { __ename__:true,__c
 	,NoneOf: {_hx_name:"NoneOf",_hx_index:2,__enum__:"table.TagFilterMode",toString:$estr}
 };
 table_TagFilterMode.__constructs__ = [table_TagFilterMode.AnyOf,table_TagFilterMode.AllOf,table_TagFilterMode.NoneOf];
-var table_TagListColumn = function(name,access,et) {
+var table_TagListColumn = function(name,field,et) {
 	this.defaultValue = null;
 	table_TagColumnBase.call(this,name,et);
 	this.defaultValue = type_ValList.fromValue(Type.createEnumIndex(et,0,null));
-	this.access = access;
+	this.field = field;
 	this.type = et;
 };
 table_TagListColumn.__name__ = true;
 table_TagListColumn.__super__ = table_TagColumnBase;
 table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 	getValue: function(kb) {
-		var tmp = this.access(kb);
+		var tmp = this.field.access(kb);
 		if(tmp != null) {
 			return tmp;
 		} else {
@@ -3458,17 +3889,17 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 					if(!cb[0].checked) {
 						return;
 					}
-					var arr = _gthis.access(kb);
+					var arr = _gthis.field.access(kb);
 					if(arr == null) {
 						arr = [];
-						_gthis.access(kb,true,arr);
+						_gthis.field.access(kb,true,arr);
 					}
 					arr.push(val[0]);
 				};
 			})(cb,val));
 			restore.push((function(cb,val) {
 				return function(kb) {
-					var arr = _gthis.access(kb);
+					var arr = _gthis.field.access(kb);
 					cb[0].checked = arr != null && arr.indexOf(val[0]) != -1;
 				};
 			})(cb,val));
@@ -3528,7 +3959,7 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		}
 	}
 	,save: function(kb) {
-		var arr = this.access(kb);
+		var arr = this.field.access(kb);
 		if(arr != null) {
 			var result = new Array(arr.length);
 			var _g = 0;
@@ -3542,12 +3973,12 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			if(names.length == 1) {
 				names = names[0];
 			}
-			this.access(kb,true,names);
+			this.field.access(kb,true,names);
 		}
 	}
 	,load: function(kb) {
 		var _gthis = this;
-		var names = this.access(kb);
+		var names = this.field.access(kb);
 		if(names != null) {
 			if(typeof(names) == "string") {
 				names = [names];
@@ -3560,7 +3991,7 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 				result[i] = Type.createEnum(_gthis.type,names[i],null);
 			}
 			var arr = result;
-			this.access(kb,true,arr);
+			this.field.access(kb,true,arr);
 		}
 	}
 });
@@ -3718,6 +4149,9 @@ tools_HtmlTools.setTokenFlag = function(tl,name,val) {
 tools_HtmlTools.setDisplayFlag = function(el,visible) {
 	el.style.display = visible ? "" : "none";
 };
+tools_HtmlTools.triggerChange = function(el) {
+	el.dispatchEvent(new CustomEvent("change"));
+};
 var type_Assembly = $hxEnums["type.Assembly"] = { __ename__:true,__constructs__:null
 	,Unspecified: {_hx_name:"Unspecified",_hx_index:0,__enum__:"type.Assembly",toString:$estr}
 	,PCB: {_hx_name:"PCB",_hx_index:1,__enum__:"type.Assembly",toString:$estr}
@@ -3852,11 +4286,12 @@ var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__con
 	,ChocV2: {_hx_name:"ChocV2",_hx_index:3,__enum__:"type.SwitchProfile",toString:$estr}
 	,Alps: {_hx_name:"Alps",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
 	,GateronLP: {_hx_name:"GateronLP",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
-	,CherryULP: {_hx_name:"CherryULP",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
-	,Optical: {_hx_name:"Optical",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
+	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
+	,CherryULP: {_hx_name:"CherryULP",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
+	,Optical: {_hx_name:"Optical",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Other];
 var type_ValList = {};
 type_ValList.get_length = function(this1) {
 	return this1.length;
@@ -3884,5 +4319,6 @@ String.__name__ = true;
 Array.__name__ = true;
 var Tippy = window["tippy"];
 js_Boot.__toStr = ({ }).toString;
+Main.baseURL = "https://yal-tools.github.io/ergo-keyboards/";
 Main.main();
 })(typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);

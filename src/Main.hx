@@ -1,5 +1,7 @@
 package;
 
+import externs.Tippy;
+import externs.TippyOptions;
 import js.Lib;
 import ColStagTable;
 import js.html.DetailsElement;
@@ -15,8 +17,9 @@ import js.Browser.*;
  * @author YellowAfterlife
  */
 class Main {
-	
+	public static var baseURL:String = "https://yal-tools.github.io/ergo-keyboards/";
 	static function main() {
+		//
 		var t = new ColStagTable();
 		t.countElement = document.querySelectorAuto("#count");
 		t.buildFilters(document.querySelectorAuto("#filter"));
@@ -29,6 +32,51 @@ class Main {
 			document.querySelectorAuto("#editor-test"),
 			document.querySelectorAuto("#editor-output")
 		);
+		//
+		var loc = document.location;
+		if (loc.protocol != "file:") {
+			t.baseURL = loc.origin + loc.pathname;
+		}
+		//
+		var cbAutoUpdateURL:InputElement = document.querySelectorAuto("#auto-update-url");
+		t.canUpdateURL = cbAutoUpdateURL.checked;
+		cbAutoUpdateURL.addEventListener("change", function(_) {
+			t.canUpdateURL = cbAutoUpdateURL.checked;
+		});
+		//
+		var btShare:InputElement = document.querySelectorAuto("#copy-share-url");
+		var shareOpt = new TippyOptions();
+		shareOpt.trigger = "manual";
+		shareOpt.content = "Copied!";
+		var shareTippy = Tippy.bind(btShare, shareOpt);
+		var shareTippyHide:Int = 0;
+		
+		btShare.onclick = function() {
+			var search = t.saveFilters();
+			var url = t.baseURL + search;
+			function fallback() {
+				window.prompt("Failed to copy - here's your link:", url);
+			}
+			try {
+				navigator.clipboard.writeText(url).catchError(function(e) {
+					console.error("Failed to copy", e);
+					fallback();
+				}).then(function(_) {
+					shareTippy.show();
+					if (shareTippyHide != 0) {
+						window.clearTimeout(shareTippyHide);
+					}
+					shareTippyHide = window.setTimeout(function() {
+						shareTippyHide = 0;
+						shareTippy.hide();
+					}, 1200);
+				});
+			} catch (x:Dynamic) {
+				console.error("Failed to copy", x);
+				fallback();
+			}
+		}
+		//
 		var shuffler = new FancyTableShuffler<ColStagKeyboard>("");
 		if (location.hostname == "localhost") {
 			var editorDetails:DetailsElement = document.querySelectorAuto("#editor-outer");
@@ -43,7 +91,9 @@ class Main {
 				t.sortColHead = null;
 			}
 			t.sortBy(shuffler, false);
+			t.updateURL();
 		}
+		t.loadFilters(document.location.search);
 	}
 	
 }

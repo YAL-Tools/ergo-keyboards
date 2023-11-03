@@ -1,9 +1,12 @@
 package table ;
 import externs.Tippy;
 import externs.TippyOptions;
+import haxe.DynamicAccess;
 import js.html.Element;
+import js.html.InputElement;
 import js.html.TableCellElement;
 import js.html.TableRowElement;
+import js.html.URLSearchParams;
 import table.FancyColumn;
 import table.FancyTableEditor;
 import table.FancyRow;
@@ -70,6 +73,7 @@ class FancyTable<KB:Keyboard> {
 		for (column in columns) {
 			var cell = new FancyTableHeaderCell(column);
 			cell.element.setDisplayFlag(column.show);
+			cell.element.id = "header-" + column.getId();
 			if (column.shortName != null) {
 				cell.element.appendTextNode(column.shortName);
 				cell.element.title = column.name;
@@ -96,6 +100,7 @@ class FancyTable<KB:Keyboard> {
 						sortColHead.element.classList.setTokenFlag("sort-ascending", sortAscending);
 					}
 					sortBy(sortColHead.column, sortAscending);
+					updateURL();
 				}
 			}
 			header.cells.push(cell);
@@ -110,7 +115,9 @@ class FancyTable<KB:Keyboard> {
 		}
 		if (countElement != null) countElement.innerText = "" + keyboards.length;
 	}
-	public function updateFilters() {
+	public var canUpdateFilters:Bool = false;
+	public function updateFilters(_updateURL:Bool = true) {
+		if (!canUpdateFilters) return;
 		var found = 0;
 		for (row in rows) {
 			var keyboard = row.keyboard;
@@ -124,6 +131,92 @@ class FancyTable<KB:Keyboard> {
 			if (show) found++;
 		}
 		if (countElement != null) countElement.innerText = "" + found;
+		
+		//
+		if (_updateURL) updateURL();
+	}
+	
+	/** -> "shape=Split&kit" */
+	public function saveFilters():String {
+		var params = new DynamicAccess();
+		for (column in columns) if (column.wantFilter) {
+			column.saveFilterParams(params);
+		}
+		if (sortColHead != null) {
+			var id = sortColHead.column.getId();
+			if (!sortAscending) id = "-" + id;
+			params["sort"] = id;
+		}
+		
+		var paramKeys = params.keys();
+		if (paramKeys.length == 0) return "";
+		
+		var paramPairs = [];
+		for (key in paramKeys) {
+			var val = params[key];
+			if (val != "") {
+				val = (cast window).encodeURIComponent(params[key]);
+				paramPairs.push(key + "=" + val);
+			} else paramPairs.push(key);
+		}
+		if (paramPairs.length == 0) return "";
+		return "?" + paramPairs.join("&");
+	}
+	
+	public var canUpdateURL = true;
+	public var baseURL:String = "https://yal-tools.github.io/ergo-keyboards/";
+	public function updateURL() {
+		if (!canUpdateURL) return;
+		var search = saveFilters();
+		var loc = document.location;
+		var prefix = Main.baseURL;
+		if (loc.protocol == "file:") {
+			prefix = "https://yal-tools.github.io/ergo-keyboards/";
+		} else {
+			prefix = loc.origin + loc.pathname;
+		}
+		var url = prefix + search + loc.hash;
+		
+		try {
+			window.history.replaceState("", "", url);
+			return;
+		} catch (x:Dynamic) {}
+		
+		var fd:InputElement = document.querySelectorAuto("#share-field");
+		fd.style.display = "inherit";
+		fd.value = url;
+	}
+	public function loadFilters(search:String) {
+		var params = new URLSearchParams(search);
+		var obj = new DynamicAccess<String>();
+		params.forEach(function(val, key, _) {
+			obj[key] = val;
+		});
+		
+		canUpdateFilters = false;
+		var wantFilter = false;
+		for (column in columns) {
+			var filter = column.loadFilterParams(obj);
+			column.filterCheckbox.checked = filter;
+			if (filter) {
+				column.filterCheckbox.onchange(null);
+				wantFilter = true;
+			}
+		}
+		canUpdateFilters = true;
+		
+		var sort = obj["sort"];
+		if (sort != null) {
+			var desc = sort.charAt(0) == "-";
+			if (desc) sort = sort.substr(1);
+			var th = document.getElementById("header-" + sort);
+			if (th != null) {
+				th.click();
+				if (!desc) th.click();
+			}
+		}
+		
+		if (wantFilter) updateFilters(false);
 	}
 	public function loadTest(kb:KB) {
 		if (testRow != null) {
@@ -143,9 +236,8 @@ enum FancyTableFilterOrder<KB:Keyboard> {
 class FancyFilterHeader {
 	public var text:String;
 	public var noticeText:String = null;
-	public var noticeNode:Element;
+	public var noticeFunc:Element->Void = null;
 	public function new(text:String) {
 		this.text = text;
-		noticeNode = document.createDivElement();
 	}
 }

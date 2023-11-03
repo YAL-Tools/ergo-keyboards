@@ -170,3 +170,8 @@ body.night #data tr:hover,
   border-radius: 3px;
   outline: 1px solid currentColor;
 }
+#share-field {
+  flex-grow: 1;
+  margin-left: 0.25em;
+  display: none;
+}

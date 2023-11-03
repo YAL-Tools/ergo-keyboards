@@ -2,6 +2,7 @@ package ;
 import js.Browser;
 import type.*;
 import js.html.Element;
+import table.FancyField;
 import table.IntRangeColumn;
 import table.TagColumn;
 import table.TagListColumn;
@@ -40,52 +41,60 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		col = new IntRangeColumn("Thumb keys", mgf(kb.thumbKeys));
 		col.shortName = "#thumb";
-		col.notes.appendParaTextNode(
-			"Keys below the main area that are (mostly) intended to be pressed with a thumb. " +
-			"Counted per keyboard half."
-		);
-		addImagePara(col.notes, "thumb-keys.png", 450, 120, "Thumb keys on a Breeze keyboard");
-		col.notes.appendParaTextNode(
-			"On wider keyboards thumb keys tend to smoothly transition into a key row"+
-			" so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:"
-		);
-		addImagePara(col.notes, "thumb-keys-2.png", 450, 200, "Thumb keys on a Redox keyboard");
+		col.onNotes = function(div:Element) {
+			div.appendParaTextNode(
+				"Keys below the main area that are (mostly) intended to be pressed with a thumb. " +
+				"Counted per keyboard half."
+			);
+			addImagePara(div, "thumb-keys.png", 450, 120, "Thumb keys on a Breeze keyboard");
+			div.appendParaTextNode(
+				"On wider keyboards thumb keys tend to smoothly transition into a key row"+
+				" so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:"
+			);
+			addImagePara(div, "thumb-keys-2.png", 450, 200, "Thumb keys on a Redox keyboard");
+		};
 		addColumn(col);
 		
 		col = new IntRangeColumn("Inner keys", mgf(kb.innerKeys));
 		col.shortName = "#inner";
 		col.show = false;
-		col.notes.appendParaTextNode(
-			"Sometimes keyboards have keys between the two halves that aren't part of the main area, " +
-			"but still convenient enough to access."
-		);
-		addImagePara(col.notes, "inner-keys.png", 450, 200, "Inner keys on a Redox keyboard");
+		col.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Sometimes keyboards have keys between the two halves that aren't part of the main area, " +
+				"but still convenient enough to access."
+			);
+			addImagePara(div, "inner-keys.png", 450, 200, "Inner keys on a Redox keyboard");
+		};
 		addColumn(col);
 		
 		mAddColumn(col = new IntRangeColumn("Outer keys", kb.outerKeys));
 		col.shortName = "#outer";
 		col.show = false;
-		col.notes.appendParaTextNode("Sometimes a keyboard has an extra key or two on the outer edges.");
-		addImagePara(col.notes, "outer-keys.png", 450, 150, "Outer keys on an Avalanche keyboard");
-		col.notes.appendParaTextNode("And if it's missing keys on the outer columns, this can be negative.");
-		addImagePara(col.notes, "outer-keys-2.png", 450, 150, "A missing outer key on a Drift keyboard");
+		col.onNotes = function(div) {
+			div.appendParaTextNode("Sometimes a keyboard has an extra key or two on the outer edges.");
+			addImagePara(div, "outer-keys.png", 450, 150, "Outer keys on an Avalanche keyboard");
+			div.appendParaTextNode("And if it's missing keys on the outer columns, this can be negative.");
+			addImagePara(div, "outer-keys-2.png", 450, 150, "A missing outer key on a Drift keyboard");
+		};
 		
 		mAddColumn(col = new IntRangeColumn("Corner keys", kb.cornerKeys));
 		col.shortName = "#corner";
 		col.show = false;
-		col.notes.appendParaTextNode(
-			"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " +
-			"this is the number of such keys that are positioned in a convenient row."
-		);
-		addImagePara(col.notes, "corner-keys.png", 450, 150, "Corner keys on an ErgoNICE keyboard");
-		col.notes.appendParaTextNode(
-			"Such keys are often used for modifiers (on the left half) or " +
-			"65%-style inline arrow key cluster / arrow key row (on the right half)."
-		);
-		col.notes.appendParaTextNode(
-			"If corner keys transition into thumb keys, this is capped at 5."
-		);
-		addImagePara(col.notes, "corner-keys-2.png", 450, 200, "A continuous bottom row of keys on a Kapl keyboard");
+		col.onNotes = function(div) {
+			div.appendParaTextNode(
+				"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " +
+				"this is the number of such keys that are positioned in a convenient row."
+			);
+			addImagePara(div, "corner-keys.png", 450, 150, "Corner keys on an ErgoNICE keyboard");
+			div.appendParaTextNode(
+				"Such keys are often used for modifiers (on the left half) or " +
+				"65%-style inline arrow key cluster / arrow key row (on the right half)."
+			);
+			div.appendParaTextNode(
+				"If corner keys transition into thumb keys, this is capped at 5."
+			);
+			addImagePara(div, "corner-keys-2.png", 450, 200, "A continuous bottom row of keys on a Kapl keyboard");
+		};
 		
 		var navCluster = new TagColumn("Navigation cluster", mgf(kb.navCluster), NavCluster);
 		col.show = false;
@@ -97,22 +106,26 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		pinkyStag.show = false;
 		pinkyStag.shortName = "pkStag";
 		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
-		pinkyStag.notes.appendParaTextNode(
-			"Stagger between pinky finger column(s) and the ring finger column, " +
-			"measured in key-size units (0.5 is half a key step down)."
-		);
+		pinkyStag.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Stagger between pinky finger column(s) and the ring finger column, " +
+				"measured in key-size units (0.5 is half a key step down)."
+			);
+		};
 		addColumn(pinkyStag);
 		
 		var splay = new TagColumn("Splay", mgf(kb.splay), SplayBase);
 		splay.show = false;
-		splay.notes.appendParaTextNode(
-			"Most keyboards have columns of keys parallel to each other, " +
-			"but you can also have them at a slight angle for convenience."
-		);
-		splay.notes.appendParaTextNode(
-			'"Optional" usually means that there are two versions of the keyboard - ' +
-			"one with parallel columns and one with angled columns."
-		);
+		splay.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Most keyboards have columns of keys parallel to each other, " +
+				"but you can also have them at a slight angle for convenience."
+			);
+			div.appendParaTextNode(
+				'"Optional" usually means that there are two versions of the keyboard - ' +
+				"one with parallel columns and one with angled columns."
+			);
+		};
 		splay.filterLabels[SplayBase.PinkyOnly] = "Pinky columns only";
 		splay.shortLabels[SplayBase.No] = "-";
 		splay.shortLabels[SplayBase.Yes] = "+";
@@ -133,22 +146,24 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		shape.shortLabels[Shape.Unibody] = "Uni";
 		shape.shortLabels[Shape.Keywell] = "KW";
 		shape.shortLabels[Shape.Special] = "*";
-		var shapeUL = shape.notes.appendElTextNode("ul", "");
-		shapeUL.appendElTextNode("li",
-			"Monoblock means a single-piece keyboard with no gaps, "+
-			"such as with common non-ergonomic keyboards."
-		);
-		shapeUL.appendElTextNode("li",
-			"Unibody means a single-piece keyboard with " +
-			"some sort of a gap in the middle of it."
-		);
-		shapeUL.appendElTextNode("li",
-			"Split means a keyboard consisting of two or more physical pieces that are connected " +
-			"together with a cable or wirelessly."
-		);
-		shapeUL.appendElTextNode("li",
-			"Special means something interesting - folding keyboards, layered keyboards, and so on."
-		);
+		shape.onNotes = function(div) {
+			var shapeUL = div.appendElTextNode("ul", "");
+			shapeUL.appendElTextNode("li",
+				"Monoblock means a single-piece keyboard with no gaps, "+
+				"such as with common non-ergonomic keyboards."
+			);
+			shapeUL.appendElTextNode("li",
+				"Unibody means a single-piece keyboard with " +
+				"some sort of a gap in the middle of it."
+			);
+			shapeUL.appendElTextNode("li",
+				"Split means a keyboard consisting of two or more physical pieces that are connected " +
+				"together with a cable or wirelessly."
+			);
+			shapeUL.appendElTextNode("li",
+				"Special means something interesting - folding keyboards, layered keyboards, and so on."
+			);
+		};
 			
 		addColumn(shape);
 		
@@ -173,46 +188,52 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		col.shortName = "#keys";
 		
 		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));
-		col.notes.appendParaTextNode(
-			"The number of rows in a keyboard's main area, " +
-			"not counting thumb rows or extension columns."
-		);
-		addImagePara(col.notes, "matrix.png", 450, 250, "Key matrix on a Redox keyboard");
-		col.notes.appendParaTextNode(
-			"4th row is typically used for digits and 5th row is typically used for F-keys " +
-			"or media controls, but don't let anyone tell you what to do - most of these " +
-			"keyboards are reprogrammable."
-		);
+		col.onNotes = function(div) {
+			div.appendParaTextNode(
+				"The number of rows in a keyboard's main area, " +
+				"not counting thumb rows or extension columns."
+			);
+			addImagePara(div, "matrix.png", 450, 250, "Key matrix on a Redox keyboard");
+			div.appendParaTextNode(
+				"4th row is typically used for digits and 5th row is typically used for F-keys " +
+				"or media controls, but don't let anyone tell you what to do - most of these " +
+				"keyboards are reprogrammable."
+			);
+		};
 		
 		mAddColumn(col = new IntRangeColumn("Columns", kb.cols));
-		col.notes.appendParaTextNode(
-			"If your language has more letters than English, you may want a ≥6-column keyboard " +
-			"to avoid holding down an extra key to type some of them."
-		);
-		addImagePara(col.notes, "sofle.png", 684, 210, "Cyrillic letters occupying most of a Sofle keyboard");
-		
-		
+		col.onNotes = function(div) {
+			div.appendParaTextNode(
+				"If your language has more letters than English, you may want a ≥6-column keyboard " +
+				"to avoid holding down an extra key to type some of them."
+			);
+			addImagePara(div, "sofle.png", 684, 210, "Cyrillic letters occupying most of a Sofle keyboard");
+		};
 		col.shortName = "Cols";
 		
-		col = new IntRangeColumn("Right-side columns", function(kb:ColStagKeyboard, ?set, ?val) {
+		var rcolsFn = function(kb:ColStagKeyboard, ?set, ?val) {
 			if (set) {
 				kb.rcols = val;
 				return null;
 			} else {
 				return kb.rcols ?? kb.cols;
 			}
-		});
+		};
+		var rcolsFd = new FancyField("rcols", rcolsFn);
+		col = new IntRangeColumn("Right-side columns", rcolsFd);
 		col.show = false;
 		col.shortName = "ColsR";
-		col.notes.appendParaTextNode(
-			"Sometimes a keyboard has more columns on the right side than on the left. " +
-			"This can be handy to imitate a standard 65%/75% layout better, " +
-			"or to make space for language-specific keys."
-		);
-		addImagePara(col.notes, "rcols.png", 450, 150, "Additional columns on Articulation80");
-		col.notes.appendParaTextNode(
-			"Depending on the keyboard, not all of these might be fully filled with keys."
-		);
+		col.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Sometimes a keyboard has more columns on the right side than on the left. " +
+				"This can be handy to imitate a standard 65%/75% layout better, " +
+				"or to make space for language-specific keys."
+			);
+			addImagePara(div, "rcols.png", 450, 150, "Additional columns on Articulation80");
+			div.appendParaTextNode(
+				"Depending on the keyboard, not all of these might be fully filled with keys."
+			);
+		};
 		addColumn(col);
 		
 		initClusters(kb);
@@ -234,6 +255,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron low-profile";
 		switchType.shortLabels[SwitchProfile.Unknown] = "";
 		switchType.shortLabels[SwitchProfile.GateronLP] = "GLP";
+		switchType.shortLabels[SwitchProfile.OutemuLP] = "OLP";
 		switchType.shortLabels[SwitchProfile.CherryULP] = "CULP";
 		switchType.shortLabels[SwitchProfile.Optical] = "Opt";
 		addColumn(switchType);
@@ -268,14 +290,16 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	function initInputs(kb:ColStagKeyboard) {
 		var header = addFilterHeader("Other input devices");
 		header.noticeText = "ZMK + Wireless note";
-		header.noticeNode.appendParaTextNode(
-		"As of Nov 2023, ZMK firmware has limited support for pointing devices,"
-		+ " therefore wireless keyboards with pointing devices typically only support them"
-			+ " in (wired) QMK mode."
-		);
-		header.noticeNode.appendParaTextNode(
-			"Please double-check documentation for keyboards to avoid disappointment."
-		);
+		header.noticeFunc = function(div) {
+			div.appendParaTextNode(
+				"As of Nov 2023, ZMK firmware has limited support for pointing devices,"
+				+ " therefore wireless keyboards with pointing devices typically only support them"
+				+ " in (wired) QMK mode."
+			);
+			div.appendParaTextNode(
+				"Please double-check documentation for keyboards to avoid disappointment."
+			);
+		};
 		var col:FancyColumn<ColStagKeyboard>;
 		
 		mAddColumn(col = new IntRangeColumn("Encoders", kb.encoders));
@@ -301,75 +325,90 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		col.show = false;
 		
 		mAddColumn(col = new IntRangeColumn("Trackpoints", kb.trackpoints));
-		col.notes.appendParaTextNode("Those little pointing sticks. Usually found somewhere between the keys.");
+		col.onNotes = function(div) {
+			div.appendParaTextNode("Those little pointing sticks. Usually found somewhere between the keys.");
+		}
 		col.show = false;
 		
 		mAddColumn(col = new IntRangeColumn("D-pads", kb.dpads));
 		col.show = false;
-		col.notes.appendTextNode(
-			"Due to component diversity, anything that has 2 or more clicky "+
-			"directional inputs counts as a dpad."
-		);
+		col.onNotes = function(div) {
+			div.appendTextNode(
+				"Due to component diversity, anything that has 2 or more clicky "+
+				"directional inputs counts as a dpad."
+			);
+		}
+		
 		mAddColumn(col = new IntRangeColumn("D-pad directions", kb.dpadDirs));
 		col.show = false;
-		col.notes.appendTextNode(
-			"If it's 3, it's probably a so-called rocker switch."
-		);
+		col.onNotes = function(div) {
+			div.appendTextNode(
+				"If it's 3, it's probably a so-called rocker switch."
+			);
+		}
 	}
 	function initConveniences(kb:ColStagKeyboard) {
 		addFilterHeader("Conveniences");
 		var col:FancyColumn<ColStagKeyboard>;
 		
-		var palm = new TagColumn("Palm/wrist pads", mgf(kb.wristPads), WristPads);
+		var palm = new TagListColumn("Palm/wrist pads", mgf(kb.wristPads), WristPads);
 		palm.show = false;
 		palm.shortLabels[WristPads.None] = "";
 		palm.shortLabels[WristPads.Integrated] = "+";
 		palm.shortLabels[WristPads.Detachable] = "±";
-		palm.notes.appendParaTextNode(
-			"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them"
-			+ " separately, or use any other semi-soft object of your choice"
-			+ " (such as a folded little towel or a Purple Squishy)",
-			"Some people argue that making your own palm rest is often preferable as you can"
-			+ " pick the height/firmness."
-		);
+		palm.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them"
+				+ " separately, or use any other semi-soft object of your choice"
+				+ " (such as a folded little towel or a Purple Squishy)",
+				"Some people argue that making your own palm rest is often preferable as you can"
+				+ " pick the height/firmness."
+			);
+		}
 		addColumn(palm);
 		
 		var irCol:IntRangeColumn<ColStagKeyboard>;
 		mAddColumn(irCol = new IntRangeColumn("Tilt", kb.tilt));
 		irCol.suffix = "°";
 		irCol.show = false;
-		irCol.notes.appendParaTextNode(
-			"Measured in degrees, approximately (unless specified by author/manufacturer).",
-			"Positive values mean that the back edge of the keyboard is positioned higher than"
-			+ " the front edge relative to the surface it's sitting on.",
-			"A range usually means that keyboard has a pair (or few) legs on front/back.",
-			"Not filled out for keywell keyboards since this doesn't make sense there.",
-			"If the keyboard has no legs, you can always add your own - adhesive legs for laptops"
-			+ " work perfectly well for keyboards too."
-		);
+		irCol.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Measured in degrees, approximately (unless specified by author/manufacturer).",
+				"Positive values mean that the back edge of the keyboard is positioned higher than"
+				+ " the front edge relative to the surface it's sitting on.",
+				"A range usually means that keyboard has a pair (or few) legs on front/back.",
+				"Not filled out for keywell keyboards since this doesn't make sense there.",
+				"If the keyboard has no legs, you can always add your own - adhesive legs for laptops"
+				+ " work perfectly well for keyboards too."
+			);
+		}
 		
 		mAddColumn(irCol = new IntRangeColumn("Tenting", kb.tenting));
 		irCol.suffix = "°";
 		irCol.show = false;
-		irCol.notes.appendParaTextNode(
-			"Some keyboards have an integrated system to raise the middle part of the keyboard"
-			+ " to keep palms at a more natural angle - usually either holes for tenting-legs"
-			+ " or magnets hidden in the bottom plate."
-		);
-		addImagePara(irCol.notes, "high-stakes-tenting.jpg", 450, 244,
-			'30mm vs 15mm tenting legs on ErgoHaven\'s K:02'
-		);
-		irCol.notes.appendParaTextNode(
-			"Measured in degrees, approximately (unless specified by author/manufacturer).",
-			"Much like with above, you can always make up for this yourself."
-		);
+		irCol.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Some keyboards have an integrated system to raise the middle part of the keyboard"
+				+ " to keep palms at a more natural angle - usually either holes for tenting-legs"
+				+ " or magnets hidden in the bottom plate."
+			);
+			addImagePara(div, "high-stakes-tenting.jpg", 450, 244,
+				'30mm vs 15mm tenting legs on ErgoHaven\'s K:02'
+			);
+			div.appendParaTextNode(
+				"Measured in degrees, approximately (unless specified by author/manufacturer).",
+				"Much like with above, you can always make up for this yourself."
+			);
+		}
 		
 		var ctCol = new TagListColumn("Case", mgf(kb.caseType), CaseType);
-		ctCol.notes.appendParaTextNode(
-			"For pre-built/kit keyboards, Included means that it comes with the keyboard.",
-			"For open-source keyboards, Included means that case files can be found in the repo.",
-			"Third-party means that cases can be found or bought elsewhere.",
-		);
+		ctCol.onNotes = function(div) {
+			div.appendParaTextNode(
+				"For pre-built/kit keyboards, Included means that it comes with the keyboard.",
+				"For open-source keyboards, Included means that case files can be found in the repo.",
+				"Third-party means that cases can be found or bought elsewhere.",
+			);
+		}
 		ctCol.shortName = "Case";
 		ctCol.shortLabels[CaseType.Unknown] = "";
 		ctCol.shortLabels[CaseType.None] = "-";
@@ -379,7 +418,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		addColumn(ctCol);
 		
 		var xCol = new LinkListColumn("Extras", mgf(kb.extras));
-		xCol.notes.appendParaTextNode("Cases, tenting kits, and so on");
+		xCol.onNotes = function(div) {
+			div.appendParaTextNode("Cases, tenting kits, and so on");
+		}
 		xCol.show = false;
 		xCol.shortName = "xt";
 		addColumn(xCol);
@@ -403,12 +444,14 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		var asm = new TagListColumn("Assembly specifics", mgf(kb.assembly), Assembly);
 		asm.defaultValue = [];
-		asm.notes.appendParaTextNode(
-			"Assume keyboards to have PCBs unless specified otherwise."
-		);
-		asm.notes.appendParaTextNode(
-			"If a keyboard is marked as both PCB and handwire, it has two versions."
-		);
+		asm.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Assume keyboards to have PCBs unless specified otherwise."
+			);
+			div.appendParaTextNode(
+				"If a keyboard is marked as both PCB and handwire, it has two versions."
+			);
+		}
 		//asm.shortLabels[Assembly.Unspecified] = "";
 		asm.shortName = "Assembly";
 		asm.show = false;
@@ -419,10 +462,12 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		var lc:LinkListColumn<ColStagKeyboard>;
 		
 		mAddColumn(lc = new LinkListColumn("Website", kb.web));
-		lc.notes.appendParaTextNode(
-			"If a keyboard has a separate page/website/post explaining the project motivation/etc."
-			+ " that's different from the rest of the links, that goes here."
-		);
+		lc.onNotes = function(div) {
+			div.appendParaTextNode(
+				"If a keyboard has a separate page/website/post explaining the project motivation/etc."
+				+ " that's different from the rest of the links, that goes here."
+			);
+		}
 		lc.shortName = "web";
 		
 		mAddColumn(lc = new LinkListColumn("Open-source", kb.source));

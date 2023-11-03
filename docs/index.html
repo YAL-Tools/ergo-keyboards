@@ -6,7 +6,7 @@
 	<meta property="theme-color" content="#FFF037" />
 	<title>YAL's ergo keyboard list</title>
 	<meta name="description" content="A sortable and filterable list of ergonomic keyboards!" />
-	<link rel="stylesheet" href="style.css?v=2023-10-27" /> 
+	<link rel="stylesheet" href="style.css?v=2023-11-03" /> 
 	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
 <body>
@@ -64,13 +64,12 @@
 			<li><a href="https://keebfolio.netlify.app/en/split/">Keebfolio</a></li>
 			<!--
 				https://aposymbiont.github.io/split-keyboards/
-				https://keebfolio.netlify.app/en/split/
 				https://github.com/topics/ergonomic-keyboard
 			-->
 		</ul>
 	</details>
 	<h2 style="margin-bottom: 0">What to show and what to filter</h2>
-	<details style="margin-bottom: 1em">
+	<details>
 		<summary>Filter legend</summary>
 		<p>
 			Each column is structured as following:
@@ -82,6 +81,13 @@
 			If something is <span class="has-notes">underlined</span>, you can click/tap it to read notes.
 		</p>
 	</details>
+	<div style="margin-top: 0.25em; margin-bottom: 0.75em; display: flex">
+		<input type="button" id="copy-share-url" value="Share filters" />
+		<label><input type="checkbox" id="auto-update-url" checked/>
+			Auto-update page address
+		</label>
+		<input type="text" id="share-field" />
+	</div>
 	<div id="filter"></div>
 	<div>
 		Showing <span id="count">0</span> keyboard(s)
@@ -172,8 +178,8 @@
 	<script src="lib/popper.min.js"></script>
 	<script src="lib/tippy-bundle.umd.js"></script>
 	
-	<script src="keyboards.js?v=2023-10-27"></script>
-	<script src="script.js?v=2023-10-27"></script>
+	<script src="keyboards.js?v=2023-11-03"></script>
+	<script src="script.js?v=2023-11-03"></script>
 	
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4R5QPPHC8M"></script>

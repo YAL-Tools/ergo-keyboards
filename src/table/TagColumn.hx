@@ -11,17 +11,16 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET> {
-	public var access:GetSetOn<KB, ET>;
+class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, ET> {
 	public var defaultValue:ET = null;
-	public function new(name:String, access:GetSetOn<KB, ET>, et:Enum<ET>) {
+	public function new(name:String, field:FancyField<KB, ET>, et:Enum<ET>) {
 		super(name, et);
 		defaultValue = et.createByIndex(0);
-		this.access = access;
+		this.field = field;
 		this.type = et;
 	}
 	function getValue(kb:KB) {
-		return access(kb) ?? defaultValue;
+		return field.access(kb) ?? defaultValue;
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
 		var val = getValue(kb);
@@ -55,10 +54,10 @@ class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET> {
 		}
 		store.push(function(kb) {
 			var val = select.value;
-			if (val != "") access(kb, true, type.createByName(val));
+			if (val != "") field.access(kb, true, type.createByName(val));
 		});
 		restore.push(function(kb) {
-			var val = access(kb);
+			var val = field.access(kb);
 			if (val != null) {
 				select.value = val.getName();
 			} else select.value = "";
@@ -75,11 +74,11 @@ class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET> {
 		}
 	}
 	override public function save(kb:KB):Void {
-		var val = access(kb);
-		if (val != null) access(kb, true, cast val.getName());
+		var val = field.access(kb);
+		if (val != null) field.access(kb, true, cast val.getName());
 	}
 	override public function load(kb:KB):Void {
-		var val = access(kb);
-		if (val != null) access(kb, true, type.createByName(cast val));
+		var val = field.access(kb);
+		if (val != null) field.access(kb, true, type.createByName(cast val));
 	}
 }

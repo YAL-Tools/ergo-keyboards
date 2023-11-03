@@ -1,6 +1,7 @@
 package table;
 import externs.Tippy;
 import externs.TippyOptions;
+import haxe.DynamicAccess;
 import js.html.DivElement;
 import js.html.Element;
 import js.html.URL;
@@ -16,18 +17,22 @@ using tools.HtmlTools;
  * @author YellowAfterlife
  */
 class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
-	public var access:GetSetOn<KB, ValList<String>>;
+	public var field:FancyField<KB, ValList<String>>;
+	override public function getId():String {
+		return field.name;
+	}
+	
 	public var defaultValue = "";
-	public function new(name:String, access:GetSetOn<KB, ValList<String>>) {
+	public function new(name:String, field:FancyField<KB, ValList<String>>) {
 		super(name);
-		this.access = access;
+		this.field = field;
 	}
 	override public function matchesFilter(kb:KB):Bool {
-		var lines = access(kb);
+		var lines = field.access(kb);
 		return lines != null && lines.length != 0;
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
-		var lines = access(kb);
+		var lines = field.access(kb);
 		if (lines == null || lines.length == 0) {
 			// OK!
 		} else if (lines.length == 1) {
@@ -71,10 +76,10 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 		store.push(function(kb) {
 			var text = textarea.value;
 			if (StringTools.trim(text) == "") return;
-			access(kb, true, text.split("\n"));
+			field.access(kb, true, text.split("\n"));
 		});
 		restore.push(function(kb) {
-			var arr = access(kb);
+			var arr = field.access(kb);
 			if (arr == null) {
 				textarea.value = "";
 			} else {
@@ -83,14 +88,22 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 		});
 	}
 	override public function save(kb:KB):Void {
-		var arr = access(kb);
+		var arr = field.access(kb);
 		if (arr != null && arr.length == 1) {
 			arr = cast arr[0];
-			access(kb, true, arr);
+			field.access(kb, true, arr);
 		}
 	}
 	override public function load(kb:KB):Void {
-		var val = access(kb);
-		if (val is String) access(kb, true, cast [val]);
+		var val = field.access(kb);
+		if (val is String) field.access(kb, true, cast [val]);
+	}
+	override public function saveFilterParams(obj:DynamicAccess<String>):Void {
+		if (filterCheckbox.checked) {
+			obj[field.name] = "";
+		}
+	}
+	override public function loadFilterParams(obj:DynamicAccess<String>):Bool {
+		return obj[field.name] != null;
 	}
 }

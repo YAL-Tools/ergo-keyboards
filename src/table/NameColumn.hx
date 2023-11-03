@@ -16,10 +16,10 @@ using tools.HtmlTools;
  * @author YellowAfterlife
  */
 class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
-	public var access:GetSetOn<KB, String>;
-	public function new(name:String, access:GetSetOn<KB, String>) {
+	public var field:FancyField<KB, String>;
+	public function new(name:String, field:FancyField<KB, String>) {
 		super(name);
-		this.access = access;
+		this.field = field;
 		canFilter = false;
 		canSort = true;
 	}
@@ -36,7 +36,7 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 			} else srcs = null;
 			
 			var link = document.createAnchorElement();
-			link.appendTextNode(access(kb));
+			link.appendTextNode(field.access(kb));
 			link.href = srcs != null ? srcs[0] : null;
 			link.onclick = function() {
 				return false;
@@ -47,7 +47,7 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 			opts.trigger = "click";
 			opts.interactive = true;
 			opts.maxWidth = 640;
-			opts.content = function(_) {
+			opts.setLazyContent(function() {
 				var div = document.createDivElement();
 				if (srcs != null) for (src in srcs) {
 					var img = document.createImageElement();
@@ -61,15 +61,15 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 					div.appendParaTextNode(note);
 				}
 				return div;
-			}
+			});
 			Tippy.bind(link, opts);
 		} else {
-			out.appendTextNode(access(kb));
+			out.appendTextNode(field.access(kb));
 		}
 	}
 	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
-		var an = access(a).toUpperCase();
-		var bn = access(b).toUpperCase();
+		var an = field.access(a).toUpperCase();
+		var bn = field.access(b).toUpperCase();
 		var sign = an == bn ? 0 : (an < bn ? -1 : 1);
 		if (ascending) sign = -sign;
 		return sign;

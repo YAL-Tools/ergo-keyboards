@@ -13,8 +13,8 @@ import js.html.Event;
 @:build(tools.StringAccess.build())
 extern class Tippy {
 	public static inline var theme:String = "translucent";
-	public static inline function bind(target:Any, options:TippyOptions):Void {
-		Syntax.code("Tippy")(target, options);
+	public static inline function bind(target:Any, options:TippyOptions):Tippy {
+		return Syntax.code("Tippy")(target, options);
 	}
 	
 	function destroy():Void;

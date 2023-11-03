@@ -30,9 +30,9 @@ class FancyTableMacro {
 				f.args[1].type = macro:Bool;
 				f.args[2].type = macro:Null<$valType>;
 				f.ret = macro:Null<$valType>;
-				return fx;
+				return macro @:pos(expr.pos) new table.FancyField($v{field}, $fx);
 			default:
-				throw "no";
+				throw "Invalid expression!";
 		}
 	}
 	#end
@@ -50,7 +50,7 @@ class FancyTableMacro {
 			case EBinop(OpAssign, e1, _.expr => ENew(_, params)):
 				params[1] = exprToGetter(params[1]);
 				call = macro addColumn($call);
-			default: throw "?";
+			default: throw "Invalid expression!";
 		}
 		return call;
 	}

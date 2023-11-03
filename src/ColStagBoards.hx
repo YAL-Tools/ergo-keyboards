@@ -599,7 +599,7 @@ class ColStagBoards {
 			cols: 7, rows: 4,
 			thumbKeys: 5,
 			switchProfile: [MX, GateronLP],
-			connection: [Bluetooth, Wired],
+			connection: [Wireless],
 			firmware: QMK,
 			software: Vial,
 			caseType: Included,
@@ -721,7 +721,7 @@ class ColStagBoards {
 		
 		kb = new ColStagKeyboard("TE Cleave");
 		kb.setMatrix(
-			14+3 + 8+8 + 7+8 + 7+8 + 6+6 + 2+4+4+4+2, 6, 4
+			14+3 + 8+8 + 7+8 + 7+8 + 6+6 + 2+4+4+4+2, 6, 5
 		);
 		kb.shape = Unibody;
 		kb.rcols = 7;
@@ -840,6 +840,7 @@ class ColStagBoards {
 		kb.setHotswap([MX, Alps, Choc]);
 		kb.caseType = Included;
 		kb.source = "https://github.com/jpconstantineau/ErgoTravel";
+		kb.kit = "https://mechboards.co.uk/products/ergotravel-kit";
 		kb.img = "Ergotravel.jpg";
 		add(kb);
 	}

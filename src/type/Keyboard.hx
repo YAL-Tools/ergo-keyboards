@@ -44,7 +44,7 @@ typedef Keyboard = {
 	?displays:IntRange,
 	?navCluster:NavCluster,
 	
-	?wristPads:WristPads,
+	?wristPads:ValList<WristPads>,
 	?tenting:IntRange,
 	?tilt:IntRange,
 	?caseType:ValList<CaseType>,

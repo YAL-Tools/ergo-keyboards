@@ -1,6 +1,8 @@
 package table;
+import haxe.DynamicAccess;
 import js.html.DivElement;
 import js.html.Element;
+import js.html.InputElement;
 import type.IntRange;
 import type.Keyboard;
 import js.Browser.*;
@@ -15,17 +17,20 @@ class FancyColumn<KB:Keyboard> {
 	public var name:String;
 	public var filterName:String = null;
 	public var shortName:String = null;
-	public var notes:DivElement = null;
+	public var onNotes:Element->Void = null;
 	public var show = true;
 	public var canFilter = true;
 	public var wantFilter = false;
-	public var filterPrefix:String = null;
+	
+	public var filterCheckbox:InputElement = null;
 	
 	/** Shown if keyboard doesn't have this value specified. */
 	public var nullCaption:String = "";
 	public function new(name:String) {
 		this.name = name;
-		notes = document.createDivElement();
+	}
+	public function getId():String {
+		return name;
 	}
 	public function buildValue(out:Element, kb:KB):Void {
 		
@@ -38,6 +43,12 @@ class FancyColumn<KB:Keyboard> {
 	}
 	public function matchesFilter(kb:KB):Bool {
 		return true;
+	}
+	public function saveFilterParams(obj:DynamicAccess<String>):Void {
+		
+	}
+	public function loadFilterParams(obj:DynamicAccess<String>):Bool {
+		return false;
 	}
 	
 	public var canSort = false;

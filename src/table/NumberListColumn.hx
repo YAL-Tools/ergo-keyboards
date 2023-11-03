@@ -9,17 +9,16 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NumberListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT>  {
-	public var access:GetSetOn<KB, ValList<NT>>;
+class NumberListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, ValList<NT>> {
 	public var defaultValue:ValList<NT> = [];
-	public function new(name:String, access:GetSetOn<KB, ValList<NT>>) {
+	public function new(name:String, field:FancyField<KB, ValList<NT>>) {
 		super(name);
-		this.access = access;
+		this.field = field;
 	}
 	override public function getKnownRange(keyboards:Array<KB>):NumRange<NT> {
 		var min = null, max = null;
 		for (keyboard in keyboards) {
-			var list = access(keyboard);
+			var list = field.access(keyboard);
 			if (list != null) {
 				for (val in list) {
 					if (min == null || val < min) min = val;
@@ -30,11 +29,11 @@ class NumberListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT>  
 		return min != null ? new NumRange(min, max) : null;
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
-		var val = access(kb);
+		var val = field.access(kb);
 		out.appendTextNode(val != null && val.length > 0 ? val.join(" ") : nullCaption);
 	}
 	override public function matchesFilter(kb:KB):Bool {
-		var vals = access(kb);
+		var vals = field.access(kb);
 		if (vals == null) {
 			if (filterIncludeNull) return true;
 			vals = defaultValue;
@@ -47,8 +46,8 @@ class NumberListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT>  
 		return filterMin == null && filterMax == null;
 	}
 	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
-		var al = access(a) ?? [];
-		var bl = access(b) ?? [];
+		var al = field.access(a) ?? [];
+		var bl = field.access(b) ?? [];
 		var am = null;
 		var bm = null;
 		if (ascending) {

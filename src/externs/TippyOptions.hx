@@ -29,6 +29,15 @@ abstract TippyOptions(Any) {
 	public inline function bind(el:Any):Void {
 		Tippy.bind(el, this);
 	}
+	public function setLazyContent(fn:Void->Element) {
+		var ready = false;
+		onShow = function(tippy:Tippy) {
+			if (!ready) {
+				ready = true;
+				tippy.setContent(fn());
+			}
+		}
+	}
 	public function setHoverOnly(fn:TippyOptionsOnShow) {
 		onShow = fn;
 		touch = false;

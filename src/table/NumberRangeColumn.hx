@@ -1,7 +1,9 @@
 package table;
 import type.*;
+import haxe.DynamicAccess;
 import js.Browser;
 import js.html.InputElement;
+import table.FancyField;
 import table.NumberColumn;
 import table.NumberColumnBase;
 import type.GetSetOn;
@@ -12,17 +14,16 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT> {
-	public var access:GetSetOn<KB, NumRange<NT>>;
+class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NumRange<NT>> {
 	public var defaultValue:NumRange<NT> = cast new NumRange(0, 0);
-	public function new(name:String, access:GetSetOn<KB, NumRange<NT>>) {
+	public function new(name:String, field:FancyField<KB, NumRange<NT>>) {
 		super(name);
-		this.access = access;
+		this.field = field;
 	}
 	override public function getKnownRange(keyboards:Array<KB>):NumRange<NT> {
 		var min = null, max = null;
 		for (keyboard in keyboards) {
-			var range = access(keyboard);
+			var range = field.access(keyboard);
 			if (range != null) {
 				if (min == null || range.min < min) min = range.min;
 				if (max == null || range.max > max) max = range.max;
@@ -30,21 +31,25 @@ class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT> 
 		}
 		return min != null ? new NumRange<NT>(min, max) : null;
 	}
+	override public function buildFilter(out:Element):Void {
+		filterIncludeNull = false;
+		super.buildFilter(out);
+	}
 	override public function buildValue(out:Element, kb:KB):Void {
-		var range = access(kb);
+		var range = field.access(kb);
 		var text = range != null ? range.toString() + suffix : nullCaption;
 		out.appendTextNode(text);
 		out.title = [kb.name, name + ":", text].join("\n");
 	}
 	override public function matchesFilter(kb:KB):Bool {
-		var val:NumRange<NT> = access(kb) ?? defaultValue;
+		var val:NumRange<NT> = field.access(kb) ?? defaultValue;
 		if (filterMin != null && val.max < filterMin) return false;
 		if (filterMax != null && val.min > filterMax) return false;
 		return true;
 	}
 	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
-		var ar = access(a) ?? defaultValue;
-		var br = access(b) ?? defaultValue;
+		var ar = field.access(a) ?? defaultValue;
+		var br = field.access(b) ?? defaultValue;
 		if (ascending) {
 			return NumberColumn.compareValues(ar.min, br.min);
 		} else return NumberColumn.compareValues(br.max, ar.max);
@@ -69,10 +74,10 @@ class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT> 
 			var max = parseFilterValue(fds[1].value);
 			if (min == null && max == null) return;
 			if (max == null) max = min; else if (min == null) min = max;
-			access(kb, true, new NumRange(min, max));
+			field.access(kb, true, new NumRange(min, max));
 		});
 		restore.push(function(kb) {
-			var range = access(kb);
+			var range = field.access(kb);
 			if (range == null) {
 				fds[0].value = "";
 				fds[1].value = "";
@@ -83,18 +88,18 @@ class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT> 
 		});
 	}
 	override public function save(kb:KB):Void {
-		var val = access(kb);
-		if (val != null && val.min == val.max) access(kb, true, cast val.min);
+		var val = field.access(kb);
+		if (val != null && val.min == val.max) field.access(kb, true, cast val.min);
 	}
 	override public function load(kb:KB):Void {
-		var val = access(kb);
+		var val = field.access(kb);
 		if (val is Array) {
 			var arr:Array<NT> = cast val;
-			access(kb, true, new NumRange(arr[0], arr[1]));
+			field.access(kb, true, new NumRange(arr[0], arr[1]));
 		}
 		else if (val is Float) {
 			var num:NT = cast val;
-			access(kb, true, new NumRange(num, num));
+			field.access(kb, true, new NumRange(num, num));
 		}
 	}
 }
