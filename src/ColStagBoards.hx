@@ -1,6 +1,7 @@
 package ;
 import type.EncoderType;
 import type.Firmware;
+import type.KeySpacing;
 import type.Software;
 import type.Connection;
 import type.SwitchProfile;
@@ -34,29 +35,78 @@ class ColStagBoards {
 			"https://splitkb.com/collections/keyboard-kits/products/aurora-corne",
 			"https://holykeebs.com",
 			"https://new.boardsource.xyz/products/unicorne",
+			"https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/",
+			"https://customkbd.com/collections/split-keyboards/products/corne-classic-kit",
+			"https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/",
+			"https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit",
+			"https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit",
+			"https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit",
+			"https://keyhive.xyz/shop/corne-v3",
+			"https://mechboards.co.uk/collections/kits/products/helidox-corne-kit",
+			"https://shop.yushakobo.jp/en/products/corne-chocolate",
+			"https://www.littlekeyboards.com/collections/corne-pcb-kits",
+			"https://keebmaker.com/collections/kits",
+			"[US] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb",
+		];
+		kb.prebuilt = [
+			"https://customkbd.com/collections/split-keyboards/products/corne-classic-kit",
+		];
+		kb.extras = [
+			"https://keyhive.xyz/shop/aluminum-corne-helidox-case",
 		];
 		kb.img = "crkbd.jpg";
 		add(kb);
 		
-		kb = {
-			name: "Sofle",
-			encoders: 2,
-			displays: [0, 2],
-			web: "https://josefadamcik.github.io/SofleKeyboard/",
-			source: "https://github.com/josefadamcik/SofleKeyboard",
-			kit: [
-				"https://keebd.com/en-us/products/sofle-v2-keyboard-kit",
-				"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2",
-				"https://mechboards.co.uk/collections/kits/products/sofle-kit",
-			],
-			caseType: [Included, ThirdParty],
-			img: "sofle.jpg",
-		};
-		kb.setMatrix(58, 6, 4);
-		kb.setExtras(5);
-		kb.setHotswap([MX, Choc], MX);
-		kb.setQMK([VIA, Vial]);
-		add(kb);
+		function addSofle(kb:ColStagKeyboard) {
+			kb.keys ??= 58;
+			kb.cols = 6;
+			kb.rows = 4;
+			kb.setExtras(5);
+			kb.encoders ??= 2;
+			kb.displays ??= [0, 2];
+			kb.setQMK([VIA, Vial]);
+			add(kb);
+		}
+		kb = new ColStagKeyboard("Sofle");
+		kb.setHotswap([MX, Choc]);
+		kb.caseType = [Included, ThirdParty];
+		kb.kit = [
+			"https://keebd.com/en-us/products/sofle-v2-keyboard-kit",
+			"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419",
+			"https://mechboards.co.uk/collections/kits/products/sofle-kit",
+			"https://customkbd.com/collections/split-keyboards",
+			"https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/",
+			"https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit",
+			"https://keebd.com/products/sofle-v2-1-choc-keyboard-kit",
+			"https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit",
+			"https://keebmaker.com/collections/kits",
+		];
+		kb.prebuilt = [
+			"https://falba.tech/https-falba-tech-buy-a-custom-keyboard-sofle/",
+			"https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/",
+			"https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib=",
+		];
+		kb.extras = [
+			"https://shop.beekeeb.com/product/sofle-2-tented-case/",
+		];
+		kb.img = "sofle.jpg";
+		addSofle(kb);
+		
+		kb = new ColStagKeyboard("Sofle Choc");
+		kb.setHotswap(Choc, MX);
+		kb.caseType = [Included, ThirdParty];
+		kb.kit = [
+			"https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/",
+			"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187",
+			"https://www.littlekeyboards.com/products/sofle-choc-pcb-kit",
+		];
+		kb.prebuilt = [
+			"https://falba.tech/sofle-low-profile/",
+			"https://ergomech.store/shop/sofle-choc-ergomech-store-revision-47",
+		];
+		kb.img = "sofle-choc.jpg";
+		kb.pinkyStagger = 0.3;
+		addSofle(kb);
 		
 		kb = new ColStagKeyboard("Sofle PLUS (xcmkb)");
 		kb.setMatrix(58, 6, 4);
@@ -91,11 +141,24 @@ class ColStagBoards {
 			name: "Lily58",
 			source: "https://github.com/kata0510/Lily58",
 			kit: [
-				"https://shop.yushakobo.jp/products/lily58-pro/",
+				"!https://shop.yushakobo.jp/products/lily58-pro/",
 				"https://mechboards.co.uk/collections/kits/products/lily58-kit",
 				"https://splitkb.com/collections/keyboard-kits/products/aurora-lily58",
 				"https://holykeebs.com/products/trackball-lily58-low-profile",
-				"https://www.boardsource.xyz/products/lulu"
+				"https://www.boardsource.xyz/products/lulu",
+				"https://42keebs.eu/shop/kits/pro-micro-based/lily58-pro-hotswap-split-ergo-50-kit-black-white/",
+				"https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit",
+				"https://keebd.com/products/lily58-pro-keyboard-kit",
+				"https://www.littlekeyboards.com/collections/lily58-pcb-kits",
+				"https://keyhive.xyz/shop/lily58",
+			],
+			prebuilt: [
+				"https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit",
+				"https://ergomech.store/shop/sofle-v2-sandwich-style-12",
+				"https://ergomech.store/shop/lily58-enclose-case-15",
+			],
+			extras: [
+				"[US] https://capsuledeluxe.com/tag/manta58/",
 			],
 			img: "lily58.jpg",
 		};
@@ -228,6 +291,8 @@ class ColStagBoards {
 			thumbKeys: 4,
 			source: "https://github.com/tamanishi/Pinky4",
 			img: "Pinky4.jpg",
+			kit: "https://www.littlekeyboards.com/products/pinky4-keyboard-kit",
+			extras: "https://www.littlekeyboards.com/collections/pinky4-cases",
 			notes: "Uses Choc switches for thumb keys"
 		};
 		kb.setMatrix(64, 7, 4);
@@ -265,7 +330,12 @@ class ColStagBoards {
 				connection: [Wired, Bluetooth],
 				img: "redox-1.jpg",
 			};
-			if (step == 1) {
+			if (step == 0) {
+				kb.prebuilt = [
+					"https://falba.tech/custom-redox-v9b7d173b068d/",
+					"https://ergomech.store/shop/neodox-52",
+				];
+			} else {
 				kb.name += " handwire";
 				kb.assembly = Assembly.Handwired;
 			}
@@ -287,6 +357,10 @@ class ColStagBoards {
 		kb.setHotswap(MX);
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras([2, 4], 3, 0, 4);
+		kb.kit = [
+			"https://keebd.com/products/ergodash-keyboard-kit",
+			"https://shop.yushakobo.jp/en/products/ergodash",
+		];
 		add(kb);
 		
 		kb = {
@@ -487,7 +561,7 @@ class ColStagBoards {
 		kb = {
 			name: "Drift",
 			source: "https://github.com/Timception/Drift/",
-			prebuilt: "https://solo.to/timception",
+			prebuilt: "[th] https://solo.to/timception",
 			encoderType: EncoderType.Wheel,
 			encoders: 2,
 			displays: 2,
@@ -680,17 +754,38 @@ class ColStagBoards {
 		kb.img = "buzzard.webp";
 		add(kb);
 		
+		function addReviung41(kb:ColStagKeyboard) {
+			kb.setMatrix(41, 6, 3);
+			kb.setExtras(3);
+			kb.trackballSize = pimoroniSize;
+			kb.trackballs = 1;
+			kb.caseType = Included;
+			add(kb);
+		}
+		kb = new ColStagKeyboard("Reviung41");
+		kb.img = "REVIUNG41.jpg";
+		kb.source = "https://github.com/gtips/reviung";
+		kb.setHotswap(MX);
+		kb.kit = [
+			"https://keebd.com/en-us/products/reviung-41-keyboard-kit",
+			"https://customkbd.com/collections/split-keyboards/products/reviung-41",
+			"https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit",
+			"https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/",
+			"https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit",
+		];
+		kb.prebuilt = [
+			"https://shop.beekeeb.com/product/pre-soldered-reviung41/",
+			"https://new.boardsource.xyz/products/Reviung41",
+			"https://customkbd.com/collections/split-keyboards/products/reviung-41",
+		];
+		addReviung41(kb);
+		
 		kb = new ColStagKeyboard("Trackball Reviung41");
-		kb.setMatrix(41, 6, 3);
-		kb.setExtras(3);
 		kb.setHotswap(Choc);
-		kb.trackballSize = pimoroniSize;
-		kb.trackballs = 1;
-		kb.caseType = Included;
 		kb.source = "https://github.com/idank/keyboards/tree/main/reviung";
 		kb.prebuilt = "https://holykeebs.com/products/trackball-reviung41-low-profile";
 		kb.img = "reviung-trackball.jpg";
-		add(kb);
+		addReviung41(kb);
 		
 		kb = new ColStagKeyboard("Fisk");
 		kb.setMatrix(54, 6, 3);
@@ -710,7 +805,11 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Iris");
 		kb.setHotswap(MX);
 		kb.img = "iris.webp";
-		kb.kit = "https://keeb.io/collections/iris-split-ergonomic-keyboard";
+		kb.kit = [
+			"https://keeb.io/collections/iris-split-ergonomic-keyboard",
+			"https://mechboards.co.uk/collections/kits/products/iris-kit",
+			"https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0",
+		];
 		kb.prebuilt = "https://keeb.io/collections/iris-split-ergonomic-keyboard";
 		addIris(kb);
 		kb = new ColStagKeyboard("Iris CE");
@@ -734,7 +833,7 @@ class ColStagBoards {
 		kb.wristPads = Integrated;
 		kb.caseType = Included;
 		kb.tilt = 2;
-		kb.prebuilt = "https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/";
+		kb.prebuilt = "[CA] https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/";
 		kb.img = "Truly-Ergonomic-Cleave-keyboard-1x1-2.jpg";
 		kb.notes = "Flexibility of on-board software is unclear, but it's got a fairly normal keymap";
 		add(kb);
@@ -745,6 +844,7 @@ class ColStagBoards {
 		kb.setExtras(6, -1, 0, 5);
 		kb.hotswap = false;
 		kb.switchProfile = Choc;
+		kb.keySpacing = KeySpacing.Choc;
 		kb.connection = [Wired, Bluetooth];
 		kb.caseType = Included;
 		kb.prebuilt = "http://www.moergo.com";
@@ -841,6 +941,9 @@ class ColStagBoards {
 		kb.caseType = Included;
 		kb.source = "https://github.com/jpconstantineau/ErgoTravel";
 		kb.kit = "https://mechboards.co.uk/products/ergotravel-kit";
+		kb.extras = [
+			"[CA] https://store.jpconstantineau.com/#/group/split_boards"
+		];
 		kb.img = "Ergotravel.jpg";
 		add(kb);
 	}

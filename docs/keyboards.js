@@ -59,8 +59,8 @@ window.keyboardData = [
 		"ThirdParty"
 	],
 	"source": "https://github.com/TweetyDaBird/Lotus-Keyboard",
-	"kit": "https://lectronz.com/stores/tweetys-wild-thinking",
-	"prebuilt": "https://lectronz.com/stores/tweetys-wild-thinking"
+	"kit": "[se] https://lectronz.com/stores/tweetys-wild-thinking",
+	"prebuilt": "[se] https://lectronz.com/stores/tweetys-wild-thinking"
 },
 {
 	"name": "ximi",
@@ -189,6 +189,7 @@ window.keyboardData = [
 	"firmware": "Custom",
 	"software": "Custom",
 	"caseType": "Included",
+	"kit": "https://shop.yushakobo.jp/en/products/keyboardio-atreus-diy-kit",
 	"prebuilt": "https://shop.keyboard.io/collections/keyboardio-atreus/products/keyboardio-atreus"
 },
 {
@@ -702,7 +703,7 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"firmware": "ZMK",
 	"caseType": "Included",
-	"prebuilt": "https://t.me/splitted_space"
+	"prebuilt": "[UA] https://t.me/splitted_space"
 },
 {
 	"name": "Torn",
@@ -730,7 +731,7 @@ window.keyboardData = [
 	"software": "VIA",
 	"assembly": "ThroughHole",
 	"caseType": "Included",
-	"kit": "https://github.com/rtitmuss/torn"
+	"source": "https://github.com/rtitmuss/torn"
 },
 {
 	"name": "oddball",
@@ -804,7 +805,7 @@ window.keyboardData = [
 	"displays": 1,
 	"firmware": "QMK",
 	"caseType": "Included",
-	"kit": "https://gestaltinput.com/products/santoku-keyboard-kit-black"
+	"kit": "[us] https://gestaltinput.com/products/santoku-keyboard-kit-black"
 },
 {
 	"name": "Microdox",
@@ -1010,7 +1011,10 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/davidphilipbarr/Sweep",
 	"kit": [
-		"https://holykeebs.com"
+		"https://holykeebs.com",
+		"https://42keebs.eu/shop/kits/pro-micro-based/sweep-30-low-profile-split-ergo-kit/",
+		"https://mechboards.co.uk/collections/kits/products/ferris-sweep-kit",
+		"https://keebmaker.com/collections/kits"
 	]
 },
 {
@@ -1588,7 +1592,7 @@ window.keyboardData = [
 	"cols": 5,
 	"thumbKeys": 3,
 	"pinkyStagger": 0.6,
-	"splay": "PinkyOnly",
+	"splay": "Yes",
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
 	"keySpacing": "Choc",
@@ -1702,6 +1706,247 @@ window.keyboardData = [
 	"pinkyStagger": 0.3,
 	"firmware": "QMK",
 	"source": "https://github.com/cozykeys/speedo"
+},
+{
+	"name": "Piantor",
+	"img": "piantor.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 36,
+		"max": 42
+	},
+	"rows": 3,
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": [
+		"Included",
+		"ThirdParty"
+	],
+	"source": "https://github.com/beekeeb/piantor",
+	"kit": "https://shop.beekeeb.com/product/piantor-keyboard-kit/",
+	"prebuilt": "https://shop.beekeeb.com/product/pre-soldered-piantor-split-keyboard/"
+},
+{
+	"name": "Rev57LP",
+	"img": "Rev57LP.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 57,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": ["QMK", "ZMK"],
+	"source": "https://github.com/piit79/rev57lp",
+	"kit": "https://42keebs.eu/shop/kits/pro-micro-based/rev57lp-50-low-profile-hotswap-ergo-kit/"
+},
+{
+	"name": "Dactyl Generator",
+	"img": "dactyl-generator.png",
+	"notes": [
+		"Generate your own Dactyl if you know what you want"
+	],
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 20,
+		"max": 100
+	},
+	"rows": {
+		"min": 2,
+		"max": 5
+	},
+	"cols": {
+		"min": 4,
+		"max": 7
+	},
+	"thumbKeys": {
+		"min": 2,
+		"max": 6
+	},
+	"innerKeys": {
+		"min": 0,
+		"max": 4
+	},
+	"cornerKeys": {
+		"min": 0,
+		"max": 3
+	},
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"assembly": "Handwired",
+	"web": "https://ryanis.cool/dactyl/",
+	"source": "https://github.com/rianadon/dactyl-configurator"
+},
+{
+	"name": "Dactyl Manuform",
+	"img": "dactyl-manuform.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 34,
+		"max": 92
+	},
+	"rows": {
+		"min": 3,
+		"max": 5
+	},
+	"cols": {
+		"min": 5,
+		"max": 7
+	},
+	"thumbKeys": {
+		"min": 2,
+		"max": 6
+	},
+	"cornerKeys": {
+		"min": 0,
+		"max": 4
+	},
+	"web": "https://www.diykeyboards.com/keyboards/keyboard-kits/product/dactyl-manuform-kit",
+	"source": "https://github.com/abstracthat/dactyl-manuform",
+	"prebuilt": [
+		"https://www.cyboard.digital/product-page/pre-built-dactyl-manuform",
+		"https://ohkeycaps.com/products/built-to-order-dactyl-manuform-keyboard",
+		"https://k33b.com/shop/custom-dactyl-keyboard/",
+		"https://skree.us/collections/all"
+	]
+},
+{
+	"name": "kagura42",
+	"img": "kagura42.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.7,
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 3,
+	"encoderType": "Knob",
+	"firmware": "QMK",
+	"software": "VIA",
+	"caseType": "Included",
+	"kit": "https://shop.dailycraft.jp/collections/kagura42",
+	"prebuilt": "https://shop.dailycraft.jp/collections/kagura42"
+},
+{
+	"name": "Pragmatic 56",
+	"img": "pragmatic-56.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "QMK",
+	"software": "Vial",
+	"kit": "https://www.pragmatic.com.tw/shop/choc54-62"
+},
+{
+	"name": "Ergo68",
+	"img": "Ergo68.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 68,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 3,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"kit": "https://shop.yushakobo.jp/en/products/ergo68"
+},
+{
+	"name": "Fulcrum (20)",
+	"img": "fulcrum-20.jpg",
+	"shape": "Split",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 20,
+	"rows": 2,
+	"cols": 4,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.9,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"encoders": 2,
+	"encoderType": "Knob",
+	"dpads": 2,
+	"dpadDirs": 5,
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"source": "https://github.com/dschil138/Fulcrum"
+},
+{
+	"name": "Fulcrum (40)",
+	"img": "fulcrum-40.jpg",
+	"shape": "Split",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 40,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.9,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"dpads": 2,
+	"dpadDirs": 5,
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"source": "https://github.com/dschil138/Fulcrum"
 },
 // todo: https://www.slicemk.com/collections/all
 null

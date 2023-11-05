@@ -487,9 +487,11 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			);
 		}
 		lc.shortName = "web";
+		lc.canShowSingle = true;
 		
 		mAddColumn(lc = new LinkListColumn("Open-source", kb.source));
 		lc.shortName = "OSH";
+		lc.canShowSingle = true;
 		
 		mAddColumn(lc = new LinkListColumn("Kits", kb.kit));
 		lc.shortName = "Kit";

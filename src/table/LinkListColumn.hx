@@ -5,18 +5,23 @@ import haxe.DynamicAccess;
 import js.html.DivElement;
 import js.html.Element;
 import js.html.URL;
+import js.lib.RegExp;
 import type.GetSetOn;
 import type.IntRange;
 import type.Keyboard;
 import js.Browser.*;
 import type.ValList;
 using tools.HtmlTools;
+using StringTools;
 
 /**
  * ...
  * @author YellowAfterlife
  */
 class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
+	public static var domainCountries:DynamicAccess<String> = new DynamicAccess();
+	public static var countryTags:DynamicAccess<String> = new DynamicAccess();
+	public var canShowSingle = false;
 	public var field:FancyField<KB, ValList<String>>;
 	override public function getId():String {
 		return field.name;
@@ -31,27 +36,82 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 		var lines = field.access(kb);
 		return lines != null && lines.length != 0;
 	}
+	static var rxFlag = new RegExp("\\[flag:\\s*(\\w+)(?:\\|(.+?))\\]", "g");
+	function buildPopup(lines:Array<String>) {
+		var list = document.createUListElement();
+		lines.sort(function(a, b) {
+			if (StringTools.startsWith(a, "!")) return -1;
+			if (StringTools.startsWith(b, "!")) return 1;
+			return Math.random() < 0.5 ? -1 : 1;
+		});
+		for (i => href in lines) {
+			var item = document.createLIElement();
+			var link = document.createAnchorElement();
+			var official = href.startsWith("!");
+			if (official) href = href.substr(1).ltrim();
+			
+			var origins = [];
+			for (_ in 0 ... 16) {
+				if (!href.startsWith("[")) break;
+				var pos = href.indexOf("]");
+				if (pos < 0) break;
+				if (href.charAt(pos + 1) == "(") break;
+				origins.push(href.substring(1, pos));
+				href = href.substring(pos + 1);
+			}
+			
+			var url = new URL(href);
+			var domain = url.hostname;
+			if (domain.startsWith("www.")) domain = domain.substr(4);
+			if (origins.length == 0) {
+				var origin = domainCountries[domain];
+				if (origin == null) {
+					var parts = domain.split(".");
+					if (parts.length >= 3) origin = domainCountries[parts.slice(1).join(".")];
+				}
+				if (origin == null) {
+					var pos = domain.lastIndexOf(".");
+					if (pos >= 0) {
+						origin = domain.substring(pos + 1).toUpperCase();
+						if (countryTags[origin] == null) origin = null;
+					}
+				}
+				if (origin != null) origins.push(origin);
+			}
+			
+			if (official) {
+				item.innerHTML += '<img src="flags/star.png" title="Official" class="flag" >&#8201;';
+			}
+			for (origin in origins) {
+				var html = countryTags[origin.toUpperCase()];
+				if (html == null) {
+					console.error('Unknown origin "$origin"');
+					continue;
+				}
+				html = (cast html).replace(rxFlag, function(_, code, title) {
+					var bit = '<img src="flags/$code.png"';
+					if (title != null) bit += ' title="$title"';
+					return bit + ' class="flag" />';
+				});
+				item.innerHTML += html + "&#8201;";
+			}
+			link.href = href;
+			link.appendTextNode(domain);
+			item.appendChild(link);
+			list.appendChild(item);
+		}
+		return list;
+	}
 	override public function buildValue(out:Element, kb:KB):Void {
 		var lines = field.access(kb);
 		if (lines == null || lines.length == 0) {
 			// OK!
-		} else if (lines.length == 1) {
+		} else if (lines.length == 1 && canShowSingle) {
 			var link = document.createAnchorElement();
 			link.appendTextNode("➜");
 			link.href = lines[0];
 			out.appendChild(link);
 		} else {
-			var list = document.createUListElement();
-			lines.sort((a, b)->Math.random() < 0.5 ? -1 : 1);
-			for (i => href in lines) {
-				var item = document.createLIElement();
-				var link = document.createAnchorElement();
-				link.href = href;
-				var url = new URL(href);
-				link.appendTextNode(url.hostname);
-				item.appendChild(link);
-				list.appendChild(item);
-			}
 			var link = document.createAnchorElement();
 			link.appendTextNode("➜");
 			link.href = "javascript:void(0)";
@@ -61,7 +121,7 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 			opts.trigger = "click";
 			opts.interactive = true;
 			opts.appendTo = () -> out;
-			opts.content = function(_) return list;
+			opts.setLazyContent(function() return buildPopup(lines));
 			Tippy.bind(link, opts);
 		}
 		out.title = [
@@ -71,7 +131,12 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 	}
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var textarea = document.createTextAreaElement();
-		textarea.placeholder = "one per line";
+		textarea.placeholder = [
+			"One URL per line",
+			"Add country prefix, e.g.",
+			"[UA] https://yal.cc",
+			"To show a country-of-origin flag for kits/prebuilts",
+		].join("\n");
 		out.appendChild(textarea);
 		store.push(function(kb) {
 			var text = textarea.value;

@@ -135,7 +135,13 @@ class OrthoBoards {
 		kb.setExtras(4, 1, 0, 4);
 		kb.setHotswap([MX, Choc]);
 		kb.source = "https://github.com/MakotoKurauchi/helix";
-		kb.kit = "https://mechboards.co.uk/products/helix-kit";
+		kb.kit = [
+			"https://mechboards.co.uk/products/helix-kit",
+			"https://customkbd.com/collections/split-keyboards/products/helix-kit",
+			"https://keyhive.xyz/shop/helix-kit",
+			"https://www.switchtop.com/product/helix-keyboard-kit",
+			"https://www.littlekeyboards.com/collections/helix-pcb-kits",
+		];
 		kb.img = "helix.webp";
 		add(kb);
 		
@@ -156,11 +162,13 @@ class OrthoBoards {
 		}
 		kb = new ColStagKeyboard("Rebound");
 		kb.stagger = Ortho;
+		kb.shape = Unibody;
 		kb.kit = "https://store.montsinger.net/products/rebound";
 		kb.img = "rebound.webp";
 		addRebound(kb);
 		kb = new ColStagKeyboard("Rebound-S");
 		kb.stagger = Column;
+		kb.shape = Unibody;
 		kb.kit = "https://store.montsinger.net/products/rebound-s";
 		kb.img = "rebound-s.webp";
 		addRebound(kb);

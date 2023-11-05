@@ -87,41 +87,45 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 		out.appendChild(fd);
 		out.appendLineBreak();
 		
-		var textarea = document.createTextAreaElement();
-		textarea.style.marginTop = "0.25em";
-		textarea.placeholder = "one image URL per line";
-		out.appendChild(textarea);
-		store.push(function(kb) {
-			var text = textarea.value;
-			if (StringTools.trim(text) == "") return;
-			kb.img = text.split("\n");
-		});
-		restore.push(function(kb) {
-			var arr = kb.img;
-			if (arr == null) {
-				textarea.value = "";
-			} else {
-				textarea.value = arr.join("\n");
-			}
-		});
+		{
+			var textarea = document.createTextAreaElement();
+			textarea.style.marginTop = "0.25em";
+			textarea.placeholder = "one image URL per line";
+			out.appendChild(textarea);
+			store.push(function(kb) {
+				var text = textarea.value;
+				if (StringTools.trim(text) == "") return;
+				kb.img = text.split("\n");
+			});
+			restore.push(function(kb) {
+				var arr = kb.img;
+				if (arr == null) {
+					textarea.value = "";
+				} else {
+					textarea.value = arr.join("\n");
+				}
+			});
+		}
 		
-		var notes = document.createTextAreaElement();
-		notes.style.marginTop = "0.25em";
-		notes.placeholder = "One paragraph of notes per line";
-		out.appendChild(notes);
-		store.push(function(kb) {
-			var text = textarea.value;
-			if (StringTools.trim(text) == "") return;
-			kb.img = text.split("\n");
-		});
-		restore.push(function(kb) {
-			var arr = kb.img;
-			if (arr == null) {
-				textarea.value = "";
-			} else {
-				textarea.value = arr.join("\n");
-			}
-		});
+		{
+			var notes = document.createTextAreaElement();
+			notes.style.marginTop = "0.25em";
+			notes.placeholder = "One paragraph of notes per line";
+			out.appendChild(notes);
+			store.push(function(kb) {
+				var text = notes.value;
+				if (StringTools.trim(text) == "") return;
+				kb.notes = text.split("\n");
+			});
+			restore.push(function(kb) {
+				var arr = kb.img;
+				if (arr == null) {
+					notes.value = "";
+				} else {
+					notes.value = arr.join("\n");
+				}
+			});
+		}
 	}
 	override public function save(kb:KB):Void {
 		var arr:Array<String> = kb.img;
@@ -130,7 +134,7 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 			kb.img = arr;
 		}
 		
-		arr = kb.img;
+		arr = kb.notes;
 		if (arr != null && arr.length == 1) {
 			arr = cast arr[0];
 			kb.notes = arr;

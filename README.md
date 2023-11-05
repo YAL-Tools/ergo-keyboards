@@ -37,6 +37,7 @@ If Haxe is installed and all is well, docs/script.js will be updated.
 
 A tool by YellowAfterlife.  
 Written in Haxe.  
+Uses flag icons by famfamfam.  
 Special thanks to people on the [low-profile keyboard Discord server](https://discord.gg/69UM9sQF8q)
 for answering my questions about classifying keyboards.
 

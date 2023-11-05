@@ -19,12 +19,14 @@ import js.Browser.*;
 class Main {
 	public static var baseURL:String = "https://yal-tools.github.io/ergo-keyboards/";
 	static function main() {
+		LinkListColumn.domainCountries = (cast window).domainCountries;
+		LinkListColumn.countryTags = (cast window).countryTags;
 		//
-		var t = new ColStagTable();
-		t.countElement = document.querySelectorAuto("#count");
-		t.buildFilters(document.querySelectorAuto("#filter"));
-		t.buildTable(document.querySelectorAuto("#data"));
-		table.FancyTableEditor.build(t,
+		var csTable = new ColStagTable();
+		csTable.countElement = document.querySelectorAuto("#count");
+		csTable.buildFilters(document.querySelectorAuto("#filter"));
+		csTable.buildTable(document.querySelectorAuto("#data"));
+		FancyTableEditor.build(csTable,
 			document.querySelectorAuto("#editor"),
 			document.querySelectorAuto("#editor-load"),
 			document.querySelectorAuto("#editor-reset"),
@@ -35,13 +37,13 @@ class Main {
 		//
 		var loc = document.location;
 		if (loc.protocol != "file:") {
-			t.baseURL = loc.origin + loc.pathname;
+			csTable.baseURL = loc.origin + loc.pathname;
 		}
 		//
 		var cbAutoUpdateURL:InputElement = document.querySelectorAuto("#auto-update-url");
-		t.canUpdateURL = cbAutoUpdateURL.checked;
+		csTable.canUpdateURL = cbAutoUpdateURL.checked;
 		cbAutoUpdateURL.addEventListener("change", function(_) {
-			t.canUpdateURL = cbAutoUpdateURL.checked;
+			csTable.canUpdateURL = cbAutoUpdateURL.checked;
 		});
 		//
 		var btShare:InputElement = document.querySelectorAuto("#copy-share-url");
@@ -52,8 +54,8 @@ class Main {
 		var shareTippyHide:Int = 0;
 		
 		btShare.onclick = function() {
-			var search = t.saveFilters();
-			var url = t.baseURL + search;
+			var search = csTable.saveFilters();
+			var url = csTable.baseURL + search;
 			function fallback() {
 				window.prompt("Failed to copy - here's your link:", url);
 			}
@@ -82,18 +84,18 @@ class Main {
 			var editorDetails:DetailsElement = document.querySelectorAuto("#editor-outer");
 			//editorDetails.open = true;
 		} else {
-			t.sortBy(shuffler, false);
+			csTable.sortBy(shuffler, false);
 		}
 		document.querySelectorAuto("#shuffle", InputElement).onclick = function() {
-			if (t.sortColHead != null) {
-				t.sortColHead.element.classList.remove("sort-column");
-				t.sortColHead.element.classList.remove("sort-ascending");
-				t.sortColHead = null;
+			if (csTable.sortColHead != null) {
+				csTable.sortColHead.element.classList.remove("sort-column");
+				csTable.sortColHead.element.classList.remove("sort-ascending");
+				csTable.sortColHead = null;
 			}
-			t.sortBy(shuffler, false);
-			t.updateURL();
+			csTable.sortBy(shuffler, false);
+			csTable.updateURL();
 		}
-		t.loadFilters(document.location.search);
+		csTable.loadFilters(document.location.search);
 	}
 	
 }

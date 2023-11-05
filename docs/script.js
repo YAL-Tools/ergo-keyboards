@@ -22,15 +22,37 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.displays = type_NumRange.fromArray([0,2]);
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
-	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","https://new.boardsource.xyz/products/unicorne"];
+	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","https://new.boardsource.xyz/products/unicorne","https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[US] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb"];
+	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit"];
+	kb.extras = ["https://keyhive.xyz/shop/aluminum-corne-helidox-case"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	add(kb);
-	kb = { name : "Sofle", encoders : type_NumRange.fromInt(2), displays : type_NumRange.fromArray([0,2]), web : type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/"), source : type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard"), kit : ["https://keebd.com/en-us/products/sofle-v2-keyboard-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2","https://mechboards.co.uk/collections/kits/products/sofle-kit"], caseType : [type_CaseType.Included,type_CaseType.ThirdParty], img : type_ValList.fromValue("sofle.jpg")};
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
-	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
-	add(kb);
+	var addSofle = function(kb) {
+		kb.keys = kb.keys != null ? kb.keys : type_NumRange.fromInt(58);
+		kb.cols = type_NumRange.fromInt(6);
+		kb.rows = type_NumRange.fromInt(4);
+		ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
+		kb.encoders = kb.encoders != null ? kb.encoders : type_NumRange.fromInt(2);
+		kb.displays = kb.displays != null ? kb.displays : type_NumRange.fromArray([0,2]);
+		ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
+		add(kb);
+	};
+	kb = { name : "Sofle"};
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
+	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
+	kb.kit = ["https://keebd.com/en-us/products/sofle-v2-keyboard-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419","https://mechboards.co.uk/collections/kits/products/sofle-kit","https://customkbd.com/collections/split-keyboards","https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/","https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit","https://keebd.com/products/sofle-v2-1-choc-keyboard-kit","https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit","https://keebmaker.com/collections/kits"];
+	kb.prebuilt = ["https://falba.tech/https-falba-tech-buy-a-custom-keyboard-sofle/","https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib="];
+	kb.extras = ["https://shop.beekeeb.com/product/sofle-2-tented-case/"];
+	kb.img = type_ValList.fromValue("sofle.jpg");
+	addSofle(kb);
+	kb = { name : "Sofle Choc"};
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
+	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
+	kb.kit = ["https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit"];
+	kb.prebuilt = ["https://falba.tech/sofle-low-profile/","https://ergomech.store/shop/sofle-choc-ergomech-store-revision-47"];
+	kb.img = type_ValList.fromValue("sofle-choc.jpg");
+	kb.pinkyStagger = 0.3;
+	addSofle(kb);
 	kb = { name : "Sofle PLUS (xcmkb)"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
@@ -52,7 +74,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 	add(kb);
-	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["https://shop.yushakobo.jp/products/lily58-pro/","https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58","https://holykeebs.com/products/trackball-lily58-low-profile","https://www.boardsource.xyz/products/lulu"], img : type_ValList.fromValue("lily58.jpg")};
+	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["!https://shop.yushakobo.jp/products/lily58-pro/","https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58","https://holykeebs.com/products/trackball-lily58-low-profile","https://www.boardsource.xyz/products/lulu","https://42keebs.eu/shop/kits/pro-micro-based/lily58-pro-hotswap-split-ergo-50-kit-black-white/","https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://keebd.com/products/lily58-pro-keyboard-kit","https://www.littlekeyboards.com/collections/lily58-pcb-kits","https://keyhive.xyz/shop/lily58"], prebuilt : ["https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://ergomech.store/shop/sofle-v2-sandwich-style-12","https://ergomech.store/shop/lily58-enclose-case-15"], extras : ["[US] https://capsuledeluxe.com/tag/manta58/"], img : type_ValList.fromValue("lily58.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -109,7 +131,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(60),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	add(kb);
-	kb = { name : "Pinky4", thumbKeys : type_NumRange.fromInt(4), source : type_ValList.fromValue("https://github.com/tamanishi/Pinky4"), img : type_ValList.fromValue("Pinky4.jpg"), notes : type_ValList.fromValue("Uses Choc switches for thumb keys")};
+	kb = { name : "Pinky4", thumbKeys : type_NumRange.fromInt(4), source : type_ValList.fromValue("https://github.com/tamanishi/Pinky4"), img : type_ValList.fromValue("Pinky4.jpg"), kit : type_ValList.fromValue("https://www.littlekeyboards.com/products/pinky4-keyboard-kit"), extras : type_ValList.fromValue("https://www.littlekeyboards.com/collections/pinky4-cases"), notes : type_ValList.fromValue("Uses Choc switches for thumb keys")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	add(kb);
@@ -129,6 +151,7 @@ ColStagBoards.init = function(keyboards) {
 	addAvalanche({ name : "Avalanche 40%", keys : type_NumRange.fromArray([48,52]), rows : type_NumRange.fromInt(3), cols : type_NumRange.fromInt(6)});
 	addAvalanche({ name : "Avalanche 60%", keys : type_NumRange.fromArray([60,64]), rows : type_NumRange.fromInt(4), cols : type_NumRange.fromInt(6)});
 	kb = { name : "Redox", source : type_ValList.fromValue("https://github.com/mattdibi/redox-keyboard"), connection : [type_Connection.Wired,type_Connection.Bluetooth], img : type_ValList.fromValue("redox-1.jpg")};
+	kb.prebuilt = ["https://falba.tech/custom-redox-v9b7d173b068d/","https://ergomech.store/shop/neodox-52"];
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
@@ -151,6 +174,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
+	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash"];
 	add(kb);
 	kb = { name : "ErgoMax", source : type_ValList.fromValue("https://github.com/LouWii/ErgoMax"), img : type_ValList.fromValue("ergomax.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -247,7 +271,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([0,1]));
 	kb.img = ["Hillside-46.jpg","Hillside-48.jpg"];
 	addHillside(kb);
-	kb = { name : "Drift", source : type_ValList.fromValue("https://github.com/Timception/Drift/"), prebuilt : type_ValList.fromValue("https://solo.to/timception"), encoderType : type_ValList.fromValue(type_EncoderType.Wheel), encoders : type_NumRange.fromInt(2), displays : type_NumRange.fromInt(2), img : type_ValList.fromValue("Drift.jpg")};
+	kb = { name : "Drift", source : type_ValList.fromValue("https://github.com/Timception/Drift/"), prebuilt : type_ValList.fromValue("[th] https://solo.to/timception"), encoderType : type_ValList.fromValue(type_EncoderType.Wheel), encoders : type_NumRange.fromInt(2), displays : type_NumRange.fromInt(2), img : type_ValList.fromValue("Drift.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(68),type_NumRange.fromInt(8),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(-1),type_NumRange.fromInt(0));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
@@ -324,17 +348,27 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/crehmann/Buzzard");
 	kb.img = type_ValList.fromValue("buzzard.webp");
 	add(kb);
+	var addReviung41 = function(kb) {
+		ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(41),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
+		ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
+		kb.trackballSize = pimoroniSize;
+		kb.trackballs = type_NumRange.fromInt(1);
+		kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+		add(kb);
+	};
+	kb = { name : "Reviung41"};
+	kb.img = type_ValList.fromValue("REVIUNG41.jpg");
+	kb.source = type_ValList.fromValue("https://github.com/gtips/reviung");
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	kb.kit = ["https://keebd.com/en-us/products/reviung-41-keyboard-kit","https://customkbd.com/collections/split-keyboards/products/reviung-41","https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit","https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/","https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit"];
+	kb.prebuilt = ["https://shop.beekeeb.com/product/pre-soldered-reviung41/","https://new.boardsource.xyz/products/Reviung41","https://customkbd.com/collections/split-keyboards/products/reviung-41"];
+	addReviung41(kb);
 	kb = { name : "Trackball Reviung41"};
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(41),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
-	kb.trackballSize = pimoroniSize;
-	kb.trackballs = type_NumRange.fromInt(1);
-	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.source = type_ValList.fromValue("https://github.com/idank/keyboards/tree/main/reviung");
 	kb.prebuilt = type_ValList.fromValue("https://holykeebs.com/products/trackball-reviung41-low-profile");
 	kb.img = type_ValList.fromValue("reviung-trackball.jpg");
-	add(kb);
+	addReviung41(kb);
 	kb = { name : "Fisk"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(2),type_NumRange.fromInt(1),type_NumRange.fromInt(0));
@@ -352,7 +386,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Iris"};
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.img = type_ValList.fromValue("iris.webp");
-	kb.kit = type_ValList.fromValue("https://keeb.io/collections/iris-split-ergonomic-keyboard");
+	kb.kit = ["https://keeb.io/collections/iris-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
 	kb.prebuilt = type_ValList.fromValue("https://keeb.io/collections/iris-split-ergonomic-keyboard");
 	addIris(kb);
 	kb = { name : "Iris CE"};
@@ -373,7 +407,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.tilt = type_NumRange.fromInt(2);
-	kb.prebuilt = type_ValList.fromValue("https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/");
+	kb.prebuilt = type_ValList.fromValue("[CA] https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/");
 	kb.img = type_ValList.fromValue("Truly-Ergonomic-Cleave-keyboard-1x1-2.jpg");
 	kb.notes = type_ValList.fromValue("Flexibility of on-board software is unclear, but it's got a fairly normal keymap");
 	add(kb);
@@ -383,6 +417,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(-1),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	kb.hotswap = type_HotSwap.fromBool(false);
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.Choc);
+	kb.keySpacing = type_KeySpacing.Choc;
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("http://www.moergo.com");
@@ -471,6 +506,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.source = type_ValList.fromValue("https://github.com/jpconstantineau/ErgoTravel");
 	kb.kit = type_ValList.fromValue("https://mechboards.co.uk/products/ergotravel-kit");
+	kb.extras = ["[CA] https://store.jpconstantineau.com/#/group/split_boards"];
 	kb.img = type_ValList.fromValue("Ergotravel.jpg");
 	add(kb);
 };
@@ -1421,6 +1457,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a separate page/website/post explaining the project motivation/etc." + " that's different from the rest of the links, that goes here.");
 		};
 		lc.shortName = "web";
+		lc.canShowSingle = true;
 		lc = new table_LinkListColumn("Open-source",new table_FancyField("source",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.source = setValue;
@@ -1431,6 +1468,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(lc);
 		lc.shortName = "OSH";
+		lc.canShowSingle = true;
 		lc = new table_LinkListColumn("Kits",new table_FancyField("kit",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.kit = setValue;
@@ -1488,20 +1526,22 @@ HxOverrides.now = function() {
 var Main = function() { };
 Main.__name__ = true;
 Main.main = function() {
-	var t = new ColStagTable();
+	table_LinkListColumn.domainCountries = window.domainCountries;
+	table_LinkListColumn.countryTags = window.countryTags;
+	var csTable = new ColStagTable();
 	var tmp = window.document.querySelector("#count");
-	t.countElement = tmp;
-	t.buildFilters(window.document.querySelector("#filter"));
-	t.buildTable(window.document.querySelector("#data"));
-	table_FancyTableEditor.build(t,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
+	csTable.countElement = tmp;
+	csTable.buildFilters(window.document.querySelector("#filter"));
+	csTable.buildTable(window.document.querySelector("#data"));
+	table_FancyTableEditor.build(csTable,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
 	var loc = window.document.location;
 	if(loc.protocol != "file:") {
-		t.baseURL = loc.origin + loc.pathname;
+		csTable.baseURL = loc.origin + loc.pathname;
 	}
 	var cbAutoUpdateURL = window.document.querySelector("#auto-update-url");
-	t.canUpdateURL = cbAutoUpdateURL.checked;
+	csTable.canUpdateURL = cbAutoUpdateURL.checked;
 	cbAutoUpdateURL.addEventListener("change",function(_) {
-		t.canUpdateURL = cbAutoUpdateURL.checked;
+		csTable.canUpdateURL = cbAutoUpdateURL.checked;
 	});
 	var btShare = window.document.querySelector("#copy-share-url");
 	var this1 = { };
@@ -1512,8 +1552,8 @@ Main.main = function() {
 	var shareTippy = Tippy(btShare,shareOpt);
 	var shareTippyHide = 0;
 	btShare.onclick = function() {
-		var search = t.saveFilters();
-		var url = t.baseURL + search;
+		var search = csTable.saveFilters();
+		var url = csTable.baseURL + search;
 		var fallback = function() {
 			window.prompt("Failed to copy - here's your link:",url);
 		};
@@ -1541,18 +1581,18 @@ Main.main = function() {
 	if($global.location.hostname == "localhost") {
 		var editorDetails = window.document.querySelector("#editor-outer");
 	} else {
-		t.sortBy(shuffler,false);
+		csTable.sortBy(shuffler,false);
 	}
 	window.document.querySelector("#shuffle").onclick = function() {
-		if(t.sortColHead != null) {
-			t.sortColHead.element.classList.remove("sort-column");
-			t.sortColHead.element.classList.remove("sort-ascending");
-			t.sortColHead = null;
+		if(csTable.sortColHead != null) {
+			csTable.sortColHead.element.classList.remove("sort-column");
+			csTable.sortColHead.element.classList.remove("sort-ascending");
+			csTable.sortColHead = null;
 		}
-		t.sortBy(shuffler,false);
-		t.updateURL();
+		csTable.sortBy(shuffler,false);
+		csTable.updateURL();
 	};
-	t.loadFilters(window.document.location.search);
+	csTable.loadFilters(window.document.location.search);
 };
 Math.__name__ = true;
 var OrthoBoards = function() { };
@@ -1659,7 +1699,7 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.source = type_ValList.fromValue("https://github.com/MakotoKurauchi/helix");
-	kb.kit = type_ValList.fromValue("https://mechboards.co.uk/products/helix-kit");
+	kb.kit = ["https://mechboards.co.uk/products/helix-kit","https://customkbd.com/collections/split-keyboards/products/helix-kit","https://keyhive.xyz/shop/helix-kit","https://www.switchtop.com/product/helix-keyboard-kit","https://www.littlekeyboards.com/collections/helix-pcb-kits"];
 	kb.img = type_ValList.fromValue("helix.webp");
 	add(kb);
 	kb = { name : "Viterbi"};
@@ -1678,11 +1718,13 @@ OrthoBoards.init = function(keyboards) {
 	};
 	kb = { name : "Rebound"};
 	kb.stagger = type_StaggerType.Ortho;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("https://store.montsinger.net/products/rebound");
 	kb.img = type_ValList.fromValue("rebound.webp");
 	addRebound(kb);
 	kb = { name : "Rebound-S"};
 	kb.stagger = type_StaggerType.Column;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("https://store.montsinger.net/products/rebound-s");
 	kb.img = type_ValList.fromValue("rebound-s.webp");
 	addRebound(kb);
@@ -1768,6 +1810,13 @@ Std.parseInt = function(x) {
 };
 var StringTools = function() { };
 StringTools.__name__ = true;
+StringTools.startsWith = function(s,start) {
+	if(s.length >= start.length) {
+		return s.lastIndexOf(start,0) == 0;
+	} else {
+		return false;
+	}
+};
 StringTools.isSpace = function(s,pos) {
 	var c = HxOverrides.cca(s,pos);
 	if(!(c > 8 && c < 14)) {
@@ -3282,6 +3331,7 @@ table_IntRangeColumn.prototype = $extend(table_NumberRangeColumn.prototype,{
 });
 var table_LinkListColumn = function(name,field) {
 	this.defaultValue = "";
+	this.canShowSingle = false;
 	table_FancyColumn.call(this,name);
 	this.field = field;
 };
@@ -3299,39 +3349,115 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 			return false;
 		}
 	}
+	,buildPopup: function(lines) {
+		var list = window.document.createElement("ul");
+		lines.sort(function(a,b) {
+			if(StringTools.startsWith(a,"!")) {
+				return -1;
+			}
+			if(StringTools.startsWith(b,"!")) {
+				return 1;
+			}
+			if(Math.random() < 0.5) {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		var _g_current = 0;
+		var _g_array = lines;
+		while(_g_current < _g_array.length) {
+			var _g_value = _g_array[_g_current];
+			var _g_key = _g_current++;
+			var i = _g_key;
+			var href = _g_value;
+			var item = window.document.createElement("li");
+			var link = window.document.createElement("a");
+			var official = StringTools.startsWith(href,"!");
+			if(official) {
+				href = StringTools.ltrim(HxOverrides.substr(href,1,null));
+			}
+			var origins = [];
+			var _g = 0;
+			while(_g < 16) {
+				var _ = _g++;
+				if(!StringTools.startsWith(href,"[")) {
+					break;
+				}
+				var pos = href.indexOf("]");
+				if(pos < 0) {
+					break;
+				}
+				if(href.charAt(pos + 1) == "(") {
+					break;
+				}
+				origins.push(href.substring(1,pos));
+				href = href.substring(pos + 1);
+			}
+			var url = new URL(href);
+			var domain = url.hostname;
+			if(StringTools.startsWith(domain,"www.")) {
+				domain = HxOverrides.substr(domain,4,null);
+			}
+			if(origins.length == 0) {
+				var origin = table_LinkListColumn.domainCountries[domain];
+				if(origin == null) {
+					var parts = domain.split(".");
+					if(parts.length >= 3) {
+						origin = table_LinkListColumn.domainCountries[parts.slice(1).join(".")];
+					}
+				}
+				if(origin == null) {
+					var pos1 = domain.lastIndexOf(".");
+					if(pos1 >= 0) {
+						origin = domain.substring(pos1 + 1).toUpperCase();
+						if(table_LinkListColumn.countryTags[origin] == null) {
+							origin = null;
+						}
+					}
+				}
+				if(origin != null) {
+					origins.push(origin);
+				}
+			}
+			if(official) {
+				item.innerHTML += "<img src=\"flags/star.png\" title=\"Official\" class=\"flag\" >&#8201;";
+			}
+			var _g1 = 0;
+			while(_g1 < origins.length) {
+				var origin1 = origins[_g1];
+				++_g1;
+				var html = table_LinkListColumn.countryTags[origin1.toUpperCase()];
+				if(html == null) {
+					$global.console.error("Unknown origin \"" + origin1 + "\"");
+					continue;
+				}
+				html = html.replace(table_LinkListColumn.rxFlag,function(_,code,title) {
+					var bit = "<img src=\"flags/" + code + ".png\"";
+					if(title != null) {
+						bit += " title=\"" + title + "\"";
+					}
+					return bit + " class=\"flag\" />";
+				});
+				item.innerHTML += html + "&#8201;";
+			}
+			link.href = href;
+			link.appendChild(window.document.createTextNode(domain));
+			item.appendChild(link);
+			list.appendChild(item);
+		}
+		return list;
+	}
 	,buildValue: function(out,kb) {
+		var _gthis = this;
 		var lines = this.field.access(kb);
 		if(!(lines == null || lines.length == 0)) {
-			if(lines.length == 1) {
+			if(lines.length == 1 && this.canShowSingle) {
 				var link = window.document.createElement("a");
 				link.appendChild(window.document.createTextNode("➜"));
 				link.href = lines[0];
 				out.appendChild(link);
 			} else {
-				var list = window.document.createElement("ul");
-				lines.sort(function(a,b) {
-					if(Math.random() < 0.5) {
-						return -1;
-					} else {
-						return 1;
-					}
-				});
-				var _g_current = 0;
-				var _g_array = lines;
-				while(_g_current < _g_array.length) {
-					var _g_value = _g_array[_g_current];
-					var _g_key = _g_current++;
-					var i = _g_key;
-					var href = _g_value;
-					var item = window.document.createElement("li");
-					var link = window.document.createElement("a");
-					link.href = href;
-					var url = new URL(href);
-					var text = url.hostname;
-					link.appendChild(window.document.createTextNode(text));
-					item.appendChild(link);
-					list.appendChild(item);
-				}
 				var link = window.document.createElement("a");
 				link.appendChild(window.document.createTextNode("➜"));
 				link.href = "javascript:void(0)";
@@ -3345,10 +3471,9 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 					return out;
 				};
 				opts["appendTo"] = v;
-				var v = function(_) {
-					return list;
-				};
-				opts["content"] = v;
+				externs_TippyOptions.setLazyContent(opts,function() {
+					return _gthis.buildPopup(lines);
+				});
 				Tippy(link,opts);
 			}
 		}
@@ -3357,7 +3482,7 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
 		var textarea = window.document.createElement("textarea");
-		textarea.placeholder = "one per line";
+		textarea.placeholder = ["One URL per line","Add country prefix, e.g.","[UA] https://yal.cc","To show a country-of-origin flag for kits/prebuilts"].join("\n");
 		out.appendChild(textarea);
 		store.push(function(kb) {
 			var text = textarea.value;
@@ -3515,18 +3640,18 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 		notes.placeholder = "One paragraph of notes per line";
 		out.appendChild(notes);
 		store.push(function(kb) {
-			var text = textarea.value;
+			var text = notes.value;
 			if(StringTools.trim(text) == "") {
 				return;
 			}
-			kb.img = text.split("\n");
+			kb.notes = text.split("\n");
 		});
 		restore.push(function(kb) {
 			var arr = kb.img;
 			if(arr == null) {
-				textarea.value = "";
+				notes.value = "";
 			} else {
-				textarea.value = arr.join("\n");
+				notes.value = arr.join("\n");
 			}
 		});
 	}
@@ -3536,7 +3661,7 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 			arr = arr[0];
 			kb.img = arr;
 		}
-		arr = kb.img;
+		arr = kb.notes;
 		if(arr != null && arr.length == 1) {
 			arr = arr[0];
 			kb.notes = arr;
@@ -4338,5 +4463,8 @@ Array.__name__ = true;
 var Tippy = window["tippy"];
 js_Boot.__toStr = ({ }).toString;
 Main.baseURL = "https://yal-tools.github.io/ergo-keyboards/";
+table_LinkListColumn.domainCountries = { };
+table_LinkListColumn.countryTags = { };
+table_LinkListColumn.rxFlag = new RegExp("\\[flag:\\s*(\\w+)(?:\\|(.+?))\\]","g");
 Main.main();
 })(typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
