@@ -237,6 +237,9 @@ class FancyFilterHeader {
 	public var text:String;
 	public var noticeText:String = null;
 	public var noticeFunc:Element->Void = null;
+	
+	public var editorNoticeText:String = null;
+	public var editorNoticeFunc:Element->Void = null;
 	public function new(text:String) {
 		this.text = text;
 	}

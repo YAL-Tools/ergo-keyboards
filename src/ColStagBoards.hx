@@ -70,6 +70,8 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Sofle");
 		kb.setHotswap([MX, Choc]);
 		kb.caseType = [Included, ThirdParty];
+		kb.web = "https://josefadamcik.github.io/SofleKeyboard/";
+		kb.source = "https://github.com/josefadamcik/SofleKeyboard";
 		kb.kit = [
 			"https://keebd.com/en-us/products/sofle-v2-keyboard-kit",
 			"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419",
@@ -95,6 +97,8 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Sofle Choc");
 		kb.setHotswap(Choc, MX);
 		kb.caseType = [Included, ThirdParty];
+		kb.web = "https://josefadamcik.github.io/SofleKeyboard/";
+		kb.source = "https://github.com/josefadamcik/SofleKeyboard";
 		kb.kit = [
 			"https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/",
 			"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187",
@@ -118,7 +122,8 @@ class ColStagBoards {
 		kb.trackballs = 1;
 		kb.trackballSize = pimoroniSize;
 		kb.caseType = Included;
-		kb.prebuilt = "https://github.com/superxc3/xcmkb";
+		kb.web = "https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/sofle/sofleplus";
+		kb.prebuilt = "!https://github.com/superxc3/xcmkb";
 		kb.img = "xcmkb-sofle-plus.jpg";
 		kb.notes = "A number of small improvements over regular Sofle.";
 		add(kb);
@@ -176,7 +181,7 @@ class ColStagBoards {
 		kb.pinkyStagger = 0.6;
 		kb.caseType = Included;
 		kb.source = "https://github.com/splitkb/kyria";
-		kb.kit = "https://splitkb.com/products/kyria-rev3-pcb-kit";
+		kb.kit = "!https://splitkb.com/products/kyria-rev3-pcb-kit";
 		kb.img = "Kyria.jpg";
 		add(kb);
 		
@@ -195,8 +200,8 @@ class ColStagBoards {
 			firmware: QMK,
 			software: VIA,
 			source: "https://github.com/eggsworks/egg58",
-			kit: "https://eggs.works/products/egg58-diy-kit",
-			prebuilt: "https://eggs.works/products/egg58",
+			kit: "!https://eggs.works/products/egg58-diy-kit",
+			prebuilt: "!https://eggs.works/products/egg58",
 			img: "egg58.jpg",
 		});
 		addEgg({
@@ -320,7 +325,10 @@ class ColStagBoards {
 		addAvalanche({
 			name: "Avalanche 60%",
 			keys: [60, 64],
-			rows: 4, cols: 6
+			rows: 4, cols: 6,
+			prebuilt: [
+				"https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/avalanche/v4 @ https://github.com/superxc3/xcmkb",
+			],
 		});
 		
 		for (step in 0 ... 2) {
@@ -405,7 +413,7 @@ class ColStagBoards {
 			thumbKeys: 4,
 			web: "https://www.afternoonlabs.com/breeze/",
 			source: "https://github.com/afternoonlabs/BreezeKeyboard",
-			kit: "https://keeb.io/products/afternoon-labs-breeze-keyboard-kit/?afmc=yal",
+			kit: "!https://keeb.io/products/afternoon-labs-breeze-keyboard-kit/?afmc=yal",
 			img: "breeze.avif"
 		};
 		kb.setMatrix(66, 6, 4);
@@ -486,7 +494,7 @@ class ColStagBoards {
 			name: "Ergoinu",
 			pinkyStagger: 0.1,
 			source: "https://github.com/hsgw/ergoinu",
-			kit: "https://dm9.thebase.in/items/13093286",
+			kit: "!https://dm9.thebase.in/items/13093286",
 			img: "Ergoinu.jfif",
 		};
 		kb.caseType = Included;
@@ -524,7 +532,7 @@ class ColStagBoards {
 			img: "Kapl.jpg"
 		};
 		kb.caseType = Included;
-		kb.setMatrix([63, 64], 7, 4);
+		kb.setMatrix([69, 70], 7, 4);
 		kb.setExtras(4, 0, 0, 4);
 		kb.setQMK();
 		add(kb);
@@ -561,7 +569,7 @@ class ColStagBoards {
 		kb = {
 			name: "Drift",
 			source: "https://github.com/Timception/Drift/",
-			prebuilt: "[th] https://solo.to/timception",
+			prebuilt: "![th] https://solo.to/timception",
 			encoderType: EncoderType.Wheel,
 			encoders: 2,
 			displays: 2,
@@ -600,8 +608,8 @@ class ColStagBoards {
 			cols: 5, rows: 3,
 			thumbKeys: [2, 4],
 			source: "https://github.com/Bastardkb/Dilemma",
-			kit: "https://bastardkb.com/product/dilemma/",
-			prebuilt: "https://bastardkb.com/product/dilemma-prebuilt-preorder/",
+			kit: "!https://bastardkb.com/product/dilemma/",
+			prebuilt: "!https://bastardkb.com/product/dilemma-prebuilt-preorder/",
 			img: "Dilemma.jpg",
 		});
 		addDilemma({
@@ -610,8 +618,8 @@ class ColStagBoards {
 			cols: 6, rows: 4,
 			thumbKeys: [3, 4],
 			source: "https://github.com/Bastardkb/Dilemma",
-			kit: "https://bastardkb.com/product/dilemma-max/",
-			prebuilt: "https://bastardkb.com/product/dilemma-max-prebuilt-preorder/",
+			kit: "!https://bastardkb.com/product/dilemma-max/",
+			prebuilt: "!https://bastardkb.com/product/dilemma-max-prebuilt-preorder/",
 			img: "Dilemma-Max.jpg",
 		});
 		
@@ -662,6 +670,7 @@ class ColStagBoards {
 			cornerKeys: 6,
 			navCluster: Full,
 			switchProfile: MX,
+			shape: Unibody,
 			caseType: Included,
 			source: "https://github.com/cozykeys/Bloomer",
 			img: "Bloomer.jfif",
@@ -677,7 +686,7 @@ class ColStagBoards {
 			firmware: QMK,
 			software: Vial,
 			caseType: Included,
-			prebuilt: "https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2",
+			prebuilt: "!https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2",
 			img: "W-Ergolite.webp",
 		});
 		
@@ -757,8 +766,6 @@ class ColStagBoards {
 		function addReviung41(kb:ColStagKeyboard) {
 			kb.setMatrix(41, 6, 3);
 			kb.setExtras(3);
-			kb.trackballSize = pimoroniSize;
-			kb.trackballs = 1;
 			kb.caseType = Included;
 			add(kb);
 		}
@@ -782,8 +789,10 @@ class ColStagBoards {
 		
 		kb = new ColStagKeyboard("Trackball Reviung41");
 		kb.setHotswap(Choc);
+		kb.trackballSize = pimoroniSize;
+		kb.trackballs = 1;
 		kb.source = "https://github.com/idank/keyboards/tree/main/reviung";
-		kb.prebuilt = "https://holykeebs.com/products/trackball-reviung41-low-profile";
+		kb.prebuilt = "!https://holykeebs.com/products/trackball-reviung41-low-profile";
 		kb.img = "reviung-trackball.jpg";
 		addReviung41(kb);
 		
@@ -806,16 +815,16 @@ class ColStagBoards {
 		kb.setHotswap(MX);
 		kb.img = "iris.webp";
 		kb.kit = [
-			"https://keeb.io/collections/iris-split-ergonomic-keyboard",
+			"!https://keeb.io/collections/iris-split-ergonomic-keyboard",
 			"https://mechboards.co.uk/collections/kits/products/iris-kit",
 			"https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0",
 		];
-		kb.prebuilt = "https://keeb.io/collections/iris-split-ergonomic-keyboard";
+		kb.prebuilt = "!https://keeb.io/collections/iris-split-ergonomic-keyboard";
 		addIris(kb);
 		kb = new ColStagKeyboard("Iris CE");
 		kb.img = "iris-ce.webp";
 		kb.setHotswap(Choc, Choc);
-		kb.kit = "https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard";
+		kb.kit = "!https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard";
 		addIris(kb);
 		
 		kb = new ColStagKeyboard("TE Cleave");
@@ -833,7 +842,7 @@ class ColStagBoards {
 		kb.wristPads = Integrated;
 		kb.caseType = Included;
 		kb.tilt = 2;
-		kb.prebuilt = "[CA] https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/";
+		kb.prebuilt = "![CA] https://trulyergonomic.com/ergonomic-keyboards/mechanical-keyboards/products/cleave-truly-ergonomic-mechanical-switch-keyboard/";
 		kb.img = "Truly-Ergonomic-Cleave-keyboard-1x1-2.jpg";
 		kb.notes = "Flexibility of on-board software is unclear, but it's got a fairly normal keymap";
 		add(kb);
@@ -847,7 +856,7 @@ class ColStagBoards {
 		kb.keySpacing = KeySpacing.Choc;
 		kb.connection = [Wired, Bluetooth];
 		kb.caseType = Included;
-		kb.prebuilt = "http://www.moergo.com";
+		kb.prebuilt = "!http://www.moergo.com";
 		kb.img = "glove80.jpg";
 		add(kb);
 		
@@ -858,7 +867,7 @@ class ColStagBoards {
 		kb.setQMK();
 		kb.caseType = Included;
 		kb.web = "https://www.momoka.co/ergo";
-		kb.prebuilt = "https://momoka.store/collections/keyboards/products/momoka-ergo";
+		kb.prebuilt = "!https://momoka.store/collections/keyboards/products/momoka-ergo";
 		kb.img = "momoka-ergo.webp";
 		add(kb);
 		
@@ -869,7 +878,7 @@ class ColStagBoards {
 		kb.wristPads = Integrated;
 		kb.tenting = [0, 15];
 		kb.caseType = Included;
-		kb.prebuilt = "https://shop.keyboard.io/products/model-100";
+		kb.prebuilt = "!https://shop.keyboard.io/products/model-100";
 		kb.img = "keyboardio-m100.webp";
 		add(kb);
 		
@@ -880,7 +889,7 @@ class ColStagBoards {
 		kb.setQMK(Custom);
 		kb.tenting = [0, 4];
 		kb.caseType = Included;
-		kb.prebuilt = "https://www.zsa.io/voyager/";
+		kb.prebuilt = "!https://www.zsa.io/voyager/";
 		kb.img = "zsa-voyager.jpg";
 		add(kb);
 		
@@ -893,7 +902,7 @@ class ColStagBoards {
 		kb.tenting = [0, 40];
 		kb.tilt = [ -10, 0];
 		kb.caseType = Included;
-		kb.prebuilt = "https://www.zsa.io/moonlander/";
+		kb.prebuilt = "!https://www.zsa.io/moonlander/";
 		kb.img = "zsa-moonlander.avif";
 		add(kb);
 		
@@ -906,7 +915,7 @@ class ColStagBoards {
 		kb.tenting = [0, 11];
 		kb.tilt = [ -10, 0];
 		kb.caseType = Included;
-		kb.prebuilt = "https://ergodox-ez.com/";
+		kb.prebuilt = "!https://ergodox-ez.com/";
 		kb.img = "ergodox-ez.avif";
 		add(kb);
 		
@@ -919,7 +928,7 @@ class ColStagBoards {
 		kb.tenting = [0, 60];
 		kb.tilt = [ -10, 0];
 		kb.caseType = Included;
-		kb.prebuilt = "https://dygma.com/pages/defy";
+		kb.prebuilt = "!https://dygma.com/pages/defy";
 		kb.img = "dygma-defy.webp";
 		add(kb);
 		
@@ -930,7 +939,7 @@ class ColStagBoards {
 		kb.shape = Unibody;
 		kb.pinkyStagger = 0.5;
 		kb.caseType = Included;
-		kb.source = "https://github.com/nshie/osprey";
+		kb.source = "!https://github.com/nshie/osprey";
 		kb.img = "osprey.jpg";
 		add(kb);
 		
@@ -942,7 +951,7 @@ class ColStagBoards {
 		kb.source = "https://github.com/jpconstantineau/ErgoTravel";
 		kb.kit = "https://mechboards.co.uk/products/ergotravel-kit";
 		kb.extras = [
-			"[CA] https://store.jpconstantineau.com/#/group/split_boards"
+			"![CA] https://store.jpconstantineau.com/#/group/split_boards"
 		];
 		kb.img = "Ergotravel.jpg";
 		add(kb);

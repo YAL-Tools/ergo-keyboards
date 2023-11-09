@@ -65,6 +65,7 @@ class FancyTableFilters {
 			
 			var cbShow = document.createInputElement();
 			cbShow.type = "checkbox";
+			cbShow.classList.add("cb-show");
 			cbShow.checked = column.show;
 			cbShow.onchange = function(_) {
 				column.show = !column.show;
@@ -89,6 +90,7 @@ class FancyTableFilters {
 			
 			var cbFilter = document.createInputElement();
 			cbFilter.type = "checkbox";
+			cbFilter.classList.add("cb-filter");
 			cbFilter.checked = false;
 			cbFilter.disabled = !column.canFilter; //divFilters.children.length == 0;
 			cbFilter.onchange = function(_) {

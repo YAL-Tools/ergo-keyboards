@@ -146,7 +146,8 @@ body.night #data tr:hover,
   border-radius: 3px;
 }
 .tippy-content p,
-.tippy-content ul {
+.tippy-content ul,
+.tippy-content pre {
   margin: 0.5em 0;
 }
 .tippy-content p:first-child,
@@ -169,6 +170,18 @@ body.night #data tr:hover,
   height: auto;
   border-radius: 3px;
   outline: 1px solid currentColor;
+}
+.tippy-content pre,
+.tippy-content code {
+  font-size: 90%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.tippy-content pre {
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+.tippy-content code {
+  padding: 0.1em 0.1em;
 }
 #share-field {
   flex-grow: 1;

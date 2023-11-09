@@ -118,7 +118,7 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 				kb.notes = text.split("\n");
 			});
 			restore.push(function(kb) {
-				var arr = kb.img;
+				var arr = kb.notes;
 				if (arr == null) {
 					notes.value = "";
 				} else {

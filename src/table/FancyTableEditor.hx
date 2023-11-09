@@ -44,6 +44,12 @@ class FancyTableEditor {
 					details.appendChild(summary);
 					out.appendChild(details);
 					dest = details;
+					if (header.editorNoticeText != null) {
+						var notice = document.createSpanElement();
+						notice.appendTextNode(header.editorNoticeText);
+						FancyTableFilters.addNotesFor(header.editorNoticeFunc, notice);
+						details.appendChild(notice);
+					}
 					continue;
 				case Column(col): col;
 			}

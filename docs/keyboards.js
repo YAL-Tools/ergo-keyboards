@@ -12,7 +12,7 @@ window.keyboardData = [
 	"cornerKeys": 4,
 	"caseType": "Included",
 	"source": "https://github.com/profet23/atreus62/",
-	"kit": "https://shop.profetkeyboards.com/category/atreus62"
+	"kit": "!https://shop.profetkeyboards.com/category/atreus62"
 },
 {
 	"name": "Lotus 58",
@@ -59,8 +59,8 @@ window.keyboardData = [
 		"ThirdParty"
 	],
 	"source": "https://github.com/TweetyDaBird/Lotus-Keyboard",
-	"kit": "[se] https://lectronz.com/stores/tweetys-wild-thinking",
-	"prebuilt": "[se] https://lectronz.com/stores/tweetys-wild-thinking"
+	"kit": "![se] https://lectronz.com/stores/tweetys-wild-thinking",
+	"prebuilt": "![se] https://lectronz.com/stores/tweetys-wild-thinking"
 },
 {
 	"name": "ximi",
@@ -98,7 +98,7 @@ window.keyboardData = [
 	},
 	"caseType": "Included",
 	"kit": [
-		"https://fingerpunch.xyz/product/ximi/"
+		"!https://fingerpunch.xyz/product/ximi/"
 	]
 },
 {
@@ -136,7 +136,7 @@ window.keyboardData = [
 	},
 	"caseType": "Included",
 	"kit": [
-		"https://fingerpunch.xyz/product/faux-fox-keyboard-v3/"
+		"!https://fingerpunch.xyz/product/faux-fox-keyboard-v3/"
 	]
 },
 {
@@ -167,8 +167,8 @@ window.keyboardData = [
 	"software": "VIA",
 	"encoderType": "Knob",
 	"caseType": "Included",
-	"kit": "https://keeb.io/collections/nyquist-keyboard-collection",
-	"prebuilt": "https://keeb.io/collections/pre-built-keyboards/products/nyquist-keyboard-pre-built"
+	"kit": "!https://keeb.io/collections/nyquist-keyboard-collection",
+	"prebuilt": "!https://keeb.io/collections/pre-built-keyboards/products/nyquist-keyboard-pre-built"
 },
 {
 	"name": "Keyboardio Atreus",
@@ -368,7 +368,7 @@ window.keyboardData = [
 	"software": "VIA",
 	"caseType": "Included",
 	"source": "https://showcase.beekeeb.com/corne-glp/",
-	"kit": "https://shop.beekeeb.com/product/corne-glp-kit/"
+	"kit": "!https://shop.beekeeb.com/product/corne-glp-kit/"
 },
 {
 	"name": "catboard",
@@ -502,7 +502,7 @@ window.keyboardData = [
 	"firmware": "ZMK",
 	"caseType": "Included",
 	"source": "https://github.com/compressionKeyboards/compression4c",
-	"prebuilt": "https://compressionkeyboards.com/collections/all"
+	"prebuilt": "!https://compressionkeyboards.com/collections/all"
 },
 {
 	"name": "Charybdis",
@@ -534,8 +534,8 @@ window.keyboardData = [
 	"trackballs": 1,
 	"caseType": "Included",
 	"source": "https://github.com/Bastardkb/Charybdis",
-	"kit": "https://bastardkb.com/charybdis/",
-	"prebuilt": "https://bastardkb.com/prebuilts/"
+	"kit": "!https://bastardkb.com/charybdis/",
+	"prebuilt": "!https://bastardkb.com/prebuilts/"
 },
 {
 	"name": "Rommana",
@@ -703,7 +703,7 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"firmware": "ZMK",
 	"caseType": "Included",
-	"prebuilt": "[UA] https://t.me/splitted_space"
+	"prebuilt": "![UA] https://t.me/splitted_space"
 },
 {
 	"name": "Torn",
@@ -805,7 +805,7 @@ window.keyboardData = [
 	"displays": 1,
 	"firmware": "QMK",
 	"caseType": "Included",
-	"kit": "[us] https://gestaltinput.com/products/santoku-keyboard-kit-black"
+	"kit": "![us] https://gestaltinput.com/products/santoku-keyboard-kit-black"
 },
 {
 	"name": "Microdox",
@@ -856,7 +856,7 @@ window.keyboardData = [
 	"firmware": "Custom",
 	"wristPads": "Integrated",
 	"caseType": "Included",
-	"prebuilt": "https://kinesis-ergo.com/products/#adv360"
+	"prebuilt": "!https://kinesis-ergo.com/products/#adv360"
 },
 {
 	"name": "Kinesis Advantage 2",
@@ -881,7 +881,7 @@ window.keyboardData = [
 	"firmware": "Custom",
 	"wristPads": "Integrated",
 	"caseType": "Included",
-	"prebuilt": "https://kinesis-ergo.com/products/#advantage2"
+	"prebuilt": "!https://kinesis-ergo.com/products/#advantage2"
 },
 {
 	"name": "Thumbs Up!",
@@ -921,7 +921,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"caseType": "None",
 	"web": "https://www.thumbsup.shop",
-	"prebuilt": "https://www.thumbsup.shop/shop"
+	"prebuilt": "!https://www.thumbsup.shop/shop"
 },
 {
 	"name": "Planeta",
@@ -940,8 +940,8 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
-	"kit": "https://ergohaven.xyz/shop/tproduct/339856256-451576977141-diy-kits",
-	"prebuilt": "https://ergohaven.xyz/shop/tproduct/339856256-880659810681-planeta"
+	"kit": "!https://ergohaven.xyz/shop/tproduct/339856256-451576977141-diy-kits",
+	"prebuilt": "!https://ergohaven.xyz/shop/tproduct/339856256-880659810681-planeta"
 },
 {
 	"name": "K:02",
@@ -961,7 +961,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
-	"prebuilt": "https://ergohaven.xyz/shop/tproduct/339856256-523210054391-k02"
+	"prebuilt": "!https://ergohaven.xyz/shop/tproduct/339856256-523210054391-k02"
 },
 {
 	"name": "Abomination",
@@ -1192,7 +1192,7 @@ window.keyboardData = [
 	],
 	"firmware": "QMK",
 	"caseType": "Included",
-	"kit": "https://southpawdesign.net/collections/all"
+	"kit": "!https://southpawdesign.net/collections/all"
 },
 {
 	"name": "NISSE",
@@ -1214,7 +1214,7 @@ window.keyboardData = [
 	"firmware": "Custom",
 	"caseType": "Included",
 	"web": "https://www.esrille.com/keyboard/",
-	"prebuilt": "https://www.esrille.com/keyboard/store.html"
+	"prebuilt": "!https://www.esrille.com/keyboard/store.html"
 },
 {
 	"name": "Chocofly",
@@ -1317,8 +1317,8 @@ window.keyboardData = [
 	"software": "Vial",
 	"caseType": "Included",
 	"source": "https://github.com/beekeeb/hotreus62",
-	"kit": "https://shop.beekeeb.com/product/hotreus62-pcb-kit/",
-	"prebuilt": "https://shop.beekeeb.com/product/pre-soldered-hotreus62/"
+	"kit": "!https://shop.beekeeb.com/product/hotreus62-pcb-kit/",
+	"prebuilt": "!https://shop.beekeeb.com/product/pre-soldered-hotreus62/"
 },
 {
 	"name": "ErgoTravelXT",
@@ -1479,8 +1479,8 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/idank/spankbd",
-	"kit": "https://holykeebs.com/products/span",
-	"prebuilt": "https://holykeebs.com/products/span"
+	"kit": "!https://holykeebs.com/products/span",
+	"prebuilt": "!https://holykeebs.com/products/span"
 },
 {
 	"name": "Ergodonk",
@@ -1603,8 +1603,8 @@ window.keyboardData = [
 	],
 	"software": "Vial",
 	"caseType": "Included",
-	"kit": "https://shop.hazel.cc/products/bad-wings-kit",
-	"prebuilt": "https://shop.hazel.cc/products/bad-wings"
+	"kit": "!https://shop.hazel.cc/products/bad-wings-kit",
+	"prebuilt": "!https://shop.hazel.cc/products/bad-wings"
 },
 {
 	"name": "ExtraDox",
@@ -1626,7 +1626,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/blastrock/ExtraDox",
-	"prebuilt": "https://github.com/blastrock/ExtraDox#buying-one"
+	"prebuilt": "!https://github.com/blastrock/ExtraDox#buying-one"
 },
 {
 	"name": "Aether",
@@ -1674,7 +1674,7 @@ window.keyboardData = [
 		"None",
 		"Integrated"
 	],
-	"kit": "https://shop.yushakobo.jp/en/products/ergoarrows"
+	"kit": "!https://shop.yushakobo.jp/en/products/ergoarrows"
 },
 {
 	"name": "Lyra",
@@ -1733,8 +1733,8 @@ window.keyboardData = [
 		"ThirdParty"
 	],
 	"source": "https://github.com/beekeeb/piantor",
-	"kit": "https://shop.beekeeb.com/product/piantor-keyboard-kit/",
-	"prebuilt": "https://shop.beekeeb.com/product/pre-soldered-piantor-split-keyboard/"
+	"kit": "!https://shop.beekeeb.com/product/piantor-keyboard-kit/",
+	"prebuilt": "!https://shop.beekeeb.com/product/pre-soldered-piantor-split-keyboard/"
 },
 {
 	"name": "Rev57LP",
@@ -1828,11 +1828,11 @@ window.keyboardData = [
 		"min": 0,
 		"max": 4
 	},
-	"web": "https://www.diykeyboards.com/keyboards/keyboard-kits/product/dactyl-manuform-kit",
+	"kit": "https://www.diykeyboards.com/keyboards/keyboard-kits/product/dactyl-manuform-kit",
 	"source": "https://github.com/abstracthat/dactyl-manuform",
 	"prebuilt": [
 		"https://www.cyboard.digital/product-page/pre-built-dactyl-manuform",
-		"https://ohkeycaps.com/products/built-to-order-dactyl-manuform-keyboard",
+		//"https://ohkeycaps.com/products/built-to-order-dactyl-manuform-keyboard",
 		"https://k33b.com/shop/custom-dactyl-keyboard/",
 		"https://skree.us/collections/all"
 	]
@@ -1855,8 +1855,8 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "VIA",
 	"caseType": "Included",
-	"kit": "https://shop.dailycraft.jp/collections/kagura42",
-	"prebuilt": "https://shop.dailycraft.jp/collections/kagura42"
+	"kit": "!https://shop.dailycraft.jp/collections/kagura42",
+	"prebuilt": "!https://shop.dailycraft.jp/collections/kagura42"
 },
 {
 	"name": "Pragmatic 56",
@@ -1874,7 +1874,7 @@ window.keyboardData = [
 	"keySpacing": "Choc",
 	"firmware": "QMK",
 	"software": "Vial",
-	"kit": "https://www.pragmatic.com.tw/shop/choc54-62"
+	"kit": "!https://www.pragmatic.com.tw/shop/choc54-62"
 },
 {
 	"name": "Ergo68",
@@ -1894,7 +1894,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.3,
 	"hotswap": "Yes",
 	"switchProfile": "MX",
-	"kit": "https://shop.yushakobo.jp/en/products/ergo68"
+	"kit": "!https://shop.yushakobo.jp/en/products/ergo68"
 },
 {
 	"name": "Fulcrum (20)",
@@ -1947,6 +1947,48 @@ window.keyboardData = [
 	"assembly": "Handwired",
 	"caseType": "Included",
 	"source": "https://github.com/dschil138/Fulcrum"
+},
+{
+	"name": "HillSideView",
+	"img": "HillSideView.jpg",
+	"notes": "A wireless fork of Hillside46 with nice!view e-paper displays",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 40,
+		"max": 46
+	},
+	"rows": 3,
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
+	"thumbKeys": 5,
+	"pinkyStagger": 0.8,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"trackpads": {
+		"min": 0,
+		"max": 1
+	},
+	"displays": 2,
+	"firmware": "ZMK",
+	"tenting": {
+		"min": 0,
+		"max": 5
+	},
+	"caseType": "Included",
+	"web": [
+		"https://www.reddit.com/r/ErgoMechKeyboards/comments/17opz7v/hillsideview_a_modified_hillside_46_with_niceview/",
+		"https://imgur.com/a/YDMosnA"
+	],
+	"source": "https://github.com/wannabecoffeenerd/HillSideView/"
 },
 // todo: https://www.slicemk.com/collections/all
 null

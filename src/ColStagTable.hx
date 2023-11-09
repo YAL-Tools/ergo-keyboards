@@ -1,9 +1,10 @@
 package ;
-import js.Browser;
+import js.Browser.*;
 import type.*;
 import js.html.Element;
 import table.FancyField;
 import table.IntRangeColumn;
+import table.LinkListColumn;
 import table.TagColumn;
 import table.TagListColumn;
 import type.Keyboard;
@@ -22,9 +23,9 @@ using tools.HtmlTools;
  */
 class ColStagTable extends FancyTable<ColStagKeyboard> {
 	function addImagePara(notes:Element, filename:String, width:Int, height:Int, alt:String) {
-		var p = Browser.document.createParagraphElement();
+		var p = document.createParagraphElement();
 		p.classList.add("img");
-		var img = Browser.document.createImageElement();
+		var img = document.createImageElement();
 		img.src = "help/" + filename;
 		img.alt = alt;
 		img.width = width;
@@ -364,7 +365,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		}
 	}
 	function initConveniences(kb:ColStagKeyboard) {
-		addFilterHeader("Conveniences");
+		var header = addFilterHeader("Conveniences");
 		var col:FancyColumn<ColStagKeyboard>;
 		
 		var palm = new TagListColumn("Palm/wrist pads", mgf(kb.wristPads), WristPads);
@@ -476,7 +477,37 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		addColumn(asm);
 	}
 	function initLinks(kb:ColStagKeyboard) {
-		addFilterHeader("Links");
+		var header = addFilterHeader("Links");
+		header.editorNoticeText = "Notes on link lists";
+		header.editorNoticeFunc = function(el:Element) {
+			var p = el.appendParaTextNode("Links can be prefixed with a ");
+			p.appendElTextNode("code", "[country code]");
+			p.appendTextNode(" to indicate where a keyboard ships from - e.g.");
+			
+			var url = "https://yal.cc";
+			el.appendElTextNode("pre", "[UA] " + url);
+			
+			p = el.appendParaTextNode("Would display as ");
+			p.innerHTML += LinkListColumn.createFlag("UA") + "&#8201;";
+			var a = p.appendElTextNode("a", url);
+			a.setAttribute("href", url);
+			p.appendTextNode(".");
+			
+			p = el.appendParaTextNode(
+				"If a company has multiple regional branches,"
+				+ " several codes can be appended one after another (e.g. "
+			);
+			p.appendElTextNode("code", "[US][DE] https://...");
+			p.appendTextNode(").");
+			
+			p = el.appendParaTextNode("If the designer/company behind the keyboard"
+				+ " sells pre-builts/kits themselves OR endorses a specific vendor"
+				+ " on the project's page, such vendor links can be prefixed with a ");
+			p.appendElTextNode("code", "!");
+			p.appendTextNode(
+				" to mark them accordingly and display them on top of the shuffled list."
+			);
+		}
 		var lc:LinkListColumn<ColStagKeyboard>;
 		
 		mAddColumn(lc = new LinkListColumn("Website", kb.web));
@@ -514,7 +545,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		ColStagBoards.init(keyboards);
 		OrthoBoards.init(keyboards);
-		var kbs:Array<ColStagKeyboard> = (cast Browser.window).keyboardData;
+		var kbs:Array<ColStagKeyboard> = (cast window).keyboardData;
 		for (kb in kbs) {
 			if (kb == null || !Reflect.isObject(kb)) continue;
 			for (col in columns) col.load(kb);

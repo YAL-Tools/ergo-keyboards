@@ -37,6 +37,23 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 		return lines != null && lines.length != 0;
 	}
 	static var rxFlag = new RegExp("\\[flag:\\s*(\\w+)(?:\\|(.+?))\\]", "g");
+	static var rxAt = new RegExp("(.+?)\\s*@\\s*(https?://.+)");
+	public static function createFlag(origin:String) {
+		var html = countryTags[origin.toUpperCase()];
+		if (html == null) {
+			var code = origin.toLowerCase();
+			var bit = '<img src="flags/$code.png"';
+			var title = 'Unknown origin "$origin"';
+			if (title != null) bit += ' title="' + StringTools.htmlEscape(title, true) + '"';
+			return bit + ' class="flag" />';
+		}
+		html = (cast html).replace(rxFlag, function(_, code, title) {
+			var bit = '<img src="flags/$code.png"';
+			if (title != null) bit += ' title="$title"';
+			return bit + ' class="flag" />';
+		});
+		return html;
+	}
 	function buildPopup(lines:Array<String>) {
 		var list = document.createUListElement();
 		lines.sort(function(a, b) {
@@ -83,16 +100,7 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 				item.innerHTML += '<img src="flags/star.png" title="Official" class="flag" >&#8201;';
 			}
 			for (origin in origins) {
-				var html = countryTags[origin.toUpperCase()];
-				if (html == null) {
-					console.error('Unknown origin "$origin"');
-					continue;
-				}
-				html = (cast html).replace(rxFlag, function(_, code, title) {
-					var bit = '<img src="flags/$code.png"';
-					if (title != null) bit += ' title="$title"';
-					return bit + ' class="flag" />';
-				});
+				var html = createFlag(origin);
 				item.innerHTML += html + "&#8201;";
 			}
 			link.href = href;
@@ -132,10 +140,7 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var textarea = document.createTextAreaElement();
 		textarea.placeholder = [
-			"One URL per line",
-			"Add country prefix, e.g.",
-			"[UA] https://yal.cc",
-			"To show a country-of-origin flag for kits/prebuilts",
+			"One URL per line"
 		].join("\n");
 		out.appendChild(textarea);
 		store.push(function(kb) {

@@ -1,4 +1,5 @@
 package ;
+import type.CaseType;
 import type.Firmware;
 import type.Software;
 import type.Connection;
@@ -93,7 +94,7 @@ class OrthoBoards {
 		kb.switchProfile = [MX, Choc, Alps];
 		kb.shape = Split;
 		kb.stagger = Ortho;
-		kb.kit = "https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear";
+		kb.kit = "!https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear";
 		kb.img = "bfo-9000.jpg";
 		add(kb);
 		
@@ -136,6 +137,7 @@ class OrthoBoards {
 		kb.setHotswap([MX, Choc]);
 		kb.source = "https://github.com/MakotoKurauchi/helix";
 		kb.kit = [
+			"!https://shop.yushakobo.jp/en/products/2143",
 			"https://mechboards.co.uk/products/helix-kit",
 			"https://customkbd.com/collections/split-keyboards/products/helix-kit",
 			"https://keyhive.xyz/shop/helix-kit",
@@ -157,19 +159,20 @@ class OrthoBoards {
 			kb.setMatrix([42, 50], 6, 3);
 			kb.setExtras([2, 4], 0, 0, [1, 4]);
 			kb.setHotswap([MX, Choc]);
+			kb.caseType = CaseType.Included;
 			kb.encoders = 1;
 			add(kb);
 		}
 		kb = new ColStagKeyboard("Rebound");
 		kb.stagger = Ortho;
 		kb.shape = Unibody;
-		kb.kit = "https://store.montsinger.net/products/rebound";
+		kb.kit = "!https://store.montsinger.net/products/rebound";
 		kb.img = "rebound.webp";
 		addRebound(kb);
 		kb = new ColStagKeyboard("Rebound-S");
 		kb.stagger = Column;
 		kb.shape = Unibody;
-		kb.kit = "https://store.montsinger.net/products/rebound-s";
+		kb.kit = "!https://store.montsinger.net/products/rebound-s";
 		kb.img = "rebound-s.webp";
 		addRebound(kb);
 		

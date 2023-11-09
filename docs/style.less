@@ -138,8 +138,10 @@ body.night, .tippy-content {
 		height: auto;
 		border-radius: 3px;
 	}
-	p, ul {
+	p, ul, pre {
 		margin: 0.5em 0;
+	}
+	p, ul {
 		&:first-child { margin-top: 0; }
 		&:last-child { margin-bottom: 0; }
 	}
@@ -155,6 +157,17 @@ body.night, .tippy-content {
 			border-radius: 3px;
 			outline: 1px solid currentColor;
 		}
+	}
+	pre, code {
+		font-size: 90%;
+		background: rgba(0,0,0,0.8);
+	}
+	pre {
+		padding: 0.2em;
+		border-radius: 0.3em;
+	}
+	code {
+		padding: 0.1em 0.1em;
 	}
 }
 #share-field {
