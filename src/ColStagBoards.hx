@@ -388,7 +388,7 @@ class ColStagBoards {
 			source: "https://github.com/gorbit99/penguin",
 			img: "penguin.jpg"
 		};
-		kb.setHotswap(Choc);
+		kb.setHotswap(Choc, Choc);
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras(5, 2, 0, 4);
 		kb.setQMK();
@@ -418,7 +418,7 @@ class ColStagBoards {
 		};
 		kb.setMatrix(66, 6, 4);
 		kb.rcols = 9;
-		kb.setHotswap([MX, Choc]);
+		kb.setHotswap([MX, Choc], MX);
 		kb.setQMK(VIA);
 		add(kb);
 		
@@ -640,6 +640,7 @@ class ColStagBoards {
 			thumbKeys: 4,
 			navCluster: Full,
 			switchProfile: Choc,
+			keySpacing: Choc,
 			source: "https://github.com/mylestunglee/articulation80",
 			img: "articulation80.jpg",
 		};

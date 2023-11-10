@@ -189,7 +189,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setQMK(kb);
 	add(kb);
 	kb = { name : "Penguin", source : type_ValList.fromValue("https://github.com/gorbit99/penguin"), img : type_ValList.fromValue("penguin.jpg")};
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setQMK(kb);
@@ -203,7 +203,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Breeze", navCluster : type_NavCluster.Full, thumbKeys : type_NumRange.fromInt(4), web : type_ValList.fromValue("https://www.afternoonlabs.com/breeze/"), source : type_ValList.fromValue("https://github.com/afternoonlabs/BreezeKeyboard"), kit : type_ValList.fromValue("!https://keeb.io/products/afternoon-labs-breeze-keyboard-kit/?afmc=yal"), img : type_ValList.fromValue("breeze.avif")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.rcols = type_NumRange.fromInt(9);
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.VIA));
 	add(kb);
 	kb = { name : "ErgoNICE", navCluster : type_NavCluster.Arrows, thumbKeys : type_NumRange.fromInt(4), encoders : type_NumRange.fromInt(1), firmware : type_ValList.fromValue(type_Firmware.Custom), web : type_ValList.fromValue("https://val.packett.cool/blog/ergonice/"), source : type_ValList.fromValue("https://codeberg.org/valpackett/ergonice"), img : type_ValList.fromValue("ergoNICE.jpg")};
@@ -300,7 +300,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Ursa Minor", img : type_ValList.fromValue("ursa-minor.webp"), thumbKeys : type_NumRange.fromInt(3), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.MX, assembly : type_ValList.fromValue(type_Assembly.Handwired), source : type_ValList.fromValue("https://github.com/markstory/ursa-minor-keyboard/")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	add(kb);
-	kb = { name : "articulation80", thumbKeys : type_NumRange.fromInt(4), navCluster : type_NavCluster.Full, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), source : type_ValList.fromValue("https://github.com/mylestunglee/articulation80"), img : type_ValList.fromValue("articulation80.jpg")};
+	kb = { name : "articulation80", thumbKeys : type_NumRange.fromInt(4), navCluster : type_NavCluster.Full, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.Choc, source : type_ValList.fromValue("https://github.com/mylestunglee/articulation80"), img : type_ValList.fromValue("articulation80.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([56,80]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.splay = type_SplayBase.Yes;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);

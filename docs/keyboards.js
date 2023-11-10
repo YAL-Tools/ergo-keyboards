@@ -1032,6 +1032,7 @@ window.keyboardData = [
 		"Choc",
 		"Alps"
 	],
+	"keySpacing": "MX",
 	"caseType": "Included",
 	"source": "https://github.com/Na-Cly/splitreus62"
 },
@@ -1375,6 +1376,7 @@ window.keyboardData = [
 		"MX",
 		"Choc"
 	],
+	"keySpacing": "MX",
 	"assembly": "Handwired",
 	"wristPads": "Detachable",
 	"caseType": "Included",
@@ -1412,6 +1414,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.3,
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
+	"keySpacing": "MX",
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/AtomicJon/jonkey"
