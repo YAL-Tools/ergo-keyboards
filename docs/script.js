@@ -297,7 +297,7 @@ ColStagBoards.init = function(keyboards) {
 	};
 	addDilemma({ name : "Dilemma", keys : type_NumRange.fromArray([34,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromArray([2,4]), source : type_ValList.fromValue("https://github.com/Bastardkb/Dilemma"), kit : type_ValList.fromValue("!https://bastardkb.com/product/dilemma/"), prebuilt : type_ValList.fromValue("!https://bastardkb.com/product/dilemma-prebuilt-preorder/"), img : type_ValList.fromValue("Dilemma.jpg")});
 	addDilemma({ name : "Dilemma Max", keys : type_NumRange.fromArray([54,56]), cols : type_NumRange.fromInt(6), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromArray([3,4]), source : type_ValList.fromValue("https://github.com/Bastardkb/Dilemma"), kit : type_ValList.fromValue("!https://bastardkb.com/product/dilemma-max/"), prebuilt : type_ValList.fromValue("!https://bastardkb.com/product/dilemma-max-prebuilt-preorder/"), img : type_ValList.fromValue("Dilemma-Max.jpg")});
-	kb = { name : "Ursa Minor", img : type_ValList.fromValue("ursa-minor.webp"), thumbKeys : type_NumRange.fromInt(3), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.Choc, assembly : type_ValList.fromValue(type_Assembly.Handwired), source : type_ValList.fromValue("https://github.com/markstory/ursa-minor-keyboard/")};
+	kb = { name : "Ursa Minor", img : type_ValList.fromValue("ursa-minor.webp"), thumbKeys : type_NumRange.fromInt(3), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_KeySpacing.MX, assembly : type_ValList.fromValue(type_Assembly.Handwired), source : type_ValList.fromValue("https://github.com/markstory/ursa-minor-keyboard/")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	add(kb);
 	kb = { name : "articulation80", thumbKeys : type_NumRange.fromInt(4), navCluster : type_NavCluster.Full, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), source : type_ValList.fromValue("https://github.com/mylestunglee/articulation80"), img : type_ValList.fromValue("articulation80.jpg")};
@@ -451,7 +451,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "ZSA Voyager"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(52),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Custom));
 	kb.tenting = type_NumRange.fromArray([0,4]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);

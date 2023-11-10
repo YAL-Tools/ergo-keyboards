@@ -628,7 +628,7 @@ class ColStagBoards {
 			img: "ursa-minor.webp",
 			thumbKeys: 3,
 			switchProfile: Choc,
-			keySpacing: Choc,
+			keySpacing: MX,
 			assembly: Handwired,
 			source: "https://github.com/markstory/ursa-minor-keyboard/",
 		};
@@ -885,7 +885,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("ZSA Voyager");
 		kb.setMatrix(52, 6, 4);
 		kb.setExtras(2, 0, 0, 0);
-		kb.setHotswap(Choc, Choc);
+		kb.setHotswap(Choc, MX);
 		kb.setQMK(Custom);
 		kb.tenting = [0, 4];
 		kb.caseType = Included;
