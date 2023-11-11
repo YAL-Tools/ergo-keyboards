@@ -1,6 +1,7 @@
 package ;
 import type.EncoderType;
 import type.Firmware;
+import type.HotSwap;
 import type.KeySpacing;
 import type.Software;
 import type.Connection;
@@ -189,7 +190,7 @@ class ColStagBoards {
 			kb.setMatrix(58, 6, 4);
 			kb.thumbKeys = 4;
 			kb.cornerKeys = 4;
-			kb.hotswap = true;
+			kb.hotswap = HotSwap.Yes;
 			kb.caseType = Included;
 			add(kb);
 		}
@@ -596,7 +597,7 @@ class ColStagBoards {
 		function addDilemma(kb:ColStagKeyboard) {
 			kb.trackpads = 1;
 			kb.encoders = [0, 2];
-			kb.hotswap = false;
+			kb.hotswap = HotSwap.Yes;
 			kb.switchProfile = [MX, Choc];
 			kb.setQMK(VIA);
 			kb.caseType = [Included, ThirdParty];
@@ -628,7 +629,7 @@ class ColStagBoards {
 			img: "ursa-minor.webp",
 			thumbKeys: 3,
 			switchProfile: Choc,
-			keySpacing: MX,
+			keySpacing: KeySpacing.MX,
 			assembly: Handwired,
 			source: "https://github.com/markstory/ursa-minor-keyboard/",
 		};
@@ -640,7 +641,7 @@ class ColStagBoards {
 			thumbKeys: 4,
 			navCluster: Full,
 			switchProfile: Choc,
-			keySpacing: Choc,
+			keySpacing: KeySpacing.Choc,
 			source: "https://github.com/mylestunglee/articulation80",
 			img: "articulation80.jpg",
 		};
@@ -657,7 +658,7 @@ class ColStagBoards {
 			trackballs: [0, 1],
 			trackballSize: pimoroniSize,
 			switchProfile: Choc,
-			keySpacing: Choc,
+			keySpacing: KeySpacing.Choc,
 			caseType: Included,
 			source: "https://github.com/weteor/3W6",
 			img: "3w6_rev2.jpg",
@@ -726,7 +727,7 @@ class ColStagBoards {
 		kb.setMatrix([64, 70], 6, 4);
 		kb.rcols = 7;
 		kb.shape = Unibody;
-		kb.hotswap = false;
+		kb.hotswap = HotSwap.Yes;
 		kb.switchProfile = MX;
 		kb.firmware = Firmware.Custom;
 		kb.thumbKeys = 4;
@@ -743,7 +744,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Alien Invader");
 		kb.setMatrix(36, 5, 3);
 		kb.thumbKeys = 3;
-		kb.hotswap = false;
+		kb.hotswap = HotSwap.Yes;
 		kb.switchProfile = MX;
 		kb.shape = Monoblock;
 		kb.setQMK(VIA);
@@ -837,7 +838,7 @@ class ColStagBoards {
 		kb.setExtras(2, 3, 2, 2);
 		kb.navCluster = Full;
 		kb.switchProfile = Optical;
-		kb.hotswap = true;
+		kb.hotswap = HotSwap.Yes;
 		kb.firmware = Firmware.Custom;
 		kb.software = Software.Custom;
 		kb.wristPads = Integrated;
@@ -852,7 +853,7 @@ class ColStagBoards {
 		kb.shape = [Split, Keywell];
 		kb.setMatrix(80, 6, 5);
 		kb.setExtras(6, -1, 0, 5);
-		kb.hotswap = false;
+		kb.hotswap = HotSwap.Yes;
 		kb.switchProfile = Choc;
 		kb.keySpacing = KeySpacing.Choc;
 		kb.connection = [Wired, Bluetooth];
@@ -936,7 +937,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Osprey");
 		kb.setMatrix(74, 7, 4);
 		kb.setExtras(7, 3, -1, 2);
-		kb.hotswap = true;
+		kb.hotswap = HotSwap.Yes;
 		kb.shape = Unibody;
 		kb.pinkyStagger = 0.5;
 		kb.caseType = Included;

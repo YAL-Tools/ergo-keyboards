@@ -1993,6 +1993,279 @@ window.keyboardData = [
 	],
 	"source": "https://github.com/wannabecoffeenerd/HillSideView/"
 },
+{
+	"name": "Buteo",
+	"img": "buteo.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"innerKeys": -1,
+	"outerKeys": -1,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"encoders": 1,
+	"encoderType": "Wheel",
+	"trackpads": 1,
+	"trackpadSize": 40,
+	"caseType": "Included",
+	"source": "https://github.com/pixelbreaker/buteo"
+},
+{
+	"name": "hummingbird",
+	"img": "hummingbird.jpeg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"innerKeys": -1,
+	"outerKeys": -1,
+	"pinkyStagger": 0.5,
+	"switchProfile": "Choc",
+	"caseType": "Included",
+	"source": "https://github.com/PJE66/hummingbird"
+},
+{
+	"name": "Zilpzalp",
+	"img": "zilpzalp.jpg",
+	"notes": "different versions with different spacings, switch compatability, and case options",
+	"shape": [
+		"Unibody",
+		"Split"
+	],
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 28,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 2,
+	"innerKeys": -1,
+	"outerKeys": -2,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"pinkyStagger": 1,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc",
+		"GateronLP"
+	],
+	"keySpacing": [
+		"MX",
+		"Choc",
+		"CFX",
+		"MinChoc",
+		"Other"
+	],
+	"encoders": 0,
+	"trackballs": 0,
+	"trackpads": 0,
+	"trackpoints": 0,
+	"dpads": 0,
+	"dpadDirs": 0,
+	"displays": 0,
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "Vial",
+	"assembly": "PCB",
+	"wristPads": "None",
+	"tilt": 0,
+	"tenting": 0,
+	"caseType": "ThirdParty",
+	"web": "https://github.com/kilipan/zilpzalp",
+	"source": "https://github.com/kilipan/zilpzalp",
+	"kit": "https://keeb.supply/products/zilpzalp"
+},
+{
+	"name": "Apodiformbird",
+	"img": "apodiformbird.jpg",
+	"shape": "Unibody",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 18,
+		"max": 20
+	},
+	"rows": 2,
+	"cols": 4,
+	"thumbKeys": 2,
+	"outerKeys": -1,
+	"pinkyStagger": 0.8,
+	"firmware": "KMK",
+	"caseType": "None",
+	"source": "https://github.com/Easontons/Apodiformbird"
+},
+{
+	"name": "KLOTZ",
+	"img": "KLOTZ.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"splay": "PinkyOnly",
+	"switchProfile": "Choc",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"firmware": "ZMK",
+	"tenting": {
+		"min": 0,
+		"max": 5
+	},
+	"caseType": "Included",
+	"source": "https://github.com/GEIGEIGEIST/klotz"
+},
+{
+	"name": "TOTEM",
+	"img": "TOTEM.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"outerKeys": 1,
+	"pinkyStagger": 0.8,
+	"splay": "Yes",
+	"switchProfile": "Choc",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/GEIGEIGEIST/TOTEM",
+	"prebuilt": "!https://keeb.supply/products/geist-totem"
+},
+{
+	"name": "Brk Out",
+	"img": "brkout.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 1,
+		"max": 2
+	},
+	"cornerKeys": 2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/weteor/BrkOut"
+},
+{
+	"name": "DigDug",
+	"img": "DigDug.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 45,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 1,
+		"max": 2
+	},
+	"outerKeys": 3,
+	"cornerKeys": 3,
+	"navCluster": "Arrows",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/weteor/DigDug"
+},
+{
+	"name": "grumpy",
+	"img": "grumpy.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"keys": 28,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 1,
+	"outerKeys": -1,
+	"pinkyStagger": 1.5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "Vial",
+	"source": "https://github.com/weteor/Grumpy"
+},
+{
+	"name": "Luna / ルナ",
+	"img": "mindhatch-luna.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"innerKeys": -1,
+	"outerKeys": -1,
+	"pinkyStagger": 0.8,
+	"splay": "Yes",
+	"hotswap": ["Yes", "No"],
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"caseType": "None",
+	"source": "https://github.com/mindhatch/keyboards#%E3%83%AB%E3%83%8A-luna"
+},
+
 // todo: https://www.slicemk.com/collections/all
 null
 ];

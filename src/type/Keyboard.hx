@@ -18,11 +18,11 @@ typedef Keyboard = {
 	?stagger:StaggerType,
 	?connection:ValList<Connection>,
 	
-	?hotswap:HotSwap,
+	?hotswap:ValList<HotSwap>,
 	?switchProfile:ValList<SwitchProfile>,
 	?switchForce:ValList<Int>,
 	?switchKind:ValList<SwitchKind>,
-	?keySpacing:KeySpacing,
+	?keySpacing:ValList<KeySpacing>,
 	
 	?encoders:IntRange,
 	?encoderType:ValList<EncoderType>,

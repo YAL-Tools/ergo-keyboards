@@ -12,6 +12,7 @@ package type;
 	@:arrayAccess inline function aset(i:Int, v:T):T return this[i] = v;
 	
 	@:from public static function fromValue<T>(val:T):ValList<T> {
+		if (val == null) return [];
 		return [val];
 	}
 }

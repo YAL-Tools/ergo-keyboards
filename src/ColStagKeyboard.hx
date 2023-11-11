@@ -29,9 +29,9 @@ from ColStagKeyboardBase to ColStagKeyboardBase {
 		this.cornerKeys = cornerKeys;
 	}
 	public function setHotswap(profile:ValList<SwitchProfile>, ?spacing:KeySpacing) {
-		this.hotswap = true;
+		this.hotswap = HotSwap.Yes;
 		this.switchProfile = profile;
-		if (profile == MX && spacing == null) spacing = MX;
+		if (profile == MX && spacing == null) spacing = KeySpacing.MX;
 		this.keySpacing = spacing;
 	}
 	public function setQMK(?sw:ValList<Software>) {

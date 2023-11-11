@@ -67,6 +67,10 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 				"but still convenient enough to access."
 			);
 			addImagePara(div, "inner-keys.png", 450, 200, "Inner keys on a Redox keyboard");
+			div.appendParaTextNode(
+				"If the inner row is missing keys (such as on hummingbird-type keyboards),"
+				+ " this can be negative."
+			);
 		};
 		addColumn(irCol);
 		
@@ -247,11 +251,11 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	function initSwitch(kb:ColStagKeyboard) {
 		addFilterHeader("Switches and keycaps");
 		
-		var hotswap = new TagColumn("Hot-swappable switches", mgf(kb.hotswap), HotSwapBase);
+		var hotswap = new TagListColumn("Hot-swappable switches", mgf(kb.hotswap), HotSwap);
 		hotswap.shortName = "hs";
-		hotswap.shortLabels[HotSwapBase.Unspecified] = "";
-		hotswap.shortLabels[HotSwapBase.Yes] = "+";
-		hotswap.shortLabels[HotSwapBase.No] = "-";
+		hotswap.shortLabels[HotSwap.Unspecified] = "";
+		hotswap.shortLabels[HotSwap.Yes] = "+";
+		hotswap.shortLabels[HotSwap.No] = "-";
 		addColumn(hotswap);
 		
 		var switchType = new TagListColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
@@ -284,13 +288,17 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		switchKind.nullCaption = "*";
 		//addColumn(switchKind);
 		
-		var colSpacing = new TagColumn("Key spacing", mgf(kb.keySpacing), KeySpacing);
+		var colSpacing = new TagListColumn("Key spacing", mgf(kb.keySpacing), KeySpacing);
 		colSpacing.shortName = "kSp";
 		colSpacing.show = false;
 		colSpacing.filterLabels[KeySpacing.MX] = "MX (19mm x 19mm)";
+		colSpacing.filterLabels[KeySpacing.MinMX] = "min. MX (16mm x 16mm)";
 		colSpacing.filterLabels[KeySpacing.Choc] = "Choc (18mm x 17mm)";
 		colSpacing.filterLabels[KeySpacing.CFX] = "CFX (17mm x 17mm)";
+		colSpacing.filterLabels[KeySpacing.MinChoc] = "min. Choc (14.5mm x 14.5mm)";
 		colSpacing.shortLabels[KeySpacing.Unknown] = "?";
+		colSpacing.shortLabels[KeySpacing.MinMX] = "mMX";
+		colSpacing.shortLabels[KeySpacing.MinChoc] = "mChoc";
 		addColumn(colSpacing);
 	}
 	function initInputs(kb:ColStagKeyboard) {
