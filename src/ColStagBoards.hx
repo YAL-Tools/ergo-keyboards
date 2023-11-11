@@ -661,6 +661,9 @@ class ColStagBoards {
 			keySpacing: KeySpacing.Choc,
 			caseType: Included,
 			source: "https://github.com/weteor/3W6",
+			kit: [
+				"https://keycapsss.com/diy-kits/191/3w6-rp2040-split-keyboard-kit",
+			],
 			img: "3w6_rev2.jpg",
 		});
 		

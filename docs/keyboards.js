@@ -1736,7 +1736,10 @@ window.keyboardData = [
 		"ThirdParty"
 	],
 	"source": "https://github.com/beekeeb/piantor",
-	"kit": "!https://shop.beekeeb.com/product/piantor-keyboard-kit/",
+	"kit": [
+		"!https://shop.beekeeb.com/product/piantor-keyboard-kit/",
+		"https://keycapsss.com/diy-kits/237/piantor-split-keyboard-kit"
+	],
 	"prebuilt": "!https://shop.beekeeb.com/product/pre-soldered-piantor-split-keyboard/"
 },
 {
@@ -2265,7 +2268,303 @@ window.keyboardData = [
 	"caseType": "None",
 	"source": "https://github.com/mindhatch/keyboards#%E3%83%AB%E3%83%8A-luna"
 },
-
+{
+	"name": "Lütt un Lütt",
+	"img": "lutt-un-lutt.jpg",
+	"notes": "According to the creator, encoders are intended for sporadic use, such as volume control.",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"encoders": 2,
+	"encoderType": "Other",
+	"firmware": "ZMK",
+	"wristPads": "Integrated",
+	"source": "https://github.com/weteor/LuttUnLutt"
+},
+{
+	"name": "cybr36",
+	"img": "cybr36.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"switchProfile": "MX",
+	"firmware": "ZMK",
+	"source": "https://github.com/Sleepyboi7973/cybr36"
+},
+{
+	"name": "arachnophobe",
+	"img": "arachnophobe.jpg",
+	"shape": "Unibody",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"innerKeys": -2,
+	"outerKeys": -1,
+	"pinkyStagger": 1.5,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"firmware": "ZMK",
+	"wristPads": "Integrated",
+	"source": "https://github.com/sadekbaroudi/arachnophobe"
+},
+{
+	"name": "Fifi",
+	"img": "fifi.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"caseType": "None",
+	"source": "https://github.com/raychengy/fifi_split_keeb"
+},
+{
+	"name": "chocofifi",
+	"img": "chocofifi.jpeg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"caseType": "Included",
+	"source": "https://github.com/pashutk/chocofi"
+},
+{
+	"name": "ut22",
+	"img": "ut22.jpg",
+	"shape": "Unibody",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 22,
+	"rows": 2,
+	"cols": 4,
+	"thumbKeys": 2,
+	"cornerKeys": 1,
+	"pinkyStagger": 0.4,
+	"splay": "PinkyOnly",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"displays": 1,
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://github.com/bubbleology/UT22"
+},
+{
+	"name": "MM60Ergo",
+	"img": "mm60ergo.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 64,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"trackpoints": 1,
+	"software": "Custom",
+	"assembly": "Handwired",
+	"source": "https://github.com/SKZBadHabit/MM60Ergo"
+},
+{
+	"name": "IIICC",
+	"img": "iiicc.jpg",
+	"notes": "Not counting the 12-key macropad",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 50,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 5,
+	"outerKeys": 2,
+	"pinkyStagger": 0.3,
+	"switchProfile": [
+		"Choc",
+		"ChocV2",
+		"Other"
+	],
+	"dpads": 2,
+	"dpadDirs": 5,
+	"firmware": "QMK",
+	"tilt": {
+		"min": -5,
+		"max": 5
+	},
+	"tenting": {
+		"min": 0,
+		"max": 5
+	},
+	"source": "https://github.com/kbjunky/IIICC"
+},
+{
+	"name": "Lunakey",
+	"img": "lunakey.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"firmware": "KMK",
+	"source": "https://github.com/yoichiro/lunakey"
+},
+{
+	"name": "Le Chiffr",
+	"img": "Le-Chiffre.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.3,
+	"switchProfile": [
+		"MX",
+		"Choc",
+		"Alps"
+	],
+	"encoders": 1,
+	"encoderType": "Knob",
+	"displays": 1,
+	"firmware": "QMK",
+	"source": "https://github.com/tominabox1/Le-Chiffre-Keyboard"
+},
+{
+	"name": "splaytoraid",
+	"img": "splaytoraid.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 36,
+		"max": 40
+	},
+	"rows": 3,
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
+	"thumbKeys": 3,
+	"outerKeys": -1,
+	"pinkyStagger": 0.7,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"firmware": [
+		"QMK",
+		"ZMK",
+		"KMK"
+	],
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/freya-irl/splaytoraid40",
+	"kit": "https://keeb.supply/products/splaytoraid-messenger-edition",
+	"prebuilt": "https://keeb.supply/products/splaytoraid-messenger-edition"
+},
+{
+	"name": "DracuLad",
+	"img": "draculad.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 34,
+		"max": 36
+	},
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"pinkyStagger": 0.7,
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"encoders": {
+		"min": 2,
+		"max": 4
+	},
+	"trackballs": {
+		"min": 0,
+		"max": 2
+	},
+	"trackballSize": 4.4,
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/MangoIV/dracuLad",
+	"kit": "https://www.littlekeyboards.com/products/draculad-pcb-kit"
+},
 // todo: https://www.slicemk.com/collections/all
 null
 ];

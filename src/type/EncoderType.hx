@@ -8,4 +8,5 @@ enum EncoderType {
 	Unknown;
 	Knob;
 	Wheel;
+	Other;
 }
