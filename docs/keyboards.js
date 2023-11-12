@@ -202,14 +202,17 @@ window.keyboardData = [
 		"max": 42
 	},
 	"rows": 3,
-	"cols": 5,
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
 	"thumbKeys": {
 		"min": 3,
 		"max": 4
 	},
 	"outerKeys": {
-		"min": 0,
-		"max": 2
+		"min": -1,
+		"max": 0
 	},
 	"pinkyStagger": 0.5,
 	"splay": "PinkyOnly",
@@ -396,6 +399,8 @@ window.keyboardData = [
 		"Bluetooth"
 	],
 	"keys": 36,
+	"rows": 3,
+	"cols": 5,
 	"thumbKeys": 3,
 	"pinkyStagger": 0.3,
 	"splay": "PinkyOnly",
@@ -550,6 +555,10 @@ window.keyboardData = [
 		"Bluetooth"
 	],
 	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"innerKeys": -1,
+	"outerKeys": -1,
 	"thumbKeys": 2,
 	"splay": "Yes",
 	"hotswap": "Yes",
@@ -742,6 +751,8 @@ window.keyboardData = [
 		"min": 38,
 		"max": 40
 	},
+	"rows": 3,
+	"cols": 6,
 	"thumbKeys": {
 		"min": 1,
 		"max": 2
@@ -1449,7 +1460,7 @@ window.keyboardData = [
 	"rcols": 11,
 	"thumbKeys": 2,
 	"cornerKeys": 2,
-	"navCluster": "Full",
+	"navCluster": "Duo",
 	"pinkyStagger": 0.8,
 	"source": "https://github.com/dotleon/protocol_seven"
 },
@@ -1524,7 +1535,6 @@ window.keyboardData = [
 		"min": 3,
 		"max": 4
 	},
-	"outerKeys": 4,
 	"pinkyStagger": 0.6,
 	"switchProfile": "MX",
 	"firmware": "QMK",
@@ -1563,7 +1573,7 @@ window.keyboardData = [
 		"max": 4
 	},
 	"cornerKeys": 2,
-	"navCluster": "Full",
+	"navCluster": "Duo",
 	"pinkyStagger": 0.7,
 	"splay": "Yes",
 	"hotswap": "No",
@@ -1667,7 +1677,7 @@ window.keyboardData = [
 	"cols": 7,
 	"thumbKeys": 4,
 	"cornerKeys": 2,
-	"navCluster": "Arrows",
+	"navCluster": "Duo",
 	"pinkyStagger": 0.2,
 	"hotswap": "Yes",
 	"switchProfile": ["MX", "OutemuLP"],
@@ -2564,6 +2574,63 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/MangoIV/dracuLad",
 	"kit": "https://www.littlekeyboards.com/products/draculad-pcb-kit"
+},
+{
+	"name": "cocot46plus",
+	"img": "cocot46plus.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 46,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"pinkyStagger": 0.4,
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"trackballs": 1,
+	"trackballSize": 34,
+	"displays": 1,
+	"firmware": "QMK",
+	"source": "https://github.com/aki27kbd/cocot46plus",
+	"kit": "https://aki27.booth.pm/items/3879034"
+},
+{
+	"name": "pinkies out v2",
+	"img": "pinkies-out.jpg",
+	"notes": "Not counting this as a 4x7 since bottom inner keys are rotated.",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 66,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"innerKeys": 4,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"encoders": 2,
+	"encoderType": [
+		"Knob",
+		"Wheel"
+	],
+	"trackpads": {
+		"min": 0,
+		"max": 1
+	},
+	"trackpadSize": 34,
+	"caseType": "Included",
+	"kit": "https://fingerpunch.xyz/product/pinkies-out-v2/"
 },
 // todo: https://www.slicemk.com/collections/all
 null

@@ -120,7 +120,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.None);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(60),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	add(kb);
-	kb = { name : "Dao Choc BLE", thumbKeys : type_NumRange.fromArray([2,3]), connection : [type_Connection.Bluetooth,type_Connection.Wired], source : type_ValList.fromValue("https://github.com/yumagulovrn/dao-choc-ble"), prebuilt : type_ValList.fromValue("https://shop.beekeeb.com/product/pre-soldered-wireless-dao-choc-ble-keyboard/"), img : type_ValList.fromValue("dao-choc-ble.jfif")};
+	kb = { name : "Dao Choc BLE", thumbKeys : type_NumRange.fromArray([2,3]), connection : [type_Connection.Wired,type_Connection.Bluetooth], source : type_ValList.fromValue("https://github.com/yumagulovrn/dao-choc-ble"), prebuilt : type_ValList.fromValue("https://shop.beekeeb.com/product/pre-soldered-wireless-dao-choc-ble-keyboard/"), img : type_ValList.fromValue("dao-choc-ble.jfif")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([42,44]),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
@@ -137,7 +137,8 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	add(kb);
 	kb = { name : "Pinky4", thumbKeys : type_NumRange.fromInt(4), source : type_ValList.fromValue("https://github.com/tamanishi/Pinky4"), img : type_ValList.fromValue("Pinky4.jpg"), kit : type_ValList.fromValue("https://www.littlekeyboards.com/products/pinky4-keyboard-kit"), extras : type_ValList.fromValue("https://www.littlekeyboards.com/collections/pinky4-cases"), notes : type_ValList.fromValue("Uses Choc switches for thumb keys")};
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+	kb.innerKeys = type_NumRange.fromInt(4);
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	add(kb);
 	var addAvalanche = function(kb) {
@@ -175,11 +176,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.software = type_ValList.fromValue(type_Software.VIA);
 	add(kb);
 	kb = { name : "ErgoDash", source : type_ValList.fromValue("https://github.com/omkbd/ErgoDash"), img : type_ValList.fromValue("Ergodash.jpg")};
-	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash"];
+	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
-	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash"];
+	add(kb);
+	kb = { name : "ErgoDash-LP", source : type_ValList.fromValue("https://keypcb.xyz/ErgoDash-LP"), img : type_ValList.fromValue("ErgoDashLP.jpg")};
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	add(kb);
 	kb = { name : "ErgoMax", source : type_ValList.fromValue("https://github.com/LouWii/ErgoMax"), img : type_ValList.fromValue("ergomax.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -200,13 +206,13 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([5,6]),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([3,4]));
 	add(kb);
-	kb = { name : "Breeze", navCluster : type_NavCluster.Full, thumbKeys : type_NumRange.fromInt(4), web : type_ValList.fromValue("https://www.afternoonlabs.com/breeze/"), source : type_ValList.fromValue("https://github.com/afternoonlabs/BreezeKeyboard"), kit : type_ValList.fromValue("!https://keeb.io/products/afternoon-labs-breeze-keyboard-kit/?afmc=yal"), img : type_ValList.fromValue("breeze.avif")};
+	kb = { name : "Breeze", navCluster : type_ValList.fromValue(type_NavCluster.Full), thumbKeys : type_NumRange.fromInt(4), web : type_ValList.fromValue("https://www.afternoonlabs.com/breeze/"), source : type_ValList.fromValue("https://github.com/afternoonlabs/BreezeKeyboard"), kit : type_ValList.fromValue("!https://keeb.io/products/afternoon-labs-breeze-keyboard-kit/?afmc=yal"), img : type_ValList.fromValue("breeze.avif")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.rcols = type_NumRange.fromInt(9);
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.VIA));
 	add(kb);
-	kb = { name : "ErgoNICE", navCluster : type_NavCluster.Arrows, thumbKeys : type_NumRange.fromInt(4), encoders : type_NumRange.fromInt(1), firmware : type_ValList.fromValue(type_Firmware.Custom), web : type_ValList.fromValue("https://val.packett.cool/blog/ergonice/"), source : type_ValList.fromValue("https://codeberg.org/valpackett/ergonice"), img : type_ValList.fromValue("ergoNICE.jpg")};
+	kb = { name : "ErgoNICE", navCluster : type_ValList.fromValue(type_NavCluster.Arrows), thumbKeys : type_NumRange.fromInt(4), encoders : type_NumRange.fromInt(1), firmware : type_ValList.fromValue(type_Firmware.Custom), web : type_ValList.fromValue("https://val.packett.cool/blog/ergonice/"), source : type_ValList.fromValue("https://codeberg.org/valpackett/ergonice"), img : type_ValList.fromValue("ergoNICE.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(69),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.rcols = type_NumRange.fromInt(7);
@@ -268,7 +274,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Hillside 52/56"};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([44,56]),type_NumRange.fromArray([5,6]),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([3,4]));
-	kb.navCluster = type_NavCluster.Arrows;
+	kb.navCluster = [type_NavCluster.Arrows,type_NavCluster.Duo];
 	kb.img = ["Hillside-52.webp","Hillside-56.jpg"];
 	addHillside(kb);
 	kb = { name : "Hillside 46/48"};
@@ -300,13 +306,13 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Ursa Minor", img : type_ValList.fromValue("ursa-minor.webp"), thumbKeys : type_NumRange.fromInt(3), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.MX), assembly : type_ValList.fromValue(type_Assembly.Handwired), source : type_ValList.fromValue("https://github.com/markstory/ursa-minor-keyboard/")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	add(kb);
-	kb = { name : "articulation80", thumbKeys : type_NumRange.fromInt(4), navCluster : type_NavCluster.Full, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.Choc), source : type_ValList.fromValue("https://github.com/mylestunglee/articulation80"), img : type_ValList.fromValue("articulation80.jpg")};
+	kb = { name : "articulation80", thumbKeys : type_NumRange.fromInt(4), navCluster : type_ValList.fromValue(type_NavCluster.Full), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.Choc), source : type_ValList.fromValue("https://github.com/mylestunglee/articulation80"), img : type_ValList.fromValue("articulation80.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([56,80]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.splay = type_SplayBase.Yes;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	add(kb);
 	add({ name : "3w6", keys : type_NumRange.fromArray([35,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromInt(3), trackballs : type_NumRange.fromArray([0,1]), trackballSize : pimoroniSize, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.Choc), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/weteor/3W6"), kit : ["https://keycapsss.com/diy-kits/191/3w6-rp2040-split-keyboard-kit"], img : type_ValList.fromValue("3w6_rev2.jpg")});
-	add({ name : "CozyKeys Bloomer", keys : type_NumRange.fromInt(87), cols : type_NumRange.fromInt(6), rows : type_NumRange.fromInt(5), thumbKeys : type_NumRange.fromInt(5), cornerKeys : type_NumRange.fromInt(6), navCluster : type_NavCluster.Full, switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), shape : type_ValList.fromValue(type_Shape.Unibody), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/cozykeys/Bloomer"), img : type_ValList.fromValue("Bloomer.jfif")});
+	add({ name : "CozyKeys Bloomer", keys : type_NumRange.fromInt(87), cols : type_NumRange.fromInt(6), rows : type_NumRange.fromInt(5), thumbKeys : type_NumRange.fromInt(5), cornerKeys : type_NumRange.fromInt(6), navCluster : type_ValList.fromValue(type_NavCluster.Full), switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), shape : type_ValList.fromValue(type_Shape.Unibody), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/cozykeys/Bloomer"), img : type_ValList.fromValue("Bloomer.jfif")});
 	add({ name : "Keyclicks W-Ergolite", keys : type_NumRange.fromInt(66), cols : type_NumRange.fromInt(7), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromInt(5), switchProfile : [type_SwitchProfile.MX,type_SwitchProfile.GateronLP], connection : [type_Connection.Wireless], firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.Vial), caseType : type_ValList.fromValue(type_CaseType.Included), prebuilt : type_ValList.fromValue("!https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2"), img : type_ValList.fromValue("W-Ergolite.webp")});
 	kb = { name : "Tern", shape : type_ValList.fromValue(type_Shape.Unibody), keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.CFX), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
 	kb.splay = type_SplayBase.Yes;
@@ -322,7 +328,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.MX);
 	kb.firmware = type_ValList.fromValue(type_Firmware.Custom);
 	kb.thumbKeys = type_NumRange.fromInt(4);
-	kb.navCluster = type_NavCluster.Arrows;
+	kb.navCluster = type_ValList.fromValue(type_NavCluster.Arrows);
 	kb.cornerKeys = type_NumRange.fromInt(1);
 	kb.encoders = type_NumRange.fromInt(1);
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
@@ -342,7 +348,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("alien-invader.jpg");
 	add(kb);
 	kb = { name : "Buzzard"};
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(-1),type_NumRange.fromInt(0));
 	kb.pinkyStagger = 1;
 	kb.splay = type_SplayBase.Yes;
@@ -404,7 +410,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.rcols = type_NumRange.fromInt(7);
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(2),type_NumRange.fromInt(3),type_NumRange.fromInt(2),type_NumRange.fromInt(2));
-	kb.navCluster = type_NavCluster.Full;
+	kb.navCluster = type_ValList.fromValue(type_NavCluster.Duo);
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.Optical);
 	kb.hotswap = type_ValList.fromValue(type_HotSwap.Yes);
 	kb.firmware = type_ValList.fromValue(type_Firmware.Custom);
@@ -946,7 +952,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 			tools_HtmlTools.appendParaTextNode(div,"If corner keys transition into thumb keys, this is capped at 5.");
 			_gthis.addImagePara(div,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
 		};
-		var navCluster = new table_TagColumn("Navigation cluster",new table_FancyField("navCluster",function(q,wantSet,setValue) {
+		var navCluster = new table_TagListColumn("Navigation cluster",new table_FancyField("navCluster",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.navCluster = setValue;
 				return null;
@@ -954,9 +960,17 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.navCluster;
 			}
 		}),type_NavCluster);
+		navCluster.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Arrow keys and such.");
+			var ul = tools_HtmlTools.appendElTextNode(div,"ul","");
+			tools_HtmlTools.appendElTextNode(ul,"li","\"Arrows\" means that there's a standard T-shaped cluster.");
+			tools_HtmlTools.appendElTextNode(ul,"li","\"Duo\" means that there are two of those" + " (second commonly being used for home/end/pgup/pgdn)");
+			tools_HtmlTools.appendElTextNode(ul,"li","\"Full\" means that there's an arrow cluster" + " with a standard 6-key cluster roughly above it.");
+			tools_HtmlTools.appendParaTextNode(div,"Also see \"corner keys\" for alternative placement ideas");
+		};
 		navCluster.show = false;
 		navCluster.shortName = "nav";
-		navCluster.filterTags = [type_NavCluster.Arrows,type_NavCluster.Full];
+		navCluster.filterTags = [type_NavCluster.Arrows,type_NavCluster.Duo,type_NavCluster.Full];
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
 		var pinkyStag = new table_FloatColumn("Pinky stagger",new table_FancyField("pinkyStagger",function(q,wantSet,setValue) {
@@ -1076,9 +1090,9 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(col);
 		col.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard's main area, " + "not counting thumb rows or extension columns.");
+			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard half's main area," + " not counting the thumb-keys row.");
 			_gthis.addImagePara(div,"matrix.png",450,250,"Key matrix on a Redox keyboard");
-			tools_HtmlTools.appendParaTextNode(div,"4th row is typically used for digits and 5th row is typically used for F-keys " + "or media controls, but don't let anyone tell you what to do - most of these " + "keyboards are reprogrammable.");
+			tools_HtmlTools.appendParaTextNode(div,"Conventionally, 4th row is typically used for digit keys" + " and 5th row is typically used for F-key," + " but don't let anyone tell you what to do" + " - most of these keyboards are reprogrammable.");
 		};
 		col = new table_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1090,8 +1104,15 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(col);
 		col.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"If your language has more letters than English, you may want a ≥6-column keyboard " + "to avoid holding down an extra key to type some of them.");
-			_gthis.addImagePara(div,"sofle.png",684,210,"Cyrillic letters occupying most of a Sofle keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"The number of columns in a keyboard half's main area," + " not counting the extension columns.");
+			tools_HtmlTools.appendParaTextNode(div,"To avoid some classification oddities," + " let's assume non-chorded keyboards to intend to have at least 5 columns" + " and evaluate edge columns based on their layout, completeness," + " and suitability for common main-area mappings.");
+			tools_HtmlTools.appendParaTextNode(div,"For example:");
+			var ul = tools_HtmlTools.appendElTextNode(div,"ul","");
+			var li = tools_HtmlTools.appendElTextNode(ul,"li","ErgoDox's inner columns are extension columns since two keys are 1.5u tall.");
+			li = tools_HtmlTools.appendElTextNode(ul,"li","Pinky4's inner columns are extension columns since the bottom keys are rotated.");
+			li = tools_HtmlTools.appendElTextNode(ul,"li","ErgoDash's inner columns are extension columns since they are offset by half a key.");
+			li = tools_HtmlTools.appendElTextNode(ul,"li","Spleeb's and Drift's outer columns aren't extension columns" + " as only a single key is missing.");
+			tools_HtmlTools.appendParaTextNode(div,"This system isn't perfect and some keyboards don't fit well at all," + " in which case \"outer keys\" may have to be used to roughly annotate" + " total number of extra/missing keys across multiple columns.");
 		};
 		col.shortName = "Cols";
 		var rcolsFn = function(kb,set,val) {
@@ -1200,11 +1221,13 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 	}
 	,initInputs: function(kb) {
 		var header = this.addFilterHeader("Other input devices");
-		header.noticeText = "ZMK + Wireless note";
-		header.noticeFunc = function(div) {
+		var noteTotal = new table_FancyHeaderNote("NB! Counted total rather than per half");
+		header.editorNotes.push(noteTotal);
+		header.filterNotes.push(noteTotal);
+		header.filterNotes.push(new table_FancyHeaderNote("NB! ZMK + Wireless",function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"As of Nov 2023, ZMK firmware has limited support for pointing devices," + " therefore wireless keyboards with pointing devices typically only support them" + " in (wired) QMK mode.");
 			tools_HtmlTools.appendParaTextNode(div,"Please double-check documentation for keyboards to avoid disappointment.");
-		};
+		}));
 		var irCol = new table_IntRangeColumn("Encoders",new table_FancyField("encoders",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.encoders = setValue;
@@ -1454,8 +1477,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 	}
 	,initLinks: function(kb) {
 		var header = this.addFilterHeader("Links");
-		header.editorNoticeText = "Notes on link lists";
-		header.editorNoticeFunc = function(el) {
+		header.editorNotes.push(new table_FancyHeaderNote("Notes on link lists",function(el) {
 			var p = tools_HtmlTools.appendParaTextNode(el,"Links can be prefixed with a ");
 			tools_HtmlTools.appendElTextNode(p,"code","[country code]");
 			p.appendChild(window.document.createTextNode(" to indicate where a keyboard ships from - e.g."));
@@ -1472,7 +1494,7 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 			p = tools_HtmlTools.appendParaTextNode(el,"If the designer/company behind the keyboard" + " sells pre-builts/kits themselves OR endorses a specific vendor" + " on the project's page, such vendor links can be prefixed with a ");
 			tools_HtmlTools.appendElTextNode(p,"code","!");
 			p.appendChild(window.document.createTextNode(" to mark them accordingly and display them on top of the shuffled list."));
-		};
+		}));
 		var lc = new table_LinkListColumn("Website",new table_FancyField("web",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.web = setValue;
@@ -2517,13 +2539,16 @@ var table_FancyTableFilterOrder = $hxEnums["table.FancyTableFilterOrder"] = { __
 };
 table_FancyTableFilterOrder.__constructs__ = [table_FancyTableFilterOrder.Column,table_FancyTableFilterOrder.Header];
 var table_FancyFilterHeader = function(text) {
-	this.editorNoticeFunc = null;
-	this.editorNoticeText = null;
-	this.noticeFunc = null;
-	this.noticeText = null;
+	this.editorNotes = [];
+	this.filterNotes = [];
 	this.text = text;
 };
 table_FancyFilterHeader.__name__ = true;
+var table_FancyHeaderNote = function(text,func) {
+	this.text = text;
+	this.func = func;
+};
+table_FancyHeaderNote.__name__ = true;
 var table_FancyTableEditor = function() { };
 table_FancyTableEditor.__name__ = true;
 table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,fdJSON) {
@@ -2551,12 +2576,15 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 			details.appendChild(summary);
 			out.appendChild(details);
 			dest = details;
-			if(header.editorNoticeText != null) {
-				var notice = window.document.createElement("span");
-				var text1 = header.editorNoticeText;
-				notice.appendChild(window.document.createTextNode(text1));
-				table_FancyTableFilters.addNotesFor(header.editorNoticeFunc,notice);
-				details.appendChild(notice);
+			var _g2 = 0;
+			var _g3 = header.editorNotes;
+			while(_g2 < _g3.length) {
+				var note = _g3[_g2];
+				++_g2;
+				var div = tools_HtmlTools.appendElTextNode(details,"div","");
+				div.classList.add("note");
+				var notice = tools_HtmlTools.appendElTextNode(div,"span",note.text);
+				table_FancyTableFilters.addNotesFor(note.func,notice);
 			}
 			continue;
 		}
@@ -2708,12 +2736,15 @@ table_FancyTableFilters.build = function(table,out) {
 			details.appendChild(summary);
 			out.appendChild(details);
 			dest = details;
-			if(header.noticeText != null) {
-				var notice = window.document.createElement("span");
-				var text1 = header.noticeText;
-				notice.appendChild(window.document.createTextNode(text1));
-				table_FancyTableFilters.addNotesFor(header.noticeFunc,notice);
-				details.appendChild(notice);
+			var _g2 = 0;
+			var _g3 = header.filterNotes;
+			while(_g2 < _g3.length) {
+				var note = _g3[_g2];
+				++_g2;
+				var div = tools_HtmlTools.appendElTextNode(details,"div","");
+				div.classList.add("note");
+				var notice = tools_HtmlTools.appendElTextNode(div,"span",note.text);
+				table_FancyTableFilters.addNotesFor(note.func,notice);
 			}
 			continue;
 		}
@@ -4468,9 +4499,10 @@ type_KeySpacing.__constructs__ = [type_KeySpacing.Unknown,type_KeySpacing.MX,typ
 var type_NavCluster = $hxEnums["type.NavCluster"] = { __ename__:true,__constructs__:null
 	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.NavCluster",toString:$estr}
 	,Arrows: {_hx_name:"Arrows",_hx_index:1,__enum__:"type.NavCluster",toString:$estr}
-	,Full: {_hx_name:"Full",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
+	,Duo: {_hx_name:"Duo",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
+	,Full: {_hx_name:"Full",_hx_index:3,__enum__:"type.NavCluster",toString:$estr}
 };
-type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Full];
+type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Duo,type_NavCluster.Full];
 var type_NumRange = {};
 type_NumRange._new = function(min,max) {
 	return { min : min, max : max};

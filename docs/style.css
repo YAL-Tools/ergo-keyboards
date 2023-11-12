@@ -25,6 +25,10 @@ td {
   margin-bottom: 0.3em;
   break-inside: avoid;
 }
+#filter .note,
+#editor .note {
+  line-height: 1.25;
+}
 #filter .item,
 #editor .item {
   display: flex;

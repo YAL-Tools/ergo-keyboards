@@ -105,10 +105,26 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			addImagePara(div, "corner-keys-2.png", 450, 200, "A continuous bottom row of keys on a Kapl keyboard");
 		};
 		
-		var navCluster = new TagColumn("Navigation cluster", mgf(kb.navCluster), NavCluster);
+		var navCluster = new TagListColumn("Navigation cluster", mgf(kb.navCluster), NavCluster);
+		navCluster.onNotes = function(div) {
+			div.appendParaTextNode("Arrow keys and such.");
+			var ul = div.appendElTextNode("ul", "");
+			ul.appendElTextNode("li", '"Arrows" means that there\'s a standard T-shaped cluster.'
+				
+			);
+			ul.appendElTextNode("li", '"Duo" means that there are two of those'
+				+ ' (second commonly being used for home/end/pgup/pgdn)'
+			);
+			ul.appendElTextNode("li", '"Full" means that there\'s an arrow cluster'
+				+ ' with a standard 6-key cluster roughly above it.'
+			);
+			div.appendParaTextNode(
+				'Also see "corner keys" for alternative placement ideas'
+			);
+		}
 		navCluster.show = false;
 		navCluster.shortName = "nav";
-		navCluster.filterTags = [NavCluster.Arrows, NavCluster.Full];
+		navCluster.filterTags = [NavCluster.Arrows, NavCluster.Duo, NavCluster.Full];
 		navCluster.shortLabels[NavCluster.None] = "";
 		addColumn(navCluster);
 		
@@ -200,24 +216,52 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));
 		col.onNotes = function(div) {
 			div.appendParaTextNode(
-				"The number of rows in a keyboard's main area, " +
-				"not counting thumb rows or extension columns."
+				"The number of rows in a keyboard half's main area,"
+				+ " not counting the thumb-keys row."
 			);
 			addImagePara(div, "matrix.png", 450, 250, "Key matrix on a Redox keyboard");
 			div.appendParaTextNode(
-				"4th row is typically used for digits and 5th row is typically used for F-keys " +
-				"or media controls, but don't let anyone tell you what to do - most of these " +
-				"keyboards are reprogrammable."
+				"Conventionally, 4th row is typically used for digit keys"
+				+ " and 5th row is typically used for F-key,"
+				+ " but don't let anyone tell you what to do"
+				+ " - most of these keyboards are reprogrammable."
 			);
 		};
 		
 		mAddColumn(col = new IntRangeColumn("Columns", kb.cols));
 		col.onNotes = function(div) {
 			div.appendParaTextNode(
-				"If your language has more letters than English, you may want a ≥6-column keyboard " +
-				"to avoid holding down an extra key to type some of them."
+				"The number of columns in a keyboard half's main area,"
+				+ " not counting the extension columns."
 			);
-			addImagePara(div, "sofle.png", 684, 210, "Cyrillic letters occupying most of a Sofle keyboard");
+			div.appendParaTextNode(
+				"To avoid some classification oddities,"
+				+ " let's assume non-chorded keyboards to intend to have at least 5 columns"
+				+ " and evaluate edge columns based on their layout, completeness,"
+				+ " and suitability for common main-area mappings."
+			);
+			div.appendParaTextNode(
+				"For example:"
+			);
+			var ul = div.appendElTextNode("ul", "");
+			var li:Element = ul.appendElTextNode("li",
+				"ErgoDox's inner columns are extension columns since two keys are 1.5u tall."
+			);
+			li = ul.appendElTextNode("li",
+				"Pinky4's inner columns are extension columns since the bottom keys are rotated."
+			);
+			li = ul.appendElTextNode("li",
+				"ErgoDash's inner columns are extension columns since they are offset by half a key."
+			);
+			li = ul.appendElTextNode("li",
+				"Spleeb's and Drift's outer columns aren't extension columns"
+				+ " as only a single key is missing."
+			);
+			div.appendParaTextNode(
+				"This system isn't perfect and some keyboards don't fit well at all,"
+				+ " in which case \"outer keys\" may have to be used to roughly annotate"
+				+ " total number of extra/missing keys across multiple columns."
+			);
 		};
 		col.shortName = "Cols";
 		
@@ -303,17 +347,22 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	}
 	function initInputs(kb:ColStagKeyboard) {
 		var header = addFilterHeader("Other input devices");
-		header.noticeText = "ZMK + Wireless note";
-		header.noticeFunc = function(div) {
-			div.appendParaTextNode(
-				"As of Nov 2023, ZMK firmware has limited support for pointing devices,"
-				+ " therefore wireless keyboards with pointing devices typically only support them"
-				+ " in (wired) QMK mode."
-			);
-			div.appendParaTextNode(
-				"Please double-check documentation for keyboards to avoid disappointment."
-			);
-		};
+		var noteTotal = new FancyHeaderNote("NB! Counted total rather than per half");
+		header.editorNotes.push(noteTotal);
+		header.filterNotes.push(noteTotal);
+		header.filterNotes.push(new FancyHeaderNote(
+			"NB! ZMK + Wireless",
+			function(div) {
+				div.appendParaTextNode(
+					"As of Nov 2023, ZMK firmware has limited support for pointing devices,"
+					+ " therefore wireless keyboards with pointing devices typically only support them"
+					+ " in (wired) QMK mode."
+				);
+				div.appendParaTextNode(
+					"Please double-check documentation for keyboards to avoid disappointment."
+				);
+			}
+		));
 		var col:FancyColumn<ColStagKeyboard>;
 		var irCol:IntRangeColumn<ColStagKeyboard>;
 		
@@ -486,8 +535,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 	}
 	function initLinks(kb:ColStagKeyboard) {
 		var header = addFilterHeader("Links");
-		header.editorNoticeText = "Notes on link lists";
-		header.editorNoticeFunc = function(el:Element) {
+		header.editorNotes.push(new FancyHeaderNote(
+			"Notes on link lists",
+		function(el:Element) {
 			var p = el.appendParaTextNode("Links can be prefixed with a ");
 			p.appendElTextNode("code", "[country code]");
 			p.appendTextNode(" to indicate where a keyboard ships from - e.g.");
@@ -515,7 +565,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			p.appendTextNode(
 				" to mark them accordingly and display them on top of the shuffled list."
 			);
-		}
+		}));
 		var lc:LinkListColumn<ColStagKeyboard>;
 		
 		mAddColumn(lc = new LinkListColumn("Website", kb.web));

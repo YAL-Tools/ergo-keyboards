@@ -50,11 +50,11 @@ class FancyTableFilters {
 					details.appendChild(summary);
 					out.appendChild(details);
 					dest = details;
-					if (header.noticeText != null) {
-						var notice = document.createSpanElement();
-						notice.appendTextNode(header.noticeText);
-						addNotesFor(header.noticeFunc, notice);
-						details.appendChild(notice);
+					for (note in header.filterNotes) {
+						var div = details.appendElTextNode("div", "");
+						div.classList.add("note");
+						var notice = div.appendElTextNode("span", note.text);
+						addNotesFor(note.func, notice);
 					}
 					continue;
 				case Column(col): col;

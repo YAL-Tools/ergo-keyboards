@@ -235,12 +235,17 @@ enum FancyTableFilterOrder<KB:Keyboard> {
 }
 class FancyFilterHeader {
 	public var text:String;
-	public var noticeText:String = null;
-	public var noticeFunc:Element->Void = null;
-	
-	public var editorNoticeText:String = null;
-	public var editorNoticeFunc:Element->Void = null;
+	public var filterNotes:Array<FancyHeaderNote> = [];
+	public var editorNotes:Array<FancyHeaderNote> = [];
 	public function new(text:String) {
 		this.text = text;
+	}
+}
+class FancyHeaderNote {
+	public var text:String;
+	public var func:Element->Void;
+	public function new(text:String, ?func:Element->Void) {
+		this.text = text;
+		this.func = func;
 	}
 }

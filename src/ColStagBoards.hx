@@ -3,6 +3,7 @@ import type.EncoderType;
 import type.Firmware;
 import type.HotSwap;
 import type.KeySpacing;
+import type.NavCluster;
 import type.Software;
 import type.Connection;
 import type.SwitchProfile;
@@ -255,7 +256,7 @@ class ColStagBoards {
 		kb = {
 			name: "Dao Choc BLE",
 			thumbKeys: [2, 3],
-			connection: [Bluetooth, Wired],
+			connection: [Wired, Bluetooth],
 			source: "https://github.com/yumagulovrn/dao-choc-ble",
 			prebuilt: "https://shop.beekeeb.com/product/pre-soldered-wireless-dao-choc-ble-keyboard/",
 			img: "dao-choc-ble.jfif",
@@ -301,7 +302,8 @@ class ColStagBoards {
 			extras: "https://www.littlekeyboards.com/collections/pinky4-cases",
 			notes: "Uses Choc switches for thumb keys"
 		};
-		kb.setMatrix(64, 7, 4);
+		kb.setMatrix(64, 6, 4);
+		kb.innerKeys = 4;
 		kb.setHotswap(MX);
 		add(kb);
 		
@@ -357,20 +359,31 @@ class ColStagBoards {
 			add(kb);
 		}
 		
-		kb = {
-			name: "ErgoDash",
-			source: "https://github.com/omkbd/ErgoDash",
-			img: "Ergodash.jpg",
-		};
-		kb.caseType = Included;
-		kb.setHotswap(MX);
-		kb.setMatrix(70, 6, 4);
-		kb.setExtras([2, 4], 3, 0, 4);
-		kb.kit = [
-			"https://keebd.com/products/ergodash-keyboard-kit",
-			"https://shop.yushakobo.jp/en/products/ergodash",
-		];
-		add(kb);
+		for (step in 0 ... 2) {
+			if (step == 0) {
+				kb = {
+					name: "ErgoDash",
+					source: "https://github.com/omkbd/ErgoDash",
+					img: "Ergodash.jpg",
+				};
+				kb.setHotswap(MX);
+				kb.kit = [
+					"https://keebd.com/products/ergodash-keyboard-kit",
+					"https://shop.yushakobo.jp/en/products/ergodash",
+				];
+				kb.caseType = Included;
+			} else {
+				kb = {
+					name: "ErgoDash-LP",
+					source: "https://keypcb.xyz/ErgoDash-LP",
+					img: "ErgoDashLP.jpg",
+				};
+				kb.setHotswap(Choc);
+			}
+			kb.setMatrix(70, 6, 4);
+			kb.setExtras([2, 4], 3, 0, 4);
+			add(kb);
+		}
 		
 		kb = {
 			name: "ErgoMax",
@@ -410,7 +423,7 @@ class ColStagBoards {
 		
 		kb = {
 			name: "Breeze",
-			navCluster: Full,
+			navCluster: NavCluster.Full,
 			thumbKeys: 4,
 			web: "https://www.afternoonlabs.com/breeze/",
 			source: "https://github.com/afternoonlabs/BreezeKeyboard",
@@ -425,7 +438,7 @@ class ColStagBoards {
 		
 		kb = {
 			name: "ErgoNICE",
-			navCluster: Arrows,
+			navCluster: NavCluster.Arrows,
 			thumbKeys: 4,
 			encoders: 1,
 			firmware: Firmware.Custom,
@@ -551,7 +564,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Hillside 52/56");
 		kb.setMatrix([44, 56], [5, 6], 3);
 		kb.setExtras(5, 0, 0, [3, 4]);
-		kb.navCluster = Arrows;
+		kb.navCluster = [Arrows, Duo];
 		kb.img = [
 			"Hillside-52.webp",
 			"Hillside-56.jpg",
@@ -756,7 +769,7 @@ class ColStagBoards {
 		add(kb);
 		
 		kb = new ColStagKeyboard("Buzzard");
-		kb.setMatrix(40, 5, 3);
+		kb.setMatrix(40, 6, 3);
 		kb.setExtras(3, 0, -1, 0);
 		kb.pinkyStagger = 1;
 		kb.splay = true;
@@ -839,7 +852,7 @@ class ColStagBoards {
 		kb.shape = Unibody;
 		kb.rcols = 7;
 		kb.setExtras(2, 3, 2, 2);
-		kb.navCluster = Full;
+		kb.navCluster = Duo;
 		kb.switchProfile = Optical;
 		kb.hotswap = HotSwap.Yes;
 		kb.firmware = Firmware.Custom;

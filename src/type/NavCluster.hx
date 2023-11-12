@@ -7,5 +7,6 @@ package type;
 enum NavCluster {
 	None;
 	Arrows;
+	Duo;
 	Full;
 }

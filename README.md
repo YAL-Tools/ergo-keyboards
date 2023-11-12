@@ -2,7 +2,10 @@
 
 This is a collection of column-staggered and ortholinear ergonomic keyboards.
 
-It is not as large as some other collections, but you can sort and filter the keyboards. 
+It is not as large as some other collections¹, but you can sort and filter the keyboards.  
+¹ As far as I can tell, the collection now (Nov 2023)
+covers most medium..big column-staggered keyboards
+and has a fair sample of smaller ones that have interesting features/geometry.
 
 ## Adding keyboards (GUI)
 
@@ -38,6 +41,7 @@ If Haxe is installed and all is well, docs/script.js will be updated.
 A tool by YellowAfterlife.  
 Written in Haxe.  
 Uses flag icons by famfamfam.  
+Uses [Tippy](https://atomiks.github.io/tippyjs/) & [Popper](https://popper.js.org/) for "tooltips".  
 Special thanks to people on the [low-profile keyboard Discord server](https://discord.gg/69UM9sQF8q)
 for answering my questions about classifying keyboards.
 
