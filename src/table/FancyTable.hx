@@ -7,9 +7,11 @@ import js.html.InputElement;
 import js.html.TableCellElement;
 import js.html.TableRowElement;
 import js.html.URLSearchParams;
+import js.lib.Object;
 import table.FancyColumn;
 import table.FancyTableEditor;
 import table.FancyRow;
+import table.LinkListColumn;
 import type.IntRange;
 import type.Keyboard;
 using tools.HtmlTools;
@@ -37,6 +39,36 @@ class FancyTable<KB:Keyboard> {
 		columns.push(col);
 		filterOrder.push(Column(col));
 	}
+	
+	public function resolveParent(kb:KB) {
+		var parentName = kb.parent;
+		if (parentName == null) return;
+		kb.parent = null;
+		
+		var parent = keyboards.filter(ikb -> ikb.name == parentName)[0];
+		if (parent == null) {
+			console.error('Unknown parent "$parentName" in "${kb.name}"');
+			return;
+		}
+		resolveParent(parent);
+		
+		// don't copy link lists to children:
+		var tmp = Reflect.copy(parent);
+		for (col in columns) if (col is LinkListColumn) {
+			(cast col:LinkListColumn<KB>).field.access(tmp, true, null);
+		}
+		
+		for (key in Object.keys(tmp)) {
+			var val = Reflect.field(tmp, key);
+			if (val == null) continue;
+			if (Reflect.field(kb, key) != null) continue;
+			Reflect.setField(kb, key, val);
+		}
+	}
+	public function resolveParents() {
+		for (kb in keyboards) resolveParent(kb);
+	}
+	
 	public function addFilterHeader(text:String) {
 		var h = new FancyFilterHeader(text);
 		filterOrder.push(Header(h));

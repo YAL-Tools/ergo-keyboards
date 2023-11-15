@@ -586,6 +586,9 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		lc.shortName = "Kit";
 		
 		mAddColumn(lc = new LinkListColumn("Pre-built", kb.prebuilt));
+		lc.onNotes = function(div:Element):Void {
+			div.appendParaTextNode("");
+		}
 		lc.shortName = "PB";
 	}
 	public function new() {

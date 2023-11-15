@@ -9,6 +9,8 @@ import type.ValList;
  */
 typedef Keyboard = {
 	name:String,
+	?parent:String,
+	?hidden:Bool,
 	?keys:IntRange,
 	
 	?img:ValList<String>,

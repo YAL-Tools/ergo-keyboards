@@ -1,4 +1,5 @@
 package;
+import haxe.extern.EitherType;
 import type.IntRange;
 import type.KeySpacing;
 import type.Keyboard;
@@ -12,8 +13,15 @@ import type.*;
  */
 @:forward abstract ColStagKeyboard(ColStagKeyboardBase)
 from ColStagKeyboardBase to ColStagKeyboardBase {
-	public inline function new(name:String) {
+	public inline function new(name:String, ?parent:EitherType<String, ColStagKeyboard>) {
 		this = { name: name };
+		if (parent == null) {
+			//
+		} else if (parent is String) {
+			this.parent = parent;
+		} else {
+			this.parent = (parent:ColStagKeyboard).name;
+		}
 	}
 	public function setMatrix(keys:IntRange, cols:IntRange, rows:IntRange) {
 		this.keys = keys;
@@ -42,8 +50,14 @@ from ColStagKeyboardBase to ColStagKeyboardBase {
 typedef ColStagKeyboardBase = {> Keyboard,
 	?cols:IntRange,
 	?rows:IntRange,
+	
+	/** left-side columns */
+	?lcols:IntRange,
 	/** right-side columns */
 	?rcols:IntRange,
+	/** middle columns... */
+	?mcols:IntRange,
+	
 	?thumbKeys:IntRange,
 	?innerKeys:IntRange,
 	?outerKeys:IntRange,

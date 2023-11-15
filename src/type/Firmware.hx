@@ -9,5 +9,6 @@ enum Firmware {
 	QMK;
 	ZMK;
 	KMK;
+	PRK;
 	Custom;
 }

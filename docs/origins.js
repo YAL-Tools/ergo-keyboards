@@ -34,6 +34,8 @@ window.domainCountries = {
 	"thumbsup.shop": "ca",
 	"southpawdesign.net": "us",
 	"hazel.cc": "us",
+	"keeb.supply": "eu",
+	"kriscables.com": "pt",
 };
 window.countryTags = {
 	"UK": "[flag:gb|United Kingdom]",
@@ -57,4 +59,6 @@ window.countryTags = {
 	"ES": "[flag:es|Spain]",
 	"IL": "[flag:il|Israel]",
 	"SE": "[flag:se|Sweden]",
+	"PT": "[flag:pt|Portugal]",
+	"EU": "[flag:europeanunion|Europe]",
 };

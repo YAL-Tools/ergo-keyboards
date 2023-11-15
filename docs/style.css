@@ -84,10 +84,6 @@ td {
   margin-top: 0.5em;
   border-spacing: 0;
 }
-#data td,
-#data th {
-  padding: 2px;
-}
 #data th.can-sort {
   cursor: pointer;
   position: relative;
@@ -100,8 +96,10 @@ td {
 #data th.can-sort.sort-column.sort-ascending:after {
   content: "↑";
 }
-#data td {
+#data > tr > td,
+#data > tr > th {
   border-top: 1px solid #ddd;
+  padding: 2px;
 }
 #data tr.latest {
   background-color: #374bff10;
@@ -186,6 +184,15 @@ body.night #data tr:hover,
 }
 .tippy-content code {
   padding: 0.1em 0.1em;
+}
+.tippy-content table {
+  border-spacing: 0;
+}
+.tippy-content table.links .flags {
+  text-align: right;
+}
+.tippy-content table.links .variants {
+  padding-left: 0.3em;
 }
 #share-field {
   flex-grow: 1;

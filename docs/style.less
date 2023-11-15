@@ -76,9 +76,6 @@ th, td {
 #data {
 	margin-top: 0.5em;
 	border-spacing: 0;
-	td, th {
-		padding: 2px;
-	}
 	th.can-sort {
 		cursor: pointer;
 		position: relative;
@@ -91,8 +88,11 @@ th, td {
 			content: "↑";
 		}
 	}
-	td {
-		border-top: 1px solid #ddd;
+	> tr {
+		> td, >th {
+			border-top: 1px solid #ddd;
+			padding: 2px; 
+		}
 	}
 	tr.latest {
 		background-color: #374bff10;
@@ -171,6 +171,17 @@ body.night, .tippy-content {
 	}
 	code {
 		padding: 0.1em 0.1em;
+	}
+	table {
+		border-spacing: 0;
+	}
+	table.links {
+		.flags {
+			text-align: right;
+		}
+		.variants {
+			padding-left: 0.3em;
+		}
 	}
 }
 #share-field {

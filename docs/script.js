@@ -16,14 +16,25 @@ ColStagBoards.init = function(keyboards) {
 		keyboards.push(kb);
 	};
 	var pimoroniSize = 4.4;
-	var kb = { name : "Corne/crkbd"};
+	var keySpacing;
+	var parent = null;
+	var this1 = { name : "Corne/crkbd"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	var kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(42),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
+	kb.connection = [type_Connection.Wired,type_Connection.Wireless];
 	kb.displays = type_NumRange.fromArray([0,2]);
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
-	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","https://new.boardsource.xyz/products/unicorne","https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[US] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb"];
-	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit"];
+	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://new.boardsource.xyz/products/unicorne","[v:Choc] https://new.boardsource.xyz/products/unicorne-LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs"];
+	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/"];
 	kb.extras = ["https://keyhive.xyz/shop/aluminum-corne-helidox-case"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	add(kb);
@@ -37,27 +48,55 @@ ColStagBoards.init = function(keyboards) {
 		ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 		add(kb);
 	};
-	kb = { name : "Sofle"};
+	var parent = null;
+	var this1 = { name : "Sofle"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
 	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
 	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
-	kb.kit = ["https://keebd.com/en-us/products/sofle-v2-keyboard-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419","https://mechboards.co.uk/collections/kits/products/sofle-kit","https://customkbd.com/collections/split-keyboards","https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/","https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit","https://keebd.com/products/sofle-v2-1-choc-keyboard-kit","https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit","https://keebmaker.com/collections/kits"];
-	kb.prebuilt = ["https://falba.tech/https-falba-tech-buy-a-custom-keyboard-sofle/","https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib="];
+	kb.kit = ["[v:v2] https://keebd.com/en-us/products/sofle-v2-keyboard-kit","[v:v2] https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419","[v:v1, v1 Choc, v2] https://mechboards.co.uk/collections/kits/products/sofle-kit","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2] https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/","[v:v2 RGB] https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit","[v:v2] https://keebd.com/products/sofle-v2-1-choc-keyboard-kit","[v:v2 RGB] https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit","[v:MX, Choc] https://keebmaker.com/collections/kits"];
+	kb.prebuilt = ["[v:MX] https://falba.tech/https-falba-tech-buy-a-custom-keyboard-sofle/","[v:v2 RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","[v:v2] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-set/","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2, v2 RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib="];
 	kb.extras = ["https://shop.beekeeb.com/product/sofle-2-tented-case/"];
 	kb.img = type_ValList.fromValue("sofle.jpg");
 	addSofle(kb);
-	kb = { name : "Sofle Choc"};
+	var parent = null;
+	var this1 = { name : "Sofle Choc"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
+	kb.notes = ["Sofle Choc, not to be confused with Choc Sofle (which has different pinky stagger)"];
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
 	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
 	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
 	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
-	kb.kit = ["https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit"];
+	kb.kit = ["https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit","https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/"];
 	kb.prebuilt = ["https://falba.tech/sofle-low-profile/","https://ergomech.store/shop/sofle-choc-ergomech-store-revision-47"];
 	kb.img = type_ValList.fromValue("sofle-choc.jpg");
 	kb.pinkyStagger = 0.3;
 	addSofle(kb);
-	kb = { name : "Sofle PLUS (xcmkb)"};
+	var parent = null;
+	var this1 = { name : "Sofle PLUS (xcmkb)"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
 	kb.displays = type_NumRange.fromInt(2);
@@ -68,7 +107,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.trackballSize = pimoroniSize;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.web = type_ValList.fromValue("https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/sofle/sofleplus");
-	kb.prebuilt = type_ValList.fromValue("!https://github.com/superxc3/xcmkb");
+	kb.prebuilt = type_ValList.fromValue("![n:xcmkb]https://github.com/superxc3/xcmkb");
 	kb.img = type_ValList.fromValue("xcmkb-sofle-plus.jpg");
 	kb.notes = type_ValList.fromValue("A number of small improvements over regular Sofle.");
 	add(kb);
@@ -79,13 +118,22 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 	add(kb);
-	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["!https://shop.yushakobo.jp/products/lily58-pro/","https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58","https://holykeebs.com/products/trackball-lily58-low-profile","https://www.boardsource.xyz/products/lulu","https://42keebs.eu/shop/kits/pro-micro-based/lily58-pro-hotswap-split-ergo-50-kit-black-white/","https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://keebd.com/products/lily58-pro-keyboard-kit","https://www.littlekeyboards.com/collections/lily58-pcb-kits","https://keyhive.xyz/shop/lily58"], prebuilt : ["https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://ergomech.store/shop/sofle-v2-sandwich-style-12","https://ergomech.store/shop/lily58-enclose-case-15"], extras : ["[US] https://capsuledeluxe.com/tag/manta58/"], img : type_ValList.fromValue("lily58.jpg")};
+	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["!https://shop.yushakobo.jp/products/lily58-pro/","https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58","https://holykeebs.com/products/trackball-lily58-low-profile","https://new.boardsource.xyz/products/lulu","https://new.boardsource.xyz/products/lily58","https://42keebs.eu/shop/kits/pro-micro-based/lily58-pro-hotswap-split-ergo-50-kit-black-white/","https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://keebd.com/products/lily58-pro-keyboard-kit","https://www.littlekeyboards.com/collections/lily58-pcb-kits","https://keyhive.xyz/shop/lily58","https://kriscables.com/lily58/"], prebuilt : ["https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://ergomech.store/shop/sofle-v2-sandwich-style-12","https://ergomech.store/shop/lily58-enclose-case-15","https://kriscables.com/lily58/","https://new.boardsource.xyz/products/lily58"], extras : ["[US] https://capsuledeluxe.com/tag/manta58/"], img : type_ValList.fromValue("lily58.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	add(kb);
-	kb = { name : "Kyria"};
+	var parent = null;
+	var this1 = { name : "Kyria"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(48),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -133,7 +181,7 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	kb = { name : "Untitled keyboard", thumbKeys : type_NumRange.fromInt(5), connection : [type_Connection.Wired,type_Connection.Bluetooth], source : type_ValList.fromValue("https://github.com/AnthonyAmanse/untitled-keyboard/"), firmware : type_ValList.fromValue(type_Firmware.ZMK), img : type_ValList.fromValue("AnthonyAmanse-untitled.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.None);
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(60),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	add(kb);
 	kb = { name : "Pinky4", thumbKeys : type_NumRange.fromInt(4), source : type_ValList.fromValue("https://github.com/tamanishi/Pinky4"), img : type_ValList.fromValue("Pinky4.jpg"), kit : type_ValList.fromValue("https://www.littlekeyboards.com/products/pinky4-keyboard-kit"), extras : type_ValList.fromValue("https://www.littlekeyboards.com/collections/pinky4-cases"), notes : type_ValList.fromValue("Uses Choc switches for thumb keys")};
@@ -155,37 +203,77 @@ ColStagBoards.init = function(keyboards) {
 		add(kb);
 	};
 	addAvalanche({ name : "Avalanche 40%", keys : type_NumRange.fromArray([48,52]), rows : type_NumRange.fromInt(3), cols : type_NumRange.fromInt(6)});
-	addAvalanche({ name : "Avalanche 60%", keys : type_NumRange.fromArray([60,64]), rows : type_NumRange.fromInt(4), cols : type_NumRange.fromInt(6), prebuilt : ["https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/avalanche/v4 @ https://github.com/superxc3/xcmkb"]});
-	kb = { name : "Redox", source : type_ValList.fromValue("https://github.com/mattdibi/redox-keyboard"), connection : [type_Connection.Wired,type_Connection.Bluetooth], img : type_ValList.fromValue("redox-1.jpg")};
-	kb.prebuilt = ["https://falba.tech/custom-redox-v9b7d173b068d/","https://ergomech.store/shop/neodox-52"];
+	addAvalanche({ name : "Avalanche 60%", keys : type_NumRange.fromArray([60,64]), rows : type_NumRange.fromInt(4), cols : type_NumRange.fromInt(6), prebuilt : ["[n:xcmkb] https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/avalanche/v4 @ https://github.com/superxc3/xcmkb","https://shop.beekeeb.com/product/pre-soldered-avalanche-v4/"]});
+	var parent = null;
+	var this1 = { name : "Redox"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
+	var redox = kb;
+	kb.img = type_ValList.fromValue("redox-1.jpg");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.firmware = [type_Firmware.QMK,type_Firmware.ZMK];
-	kb.software = type_ValList.fromValue(type_Software.VIA);
+	kb.software = [type_Software.VIA];
+	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+	kb.assembly = [type_Assembly.PCB,type_Assembly.Handwired];
+	kb.source = type_ValList.fromValue("https://github.com/mattdibi/redox-keyboard");
+	kb.kit = ["https://shop.beekeeb.com/product/redox-wireless-hotswap-keyboard-kit/"];
+	kb.prebuilt = ["https://falba.tech/custom-redox-v9b7d173b068d/","https://shop.beekeeb.com/product/redox-fully-assembled/"];
 	add(kb);
-	kb = { name : "Redox", source : type_ValList.fromValue("https://github.com/mattdibi/redox-keyboard"), connection : [type_Connection.Wired,type_Connection.Bluetooth], img : type_ValList.fromValue("redox-1.jpg")};
-	kb.name += " handwire";
-	kb.assembly = type_ValList.fromValue(type_Assembly.Handwired);
+	var this1 = { name : "NeoDox"};
+	if(redox != null) {
+		if(typeof(redox) == "string") {
+			this1.parent = redox;
+		} else {
+			this1.parent = redox.name;
+		}
+	}
+	kb = this1;
+	kb.connection = [type_Connection.Wired];
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
+	kb.prebuilt = type_ValList.fromValue("https://ergomech.store/shop/neodox-52");
+	kb.img = type_ValList.fromValue("NeoDox.jpg");
+	kb.notes = type_ValList.fromValue("Like Redox, but with 1u edge keys");
+	add(kb);
+	var parent = null;
+	var this1 = { name : "ErgoDash"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
+	var ergodash = kb;
+	kb.source = type_ValList.fromValue("https://github.com/omkbd/ErgoDash");
+	kb.img = type_ValList.fromValue("Ergodash.jpg");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
-	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.firmware = [type_Firmware.QMK,type_Firmware.ZMK];
-	kb.software = type_ValList.fromValue(type_Software.VIA);
-	add(kb);
-	kb = { name : "ErgoDash", source : type_ValList.fromValue("https://github.com/omkbd/ErgoDash"), img : type_ValList.fromValue("Ergodash.jpg")};
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash"];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	add(kb);
-	kb = { name : "ErgoDash-LP", source : type_ValList.fromValue("https://keypcb.xyz/ErgoDash-LP"), img : type_ValList.fromValue("ErgoDashLP.jpg")};
+	var this1 = { name : "ErgoDash LP"};
+	if(ergodash != null) {
+		if(typeof(ergodash) == "string") {
+			this1.parent = ergodash;
+		} else {
+			this1.parent = ergodash.name;
+		}
+	}
+	kb = this1;
+	kb.source = type_ValList.fromValue("https://keypcb.xyz/ErgoDash-LP");
+	kb.img = type_ValList.fromValue("ErgoDashLP.jpg");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
-	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	add(kb);
 	kb = { name : "ErgoMax", source : type_ValList.fromValue("https://github.com/LouWii/ErgoMax"), img : type_ValList.fromValue("ergomax.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -271,13 +359,31 @@ ColStagBoards.init = function(keyboards) {
 		kb.prebuilt = type_ValList.fromValue("https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/");
 		add(kb);
 	};
-	kb = { name : "Hillside 52/56"};
+	var parent = null;
+	var this1 = { name : "Hillside 52/56"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([44,56]),type_NumRange.fromArray([5,6]),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([3,4]));
 	kb.navCluster = [type_NavCluster.Arrows,type_NavCluster.Duo];
 	kb.img = ["Hillside-52.webp","Hillside-56.jpg"];
 	addHillside(kb);
-	kb = { name : "Hillside 46/48"};
+	var parent = null;
+	var this1 = { name : "Hillside 46/48"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([40,48]),type_NumRange.fromArray([5,6]),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([0,1]));
 	kb.img = ["Hillside-46.jpg","Hillside-48.jpg"];
@@ -311,7 +417,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.splay = type_SplayBase.Yes;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	add(kb);
-	add({ name : "3w6", keys : type_NumRange.fromArray([35,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromInt(3), trackballs : type_NumRange.fromArray([0,1]), trackballSize : pimoroniSize, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.Choc), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/weteor/3W6"), kit : ["https://keycapsss.com/diy-kits/191/3w6-rp2040-split-keyboard-kit"], img : type_ValList.fromValue("3w6_rev2.jpg")});
+	add({ name : "3w6", keys : type_NumRange.fromArray([35,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromInt(3), trackballs : type_NumRange.fromArray([0,1]), trackballSize : pimoroniSize, switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.Choc), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/weteor/3W6"), kit : ["https://keycapsss.com/diy-kits/191/3w6-rp2040-split-keyboard-kit"], prebuilt : ["https://shop.beekeeb.com/product/pre-soldered-3w6-keyboard/"], img : type_ValList.fromValue("3w6_rev2.jpg")});
 	add({ name : "CozyKeys Bloomer", keys : type_NumRange.fromInt(87), cols : type_NumRange.fromInt(6), rows : type_NumRange.fromInt(5), thumbKeys : type_NumRange.fromInt(5), cornerKeys : type_NumRange.fromInt(6), navCluster : type_ValList.fromValue(type_NavCluster.Full), switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), shape : type_ValList.fromValue(type_Shape.Unibody), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/cozykeys/Bloomer"), img : type_ValList.fromValue("Bloomer.jfif")});
 	add({ name : "Keyclicks W-Ergolite", keys : type_NumRange.fromInt(66), cols : type_NumRange.fromInt(7), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromInt(5), switchProfile : [type_SwitchProfile.MX,type_SwitchProfile.GateronLP], connection : [type_Connection.Wireless], firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.Vial), caseType : type_ValList.fromValue(type_CaseType.Included), prebuilt : type_ValList.fromValue("!https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2"), img : type_ValList.fromValue("W-Ergolite.webp")});
 	kb = { name : "Tern", shape : type_ValList.fromValue(type_Shape.Unibody), keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.CFX), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
@@ -320,7 +426,16 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Rolio", encoders : type_NumRange.fromInt(2), thumbKeys : type_NumRange.fromInt(5), connection : [type_Connection.Wired,type_Connection.Bluetooth], firmware : type_ValList.fromValue(type_Firmware.ZMK), pinkyStagger : 0.25, caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/MickiusMousius/RolioKeyboard"), img : type_ValList.fromValue("Rolio.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(46),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	add(kb);
-	kb = { name : "Chrumm 1.0"};
+	var parent = null;
+	var this1 = { name : "Chrumm 1.0"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([64,70]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.rcols = type_NumRange.fromInt(7);
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
@@ -337,7 +452,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/sevmeyer/chrumm-keyboard/");
 	kb.img = type_ValList.fromValue("Chrumm.jpg");
 	add(kb);
-	kb = { name : "Alien Invader"};
+	var parent = null;
+	var this1 = { name : "Alien Invader"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	kb.thumbKeys = type_NumRange.fromInt(3);
 	kb.hotswap = type_ValList.fromValue(type_HotSwap.Yes);
@@ -347,7 +471,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/protieusz/ScottoFly/blob/main/ScottoInvader/Alien%20Invader%20Integrated%20PCB%20from%20Scotto%20Invader/README.md");
 	kb.img = type_ValList.fromValue("alien-invader.jpg");
 	add(kb);
-	kb = { name : "Buzzard"};
+	var parent = null;
+	var this1 = { name : "Buzzard"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(-1),type_NumRange.fromInt(0));
 	kb.pinkyStagger = 1;
@@ -363,16 +496,35 @@ ColStagBoards.init = function(keyboards) {
 		ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(41),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 		ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 		kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+		kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 		add(kb);
 	};
-	kb = { name : "Reviung41"};
+	var parent = null;
+	var this1 = { name : "Reviung41"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	kb.img = type_ValList.fromValue("REVIUNG41.jpg");
 	kb.source = type_ValList.fromValue("https://github.com/gtips/reviung");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.kit = ["https://keebd.com/en-us/products/reviung-41-keyboard-kit","https://customkbd.com/collections/split-keyboards/products/reviung-41","https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit","https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/","https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit"];
 	kb.prebuilt = ["https://shop.beekeeb.com/product/pre-soldered-reviung41/","https://new.boardsource.xyz/products/Reviung41","https://customkbd.com/collections/split-keyboards/products/reviung-41"];
 	addReviung41(kb);
-	kb = { name : "Trackball Reviung41"};
+	var parent = null;
+	var this1 = { name : "Reviung41 with trackball"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
 	kb.trackballSize = pimoroniSize;
 	kb.trackballs = type_NumRange.fromInt(1);
@@ -380,7 +532,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://holykeebs.com/products/trackball-reviung41-low-profile");
 	kb.img = type_ValList.fromValue("reviung-trackball.jpg");
 	addReviung41(kb);
-	kb = { name : "Fisk"};
+	var parent = null;
+	var this1 = { name : "Fisk"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(2),type_NumRange.fromInt(1),type_NumRange.fromInt(0));
 	ColStagKeyboard.setQMK(kb);
@@ -394,18 +555,49 @@ ColStagBoards.init = function(keyboards) {
 		kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 		add(kb);
 	};
-	kb = { name : "Iris"};
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	var parent = null;
+	var this1 = { name : "Iris"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
+	kb.keySpacing = [type_KeySpacing.MX,type_KeySpacing.Choc];
 	kb.img = type_ValList.fromValue("iris.webp");
 	kb.kit = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
-	kb.prebuilt = type_ValList.fromValue("!https://keeb.io/collections/iris-split-ergonomic-keyboard");
+	kb.prebuilt = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard"];
 	addIris(kb);
-	kb = { name : "Iris CE"};
-	kb.img = type_ValList.fromValue("iris-ce.webp");
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
-	kb.kit = type_ValList.fromValue("!https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard");
+	var parent = null;
+	var this1 = { name : "Atreis"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	kb.assembly = [type_Assembly.PCB,type_Assembly.Handwired];
+	kb.source = type_ValList.fromValue("https://github.com/dekonnection/atreis");
+	kb.img = type_ValList.fromValue("atreis.jpg");
+	kb.firmware = type_ValList.fromValue(type_Firmware.QMK);
 	addIris(kb);
-	kb = { name : "TE Cleave"};
+	var parent = null;
+	var this1 = { name : "TE Cleave"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(91),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.rcols = type_NumRange.fromInt(7);
@@ -422,7 +614,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("Truly-Ergonomic-Cleave-keyboard-1x1-2.jpg");
 	kb.notes = type_ValList.fromValue("Flexibility of on-board software is unclear, but it's got a fairly normal keymap");
 	add(kb);
-	kb = { name : "Glove80"};
+	var parent = null;
+	var this1 = { name : "Glove80"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	kb.shape = [type_Shape.Split,type_Shape.Keywell];
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(80),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(-1),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
@@ -434,7 +635,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!http://www.moergo.com");
 	kb.img = type_ValList.fromValue("glove80.jpg");
 	add(kb);
-	kb = { name : "MOMOKA ERGO"};
+	var parent = null;
+	var this1 = { name : "MOMOKA ERGO"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -444,7 +654,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://momoka.store/collections/keyboards/products/momoka-ergo");
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
 	add(kb);
-	kb = { name : "Keyboardio Model 100"};
+	var parent = null;
+	var this1 = { name : "Keyboardio Model 100"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -454,7 +673,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://shop.keyboard.io/products/model-100");
 	kb.img = type_ValList.fromValue("keyboardio-m100.webp");
 	add(kb);
-	kb = { name : "ZSA Voyager"};
+	var parent = null;
+	var this1 = { name : "ZSA Voyager"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(52),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
@@ -464,7 +692,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://www.zsa.io/voyager/");
 	kb.img = type_ValList.fromValue("zsa-voyager.jpg");
 	add(kb);
-	kb = { name : "ZSA Moonlander"};
+	var parent = null;
+	var this1 = { name : "ZSA Moonlander"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(72),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -476,7 +713,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://www.zsa.io/moonlander/");
 	kb.img = type_ValList.fromValue("zsa-moonlander.avif");
 	add(kb);
-	kb = { name : "ErgoDox EZ"};
+	var parent = null;
+	var this1 = { name : "ErgoDox EZ"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(76),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -488,7 +734,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://ergodox-ez.com/");
 	kb.img = type_ValList.fromValue("ergodox-ez.avif");
 	add(kb);
-	kb = { name : "Dygma Defy"};
+	var parent = null;
+	var this1 = { name : "Dygma Defy"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(68),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -500,7 +755,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://dygma.com/pages/defy");
 	kb.img = type_ValList.fromValue("dygma-defy.webp");
 	add(kb);
-	kb = { name : "Osprey"};
+	var parent = null;
+	var this1 = { name : "Osprey"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(74),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(3),type_NumRange.fromInt(-1),type_NumRange.fromInt(2));
 	kb.hotswap = type_ValList.fromValue(type_HotSwap.Yes);
@@ -510,7 +774,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("!https://github.com/nshie/osprey");
 	kb.img = type_ValList.fromValue("osprey.jpg");
 	add(kb);
-	kb = { name : "ErgoTravel"};
+	var parent = null;
+	var this1 = { name : "ErgoTravel"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,3]),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps,type_SwitchProfile.Choc]);
@@ -522,8 +795,16 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 };
 var ColStagKeyboard = {};
-ColStagKeyboard._new = function(name) {
-	return { name : name};
+ColStagKeyboard._new = function(name,parent) {
+	var this1 = { name : name};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	return this1;
 };
 ColStagKeyboard.setMatrix = function(this1,keys,cols,rows) {
 	this1.keys = keys;
@@ -569,6 +850,62 @@ table_FancyTable.prototype = {
 		col.table = this;
 		this.columns.push(col);
 		this.filterOrder.push(table_FancyTableFilterOrder.Column(col));
+	}
+	,resolveParent: function(kb) {
+		var parentName = kb.parent;
+		if(parentName == null) {
+			return;
+		}
+		kb.parent = null;
+		var _g = [];
+		var _g1 = 0;
+		var _g2 = this.keyboards;
+		while(_g1 < _g2.length) {
+			var v = _g2[_g1];
+			++_g1;
+			if(v.name == parentName) {
+				_g.push(v);
+			}
+		}
+		var parent = _g[0];
+		if(parent == null) {
+			$global.console.error("Unknown parent \"" + parentName + "\" in \"" + kb.name + "\"");
+			return;
+		}
+		this.resolveParent(parent);
+		var tmp = Reflect.copy(parent);
+		var _g = 0;
+		var _g1 = this.columns;
+		while(_g < _g1.length) {
+			var col = _g1[_g];
+			++_g;
+			if(((col) instanceof table_LinkListColumn)) {
+				col.field.access(tmp,true,null);
+			}
+		}
+		var _g = 0;
+		var _g1 = Object.keys(tmp);
+		while(_g < _g1.length) {
+			var key = _g1[_g];
+			++_g;
+			var val = Reflect.field(tmp,key);
+			if(val == null) {
+				continue;
+			}
+			if(Reflect.field(kb,key) != null) {
+				continue;
+			}
+			kb[key] = val;
+		}
+	}
+	,resolveParents: function() {
+		var _g = 0;
+		var _g1 = this.keyboards;
+		while(_g < _g1.length) {
+			var kb = _g1[_g];
+			++_g;
+			this.resolveParent(kb);
+		}
 	}
 	,addFilterHeader: function(text) {
 		var h = new table_FancyFilterHeader(text);
@@ -1539,6 +1876,9 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(lc);
+		lc.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"");
+		};
 		lc.shortName = "PB";
 	}
 });
@@ -1581,6 +1921,7 @@ Main.main = function() {
 	table_LinkListColumn.countryTags = window.countryTags;
 	var divFilters = window.document.querySelector("#filter");
 	var csTable = new ColStagTable();
+	csTable.resolveParents();
 	var tmp = window.document.querySelector("#count");
 	csTable.countElement = tmp;
 	csTable.buildFilters(divFilters);
@@ -1688,7 +2029,16 @@ OrthoBoards.init = function(keyboards) {
 	addSimplyKeeb(kb);
 	kb = { name : "simplyKeeb 60Kph", source : type_ValList.fromValue("https://github.com/geaz/simplyKeeb-60K/tree/main/printedmx"), assembly : type_ValList.fromValue(type_Assembly.Handwired), img : type_ValList.fromValue("simplyKeeb-60K.jpg"), notes : type_ValList.fromValue("Like the regular simplyKeeb 60K, but fully 3d-printable.")};
 	addSimplyKeeb(kb);
-	kb = { name : "Skywatch"};
+	var parent = null;
+	var this1 = { name : "Skywatch"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
@@ -1699,7 +2049,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ozkan/skywatch");
 	kb.img = type_ValList.fromValue("Skywatch.jpg");
 	add(kb);
-	kb = { name : "Bancouver40"};
+	var parent = null;
+	var this1 = { name : "Bancouver40"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
 	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
@@ -1708,7 +2067,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ChrisChrisLoLo/bancouver40");
 	kb.img = type_ValList.fromValue("Bancouver40.jpeg");
 	add(kb);
-	kb = { name : "ChocV"};
+	var parent = null;
+	var this1 = { name : "ChocV"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
@@ -1718,7 +2086,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ImStuBTW/chonkv");
 	kb.img = type_ValList.fromValue("ChocV.jpg");
 	add(kb);
-	kb = { name : "ChonkV"};
+	var parent = null;
+	var this1 = { name : "ChonkV"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
@@ -1728,7 +2105,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ImStuBTW/chonkv");
 	kb.img = type_ValList.fromValue("ChonkV.jpg");
 	add(kb);
-	kb = { name : "BFO-9000"};
+	var parent = null;
+	var this1 = { name : "BFO-9000"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([56,108]),type_NumRange.fromArray([7,9]),type_NumRange.fromArray([3,5]));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
@@ -1737,7 +2123,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.kit = type_ValList.fromValue("!https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear");
 	kb.img = type_ValList.fromValue("bfo-9000.jpg");
 	add(kb);
-	kb = { name : "Ergo42"};
+	var parent = null;
+	var this1 = { name : "Ergo42"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(56),type_NumRange.fromInt(7),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
@@ -1746,7 +2141,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/Biacco42/Ergo42");
 	kb.img = type_ValList.fromValue("ergo42.jpg");
 	add(kb);
-	kb = { name : "Kong"};
+	var parent = null;
+	var this1 = { name : "Kong"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([48,60]),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
@@ -1757,7 +2161,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("chonkyKong.jpg");
 	kb.notes = type_ValList.fromValue("Doesn't fit very well with the existing classification system.");
 	add(kb);
-	kb = { name : "Buran"};
+	var parent = null;
+	var this1 = { name : "Buran"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(39),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -1767,7 +2180,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ScatteredDrifter/Buran-Ortho");
 	kb.img = type_ValList.fromValue("buran-no-acryl-isp.jpg");
 	add(kb);
-	kb = { name : "Helix"};
+	var parent = null;
+	var this1 = { name : "Helix"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -1775,7 +2197,16 @@ OrthoBoards.init = function(keyboards) {
 	kb.kit = ["!https://shop.yushakobo.jp/en/products/2143","https://mechboards.co.uk/products/helix-kit","https://customkbd.com/collections/split-keyboards/products/helix-kit","https://keyhive.xyz/shop/helix-kit","https://www.switchtop.com/product/helix-keyboard-kit","https://www.littlekeyboards.com/collections/helix-pcb-kits"];
 	kb.img = type_ValList.fromValue("helix.webp");
 	add(kb);
-	kb = { name : "Viterbi"};
+	var parent = null;
+	var this1 = { name : "Viterbi"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps]);
@@ -1790,19 +2221,46 @@ OrthoBoards.init = function(keyboards) {
 		kb.encoders = type_NumRange.fromInt(1);
 		add(kb);
 	};
-	kb = { name : "Rebound"};
+	var parent = null;
+	var this1 = { name : "Rebound"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	kb.stagger = type_StaggerType.Ortho;
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("!https://store.montsinger.net/products/rebound");
 	kb.img = type_ValList.fromValue("rebound.webp");
 	addRebound(kb);
-	kb = { name : "Rebound-S"};
+	var parent = null;
+	var this1 = { name : "Rebound-S"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	kb.stagger = type_StaggerType.Column;
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("!https://store.montsinger.net/products/rebound-s");
 	kb.img = type_ValList.fromValue("rebound-s.webp");
 	addRebound(kb);
-	kb = { name : "Sol 3"};
+	var parent = null;
+	var this1 = { name : "Sol 3"};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	kb = this1;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -1869,6 +2327,20 @@ Reflect.isEnumValue = function(v) {
 	} else {
 		return false;
 	}
+};
+Reflect.copy = function(o) {
+	if(o == null) {
+		return null;
+	}
+	var o2 = { };
+	var _g = 0;
+	var _g1 = Reflect.fields(o);
+	while(_g < _g1.length) {
+		var f = _g1[_g];
+		++_g;
+		o2[f] = Reflect.field(o,f);
+	}
+	return o2;
 };
 var Std = function() { };
 Std.__name__ = true;
@@ -3476,23 +3948,17 @@ var table_LinkListColumn = function(name,field) {
 	this.field = field;
 };
 table_LinkListColumn.__name__ = true;
+table_LinkListColumn.createFlagInner = function(code,title) {
+	return "<img" + (" src=\"flags/" + code + ".png\"") + " width=\"16\"" + (title != null ? " title=\"" + StringTools.htmlEscape(title,true) + "\"" : "") + " class=\"flag\"" + "/>";
+};
 table_LinkListColumn.createFlag = function(origin) {
 	var html = table_LinkListColumn.countryTags[origin.toUpperCase()];
 	if(html == null) {
 		var code = origin.toLowerCase();
-		var bit = "<img src=\"flags/" + code + ".png\"";
-		var title = "Unknown origin \"" + origin + "\"";
-		if(title != null) {
-			bit += " title=\"" + StringTools.htmlEscape(title,true) + "\"";
-		}
-		return bit + " class=\"flag\" />";
+		return table_LinkListColumn.createFlagInner(code,"Unknown origin \"" + origin + "\"");
 	}
 	html = html.replace(table_LinkListColumn.rxFlag,function(_,code,title) {
-		var bit = "<img src=\"flags/" + code + ".png\"";
-		if(title != null) {
-			bit += " title=\"" + title + "\"";
-		}
-		return bit + " class=\"flag\" />";
+		return table_LinkListColumn.createFlagInner(code,title);
 	});
 	return html;
 };
@@ -3509,21 +3975,9 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 			return false;
 		}
 	}
-	,buildPopup: function(lines) {
-		var list = window.document.createElement("ul");
-		lines.sort(function(a,b) {
-			if(StringTools.startsWith(a,"!")) {
-				return -1;
-			}
-			if(StringTools.startsWith(b,"!")) {
-				return 1;
-			}
-			if(Math.random() < 0.5) {
-				return -1;
-			} else {
-				return 1;
-			}
-		});
+	,buildPopup: function(lines,kb) {
+		var rows = [];
+		var usesVariants = false;
 		var _g_current = 0;
 		var _g_array = lines;
 		while(_g_current < _g_array.length) {
@@ -3531,13 +3985,15 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 			var _g_key = _g_current++;
 			var i = _g_key;
 			var href = _g_value;
-			var item = window.document.createElement("li");
-			var link = window.document.createElement("a");
+			var _href = href;
 			var official = StringTools.startsWith(href,"!");
 			if(official) {
 				href = StringTools.ltrim(HxOverrides.substr(href,1,null));
 			}
 			var origins = [];
+			var vendor = null;
+			var variant = null;
+			var alt = null;
 			var _g = 0;
 			while(_g < 16) {
 				var _ = _g++;
@@ -3548,15 +4004,43 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 				if(pos < 0) {
 					break;
 				}
-				if(href.charAt(pos + 1) == "(") {
-					break;
+				var text = href.substring(1,pos);
+				href = StringTools.ltrim(href.substring(pos + 1));
+				pos = text.indexOf(":");
+				var tag = "";
+				if(pos >= 0) {
+					tag = text.substring(0,pos);
+					text = text.substring(pos + 1);
 				}
-				origins.push(href.substring(1,pos));
-				href = href.substring(pos + 1);
+				switch(tag) {
+				case "":
+					origins.push(text);
+					break;
+				case "a":case "alt":
+					alt = text;
+					break;
+				case "n":case "name":
+					vendor = text;
+					break;
+				case "v":case "var":case "variant":
+					variant = text;
+					usesVariants = true;
+					break;
+				default:
+					$global.console.error("Unknown tag \"" + tag + "\" in \"" + _href + "\" in \"" + kb.name);
+				}
+			}
+			var pos1 = href.indexOf("@");
+			if(pos1 >= 0) {
+				alt = StringTools.trim(href.substring(pos1 + 1));
+				href = StringTools.trim(href.substring(0,pos1));
 			}
 			var url = new URL(href);
 			var domain = url.hostname;
 			if(StringTools.startsWith(domain,"www.")) {
+				domain = HxOverrides.substr(domain,4,null);
+			}
+			if(StringTools.startsWith(domain,"new.")) {
 				domain = HxOverrides.substr(domain,4,null);
 			}
 			if(origins.length == 0) {
@@ -3568,9 +4052,9 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 					}
 				}
 				if(origin == null) {
-					var pos1 = domain.lastIndexOf(".");
-					if(pos1 >= 0) {
-						origin = domain.substring(pos1 + 1).toUpperCase();
+					var pos2 = domain.lastIndexOf(".");
+					if(pos2 >= 0) {
+						origin = domain.substring(pos2 + 1).toUpperCase();
 						if(table_LinkListColumn.countryTags[origin] == null) {
 							origin = null;
 						}
@@ -3580,40 +4064,135 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 					origins.push(origin);
 				}
 			}
-			if(official) {
-				item.innerHTML += "<img src=\"flags/star.png\" title=\"Official\" class=\"flag\" >&#8201;";
+			if(vendor == null) {
+				vendor = domain;
+			}
+			var _g1 = [];
+			var _g2 = 0;
+			var _g3 = rows;
+			while(_g2 < _g3.length) {
+				var v = _g3[_g2];
+				++_g2;
+				if(v.label == vendor) {
+					_g1.push(v);
+				}
+			}
+			var row = _g1[0];
+			if(row == null) {
+				row = new table_LinkListRow(vendor);
+				row.official = official;
+				row.origins = origins;
+				rows.push(row);
+			} else {
+				usesVariants = true;
+			}
+			var rowItem = new table_LinkListRowItem();
+			rowItem.url = href;
+			rowItem.alt = alt;
+			rowItem.label = variant;
+			row.items.push(rowItem);
+		}
+		rows.sort(function(a,b) {
+			if(a.official != b.official) {
+				if(a.official) {
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+			if(Math.random() < 0.5) {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		var table = window.document.createElement("table");
+		table.classList.add("links");
+		var sep = String.fromCodePoint(8201);
+		var _g = 0;
+		while(_g < rows.length) {
+			var row = rows[_g];
+			++_g;
+			var tableRow = tools_HtmlTools.appendElTextNode(table,"tr","");
+			var flagCell = tools_HtmlTools.appendElTextNode(tableRow,"td");
+			flagCell.classList.add("flags");
+			if(row.official) {
+				flagCell.insertAdjacentHTML("beforeend",table_LinkListColumn.createFlagInner("star","Official") + sep);
 			}
 			var _g1 = 0;
-			while(_g1 < origins.length) {
-				var origin1 = origins[_g1];
+			var _g2 = row.origins;
+			while(_g1 < _g2.length) {
+				var origin = _g2[_g1];
 				++_g1;
-				var html = table_LinkListColumn.createFlag(origin1);
-				item.innerHTML += html + "&#8201;";
+				flagCell.insertAdjacentHTML("beforeend",table_LinkListColumn.createFlag(origin) + sep);
 			}
-			link.href = href;
-			link.appendChild(window.document.createTextNode(domain));
-			item.appendChild(link);
-			list.appendChild(item);
+			var multi = row.items.length > 1;
+			var cell = tools_HtmlTools.appendElTextNode(tableRow,"td");
+			if(usesVariants) {
+				var text = row.label;
+				cell.appendChild(window.document.createTextNode(text));
+				cell = tools_HtmlTools.appendElTextNode(tableRow,"td");
+				cell.classList.add("variants");
+			}
+			var _g_current = 0;
+			var _g_array = row.items;
+			while(_g_current < _g_array.length) {
+				var _g_value = _g_array[_g_current];
+				var _g_key = _g_current++;
+				var i = _g_key;
+				var rowItem = _g_value;
+				if(multi) {
+					if(i > 0) {
+						cell.appendChild(window.document.createTextNode("," + sep));
+					}
+				}
+				var link = window.document.createElement("a");
+				link.href = rowItem.url;
+				if(multi) {
+					var tmp = rowItem.label;
+					link.appendChild(window.document.createTextNode(tmp != null ? tmp : "link" + sep + (1 + i)));
+				} else if(usesVariants) {
+					var tmp1 = rowItem.label;
+					link.appendChild(window.document.createTextNode(tmp1 != null ? tmp1 : "open"));
+				} else {
+					var text1 = row.label;
+					link.appendChild(window.document.createTextNode(text1));
+				}
+				cell.appendChild(link);
+				if(rowItem.alt != null) {
+					var atLink = window.document.createElement("a");
+					atLink.href = rowItem.alt;
+					atLink.appendChild(window.document.createTextNode("alt"));
+					var atSup = window.document.createElement("span");
+					atSup.appendChild(window.document.createTextNode(sep + "("));
+					atSup.appendChild(atLink);
+					atSup.appendChild(window.document.createTextNode(")"));
+					cell.appendChild(atSup);
+				}
+			}
+			table.appendChild(tableRow);
 		}
-		return list;
+		return table;
 	}
 	,buildValue: function(out,kb) {
 		var _gthis = this;
 		var lines = this.field.access(kb);
+		var link = null;
 		if(!(lines == null || lines.length == 0)) {
 			if(lines.length == 1 && this.canShowSingle) {
-				var link = window.document.createElement("a");
+				link = window.document.createElement("a");
 				link.appendChild(window.document.createTextNode("➜"));
 				link.href = lines[0];
 				out.appendChild(link);
 			} else {
-				var link = window.document.createElement("a");
+				link = window.document.createElement("a");
 				link.appendChild(window.document.createTextNode("➜"));
 				link.href = "javascript:void(0)";
 				out.appendChild(link);
 				var this1 = { };
 				this1["theme"] = "translucent";
 				var opts = this1;
+				opts["maxWidth"] = 480;
 				opts["trigger"] = "click";
 				opts["interactive"] = true;
 				var v = function() {
@@ -3621,12 +4200,13 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 				};
 				opts["appendTo"] = v;
 				externs_TippyOptions.setLazyContent(opts,function() {
-					return _gthis.buildPopup(lines);
+					return _gthis.buildPopup(lines,kb);
 				});
 				Tippy(link,opts);
 			}
 		}
-		out.title = [kb.name,this.name + " (" + (lines != null ? lines.length : 0) + ")"].join("\n");
+		var tmp = link;
+		(tmp != null ? tmp : out).title = [kb.name,this.name + " (" + (lines != null ? lines.length : 0) + ")"].join("\n");
 	}
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
@@ -3671,6 +4251,19 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 		return obj[this.field.name] != null;
 	}
 });
+var table_LinkListRow = function(label) {
+	this.origins = [];
+	this.items = [];
+	this.official = false;
+	this.label = label;
+};
+table_LinkListRow.__name__ = true;
+var table_LinkListRowItem = function() {
+	this.alt = null;
+	this.url = null;
+	this.label = null;
+};
+table_LinkListRowItem.__name__ = true;
 var table_NameColumn = function(name,field) {
 	table_FancyColumn.call(this,name);
 	this.field = field;
@@ -4349,7 +4942,9 @@ tools_HtmlTools.appendParaTextNode = function(e) {
 };
 tools_HtmlTools.appendElTextNode = function(e,tag,text) {
 	var p = window.document.createElement(tag);
-	p.appendChild(window.document.createTextNode(text));
+	if(text != null) {
+		p.appendChild(window.document.createTextNode(text));
+	}
 	e.appendChild(p);
 	return p;
 };
@@ -4477,9 +5072,10 @@ var type_Firmware = $hxEnums["type.Firmware"] = { __ename__:true,__constructs__:
 	,QMK: {_hx_name:"QMK",_hx_index:1,__enum__:"type.Firmware",toString:$estr}
 	,ZMK: {_hx_name:"ZMK",_hx_index:2,__enum__:"type.Firmware",toString:$estr}
 	,KMK: {_hx_name:"KMK",_hx_index:3,__enum__:"type.Firmware",toString:$estr}
-	,Custom: {_hx_name:"Custom",_hx_index:4,__enum__:"type.Firmware",toString:$estr}
+	,PRK: {_hx_name:"PRK",_hx_index:4,__enum__:"type.Firmware",toString:$estr}
+	,Custom: {_hx_name:"Custom",_hx_index:5,__enum__:"type.Firmware",toString:$estr}
 };
-type_Firmware.__constructs__ = [type_Firmware.Unknown,type_Firmware.QMK,type_Firmware.ZMK,type_Firmware.KMK,type_Firmware.Custom];
+type_Firmware.__constructs__ = [type_Firmware.Unknown,type_Firmware.QMK,type_Firmware.ZMK,type_Firmware.KMK,type_Firmware.PRK,type_Firmware.Custom];
 var type_HotSwap = $hxEnums["type.HotSwap"] = { __ename__:true,__constructs__:null
 	,Unspecified: {_hx_name:"Unspecified",_hx_index:0,__enum__:"type.HotSwap",toString:$estr}
 	,No: {_hx_name:"No",_hx_index:1,__enum__:"type.HotSwap",toString:$estr}

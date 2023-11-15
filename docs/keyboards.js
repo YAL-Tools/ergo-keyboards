@@ -712,7 +712,10 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"firmware": "ZMK",
 	"caseType": "Included",
-	"prebuilt": "![UA] https://t.me/splitted_space"
+	"prebuilt": [
+		"![UA] https://t.me/splitted_space",
+		"![UA] https://www.olx.ua/uk/list/user/gydXk/"
+	]
 },
 {
 	"name": "Torn",
@@ -1245,6 +1248,7 @@ window.keyboardData = [
 	"splay": "PinkyOnly",
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
+	"keySpacing": "Choc",
 	"encoders": 1,
 	"encoderType": "Wheel",
 	"firmware": [
@@ -2379,6 +2383,7 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"keySpacing": "Choc",
 	"caseType": "Included",
+	"prebuilt": "https://shop.beekeeb.com/product/presoldered-chocofi-split-keyboard/",
 	"source": "https://github.com/pashutk/chocofi"
 },
 {
@@ -2631,6 +2636,133 @@ window.keyboardData = [
 	"trackpadSize": 34,
 	"caseType": "Included",
 	"kit": "https://fingerpunch.xyz/product/pinkies-out-v2/"
+},
+{
+	"name": "revxlp",
+	"img": "revxlp.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 35,
+		"max": 42
+	},
+	"rows": 3,
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
+	"thumbKeys": 3,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://gitlab.com/lpgalaxy/revxlp"
+},
+{
+	"name": "Flynn",
+	"img": "flynn.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 40,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.8,
+	"switchProfile": "Choc",
+	"displays": 1,
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"source": "https://github.com/joshyeram/flynn-handwiredKeyboard"
+},
+{
+	"name": "Quetzal",
+	"img": "Quetzal.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 104,
+	"rows": 5,
+	"cols": 7,
+	"thumbKeys": 4,
+	"cornerKeys": 5,
+	"pinkyStagger": 0.2,
+	"switchProfile": "MX",
+	"firmware": "PRK",
+	"caseType": "Included",
+	"web": "https://www.reddit.com/r/MechanicalKeyboards/comments/104kcvw/this_is_my_first_commission_i_call_it_the_quetzal/",
+	"source": "https://github.com/doesntfazer/Quetzal"
+},
+{
+	"name": "Cockpit",
+	"img": "cockpit.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 46,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"navCluster": "Arrows",
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"displays": 1,
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/ozkan/Cockpit-Keyboard"
+},
+{
+	"name": "Zerosprey42",
+	"img": "zerosprey42.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/beekeeb/zerosprey42",
+	"kit": "!https://shop.beekeeb.com/product/zerosprey42-monoblock-rp2040-keyboard/"
+},
+{
+	"name": "Darknight",
+	"img": "Darknight.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"assembly": "Handwired",
+	"tenting": {
+		"min": 0,
+		"max": 10
+	},
+	"caseType": "Included",
+	"source": "https://github.com/macroxue/keyboard-diy"
 },
 // todo: https://www.slicemk.com/collections/all
 null

@@ -24,6 +24,7 @@ class Main {
 		//
 		var divFilters:Element = document.querySelectorAuto("#filter");
 		var csTable = new ColStagTable();
+		csTable.resolveParents();
 		csTable.countElement = document.querySelectorAuto("#count");
 		csTable.buildFilters(divFilters);
 		csTable.buildTable(document.querySelectorAuto("#data"));

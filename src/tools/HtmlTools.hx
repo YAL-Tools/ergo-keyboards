@@ -58,9 +58,9 @@ class HtmlTools {
 		}
 		return result;
 	}
-	public static function appendElTextNode(e:Element, tag:String, text:String) {
+	public static function appendElTextNode(e:Element, tag:String, ?text:String) {
 		var p = Browser.document.createElement(tag);
-		p.appendChild(Browser.document.createTextNode(text));
+		if (text != null) p.appendChild(Browser.document.createTextNode(text));
 		e.appendChild(p);
 		return p;
 	}
