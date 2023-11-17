@@ -42,6 +42,12 @@ from ColStagKeyboardBase to ColStagKeyboardBase {
 		if (profile == MX && spacing == null) spacing = KeySpacing.MX;
 		this.keySpacing = spacing;
 	}
+	public function setNotswap(profile:ValList<SwitchProfile>, ?spacing:KeySpacing) {
+		this.hotswap = HotSwap.No;
+		this.switchProfile = profile;
+		if (profile == MX && spacing == null) spacing = KeySpacing.MX;
+		this.keySpacing = spacing;
+	}
 	public function setQMK(?sw:ValList<Software>) {
 		this.firmware = Firmware.QMK;
 		this.software = sw;

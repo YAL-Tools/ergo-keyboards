@@ -623,5 +623,10 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 			for (col in columns) col.load(kb);
 			keyboards.push(kb);
 		}
+		for (kb in keyboards) {
+			if (kb.caseType == null && kb.assembly != null && kb.assembly.contains(Handwired)) {
+				kb.caseType = [Included];
+			}
+		}
 	}
 }

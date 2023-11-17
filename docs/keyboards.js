@@ -10,6 +10,8 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 4,
 	"cornerKeys": 4,
+	"hotswap": "No",
+	"switchProfile": "MX",
 	"caseType": "Included",
 	"source": "https://github.com/profet23/atreus62/",
 	"kit": "!https://shop.profetkeyboards.com/category/atreus62"
@@ -158,6 +160,7 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 3,
 	"cornerKeys": 4,
+	"hotswap": ["Yes", "No"],
 	"switchProfile": "MX",
 	"encoders": {
 		"min": 0,
@@ -304,6 +307,7 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 3,
 	"outerKeys": -2,
+	"hotswap": "Yes",
 	"switchProfile": [
 		"MX",
 		"Choc",
@@ -386,6 +390,9 @@ window.keyboardData = [
 	"outerKeys": -1,
 	"pinkyStagger": 0.25,
 	"firmware": "Custom",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"caseType": "Included",
 	"web": "http://catboard.klava.org",
 	"source": "https://github.com/ibnteo/catboard"
 },
@@ -407,6 +414,7 @@ window.keyboardData = [
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
 	"firmware": "ZMK",
+	"caseType": "None",
 	"source": "https://github.com/sebastian-stumpf/uninarf"
 },
 {
@@ -465,6 +473,7 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"firmware": "QMK",
 	"software": "Vial",
+	"caseType": "None",
 	"source": "https://github.com/Dwctor/Kaly"
 },
 {
@@ -538,6 +547,8 @@ window.keyboardData = [
 	},
 	"trackballs": 1,
 	"caseType": "Included",
+	"hotswap": "No",
+	"switchProfile": "MX",
 	"source": "https://github.com/Bastardkb/Charybdis",
 	"kit": "!https://bastardkb.com/charybdis/",
 	"prebuilt": "!https://bastardkb.com/prebuilts/"
@@ -648,6 +659,7 @@ window.keyboardData = [
 	"thumbKeys": 5,
 	"cornerKeys": 3,
 	"tenting": [0, 30],
+	"hotswap": "No",
 	"switchProfile": "Choc",
 	"firmware": "ZMK",
 	"caseType": "Included",
@@ -666,6 +678,7 @@ window.keyboardData = [
 	"cornerKeys": 4,
 	"switchProfile": "Optical",
 	"software": "Custom",
+	"caseType": "None",
 	"source": "https://github.com/Dachtire/sok42"
 },
 {
@@ -708,6 +721,8 @@ window.keyboardData = [
 	"thumbKeys": 5,
 	"cornerKeys": 4,
 	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
 	"encoders": 2,
 	"encoderType": "Knob",
 	"firmware": "ZMK",
@@ -739,6 +754,8 @@ window.keyboardData = [
 		"max": 2
 	},
 	"encoderType": "Knob",
+	"hotswap": ["Yes", "No"],
+	"switchProfile": ["MX", "Choc"],
 	"firmware": "QMK",
 	"software": "VIA",
 	"assembly": "ThroughHole",
@@ -765,6 +782,8 @@ window.keyboardData = [
 		"min": 0,
 		"max": 2
 	},
+	"hotswap": "No",
+	"switchProfile": "MX",
 	"tenting": 7.5,
 	"firmware": "QMK",
 	"caseType": "Included",
@@ -1086,6 +1105,8 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 3,
 	"pinkyStagger": 1.5,
+	"hotswap": "No",
+	"switchProfile": "MX",
 	"assembly": "Handwired",
 	"caseType": "Included",
 	"source": "https://github.com/Sandalmoth/keyboards/tree/master/smudge"
@@ -1126,6 +1147,7 @@ window.keyboardData = [
 	"innerKeys": 3,
 	"cornerKeys": 1,
 	"pinkyStagger": 0.25,
+	"hotswap": "No",
 	"switchProfile": "MX",
 	"encoders": 1,
 	"encoderType": "Knob",
@@ -1153,6 +1175,8 @@ window.keyboardData = [
 	},
 	"innerKeys": 3,
 	"cornerKeys": 1,
+	"hotswap": "No",
+	"switchProfile": "MX",
 	"caseType": "Included",
 	"source": "https://github.com/KamoNanban/Manta60"
 },
@@ -1298,6 +1322,7 @@ window.keyboardData = [
 	},
 	"cornerKeys": 3,
 	"pinkyStagger": 0.4,
+	"hotswap": "No",
 	"switchProfile": "Choc",
 	"encoders": {
 		"min": 0,
@@ -1351,6 +1376,7 @@ window.keyboardData = [
 	"innerKeys": 2,
 	"cornerKeys": 4,
 	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
 	"switchProfile": "Choc",
 	"keySpacing": "Choc",
 	"caseType": "Included",
@@ -1411,9 +1437,12 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 6,
 	"firmware": "ZMK",
+	"hotswap": "No",
+	"switchProfile": "MX",
 	"assembly": "Handwired",
 	"caseType": "Included",
-	"source": "https://github.com/wizarddata/Ergo-S-1"
+	"source": "https://github.com/wizarddata/Ergo-S-1",
+	"kit": "!https://www.etsy.com/shop/WizardKeyboards"
 },
 {
 	"name": "JONKEY",
@@ -1461,11 +1490,12 @@ window.keyboardData = [
 	"keys": 106,
 	"rows": 5,
 	"cols": 7,
-	"rcols": 11,
+	"mcols": 4,
 	"thumbKeys": 2,
 	"cornerKeys": 2,
 	"navCluster": "Duo",
 	"pinkyStagger": 0.8,
+	"caseType": "Included",
 	"source": "https://github.com/dotleon/protocol_seven"
 },
 {
@@ -1512,6 +1542,7 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"innerKeys": -1,
 	"outerKeys": 2,
+	"hotswap": "No",
 	"switchProfile": "MX",
 	"assembly": "Handwired",
 	"wristPads": "Integrated",
@@ -1540,6 +1571,7 @@ window.keyboardData = [
 		"max": 4
 	},
 	"pinkyStagger": 0.6,
+	"hotswap": "No",
 	"switchProfile": "MX",
 	"firmware": "QMK",
 	"tenting": {
@@ -1661,6 +1693,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.3,
 	"firmware": "QMK",
 	"assembly": "Handwired",
+	"caseType": "Included",
 	"web": "https://www.reddit.com/r/olkb/comments/nw8i3l/my_new_handwired_keyboard_with_a_layout_designed/",
 	"source": "https://github.com/Y5U/Aether"
 },
@@ -1691,6 +1724,7 @@ window.keyboardData = [
 		"None",
 		"Integrated"
 	],
+	"caseType": "Included",
 	"kit": "!https://shop.yushakobo.jp/en/products/ergoarrows"
 },
 {
@@ -1706,10 +1740,11 @@ window.keyboardData = [
 	"cornerKeys": 4,
 	"pinkyStagger": 0.3,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/Malevolti/Lyra"
 },
 {
-	"name": "Speedo",
+	"name": "CozyKeys Speedo",
 	"img": "speedo.jpg",
 	"shape": "Unibody",
 	"stagger": "Column",
@@ -1721,7 +1756,10 @@ window.keyboardData = [
 	"cornerKeys": 4,
 	"navCluster": "Arrows",
 	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": "MX",
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/cozykeys/speedo"
 },
 {
@@ -1774,6 +1812,7 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"keySpacing": "Choc",
 	"firmware": ["QMK", "ZMK"],
+	"caseType": "Included",
 	"source": "https://github.com/piit79/rev57lp",
 	"kit": "https://42keebs.eu/shop/kits/pro-micro-based/rev57lp-50-low-profile-hotswap-ergo-kit/"
 },
@@ -1816,6 +1855,7 @@ window.keyboardData = [
 	"hotswap": "Yes",
 	"switchProfile": "MX",
 	"assembly": "Handwired",
+	"caseType": "Included",
 	"web": "https://ryanis.cool/dactyl/",
 	"source": "https://github.com/rianadon/dactyl-configurator"
 },
@@ -1848,6 +1888,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 4
 	},
+	"caseType": "Included",
 	"kit": "https://www.diykeyboards.com/keyboards/keyboard-kits/product/dactyl-manuform-kit",
 	"source": "https://github.com/abstracthat/dactyl-manuform",
 	"prebuilt": [
@@ -1879,6 +1920,27 @@ window.keyboardData = [
 	"prebuilt": "!https://shop.dailycraft.jp/collections/kagura42"
 },
 {
+	"name": "Pragmatic 60",
+	"img": "pragmatic-60.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"kit": [
+		"!https://www.pragmatic.com.tw/shop/60-mx-8"
+	]
+},
+{
 	"name": "Pragmatic 56",
 	"img": "pragmatic-56.jpg",
 	"shape": "Split",
@@ -1890,11 +1952,59 @@ window.keyboardData = [
 	"thumbKeys": 4,
 	"pinkyStagger": 0.7,
 	"hotswap": "Yes",
-	"switchProfile": "Choc",
-	"keySpacing": "Choc",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": ["MX", "Choc"],
 	"firmware": "QMK",
 	"software": "Vial",
-	"kit": "!https://www.pragmatic.com.tw/shop/choc54-62"
+	"caseType": "Included",
+	"kit": [
+		"![v:MX] https://www.pragmatic.com.tw/shop/pragmatic54-115",
+		"![v:Choc] https://www.pragmatic.com.tw/shop/choc54-62",
+	]
+},
+{
+	"name": "Pragmatic 36",
+	"img": "pragmatic-36.jfif",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.6,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": ["MX", "Choc"],
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"kit": [
+		"![v:MX] https://www.pragmatic.com.tw/shop/pragmatic36-105",
+		"![v:Choc] https://www.pragmatic.com.tw/shop/wu-shi-36ai-zhou-89",
+	]
+},
+{
+	"name": "Pragmatic 42",
+	"img": "pragmatic-42.jfif",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.6,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": ["MX", "Choc"],
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"kit": [
+		"![v:MX] https://www.pragmatic.com.tw/shop/pragmatic36-111",
+		"![v:Choc] https://www.pragmatic.com.tw/shop/wu-shi-42ai-zhou-93",
+	]
 },
 {
 	"name": "Ergo68",
@@ -1914,6 +2024,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.3,
 	"hotswap": "Yes",
 	"switchProfile": "MX",
+	"caseType": "Included",
 	"kit": "!https://shop.yushakobo.jp/en/products/ergo68"
 },
 {
@@ -2051,6 +2162,7 @@ window.keyboardData = [
 	"innerKeys": -1,
 	"outerKeys": -1,
 	"pinkyStagger": 0.5,
+	"hotswap": "No",
 	"switchProfile": "Choc",
 	"caseType": "Included",
 	"source": "https://github.com/PJE66/hummingbird"
@@ -2176,6 +2288,7 @@ window.keyboardData = [
 	"outerKeys": 1,
 	"pinkyStagger": 0.8,
 	"splay": "Yes",
+	"hotswap": "No",
 	"switchProfile": "Choc",
 	"firmware": [
 		"QMK",
@@ -2259,6 +2372,7 @@ window.keyboardData = [
 		"ZMK"
 	],
 	"software": "Vial",
+	"caseType": "Included",
 	"source": "https://github.com/weteor/Grumpy"
 },
 {
@@ -2301,7 +2415,7 @@ window.keyboardData = [
 	"encoders": 2,
 	"encoderType": "Other",
 	"firmware": "ZMK",
-	"wristPads": "Integrated",
+	"caseType": "Included",
 	"source": "https://github.com/weteor/LuttUnLutt"
 },
 {
@@ -2320,6 +2434,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.8,
 	"switchProfile": "MX",
 	"firmware": "ZMK",
+	"caseType": "None",
 	"source": "https://github.com/Sleepyboi7973/cybr36"
 },
 {
@@ -2345,6 +2460,7 @@ window.keyboardData = [
 	"keySpacing": "MX",
 	"firmware": "ZMK",
 	"wristPads": "Integrated",
+	"caseType": "Included",
 	"source": "https://github.com/sadekbaroudi/arachnophobe"
 },
 {
@@ -2454,6 +2570,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 5
 	},
+	"caseType": "Included",
 	"source": "https://github.com/kbjunky/IIICC"
 },
 {
@@ -2473,6 +2590,7 @@ window.keyboardData = [
 	],
 	"keySpacing": "MX",
 	"firmware": "KMK",
+	"caseType": "None",
 	"source": "https://github.com/yoichiro/lunakey"
 },
 {
@@ -2495,6 +2613,7 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"displays": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/tominabox1/Le-Chiffre-Keyboard"
 },
 {
@@ -2558,6 +2677,7 @@ window.keyboardData = [
 		"max": 3
 	},
 	"pinkyStagger": 0.7,
+	"hotswap": "No",
 	"switchProfile": [
 		"MX",
 		"Choc"
@@ -2599,6 +2719,7 @@ window.keyboardData = [
 	"trackballSize": 34,
 	"displays": 1,
 	"firmware": "QMK",
+	"caseType": "Included",
 	"source": "https://github.com/aki27kbd/cocot46plus",
 	"kit": "https://aki27.booth.pm/items/3879034"
 },
@@ -2793,6 +2914,7 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 4,
 	"pinkyStagger": 0.9,
+	"hotswap": "No",
 	"switchProfile": "Choc",
 	"trackpads": 2,
 	"trackpadSize": 40,
@@ -2801,6 +2923,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 10
 	},
+	"caseType": "Included",
 	"source": "https://github.com/RaphCoder13/Birdy44"
 },
 {

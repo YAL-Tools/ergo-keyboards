@@ -34,6 +34,7 @@ class ColStagBoards {
 		kb.setHotswap([MX, Choc]);
 		kb.connection = [Wired, Wireless];
 		kb.displays = [0, 2];
+		kb.caseType = [ThirdParty];
 		kb.source = "https://github.com/foostan/crkbd";
 		kb.kit = [
 			"https://splitkb.com/collections/keyboard-kits/products/aurora-corne",
@@ -65,7 +66,7 @@ class ColStagBoards {
 			"[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/",
 		];
 		kb.extras = [
-			"https://keyhive.xyz/shop/aluminum-corne-helidox-case",
+			"[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case",
 		];
 		kb.img = "crkbd.jpg";
 		add(kb);
@@ -104,7 +105,7 @@ class ColStagBoards {
 			"[v:v2, v2 RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib=",
 		];
 		kb.extras = [
-			"https://shop.beekeeb.com/product/sofle-2-tented-case/",
+			"[v:Tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/",
 		];
 		kb.img = "sofle.jpg";
 		addSofle(kb);
@@ -177,6 +178,7 @@ class ColStagBoards {
 				"https://www.littlekeyboards.com/collections/lily58-pcb-kits",
 				"https://keyhive.xyz/shop/lily58",
 				"https://kriscables.com/lily58/",
+				"[US] https://capsuledeluxe.com/tag/manta58/"
 			],
 			prebuilt: [
 				"https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit",
@@ -186,7 +188,7 @@ class ColStagBoards {
 				"https://new.boardsource.xyz/products/lily58",
 			],
 			extras: [
-				"[US] https://capsuledeluxe.com/tag/manta58/",
+				"[US][v:Case files] https://capsuledeluxe.com/tag/manta58/",
 			],
 			img: "lily58.jpg",
 		};
@@ -258,6 +260,7 @@ class ColStagBoards {
 			img: "Pangaea.jpg",
 			notes: "Pinky columns and thumb row can be moved and rotated."
 		};
+		kb.setHotswap([MX]);
 		kb.splay = Optional;
 		kb.setMatrix([58, 60], 6, 4);
 		kb.setExtras(5);
@@ -320,11 +323,12 @@ class ColStagBoards {
 			source: "https://github.com/tamanishi/Pinky4",
 			img: "Pinky4.jpg",
 			kit: "https://www.littlekeyboards.com/products/pinky4-keyboard-kit",
-			extras: "https://www.littlekeyboards.com/collections/pinky4-cases",
+			extras: "[v:Cases] https://www.littlekeyboards.com/collections/pinky4-cases",
 			notes: "Uses Choc switches for thumb keys"
 		};
 		kb.setMatrix(64, 6, 4);
 		kb.innerKeys = 4;
+		kb.caseType = [Included];
 		kb.setHotswap(MX);
 		add(kb);
 		
@@ -425,6 +429,7 @@ class ColStagBoards {
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras(5, 2, 0, 4);
 		kb.setQMK();
+		kb.caseType = [None];
 		add(kb);
 		
 		kb = {
@@ -452,6 +457,8 @@ class ColStagBoards {
 		kb.setMatrix(66, 6, 4);
 		kb.rcols = 9;
 		kb.setHotswap([MX, Choc], MX);
+		kb.caseType = [Included];
+		kb.extras = "[v:Case] https://github.com/afternoonlabs/breeze-contribs/tree/main/CAD";
 		kb.setQMK(VIA);
 		add(kb);
 		
@@ -479,6 +486,7 @@ class ColStagBoards {
 		};
 		kb.caseType = Included;
 		kb.setMatrix(64, 6, 4);
+		kb.setHotswap([MX]);
 		kb.rcols = 8;
 		kb.splay = true;
 		kb.setQMK(VIA);
@@ -496,6 +504,7 @@ class ColStagBoards {
 		};
 		kb.setMatrix(66, 6, 4);
 		kb.setExtras(7, 3, 0, 0);
+		kb.caseType = [Included];
 		add(kb);
 		
 		kb = {
@@ -504,6 +513,7 @@ class ColStagBoards {
 			img: "jiaex.jpg",
 			notes: "This keyboard is hard to classify due to its uncommon key placement"
 		};
+		kb.setNotswap([MX]);
 		kb.caseType = Included;
 		kb.wristPads = Integrated;
 		kb.setMatrix(68, 6, 4);
@@ -521,6 +531,7 @@ class ColStagBoards {
 		};
 		kb.setMatrix(68, 6, 4);
 		kb.setExtras(9);
+		kb.caseType = [None];
 		add(kb);
 		
 		kb = {
@@ -530,8 +541,10 @@ class ColStagBoards {
 			kit: "!https://dm9.thebase.in/items/13093286",
 			img: "Ergoinu.jfif",
 		};
+		kb.switchProfile = [MX];
+		kb.hotswap = [No];
 		kb.caseType = Included;
-		kb.setMatrix(66, 7, 4);
+		kb.setMatrix(64, 7, 4);
 		kb.setExtras(5);
 		kb.setQMK();
 		add(kb);
@@ -543,6 +556,7 @@ class ColStagBoards {
 		};
 		kb.setMatrix(66, 7, 4);
 		kb.setExtras(2, 0, -1, 4);
+		kb.caseType = [None];
 		add(kb);
 		
 		kb = {
@@ -553,8 +567,10 @@ class ColStagBoards {
 			displays: 2,
 			img: "djinn.jfif",
 		};
+		kb.setHotswap([MX]);
 		kb.setMatrix(64, 7, 4);
 		kb.setExtras(4);
+		kb.caseType = [Included];
 		kb.setQMK();
 		add(kb);
 		
@@ -564,6 +580,8 @@ class ColStagBoards {
 			encoders: [0, 1],
 			img: "Kapl.jpg"
 		};
+		kb.switchProfile = [MX];
+		kb.hotswap = [No];
 		kb.caseType = Included;
 		kb.setMatrix([69, 70], 7, 4);
 		kb.setExtras(4, 0, 0, 4);
@@ -575,6 +593,7 @@ class ColStagBoards {
 			kb.setHotswap(Choc, Choc);
 			kb.setQMK();
 			kb.pinkyStagger = 0.8;
+			kb.caseType = [None];
 			kb.source = "https://github.com/mmccoyd/hillside";
 			kb.kit = "https://shop.beekeeb.com/product/hillside-keyboard-kit/";
 			kb.prebuilt = "https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/";
@@ -610,6 +629,7 @@ class ColStagBoards {
 		};
 		kb.setMatrix(68, 8, 4);
 		kb.setExtras(3, 0, -1, 0);
+		kb.setHotswap(MX);
 		kb.setQMK(Vial);
 		kb.caseType = Included;
 		add(kb);
@@ -622,6 +642,7 @@ class ColStagBoards {
 			kit: "https://shop.yushakobo.jp/en/products/fortitude60",
 			img: "Fortitude60.jfif",
 		};
+		kb.hotswap = [No];
 		kb.setMatrix(60, 6, 4);
 		kb.caseType = Included;
 		add(kb);
@@ -661,10 +682,11 @@ class ColStagBoards {
 			img: "ursa-minor.webp",
 			thumbKeys: 3,
 			switchProfile: Choc,
-			keySpacing: KeySpacing.MX,
-			assembly: Handwired,
+			keySpacing: [MX],
+			assembly: [Handwired, PCB],
 			source: "https://github.com/markstory/ursa-minor-keyboard/",
 		};
+		kb.caseType = [Included];
 		kb.setMatrix(54, 6, 4);
 		add(kb);
 		
@@ -672,12 +694,13 @@ class ColStagBoards {
 			name: "articulation80",
 			thumbKeys: 4,
 			navCluster: Full,
-			switchProfile: Choc,
-			keySpacing: KeySpacing.Choc,
 			source: "https://github.com/mylestunglee/articulation80",
 			img: "articulation80.jpg",
 		};
+		kb.setHotswap([Choc], KeySpacing.Choc);
 		kb.setMatrix([56, 80], 6, 4);
+		kb.rcols = [6, 9];
+		kb.lcols = [6, 9];
 		kb.splay = true;
 		kb.caseType = Included;
 		add(kb);
@@ -689,6 +712,7 @@ class ColStagBoards {
 			thumbKeys: 3,
 			trackballs: [0, 1],
 			trackballSize: pimoroniSize,
+			hotswap: [No],
 			switchProfile: Choc,
 			keySpacing: KeySpacing.Choc,
 			caseType: Included,
@@ -709,6 +733,7 @@ class ColStagBoards {
 			thumbKeys: 5,
 			cornerKeys: 6,
 			navCluster: Full,
+			hotswap: [No],
 			switchProfile: MX,
 			shape: Unibody,
 			caseType: Included,
@@ -721,6 +746,7 @@ class ColStagBoards {
 			keys: 66,
 			cols: 7, rows: 4,
 			thumbKeys: 5,
+			hotswap: [Yes],
 			switchProfile: [MX, GateronLP],
 			connection: [Wireless],
 			firmware: QMK,
@@ -738,6 +764,7 @@ class ColStagBoards {
 			innerKeys: -1,
 			outerKeys: -1,
 			thumbKeys: 2,
+			hotswap: [Yes],
 			switchProfile: Choc,
 			keySpacing: CFX,
 			caseType: Included,
@@ -758,6 +785,7 @@ class ColStagBoards {
 			source: "https://github.com/MickiusMousius/RolioKeyboard",
 			img: "Rolio.jpg"
 		};
+		kb.setNotswap([Choc]);
 		kb.setMatrix(46, 6, 3);
 		add(kb);
 		
@@ -785,6 +813,8 @@ class ColStagBoards {
 		kb.hotswap = HotSwap.Yes;
 		kb.switchProfile = MX;
 		kb.shape = Monoblock;
+		kb.assembly = [Handwired];
+		kb.caseType = [Included];
 		kb.setQMK(VIA);
 		kb.source = "https://github.com/protieusz/ScottoFly/blob/main/ScottoInvader/Alien%20Invader%20Integrated%20PCB%20from%20Scotto%20Invader/README.md";
 		kb.img = "alien-invader.jpg";
@@ -994,10 +1024,11 @@ class ColStagBoards {
 		kb.setMatrix(74, 7, 4);
 		kb.setExtras(7, 3, -1, 2);
 		kb.hotswap = HotSwap.Yes;
+		kb.switchProfile = [MX];
 		kb.shape = Unibody;
 		kb.pinkyStagger = 0.5;
 		kb.caseType = Included;
-		kb.source = "!https://github.com/nshie/osprey";
+		kb.source = "https://github.com/nshie/osprey";
 		kb.img = "osprey.jpg";
 		add(kb);
 		
@@ -1009,7 +1040,7 @@ class ColStagBoards {
 		kb.source = "https://github.com/jpconstantineau/ErgoTravel";
 		kb.kit = "https://mechboards.co.uk/products/ergotravel-kit";
 		kb.extras = [
-			"![CA] https://store.jpconstantineau.com/#/group/split_boards"
+			"![CA][v:Cases] https://store.jpconstantineau.com/#/group/split_boards"
 		];
 		kb.img = "Ergotravel.jpg";
 		add(kb);

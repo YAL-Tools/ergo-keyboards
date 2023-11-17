@@ -22,36 +22,29 @@ class OrthoBoards {
 		var pimoroniSize = 4.4;
 		var kb:ColStagKeyboard;
 		
-		function addSimplyKeeb(kb:ColStagKeyboard) {
-			kb.setHotswap(MX);
-			kb.setMatrix(60, 6, 4);
-			kb.setExtras(3, 0, 0, 3);
-			kb.setQMK(Vial);
-			add(kb);
-		}
 		kb = {
 			name: "simplyKeeb 60K",
 			source: "https://github.com/geaz/simplyKeeb-60K",
+			assembly: [PCB, Handwired],
 			img: "simplyKeeb-60K.jpg",
 		};
-		addSimplyKeeb(kb);
-		kb = {
-			name: "simplyKeeb 60Kph",
-			source: "https://github.com/geaz/simplyKeeb-60K/tree/main/printedmx",
-			assembly: Handwired,
-			img: "simplyKeeb-60K.jpg",
-			notes: "Like the regular simplyKeeb 60K, but fully 3d-printable."
-		};
-		addSimplyKeeb(kb);
+		kb.setHotswap(MX);
+		kb.setMatrix(60, 6, 4);
+		kb.setExtras(3, 0, 0, 3);
+		kb.caseType = [Included];
+		kb.setQMK(Vial);
+		add(kb);
 		
 		kb = new ColStagKeyboard("Skywatch");
 		kb.setMatrix(36, 5, 3);
 		kb.setExtras(3);
+		kb.setHotswap([MX]);
 		kb.shape = Unibody;
 		kb.pinkyStagger = 0.3;
 		kb.stagger = Ortho;
 		kb.trackballSize = pimoroniSize;
 		kb.trackballs = [0, 1];
+		kb.caseType = [Included];
 		kb.source = "https://github.com/ozkan/skywatch";
 		kb.img = "Skywatch.jpg";
 		add(kb);
@@ -62,8 +55,20 @@ class OrthoBoards {
 		kb.setMatrix(40, 5, 3);
 		kb.setExtras(3, 0, 0, 4);
 		kb.setHotswap(Choc, CFX);
+		kb.caseType = [Included];
 		kb.source = "https://github.com/ChrisChrisLoLo/bancouver40";
 		kb.img = "Bancouver40.jpeg";
+		add(kb);
+		
+		kb = new ColStagKeyboard("minipeg48");
+		kb.shape = Monoblock;
+		kb.stagger = Ortho;
+		kb.setMatrix(48, 6, 3);
+		kb.setExtras(3, 0, 0, 4);
+		kb.setHotswap(Choc, CFX);
+		kb.caseType = [Included];
+		kb.source = "https://github.com/ChrisChrisLoLo/bancouver40";
+		kb.img = "minipeg48.jpg";
 		add(kb);
 		
 		kb = new ColStagKeyboard("ChocV");
@@ -73,7 +78,8 @@ class OrthoBoards {
 		kb.splay = PinkyOnly;
 		kb.shape = Unibody;
 		kb.stagger = Ortho;
-		kb.source = "https://github.com/ImStuBTW/chonkv";
+		kb.source = "https://github.com/brickbots/chocV";
+		kb.caseType = [None];
 		kb.img = "ChocV.jpg";
 		add(kb);
 		
@@ -85,6 +91,7 @@ class OrthoBoards {
 		kb.shape = Unibody;
 		kb.stagger = Ortho;
 		kb.source = "https://github.com/ImStuBTW/chonkv";
+		kb.caseType = [Included];
 		kb.img = "ChonkV.jpg";
 		add(kb);
 		
@@ -94,6 +101,11 @@ class OrthoBoards {
 		kb.switchProfile = [MX, Choc, Alps];
 		kb.shape = Split;
 		kb.stagger = Ortho;
+		kb.caseType = None;
+		kb.extras = [
+			"[v:Case] https://www.thingiverse.com/thing:3089077",
+			"![v:Plates] https://keeb.io/products/bfo-9000-case-plates",
+		];
 		kb.kit = "!https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear";
 		kb.img = "bfo-9000.jpg";
 		add(kb);
@@ -104,17 +116,20 @@ class OrthoBoards {
 		kb.setExtras(3, 0, 0, 4);
 		kb.setQMK();
 		kb.switchProfile = [MX, Choc];
+		kb.hotswap = [No];
 		kb.source = "https://github.com/Biacco42/Ergo42";
+		kb.caseType = [Included];
 		kb.img = "ergo42.jpg";
 		add(kb);
 		
-		kb = new ColStagKeyboard("Kong");
+		kb = new ColStagKeyboard("ChonkyKong");
 		kb.setMatrix([48, 60], 5, 3);
 		kb.setHotswap([MX, Choc], MX);
 		kb.shape = Unibody;
-		kb.rcols = 8;
-		kb.setExtras([3, 4], [3, 4], 0, 3);
+		kb.mcols = 3;
+		kb.setExtras([3, 4], [2, 4], 0, 3);
 		kb.setQMK(Vial);
+		kb.caseType = [Included];
 		kb.source = "https://github.com/weteor/ChonkyKong";
 		kb.img = "chonkyKong.jpg";
 		kb.notes = "Doesn't fit very well with the existing classification system.";
@@ -126,7 +141,8 @@ class OrthoBoards {
 		kb.setHotswap([MX, Choc]);
 		kb.setQMK(Vial);
 		kb.shape = Unibody;
-		kb.encoders = 1;
+		kb.encoders = [1, 2];
+		kb.caseType = [Included];
 		kb.source = "https://github.com/ScatteredDrifter/Buran-Ortho";
 		kb.img = "buran-no-acryl-isp.jpg";
 		add(kb);
@@ -144,6 +160,7 @@ class OrthoBoards {
 			"https://www.switchtop.com/product/helix-keyboard-kit",
 			"https://www.littlekeyboards.com/collections/helix-pcb-kits",
 		];
+		kb.caseType = [Included];
 		kb.img = "helix.webp";
 		add(kb);
 		
@@ -151,7 +168,8 @@ class OrthoBoards {
 		kb.setMatrix(70, 7, 4);
 		kb.setExtras(4, 0, 0, 4);
 		kb.setHotswap([MX, Alps]);
-		kb.kit = "https://keeb.io/products/viterbi-keyboard-pcbs-5x7-70-split-ortholinear";
+		kb.kit = "!https://keeb.io/products/viterbi-keyboard-pcbs-5x7-70-split-ortholinear";
+		kb.caseType = [Included];
 		kb.img = "viterbi.webp";
 		add(kb);
 		
@@ -180,6 +198,7 @@ class OrthoBoards {
 		kb.setMatrix(66, 6, 4);
 		kb.setExtras(3, 4, 0, 5);
 		kb.setHotswap(MX);
+		kb.caseType = [Included];
 		kb.kit = "https://www.rgbkb.net/collections/sol-3";
 		kb.prebuilt = "https://www.rgbkb.net/collections/sol-3/products/sol-3-keyboard-prebuilt";
 		kb.img = "sol3.webp";
