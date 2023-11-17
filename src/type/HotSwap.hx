@@ -8,4 +8,5 @@ enum HotSwap {
 	Unspecified;
 	No;
 	Yes;
+	Special;
 }

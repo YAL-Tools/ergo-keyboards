@@ -238,6 +238,7 @@ ColStagBoards.init = function(keyboards) {
 	}
 	kb = this1;
 	kb.connection = [type_Connection.Wired];
+	kb.assembly = [];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.prebuilt = type_ValList.fromValue("https://ergomech.store/shop/neodox-52");
 	kb.img = type_ValList.fromValue("NeoDox.jpg");
@@ -488,9 +489,11 @@ ColStagBoards.init = function(keyboards) {
 	kb.displays = type_NumRange.fromInt(2);
 	kb.trackpoints = type_NumRange.fromInt(1);
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
+	kb.hotswap = [type_HotSwap.Yes,type_HotSwap.Special];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.source = type_ValList.fromValue("https://github.com/crehmann/Buzzard");
 	kb.img = type_ValList.fromValue("buzzard.webp");
+	kb.notes = ["Hotswap sockets cannot be used next to the trackpoint(s)"];
 	add(kb);
 	var addReviung41 = function(kb) {
 		ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(41),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
@@ -627,13 +630,17 @@ ColStagBoards.init = function(keyboards) {
 	kb.shape = [type_Shape.Split,type_Shape.Keywell];
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(80),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(-1),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
-	kb.hotswap = type_ValList.fromValue(type_HotSwap.Yes);
+	kb.hotswap = [type_HotSwap.No,type_HotSwap.Special];
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.Choc);
 	kb.keySpacing = type_ValList.fromValue(type_KeySpacing.Choc);
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+	kb.firmware = type_ValList.fromValue(type_Firmware.ZMK);
+	kb.software = type_ValList.fromValue(type_Software.Custom);
+	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("!http://www.moergo.com");
 	kb.img = type_ValList.fromValue("glove80.jpg");
+	kb.notes = ["There is no hot-swap. However, MoErgo offers an unsoldered version that saves one from having to unsolder the built-in switches. Still, one needs to solder the new ones.","Hardware extension support: 6 digital GPIOs (inside the case)"];
 	add(kb);
 	var parent = null;
 	var this1 = { name : "MOMOKA ERGO"};
@@ -1491,6 +1498,22 @@ ColStagTable.prototype = $extend(table_FancyTable.prototype,{
 		hotswap.shortLabels.set(type_HotSwap.Unspecified,"");
 		hotswap.shortLabels.set(type_HotSwap.Yes,"+");
 		hotswap.shortLabels.set(type_HotSwap.No,"-");
+		hotswap.onBuildValue = function(out,vals,kb) {
+			if(vals.indexOf(type_HotSwap.Yes) != -1) {
+				if(vals.indexOf(type_HotSwap.No) != -1) {
+					var text = String.fromCodePoint(177);
+					out.appendChild(window.document.createTextNode(text));
+				} else {
+					out.appendChild(window.document.createTextNode("+"));
+				}
+			} else if(vals.indexOf(type_HotSwap.No) != -1) {
+				out.appendChild(window.document.createTextNode("-"));
+			}
+			if(vals.indexOf(type_HotSwap.Special) != -1) {
+				out.appendChild(window.document.createTextNode("*"));
+			}
+			return true;
+		};
 		this.addColumn(hotswap);
 		var switchType = new table_TagListColumn("Switch profile",new table_FancyField("switchProfile",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2007,6 +2030,7 @@ Main.main = function() {
 		csTable.updateURL();
 	};
 	csTable.loadFilters(window.document.location.search);
+	$global.console.log("Hello!");
 };
 Math.__name__ = true;
 var OrthoBoards = function() { };
@@ -4728,6 +4752,10 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		var vals = this.getValue(kb);
 		if(vals != null) {
 			var tip = [kb.name,this.name + ":"];
+			var addElements = true;
+			if(this.onBuildValue != null && this.onBuildValue(out,vals,kb)) {
+				addElements = false;
+			}
 			var _g_current = 0;
 			var _g_array = vals;
 			while(_g_current < _g_array.length) {
@@ -4735,12 +4763,14 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 				var _g_key = _g_current++;
 				var i = _g_key;
 				var val = _g_value;
-				if(i > 0) {
+				if(i > 0 && addElements) {
 					out.appendChild(window.document.createTextNode(", "));
 				}
 				var name = $hxEnums[val.__enum__].__constructs__[val._hx_index]._hx_name;
-				var tmp = this.shortLabels.get(val);
-				out.appendChild(window.document.createTextNode(tmp != null ? tmp : name));
+				if(addElements) {
+					var tmp = this.shortLabels.get(val);
+					out.appendChild(window.document.createTextNode(tmp != null ? tmp : name));
+				}
 				var tmp1 = this.filterLabels.get(val);
 				tip.push("· " + (tmp1 != null ? tmp1 : name));
 			}
@@ -5080,8 +5110,9 @@ var type_HotSwap = $hxEnums["type.HotSwap"] = { __ename__:true,__constructs__:nu
 	,Unspecified: {_hx_name:"Unspecified",_hx_index:0,__enum__:"type.HotSwap",toString:$estr}
 	,No: {_hx_name:"No",_hx_index:1,__enum__:"type.HotSwap",toString:$estr}
 	,Yes: {_hx_name:"Yes",_hx_index:2,__enum__:"type.HotSwap",toString:$estr}
+	,Special: {_hx_name:"Special",_hx_index:3,__enum__:"type.HotSwap",toString:$estr}
 };
-type_HotSwap.__constructs__ = [type_HotSwap.Unspecified,type_HotSwap.No,type_HotSwap.Yes];
+type_HotSwap.__constructs__ = [type_HotSwap.Unspecified,type_HotSwap.No,type_HotSwap.Yes,type_HotSwap.Special];
 var type_KeySpacing = $hxEnums["type.KeySpacing"] = { __ename__:true,__constructs__:null
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.KeySpacing",toString:$estr}
 	,MX: {_hx_name:"MX",_hx_index:1,__enum__:"type.KeySpacing",toString:$estr}

@@ -11,6 +11,7 @@ import js.Browser.document;
  */
 class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, ValList<ET>> {
 	public var defaultValue:ValList<ET> = null;
+	public var onBuildValue:(out:Element, vals:ValList<ET>, kb:KB)->Bool;
 	public function new(name:String, field:FancyField<KB, ValList<ET>>, et:Enum<ET>) {
 		super(name, et);
 		defaultValue = et.createByIndex(0);
@@ -27,10 +28,16 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 				kb.name,// + " ➜ " +
 				name + ":",
 			];
+			var addElements = true;
+			if (onBuildValue != null && onBuildValue(out, vals, kb)) {
+				addElements = false;
+			}
 			for (i => val in vals) {
-				if (i > 0) out.appendTextNode(", ");
+				if (i > 0 && addElements) out.appendTextNode(", ");
 				var name = val.getName();
-				out.appendTextNode(shortLabels[val] ?? name);
+				if (addElements) {
+					out.appendTextNode(shortLabels[val] ?? name);
+				}
 				tip.push("· " + (filterLabels[val] ?? name));
 			}
 			out.title = tip.join("\n");

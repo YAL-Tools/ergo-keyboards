@@ -117,6 +117,7 @@ class Main {
 			csTable.updateURL();
 		}
 		csTable.loadFilters(document.location.search);
+		console.log("Hello!");
 	}
 	
 }

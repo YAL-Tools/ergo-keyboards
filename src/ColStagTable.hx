@@ -300,6 +300,17 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		hotswap.shortLabels[HotSwap.Unspecified] = "";
 		hotswap.shortLabels[HotSwap.Yes] = "+";
 		hotswap.shortLabels[HotSwap.No] = "-";
+		hotswap.onBuildValue = function(out:Element, vals:ValList<HotSwap>, kb) {
+			if (vals.contains(HotSwap.Yes)) {
+				if (vals.contains(HotSwap.No)) {
+					out.appendTextNode(String.fromCharCode(177)); // +-
+				} else out.appendTextNode("+");
+			} else if (vals.contains(HotSwap.No)) {
+				out.appendTextNode("-");
+			}
+			if (vals.contains(HotSwap.Special)) out.appendTextNode("*");
+			return true;
+		};
 		addColumn(hotswap);
 		
 		var switchType = new TagListColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);

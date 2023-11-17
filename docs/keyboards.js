@@ -2764,6 +2764,86 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/macroxue/keyboard-diy"
 },
+{
+	"name": "swepp",
+	"img": "swepp.jpg",
+	"shape": "Split",
+	"connection": "Wired",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.6,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/sebastian-stumpf/swepp"
+},
+{
+	"name": "Birdy44",
+	"img": "birdy44.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.9,
+	"switchProfile": "Choc",
+	"trackpads": 2,
+	"trackpadSize": 40,
+	"assembly": "Handwired",
+	"tenting": {
+		"min": 0,
+		"max": 10
+	},
+	"source": "https://github.com/RaphCoder13/Birdy44"
+},
+{
+	"name": "Vesuveus",
+	"img": "Vesuveus.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.8,
+	"switchProfile": "MX",
+	"firmware": "KMK",
+	"assembly": "Handwired",
+	"source": "https://github.com/RaffOwO/vesuveus"
+},
+{
+	"name": "juriform36",
+	"img": "juriform36.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.7,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"displays": 2,
+	"firmware": "ZMK",
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"web": "https://lemmy.world/post/4453514",
+	"source": "https://github.com/jurica/juriform36"
+},
 // todo: https://www.slicemk.com/collections/all
 null
 ];

@@ -378,6 +378,7 @@ class ColStagBoards {
 		
 		kb = new ColStagKeyboard("NeoDox", redox);
 		kb.connection = [Wired];
+		kb.assembly = [];
 		kb.setHotswap([MX, Choc], MX);
 		kb.prebuilt = "https://ergomech.store/shop/neodox-52";
 		kb.img = "NeoDox.jpg";
@@ -797,9 +798,11 @@ class ColStagBoards {
 		kb.displays = 2;
 		kb.trackpoints = 1;
 		kb.setHotswap(Choc, Choc);
+		kb.hotswap = [HotSwap.Yes, HotSwap.Special];
 		kb.caseType = Included;
 		kb.source = "https://github.com/crehmann/Buzzard";
 		kb.img = "buzzard.webp";
+		kb.notes = ["Hotswap sockets cannot be used next to the trackpoint(s)"];
 		add(kb);
 		
 		function addReviung41(kb:ColStagKeyboard) {
@@ -899,13 +902,20 @@ class ColStagBoards {
 		kb.shape = [Split, Keywell];
 		kb.setMatrix(80, 6, 5);
 		kb.setExtras(6, -1, 0, 5);
-		kb.hotswap = HotSwap.Yes;
+		kb.hotswap = [HotSwap.No, HotSwap.Special];
 		kb.switchProfile = Choc;
 		kb.keySpacing = KeySpacing.Choc;
 		kb.connection = [Wired, Bluetooth];
+		kb.firmware = Firmware.ZMK;
+		kb.software = Software.Custom;
+		kb.wristPads = WristPads.Detachable;
 		kb.caseType = Included;
 		kb.prebuilt = "!http://www.moergo.com";
 		kb.img = "glove80.jpg";
+		kb.notes = [
+			"There is no hot-swap. However, MoErgo offers an unsoldered version that saves one from having to unsolder the built-in switches. Still, one needs to solder the new ones.",
+			"Hardware extension support: 6 digital GPIOs (inside the case)"
+		];
 		add(kb);
 		
 		kb = new ColStagKeyboard("MOMOKA ERGO");
