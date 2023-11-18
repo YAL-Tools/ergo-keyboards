@@ -1,9 +1,6 @@
 body {
   font: 15px sans-serif;
 }
-#data {
-  border: 1px solid #ddd;
-}
 table {
   width: 100%;
 }
@@ -81,12 +78,14 @@ td {
   max-width: 4em;
 }
 #data {
+  border: 1px solid #ddd;
+  position: relative;
   margin-top: 0.5em;
   border-spacing: 0;
 }
 #data th.can-sort {
   cursor: pointer;
-  position: relative;
+  /*position: relative;*/
 }
 #data th.can-sort.sort-column:after {
   position: absolute;
@@ -98,8 +97,18 @@ td {
 }
 #data > tr > td,
 #data > tr > th {
-  border-top: 1px solid #ddd;
   padding: 2px;
+  border-bottom: 1px solid #ddd;
+}
+#data > tr > th {
+  line-height: 1.5;
+  position: sticky;
+  top: 0;
+  background-color: #F6F8FA;
+}
+#data > tr:last-child > td,
+#data > tr:last-child > th {
+  border-bottom: none;
 }
 #data tr.latest {
   background-color: #374bff10;
@@ -141,6 +150,10 @@ body.night #data tr.latest,
 body.night #data tr:hover,
 .tippy-content #data tr:hover {
   background-color: #3794ff30;
+}
+body.night #data > tr > th,
+.tippy-content #data > tr > th {
+  background-color: #596987;
 }
 .tippy-content .tippy-photo {
   max-width: 100%;
