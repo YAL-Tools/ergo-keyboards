@@ -3460,10 +3460,12 @@ var table_NumberColumnBase = function(name) {
 	this.filterIncludeNullLabel = null;
 	this.filterIncludeNull = false;
 	this.filterMaxCheckbox = null;
+	this.filterMaxSlider = null;
 	this.filterMaxField = null;
 	this.filterMaxDefault = null;
 	this.filterMax = null;
 	this.filterMinCheckbox = null;
+	this.filterMinSlider = null;
 	this.filterMinField = null;
 	this.filterMinDefault = null;
 	this.filterMin = null;
@@ -3489,6 +3491,7 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		if(knownRange != null) {
 			tools_HtmlTools.appendDivTextNode(out,"Available range: " + type_NumRange.toString(knownRange));
 		}
+		var setValues = [];
 		var _g = 0;
 		while(_g < 2) {
 			var step = _g++;
@@ -3501,10 +3504,12 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 				fd[0].id = this.field.name + "-min";
 				slider[0].id = this.field.name + "-min-slider";
 				this.filterMinField = fd[0];
+				this.filterMinSlider = slider[0];
 			} else {
 				fd[0].id = this.field.name + "-max";
 				slider[0].id = this.field.name + "-max-slider";
 				this.filterMaxField = fd[0];
+				this.filterMaxSlider = slider[0];
 			}
 			fd[0].type = "number";
 			if(knownRange != null) {
@@ -3543,24 +3548,55 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 						} else {
 							_gthis.filterMax = val;
 						}
+						if(val != null && kind != -1) {
+							if(isMin[0]) {
+								if(_gthis.filterMax != null && _gthis.filterMax < _gthis.filterMin) {
+									setValues[1](val,-1);
+								}
+							} else if(_gthis.filterMin != null && _gthis.filterMin > _gthis.filterMax) {
+								setValues[0](val,-1);
+							}
+						}
 						_gthis.table.updateFilters();
 					}
 				};
 			})(slider,fd,isMin)];
-			var setFdValue = [(function(setValue,fd) {
-				return function() {
+			setValues[step] = setValue[0];
+			var setFdValue = [(function(setValue,fd,isMin) {
+				return function(soft) {
 					var val = _gthis.parseFilterValue(fd[0].value);
 					tools_HtmlTools.setAttributeFlag(fd[0],"invalid",val == null);
+					if(soft && val != null) {
+						if(isMin[0]) {
+							if(_gthis.filterMax != null && val > _gthis.filterMax) {
+								setValue[0](_gthis.filterMax,-1);
+								return;
+							}
+						} else if(_gthis.filterMin != null && val < _gthis.filterMin) {
+							setValue[0](_gthis.filterMin,-1);
+							return;
+						}
+					}
 					setValue[0](val,0);
 				};
-			})(setValue,fd)];
-			var setSliderValue = [(function(setValue,slider,fd) {
+			})(setValue,fd,isMin)];
+			var sliderTimeout = [-1];
+			var setSliderValue = [(function(sliderTimeout,setValue,slider,fd) {
 				return function() {
-					var val = _gthis.parseFilterValue(slider[0].value);
-					tools_HtmlTools.setAttributeFlag(fd[0],"invalid",val == null);
-					setValue[0](val,1);
+					if(sliderTimeout[0] != -1) {
+						window.clearTimeout(sliderTimeout[0]);
+					}
+					fd[0].value = slider[0].value;
+					sliderTimeout[0] = window.setTimeout((function(sliderTimeout,setValue,slider,fd) {
+						return function() {
+							sliderTimeout[0] = -1;
+							var val = _gthis.parseFilterValue(slider[0].value);
+							tools_HtmlTools.setAttributeFlag(fd[0],"invalid",val == null);
+							setValue[0](val,1);
+						};
+					})(sliderTimeout,setValue,slider,fd),250);
 				};
-			})(setValue,slider,fd)];
+			})(sliderTimeout,setValue,slider,fd)];
 			fd[0].onchange = (function(setFdValue) {
 				return function(_) {
 					setFdValue[0]();
@@ -3593,7 +3629,7 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 					fd[0].disabled = !cb[0].checked;
 					slider[0].disabled = fd[0].disabled;
 					if(cb[0].checked) {
-						setFdValue[0]();
+						setFdValue[0](true);
 					} else {
 						setValue[0](null,-1);
 					}

@@ -26,11 +26,13 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 	public var filterMin:Null<NT> = null;
 	public var filterMinDefault:Null<NT> = null;
 	public var filterMinField:InputElement = null;
+	public var filterMinSlider:InputElement = null;
 	public var filterMinCheckbox:InputElement = null;
 	
 	public var filterMax:Null<NT> = null;
 	public var filterMaxDefault:Null<NT> = null;
 	public var filterMaxField:InputElement = null;
+	public var filterMaxSlider:InputElement = null;
 	public var filterMaxCheckbox:InputElement = null;
 	
 	public var filterIncludeNull:Bool = false;
@@ -52,6 +54,7 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 		if (knownRange != null) {
 			out.appendDivTextNode("Available range: " + knownRange.toString());
 		}
+		var setValues = [];
 		for (step in 0 ... 2) {
 			var isMin = step == 0;
 			inline function get():NT {
@@ -70,10 +73,12 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 				fd.id = field.name + "-min";
 				slider.id = field.name + "-min-slider";
 				filterMinField = fd;
+				filterMinSlider = slider;
 			} else {
 				fd.id = field.name + "-max";
 				slider.id = field.name + "-max-slider";
 				filterMaxField = fd;
+				filterMaxSlider = slider;
 			}
 			
 			fd.type = "number";
@@ -96,6 +101,7 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 				slider.value = fd.value = "" + startVal;
 			}
 			
+			// kind { 0: field, 1: slider, -1: force all }
 			function setValue(val:Null<NT>, kind:Int) {
 				var old = get();
 				if (old != val) {
@@ -104,18 +110,45 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 						if (kind != 1) slider.value = "" + val;
 					}
 					set(val);
+					if (val != null && kind != -1) {
+						if (isMin) {
+							if (filterMax != null && filterMax < filterMin) setValues[1](val, -1);
+						} else {
+							if (filterMin != null && filterMin > filterMax) setValues[0](val, -1);
+						}
+					}
 					table.updateFilters();
 				}
 			}
-			function setFdValue() {
+			setValues[step] = setValue;
+			function setFdValue(?soft:Bool) {
 				var val = parseFilterValue(fd.value);
 				fd.setAttributeFlag("invalid", val == null);
+				if (soft && val != null) {
+					if (isMin) {
+						if (filterMax != null && val > filterMax) {
+							setValue(filterMax, -1);
+							return;
+						}
+					} else {
+						if (filterMin != null && val < filterMin) {
+							setValue(filterMin, -1);
+							return;
+						}
+					}
+				}
 				setValue(val, 0);
 			}
+			var sliderTimeout:Int = -1;
 			function setSliderValue() {
-				var val = parseFilterValue(slider.value);
-				fd.setAttributeFlag("invalid", val == null);
-				setValue(val, 1);
+				if (sliderTimeout != -1) window.clearTimeout(sliderTimeout);
+				fd.value = slider.value;
+				sliderTimeout = window.setTimeout(function() {
+					sliderTimeout = -1;
+					var val = parseFilterValue(slider.value);
+					fd.setAttributeFlag("invalid", val == null);
+					setValue(val, 1);
+				}, 250);
 			}
 			fd.onchange = function(_) setFdValue();
 			fd.onkeydown = function(_) setFdValue();
@@ -130,7 +163,7 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 				fd.disabled = !cb.checked;
 				slider.disabled = fd.disabled;
 				if (cb.checked) {
-					setFdValue();
+					setFdValue(true);
 				} else {
 					setValue(null, -1);
 				}
