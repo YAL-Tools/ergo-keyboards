@@ -7,8 +7,8 @@ import type.NumRange;
  * ...
  * @author YellowAfterlife
  */
-class IntColumn<KB:Keyboard> extends NumberColumn<KB, Int> {
+class IntColumn<T> extends NumberColumn<T, Int> {
 	override public function parseFilterValue(val:String):Int {
-		return NumberColumnBase.parseIntValue(val);
+		return NumberColumn.parseIntValue(val);
 	}
 }

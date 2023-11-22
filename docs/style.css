@@ -1,5 +1,6 @@
 body {
   font: 15px sans-serif;
+  overflow: auto;
 }
 table {
   width: 100%;
@@ -30,6 +31,27 @@ td {
 #editor .item {
   display: flex;
   align-items: start;
+  width: 100%;
+}
+#filter .item > div,
+#editor .item > div {
+  flex-grow: 1;
+}
+#filter .numrow {
+  display: flex;
+  flex-wrap: wrap;
+}
+#filter .numrow > label {
+  min-width: 5em;
+}
+#filter .numrow input[type="number"] {
+  width: 4em;
+  margin: 0 0.3em;
+}
+#filter .numrow input[type="range"] {
+  width: 3em;
+  flex-grow: 1;
+  max-width: 10em;
 }
 .has-notes {
   cursor: help;

@@ -12,8 +12,8 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
-	public var field:FancyField<KB, FT>;
+class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
+	public var field:FancyField<VT, FT>;
 	override public function getId():String {
 		return field.name;
 	}
@@ -38,15 +38,17 @@ class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
 	public var filterIncludeNullCheckbox:InputElement = null;
 	
 	public var suffix:String = "";
+	public var sliderStep:String = "1";
 	
 	public function parseFilterValue(val:String):NT {
 		return null;
 	}
-	public function getKnownRange(keyboards:Array<KB>):NumRange<NT> {
+	public function getKnownRange(keyboards:Array<VT>):NumRange<NT> {
 		return null;
 	}
 	override public function buildFilter(out:Element):Void {
-		var knownRange = getKnownRange(table.keyboards);
+		out.classList.add("number");
+		var knownRange = getKnownRange(table.values);
 		if (knownRange != null) {
 			out.appendDivTextNode("Available range: " + knownRange.toString());
 		}
@@ -61,26 +63,46 @@ class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
 			
 			var startVal = get();
 			var fd = document.createInputElement();
+			var slider = document.createInputElement();
+			slider.type = "range";
+			
 			if (isMin) {
 				fd.id = field.name + "-min";
+				slider.id = field.name + "-min-slider";
 				filterMinField = fd;
 			} else {
 				fd.id = field.name + "-max";
+				slider.id = field.name + "-max-slider";
 				filterMaxField = fd;
 			}
+			
 			fd.type = "number";
 			if (knownRange != null) {
+				var val:String;
 				if (isMin) {
-					fd.value = "" + (filterMinDefault ?? knownRange.min);
+					val = "" + (filterMinDefault ?? knownRange.min);
 				} else {
-					fd.value = "" + (filterMaxDefault ?? knownRange.max);
+					val = "" + (filterMaxDefault ?? knownRange.max);
 				}
+				fd.value = val;
+				slider.value = val;
+				slider.step = sliderStep;
+				
+				slider.min = "" + knownRange.min;
+				slider.max = "" + knownRange.max;
 			}
-			fd.disabled = startVal == null;
-			if (startVal != null) fd.value = "" + startVal;
-			function setValue(val:Null<NT>) {
+			slider.disabled = fd.disabled = startVal == null;
+			if (startVal != null) {
+				slider.value = fd.value = "" + startVal;
+			}
+			
+			function setValue(val:Null<NT>, kind:Int) {
 				var old = get();
 				if (old != val) {
+					if (val != null) {
+						if (kind != 0) fd.value = "" + val;
+						if (kind != 1) slider.value = "" + val;
+					}
 					set(val);
 					table.updateFilters();
 				}
@@ -88,20 +110,29 @@ class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
 			function setFdValue() {
 				var val = parseFilterValue(fd.value);
 				fd.setAttributeFlag("invalid", val == null);
-				setValue(val);
+				setValue(val, 0);
+			}
+			function setSliderValue() {
+				var val = parseFilterValue(slider.value);
+				fd.setAttributeFlag("invalid", val == null);
+				setValue(val, 1);
 			}
 			fd.onchange = function(_) setFdValue();
 			fd.onkeydown = function(_) setFdValue();
 			fd.onkeyup = function(_) setFdValue();
 			
+			slider.onchange = function(_) setSliderValue();
+			slider.oninput = function(_) setSliderValue();
+			
 			var cb = document.createCheckboxElement();
 			cb.checked = startVal != null;
 			cb.onchange = function(_) {
 				fd.disabled = !cb.checked;
+				slider.disabled = fd.disabled;
 				if (cb.checked) {
 					setFdValue();
 				} else {
-					setValue(null);
+					setValue(null, -1);
 				}
 			}
 			if (isMin) {
@@ -117,8 +148,10 @@ class NumberColumnBase<KB:Keyboard, NT:Float, FT> extends FancyColumn<KB> {
 			lb.appendTextNode((isMin ? "min" : "max") + ": ");
 			
 			var div = document.createDivElement();
+			div.classList.add("numrow");
 			div.appendChild(lb);
 			div.appendChild(fd);
+			div.appendChild(slider);
 			out.appendChild(div);
 		}
 		if (filterIncludeNullLabel != null) {

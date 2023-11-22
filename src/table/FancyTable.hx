@@ -21,52 +21,23 @@ import js.Browser.*;
  * ...
  * @author YellowAfterlife
  */
-class FancyTable<KB:Keyboard> {
-	public var columns:Array<FancyColumn<KB>> = [];
-	public var filterOrder:Array<FancyTableFilterOrder<KB>> = [];
-	public var keyboards:Array<KB> = [];
-	public var header:FancyRow<KB> = null;
-	public var rows:Array<FancyRow<KB>> = [];
+class FancyTable<T> {
+	public var columns:Array<FancyColumn<T>> = [];
+	public var filterOrder:Array<FancyTableFilterOrder<T>> = [];
+	public var values:Array<T> = [];
+	public var header:FancyRow<T> = null;
+	public var rows:Array<FancyRow<T>> = [];
 	public var countElement:Element = null;
-	public var testRow:FancyRow<KB> = null;
+	public var testRow:FancyRow<T> = null;
 	public var outElement:Element = null;
 	
 	public function new() {
 		
 	}
-	public function addColumn(col:FancyColumn<KB>) {
+	public function addColumn(col:FancyColumn<T>) {
 		col.table = this;
 		columns.push(col);
 		filterOrder.push(Column(col));
-	}
-	
-	public function resolveParent(kb:KB) {
-		var parentName = kb.parent;
-		if (parentName == null) return;
-		kb.parent = null;
-		
-		var parent = keyboards.filter(ikb -> ikb.name == parentName)[0];
-		if (parent == null) {
-			console.error('Unknown parent "$parentName" in "${kb.name}"');
-			return;
-		}
-		resolveParent(parent);
-		
-		// don't copy link lists to children:
-		var tmp = Reflect.copy(parent);
-		for (col in columns) if (col is LinkListColumn) {
-			(cast col:LinkListColumn<KB>).field.access(tmp, true, null);
-		}
-		
-		for (key in Object.keys(tmp)) {
-			var val = Reflect.field(tmp, key);
-			if (val == null) continue;
-			if (Reflect.field(kb, key) != null) continue;
-			Reflect.setField(kb, key, val);
-		}
-	}
-	public function resolveParents() {
-		for (kb in keyboards) resolveParent(kb);
 	}
 	
 	public function addFilterHeader(text:String) {
@@ -78,17 +49,17 @@ class FancyTable<KB:Keyboard> {
 		FancyTableFilters.build(this, out);
 	}
 	
-	public function sortBy(sortColumn:FancyColumn<KB>, ascending:Bool) {
+	public function sortBy(sortColumn:FancyColumn<T>, ascending:Bool) {
 		var sortRows = rows.copy();
 		sortRows.sort(function(a, b) {
-			return sortColumn.compareKeyboards(a.keyboard, b.keyboard, ascending);
+			return sortColumn.compareKeyboards(a.value, b.value, ascending);
 		});
 		sortRows.reverse();
 		for (row in sortRows) header.element.after(row.element);
 	}
-	public var sortColHead:FancyTableHeaderCell<KB> = null;
+	public var sortColHead:FancyTableHeaderCell<T> = null;
 	public var sortAscending:Bool = false;
-	public function createRow(keyboard:KB) {
+	public function createRow(keyboard:T) {
 		var row = new FancyRow(keyboard);
 		for (column in columns) {
 			var cell = new FancyTableCell(column);
@@ -140,19 +111,19 @@ class FancyTable<KB:Keyboard> {
 		}
 		out.appendChild(header.element);
 		//
-		for (keyboard in keyboards) {
+		for (keyboard in values) {
 			var row = createRow(keyboard);
 			rows.push(row);
 			out.appendChild(row.element);
 		}
-		if (countElement != null) countElement.innerText = "" + keyboards.length;
+		if (countElement != null) countElement.innerText = "" + values.length;
 	}
-	public var canUpdateFilters:Bool = false;
+	public var canUpdateFilters:Bool = true;
 	public function updateFilters(_updateURL:Bool = true) {
 		if (!canUpdateFilters) return;
 		var found = 0;
 		for (row in rows) {
-			var keyboard = row.keyboard;
+			var keyboard = row.value;
 			var show = true;
 			for (column in columns) if (column.wantFilter) {
 				if (column.matchesFilter(keyboard)) continue;
@@ -201,7 +172,7 @@ class FancyTable<KB:Keyboard> {
 		if (!canUpdateURL) return;
 		var search = saveFilters();
 		var loc = document.location;
-		var prefix = Main.baseURL;
+		var prefix = baseURL;
 		if (loc.protocol == "file:") {
 			prefix = "https://yal-tools.github.io/ergo-keyboards/";
 		} else {
@@ -231,7 +202,9 @@ class FancyTable<KB:Keyboard> {
 			var filter = column.loadFilterParams(obj);
 			column.filterCheckbox.checked = filter;
 			if (filter) {
-				column.filterCheckbox.onchange(null);
+				column.filterCheckbox.triggerChange();
+				column.showCheckbox.checked = true;
+				column.showCheckbox.triggerChange();
 				wantFilter = true;
 			}
 		}
@@ -250,10 +223,10 @@ class FancyTable<KB:Keyboard> {
 		
 		if (wantFilter) updateFilters(false);
 	}
-	public function loadTest(kb:KB) {
+	public function loadTest(kb:T) {
 		if (testRow != null) {
 			testRow.element.parentElement.removeChild(testRow.element);
-			keyboards.remove(testRow.keyboard);
+			values.remove(testRow.value);
 		}
 		for (col in columns) col.load(kb);
 		testRow = createRow(kb);
@@ -261,8 +234,8 @@ class FancyTable<KB:Keyboard> {
 		rows.push(testRow);
 	}
 }
-enum FancyTableFilterOrder<KB:Keyboard> {
-	Column(col:FancyColumn<KB>);
+enum FancyTableFilterOrder<T> {
+	Column(col:FancyColumn<T>);
 	Header(h:FancyFilterHeader);
 }
 class FancyFilterHeader {

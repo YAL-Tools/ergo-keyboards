@@ -10,7 +10,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NumberColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NT> {
+class NumberColumn<VT, NT:Float> extends NumberColumnBase<VT, NT, NT> {
 	public static function parseIntValue(val:String):Int {
 		if (val == null) return null;
 		return Std.parseInt(val);
@@ -29,26 +29,25 @@ class NumberColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NT> {
 	}
 	
 	public var defaultValue:NT = cast 0;
-	public function new(name:String, field:FancyField<KB, NT>) {
+	public function new(name:String, field:FancyField<VT, NT>) {
 		super(name);
 		this.field = field;
 	}
-	override public function getKnownRange(keyboards:Array<KB>):NumRange<NT> {
+	override public function getKnownRange(keyboards:Array<VT>):NumRange<NT> {
 		var min = null, max = null;
 		for (keyboard in keyboards) {
 			var val = field.access(keyboard);
-			if (val != null) {
-				if (min == null || val < min) min = val;
-				if (max == null || val > max) max = val;
-			}
+			if (val == null || !Math.isFinite(val)) continue;
+			if (min == null || val < min) min = val;
+			if (max == null || val > max) max = val;
 		}
 		return min != null ? new NumRange(min, max) : null;
 	}
-	override public function buildValue(out:Element, kb:KB):Void {
+	override public function buildValue(out:Element, kb:VT):Void {
 		var val = field.access(kb);
 		out.appendTextNode(val != null ? "" + val : nullCaption);
 	}
-	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
+	override public function buildEditor(out:Element, store:Array<VT->Void>, restore:Array<VT->Void>):Void {
 		var fd = Browser.document.createInputElement();
 		fd.type = "number";
 		fd.onchange = function() {
@@ -65,7 +64,7 @@ class NumberColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NT> {
 			fd.value = val != null ? "" + val : "";
 		});
 	}
-	override public function matchesFilter(kb:KB):Bool {
+	override public function matchesFilter(kb:VT):Bool {
 		var val = field.access(kb);
 		if (val == null) {
 			if (filterIncludeNull) return true;
@@ -75,7 +74,7 @@ class NumberColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NT> {
 		if (filterMax != null && val > filterMax) return false;
 		return true;
 	}
-	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
+	override public function compareKeyboards(a:VT, b:VT, ascending:Bool):Int {
 		var av = field.access(a) ?? defaultValue;
 		var bv = field.access(b) ?? defaultValue;
 		if (ascending) return compareValues(av, bv);

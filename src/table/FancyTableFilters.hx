@@ -34,10 +34,10 @@ class FancyTableFilters {
 			Tippy.bind(el, opts);
 		}
 	}
-	public static function addNotes<KB:Keyboard>(column:FancyColumn<KB>, el:Element) {
+	public static function addNotes<T>(column:FancyColumn<T>, el:Element) {
 		addNotesFor(column.onNotes, el);
 	}
-	public static function build<KB:Keyboard>(table:FancyTable<KB>, out:Element) {
+	public static function build<T>(table:FancyTable<T>, out:Element) {
 		var dest:Element = out;
 		for (item in table.filterOrder) {
 			var column = switch (item) {
@@ -64,6 +64,7 @@ class FancyTableFilters {
 			tr.classList.add("item");
 			
 			var cbShow = document.createInputElement();
+			cbShow.disabled = !column.canShow;
 			cbShow.type = "checkbox";
 			cbShow.classList.add("cb-show");
 			cbShow.checked = column.show;
@@ -78,6 +79,7 @@ class FancyTableFilters {
 					}
 				}
 			}
+			column.showCheckbox = cbShow;
 			tr.appendChild(cbShow);
 			var toShow = new TippyOptions();
 			toShow.content = 'Show "$colName"';

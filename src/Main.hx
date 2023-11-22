@@ -45,18 +45,7 @@ class Main {
 		//
 		var btClearFilters:InputElement = document.querySelectorAuto("#clear-filters");
 		btClearFilters.onclick = function() {
-			var cbs:Array<InputElement> = divFilters.querySelectorAllAutoArr("input.cb-filter");
-			var update = false;
-			csTable.canUpdateFilters = false;
-			for (el in cbs) {
-				if (el.checked) {
-					update = true;
-					el.checked = false;
-					el.triggerChange();
-				}
-			}
-			csTable.canUpdateFilters = true;
-			if (update) csTable.updateFilters();
+			FancyTableControls.clearFilters(csTable, divFilters);
 		}
 		
 		//
@@ -68,36 +57,7 @@ class Main {
 		
 		//
 		var btShare:InputElement = document.querySelectorAuto("#copy-share-url");
-		var shareOpt = new TippyOptions();
-		shareOpt.trigger = "manual";
-		shareOpt.content = "Copied!";
-		var shareTippy = Tippy.bind(btShare, shareOpt);
-		var shareTippyHide:Int = 0;
-		btShare.onclick = function() {
-			var search = csTable.saveFilters();
-			var url = csTable.baseURL + search;
-			function fallback() {
-				window.prompt("Failed to copy - here's your link:", url);
-			}
-			try {
-				navigator.clipboard.writeText(url).catchError(function(e) {
-					console.error("Failed to copy", e);
-					fallback();
-				}).then(function(_) {
-					shareTippy.show();
-					if (shareTippyHide != 0) {
-						window.clearTimeout(shareTippyHide);
-					}
-					shareTippyHide = window.setTimeout(function() {
-						shareTippyHide = 0;
-						shareTippy.hide();
-					}, 1200);
-				});
-			} catch (x:Dynamic) {
-				console.error("Failed to copy", x);
-				fallback();
-			}
-		}
+		FancyTableControls.createShareButton(csTable, btShare);
 		
 		//
 		var shuffler = new FancyTableShuffler<ColStagKeyboard>("");

@@ -1,5 +1,6 @@
 body {
     font: 15px sans-serif;
+	overflow: auto;
 }
 table {
 	width: 100%;
@@ -24,6 +25,28 @@ th, td {
 	.item {
 		display: flex;
 		align-items: start;
+		width: 100%;
+		>div {
+			flex-grow: 1;
+		}
+	}
+}
+#filter {
+	.numrow {
+		display: flex;
+		flex-wrap: wrap;
+		>label {
+			min-width: 5em;
+		}
+		input[type="number"] {
+			width: 4em;
+			margin: 0 0.3em;
+		}
+		input[type="range"] {
+			width: 3em;
+			flex-grow: 1;
+			max-width: 10em;
+		}
 	}
 }
 .has-notes {

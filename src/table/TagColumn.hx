@@ -1,6 +1,7 @@
 package table;
 import js.html.Element;
 import table.FancyColumn;
+import table.TagLikeColumnTools;
 import type.GetSetOn;
 import type.Keyboard;
 import js.Browser.*;
@@ -14,27 +15,19 @@ using tools.HtmlTools;
 class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, ET> {
 	public var defaultValue:ET = null;
 	public function new(name:String, field:FancyField<KB, ET>, et:Enum<ET>) {
-		super(name, et);
+		super(name, field, et);
 		defaultValue = et.createByIndex(0);
 		this.field = field;
 		this.type = et;
+	}
+	override function getDefaultTag() {
+		return defaultValue;
 	}
 	function getValue(kb:KB) {
 		return field.access(kb) ?? defaultValue;
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
-		var val = getValue(kb);
-		if (val != null) {
-			var name = val.getName();
-			out.appendTextNode(shortLabels[val] ?? name);
-			out.title = [
-				kb.name,
-				this.name + ":",
-				filterLabels[val] ?? name,
-			].join("\n");
-		} else {
-			out.appendTextNode(nullCaption);
-		}
+		TagLikeColumnTools.buildSingleValue(this, out, kb);
 	}
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var select = document.createSelectElement();

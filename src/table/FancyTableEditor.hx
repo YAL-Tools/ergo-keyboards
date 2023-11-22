@@ -13,6 +13,7 @@ import js.html.TableRowElement;
 import table.FancyColumn;
 import table.FancyTableFilters;
 import table.FancyRow;
+import table.KeyboardTable;
 import type.IntRange;
 import type.Keyboard;
 using tools.HtmlTools;
@@ -23,7 +24,7 @@ import js.Browser.*;
  * @author YellowAfterlife
  */
 class FancyTableEditor {
-	public static function build<KB:Keyboard>(table:FancyTable<KB>,
+	public static function build<KB>(table:FancyTable<KB>,
 		out:FormElement,
 		ddLoad:SelectElement,
 		btReset:InputElement,
@@ -92,28 +93,30 @@ class FancyTableEditor {
 			out.reset();
 		}
 		
-		var kbs = table.keyboards;
-		kbs.sort(function(a, b) {
-			var an = a.name.toUpperCase();
-			var bn = b.name.toUpperCase();
-			return an < bn ? -1 : 1;
-		});
-		for (kb in kbs) {
-			var option = document.createOptionElement();
-			option.appendTextNode(kb.name);
-			ddLoad.appendChild(option);
-		}
-		ddLoad.onchange = function() {
-			if (ddLoad.value == "") return;
-			var name = ddLoad.value;
-			if (!window.confirm(
-				"Are you sure that you want to replace fields with those of \"" + name +
-				"\"? This cannot be undone!"
-			)) return;
-			ddLoad.value = "";
-			var kb = table.keyboards.filter(kb->kb.name == name)[0];
-			if (kb == null) return;
-			for (fn in restore) fn(kb);
+		if (table is KeyboardTable) {
+			var kbs = (cast table:KeyboardTable<Keyboard>).values;
+			kbs.sort(function(a, b) {
+				var an = a.name.toUpperCase();
+				var bn = b.name.toUpperCase();
+				return an < bn ? -1 : 1;
+			});
+			for (kb in kbs) {
+				var option = document.createOptionElement();
+				option.appendTextNode(kb.name);
+				ddLoad.appendChild(option);
+			}
+			ddLoad.onchange = function() {
+				if (ddLoad.value == "") return;
+				var name = ddLoad.value;
+				if (!window.confirm(
+					"Are you sure that you want to replace fields with those of \"" + name +
+					"\"? This cannot be undone!"
+				)) return;
+				ddLoad.value = "";
+				var kb = kbs.filter(kb->kb.name == name)[0];
+				if (kb == null) return;
+				for (fn in restore) fn(cast kb);
+			}
 		}
 		
 		btTest.onclick = function() {

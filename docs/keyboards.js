@@ -1930,7 +1930,6 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 4,
 	"cornerKeys": 4,
-	"pinkyStagger": 0.7,
 	"hotswap": "Yes",
 	"switchProfile": "MX",
 	"firmware": "QMK",
@@ -2594,7 +2593,7 @@ window.keyboardData = [
 	"source": "https://github.com/yoichiro/lunakey"
 },
 {
-	"name": "Le Chiffr",
+	"name": "Le Chiffre",
 	"img": "Le-Chiffre.jpg",
 	"shape": "Unibody",
 	"stagger": "Column",
@@ -2966,6 +2965,117 @@ window.keyboardData = [
 	"caseType": "Included",
 	"web": "https://lemmy.world/post/4453514",
 	"source": "https://github.com/jurica/juriform36"
+},
+{
+	"name": "cocot36plus",
+	"img": "cocot36plus.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"trackballs": 1,
+	"trackballSize": 34,
+	"firmware": "QMK",
+	"software": "Vial",
+	"source": "https://github.com/aki27kbd/cocot36plus",
+	"kit": "https://cocotkeebs.com/en/collections/all"
+},
+{
+	"name": "Endeavour",
+	"img": "endeavour.jpeg",
+	"shape": "Monoblock",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": {
+		"min": 31,
+		"max": 40
+	},
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 1,
+		"max": 4
+	},
+	"cornerKeys": {
+		"min": 0,
+		"max": 4
+	},
+	"caseType": "Included",
+	"source": "https://github.com/ScatteredDrifter/Endeavour/tree/main"
+},
+{
+	"name": "Barghoot",
+	"img": "Barghoot.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 43,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"cornerKeys": 4,
+	"encoders": 2,
+	"encoderType": "Knob",
+	"trackballs": 1,
+	"displays": 1,
+	"caseType": "Included",
+	"source": "https://github.com/AlaaSaadAbdo/battoota/tree/main/boards/40keys/Barghoot"
+},
+{
+	"name": "Nijuni",
+	"img": "Nijuni.jpeg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 42,
+		"max": 44
+	},
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"outerKeys": {
+		"min": 0,
+		"max": 1
+	},
+	"pinkyStagger": 0.4,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Alps"
+	],
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/krikun98/nijuni"
+},
+{
+	"name": "chakra56",
+	"img": "chakra56.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 1,
+	"pinkyStagger": 0.4,
+	"encoders": 2,
+	"encoderType": "Knob",
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"web": "https://www.reddit.com/r/olkb/comments/x0iaqs/was_designing_my_own_3d_printed_split_but_it/",
+	"source": "https://www.printables.com/model/268802-chakra-low-profile-split-keyboard"
 },
 // todo: https://www.slicemk.com/collections/all
 null

@@ -10,13 +10,13 @@ import js.html.TableRowElement;
  * A row in the data table
  * @author YellowAfterlife
  */
-class FancyRow<KB:Keyboard> {
-	public var keyboard:KB;
+class FancyRow<T> {
+	public var value:T;
 	public var element:TableRowElement;
 	public var show:Bool;
-	public var cells:Array<FancyTableCellBase<KB>> = [];
-	public function new(kb:KB) {
-		keyboard = kb;
+	public var cells:Array<FancyTableCellBase<T>> = [];
+	public function new(ref:T) {
+		value = ref;
 		element = document.createTableRowElement();
 		element.addEventListener("click", function(_) {
 			var cur = element.parentElement.querySelector("tr.latest");
@@ -26,21 +26,21 @@ class FancyRow<KB:Keyboard> {
 		});
 	}
 }
-class FancyTableCellBase<KB:Keyboard> {
+class FancyTableCellBase<T> {
 	public var element:Element;
-	public var column:FancyColumn<KB>;
-	public function new(col:FancyColumn<KB>) {
+	public var column:FancyColumn<T>;
+	public function new(col:FancyColumn<T>) {
 		column = col;
 	}
 }
-class FancyTableCell<KB:Keyboard> extends FancyTableCellBase<KB> {
-	public function new(col:FancyColumn<KB>) {
+class FancyTableCell<T> extends FancyTableCellBase<T> {
+	public function new(col:FancyColumn<T>) {
 		super(col);
 		element = document.createTableCellElement();
 	}
 }
-class FancyTableHeaderCell<KB:Keyboard> extends FancyTableCellBase<KB> {
-	public function new(col:FancyColumn<KB>) {
+class FancyTableHeaderCell<T> extends FancyTableCellBase<T> {
+	public function new(col:FancyColumn<T>) {
 		super(col);
 		element = document.createElement("th");
 	}

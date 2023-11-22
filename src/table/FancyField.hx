@@ -6,10 +6,10 @@ import type.Keyboard;
  * ...
  * @author YellowAfterlife
  */
-class FancyField<KB:Keyboard, RT> {
+class FancyField<T, RT> {
 	public var name:String;
-	public var access:GetSetOn<KB, RT>;
-	public function new(name:String, access:GetSetOn<KB, RT>) {
+	public var access:GetSetOn<T, RT>;
+	public function new(name:String, access:GetSetOn<T, RT>) {
 		this.name = name;
 		this.access = access;
 	}

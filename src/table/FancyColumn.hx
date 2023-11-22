@@ -12,16 +12,18 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class FancyColumn<KB:Keyboard> {
-	public var table:FancyTable<KB> = null;
+class FancyColumn<T> {
+	public var table:FancyTable<T> = null;
 	public var name:String;
 	public var filterName:String = null;
 	public var shortName:String = null;
 	public var onNotes:Element->Void = null;
 	public var show = true;
+	public var canShow = true;
 	public var canFilter = true;
 	public var wantFilter = false;
 	
+	public var showCheckbox:InputElement = null;
 	public var filterCheckbox:InputElement = null;
 	
 	/** Shown if keyboard doesn't have this value specified. */
@@ -32,16 +34,16 @@ class FancyColumn<KB:Keyboard> {
 	public function getId():String {
 		return name;
 	}
-	public function buildValue(out:Element, kb:KB):Void {
+	public function buildValue(out:Element, kb:T):Void {
 		
 	}
 	public function buildFilter(out:Element):Void {
 		
 	}
-	public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
+	public function buildEditor(out:Element, store:Array<T->Void>, restore:Array<T->Void>):Void {
 		
 	}
-	public function matchesFilter(kb:KB):Bool {
+	public function matchesFilter(kb:T):Bool {
 		return true;
 	}
 	public function saveFilterParams(obj:DynamicAccess<String>):Void {
@@ -52,14 +54,14 @@ class FancyColumn<KB:Keyboard> {
 	}
 	
 	public var canSort = false;
-	public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
+	public function compareKeyboards(a:T, b:T, ascending:Bool):Int {
 		return 0;
 	}
 	// if saving/loading requires preprocessing, these two should apply/undo that
-	public function save(kb:KB):Void {
+	public function save(kb:T):Void {
 		
 	}
-	public function load(kb:KB):Void {
+	public function load(kb:T):Void {
 		
 	}
 }

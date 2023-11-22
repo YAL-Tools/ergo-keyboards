@@ -13,7 +13,7 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 	public var defaultValue:ValList<ET> = null;
 	public var onBuildValue:(out:Element, vals:ValList<ET>, kb:KB)->Bool;
 	public function new(name:String, field:FancyField<KB, ValList<ET>>, et:Enum<ET>) {
-		super(name, et);
+		super(name, field, et);
 		defaultValue = et.createByIndex(0);
 		this.field = field;
 		this.type = et;

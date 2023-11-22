@@ -3,7 +3,9 @@ import js.Browser.*;
 import type.*;
 import js.html.Element;
 import table.FancyField;
+import table.FloatColumn;
 import table.IntRangeColumn;
+import table.KeyboardTable;
 import table.LinkListColumn;
 import table.TagColumn;
 import table.TagListColumn;
@@ -21,7 +23,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class ColStagTable extends FancyTable<ColStagKeyboard> {
+class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 	function addImagePara(notes:Element, filename:String, width:Int, height:Int, alt:String) {
 		var p = document.createParagraphElement();
 		p.classList.add("img");
@@ -131,6 +133,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		var pinkyStag = new FloatColumn("Pinky stagger", mgf(kb.pinkyStagger));
 		pinkyStag.show = false;
 		pinkyStag.shortName = "pkStag";
+		pinkyStag.sliderStep = "0.05";
 		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
 		pinkyStag.onNotes = function(div) {
 			div.appendParaTextNode(
@@ -376,6 +379,7 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		));
 		var col:FancyColumn<ColStagKeyboard>;
 		var irCol:IntRangeColumn<ColStagKeyboard>;
+		var fCol:FloatColumn<ColStagKeyboard>;
 		
 		mAddColumn(irCol = new IntRangeColumn("Encoders", kb.encoders));
 		irCol.shortName = "#enc";
@@ -393,17 +397,17 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		irCol.show = false;
 		irCol.filterMinDefault = 1;
 		
-		mAddColumn(col = new FloatColumn("Trackball size", kb.trackballSize));
-		col.filterName = col.name + " (mm)";
-		col.show = false;
+		mAddColumn(fCol = new FloatColumn("Trackball size", kb.trackballSize));
+		fCol.filterName = fCol.name + " (mm)";
+		fCol.show = false;
 		
 		mAddColumn(irCol = new IntRangeColumn("Touchpads", kb.trackpads));
 		irCol.show = false;
 		irCol.filterMinDefault = 1;
 		
-		mAddColumn(col = new FloatColumn("Touchpad size", kb.trackpadSize));
-		col.filterName = col.name + " (mm)";
-		col.show = false;
+		mAddColumn(fCol = new FloatColumn("Touchpad size", kb.trackpadSize));
+		fCol.filterName = fCol.name + " (mm)";
+		fCol.show = false;
 		
 		mAddColumn(irCol = new IntRangeColumn("Trackpoints", kb.trackpoints));
 		irCol.filterMinDefault = 1;
@@ -615,15 +619,15 @@ class ColStagTable extends FancyTable<ColStagKeyboard> {
 		
 		var col:FancyColumn<ColStagKeyboard>;
 		
-		ColStagBoards.init(keyboards);
-		OrthoBoards.init(keyboards);
+		ColStagBoards.init(values);
+		OrthoBoards.init(values);
 		var kbs:Array<ColStagKeyboard> = (cast window).keyboardData;
 		for (kb in kbs) {
 			if (kb == null || !Reflect.isObject(kb)) continue;
 			for (col in columns) col.load(kb);
-			keyboards.push(kb);
+			values.push(kb);
 		}
-		for (kb in keyboards) {
+		for (kb in values) {
 			if (kb.caseType == null && kb.assembly != null && kb.assembly.contains(Handwired)) {
 				kb.caseType = [Included];
 			}
