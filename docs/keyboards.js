@@ -2912,6 +2912,7 @@ window.keyboardData = [
 	"rows": 3,
 	"cols": 6,
 	"thumbKeys": 4,
+	"splay": "PinkyOnly",
 	"pinkyStagger": 0.9,
 	"hotswap": "No",
 	"switchProfile": "Choc",
@@ -3076,6 +3077,446 @@ window.keyboardData = [
 	"caseType": "Included",
 	"web": "https://www.reddit.com/r/olkb/comments/x0iaqs/was_designing_my_own_3d_printed_split_but_it/",
 	"source": "https://www.printables.com/model/268802-chakra-low-profile-split-keyboard"
+},
+{
+	"name": "tamago60",
+	"img": "tamago60.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": [60, 62],
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": [3, 4],
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"Choc",
+		"ChocV2"
+	],
+	"keySpacing": "MX",
+	"trackpoints": 1,
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/eggsworks/tamago60"
+},
+{
+	"name": "PLA_NCK",
+	"img": "PLA_NCK.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 48,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": "GateronLP",
+	"displays": 2,
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://github.com/shanna/pla_nck"
+},
+{
+	"name": "shortstack",
+	"img": "shortstack.jpg",
+	"notes": "Uses Kailh X switches",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 48,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": "No",
+	"switchProfile": "Other",
+	"firmware": "QMK",
+	"source": "https://github.com/hazels-garage/shortstack"
+},
+{
+	"name": "Thorium",
+	"img": "thorium.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://github.com/note96e/thorium"
+},
+{
+	"name": "OK35",
+	"img": "ok35.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 70,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"assembly": [
+		"PCB",
+		"ThroughHole"
+	],
+	"source": "https://github.com/mothdotmonster/OK35",
+	"kit": "!https://shop.moth.monster/product/ok35"
+},
+{
+	"name": "Jaye 44",
+	"img": "Jaye44.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.6,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"kit": "![ru]https://t.me/eddbrds",
+	"prebuilt": "![ru]https://t.me/eddbrds"
+},
+{
+	"name": "TSBYM",
+	"img": "tsbym.jpg",
+	"notes": ["\"The Space Between You and Me\""],
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"encoders": {
+		"min": 0,
+		"max": 1
+	},
+	"encoderType": "Knob",
+	"trackballs": {
+		"min": 0,
+		"max": 1
+	},
+	"trackballSize": 38,
+	"trackpads": {
+		"min": 0,
+		"max": 2
+	},
+	"trackpadSize": 38,
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/cgxeiji/cgxkb/tree/main/tsbym"
+},
+{
+	"name": "Pi5",
+	"img": "Pi5Keyboard.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"cornerKeys": 1,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc",
+		"ChocV2",
+		"GateronLP"
+	],
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/luke-schutt/Pi5Keyboard"
+},
+{
+	"name": "Briq",
+	"img": "briq.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 0,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/kunsteak/Briq"
+},
+{
+	"name": "X-2",
+	"img": "x-2.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 6,
+	"cols": 4,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": [
+		"No",
+		"Yes"
+	],
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"firmware": "QMK",
+	"source": "https://github.com/rgoulter/keyboard-labs"
+},
+{
+	"name": "Block",
+	"img": "block-kbd.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 48,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/bncpr/block-kbd"
+},
+{
+	"name": "Storyboard",
+	"img": "storyboard.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"displays": 1,
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/cbskii/storyboard-keyboard"
+},
+{
+	"name": "Lumberjack",
+	"img": "lumberjack.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": [58, 60],
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": [2, 3],
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"assembly": "ThroughHole",
+	"caseType": "Included",
+	"source": "https://github.com/peej/lumberjack-keyboard"
+},
+{
+	"name": "Klavgen",
+	"img": "klavgen.png",
+	"notes": "A handwired keyboard generator!",
+	"stagger": "Column",
+	"connection": "Wired",
+	"shape": "Split",
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"assembly": "Handwired",
+	"wristPads": [
+		"None",
+		"Detachable"
+	],
+	"source": "https://github.com/klavgen/klavgen"
+},
+{
+	"name": "Ajisai",
+	"img": "Ajisai.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"pinkyStagger": 0.6,
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": "Handwired",
+	"source": [
+		"https://github.com/dcored13/zmk-master",
+		"https://www.thingiverse.com/thing:5468398"
+	]
+},
+{
+	"name": "Ortholily",
+	"img": "ortholily58.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"switchProfile": "MX",
+	"lighting": "None",
+	"assembly": "Handwired",
+	"source": [
+		"https://www.printables.com/model/245613-the-ortholily-a-3d-printed-split-ortholinear-mecha",
+		"https://media.printables.com/media/prints/245613/other_files/2211474_a5c6d880-6fb0-466b-a4b0-46097d004c83/ortholily-guide.pdf"
+	]
+},
+{
+	"name": "Gleb's Sexy Acrylic",
+	"img": "gleb-acrylic-1.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.6,
+	"splay": "PinkyOnly",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 4,
+	"encoderType": [
+		"Knob",
+		"Wheel"
+	],
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"source": "https://gitlab.com/gleb_sexy/keyboard-1"
+},
+{
+	"name": "split_fire",
+	"img": "split_fire.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.4,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"trackpoints": 1,
+	"lighting": [
+		"None",
+		"RGB"
+	],
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"source": "https://github.com/anz507/split_fire"
+},
+{
+	"name": "Proteus67",
+	"img": "Proteus67.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 66,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 2,
+	"cornerKeys": 4,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"lighting": "Underglow",
+	"firmware": "QMK",
+	"software": "VIA",
+	"caseType": "Included",
+	"source": "https://github.com/gzowski/Proteus67"
+},
+{
+	"name": "Allium58",
+	"img": "allium58.jpg",
+	"notes": "Based on Lily58 Pro",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"outerKeys": 0,
+	"cornerKeys": 0,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "GateronLP",
+	"displays": 2,
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/beekeeb/Allium58",
+	"kit": "!https://shop.beekeeb.com/product/allium58-glp-wired-kit/",
+	"prebuilt": [
+		"!https://shop.beekeeb.com/product/allium58-glp-wireless-kit/",
+		"!https://shop.beekeeb.com/product/allium58-glp-wired-kit/"
+	]
 },
 // todo: https://www.slicemk.com/collections/all
 null

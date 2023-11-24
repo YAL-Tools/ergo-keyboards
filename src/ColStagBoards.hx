@@ -35,6 +35,7 @@ class ColStagBoards {
 		kb.connection = [Wired, Wireless];
 		kb.displays = [0, 2];
 		kb.caseType = [ThirdParty];
+		kb.lighting = [None, RGB];
 		kb.source = "https://github.com/foostan/crkbd";
 		kb.kit = [
 			"https://splitkb.com/collections/keyboard-kits/products/aurora-corne",
@@ -84,6 +85,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Sofle");
 		kb.setHotswap([MX, Choc]);
 		kb.caseType = [Included, ThirdParty];
+		kb.lighting = [None, RGB];
 		kb.web = "https://josefadamcik.github.io/SofleKeyboard/";
 		kb.source = "https://github.com/josefadamcik/SofleKeyboard";
 		kb.kit = [
@@ -116,6 +118,7 @@ class ColStagBoards {
 		];
 		kb.setHotswap(Choc, MX);
 		kb.caseType = [Included, ThirdParty];
+		kb.lighting = [None, RGB];
 		kb.web = "https://josefadamcik.github.io/SofleKeyboard/";
 		kb.source = "https://github.com/josefadamcik/SofleKeyboard";
 		kb.kit = [
@@ -783,6 +786,7 @@ class ColStagBoards {
 			pinkyStagger: 0.25,
 			caseType: Included,
 			source: "https://github.com/MickiusMousius/RolioKeyboard",
+			kit: "!https://keydio.io/",
 			img: "Rolio.jpg"
 		};
 		kb.setNotswap([Choc]);

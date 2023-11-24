@@ -33,6 +33,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.connection = [type_Connection.Wired,type_Connection.Wireless];
 	kb.displays = type_NumRange.fromArray([0,2]);
 	kb.caseType = [type_CaseType.ThirdParty];
+	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://new.boardsource.xyz/products/unicorne","[v:Choc] https://new.boardsource.xyz/products/unicorne-LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs"];
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/"];
@@ -448,7 +449,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Tern", shape : type_ValList.fromValue(type_Shape.Unibody), keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), hotswap : [type_HotSwap.Yes], switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.CFX), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
 	kb.splay = type_SplayBase.Yes;
 	add(kb);
-	kb = { name : "Rolio", encoders : type_NumRange.fromInt(2), thumbKeys : type_NumRange.fromInt(5), connection : [type_Connection.Wired,type_Connection.Bluetooth], firmware : type_ValList.fromValue(type_Firmware.ZMK), pinkyStagger : 0.25, caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/MickiusMousius/RolioKeyboard"), img : type_ValList.fromValue("Rolio.jpg")};
+	kb = { name : "Rolio", encoders : type_NumRange.fromInt(2), thumbKeys : type_NumRange.fromInt(5), connection : [type_Connection.Wired,type_Connection.Bluetooth], firmware : type_ValList.fromValue(type_Firmware.ZMK), pinkyStagger : 0.25, caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/MickiusMousius/RolioKeyboard"), kit : type_ValList.fromValue("!https://keydio.io/"), img : type_ValList.fromValue("Rolio.jpg")};
 	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.Choc]);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(46),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	add(kb);
@@ -1252,6 +1253,9 @@ var ColStagTable = function() {
 	while(_g < _g1.length) {
 		var kb = _g1[_g];
 		++_g;
+		if(kb.stagger == type_StaggerType.Ortho && kb.pinkyStagger == null) {
+			kb.pinkyStagger = 0;
+		}
 		if(kb.caseType == null && kb.assembly != null && kb.assembly.indexOf(type_Assembly.Handwired) != -1) {
 			kb.caseType = [type_CaseType.Included];
 		}
@@ -1851,6 +1855,18 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 		}));
 		this.addColumn(col);
 		col.show = false;
+		var light = new table_TagListColumn("Lighting",new table_FancyField("lighting",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.lighting = setValue;
+				return null;
+			} else {
+				return q.lighting;
+			}
+		}),type_Lighting);
+		light.shortLabels.set(type_Lighting.Unknown,"");
+		light.shortLabels.set(type_Lighting.None,"-");
+		light.show = false;
+		this.addColumn(light);
 		var fw = new table_TagListColumn("Firmware",new table_FancyField("firmware",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.firmware = setValue;
@@ -1860,7 +1876,7 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 			}
 		}),type_Firmware);
 		fw.shortLabels.set(type_Firmware.Unknown,"");
-		fw.shortLabels.set(type_Firmware.Custom,"");
+		fw.shortLabels.set(type_Firmware.Custom,"*");
 		fw.show = false;
 		this.addColumn(fw);
 		var sw = new table_TagListColumn("Software",new table_FancyField("software",function(q,wantSet,setValue) {
@@ -5360,6 +5376,14 @@ var type_KeySpacing = $hxEnums["type.KeySpacing"] = { __ename__:true,__construct
 	,Other: {_hx_name:"Other",_hx_index:6,__enum__:"type.KeySpacing",toString:$estr}
 };
 type_KeySpacing.__constructs__ = [type_KeySpacing.Unknown,type_KeySpacing.MX,type_KeySpacing.MinMX,type_KeySpacing.Choc,type_KeySpacing.CFX,type_KeySpacing.MinChoc,type_KeySpacing.Other];
+var type_Lighting = $hxEnums["type.Lighting"] = { __ename__:true,__constructs__:null
+	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.Lighting",toString:$estr}
+	,None: {_hx_name:"None",_hx_index:1,__enum__:"type.Lighting",toString:$estr}
+	,Simple: {_hx_name:"Simple",_hx_index:2,__enum__:"type.Lighting",toString:$estr}
+	,RGB: {_hx_name:"RGB",_hx_index:3,__enum__:"type.Lighting",toString:$estr}
+	,Underglow: {_hx_name:"Underglow",_hx_index:4,__enum__:"type.Lighting",toString:$estr}
+};
+type_Lighting.__constructs__ = [type_Lighting.Unknown,type_Lighting.None,type_Lighting.Simple,type_Lighting.RGB,type_Lighting.Underglow];
 var type_NavCluster = $hxEnums["type.NavCluster"] = { __ename__:true,__constructs__:null
 	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.NavCluster",toString:$estr}
 	,Arrows: {_hx_name:"Arrows",_hx_index:1,__enum__:"type.NavCluster",toString:$estr}

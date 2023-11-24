@@ -112,6 +112,7 @@ td {
 #data th.can-sort.sort-column:after {
   position: absolute;
   right: 0.2em;
+  bottom: 0.2em;
   content: "↓";
 }
 #data th.can-sort.sort-column.sort-ascending:after {

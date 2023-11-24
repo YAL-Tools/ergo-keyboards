@@ -523,9 +523,15 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		mAddColumn(col = new IntRangeColumn("Displays", kb.displays));
 		col.show = false;
 		
+		var light = new TagListColumn("Lighting", mgf(kb.lighting), Lighting);
+		light.shortLabels[Lighting.Unknown] = "";
+		light.shortLabels[Lighting.None] = "-";
+		light.show = false;
+		addColumn(light);
+		
 		var fw = new TagListColumn("Firmware", mgf(kb.firmware), Firmware);
 		fw.shortLabels[Firmware.Unknown] = "";
-		fw.shortLabels[Firmware.Custom] = "";
+		fw.shortLabels[Firmware.Custom] = "*";
 		fw.show = false;
 		addColumn(fw);
 		
@@ -628,6 +634,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 			values.push(kb);
 		}
 		for (kb in values) {
+			if (kb.stagger == Ortho && kb.pinkyStagger == null) kb.pinkyStagger = 0;
 			if (kb.caseType == null && kb.assembly != null && kb.assembly.contains(Handwired)) {
 				kb.caseType = [Included];
 			}
