@@ -203,5 +203,21 @@ class OrthoBoards {
 		kb.prebuilt = "https://www.rgbkb.net/collections/sol-3/products/sol-3-keyboard-prebuilt";
 		kb.img = "sol3.webp";
 		add(kb);
+		
+		kb = new ColStagKeyboard("Equals 48");
+		kb.setMatrix([47, 48], 6, 3);
+		kb.setExtras(3, 0, 0, 4);
+		kb.shape = Monoblock;
+		kb.kit = "https://www.boardsource.xyz/products/equals-48-kit";
+		kb.img = "equals48.webp";
+		add(kb);
+		
+		kb = new ColStagKeyboard("Equals 60");
+		kb.setMatrix([59, 60], 6, 4);
+		kb.setExtras(3, 0, 0, 4);
+		kb.shape = Monoblock;
+		kb.kit = "https://www.boardsource.xyz/products/equals-60-kit";
+		kb.img = "equals60.webp";
+		add(kb);
 	}
 }

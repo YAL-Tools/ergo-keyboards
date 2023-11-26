@@ -28,7 +28,7 @@ class ColStagBoards {
 		var keySpacing:Array<KeySpacing>;
 		var kb:ColStagKeyboard;
 		
-		kb = new ColStagKeyboard("Corne/crkbd");
+		var corne = kb = new ColStagKeyboard("Corne/crkbd");
 		kb.setMatrix(42, 6, 3);
 		kb.setExtras(3);
 		kb.setHotswap([MX, Choc]);
@@ -42,8 +42,6 @@ class ColStagBoards {
 			"https://holykeebs.com",
 			"[v:MX] https://new.boardsource.xyz/products/Corne",
 			"[v:Choc] https://new.boardsource.xyz/products/Corne_LP",
-			"[v:MX] https://new.boardsource.xyz/products/unicorne",
-			"[v:Choc] https://new.boardsource.xyz/products/unicorne-LP",
 			"[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/",
 			"[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit",
 			"[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/",
@@ -65,12 +63,21 @@ class ColStagBoards {
 			"[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/",
 			"[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/",
 			"[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/",
+			"[v:BT Choc] https://keyclicks.ca/products/choc-corne",
+			"[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard",
 		];
 		kb.extras = [
 			"[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case",
 		];
 		kb.img = "crkbd.jpg";
 		add(kb);
+		
+		kb = new ColStagKeyboard("Unicorne", corne);
+		kb.trackpoints = [0, 2];
+		kb.kit = [
+			"[v:MX] https://new.boardsource.xyz/products/unicorne",
+			"[v:Choc] https://new.boardsource.xyz/products/unicorne-LP",
+		];
 		
 		function addSofle(kb:ColStagKeyboard) {
 			kb.keys ??= 58;
@@ -856,6 +863,7 @@ class ColStagBoards {
 			"https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit",
 			"https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/",
 			"https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit",
+			"https://new.boardsource.xyz/products/Reviung41",
 		];
 		kb.prebuilt = [
 			"https://shop.beekeeb.com/product/pre-soldered-reviung41/",

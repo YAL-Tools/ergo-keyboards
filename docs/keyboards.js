@@ -3518,6 +3518,138 @@ window.keyboardData = [
 		"!https://shop.beekeeb.com/product/allium58-glp-wired-kit/"
 	]
 },
+{
+	"name": "unnamed 36 split",
+	"img": "36-x.jpg",
+	"notes": "Choc V1 or Kailh X",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"hotswap": "No",
+	"switchProfile": [
+		"Choc",
+		"Other"
+	],
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"caseType": "None",
+	"source": "https://github.com/dilshod/36-choc-key-ortholinear-split"
+},
+{
+	"name": "Basilisk",
+	"img": "basilisk.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.3,
+	"switchProfile": "Choc",
+	"encoders": 2,
+	"encoderType": "Wheel",
+	"lighting": "None",
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"source": "https://github.com/radlinskii/basilisk"
+},
+{
+	"name": "Mün 2",
+	"img": "Mun2.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 70,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 3,
+	"cornerKeys": 5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {
+		"min": 0,
+		"max": 6
+	},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/RGBKB/Keyboard-files/tree/main/Mun2"
+},
+{
+	"name": "Barobord",
+	"img": "barobord.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 40,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"source": "https://github.com/sadekbaroudi/barobord"
+},
+{
+	"name": "Heron v1",
+	"img": "Heron-v1.jpg",
+	"shape": [
+		"Unibody",
+		"Keywell"
+	],
+	"keys": 58,
+	"rows": 6,
+	"cols": 4,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.2,
+	"switchProfile": "Choc",
+	"lighting": "None",
+	"assembly": "Handwired",
+	"web": [
+		"https://postimg.cc/gallery/Vwfqb1Q",
+		"https://www.youtube.com/shorts/eb4dZot1eeI"
+	],
+	"source": "https://github.com/Sneftel/heron"
+},
+{
+	"name": "Flow",
+	"img": "flow.jpg",
+	"shape": [
+		"Split",
+		"Keywell"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.6,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"trackballSize": 1,
+	"trackpads": 38,
+	"assembly": "Handwired",
+	"source": "https://github.com/jsallan/flow"
+},
 // todo: https://www.slicemk.com/collections/all
 null
 ];
