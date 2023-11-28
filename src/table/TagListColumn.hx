@@ -45,6 +45,22 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 			out.appendTextNode(nullCaption);
 		}
 	}
+	
+	public var usedValues:Map<ET, Bool> = new Map();
+	override public function showInFilters(val:ET):Bool {
+		return usedValues.exists(val);
+	}
+	override public function buildFilter(out:Element):Void {
+		for (item in table.values) {
+			var vals = getValue(item);
+			if (vals == null) continue;
+			for (val in vals) {
+				if (!usedValues.exists(val)) usedValues[val] = true;
+			}
+		}
+		super.buildFilter(out);
+	}
+	
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		for (ctr in Type.getEnumConstructs(type)) {
 			var val:ET = Type.createEnum(type, ctr);

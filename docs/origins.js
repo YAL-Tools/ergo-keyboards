@@ -36,6 +36,7 @@ window.domainCountries = {
 	"hazel.cc": "us",
 	"keeb.supply": "eu",
 	"kriscables.com": "pt",
+	"aliexpress.com": "cn",
 };
 window.countryTags = {
 	"UK": "[flag:gb|United Kingdom]",

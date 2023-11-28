@@ -14,5 +14,7 @@ enum SwitchProfile {
 	OutemuLP;
 	CherryULP;
 	Optical;
+	Simple;
+	SimpleLP;
 	Other;
 }

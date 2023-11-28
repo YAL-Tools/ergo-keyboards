@@ -3645,8 +3645,8 @@ window.keyboardData = [
 	"pinkyStagger": 0.6,
 	"hotswap": "Yes",
 	"switchProfile": "MX",
-	"trackballSize": 1,
-	"trackpads": 38,
+	"trackballs": 1,
+	"trackballSize": 38,
 	"assembly": "Handwired",
 	"source": "https://github.com/jsallan/flow"
 },

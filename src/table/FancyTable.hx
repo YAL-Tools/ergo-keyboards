@@ -139,8 +139,7 @@ class FancyTable<T> {
 		if (_updateURL) updateURL();
 	}
 	
-	/** -> "shape=Split&kit" */
-	public function saveFilters():String {
+	public function collectFilters():DynamicAccess<String> {
 		var params = new DynamicAccess();
 		for (column in columns) if (column.wantFilter) {
 			column.saveFilterParams(params);
@@ -150,7 +149,11 @@ class FancyTable<T> {
 			if (!sortAscending) id = "-" + id;
 			params["sort"] = id;
 		}
-		
+		return params;
+	}
+	/** -> "shape=Split&kit" */
+	public function saveFilters():String {
+		var params = collectFilters();
 		var paramKeys = params.keys();
 		if (paramKeys.length == 0) return "";
 		

@@ -29,6 +29,20 @@ class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, ET> {
 	override public function buildValue(out:Element, kb:KB):Void {
 		TagLikeColumnTools.buildSingleValue(this, out, kb);
 	}
+	
+	public var usedValues:Map<ET, Bool> = new Map();
+	override public function showInFilters(val:ET):Bool {
+		return usedValues.exists(val);
+	}
+	override public function buildFilter(out:Element):Void {
+		for (item in table.values) {
+			var val = getValue(item);
+			if (val == null) continue;
+			if (!usedValues.exists(val)) usedValues[val] = true;
+		}
+		super.buildFilter(out);
+	}
+	
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var select = document.createSelectElement();
 		var ctrs = [""].concat(Type.getEnumConstructs(type));

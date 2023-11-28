@@ -17,16 +17,8 @@ ColStagBoards.init = function(keyboards) {
 	};
 	var pimoroniSize = 4.4;
 	var keySpacing;
-	var parent = null;
-	var this1 = { name : "Corne/crkbd"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	var kb = this1;
+	var kb = ColStagKeyboard._new("Corne/crkbd");
+	var corne = kb;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(42),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -35,11 +27,14 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.ThirdParty];
 	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
-	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://new.boardsource.xyz/products/unicorne","[v:Choc] https://new.boardsource.xyz/products/unicorne-LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs"];
-	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/"];
+	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs"];
+	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard"];
 	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	add(kb);
+	kb = ColStagKeyboard._new("Unicorne",corne);
+	kb.trackpoints = type_NumRange.fromArray([0,2]);
+	kb.kit = ["[v:MX] https://new.boardsource.xyz/products/unicorne","[v:Choc] https://new.boardsource.xyz/products/unicorne-LP"];
 	var addSofle = function(kb) {
 		kb.keys = kb.keys != null ? kb.keys : type_NumRange.fromInt(58);
 		kb.cols = type_NumRange.fromInt(6);
@@ -50,18 +45,10 @@ ColStagBoards.init = function(keyboards) {
 		ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 		add(kb);
 	};
-	var parent = null;
-	var this1 = { name : "Sofle"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Sofle");
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
+	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
 	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
 	kb.kit = ["[v:v2] https://keebd.com/en-us/products/sofle-v2-keyboard-kit","[v:v2] https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419","[v:v1, v1 Choc, v2] https://mechboards.co.uk/collections/kits/products/sofle-kit","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2] https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/","[v:v2 RGB] https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit","[v:v2] https://keebd.com/products/sofle-v2-1-choc-keyboard-kit","[v:v2 RGB] https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit","[v:MX, Choc] https://keebmaker.com/collections/kits"];
@@ -69,19 +56,11 @@ ColStagBoards.init = function(keyboards) {
 	kb.extras = ["[v:Tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/"];
 	kb.img = type_ValList.fromValue("sofle.jpg");
 	addSofle(kb);
-	var parent = null;
-	var this1 = { name : "Sofle Choc"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Sofle Choc");
 	kb.notes = ["Sofle Choc, not to be confused with Choc Sofle (which has different pinky stagger)"];
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
 	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
+	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
 	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
 	kb.kit = ["https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit","https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/"];
@@ -89,16 +68,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("sofle-choc.jpg");
 	kb.pinkyStagger = 0.3;
 	addSofle(kb);
-	var parent = null;
-	var this1 = { name : "Sofle PLUS (xcmkb)"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Sofle PLUS (xcmkb)");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
 	kb.displays = type_NumRange.fromInt(2);
@@ -126,16 +96,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Kyria"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Kyria");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(48),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -208,16 +169,7 @@ ColStagBoards.init = function(keyboards) {
 	};
 	addAvalanche({ name : "Avalanche 40%", keys : type_NumRange.fromArray([48,52]), rows : type_NumRange.fromInt(3), cols : type_NumRange.fromInt(6)});
 	addAvalanche({ name : "Avalanche 60%", keys : type_NumRange.fromArray([60,64]), rows : type_NumRange.fromInt(4), cols : type_NumRange.fromInt(6), prebuilt : ["[n:xcmkb] https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/avalanche/v4 @ https://github.com/superxc3/xcmkb","https://shop.beekeeb.com/product/pre-soldered-avalanche-v4/"]});
-	var parent = null;
-	var this1 = { name : "Redox"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Redox");
 	var redox = kb;
 	kb.img = type_ValList.fromValue("redox-1.jpg");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -232,15 +184,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.kit = ["https://shop.beekeeb.com/product/redox-wireless-hotswap-keyboard-kit/"];
 	kb.prebuilt = ["https://falba.tech/custom-redox-v9b7d173b068d/","https://shop.beekeeb.com/product/redox-fully-assembled/"];
 	add(kb);
-	var this1 = { name : "NeoDox"};
-	if(redox != null) {
-		if(typeof(redox) == "string") {
-			this1.parent = redox;
-		} else {
-			this1.parent = redox.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("NeoDox",redox);
 	kb.connection = [type_Connection.Wired];
 	kb.assembly = [];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
@@ -248,16 +192,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("NeoDox.jpg");
 	kb.notes = type_ValList.fromValue("Like Redox, but with 1u edge keys");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ErgoDash"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ErgoDash");
 	var ergodash = kb;
 	kb.source = type_ValList.fromValue("https://github.com/omkbd/ErgoDash");
 	kb.img = type_ValList.fromValue("Ergodash.jpg");
@@ -267,15 +202,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash"];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	add(kb);
-	var this1 = { name : "ErgoDash LP"};
-	if(ergodash != null) {
-		if(typeof(ergodash) == "string") {
-			this1.parent = ergodash;
-		} else {
-			this1.parent = ergodash.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ErgoDash LP",ergodash);
 	kb.source = type_ValList.fromValue("https://keypcb.xyz/ErgoDash-LP");
 	kb.img = type_ValList.fromValue("ErgoDashLP.jpg");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
@@ -379,31 +306,13 @@ ColStagBoards.init = function(keyboards) {
 		kb.prebuilt = type_ValList.fromValue("https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/");
 		add(kb);
 	};
-	var parent = null;
-	var this1 = { name : "Hillside 52/56"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Hillside 52/56");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([44,56]),type_NumRange.fromArray([5,6]),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([3,4]));
 	kb.navCluster = [type_NavCluster.Arrows,type_NavCluster.Duo];
 	kb.img = ["Hillside-52.webp","Hillside-56.jpg"];
 	addHillside(kb);
-	var parent = null;
-	var this1 = { name : "Hillside 46/48"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Hillside 46/48");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([40,48]),type_NumRange.fromArray([5,6]),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromArray([0,1]));
 	kb.img = ["Hillside-46.jpg","Hillside-48.jpg"];
@@ -453,16 +362,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.Choc]);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(46),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Chrumm 1.0"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Chrumm 1.0");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([64,70]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	kb.rcols = type_NumRange.fromInt(7);
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
@@ -479,16 +379,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/sevmeyer/chrumm-keyboard/");
 	kb.img = type_ValList.fromValue("Chrumm.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Alien Invader"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Alien Invader");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	kb.thumbKeys = type_NumRange.fromInt(3);
 	kb.hotswap = type_ValList.fromValue(type_HotSwap.Yes);
@@ -500,16 +391,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/protieusz/ScottoFly/blob/main/ScottoInvader/Alien%20Invader%20Integrated%20PCB%20from%20Scotto%20Invader/README.md");
 	kb.img = type_ValList.fromValue("alien-invader.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Buzzard"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Buzzard");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(-1),type_NumRange.fromInt(0));
 	kb.pinkyStagger = 1;
@@ -530,32 +412,14 @@ ColStagBoards.init = function(keyboards) {
 		kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 		add(kb);
 	};
-	var parent = null;
-	var this1 = { name : "Reviung41"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Reviung41");
 	kb.img = type_ValList.fromValue("REVIUNG41.jpg");
 	kb.source = type_ValList.fromValue("https://github.com/gtips/reviung");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
-	kb.kit = ["https://keebd.com/en-us/products/reviung-41-keyboard-kit","https://customkbd.com/collections/split-keyboards/products/reviung-41","https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit","https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/","https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit"];
+	kb.kit = ["https://keebd.com/en-us/products/reviung-41-keyboard-kit","https://customkbd.com/collections/split-keyboards/products/reviung-41","https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit","https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/","https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit","https://new.boardsource.xyz/products/Reviung41"];
 	kb.prebuilt = ["https://shop.beekeeb.com/product/pre-soldered-reviung41/","https://new.boardsource.xyz/products/Reviung41","https://customkbd.com/collections/split-keyboards/products/reviung-41"];
 	addReviung41(kb);
-	var parent = null;
-	var this1 = { name : "Reviung41 with trackball"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Reviung41 with trackball");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
 	kb.trackballSize = pimoroniSize;
 	kb.trackballs = type_NumRange.fromInt(1);
@@ -563,16 +427,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://holykeebs.com/products/trackball-reviung41-low-profile");
 	kb.img = type_ValList.fromValue("reviung-trackball.jpg");
 	addReviung41(kb);
-	var parent = null;
-	var this1 = { name : "Fisk"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Fisk");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(2),type_NumRange.fromInt(1),type_NumRange.fromInt(0));
 	ColStagKeyboard.setQMK(kb);
@@ -586,32 +441,14 @@ ColStagBoards.init = function(keyboards) {
 		kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 		add(kb);
 	};
-	var parent = null;
-	var this1 = { name : "Iris"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Iris");
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.keySpacing = [type_KeySpacing.MX,type_KeySpacing.Choc];
 	kb.img = type_ValList.fromValue("iris.webp");
 	kb.kit = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
 	kb.prebuilt = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard"];
 	addIris(kb);
-	var parent = null;
-	var this1 = { name : "Atreis"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Atreis");
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.assembly = [type_Assembly.PCB,type_Assembly.Handwired];
@@ -619,16 +456,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("atreis.jpg");
 	kb.firmware = type_ValList.fromValue(type_Firmware.QMK);
 	addIris(kb);
-	var parent = null;
-	var this1 = { name : "TE Cleave"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("TE Cleave");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(91),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.rcols = type_NumRange.fromInt(7);
@@ -645,16 +473,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("Truly-Ergonomic-Cleave-keyboard-1x1-2.jpg");
 	kb.notes = type_ValList.fromValue("Flexibility of on-board software is unclear, but it's got a fairly normal keymap");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Glove80"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Glove80");
 	kb.shape = [type_Shape.Split,type_Shape.Keywell];
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(80),type_NumRange.fromInt(6),type_NumRange.fromInt(5));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(-1),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
@@ -670,16 +489,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("glove80.jpg");
 	kb.notes = ["There is no hot-swap. However, MoErgo offers an unsoldered version that saves one from having to unsolder the built-in switches. Still, one needs to solder the new ones.","Hardware extension support: 6 digital GPIOs (inside the case)"];
 	add(kb);
-	var parent = null;
-	var this1 = { name : "MOMOKA ERGO"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("MOMOKA ERGO");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -689,16 +499,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://momoka.store/collections/keyboards/products/momoka-ergo");
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Keyboardio Model 100"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Keyboardio Model 100");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -708,16 +509,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://shop.keyboard.io/products/model-100");
 	kb.img = type_ValList.fromValue("keyboardio-m100.webp");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ZSA Voyager"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ZSA Voyager");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(52),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
@@ -727,16 +519,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://www.zsa.io/voyager/");
 	kb.img = type_ValList.fromValue("zsa-voyager.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ZSA Moonlander"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ZSA Moonlander");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(72),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -748,16 +531,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://www.zsa.io/moonlander/");
 	kb.img = type_ValList.fromValue("zsa-moonlander.avif");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ErgoDox EZ"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ErgoDox EZ");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(76),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -769,16 +543,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://ergodox-ez.com/");
 	kb.img = type_ValList.fromValue("ergodox-ez.avif");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Dygma Defy"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Dygma Defy");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(68),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -790,16 +555,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://dygma.com/pages/defy");
 	kb.img = type_ValList.fromValue("dygma-defy.webp");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Osprey"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Osprey");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(74),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(3),type_NumRange.fromInt(-1),type_NumRange.fromInt(2));
 	kb.hotswap = type_ValList.fromValue(type_HotSwap.Yes);
@@ -810,16 +566,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/nshie/osprey");
 	kb.img = type_ValList.fromValue("osprey.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ErgoTravel"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ErgoTravel");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(54),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,3]),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps,type_SwitchProfile.Choc]);
@@ -1036,7 +783,7 @@ table_FancyTable.prototype = {
 			this.updateURL();
 		}
 	}
-	,saveFilters: function() {
+	,collectFilters: function() {
 		var params = { };
 		var _g = 0;
 		var _g1 = this.columns;
@@ -1054,6 +801,10 @@ table_FancyTable.prototype = {
 			}
 			params["sort"] = id;
 		}
+		return params;
+	}
+	,saveFilters: function() {
+		var params = this.collectFilters();
 		var paramKeys = Reflect.fields(params);
 		if(paramKeys.length == 0) {
 			return "";
@@ -1156,13 +907,37 @@ table_FancyTable.prototype = {
 		this.rows.push(this.testRow);
 	}
 };
-var table_KeyboardTable = function() {
+var KeyboardTable = function() {
 	table_FancyTable.call(this);
+	var inits = this.getInits();
+	var _g = 0;
+	var _g1 = inits;
+	while(_g < _g1.length) {
+		var init = _g1[_g];
+		++_g;
+		init.fn(null);
+	}
+	this.initKeyboards();
+	this.post();
 };
-table_KeyboardTable.__name__ = true;
-table_KeyboardTable.__super__ = table_FancyTable;
-table_KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
-	resolveParent: function(kb) {
+KeyboardTable.__name__ = true;
+KeyboardTable.__super__ = table_FancyTable;
+KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
+	addImagePara: function(notes,filename,width,height,alt) {
+		var p = window.document.createElement("p");
+		p.classList.add("img");
+		var img = window.document.createElement("img");
+		img.src = "help/" + filename;
+		img.alt = alt;
+		img.width = width;
+		img.height = height;
+		p.appendChild(img);
+		p.appendChild(window.document.createElement("br"));
+		p.appendChild(window.document.createTextNode(alt));
+		notes.appendChild(p);
+		return img;
+	}
+	,resolveParent: function(kb) {
 		var parentName = kb.parent;
 		if(parentName == null) {
 			return;
@@ -1209,151 +984,23 @@ table_KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			kb[key] = val;
 		}
 	}
-	,resolveParents: function() {
-		var _g = 0;
-		var _g1 = this.values;
-		while(_g < _g1.length) {
-			var kb = _g1[_g];
-			++_g;
-			this.resolveParent(kb);
-		}
-	}
-});
-var ColStagTable = function() {
-	table_KeyboardTable.call(this);
-	var kb = null;
-	this.initGeneral(kb);
-	this.initSwitch(kb);
-	this.initInputs(kb);
-	this.initCuriosities(kb);
-	this.initConveniences(kb);
-	this.initLinks(kb);
-	var col;
-	ColStagBoards.init(this.values);
-	OrthoBoards.init(this.values);
-	var kbs = window.keyboardData;
-	var _g = 0;
-	while(_g < kbs.length) {
-		var kb = kbs[_g];
-		++_g;
-		if(kb == null || !Reflect.isObject(kb)) {
-			continue;
-		}
-		var _g1 = 0;
-		var _g2 = this.columns;
-		while(_g1 < _g2.length) {
-			var col = _g2[_g1];
-			++_g1;
-			col.load(kb);
-		}
-		this.values.push(kb);
-	}
-	var _g = 0;
-	var _g1 = this.values;
-	while(_g < _g1.length) {
-		var kb = _g1[_g];
-		++_g;
-		if(kb.stagger == type_StaggerType.Ortho && kb.pinkyStagger == null) {
-			kb.pinkyStagger = 0;
-		}
-		if(kb.caseType == null && kb.assembly != null && kb.assembly.indexOf(type_Assembly.Handwired) != -1) {
-			kb.caseType = [type_CaseType.Included];
-		}
-	}
-};
-ColStagTable.__name__ = true;
-ColStagTable.__super__ = table_KeyboardTable;
-ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
-	addImagePara: function(notes,filename,width,height,alt) {
-		var p = window.document.createElement("p");
-		p.classList.add("img");
-		var img = window.document.createElement("img");
-		img.src = "help/" + filename;
-		img.alt = alt;
-		img.width = width;
-		img.height = height;
-		p.appendChild(img);
-		p.appendChild(window.document.createElement("br"));
-		p.appendChild(window.document.createTextNode(alt));
-		notes.appendChild(p);
-		return img;
-	}
-	,initClusters: function(kb) {
-		var _gthis = this;
-		this.addFilterHeader("Key clusters and specifics");
-		var notes;
-		var col;
-		var irCol = new table_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
+	,initColConnection: function(kb) {
+		var conType = new table_TagListColumn("Connection",new table_FancyField("connection",function(q,wantSet,setValue) {
 			if(wantSet) {
-				q.thumbKeys = setValue;
+				q.connection = setValue;
 				return null;
 			} else {
-				return q.thumbKeys;
+				return q.connection;
 			}
-		}));
-		irCol.shortName = "#thumb";
-		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Keys below the main area that are (mostly) intended to be pressed with a thumb. " + "Counted per keyboard half.");
-			_gthis.addImagePara(div,"thumb-keys.png",450,120,"Thumb keys on a Breeze keyboard");
-			tools_HtmlTools.appendParaTextNode(div,"On wider keyboards thumb keys tend to smoothly transition into a key row" + " so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:");
-			_gthis.addImagePara(div,"thumb-keys-2.png",450,200,"Thumb keys on a Redox keyboard");
-		};
-		this.addColumn(irCol);
-		irCol = new table_IntRangeColumn("Inner keys",new table_FancyField("innerKeys",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.innerKeys = setValue;
-				return null;
-			} else {
-				return q.innerKeys;
-			}
-		}));
-		irCol.shortName = "#inner";
-		irCol.filterMinDefault = 1;
-		irCol.show = false;
-		irCol.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
-			_gthis.addImagePara(div,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
-			tools_HtmlTools.appendParaTextNode(div,"If the inner row is missing keys (such as on hummingbird-type keyboards)," + " this can be negative.");
-		};
-		this.addColumn(irCol);
-		irCol = new table_IntRangeColumn("Outer keys",new table_FancyField("outerKeys",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.outerKeys = setValue;
-				return null;
-			} else {
-				return q.outerKeys;
-			}
-		}));
-		this.addColumn(irCol);
-		irCol.shortName = "#outer";
-		irCol.filterMinDefault = 1;
-		irCol.show = false;
-		irCol.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has an extra key or two on the outer edges.");
-			_gthis.addImagePara(div,"outer-keys.png",450,150,"Outer keys on an Avalanche keyboard");
-			tools_HtmlTools.appendParaTextNode(div,"And if it's missing keys on the outer columns, this can be negative.");
-			_gthis.addImagePara(div,"outer-keys-2.png",450,150,"A missing outer key on a Drift keyboard");
-		};
-		irCol = new table_IntRangeColumn("Corner keys",new table_FancyField("cornerKeys",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.cornerKeys = setValue;
-				return null;
-			} else {
-				return q.cornerKeys;
-			}
-		}));
-		this.addColumn(irCol);
-		irCol.shortName = "#corner";
-		irCol.filterMinDefault = 1;
-		irCol.show = false;
-		irCol.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " + "this is the number of such keys that are positioned in a convenient row.");
-			_gthis.addImagePara(div,"corner-keys.png",450,150,"Corner keys on an ErgoNICE keyboard");
-			tools_HtmlTools.appendParaTextNode(div,"Such keys are often used for modifiers (on the left half) or " + "65%-style inline arrow key cluster / arrow key row (on the right half).");
-			tools_HtmlTools.appendParaTextNode(div,"If corner keys transition into thumb keys, this is capped at 5.");
-			_gthis.addImagePara(div,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
-		};
+		}),type_Connection);
+		conType.shortName = "Con";
+		conType.shortLabels.set(type_Connection.Wired,"W");
+		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
+		conType.shortLabels.set(type_Connection.Wireless,"P");
+		conType.filterLabels.set(type_Connection.Wireless,"Proprietary/other wireless");
+		this.addColumn(conType);
+	}
+	,initColNav: function(kb,corner) {
 		var navCluster = new table_TagListColumn("Navigation cluster",new table_FancyField("navCluster",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.navCluster = setValue;
@@ -1365,54 +1012,30 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 		navCluster.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Arrow keys and such.");
 			var ul = tools_HtmlTools.appendElTextNode(div,"ul","");
+			var li;
 			tools_HtmlTools.appendElTextNode(ul,"li","\"Arrows\" means that there's a standard T-shaped cluster.");
-			tools_HtmlTools.appendElTextNode(ul,"li","\"Duo\" means that there are two of those" + " (second commonly being used for home/end/pgup/pgdn)");
-			tools_HtmlTools.appendElTextNode(ul,"li","\"Full\" means that there's an arrow cluster" + " with a standard 6-key cluster roughly above it.");
-			tools_HtmlTools.appendParaTextNode(div,"Also see \"corner keys\" for alternative placement ideas");
+			if(navCluster.usedValues.exists(type_NavCluster.Inline)) {
+				li = tools_HtmlTools.appendElTextNode(ul,"li");
+				tools_HtmlTools.appendElTextNode(li,"b","Inline");
+				li.appendChild(window.document.createTextNode(" means a 65%/75% corner with arrow keys and a column of keys" + " to be used as PgUp/PgDn/Home/End"));
+			}
+			if(navCluster.usedValues.exists(type_NavCluster.Duo)) {
+				li = tools_HtmlTools.appendElTextNode(ul,"li");
+				tools_HtmlTools.appendElTextNode(li,"b","Duo");
+				li.appendChild(window.document.createTextNode(" means that there are two of those" + " (second commonly being used for home/end/pgup/pgdn)"));
+			}
+			tools_HtmlTools.appendElTextNode(ul,"li","\"Full\" means that there's an arrow cluster" + " with a standard 6/9-key cluster roughly above it.");
+			if(corner) {
+				tools_HtmlTools.appendParaTextNode(div,"Also see \"corner keys\" for alternative placement ideas");
+			}
 		};
 		navCluster.show = false;
 		navCluster.shortName = "nav";
 		navCluster.filterTags = [type_NavCluster.Arrows,type_NavCluster.Duo,type_NavCluster.Full];
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
-		var pinkyStag = new table_FloatColumn("Pinky stagger",new table_FancyField("pinkyStagger",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.pinkyStagger = setValue;
-				return null;
-			} else {
-				return q.pinkyStagger;
-			}
-		}));
-		pinkyStag.show = false;
-		pinkyStag.shortName = "pkStag";
-		pinkyStag.sliderStep = "0.05";
-		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
-		pinkyStag.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
-		};
-		this.addColumn(pinkyStag);
-		var splay = new table_TagColumn("Splay",new table_FancyField("splay",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.splay = setValue;
-				return null;
-			} else {
-				return q.splay;
-			}
-		}),type_SplayBase);
-		splay.show = false;
-		splay.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Most keyboards have columns of keys parallel to each other, " + "but you can also have them at a slight angle for convenience.");
-			tools_HtmlTools.appendParaTextNode(div,"\"Optional\" usually means that there are two versions of the keyboard - " + "one with parallel columns and one with angled columns.");
-		};
-		splay.filterLabels.set(type_SplayBase.PinkyOnly,"Pinky columns only");
-		splay.shortLabels.set(type_SplayBase.No,"-");
-		splay.shortLabels.set(type_SplayBase.Yes,"+");
-		splay.shortLabels.set(type_SplayBase.Optional,"±");
-		splay.shortLabels.set(type_SplayBase.PinkyOnly,"p");
-		this.addColumn(splay);
 	}
 	,initGeneral: function(kb) {
-		var _gthis = this;
 		var col = new table_NameColumn("Name & photo",new table_FancyField("name",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.name = setValue;
@@ -1438,10 +1061,14 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 		shape.shortLabels.set(type_Shape.Special,"*");
 		shape.onNotes = function(div) {
 			var shapeUL = tools_HtmlTools.appendElTextNode(div,"ul","");
-			tools_HtmlTools.appendElTextNode(shapeUL,"li","Monoblock means a single-piece keyboard with no gaps, " + "such as with common non-ergonomic keyboards.");
+			if(shape.usedValues.exists(type_Shape.Monoblock)) {
+				tools_HtmlTools.appendElTextNode(shapeUL,"li","Monoblock means a single-piece keyboard with no gaps, " + "such as with common non-ergonomic keyboards.");
+			}
 			tools_HtmlTools.appendElTextNode(shapeUL,"li","Unibody means a single-piece keyboard with " + "some sort of a gap in the middle of it.");
 			tools_HtmlTools.appendElTextNode(shapeUL,"li","Split means a keyboard consisting of two or more physical pieces that are connected " + "together with a cable or wirelessly.");
-			tools_HtmlTools.appendElTextNode(shapeUL,"li","Special means something interesting - folding keyboards, layered keyboards, and so on.");
+			if(shape.usedValues.exists(type_Shape.Special)) {
+				tools_HtmlTools.appendElTextNode(shapeUL,"li","Special means something interesting - folding keyboards, layered keyboards, and so on.");
+			}
 		};
 		this.addColumn(shape);
 		var staggerType = new table_TagColumn("Stagger type",new table_FancyField("stagger",function(q,wantSet,setValue) {
@@ -1459,89 +1086,9 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 		staggerType.shortLabels.set(type_StaggerType.Column,"Col");
 		staggerType.shortLabels.set(type_StaggerType.Ortho,"OL");
 		this.addColumn(staggerType);
-		var conType = new table_TagListColumn("Connection",new table_FancyField("connection",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.connection = setValue;
-				return null;
-			} else {
-				return q.connection;
-			}
-		}),type_Connection);
-		conType.shortName = "Con";
-		conType.shortLabels.set(type_Connection.Wired,"W");
-		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
-		conType.shortLabels.set(type_Connection.Wireless,"P");
-		conType.filterLabels.set(type_Connection.Wireless,"Proprietary/other wireless");
-		this.addColumn(conType);
-		col = new table_IntRangeColumn("Key count",new table_FancyField("keys",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.keys = setValue;
-				return null;
-			} else {
-				return q.keys;
-			}
-		}));
-		this.addColumn(col);
-		col.shortName = "#keys";
-		col = new table_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.rows = setValue;
-				return null;
-			} else {
-				return q.rows;
-			}
-		}));
-		this.addColumn(col);
-		col.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard half's main area," + " not counting the thumb-keys row.");
-			_gthis.addImagePara(div,"matrix.png",450,250,"Key matrix on a Redox keyboard");
-			tools_HtmlTools.appendParaTextNode(div,"Conventionally, 4th row is typically used for digit keys" + " and 5th row is typically used for F-key," + " but don't let anyone tell you what to do" + " - most of these keyboards are reprogrammable.");
-		};
-		col = new table_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.cols = setValue;
-				return null;
-			} else {
-				return q.cols;
-			}
-		}));
-		this.addColumn(col);
-		col.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"The number of columns in a keyboard half's main area," + " not counting the extension columns.");
-			tools_HtmlTools.appendParaTextNode(div,"To avoid some classification oddities," + " let's assume non-chorded keyboards to intend to have at least 5 columns" + " and evaluate edge columns based on their layout, completeness," + " and suitability for common main-area mappings.");
-			tools_HtmlTools.appendParaTextNode(div,"For example:");
-			var ul = tools_HtmlTools.appendElTextNode(div,"ul","");
-			var li = tools_HtmlTools.appendElTextNode(ul,"li","ErgoDox's inner columns are extension columns since two keys are 1.5u tall.");
-			li = tools_HtmlTools.appendElTextNode(ul,"li","Pinky4's inner columns are extension columns since the bottom keys are rotated.");
-			li = tools_HtmlTools.appendElTextNode(ul,"li","ErgoDash's inner columns are extension columns since they are offset by half a key.");
-			li = tools_HtmlTools.appendElTextNode(ul,"li","Spleeb's and Drift's outer columns aren't extension columns" + " as only a single key is missing.");
-			tools_HtmlTools.appendParaTextNode(div,"This system isn't perfect and some keyboards don't fit well at all," + " in which case \"outer keys\" may have to be used to roughly annotate" + " total number of extra/missing keys across multiple columns.");
-		};
-		col.shortName = "Cols";
-		var rcolsFn = function(kb,set,val) {
-			if(set) {
-				kb.rcols = val;
-				return null;
-			} else {
-				var tmp = kb.rcols;
-				if(tmp != null) {
-					return tmp;
-				} else {
-					return kb.cols;
-				}
-			}
-		};
-		var rcolsFd = new table_FancyField("rcols",rcolsFn);
-		col = new table_IntRangeColumn("Right-side columns",rcolsFd);
-		col.show = false;
-		col.shortName = "ColsR";
-		col.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has more columns on the right side than on the left. " + "This can be handy to imitate a standard 65%/75% layout better, " + "or to make space for language-specific keys.");
-			_gthis.addImagePara(div,"rcols.png",450,150,"Additional columns on Articulation80");
-			tools_HtmlTools.appendParaTextNode(div,"Depending on the keyboard, not all of these might be fully filled with keys.");
-		};
-		this.addColumn(col);
-		this.initClusters(kb);
+	}
+	,initClusters: function(kb) {
+		this.addFilterHeader("Key clusters and specifics");
 	}
 	,initSwitch: function(kb) {
 		this.addFilterHeader("Switches and keycaps");
@@ -1592,32 +1139,6 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 		switchType.shortLabels.set(type_SwitchProfile.CherryULP,"CULP");
 		switchType.shortLabels.set(type_SwitchProfile.Optical,"Opt");
 		this.addColumn(switchType);
-		var switchForce = new table_IntListColumn("Switch actuation force (if not hotswap)",new table_FancyField("switchForce",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.switchForce = setValue;
-				return null;
-			} else {
-				return q.switchForce;
-			}
-		}));
-		switchForce.shortName = "gf";
-		switchForce.nullCaption = "*";
-		switchForce.filterIncludeNullLabel = "Include keyboards with hotswap switches";
-		var switchKind = new table_TagListColumn("Switch feel (if not hotswap)",new table_FancyField("switchKind",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.switchKind = setValue;
-				return null;
-			} else {
-				return q.switchKind;
-			}
-		}),type_SwitchKind);
-		switchKind.defaultValue = null;
-		switchKind.shortName = "SwF";
-		switchKind.shortLabels.set(type_SwitchKind.Linear,"L");
-		switchKind.shortLabels.set(type_SwitchKind.Tactile,"T");
-		switchKind.shortLabels.set(type_SwitchKind.Clicky,"C");
-		switchKind.shortLabels.set(type_SwitchKind.Other,"#");
-		switchKind.nullCaption = "*";
 		var colSpacing = new table_TagListColumn("Key spacing",new table_FancyField("keySpacing",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.keySpacing = setValue;
@@ -1637,6 +1158,75 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 		colSpacing.shortLabels.set(type_KeySpacing.MinMX,"mMX");
 		colSpacing.shortLabels.set(type_KeySpacing.MinChoc,"mChoc");
 		this.addColumn(colSpacing);
+	}
+	,initLinks: function(kb) {
+		var header = this.addFilterHeader("Links");
+		header.editorNotes.push(new table_FancyHeaderNote("Notes on link lists",function(el) {
+			var p = tools_HtmlTools.appendParaTextNode(el,"Links can be prefixed with a ");
+			tools_HtmlTools.appendElTextNode(p,"code","[country code]");
+			p.appendChild(window.document.createTextNode(" to indicate where a keyboard ships from - e.g."));
+			var url = "https://yal.cc";
+			tools_HtmlTools.appendElTextNode(el,"pre","[UA] " + url);
+			p = tools_HtmlTools.appendParaTextNode(el,"Would display as ");
+			p.innerHTML += table_LinkListColumn.createFlag("UA") + "&#8201;";
+			var a = tools_HtmlTools.appendElTextNode(p,"a",url);
+			a.setAttribute("href",url);
+			p.appendChild(window.document.createTextNode("."));
+			p = tools_HtmlTools.appendParaTextNode(el,"If a company has multiple regional branches," + " several codes can be appended one after another (e.g. ");
+			tools_HtmlTools.appendElTextNode(p,"code","[US][DE] https://...");
+			p.appendChild(window.document.createTextNode(")."));
+			p = tools_HtmlTools.appendParaTextNode(el,"If the designer/company behind the keyboard" + " sells pre-builts/kits themselves OR endorses a specific vendor" + " on the project's page, such vendor links can be prefixed with a ");
+			tools_HtmlTools.appendElTextNode(p,"code","!");
+			p.appendChild(window.document.createTextNode(" to mark them accordingly and display them on top of the shuffled list."));
+		}));
+		var lc = new table_LinkListColumn("Website",new table_FancyField("web",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.web = setValue;
+				return null;
+			} else {
+				return q.web;
+			}
+		}));
+		this.addColumn(lc);
+		lc.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a separate page/website/post explaining the project motivation/etc." + " that's different from the rest of the links, that goes here.");
+		};
+		lc.shortName = "web";
+		lc.canShowSingle = true;
+		lc = new table_LinkListColumn("Open-source",new table_FancyField("source",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.source = setValue;
+				return null;
+			} else {
+				return q.source;
+			}
+		}));
+		this.addColumn(lc);
+		lc.shortName = "OSH";
+		lc.canShowSingle = true;
+		lc = new table_LinkListColumn("Kits",new table_FancyField("kit",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.kit = setValue;
+				return null;
+			} else {
+				return q.kit;
+			}
+		}));
+		this.addColumn(lc);
+		lc.shortName = "Kit";
+		lc = new table_LinkListColumn("Pre-built",new table_FancyField("prebuilt",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.prebuilt = setValue;
+				return null;
+			} else {
+				return q.prebuilt;
+			}
+		}));
+		this.addColumn(lc);
+		lc.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"");
+		};
+		lc.shortName = "PB";
 	}
 	,initInputs: function(kb) {
 		var header = this.addFilterHeader("Other input devices");
@@ -1906,74 +1496,254 @@ ColStagTable.prototype = $extend(table_KeyboardTable.prototype,{
 		asm.show = false;
 		this.addColumn(asm);
 	}
-	,initLinks: function(kb) {
-		var header = this.addFilterHeader("Links");
-		header.editorNotes.push(new table_FancyHeaderNote("Notes on link lists",function(el) {
-			var p = tools_HtmlTools.appendParaTextNode(el,"Links can be prefixed with a ");
-			tools_HtmlTools.appendElTextNode(p,"code","[country code]");
-			p.appendChild(window.document.createTextNode(" to indicate where a keyboard ships from - e.g."));
-			var url = "https://yal.cc";
-			tools_HtmlTools.appendElTextNode(el,"pre","[UA] " + url);
-			p = tools_HtmlTools.appendParaTextNode(el,"Would display as ");
-			p.innerHTML += table_LinkListColumn.createFlag("UA") + "&#8201;";
-			var a = tools_HtmlTools.appendElTextNode(p,"a",url);
-			a.setAttribute("href",url);
-			p.appendChild(window.document.createTextNode("."));
-			p = tools_HtmlTools.appendParaTextNode(el,"If a company has multiple regional branches," + " several codes can be appended one after another (e.g. ");
-			tools_HtmlTools.appendElTextNode(p,"code","[US][DE] https://...");
-			p.appendChild(window.document.createTextNode(")."));
-			p = tools_HtmlTools.appendParaTextNode(el,"If the designer/company behind the keyboard" + " sells pre-builts/kits themselves OR endorses a specific vendor" + " on the project's page, such vendor links can be prefixed with a ");
-			tools_HtmlTools.appendElTextNode(p,"code","!");
-			p.appendChild(window.document.createTextNode(" to mark them accordingly and display them on top of the shuffled list."));
-		}));
-		var lc = new table_LinkListColumn("Website",new table_FancyField("web",function(q,wantSet,setValue) {
+	,getInits: function() {
+		return [new KeyboardTableInit("general",$bind(this,this.initGeneral)),new KeyboardTableInit("clusters",$bind(this,this.initClusters)),new KeyboardTableInit("switch",$bind(this,this.initSwitch)),new KeyboardTableInit("inputs",$bind(this,this.initInputs)),new KeyboardTableInit("curios",$bind(this,this.initCuriosities)),new KeyboardTableInit("conveniences",$bind(this,this.initConveniences)),new KeyboardTableInit("links",$bind(this,this.initLinks))];
+	}
+	,resolveParents: function() {
+		var _g = 0;
+		var _g1 = this.values;
+		while(_g < _g1.length) {
+			var kb = _g1[_g];
+			++_g;
+			this.resolveParent(kb);
+		}
+	}
+	,initKeyboards: function() {
+	}
+	,post: function() {
+	}
+});
+var ColStagTable = function() {
+	KeyboardTable.call(this);
+};
+ColStagTable.__name__ = true;
+ColStagTable.__super__ = KeyboardTable;
+ColStagTable.prototype = $extend(KeyboardTable.prototype,{
+	initGeneral: function(kb) {
+		var _gthis = this;
+		KeyboardTable.prototype.initGeneral.call(this,kb);
+		this.initColConnection(kb);
+		var col = new table_IntRangeColumn("Key count",new table_FancyField("keys",function(q,wantSet,setValue) {
 			if(wantSet) {
-				q.web = setValue;
+				q.keys = setValue;
 				return null;
 			} else {
-				return q.web;
+				return q.keys;
 			}
 		}));
-		this.addColumn(lc);
-		lc.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a separate page/website/post explaining the project motivation/etc." + " that's different from the rest of the links, that goes here.");
+		this.addColumn(col);
+		col.shortName = "#keys";
+		col = new table_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.rows = setValue;
+				return null;
+			} else {
+				return q.rows;
+			}
+		}));
+		this.addColumn(col);
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard half's main area," + " not counting the thumb-keys row.");
+			_gthis.addImagePara(div,"matrix.png",450,250,"Key matrix on a Redox keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"Conventionally, 4th row is typically used for digit keys" + " and 5th row is typically used for F-key," + " but don't let anyone tell you what to do" + " - most of these keyboards are reprogrammable.");
 		};
-		lc.shortName = "web";
-		lc.canShowSingle = true;
-		lc = new table_LinkListColumn("Open-source",new table_FancyField("source",function(q,wantSet,setValue) {
+		col = new table_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
 			if(wantSet) {
-				q.source = setValue;
+				q.cols = setValue;
 				return null;
 			} else {
-				return q.source;
+				return q.cols;
 			}
 		}));
-		this.addColumn(lc);
-		lc.shortName = "OSH";
-		lc.canShowSingle = true;
-		lc = new table_LinkListColumn("Kits",new table_FancyField("kit",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.kit = setValue;
-				return null;
-			} else {
-				return q.kit;
-			}
-		}));
-		this.addColumn(lc);
-		lc.shortName = "Kit";
-		lc = new table_LinkListColumn("Pre-built",new table_FancyField("prebuilt",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.prebuilt = setValue;
-				return null;
-			} else {
-				return q.prebuilt;
-			}
-		}));
-		this.addColumn(lc);
-		lc.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"");
+		this.addColumn(col);
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"The number of columns in a keyboard half's main area," + " not counting the extension columns.");
+			tools_HtmlTools.appendParaTextNode(div,"To avoid some classification oddities," + " let's assume non-chorded keyboards to intend to have at least 5 columns" + " and evaluate edge columns based on their layout, completeness," + " and suitability for common main-area mappings.");
+			tools_HtmlTools.appendParaTextNode(div,"For example:");
+			var ul = tools_HtmlTools.appendElTextNode(div,"ul","");
+			var li = tools_HtmlTools.appendElTextNode(ul,"li","ErgoDox's inner columns are extension columns since two keys are 1.5u tall.");
+			li = tools_HtmlTools.appendElTextNode(ul,"li","Pinky4's inner columns are extension columns since the bottom keys are rotated.");
+			li = tools_HtmlTools.appendElTextNode(ul,"li","ErgoDash's inner columns are extension columns since they are offset by half a key.");
+			li = tools_HtmlTools.appendElTextNode(ul,"li","Spleeb's and Drift's outer columns aren't extension columns" + " as only a single key is missing.");
+			tools_HtmlTools.appendParaTextNode(div,"This system isn't perfect and some keyboards don't fit well at all," + " in which case \"outer keys\" may have to be used to roughly annotate" + " total number of extra/missing keys across multiple columns.");
 		};
-		lc.shortName = "PB";
+		col.shortName = "Cols";
+		var rcolsFn = function(kb,set,val) {
+			if(set) {
+				kb.rcols = val;
+				return null;
+			} else {
+				var tmp = kb.rcols;
+				if(tmp != null) {
+					return tmp;
+				} else {
+					return kb.cols;
+				}
+			}
+		};
+		var rcolsFd = new table_FancyField("rcols",rcolsFn);
+		col = new table_IntRangeColumn("Right-side columns",rcolsFd);
+		col.show = false;
+		col.shortName = "ColsR";
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has more columns on the right side than on the left. " + "This can be handy to imitate a standard 65%/75% layout better, " + "or to make space for language-specific keys.");
+			_gthis.addImagePara(div,"rcols.png",450,150,"Additional columns on Articulation80");
+			tools_HtmlTools.appendParaTextNode(div,"Depending on the keyboard, not all of these might be fully filled with keys.");
+		};
+		this.addColumn(col);
+	}
+	,initClusters: function(kb) {
+		var _gthis = this;
+		KeyboardTable.prototype.initClusters.call(this,kb);
+		var notes;
+		var col;
+		var irCol = new table_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.thumbKeys = setValue;
+				return null;
+			} else {
+				return q.thumbKeys;
+			}
+		}));
+		irCol.shortName = "#thumb";
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Keys below the main area that are (mostly) intended to be pressed with a thumb. " + "Counted per keyboard half.");
+			_gthis.addImagePara(div,"thumb-keys.png",450,120,"Thumb keys on a Breeze keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"On wider keyboards thumb keys tend to smoothly transition into a key row" + " so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:");
+			_gthis.addImagePara(div,"thumb-keys-2.png",450,200,"Thumb keys on a Redox keyboard");
+		};
+		this.addColumn(irCol);
+		irCol = new table_IntRangeColumn("Inner keys",new table_FancyField("innerKeys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.innerKeys = setValue;
+				return null;
+			} else {
+				return q.innerKeys;
+			}
+		}));
+		irCol.shortName = "#inner";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
+			_gthis.addImagePara(div,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"If the inner row is missing keys (such as on hummingbird-type keyboards)," + " this can be negative.");
+		};
+		this.addColumn(irCol);
+		irCol = new table_IntRangeColumn("Outer keys",new table_FancyField("outerKeys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.outerKeys = setValue;
+				return null;
+			} else {
+				return q.outerKeys;
+			}
+		}));
+		this.addColumn(irCol);
+		irCol.shortName = "#outer";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has an extra key or two on the outer edges.");
+			_gthis.addImagePara(div,"outer-keys.png",450,150,"Outer keys on an Avalanche keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"And if it's missing keys on the outer columns, this can be negative.");
+			_gthis.addImagePara(div,"outer-keys-2.png",450,150,"A missing outer key on a Drift keyboard");
+		};
+		irCol = new table_IntRangeColumn("Corner keys",new table_FancyField("cornerKeys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.cornerKeys = setValue;
+				return null;
+			} else {
+				return q.cornerKeys;
+			}
+		}));
+		this.addColumn(irCol);
+		irCol.shortName = "#corner";
+		irCol.filterMinDefault = 1;
+		irCol.show = false;
+		irCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " + "this is the number of such keys that are positioned in a convenient row.");
+			_gthis.addImagePara(div,"corner-keys.png",450,150,"Corner keys on an ErgoNICE keyboard");
+			tools_HtmlTools.appendParaTextNode(div,"Such keys are often used for modifiers (on the left half) or " + "65%-style inline arrow key cluster / arrow key row (on the right half).");
+			tools_HtmlTools.appendParaTextNode(div,"If corner keys transition into thumb keys, this is capped at 5.");
+			_gthis.addImagePara(div,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
+		};
+		this.initColNav(kb,true);
+		var pinkyStag = new table_FloatColumn("Pinky stagger",new table_FancyField("pinkyStagger",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.pinkyStagger = setValue;
+				return null;
+			} else {
+				return q.pinkyStagger;
+			}
+		}));
+		pinkyStag.show = false;
+		pinkyStag.shortName = "pkStag";
+		pinkyStag.sliderStep = "0.05";
+		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
+		pinkyStag.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
+		};
+		this.addColumn(pinkyStag);
+		var splay = new table_TagColumn("Splay",new table_FancyField("splay",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.splay = setValue;
+				return null;
+			} else {
+				return q.splay;
+			}
+		}),type_SplayBase);
+		splay.show = false;
+		splay.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Most keyboards have columns of keys parallel to each other, " + "but you can also have them at a slight angle for convenience.");
+			tools_HtmlTools.appendParaTextNode(div,"\"Optional\" usually means that there are two versions of the keyboard - " + "one with parallel columns and one with angled columns.");
+		};
+		splay.filterLabels.set(type_SplayBase.PinkyOnly,"Pinky columns only");
+		splay.shortLabels.set(type_SplayBase.No,"-");
+		splay.shortLabels.set(type_SplayBase.Yes,"+");
+		splay.shortLabels.set(type_SplayBase.Optional,"±");
+		splay.shortLabels.set(type_SplayBase.PinkyOnly,"p");
+		this.addColumn(splay);
+	}
+	,getInits: function() {
+		var result = KeyboardTable.prototype.getInits.call(this);
+		KeyboardTableInitList.insertAfter(result,"general",new KeyboardTableInit("clusters",$bind(this,this.initClusters)));
+		return result;
+	}
+	,initKeyboards: function() {
+		ColStagBoards.init(this.values);
+		OrthoBoards.init(this.values);
+		var kbs = window.keyboardData;
+		var _g = 0;
+		while(_g < kbs.length) {
+			var kb = kbs[_g];
+			++_g;
+			if(kb == null || !Reflect.isObject(kb)) {
+				continue;
+			}
+			var _g1 = 0;
+			var _g2 = this.columns;
+			while(_g1 < _g2.length) {
+				var col = _g2[_g1];
+				++_g1;
+				col.load(kb);
+			}
+			this.values.push(kb);
+		}
+	}
+	,post: function() {
+		var _g = 0;
+		var _g1 = this.values;
+		while(_g < _g1.length) {
+			var kb = _g1[_g];
+			++_g;
+			if(kb.stagger == type_StaggerType.Ortho && kb.pinkyStagger == null) {
+				kb.pinkyStagger = 0;
+			}
+			if(kb.caseType == null && kb.assembly != null && kb.assembly.indexOf(type_Assembly.Handwired) != -1) {
+				kb.caseType = [type_CaseType.Included];
+			}
+		}
 	}
 });
 var HxOverrides = function() { };
@@ -2008,51 +1778,95 @@ HxOverrides.remove = function(a,obj) {
 HxOverrides.now = function() {
 	return Date.now();
 };
+var KeyboardTableInit = function(id,fn) {
+	this.id = id;
+	this.fn = fn;
+};
+KeyboardTableInit.__name__ = true;
+var KeyboardTableInitList = {};
+KeyboardTableInitList._new = function() {
+	return [];
+};
+KeyboardTableInitList.insertAfter = function(this1,id,el) {
+	var _g_current = 0;
+	var _g_array = this1;
+	while(_g_current < _g_array.length) {
+		var _g_value = _g_array[_g_current];
+		var _g_key = _g_current++;
+		var i = _g_key;
+		var q = _g_value;
+		if(q.id == id) {
+			this1.splice(i + 1,0,el);
+			return;
+		}
+	}
+	throw haxe_Exception.thrown("Couldn't find \"" + id + "\"");
+};
+KeyboardTableInitList.insertBefore = function(this1,id,el) {
+	var _g_current = 0;
+	var _g_array = this1;
+	while(_g_current < _g_array.length) {
+		var _g_value = _g_array[_g_current];
+		var _g_key = _g_current++;
+		var i = _g_key;
+		var q = _g_value;
+		if(q.id == id) {
+			this1.splice(i,0,el);
+			return;
+		}
+	}
+	throw haxe_Exception.thrown("Couldn't find \"" + id + "\"");
+};
 var Main = function() { };
 Main.__name__ = true;
 Main.main = function() {
 	table_LinkListColumn.domainCountries = window.domainCountries;
 	table_LinkListColumn.countryTags = window.countryTags;
 	var divFilters = window.document.querySelector("#filter");
-	var csTable = new ColStagTable();
-	csTable.resolveParents();
+	var kbTable;
+	if(window.document.body.classList.contains("rowstag")) {
+		kbTable = new RowStagTable();
+	} else {
+		kbTable = new ColStagTable();
+	}
+	kbTable.resolveParents();
 	var tmp = window.document.querySelector("#count");
-	csTable.countElement = tmp;
-	csTable.buildFilters(divFilters);
-	csTable.buildTable(window.document.querySelector("#data"));
-	table_FancyTableEditor.build(csTable,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
+	kbTable.countElement = tmp;
+	kbTable.buildFilters(divFilters);
+	kbTable.buildTable(window.document.querySelector("#data"));
+	table_FancyTableEditor.build(kbTable,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
 	var loc = window.document.location;
 	if(loc.protocol != "file:") {
-		csTable.baseURL = loc.origin + loc.pathname;
+		kbTable.baseURL = loc.origin + loc.pathname;
 	}
 	var btClearFilters = window.document.querySelector("#clear-filters");
 	btClearFilters.onclick = function() {
-		table_FancyTableControls.clearFilters(csTable,divFilters);
+		table_FancyTableControls.clearFilters(kbTable,divFilters);
 	};
 	var cbAutoUpdateURL = window.document.querySelector("#auto-update-url");
-	csTable.canUpdateURL = cbAutoUpdateURL.checked;
+	kbTable.canUpdateURL = cbAutoUpdateURL.checked;
 	cbAutoUpdateURL.addEventListener("change",function(_) {
-		csTable.canUpdateURL = cbAutoUpdateURL.checked;
+		kbTable.canUpdateURL = cbAutoUpdateURL.checked;
 	});
 	var btShare = window.document.querySelector("#copy-share-url");
-	table_FancyTableControls.createShareButton(csTable,btShare);
+	table_FancyTableControls.createShareButton(kbTable,btShare);
 	var shuffler = new table_FancyTableShuffler("");
 	if($global.location.hostname == "localhost") {
 		var editorDetails = window.document.querySelector("#editor-outer");
 		editorDetails.open = true;
 	} else {
-		csTable.sortBy(shuffler,false);
+		kbTable.sortBy(shuffler,false);
 	}
 	window.document.querySelector("#shuffle").onclick = function() {
-		if(csTable.sortColHead != null) {
-			csTable.sortColHead.element.classList.remove("sort-column");
-			csTable.sortColHead.element.classList.remove("sort-ascending");
-			csTable.sortColHead = null;
+		if(kbTable.sortColHead != null) {
+			kbTable.sortColHead.element.classList.remove("sort-column");
+			kbTable.sortColHead.element.classList.remove("sort-ascending");
+			kbTable.sortColHead = null;
 		}
-		csTable.sortBy(shuffler,false);
-		csTable.updateURL();
+		kbTable.sortBy(shuffler,false);
+		kbTable.updateURL();
 	};
-	csTable.loadFilters(window.document.location.search);
+	kbTable.loadFilters(window.document.location.search);
 	$global.console.log("Hello!");
 };
 Math.__name__ = true;
@@ -2072,16 +1886,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.Included];
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Vial));
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Skywatch"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Skywatch");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
@@ -2094,16 +1899,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ozkan/skywatch");
 	kb.img = type_ValList.fromValue("Skywatch.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Bancouver40"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Bancouver40");
 	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
 	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
@@ -2113,16 +1909,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ChrisChrisLoLo/bancouver40");
 	kb.img = type_ValList.fromValue("Bancouver40.jpeg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "minipeg48"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("minipeg48");
 	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
 	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(48),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
@@ -2132,16 +1919,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ChrisChrisLoLo/bancouver40");
 	kb.img = type_ValList.fromValue("minipeg48.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ChocV"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ChocV");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(36),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
@@ -2152,16 +1930,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.None];
 	kb.img = type_ValList.fromValue("ChocV.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ChonkV"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ChonkV");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
@@ -2172,16 +1941,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.Included];
 	kb.img = type_ValList.fromValue("ChonkV.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "BFO-9000"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("BFO-9000");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([56,108]),type_NumRange.fromArray([7,9]),type_NumRange.fromArray([3,5]));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
@@ -2192,16 +1952,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.kit = type_ValList.fromValue("!https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear");
 	kb.img = type_ValList.fromValue("bfo-9000.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Ergo42"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Ergo42");
 	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(56),type_NumRange.fromInt(7),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
@@ -2212,16 +1963,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.Included];
 	kb.img = type_ValList.fromValue("ergo42.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "ChonkyKong"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("ChonkyKong");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([48,60]),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
@@ -2233,16 +1975,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("chonkyKong.jpg");
 	kb.notes = type_ValList.fromValue("Doesn't fit very well with the existing classification system.");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Buran"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Buran");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(39),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -2253,16 +1986,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/ScatteredDrifter/Buran-Ortho");
 	kb.img = type_ValList.fromValue("buran-no-acryl-isp.jpg");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Helix"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Helix");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -2271,16 +1995,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.Included];
 	kb.img = type_ValList.fromValue("helix.webp");
 	add(kb);
-	var parent = null;
-	var this1 = { name : "Viterbi"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Viterbi");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(7),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps]);
@@ -2296,46 +2011,19 @@ OrthoBoards.init = function(keyboards) {
 		kb.encoders = type_NumRange.fromInt(1);
 		add(kb);
 	};
-	var parent = null;
-	var this1 = { name : "Rebound"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Rebound");
 	kb.stagger = type_StaggerType.Ortho;
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("!https://store.montsinger.net/products/rebound");
 	kb.img = type_ValList.fromValue("rebound.webp");
 	addRebound(kb);
-	var parent = null;
-	var this1 = { name : "Rebound-S"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Rebound-S");
 	kb.stagger = type_StaggerType.Column;
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("!https://store.montsinger.net/products/rebound-s");
 	kb.img = type_ValList.fromValue("rebound-s.webp");
 	addRebound(kb);
-	var parent = null;
-	var this1 = { name : "Sol 3"};
-	if(parent != null) {
-		if(typeof(parent) == "string") {
-			this1.parent = parent;
-		} else {
-			this1.parent = parent.name;
-		}
-	}
-	kb = this1;
+	kb = ColStagKeyboard._new("Sol 3");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(66),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(4),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
@@ -2343,6 +2031,20 @@ OrthoBoards.init = function(keyboards) {
 	kb.kit = type_ValList.fromValue("https://www.rgbkb.net/collections/sol-3");
 	kb.prebuilt = type_ValList.fromValue("https://www.rgbkb.net/collections/sol-3/products/sol-3-keyboard-prebuilt");
 	kb.img = type_ValList.fromValue("sol3.webp");
+	add(kb);
+	kb = ColStagKeyboard._new("Equals 48");
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([47,48]),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
+	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
+	kb.kit = type_ValList.fromValue("https://www.boardsource.xyz/products/equals-48-kit");
+	kb.img = type_ValList.fromValue("equals48.webp");
+	add(kb);
+	kb = ColStagKeyboard._new("Equals 60");
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromArray([59,60]),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
+	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
+	kb.kit = type_ValList.fromValue("https://www.boardsource.xyz/products/equals-60-kit");
+	kb.img = type_ValList.fromValue("equals60.webp");
 	add(kb);
 };
 var Reflect = function() { };
@@ -2418,6 +2120,252 @@ Reflect.copy = function(o) {
 	}
 	return o2;
 };
+var RowStagKeyboard = {};
+RowStagKeyboard._new = function(name,parent) {
+	var this1 = { name : name};
+	if(parent != null) {
+		if(typeof(parent) == "string") {
+			this1.parent = parent;
+		} else {
+			this1.parent = parent.name;
+		}
+	}
+	return this1;
+};
+var RowStagTable = function() {
+	KeyboardTable.call(this);
+};
+RowStagTable.__name__ = true;
+RowStagTable.__super__ = KeyboardTable;
+RowStagTable.prototype = $extend(KeyboardTable.prototype,{
+	collectFilters: function() {
+		var result = KeyboardTable.prototype.collectFilters.call(this);
+		result["row"] = "";
+		return result;
+	}
+	,initGeneral: function(kb) {
+		var _gthis = this;
+		KeyboardTable.prototype.initGeneral.call(this,kb);
+		this.initColConnection(kb);
+		var col = new table_IntRangeColumn("Key count",new table_FancyField("keys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.keys = setValue;
+				return null;
+			} else {
+				return q.keys;
+			}
+		}));
+		this.addColumn(col);
+		col.shortName = "#keys";
+		col = new table_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.rows = setValue;
+				return null;
+			} else {
+				return q.rows;
+			}
+		}));
+		this.addColumn(col);
+		col.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"(not counting the modifier row)");
+		};
+		var addColCountCol = function(row,letter,f,k1,k2) {
+			var name = "Columns Δ " + row + "/" + letter;
+			col = new table_IntRangeColumn(name,f);
+			col.shortName = "Δ" + letter;
+			col.onNotes = function(div) {
+				if(row == 0) {
+					tools_HtmlTools.appendParaTextNode(div,"Number of columns in digit row " + " (if keyboard has one)" + " relative to a standard keyboard layout.");
+				} else {
+					tools_HtmlTools.appendParaTextNode(div,"Number of columns in alpha row " + row + " (starting with " + letter + " on QWERTY)" + " relative to a standard keyboard layout.");
+				}
+				var p = tools_HtmlTools.appendParaTextNode(div,"So 0 means that everything is as usual," + " -1 means that it's missing the key that would be ");
+				tools_HtmlTools.appendElTextNode(p,"code",k2);
+				p.appendChild(window.document.createTextNode(" on en-US layout, -2 means that it's missing "));
+				tools_HtmlTools.appendElTextNode(p,"code",k1);
+				p.appendChild(window.document.createTextNode(" and "));
+				tools_HtmlTools.appendElTextNode(p,"code",k2);
+				p.appendChild(window.document.createTextNode(", and so on."));
+			};
+			col.show = false;
+			_gthis.addColumn(col);
+		};
+		addColCountCol(0,"1",new table_FancyField("dCols",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.dCols = setValue;
+				return null;
+			} else {
+				return q.dCols;
+			}
+		}),"-_","=+");
+		addColCountCol(1,"Q",new table_FancyField("qCols",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.qCols = setValue;
+				return null;
+			} else {
+				return q.qCols;
+			}
+		}),"[{","]}");
+		addColCountCol(2,"A",new table_FancyField("qCols",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.qCols = setValue;
+				return null;
+			} else {
+				return q.qCols;
+			}
+		}),";:","'\"");
+		addColCountCol(3,"Z",new table_FancyField("qCols",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.qCols = setValue;
+				return null;
+			} else {
+				return q.qCols;
+			}
+		}),".>","/?");
+	}
+	,initClusters: function(kb) {
+		var _gthis = this;
+		KeyboardTable.prototype.initClusters.call(this,kb);
+		var addHidden = function(col) {
+			col.show = false;
+			_gthis.addColumn(col);
+		};
+		var lshift = new table_TagListColumn("LShift",new table_FancyField("lshift",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.lshift = setValue;
+				return null;
+			} else {
+				return q.lshift;
+			}
+		}),type_row_LShiftShape);
+		addHidden(lshift);
+		var rshift = new table_TagListColumn("RShift",new table_FancyField("rshift",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.rshift = setValue;
+				return null;
+			} else {
+				return q.rshift;
+			}
+		}),type_row_RShiftShape);
+		addHidden(rshift);
+		var enter = new table_TagListColumn("Enter",new table_FancyField("enter",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.enter = setValue;
+				return null;
+			} else {
+				return q.enter;
+			}
+		}),type_row_EnterShape);
+		addHidden(enter);
+		var space = new table_TagListColumn("Space",new table_FancyField("space",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.space = setValue;
+				return null;
+			} else {
+				return q.space;
+			}
+		}),type_row_SpaceShape);
+		addHidden(space);
+		var thumbKeys = new table_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.thumbKeys = setValue;
+				return null;
+			} else {
+				return q.thumbKeys;
+			}
+		}));
+		thumbKeys.defaultValue = type_NumRange.fromInt(1);
+		addHidden(thumbKeys);
+		var fnPos = new table_TagColumn("Fn position",new table_FancyField("fnPos",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.fnPos = setValue;
+				return null;
+			} else {
+				return q.fnPos;
+			}
+		}),type_row_FnPos);
+		fnPos.shortName = "@Fn";
+		fnPos.shortLabels.set(type_row_FnPos.LeftMost,"Left");
+		fnPos.shortLabels.set(type_row_FnPos.RightMost,"Right");
+		fnPos.shortLabels.set(type_row_FnPos.AfterLCtl,"LCtl Fn");
+		fnPos.shortLabels.set(type_row_FnPos.AfterLGui,"LGui Fn");
+		fnPos.shortLabels.set(type_row_FnPos.AfterLAlt,"LAlt Fn");
+		fnPos.filterLabels.set(type_row_FnPos.AfterLAlt,"After Left Alt");
+		fnPos.filterLabels.set(type_row_FnPos.AfterLGui,"After Left Gui (Win/Cmd/Meta)");
+		fnPos.onNotes = function(div) {
+			var p = tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a ");
+			tools_HtmlTools.appendElTextNode(p,"i","non-remappable");
+			p.appendChild(window.document.createTextNode(" Fn key, this indicates where's that"));
+		};
+		addHidden(fnPos);
+		var leftMods = new table_IntRangeColumn("Left-side mods",new table_FancyField("leftMods",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.leftMods = setValue;
+				return null;
+			} else {
+				return q.leftMods;
+			}
+		}));
+		leftMods.shortName = "#lm";
+		addHidden(leftMods);
+		var rightMods = new table_IntRangeColumn("Right-side mods",new table_FancyField("rightMods",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.rightMods = setValue;
+				return null;
+			} else {
+				return q.rightMods;
+			}
+		}));
+		leftMods.shortName = "#rm";
+		addHidden(rightMods);
+		this.initColNav(kb,false);
+	}
+	,initInputs: function(kb) {
+		KeyboardTable.prototype.initInputs.call(this,kb);
+		var mw = new table_TagListColumn("Mouse wheel",new table_FancyField("mouseWheel",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.mouseWheel = setValue;
+				return null;
+			} else {
+				return q.mouseWheel;
+			}
+		}),type_row_MouseWheel);
+		mw.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Just a mouse wheel, not remappable.");
+		};
+		mw.shortName = "wheel";
+		mw.show = false;
+		this.addColumn(mw);
+	}
+	,initKeyboards: function() {
+		var kbs = window.rowStagData;
+		var _g = 0;
+		while(_g < kbs.length) {
+			var kb = kbs[_g];
+			++_g;
+			if(kb == null || !Reflect.isObject(kb)) {
+				continue;
+			}
+			var _g1 = 0;
+			var _g2 = this.columns;
+			while(_g1 < _g2.length) {
+				var col = _g2[_g1];
+				++_g1;
+				col.load(kb);
+			}
+			this.values.push(kb);
+		}
+	}
+	,post: function() {
+		var _g = 0;
+		var _g1 = this.values;
+		while(_g < _g1.length) {
+			var kb = _g1[_g];
+			++_g;
+			kb.stagger = kb.stagger != null ? kb.stagger : type_StaggerType.Row;
+		}
+	}
+});
 var Std = function() { };
 Std.__name__ = true;
 Std.string = function(s) {
@@ -2783,6 +2731,20 @@ haxe_ds_BalancedTree.prototype = {
 			}
 		}
 		return null;
+	}
+	,exists: function(key) {
+		var node = this.root;
+		while(node != null) {
+			var c = this.compare(key,node.key);
+			if(c == 0) {
+				return true;
+			} else if(c < 0) {
+				node = node.left;
+			} else {
+				node = node.right;
+			}
+		}
+		return false;
 	}
 	,setLoop: function(k,v,node) {
 		if(node == null) {
@@ -3239,7 +3201,7 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		}
 		out.reset();
 	};
-	if(((table) instanceof table_KeyboardTable)) {
+	if(((table) instanceof KeyboardTable)) {
 		var kbs = table.values;
 		kbs.sort(function(a,b) {
 			var an = a.name.toUpperCase();
@@ -4292,7 +4254,7 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 			while(_g2 < _g3.length) {
 				var v = _g3[_g2];
 				++_g2;
-				if(v.label == vendor) {
+				if(v.label == vendor && v.official == official) {
 					_g1.push(v);
 				}
 			}
@@ -4652,6 +4614,9 @@ table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 	getId: function() {
 		return this.field.name;
 	}
+	,showInFilters: function(val) {
+		return true;
+	}
 	,buildFilter: function(out) {
 		var _gthis = this;
 		var modeSelect = window.document.createElement("select");
@@ -4708,6 +4673,9 @@ table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			var ctr = _g1[_g];
 			++_g;
 			var val = [this.nameToTag(ctr)];
+			if(!this.showInFilters(val[0])) {
+				continue;
+			}
 			var tmp = this.getFilterLabel(val[0]);
 			var name = tmp != null ? tmp : ctr;
 			var cb = [tools_HtmlTools.createCheckboxElement(window.document)];
@@ -4850,6 +4818,7 @@ table_TagColumnBase.prototype = $extend(table_TagLikeColumnBase.prototype,{
 	}
 });
 var table_TagColumn = function(name,field,et) {
+	this.usedValues = new haxe_ds_EnumValueMap();
 	this.defaultValue = null;
 	table_TagColumnBase.call(this,name,field,et);
 	this.defaultValue = Type.createEnumIndex(et,0,null);
@@ -4872,6 +4841,25 @@ table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 	}
 	,buildValue: function(out,kb) {
 		table_TagLikeColumnTools.buildSingleValue(this,out,kb);
+	}
+	,showInFilters: function(val) {
+		return this.usedValues.exists(val);
+	}
+	,buildFilter: function(out) {
+		var _g = 0;
+		var _g1 = this.table.values;
+		while(_g < _g1.length) {
+			var item = _g1[_g];
+			++_g;
+			var val = this.getValue(item);
+			if(val == null) {
+				continue;
+			}
+			if(!this.usedValues.exists(val)) {
+				this.usedValues.set(val,true);
+			}
+		}
+		table_TagColumnBase.prototype.buildFilter.call(this,out);
 	}
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
@@ -4984,6 +4972,7 @@ table_TagLikeColumnTools.buildSingleValue = function(self,out,item) {
 	}
 };
 var table_TagListColumn = function(name,field,et) {
+	this.usedValues = new haxe_ds_EnumValueMap();
 	this.defaultValue = null;
 	table_TagColumnBase.call(this,name,field,et);
 	this.defaultValue = type_ValList.fromValue(Type.createEnumIndex(et,0,null));
@@ -5032,6 +5021,31 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			var text = this.nullCaption;
 			out.appendChild(window.document.createTextNode(text));
 		}
+	}
+	,showInFilters: function(val) {
+		return this.usedValues.exists(val);
+	}
+	,buildFilter: function(out) {
+		var _g = 0;
+		var _g1 = this.table.values;
+		while(_g < _g1.length) {
+			var item = _g1[_g];
+			++_g;
+			var vals = this.getValue(item);
+			if(vals == null) {
+				continue;
+			}
+			var _g2 = 0;
+			var _g3 = vals;
+			while(_g2 < _g3.length) {
+				var val = _g3[_g2];
+				++_g2;
+				if(!this.usedValues.exists(val)) {
+					this.usedValues.set(val,true);
+				}
+			}
+		}
+		table_TagColumnBase.prototype.buildFilter.call(this,out);
 	}
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
@@ -5387,10 +5401,11 @@ type_Lighting.__constructs__ = [type_Lighting.Unknown,type_Lighting.None,type_Li
 var type_NavCluster = $hxEnums["type.NavCluster"] = { __ename__:true,__constructs__:null
 	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.NavCluster",toString:$estr}
 	,Arrows: {_hx_name:"Arrows",_hx_index:1,__enum__:"type.NavCluster",toString:$estr}
-	,Duo: {_hx_name:"Duo",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
-	,Full: {_hx_name:"Full",_hx_index:3,__enum__:"type.NavCluster",toString:$estr}
+	,Inline: {_hx_name:"Inline",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
+	,Duo: {_hx_name:"Duo",_hx_index:3,__enum__:"type.NavCluster",toString:$estr}
+	,Full: {_hx_name:"Full",_hx_index:4,__enum__:"type.NavCluster",toString:$estr}
 };
-type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Duo,type_NavCluster.Full];
+type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Inline,type_NavCluster.Duo,type_NavCluster.Full];
 var type_NumRange = {};
 type_NumRange._new = function(min,max) {
 	return { min : min, max : max};
@@ -5444,10 +5459,11 @@ var type_SplayBase = $hxEnums["type.SplayBase"] = { __ename__:true,__constructs_
 };
 type_SplayBase.__constructs__ = [type_SplayBase.No,type_SplayBase.Yes,type_SplayBase.PinkyOnly,type_SplayBase.Optional];
 var type_StaggerType = $hxEnums["type.StaggerType"] = { __ename__:true,__constructs__:null
-	,Column: {_hx_name:"Column",_hx_index:0,__enum__:"type.StaggerType",toString:$estr}
-	,Ortho: {_hx_name:"Ortho",_hx_index:1,__enum__:"type.StaggerType",toString:$estr}
+	,Row: {_hx_name:"Row",_hx_index:0,__enum__:"type.StaggerType",toString:$estr}
+	,Column: {_hx_name:"Column",_hx_index:1,__enum__:"type.StaggerType",toString:$estr}
+	,Ortho: {_hx_name:"Ortho",_hx_index:2,__enum__:"type.StaggerType",toString:$estr}
 };
-type_StaggerType.__constructs__ = [type_StaggerType.Column,type_StaggerType.Ortho];
+type_StaggerType.__constructs__ = [type_StaggerType.Row,type_StaggerType.Column,type_StaggerType.Ortho];
 var type_SwitchKind = $hxEnums["type.SwitchKind"] = { __ename__:true,__constructs__:null
 	,Linear: {_hx_name:"Linear",_hx_index:0,__enum__:"type.SwitchKind",toString:$estr}
 	,Tactile: {_hx_name:"Tactile",_hx_index:1,__enum__:"type.SwitchKind",toString:$estr}
@@ -5465,9 +5481,11 @@ var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__con
 	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
 	,CherryULP: {_hx_name:"CherryULP",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
 	,Optical: {_hx_name:"Optical",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
+	,Simple: {_hx_name:"Simple",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
+	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
 var type_ValList = {};
 type_ValList.get_length = function(this1) {
 	return this1.length;
@@ -5490,6 +5508,54 @@ var type_WristPads = $hxEnums["type.WristPads"] = { __ename__:true,__constructs_
 	,Detachable: {_hx_name:"Detachable",_hx_index:2,__enum__:"type.WristPads",toString:$estr}
 };
 type_WristPads.__constructs__ = [type_WristPads.None,type_WristPads.Integrated,type_WristPads.Detachable];
+var type_row_EnterShape = $hxEnums["type.row.EnterShape"] = { __ename__:true,__constructs__:null
+	,ANSI: {_hx_name:"ANSI",_hx_index:0,__enum__:"type.row.EnterShape",toString:$estr}
+	,ISO: {_hx_name:"ISO",_hx_index:1,__enum__:"type.row.EnterShape",toString:$estr}
+	,Mini: {_hx_name:"Mini",_hx_index:2,__enum__:"type.row.EnterShape",toString:$estr}
+};
+type_row_EnterShape.__constructs__ = [type_row_EnterShape.ANSI,type_row_EnterShape.ISO,type_row_EnterShape.Mini];
+var type_row_FnPos = $hxEnums["type.row.FnPos"] = { __ename__:true,__constructs__:null
+	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.row.FnPos",toString:$estr}
+	,LeftMost: {_hx_name:"LeftMost",_hx_index:1,__enum__:"type.row.FnPos",toString:$estr}
+	,AfterLCtl: {_hx_name:"AfterLCtl",_hx_index:2,__enum__:"type.row.FnPos",toString:$estr}
+	,AfterLGui: {_hx_name:"AfterLGui",_hx_index:3,__enum__:"type.row.FnPos",toString:$estr}
+	,AfterLAlt: {_hx_name:"AfterLAlt",_hx_index:4,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeRAlt: {_hx_name:"BeforeRAlt",_hx_index:5,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeMenu: {_hx_name:"BeforeMenu",_hx_index:6,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeRGui: {_hx_name:"BeforeRGui",_hx_index:7,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeRCtl: {_hx_name:"BeforeRCtl",_hx_index:8,__enum__:"type.row.FnPos",toString:$estr}
+	,RightMost: {_hx_name:"RightMost",_hx_index:9,__enum__:"type.row.FnPos",toString:$estr}
+	,Elsewhere: {_hx_name:"Elsewhere",_hx_index:10,__enum__:"type.row.FnPos",toString:$estr}
+};
+type_row_FnPos.__constructs__ = [type_row_FnPos.None,type_row_FnPos.LeftMost,type_row_FnPos.AfterLCtl,type_row_FnPos.AfterLGui,type_row_FnPos.AfterLAlt,type_row_FnPos.BeforeRAlt,type_row_FnPos.BeforeMenu,type_row_FnPos.BeforeRGui,type_row_FnPos.BeforeRCtl,type_row_FnPos.RightMost,type_row_FnPos.Elsewhere];
+var type_row_LShiftShape = $hxEnums["type.row.LShiftShape"] = { __ename__:true,__constructs__:null
+	,ANSI: {_hx_name:"ANSI",_hx_index:0,__enum__:"type.row.LShiftShape",toString:$estr}
+	,ISO: {_hx_name:"ISO",_hx_index:1,__enum__:"type.row.LShiftShape",toString:$estr}
+};
+type_row_LShiftShape.__constructs__ = [type_row_LShiftShape.ANSI,type_row_LShiftShape.ISO];
+var type_row_MouseWheel = $hxEnums["type.row.MouseWheel"] = { __ename__:true,__constructs__:null
+	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.row.MouseWheel",toString:$estr}
+	,Vertical: {_hx_name:"Vertical",_hx_index:1,__enum__:"type.row.MouseWheel",toString:$estr}
+	,VerticalLR: {_hx_name:"VerticalLR",_hx_index:2,__enum__:"type.row.MouseWheel",toString:$estr}
+};
+type_row_MouseWheel.__constructs__ = [type_row_MouseWheel.None,type_row_MouseWheel.Vertical,type_row_MouseWheel.VerticalLR];
+var type_row_RShiftShape = $hxEnums["type.row.RShiftShape"] = { __ename__:true,__constructs__:null
+	,Normal: {_hx_name:"Normal",_hx_index:0,__enum__:"type.row.RShiftShape",toString:$estr}
+	,LeftCut: {_hx_name:"LeftCut",_hx_index:1,__enum__:"type.row.RShiftShape",toString:$estr}
+	,RightCut: {_hx_name:"RightCut",_hx_index:2,__enum__:"type.row.RShiftShape",toString:$estr}
+	,Wide: {_hx_name:"Wide",_hx_index:3,__enum__:"type.row.RShiftShape",toString:$estr}
+	,None: {_hx_name:"None",_hx_index:4,__enum__:"type.row.RShiftShape",toString:$estr}
+};
+type_row_RShiftShape.__constructs__ = [type_row_RShiftShape.Normal,type_row_RShiftShape.LeftCut,type_row_RShiftShape.RightCut,type_row_RShiftShape.Wide,type_row_RShiftShape.None];
+var type_row_SpaceShape = $hxEnums["type.row.SpaceShape"] = { __ename__:true,__constructs__:null
+	,Normal: {_hx_name:"Normal",_hx_index:0,__enum__:"type.row.SpaceShape",toString:$estr}
+	,Split: {_hx_name:"Split",_hx_index:1,__enum__:"type.row.SpaceShape",toString:$estr}
+	,SplitDistinct: {_hx_name:"SplitDistinct",_hx_index:2,__enum__:"type.row.SpaceShape",toString:$estr}
+	,Multi: {_hx_name:"Multi",_hx_index:3,__enum__:"type.row.SpaceShape",toString:$estr}
+};
+type_row_SpaceShape.__constructs__ = [type_row_SpaceShape.Normal,type_row_SpaceShape.Split,type_row_SpaceShape.SplitDistinct,type_row_SpaceShape.Multi];
+function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $global.$haxeUID++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = m.bind(o); o.hx__closures__[m.__id__] = f; } return f; }
+$global.$haxeUID |= 0;
 if(typeof(performance) != "undefined" ? typeof(performance.now) == "function" : false) {
 	HxOverrides.now = performance.now.bind(performance);
 }

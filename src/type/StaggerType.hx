@@ -5,7 +5,7 @@ package type;
  * @author YellowAfterlife
  */
 enum StaggerType {
-	//Row;
+	Row;
 	Column;
 	Ortho;
 }

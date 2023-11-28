@@ -13,7 +13,7 @@ import js.html.TableRowElement;
 import table.FancyColumn;
 import table.FancyTableFilters;
 import table.FancyRow;
-import table.KeyboardTable;
+import KeyboardTable;
 import type.IntRange;
 import type.Keyboard;
 using tools.HtmlTools;

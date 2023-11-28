@@ -121,7 +121,7 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 			
 			if (vendor == null) vendor = domain;
 			
-			var row = rows.filter(row -> row.label == vendor)[0];
+			var row = rows.filter(row -> row.label == vendor && row.official == official)[0];
 			if (row == null) {
 				row = new LinkListRow(vendor);
 				row.official = official;

@@ -13,7 +13,7 @@ import type.*;
  */
 @:forward abstract ColStagKeyboard(ColStagKeyboardBase)
 from ColStagKeyboardBase to ColStagKeyboardBase {
-	public inline function new(name:String, ?parent:EitherType<String, ColStagKeyboard>) {
+	public function new(name:String, ?parent:EitherType<String, ColStagKeyboard>) {
 		this = { name: name };
 		if (parent == null) {
 			//

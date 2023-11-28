@@ -27,6 +27,9 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	abstract public function getDefaultTag():VT;
 	abstract public function getFilterLabel(val:VT):String;
 	abstract public function getShortLabel(val:VT):String;
+	public function showInFilters(val:VT):Bool {
+		return true;
+	}
 	
 	public function new(name:String, field:FancyField<T, FT>) {
 		super(name);
@@ -64,6 +67,7 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 		
 		for (ctr in getTagNames()) {
 			var val:VT = nameToTag(ctr);
+			if (!showInFilters(val)) continue;
 			var name = getFilterLabel(val) ?? ctr;
 			
 			var cb = document.createCheckboxElement();

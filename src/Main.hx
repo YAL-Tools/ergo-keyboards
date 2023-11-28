@@ -11,6 +11,7 @@ import table.FancyTableShuffler;
 import table.*;
 using tools.HtmlTools;
 import js.Browser.*;
+import type.Keyboard;
 
 /**
  * ...
@@ -23,12 +24,15 @@ class Main {
 		LinkListColumn.countryTags = (cast window).countryTags;
 		//
 		var divFilters:Element = document.querySelectorAuto("#filter");
-		var csTable = new ColStagTable();
-		csTable.resolveParents();
-		csTable.countElement = document.querySelectorAuto("#count");
-		csTable.buildFilters(divFilters);
-		csTable.buildTable(document.querySelectorAuto("#data"));
-		FancyTableEditor.build(csTable,
+		var kbTable:KeyboardTable<Keyboard>;
+		if (document.body.classList.contains("rowstag")) {
+			kbTable = cast new RowStagTable();
+		} else kbTable = cast new ColStagTable();
+		kbTable.resolveParents();
+		kbTable.countElement = document.querySelectorAuto("#count");
+		kbTable.buildFilters(divFilters);
+		kbTable.buildTable(document.querySelectorAuto("#data"));
+		FancyTableEditor.build(kbTable,
 			document.querySelectorAuto("#editor"),
 			document.querySelectorAuto("#editor-load"),
 			document.querySelectorAuto("#editor-reset"),
@@ -39,44 +43,44 @@ class Main {
 		//
 		var loc = document.location;
 		if (loc.protocol != "file:") {
-			csTable.baseURL = loc.origin + loc.pathname;
+			kbTable.baseURL = loc.origin + loc.pathname;
 		}
 		
 		//
 		var btClearFilters:InputElement = document.querySelectorAuto("#clear-filters");
 		btClearFilters.onclick = function() {
-			FancyTableControls.clearFilters(csTable, divFilters);
+			FancyTableControls.clearFilters(kbTable, divFilters);
 		}
 		
 		//
 		var cbAutoUpdateURL:InputElement = document.querySelectorAuto("#auto-update-url");
-		csTable.canUpdateURL = cbAutoUpdateURL.checked;
+		kbTable.canUpdateURL = cbAutoUpdateURL.checked;
 		cbAutoUpdateURL.addEventListener("change", function(_) {
-			csTable.canUpdateURL = cbAutoUpdateURL.checked;
+			kbTable.canUpdateURL = cbAutoUpdateURL.checked;
 		});
 		
 		//
 		var btShare:InputElement = document.querySelectorAuto("#copy-share-url");
-		FancyTableControls.createShareButton(csTable, btShare);
+		FancyTableControls.createShareButton(kbTable, btShare);
 		
 		//
-		var shuffler = new FancyTableShuffler<ColStagKeyboard>("");
+		var shuffler = new FancyTableShuffler<Keyboard>("");
 		if (location.hostname == "localhost") {
 			var editorDetails:DetailsElement = document.querySelectorAuto("#editor-outer");
 			editorDetails.open = true;
 		} else {
-			csTable.sortBy(shuffler, false);
+			kbTable.sortBy(shuffler, false);
 		}
 		document.querySelectorAuto("#shuffle", InputElement).onclick = function() {
-			if (csTable.sortColHead != null) {
-				csTable.sortColHead.element.classList.remove("sort-column");
-				csTable.sortColHead.element.classList.remove("sort-ascending");
-				csTable.sortColHead = null;
+			if (kbTable.sortColHead != null) {
+				kbTable.sortColHead.element.classList.remove("sort-column");
+				kbTable.sortColHead.element.classList.remove("sort-ascending");
+				kbTable.sortColHead = null;
 			}
-			csTable.sortBy(shuffler, false);
-			csTable.updateURL();
+			kbTable.sortBy(shuffler, false);
+			kbTable.updateURL();
 		}
-		csTable.loadFilters(document.location.search);
+		kbTable.loadFilters(document.location.search);
 		console.log("Hello!");
 	}
 	

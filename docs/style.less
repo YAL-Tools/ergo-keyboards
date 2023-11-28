@@ -9,6 +9,12 @@ th, td {
 	text-align: left;
 	vertical-align: top;
 }
+body:not(.rowstag) .if-rowstag {
+	display: none;
+}
+body.rowstag .if-colstag {
+	display: none;
+}
 #filter, #editor {
 	columns: 1;
 	margin-bottom: 0.5em;

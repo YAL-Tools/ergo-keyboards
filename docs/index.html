@@ -55,23 +55,40 @@
 				set(val);
 				localStorage.setItem("yal-ergo-night", val ? "1" : "0")
 			}
+			
+			//
+			try {
+				var search = document.location.search;
+				if (/[?&]row\b/.test(search)) {
+					document.body.classList.add("rowstag");
+				} else document.body.classList.add("colstag");
+			} catch (_) {}
 		})();
 	</script>
 	<h1 style="transform: skewX(-5deg)">YellowAfterlife's ergonomic keyboard list</h1>
-	<p>
+	<p class="if-colstag">
 		This is a collection of column-staggered and ortholinear ergonomic keyboards.
-	</p><p>
+	</p><p class="if-colstag">
 		It is not as large as some other collections, but you can sort and filter the keyboards.<br/>
 		¹ As far as I can tell, the collection now (Nov 2023)
 		covers most medium..big column-staggered keyboards
 		and has a fair sample of smaller ones that have interesting features/geometry.
+	</p><p class="if-rowstag">
+		This is a sample of row-staggered ergonomic keyboards
+		and some ortholinear keyboards pretending to be row-staggered keyboards.
+	</p><p class="if-rowstag">
+		It's mostly for myself, but maybe you can submit a noteworthy keyboard or two.
 	</p>
 	<details>
 		<summary>"The rules"</summary>
 		<ul>
-			<li>
+			<li class="if-colstag">
 				Column-staggered and ortholinear keyboards only.<br>
-				This avoids some ambiguity with counting columns and similar.
+				Row-staggered keyboards go into a <a href="?row">separate list</a>.
+			</li><li class="if-rowstag">
+				To avoid adding hundreds of office keyboards to this list,
+				keyboards should have some interesting quality about them.<br/>
+				Column-staggered and grid-based ortholinear keyboards go into a <a href="?">separate list</a>.
 			</li><li>
 				Keyboards have to be buildable or immediately obtainable in some way -
 				no teasers / pre-orders / group buys.
@@ -217,6 +234,7 @@
 	<script src="lib/tippy-bundle.umd.js"></script>
 	
 	<script src="keyboards.js?v=2023-11-22"></script>
+	<script src="rowstag.js?v=2023-11-22"></script>
 	<script src="origins.js?v=2023-11-22"></script>
 	<script src="script.js?v=2023-11-22"></script>
 	
