@@ -54,6 +54,8 @@ class FancyTableEditor {
 					continue;
 				case Column(col): col;
 			}
+			if (!column.canEdit) continue;
+			
 			var tr = document.createDivElement();
 			tr.classList.add("item");
 			

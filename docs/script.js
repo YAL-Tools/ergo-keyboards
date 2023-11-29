@@ -1227,6 +1227,36 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			tools_HtmlTools.appendParaTextNode(div,"");
 		};
 		lc.shortName = "PB";
+		var avail_fd = new table_FancyField("availability",function(obj,set,val) {
+			if(set) {
+				return null;
+			}
+			var has = function(list) {
+				if(list != null) {
+					return list.length > 0;
+				} else {
+					return false;
+				}
+			};
+			var result = [];
+			if(has(obj.source)) {
+				result.push(type_Availability.OpenSource);
+			}
+			if(has(obj.kit)) {
+				result.push(type_Availability.Kit);
+			}
+			if(has(obj.prebuilt)) {
+				result.push(type_Availability.PreBuilt);
+			}
+			return result;
+		});
+		var avail = new table_TagListColumn("Availability",avail_fd,type_Availability);
+		avail.shortLabels.set(type_Availability.OpenSource,"O");
+		avail.shortLabels.set(type_Availability.Kit,"K");
+		avail.shortLabels.set(type_Availability.PreBuilt,"PB");
+		avail.canEdit = false;
+		avail.show = false;
+		this.addColumn(avail);
 	}
 	,initInputs: function(kb) {
 		var header = this.addFilterHeader("Other input devices");
@@ -1262,6 +1292,39 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		enct.shortLabels.set(type_EncoderType.Knob,"K");
 		enct.shortLabels.set(type_EncoderType.Wheel,"W");
 		this.addColumn(enct);
+		var pds_fd = new table_FancyField("pointingDevices",function(kb,set,val) {
+			if(set) {
+				kb.pointingDevices = val;
+				return null;
+			}
+			var range = kb.pointingDevices;
+			if(range != null) {
+				return range;
+			}
+			var add = function(item) {
+				if(item == null) {
+					return;
+				}
+				if(range == null) {
+					range = { min : item.min, max : item.max};
+				} else {
+					range.min += item.min;
+					range.max += item.max;
+				}
+			};
+			add(kb.trackballs);
+			add(kb.trackpads);
+			add(kb.trackpoints);
+			return range;
+		});
+		var pds = new table_IntRangeColumn("Pointing devices",pds_fd);
+		pds.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"By default, this adds up all pointing device types.");
+		};
+		pds.shortName = "PDs";
+		pds.filterMinDefault = 1;
+		pds.show = false;
+		this.addColumn(pds);
 		irCol = new table_IntRangeColumn("Trackballs",new table_FancyField("trackballs",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.trackballs = setValue;
@@ -2965,6 +3028,7 @@ var table_FancyColumn = function(name) {
 	this.filterCheckbox = null;
 	this.showCheckbox = null;
 	this.wantFilter = false;
+	this.canEdit = true;
 	this.canFilter = true;
 	this.canShow = true;
 	this.show = true;
@@ -3151,6 +3215,9 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 			}
 			continue;
 		}
+		if(!column.canEdit) {
+			continue;
+		}
 		var tr = window.document.createElement("div");
 		tr.classList.add("item");
 		var divFilters = window.document.createElement("div");
@@ -3318,14 +3385,14 @@ table_FancyTableFilters.build = function(table,out) {
 		var colName = tmp != null ? tmp : column1[0].name;
 		var tr = window.document.createElement("div");
 		tr.classList.add("item");
-		var cbShow = window.document.createElement("input");
-		cbShow.disabled = !column1[0].canShow;
-		cbShow.type = "checkbox";
-		cbShow.classList.add("cb-show");
-		cbShow.checked = column1[0].show;
-		cbShow.onchange = (function(column) {
+		var cbShow = [window.document.createElement("input")];
+		cbShow[0].disabled = !column1[0].canShow;
+		cbShow[0].type = "checkbox";
+		cbShow[0].classList.add("cb-show");
+		cbShow[0].checked = column1[0].show;
+		cbShow[0].onchange = (function(cbShow,column) {
 			return function(_) {
-				column[0].show = !column[0].show;
+				column[0].show = cbShow[0].checked;
 				var _g = 0;
 				var _g1 = [];
 				var _g2 = 0;
@@ -3367,15 +3434,15 @@ table_FancyTableFilters.build = function(table,out) {
 					}
 				}
 			};
-		})(column1);
-		column1[0].showCheckbox = cbShow;
-		tr.appendChild(cbShow);
+		})(cbShow,column1);
+		column1[0].showCheckbox = cbShow[0];
+		tr.appendChild(cbShow[0]);
 		var this1 = { };
 		this1["theme"] = "translucent";
 		var toShow = this1;
 		var v = "Show \"" + colName + "\"";
 		toShow["content"] = v;
-		Tippy(cbShow,toShow);
+		Tippy(cbShow[0],toShow);
 		var divFilters = [window.document.createElement("div")];
 		column1[0].buildFilter(divFilters[0]);
 		tools_HtmlTools.setDisplayFlag(divFilters[0],false);
@@ -5335,6 +5402,12 @@ var type_Assembly = $hxEnums["type.Assembly"] = { __ename__:true,__constructs__:
 	,Adjustable: {_hx_name:"Adjustable",_hx_index:4,__enum__:"type.Assembly",toString:$estr}
 };
 type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.PCB,type_Assembly.ThroughHole,type_Assembly.Handwired,type_Assembly.Adjustable];
+var type_Availability = $hxEnums["type.Availability"] = { __ename__:true,__constructs__:null
+	,OpenSource: {_hx_name:"OpenSource",_hx_index:0,__enum__:"type.Availability",toString:$estr}
+	,Kit: {_hx_name:"Kit",_hx_index:1,__enum__:"type.Availability",toString:$estr}
+	,PreBuilt: {_hx_name:"PreBuilt",_hx_index:2,__enum__:"type.Availability",toString:$estr}
+};
+type_Availability.__constructs__ = [type_Availability.OpenSource,type_Availability.Kit,type_Availability.PreBuilt];
 var type_CaseType = $hxEnums["type.CaseType"] = { __ename__:true,__constructs__:null
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.CaseType",toString:$estr}
 	,None: {_hx_name:"None",_hx_index:1,__enum__:"type.CaseType",toString:$estr}

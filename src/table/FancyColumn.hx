@@ -21,6 +21,7 @@ class FancyColumn<T> {
 	public var show = true;
 	public var canShow = true;
 	public var canFilter = true;
+	public var canEdit = true;
 	public var wantFilter = false;
 	
 	public var showCheckbox:InputElement = null;

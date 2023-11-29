@@ -98,6 +98,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 2
 	},
+	"pointingDevices": 2,
 	"caseType": "Included",
 	"kit": [
 		"!https://fingerpunch.xyz/product/ximi/"
@@ -136,6 +137,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 1
 	},
+	"pointingDevices": 1,
 	"caseType": "Included",
 	"kit": [
 		"!https://fingerpunch.xyz/product/faux-fox-keyboard-v3/"
@@ -3224,6 +3226,7 @@ window.keyboardData = [
 		"max": 2
 	},
 	"trackpadSize": 38,
+	"pointingDevices": [0, 2],
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/cgxeiji/cgxkb/tree/main/tsbym"

@@ -29,6 +29,7 @@ typedef Keyboard = {
 	?encoders:IntRange,
 	?encoderType:ValList<EncoderType>,
 	
+	?pointingDevices:IntRange,
 	?trackballs:IntRange,
 	/** in mm */
 	?trackballSize:Float,
