@@ -442,11 +442,20 @@ ColStagBoards.init = function(keyboards) {
 		add(kb);
 	};
 	kb = ColStagKeyboard._new("Iris");
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
-	kb.keySpacing = [type_KeySpacing.MX,type_KeySpacing.Choc];
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps,type_SwitchProfile.Choc]);
+	kb.hotswap = [type_HotSwap.No,type_HotSwap.Yes];
+	kb.keySpacing = [type_KeySpacing.MX];
 	kb.img = type_ValList.fromValue("iris.webp");
-	kb.kit = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
-	kb.prebuilt = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard"];
+	kb.kit = ["![v:r7] https://keeb.io/collections/iris-split-ergonomic-keyboard","![v:r5] https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
+	kb.prebuilt = ["![v:Multiple revisions] https://keeb.io/collections/iris-split-ergonomic-keyboard"];
+	kb.notes = ["NB! Choc/Alps switches are only available in Rev5, which isn't hotswap"];
+	addIris(kb);
+	kb = ColStagKeyboard._new("Iris CE");
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc]);
+	kb.keySpacing = [type_KeySpacing.Choc];
+	kb.img = type_ValList.fromValue("iris-ce-left_860x.webp");
+	kb.kit = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard"];
+	kb.prebuilt = [];
 	addIris(kb);
 	kb = ColStagKeyboard._new("Atreis");
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
@@ -5401,11 +5410,12 @@ type_Lighting.__constructs__ = [type_Lighting.Unknown,type_Lighting.None,type_Li
 var type_NavCluster = $hxEnums["type.NavCluster"] = { __ename__:true,__constructs__:null
 	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.NavCluster",toString:$estr}
 	,Arrows: {_hx_name:"Arrows",_hx_index:1,__enum__:"type.NavCluster",toString:$estr}
-	,Inline: {_hx_name:"Inline",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
-	,Duo: {_hx_name:"Duo",_hx_index:3,__enum__:"type.NavCluster",toString:$estr}
-	,Full: {_hx_name:"Full",_hx_index:4,__enum__:"type.NavCluster",toString:$estr}
+	,Squished: {_hx_name:"Squished",_hx_index:2,__enum__:"type.NavCluster",toString:$estr}
+	,Inline: {_hx_name:"Inline",_hx_index:3,__enum__:"type.NavCluster",toString:$estr}
+	,Duo: {_hx_name:"Duo",_hx_index:4,__enum__:"type.NavCluster",toString:$estr}
+	,Full: {_hx_name:"Full",_hx_index:5,__enum__:"type.NavCluster",toString:$estr}
 };
-type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Inline,type_NavCluster.Duo,type_NavCluster.Full];
+type_NavCluster.__constructs__ = [type_NavCluster.None,type_NavCluster.Arrows,type_NavCluster.Squished,type_NavCluster.Inline,type_NavCluster.Duo,type_NavCluster.Full];
 var type_NumRange = {};
 type_NumRange._new = function(min,max) {
 	return { min : min, max : max};

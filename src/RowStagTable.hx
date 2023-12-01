@@ -120,6 +120,8 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		addHidden(rightMods);
 		
 		initColNav(kb, false);
+		
+		
 	}
 	override function initInputs(kb:RowStagKeyboard):Void {
 		super.initInputs(kb);

@@ -898,17 +898,32 @@ class ColStagBoards {
 		}
 		
 		kb = new ColStagKeyboard("Iris");
-		kb.setHotswap([MX, Choc]);
-		kb.keySpacing = [MX, Choc];
+		kb.setHotswap([MX, Alps, Choc]);
+		kb.hotswap = [No, Yes];
+		kb.keySpacing = [MX];
 		kb.img = "iris.webp";
 		kb.kit = [
-			"!https://keeb.io/collections/iris-split-ergonomic-keyboard",
+			"![v:r7] https://keeb.io/collections/iris-split-ergonomic-keyboard",
+			"![v:r5] https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard",
 			"https://mechboards.co.uk/collections/kits/products/iris-kit",
 			"https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0",
 		];
 		kb.prebuilt = [
-			"!https://keeb.io/collections/iris-split-ergonomic-keyboard",
+			"![v:Multiple revisions] https://keeb.io/collections/iris-split-ergonomic-keyboard",
 		];
+		kb.notes = [
+			"NB! Choc/Alps switches are only available in Rev5, which isn't hotswap",
+		];
+		addIris(kb);
+		
+		kb = new ColStagKeyboard("Iris CE");
+		kb.setHotswap([Choc]);
+		kb.keySpacing = [Choc];
+		kb.img = "iris-ce-left_860x.webp";
+		kb.kit = [
+			"!https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard",
+		];
+		kb.prebuilt = [];
 		addIris(kb);
 		
 		kb = new ColStagKeyboard("Atreis");

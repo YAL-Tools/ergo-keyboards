@@ -7,6 +7,7 @@ package type;
 enum NavCluster {
 	None;
 	Arrows;
+	Squished;
 	Inline;
 	Duo;
 	Full;
