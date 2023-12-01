@@ -2,6 +2,7 @@ package;
 import haxe.Constraints.Function;
 import js.html.Element;
 import table.FancyColumn;
+import table.FancyField;
 import table.FancyTable;
 import table.FloatColumn;
 import table.IntListColumn;
@@ -287,6 +288,25 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			div.appendParaTextNode("");
 		}
 		lc.shortName = "PB";
+		
+		var avail_fd = new FancyField("availability", function(obj:KB, ?set, ?val) {
+			if (set) return null;
+			function has(list:ValList<String>) {
+				return list != null && list.length > 0;
+			}
+			var result = [];
+			if (has(obj.source)) result.push(Availability.OpenSource);
+			if (has(obj.kit)) result.push(Availability.Kit);
+			if (has(obj.prebuilt)) result.push(Availability.PreBuilt);
+			return result;
+		});
+		var avail = new TagListColumn("Availability", avail_fd, Availability);
+		avail.shortLabels[Availability.OpenSource] = "O";
+		avail.shortLabels[Availability.Kit] = "K";
+		avail.shortLabels[Availability.PreBuilt] = "PB";
+		avail.canEdit = false;
+		avail.show = false;
+		addColumn(avail);
 	}
 	function initInputs(kb:KB) {
 		var header = addFilterHeader("Other input devices");
@@ -321,6 +341,36 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		enct.shortLabels[EncoderType.Knob] = "K";
 		enct.shortLabels[EncoderType.Wheel] = "W";
 		addColumn(enct);
+		
+		var pds_fd = new FancyField("pointingDevices", function(kb:KB, ?set, ?val) {
+			if (set) {
+				kb.pointingDevices = val;
+				return null;
+			}
+			var range:IntRange = kb.pointingDevices;
+			if (range != null) return range;
+			function add(item:IntRange) {
+				if (item == null) return;
+				if (range == null) {
+					range = new IntRange(item.min, item.max);
+				} else {
+					range.min += item.min;
+					range.max += item.max;
+				}
+			}
+			add(kb.trackballs);
+			add(kb.trackpads);
+			add(kb.trackpoints);
+			return range;
+		});
+		var pds = new IntRangeColumn("Pointing devices", pds_fd);
+		pds.onNotes = function(div) {
+			div.appendParaTextNode("By default, this adds up all pointing device types.");
+		};
+		pds.shortName = "PDs";
+		pds.filterMinDefault = 1;
+		pds.show = false;
+		addColumn(pds);
 		
 		mAddColumn(irCol = new IntRangeColumn("Trackballs", kb.trackballs));
 		irCol.show = false;

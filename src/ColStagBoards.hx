@@ -512,6 +512,7 @@ class ColStagBoards {
 			img: "chunky-v2.jpg",
 			notes: "TODO: Author has a bunch of revisions of this keyboard - figure out if this entry needs to be split up."
 		};
+		kb.pointingDevices = 2;
 		kb.setMatrix(66, 6, 4);
 		kb.setExtras(7, 3, 0, 0);
 		kb.caseType = [Included];

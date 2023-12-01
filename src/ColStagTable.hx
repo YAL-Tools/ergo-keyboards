@@ -215,11 +215,6 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		splay.shortLabels[SplayBase.PinkyOnly] = "p";
 		addColumn(splay);
 	}
-	override public function getInits():KeyboardTableInitList<ColStagKeyboard> {
-		var result = super.getInits();
-		result.insertAfter("general", new KeyboardTableInit("clusters", initClusters));
-		return result;
-	}
 	override public function initKeyboards():Void {
 		ColStagBoards.init(values);
 		OrthoBoards.init(values);

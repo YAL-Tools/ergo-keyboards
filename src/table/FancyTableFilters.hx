@@ -69,7 +69,7 @@ class FancyTableFilters {
 			cbShow.classList.add("cb-show");
 			cbShow.checked = column.show;
 			cbShow.onchange = function(_) {
-				column.show = !column.show;
+				column.show = cbShow.checked;
 				for (cell in table.header.cells.filter(c -> c.column == column)) {
 					cell.element.setDisplayFlag(column.show);
 				}
