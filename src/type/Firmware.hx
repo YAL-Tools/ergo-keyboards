@@ -6,6 +6,7 @@ package type;
  */
 enum Firmware {
 	Unknown;
+	Simple;
 	QMK;
 	ZMK;
 	KMK;

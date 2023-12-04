@@ -37,7 +37,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		};
 		
 		function addColCountCol(row:Int, letter:String, f:FancyField<RowStagKeyboard, IntRange>, k1:String, k2:String) {
-			var name = 'Columns Δ $row/$letter';
+			var name = 'Columns Δ $row ("$letter")';
 			col = new IntRangeColumn(name, f);
 			col.shortName = "Δ" + letter;
 			col.onNotes = function(div) {
@@ -89,7 +89,26 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		addHidden(enter);
 		
 		var space = new TagListColumn("Space", mgf(kb.space), SpaceShape);
+		space.onNotes = function(div:Element):Void {
+			var ul = div.appendElTextNode("ul"), li:Element;
+			li = div.appendElTextNode("li");
+			li.appendElTextNode("b", "SplitDistinct");
+			li.appendTextNode(" means that the two halves of the spacebar "
+				+ "emit different key codes or can be configured");
+			li = div.appendElTextNode("li");
+			li.appendElTextNode("b", "SplitDistinctFn");
+			li.appendTextNode(" means same as above, "
+				+ "but also that there's an extra 1u key on one of them");
+			li = div.appendElTextNode("li");
+			li.appendElTextNode("b", "Multi");
+			li.appendTextNode(" means that both spacebars are split into two or more keys"
+				+ " (see Thumb Keys)");
+		}
 		addHidden(space);
+		
+		var bksp = new TagListColumn("Backspace", mgf(kb.backspace), BkspShape);
+		bksp.shortName = "Bksp";
+		addHidden(bksp);
 		
 		var thumbKeys = new IntRangeColumn("Thumb keys", mgf(kb.thumbKeys));
 		thumbKeys.defaultValue = 1;

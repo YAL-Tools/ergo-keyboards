@@ -101,7 +101,7 @@ class OrthoBoards {
 		kb.switchProfile = [MX, Choc, Alps];
 		kb.shape = Split;
 		kb.stagger = Ortho;
-		kb.caseType = None;
+		kb.caseType = [None];
 		kb.extras = [
 			"[v:Case] https://www.thingiverse.com/thing:3089077",
 			"![v:Plates] https://keeb.io/products/bfo-9000-case-plates",

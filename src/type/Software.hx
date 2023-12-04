@@ -8,5 +8,6 @@ enum Software {
 	Unknown;
 	VIA;
 	Vial;
+	Remap;
 	Custom;
 }

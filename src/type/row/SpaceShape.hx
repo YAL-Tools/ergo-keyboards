@@ -8,5 +8,6 @@ enum SpaceShape {
 	Normal;
 	Split;
 	SplitDistinct;
+	SplitDistinctFn;
 	Multi;
 }

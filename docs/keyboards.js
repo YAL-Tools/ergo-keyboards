@@ -3678,7 +3678,7 @@ window.keyboardData = [
 	"prebuilt": "https://www.keymouse.com/catalog/keymouse/keymouse-alpha-109-3d-printed-assembled"
 },
 {
-	"name": "KeyMouse Track ",
+	"name": "KeyMouse Track",
 	"img": "keymouse-track.webp",
 	"notes": "Featuring a handful of smaller buttons that aren't keys.",
 	"shape": "Split",
@@ -3699,6 +3699,29 @@ window.keyboardData = [
 	"wristPads": "Integrated",
 	"caseType": "Included",
 	"prebuilt": "https://www.keymouse.com/catalog/keymouse/keymouse-track-125-3d-printed-assembled"
+},
+{
+	"name": "city42",
+	"img": "city42.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"trackpads": 1,
+	"trackpadSize": 40,
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "VIA",
+	"caseType": "Included",
+	"prebuilt": "https://controller.works/products/city42-ergonomic-keyboard",
+	"pointingDevices": 1
 },
 // todo: https://www.slicemk.com/collections/all
 null

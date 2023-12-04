@@ -114,7 +114,8 @@ class ColStagBoards {
 			"[v:v2, v2 RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib=",
 		];
 		kb.extras = [
-			"[v:Tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/",
+			"[v:v2 tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/",
+			"[v:v2 printable case] https://github.com/kb-elmo/SofleCase",
 		];
 		kb.img = "sofle.jpg";
 		addSofle(kb);

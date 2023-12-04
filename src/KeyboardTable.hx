@@ -509,6 +509,14 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		addColumn(light);
 		
 		var fw = new TagListColumn("Firmware", mgf(kb.firmware), Firmware);
+		fw.onNotes = function(div) {
+			div.appendParaTextNode("Mostly determines your ability to use open-source configurators to customize the keyboard.");
+			if (fw.usedValues.exists(Firmware.Simple)) {
+				var p = div.appendParaTextNode("");
+				p.appendElTextNode("b", "Simple");
+				p.appendTextNode(" means that firmware is non-re-flashable and cannot be configured.");
+			}
+		}
 		fw.shortLabels[Firmware.Unknown] = "";
 		fw.shortLabels[Firmware.Custom] = "*";
 		fw.show = false;
