@@ -174,7 +174,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("redox-1.jpg");
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(7),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(5),type_NumRange.fromInt(2),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.firmware = [type_Firmware.QMK,type_Firmware.ZMK];
 	kb.software = [type_Software.VIA];
@@ -1007,7 +1007,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		conType.shortLabels.set(type_Connection.Wired,"W");
 		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
 		conType.shortLabels.set(type_Connection.Wireless,"P");
-		conType.filterLabels.set(type_Connection.Wireless,"Proprietary/other wireless");
+		conType.filterLabels.set(type_Connection.Wireless,"Other wireless");
+		conType.columnCount = 2;
 		this.addColumn(conType);
 	}
 	,initColNav: function(kb,corner) {
@@ -1019,6 +1020,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.navCluster;
 			}
 		}),type_NavCluster);
+		navCluster.columnCount = 2;
 		navCluster.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Arrow keys and such.");
 			var ul = tools_HtmlTools.appendElTextNode(div,"ul","");
@@ -1045,6 +1047,23 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
 	}
+	,initColNum: function(kb) {
+		var numpad = new table_TagListColumn("Numpad",new table_FancyField("numpad",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.numpad = setValue;
+				return null;
+			} else {
+				return q.numpad;
+			}
+		}),type_Numpad);
+		numpad.columnCount = 2;
+		numpad.onNotes = function(div) {
+			var p = tools_HtmlTools.appendParaTextNode(div,"");
+			tools_HtmlTools.appendElTextNode(p,"b","Mini");
+			p.appendChild(window.document.createTextNode(" means that it has the digit keys, but not a full set."));
+		};
+		this.addColumn(numpad);
+	}
 	,initGeneral: function(kb) {
 		var col = new table_NameColumn("Name & photo",new table_FancyField("name",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1069,6 +1088,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		shape.shortLabels.set(type_Shape.Unibody,"Uni");
 		shape.shortLabels.set(type_Shape.Keywell,"KW");
 		shape.shortLabels.set(type_Shape.Special,"*");
+		shape.columnCount = 2;
 		shape.onNotes = function(div) {
 			var shapeUL = tools_HtmlTools.appendElTextNode(div,"ul","");
 			if(shape.usedValues.exists(type_Shape.Monoblock)) {
@@ -1114,6 +1134,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		hotswap.shortLabels.set(type_HotSwap.Unspecified,"");
 		hotswap.shortLabels.set(type_HotSwap.Yes,"+");
 		hotswap.shortLabels.set(type_HotSwap.No,"-");
+		hotswap.columnCount = 2;
 		hotswap.onBuildValue = function(out,vals,kb) {
 			if(vals.indexOf(type_HotSwap.Yes) != -1) {
 				if(vals.indexOf(type_HotSwap.No) != -1) {
@@ -1142,12 +1163,13 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		switchType.shortName = "SwP";
 		switchType.filterLabels.set(type_SwitchProfile.Choc,"Kailh Choc V1");
 		switchType.filterLabels.set(type_SwitchProfile.ChocV2,"Kailh Choc V2");
-		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron low-profile");
+		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron LP");
 		switchType.shortLabels.set(type_SwitchProfile.Unknown,"");
 		switchType.shortLabels.set(type_SwitchProfile.GateronLP,"GLP");
 		switchType.shortLabels.set(type_SwitchProfile.OutemuLP,"OLP");
 		switchType.shortLabels.set(type_SwitchProfile.CherryULP,"CULP");
 		switchType.shortLabels.set(type_SwitchProfile.Optical,"Opt");
+		switchType.columnCount = 2;
 		this.addColumn(switchType);
 		var colSpacing = new table_TagListColumn("Key spacing",new table_FancyField("keySpacing",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1297,6 +1319,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_EncoderType);
 		enct.show = false;
+		enct.columnCount = 2;
 		enct.shortName = "EncT";
 		enct.shortLabels.set(type_EncoderType.Unknown,"");
 		enct.shortLabels.set(type_EncoderType.Knob,"K");
@@ -1437,6 +1460,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		palm.shortLabels.set(type_WristPads.None,"");
 		palm.shortLabels.set(type_WristPads.Integrated,"+");
 		palm.shortLabels.set(type_WristPads.Detachable,"±");
+		palm.columnCount = 2;
 		palm.filterTags = [type_WristPads.Integrated,type_WristPads.Detachable];
 		palm.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them" + " separately, or use any other semi-soft object of your choice" + " (such as a folded little towel or a Purple Squishy)","Some people argue that making your own palm rest is often preferable as you can" + " pick the height/firmness.");
@@ -1489,6 +1513,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		ctCol.shortLabels.set(type_CaseType.Included,"+");
 		ctCol.shortLabels.set(type_CaseType.ThirdParty,"3p");
 		ctCol.filterTags = [type_CaseType.Included,type_CaseType.ThirdParty];
+		ctCol.columnCount = 2;
 		ctCol.show = false;
 		this.addColumn(ctCol);
 		var xCol = new table_LinkListColumn("Extras",new table_FancyField("extras",function(q,wantSet,setValue) {
@@ -1529,6 +1554,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		light.shortLabels.set(type_Lighting.Unknown,"");
 		light.shortLabels.set(type_Lighting.None,"-");
 		light.show = false;
+		light.columnCount = 2;
 		this.addColumn(light);
 		var fw = new table_TagListColumn("Firmware",new table_FancyField("firmware",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1548,6 +1574,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		};
 		fw.shortLabels.set(type_Firmware.Unknown,"");
 		fw.shortLabels.set(type_Firmware.Custom,"*");
+		fw.columnCount = 2;
 		fw.show = false;
 		this.addColumn(fw);
 		var sw = new table_TagListColumn("Software",new table_FancyField("software",function(q,wantSet,setValue) {
@@ -1559,6 +1586,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_Software);
 		sw.show = false;
+		sw.columnCount = 2;
 		this.addColumn(sw);
 		var asm = new table_TagListColumn("Assembly specifics",new table_FancyField("assembly",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1569,6 +1597,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_Assembly);
 		asm.defaultValue = [];
+		asm.columnCount = 2;
 		asm.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Assume keyboards to have PCBs unless specified otherwise.");
 			tools_HtmlTools.appendParaTextNode(div,"If a keyboard is marked as both PCB and handwire, it has two versions.");
@@ -1750,6 +1779,7 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			_gthis.addImagePara(div,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
 		};
 		this.initColNav(kb,true);
+		this.initColNum(kb);
 		var pinkyStag = new table_FloatColumn("Pinky stagger",new table_FancyField("pinkyStagger",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.pinkyStagger = setValue;
@@ -1813,6 +1843,9 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		while(_g < _g1.length) {
 			var kb = _g1[_g];
 			++_g;
+			if(kb.stagger == null) {
+				kb.stagger = type_StaggerType.Column;
+			}
 			if(kb.stagger == type_StaggerType.Ortho && kb.pinkyStagger == null) {
 				kb.pinkyStagger = 0;
 			}
@@ -2314,6 +2347,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.lshift;
 			}
 		}),type_row_LShiftShape);
+		lshift.columnCount = 2;
 		addHidden(lshift);
 		var rshift = new table_TagListColumn("RShift",new table_FancyField("rshift",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2323,6 +2357,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.rshift;
 			}
 		}),type_row_RShiftShape);
+		rshift.columnCount = 2;
 		addHidden(rshift);
 		var enter = new table_TagListColumn("Enter",new table_FancyField("enter",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2332,6 +2367,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.enter;
 			}
 		}),type_row_EnterShape);
+		enter.columnCount = 2;
 		addHidden(enter);
 		var space = new table_TagListColumn("Space",new table_FancyField("space",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2341,6 +2377,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.space;
 			}
 		}),type_row_SpaceShape);
+		space.columnCount = 2;
 		space.onNotes = function(div) {
 			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
 			var li = tools_HtmlTools.appendElTextNode(div,"li");
@@ -2362,6 +2399,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.backspace;
 			}
 		}),type_row_BkspShape);
+		bksp.columnCount = 2;
 		bksp.shortName = "Bksp";
 		addHidden(bksp);
 		var thumbKeys = new table_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
@@ -2417,6 +2455,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		leftMods.shortName = "#rm";
 		addHidden(rightMods);
 		this.initColNav(kb,false);
+		this.initColNum(kb);
 	}
 	,initInputs: function(kb) {
 		KeyboardTable.prototype.initInputs.call(this,kb);
@@ -2955,6 +2994,45 @@ haxe_ds_EnumValueMap.prototype = $extend(haxe_ds_BalancedTree.prototype,{
 		}
 	}
 });
+var haxe_io_Path = function(path) {
+	switch(path) {
+	case ".":case "..":
+		this.dir = path;
+		this.file = "";
+		return;
+	}
+	var c1 = path.lastIndexOf("/");
+	var c2 = path.lastIndexOf("\\");
+	if(c1 < c2) {
+		this.dir = HxOverrides.substr(path,0,c2);
+		path = HxOverrides.substr(path,c2 + 1,null);
+		this.backslash = true;
+	} else if(c2 < c1) {
+		this.dir = HxOverrides.substr(path,0,c1);
+		path = HxOverrides.substr(path,c1 + 1,null);
+	} else {
+		this.dir = null;
+	}
+	var cp = path.lastIndexOf(".");
+	if(cp != -1) {
+		this.ext = HxOverrides.substr(path,cp + 1,null);
+		this.file = HxOverrides.substr(path,0,cp);
+	} else {
+		this.ext = null;
+		this.file = path;
+	}
+};
+haxe_io_Path.__name__ = true;
+haxe_io_Path.withExtension = function(path,ext) {
+	var s = new haxe_io_Path(path);
+	s.ext = ext;
+	return s.toString();
+};
+haxe_io_Path.prototype = {
+	toString: function() {
+		return (this.dir == null ? "" : this.dir + (this.backslash ? "\\" : "/")) + this.file + (this.ext == null ? "" : "." + this.ext);
+	}
+};
 var haxe_iterators_ArrayIterator = function(array) {
 	this.current = 0;
 	this.array = array;
@@ -3295,7 +3373,8 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 	};
 	btBuild.onclick = function() {
 		var kb = buildKeyboard();
-		fdJSON.value = JSON.stringify(kb,null,"\t");
+		var tmp = JSON.stringify(kb,null,"\t");
+		fdJSON.value = tmp + ",";
 	};
 	btReset.onclick = function() {
 		if(!window.confirm("Are you sure that you want to reset all fields? This cannot be undone!")) {
@@ -4550,13 +4629,63 @@ table_LinkListRowItem.__name__ = true;
 var table_NameColumn = function(name,field) {
 	table_FancyColumn.call(this,name);
 	this.field = field;
-	this.canFilter = false;
 	this.canSort = true;
 };
 table_NameColumn.__name__ = true;
 table_NameColumn.__super__ = table_FancyColumn;
 table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
-	buildValue: function(out,kb) {
+	matchesFilter: function(kb) {
+		return true;
+	}
+	,buildFilter: function(out) {
+		var _gthis = this;
+		var showImgDiv = tools_HtmlTools.appendElTextNode(out,"label");
+		var showImgCb = tools_HtmlTools.createCheckboxElement(window.document);
+		var showImg = false;
+		showImgCb.onchange = function() {
+			if(showImgCb.checked == showImg) {
+				return;
+			}
+			showImg = showImgCb.checked;
+			var _g = 0;
+			var _g1 = _gthis.table.rows;
+			while(_g < _g1.length) {
+				var row = _g1[_g];
+				++_g;
+				var cell = row.cells[0];
+				if(showImg) {
+					var _g2 = 0;
+					var _g3 = row.value.img;
+					while(_g2 < _g3.length) {
+						var src = _g3[_g2];
+						++_g2;
+						var small = "img-small/" + haxe_io_Path.withExtension(src,"webp");
+						var img = window.document.createElement("img");
+						img.src = small;
+						img.classList.add("small");
+						var a = window.document.createElement("a");
+						a.href = "img/" + src;
+						a.target = "_blank";
+						a.classList.add("preview");
+						a.appendChild(img);
+						cell.element.appendChild(a);
+					}
+				} else {
+					var _g4 = 0;
+					var _g5 = tools_HtmlTools.querySelectorAllAutoArr(cell.element,"a.preview",HTMLImageElement);
+					while(_g4 < _g5.length) {
+						var img1 = _g5[_g4];
+						++_g4;
+						img1.remove();
+					}
+				}
+			}
+		};
+		showImgDiv.appendChild(showImgCb);
+		showImgDiv.appendChild(window.document.createTextNode("Show images"));
+		table_FancyColumn.prototype.buildFilter.call(this,out);
+	}
+	,buildValue: function(out,kb) {
 		if(kb.img != null || kb.notes != null) {
 			var srcs;
 			if(kb.img != null) {
@@ -4707,6 +4836,7 @@ var table_TagLikeColumnBase = function(name,field) {
 	this.isMulti = false;
 	this.filterCheckboxes = [];
 	this.filterTags = [];
+	this.columnCount = 1;
 	table_FancyColumn.call(this,name);
 	this.field = field;
 };
@@ -4769,6 +4899,9 @@ table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		};
 		this.filterModeSelect = modeSelect;
 		out.appendChild(modeSelect);
+		var optCtr = tools_HtmlTools.appendElTextNode(out,"div");
+		optCtr.classList.add("tag-options");
+		optCtr.setAttribute("column-count","" + this.columnCount);
 		var _g = 0;
 		var _g1 = this.getTagNames();
 		while(_g < _g1.length) {
@@ -4801,7 +4934,7 @@ table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			lb.appendChild(window.document.createTextNode(name));
 			var div = window.document.createElement("div");
 			div.appendChild(lb);
-			out.appendChild(div);
+			optCtr.appendChild(div);
 		}
 	}
 	,saveFilterParams: function(obj) {
@@ -5151,6 +5284,9 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 	}
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
+		var optCtr = tools_HtmlTools.appendElTextNode(out,"div");
+		optCtr.classList.add("tag-options");
+		optCtr.setAttribute("column-count","" + this.columnCount);
 		var _g = 0;
 		var _this = this.type.__constructs__;
 		var result = new Array(_this.length);
@@ -5192,7 +5328,7 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			label.appendChild(cb[0]);
 			label.appendChild(window.document.createTextNode(name));
 			row.appendChild(label);
-			out.appendChild(row);
+			optCtr.appendChild(row);
 		}
 	}
 	,matchesFilter: function(kb) {
@@ -5538,6 +5674,12 @@ type_NumRange.toString = function(this1) {
 	}
 	return Std.string(this1.min) + ".." + Std.string(this1.max);
 };
+var type_Numpad = $hxEnums["type.Numpad"] = { __ename__:true,__constructs__:null
+	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.Numpad",toString:$estr}
+	,Mini: {_hx_name:"Mini",_hx_index:1,__enum__:"type.Numpad",toString:$estr}
+	,Full: {_hx_name:"Full",_hx_index:2,__enum__:"type.Numpad",toString:$estr}
+};
+type_Numpad.__constructs__ = [type_Numpad.None,type_Numpad.Mini,type_Numpad.Full];
 var type_Shape = $hxEnums["type.Shape"] = { __ename__:true,__constructs__:null
 	,Monoblock: {_hx_name:"Monoblock",_hx_index:0,__enum__:"type.Shape",toString:$estr}
 	,Unibody: {_hx_name:"Unibody",_hx_index:1,__enum__:"type.Shape",toString:$estr}
@@ -5570,11 +5712,12 @@ var type_SplayBase = $hxEnums["type.SplayBase"] = { __ename__:true,__constructs_
 };
 type_SplayBase.__constructs__ = [type_SplayBase.No,type_SplayBase.Yes,type_SplayBase.PinkyOnly,type_SplayBase.Optional];
 var type_StaggerType = $hxEnums["type.StaggerType"] = { __ename__:true,__constructs__:null
-	,Row: {_hx_name:"Row",_hx_index:0,__enum__:"type.StaggerType",toString:$estr}
-	,Column: {_hx_name:"Column",_hx_index:1,__enum__:"type.StaggerType",toString:$estr}
-	,Ortho: {_hx_name:"Ortho",_hx_index:2,__enum__:"type.StaggerType",toString:$estr}
+	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.StaggerType",toString:$estr}
+	,Row: {_hx_name:"Row",_hx_index:1,__enum__:"type.StaggerType",toString:$estr}
+	,Column: {_hx_name:"Column",_hx_index:2,__enum__:"type.StaggerType",toString:$estr}
+	,Ortho: {_hx_name:"Ortho",_hx_index:3,__enum__:"type.StaggerType",toString:$estr}
 };
-type_StaggerType.__constructs__ = [type_StaggerType.Row,type_StaggerType.Column,type_StaggerType.Ortho];
+type_StaggerType.__constructs__ = [type_StaggerType.Unknown,type_StaggerType.Row,type_StaggerType.Column,type_StaggerType.Ortho];
 var type_SwitchKind = $hxEnums["type.SwitchKind"] = { __ename__:true,__constructs__:null
 	,Linear: {_hx_name:"Linear",_hx_index:0,__enum__:"type.SwitchKind",toString:$estr}
 	,Tactile: {_hx_name:"Tactile",_hx_index:1,__enum__:"type.SwitchKind",toString:$estr}

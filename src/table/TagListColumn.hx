@@ -62,6 +62,9 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 	}
 	
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
+		var optCtr = out.appendElTextNode("div");
+		optCtr.classList.add("tag-options");
+		optCtr.setAttribute("column-count", "" + columnCount);
 		for (ctr in Type.getEnumConstructs(type)) {
 			var val:ET = Type.createEnum(type, ctr);
 			var name = filterLabels[val] ?? ctr;
@@ -85,7 +88,7 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 			label.appendChild(cb);
 			label.appendTextNode(name);
 			row.appendChild(label);
-			out.appendChild(row);
+			optCtr.appendChild(row);
 		}
 	}
 	override public function matchesFilter(kb:KB):Bool {

@@ -14,6 +14,7 @@ import haxe.extern.EitherType;
  */
 abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	public var field:FancyField<T, FT>;
+	public var columnCount = 1;
 	
 	override public function getId():String {
 		return field.name;
@@ -65,6 +66,9 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 		filterModeSelect = modeSelect;
 		out.appendChild(modeSelect);
 		
+		var optCtr = out.appendElTextNode("div");
+		optCtr.classList.add("tag-options");
+		optCtr.setAttribute("column-count", "" + columnCount);
 		for (ctr in getTagNames()) {
 			var val:VT = nameToTag(ctr);
 			if (!showInFilters(val)) continue;
@@ -93,7 +97,7 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 			
 			var div = document.createDivElement();
 			div.appendChild(lb);
-			out.appendChild(div);
+			optCtr.appendChild(div);
 		}
 	}
 	override public function saveFilterParams(obj:DynamicAccess<String>):Void {

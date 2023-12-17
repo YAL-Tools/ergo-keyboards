@@ -182,6 +182,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		};
 		
 		initColNav(kb, true);
+		initColNum(kb);
 		
 		var pinkyStag = new FloatColumn("Pinky stagger", mgf(kb.pinkyStagger));
 		pinkyStag.show = false;
@@ -228,6 +229,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 	}
 	override public function post():Void {
 		for (kb in values) {
+			if (kb.stagger == null) kb.stagger = StaggerType.Column;
 			if (kb.stagger == Ortho && kb.pinkyStagger == null) kb.pinkyStagger = 0;
 			if (kb.caseType == null && kb.assembly != null && kb.assembly.contains(Handwired)) {
 				kb.caseType = [Included];

@@ -83,11 +83,13 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		conType.shortLabels[Connection.Wired] = "W";
 		conType.shortLabels[Connection.Bluetooth] = "BT";
 		conType.shortLabels[Connection.Wireless] = "P";
-		conType.filterLabels[Connection.Wireless] = "Proprietary/other wireless";
+		conType.filterLabels[Connection.Wireless] = "Other wireless";
+		conType.columnCount = 2;
 		addColumn(conType);
 	}
 	function initColNav(kb:KB, corner:Bool) {
 		var navCluster = new TagListColumn("Navigation cluster", mgf(kb.navCluster), NavCluster);
+		navCluster.columnCount = 2;
 		navCluster.onNotes = function(div) {
 			div.appendParaTextNode("Arrow keys and such.");
 			var ul = div.appendElTextNode("ul", "");
@@ -121,6 +123,16 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		navCluster.shortLabels[NavCluster.None] = "";
 		addColumn(navCluster);
 	}
+	function initColNum(kb:KB) {
+		var numpad = new TagListColumn("Numpad", mgf(kb.numpad), Numpad);
+		numpad.columnCount = 2;
+		numpad.onNotes = function(div) {
+			var p = div.appendParaTextNode("");
+			p.appendElTextNode("b", "Mini");
+			p.appendTextNode(" means that it has the digit keys, but not a full set.");
+		}
+		addColumn(numpad);
+	}
 	
 	function initGeneral(kb:KB) {
 		var col:FancyColumn<KB>;
@@ -134,6 +146,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		shape.shortLabels[Shape.Unibody] = "Uni";
 		shape.shortLabels[Shape.Keywell] = "KW";
 		shape.shortLabels[Shape.Special] = "*";
+		shape.columnCount = 2;
 		shape.onNotes = function(div) {
 			var shapeUL = div.appendElTextNode("ul", "");
 			if (shape.usedValues.exists(Shape.Monoblock)) shapeUL.appendElTextNode("li",
@@ -175,6 +188,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		hotswap.shortLabels[HotSwap.Unspecified] = "";
 		hotswap.shortLabels[HotSwap.Yes] = "+";
 		hotswap.shortLabels[HotSwap.No] = "-";
+		hotswap.columnCount = 2;
 		hotswap.onBuildValue = function(out:Element, vals:ValList<HotSwap>, kb) {
 			if (vals.contains(HotSwap.Yes)) {
 				if (vals.contains(HotSwap.No)) {
@@ -192,12 +206,13 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		switchType.shortName = "SwP";
 		switchType.filterLabels[SwitchProfile.Choc] = "Kailh Choc V1";
 		switchType.filterLabels[SwitchProfile.ChocV2] = "Kailh Choc V2";
-		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron low-profile";
+		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron LP";
 		switchType.shortLabels[SwitchProfile.Unknown] = "";
 		switchType.shortLabels[SwitchProfile.GateronLP] = "GLP";
 		switchType.shortLabels[SwitchProfile.OutemuLP] = "OLP";
 		switchType.shortLabels[SwitchProfile.CherryULP] = "CULP";
 		switchType.shortLabels[SwitchProfile.Optical] = "Opt";
+		switchType.columnCount = 2;
 		addColumn(switchType);
 		
 		/*var switchForce = new IntListColumn(
@@ -336,6 +351,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 		var enct = new TagListColumn("Encoder type", mgf(kb.encoderType), EncoderType);
 		enct.show = false;
+		enct.columnCount = 2;
 		enct.shortName = "EncT";
 		enct.shortLabels[EncoderType.Unknown] = "";
 		enct.shortLabels[EncoderType.Knob] = "K";
@@ -424,6 +440,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		palm.shortLabels[WristPads.None] = "";
 		palm.shortLabels[WristPads.Integrated] = "+";
 		palm.shortLabels[WristPads.Detachable] = "±";
+		palm.columnCount = 2;
 		palm.filterTags = [WristPads.Integrated, WristPads.Detachable];
 		palm.onNotes = function(div) {
 			div.appendParaTextNode(
@@ -484,6 +501,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		ctCol.shortLabels[CaseType.Included] = "+";
 		ctCol.shortLabels[CaseType.ThirdParty] = "3p";
 		ctCol.filterTags = [CaseType.Included, CaseType.ThirdParty];
+		ctCol.columnCount = 2;
 		ctCol.show = false;
 		addColumn(ctCol);
 		
@@ -506,6 +524,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		light.shortLabels[Lighting.Unknown] = "";
 		light.shortLabels[Lighting.None] = "-";
 		light.show = false;
+		light.columnCount = 2;
 		addColumn(light);
 		
 		var fw = new TagListColumn("Firmware", mgf(kb.firmware), Firmware);
@@ -519,15 +538,18 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		}
 		fw.shortLabels[Firmware.Unknown] = "";
 		fw.shortLabels[Firmware.Custom] = "*";
+		fw.columnCount = 2;
 		fw.show = false;
 		addColumn(fw);
 		
 		var sw = new TagListColumn("Software", mgf(kb.software), Software);
 		sw.show = false;
+		sw.columnCount = 2;
 		addColumn(sw);
 		
 		var asm = new TagListColumn("Assembly specifics", mgf(kb.assembly), Assembly);
 		asm.defaultValue = [];
+		asm.columnCount = 2;
 		asm.onNotes = function(div) {
 			div.appendParaTextNode(
 				"Assume keyboards to have PCBs unless specified otherwise."

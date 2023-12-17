@@ -80,15 +80,19 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		}
 		
 		var lshift = new TagListColumn("LShift", mgf(kb.lshift), LShiftShape);
+		lshift.columnCount = 2;
 		addHidden(lshift);
 		
 		var rshift = new TagListColumn("RShift", mgf(kb.rshift), RShiftShape);
+		rshift.columnCount = 2;
 		addHidden(rshift);
 		
 		var enter = new TagListColumn("Enter", mgf(kb.enter), EnterShape);
+		enter.columnCount = 2;
 		addHidden(enter);
 		
 		var space = new TagListColumn("Space", mgf(kb.space), SpaceShape);
+		space.columnCount = 2;
 		space.onNotes = function(div:Element):Void {
 			var ul = div.appendElTextNode("ul"), li:Element;
 			li = div.appendElTextNode("li");
@@ -107,6 +111,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		addHidden(space);
 		
 		var bksp = new TagListColumn("Backspace", mgf(kb.backspace), BkspShape);
+		bksp.columnCount = 2;
 		bksp.shortName = "Bksp";
 		addHidden(bksp);
 		
@@ -139,7 +144,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		addHidden(rightMods);
 		
 		initColNav(kb, false);
-		
+		initColNum(kb);
 		
 	}
 	override function initInputs(kb:RowStagKeyboard):Void {

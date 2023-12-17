@@ -3,6 +3,7 @@ import externs.Tippy;
 import externs.TippyOptions;
 import js.html.DivElement;
 import js.html.Element;
+import js.html.ImageElement;
 import js.lib.RegExp;
 import type.GetSetOn;
 import type.IntRange;
@@ -20,8 +21,40 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 	public function new(name:String, field:FancyField<KB, String>) {
 		super(name);
 		this.field = field;
-		canFilter = false;
+		//canFilter = false;
 		canSort = true;
+	}
+	override public function matchesFilter(kb:KB):Bool {
+		return true;
+	}
+	override public function buildFilter(out:Element):Void {
+		var showImgDiv = out.appendElTextNode("label");
+		var showImgCb = document.createCheckboxElement();
+		var showImg = false;
+		showImgCb.onchange = function() {
+			if (showImgCb.checked == showImg) return;
+			showImg = showImgCb.checked;
+			for (row in table.rows) {
+				var cell = row.cells[0];
+				if (showImg) for (src in row.value.img) {
+					var small = "img-small/" + haxe.io.Path.withExtension(src, "webp");
+					var img = document.createImageElement();
+					img.src = small;
+					img.classList.add("small");
+					var a = document.createAnchorElement();
+					a.href = "img/" + src;
+					a.target = "_blank";
+					a.classList.add("preview");
+					a.appendChild(img);
+					cell.element.appendChild(a);
+				} else for (img in cell.element.querySelectorAllAutoArr("a.preview", ImageElement)) {
+					img.remove();
+				}
+			}
+		}
+		showImgDiv.appendChild(showImgCb);
+		showImgDiv.appendTextNode("Show images");
+		super.buildFilter(out);
 	}
 	override public function buildValue(out:Element, kb:KB):Void {
 		if (kb.img != null || kb.notes != null) {

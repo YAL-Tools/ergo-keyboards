@@ -69,6 +69,13 @@ body.rowstag .if-colstag {
 		columns: 3;
 	}
 }
+@media only screen and (min-width: 1400px) {
+	#filter, #editor {
+		columns: 4;
+	}
+}
+.tag-options[column-count="2"] { columns: 2; }
+.tag-options[column-count="3"] { columns: 3; }
 #editor-outer {
 	margin-top: 1em;
 	&>summary {
@@ -139,6 +146,12 @@ body.rowstag .if-colstag {
 	}
 	tr:hover {
 		background-color: #FFE03730;
+	}
+	a.preview img {
+		margin-top: 0.3em;
+		display: block;
+		width: 100%;
+		max-width: 320px;
 	}
 }
 input[invalid] {

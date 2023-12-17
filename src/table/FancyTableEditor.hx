@@ -86,7 +86,7 @@ class FancyTableEditor {
 		}
 		btBuild.onclick = function() {
 			var kb = buildKeyboard();
-			fdJSON.value = Json.stringify(kb, null, "\t");
+			fdJSON.value = Json.stringify(kb, null, "\t") + ",";
 		}
 		btReset.onclick = function() {
 			if (!window.confirm(

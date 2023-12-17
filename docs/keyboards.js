@@ -3723,6 +3723,231 @@ window.keyboardData = [
 	"prebuilt": "https://controller.works/products/city42-ergonomic-keyboard",
 	"pointingDevices": 1
 },
-// todo: https://www.slicemk.com/collections/all
+{
+	"name": "Sugar Glider",
+	"img": "sugar-glider.jpg",
+	"keys": {
+		"min": 44,
+		"max": 47
+	},
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": {
+		"min": 0,
+		"max": 1
+	},
+	"pinkyStagger": 0.5,
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"encoders": {
+		"min": 3,
+		"max": 4
+	},
+	"encoderType": [
+		"Knob",
+		"Wheel"
+	],
+	"trackpads": {
+		"min": 0,
+		"max": 1
+	},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"kit": "https://mechwild.com/product/sugar-glider/"
+},
+{
+	"name": "Cut Slope",
+	"img": "Cut-Slope.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"displays": 1,
+	"lighting": "None",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"caseType": "Included",
+	"source": "https://github.com/hazels-garage/cut-slope",
+	"kit": "https://shop.hazel.cc/products/cut-slope"
+},
+{
+	"name": "Zireael",
+	"img": "zireael.jpg",
+	"shape": "Split",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 36,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://github.com/Mposiblee/Zireael"
+},
+{
+	"name": "Pteron",
+	"img": "pteron.jpg",
+	"notes": "Has 3x5, 3x6, and 4x6 styles.",
+	"shape": "Unibody",
+	"connection": "Wired",
+	"keys": {
+		"min": 38,
+		"max": 56
+	},
+	"rows": {
+		"min": 3,
+		"max": 4
+	},
+	"cols": {
+		"min": 5,
+		"max": 6
+	},
+	"thumbKeys": 4,
+	"pinkyStagger": 0.3,
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"source": "https://github.com/FSund/pteron-keyboard"
+},
+{
+	"name": "Closis",
+	"img": "closis.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "MinChoc",
+	"trackballs": 1,
+	"trackballSize": 4.4,
+	"lighting": "None",
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"source": "https://github.com/dschil138/closis-keyboard",
+	"pointingDevices": 1
+},
+{
+	"name": "Explorer Mountain",
+	"img": "explorer-mountain.webp",
+	"notes": "Stagger of each pair of columns can be adjusted.",
+	"shape": [
+		"Unibody",
+		"Special"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": [
+		"PCB",
+		"Adjustable"
+	],
+	"source": "https://github.com/DreaM117er/Explorer-Keyboard-Mountian"
+},
+{
+	"name": "Ergotonic 49",
+	"img": "Ergotonic49.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 49,
+	"rows": 3,
+	"cols": 6,
+	"rcols": 7,
+	"thumbKeys": 3,
+	"innerKeys": 1,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {
+		"min": 0,
+		"max": 3
+	},
+	"encoderType": "Knob",
+	"lighting": "RGB",
+	"caseType": "Included",
+	"kit": "https://shop.yushakobo.jp/products/2942"
+},
+{
+	"name": "ErgoChoco",
+	"img": "ErgoChoco.jpg",
+	"shape": "Monoblock",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": "Simple",
+	"caseType": "Included",
+	"source": "https://github.com/Choco617/ErgoChoco-PCB"
+},
+{
+	"name": "Crowboard",
+	"img": "crowboard.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 34,
+		"max": 36
+	},
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"lighting": "None",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "None",
+	"source": "https://github.com/doesntfazer/CrowBoard"
+},
 null
 ];
+/* TODO
+https://www.slicemk.com/collections/all
+https://kbd.news/Taro-Hayashi-s-Killer-Whale-2074.html
+https://github.com/yowkees/keyball
+hypergarlic
+*/

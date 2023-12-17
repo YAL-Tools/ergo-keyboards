@@ -375,7 +375,7 @@ class ColStagBoards {
 		kb.img = "redox-1.jpg";
 		kb.setHotswap(MX);
 		kb.setMatrix(70, 6, 4);
-		kb.setExtras(7, 2, 0, 4);
+		kb.setExtras(5, 2, 0, 4);
 		kb.caseType = Included;
 		kb.firmware = [QMK, ZMK];
 		kb.software = [VIA];
