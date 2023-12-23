@@ -125,6 +125,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 	}
 	function initColNum(kb:KB) {
 		var numpad = new TagListColumn("Numpad", mgf(kb.numpad), Numpad);
+		numpad.show = false;
 		numpad.columnCount = 2;
 		numpad.onNotes = function(div) {
 			var p = div.appendParaTextNode("");

@@ -1056,6 +1056,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.numpad;
 			}
 		}),type_Numpad);
+		numpad.show = false;
 		numpad.columnCount = 2;
 		numpad.onNotes = function(div) {
 			var p = tools_HtmlTools.appendParaTextNode(div,"");
