@@ -5736,11 +5736,12 @@ var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__con
 	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
 	,CherryULP: {_hx_name:"CherryULP",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
 	,Optical: {_hx_name:"Optical",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
-	,Simple: {_hx_name:"Simple",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
-	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
+	,Topre: {_hx_name:"Topre",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
+	,Simple: {_hx_name:"Simple",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
+	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
 var type_ValList = {};
 type_ValList.get_length = function(this1) {
 	return this1.length;

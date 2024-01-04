@@ -3790,7 +3790,7 @@ window.keyboardData = [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": 36,
+	"keys": 42,
 	"rows": 3,
 	"cols": 6,
 	"thumbKeys": 3,
@@ -3943,11 +3943,157 @@ window.keyboardData = [
 	"caseType": "None",
 	"source": "https://github.com/doesntfazer/CrowBoard"
 },
+{
+	"name": "Triboard",
+	"img": "triboard.jpg",
+	"notes": "2 thumb keys when wireless, 3 thumb keys when wired.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": {
+		"min": 34,
+		"max": 36
+	},
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"pinkyStagger": 1,
+	"firmware": [
+		"QMK",
+		"ZMK",
+		"KMK"
+	],
+	"caseType": "None",
+	"source": "https://github.com/tarneaux/triboard"
+},
+{
+	"name": "Ergonaut One",
+	"img": "ergonaut-one.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": "GateronLP",
+	"displays": {
+		"min": 0,
+		"max": 2
+	},
+	"lighting": "None",
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"web": "https://ergonautkb.com/docs/keyboards/ergonaut-one/intro/",
+	"source": "https://github.com/ergonautkb"
+},
+{
+	"name": "Sentinel",
+	"img": "sentinel.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 37,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.6,
+	"switchProfile": "MX",
+	"trackballs": 1,
+	"displays": 1,
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/protieusz/Sentinel"
+},
+{
+	"name": "DragonFruit",
+	"img": "dragonfruit.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.3,
+	"switchProfile": "MX",
+	"pointingDevices": 1,
+	"trackballs": 1,
+	"displays": 1,
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/protieusz/DragonFruit"
+},
+{
+	"name": "Le Capybara",
+	"img": "le-capybara.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 34,
+		"max": 37
+	},
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.3,
+	"switchProfile": "Topre",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"displays": 1,
+	"caseType": "Included",
+	"source": "https://github.com/sporkus/le_capybara_keyboard"
+},
+{
+	"name": "Seismos",
+	"img": [
+		"Seismos-1.jpg",
+		"Seismos-2.jpg"
+	],
+	"notes": "Rails allow adjusting stagger on per-column basis.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"switchProfile": "Choc",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"firmware": [
+		"ZMK",
+		"KMK"
+	],
+	"assembly": "Adjustable",
+	"caseType": "Included",
+	"source": "https://github.com/ReSummit/Seismos"
+},
 null
 ];
 /* TODO
 https://www.slicemk.com/collections/all
 https://kbd.news/Taro-Hayashi-s-Killer-Whale-2074.html
 https://github.com/yowkees/keyball
+https://github.com/skarrmann/horizon
+https://github.com/duckyb/eternal-keypad
 hypergarlic
 */

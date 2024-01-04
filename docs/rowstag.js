@@ -671,9 +671,40 @@ window.rowStagData = [
 	"kit": "https://mechboards.co.uk/collections/kits/products/sesame-kit",
 	"prebuilt": "https://mechboards.co.uk/collections/pre-builds/products/sesame-kit-pre-built"
 },
+{
+	"name": "KB69",
+	"img": "kb69.jpg",
+	"notes": "Designed to be printable in 4 parts on printers with bed size of 220x220mm.",
+	"shape": "Monoblock",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 69,
+	"rows": 3,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "Mini",
+	"space": "Normal",
+	"backspace": "Short",
+	"thumbKeys": 3,
+	"leftMods": {
+		"min": 3,
+		"max": 5
+	},
+	"rightMods": {
+		"min": 0,
+		"max": 3
+	},
+	"navCluster": "Inline",
+	"numpad": "Mini",
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"source": "https://github.com/Jbam9/KB69"
+},
 null
 ];
 /* TODO
 https://www.amazon.com/RK-ROYAL-KLUDGE-Bluetooth-Mechanical/dp/B0C88RR3CM?th=1
 https://epomaker.com/products/feker-alice98
+https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
+https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
 */
