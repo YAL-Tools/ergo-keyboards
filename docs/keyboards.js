@@ -4087,13 +4087,276 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/ReSummit/Seismos"
 },
+{
+	"name": "Horizon",
+	"img": "horizon-choc-mx-top.jpg",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 52,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"cornerKeys": 4,
+	"hotswap": "No",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": [
+		"MX",
+		"Choc"
+	],
+	"lighting": "None",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"source": "https://github.com/skarrmann/horizon"
+},
+{
+	"name": "Keyball46",
+	"img": "keyball46.jpg",
+	"notes": "Slightly asymmetrical",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 46,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 1,
+	"cornerKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"pinkyStagger": 0.4,
+	"switchProfile": "MX",
+	"trackballs": 1,
+	"firmware": "QMK",
+	"software": [
+		"VIA",
+		"Remap"
+	],
+	"source": "https://github.com/yowkees/keyball",
+},
+{
+	"name": "Keyball39",
+	"img": "keyball39.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 39,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"cornerKeys": {
+		"min": 1,
+		"max": 3
+	},
+	"pinkyStagger": 0.4,
+	"switchProfile": "MX",
+	"trackballs": 1,
+	"firmware": "QMK",
+	"software": [
+		"VIA",
+		"Remap"
+	],
+	"source": "https://github.com/yowkees/keyball",
+	"kit": [
+		"https://shop.yushakobo.jp/products/5357",
+		"https://shirogane-lab.net/items/64b8f8693ee3fd0045280190"
+	],
+},
+{
+	"name": "Keyball44",
+	"img": "keyball44.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"pinkyStagger": 0.4,
+	"switchProfile": "MX",
+	"trackballs": 1,
+	"firmware": "QMK",
+	"software": [
+		"VIA",
+		"Remap"
+	],
+	"source": "https://github.com/yowkees/keyball",
+	"kit": [
+		"https://shirogane-lab.net/items/64b7a006eb6dbe00346cd0c5"
+	],
+},
+{
+	"name": "Keyball61",
+	"img": "keyball61.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 61,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 2,
+		"max": 3
+	},
+	"innerKeys": 1,
+	"cornerKeys": {
+		"min": 2,
+		"max": 4
+	},
+	"pinkyStagger": 0.4,
+	"switchProfile": "MX",
+	"trackballs": 1,
+	"firmware": "QMK",
+	"software": [
+		"VIA",
+		"Remap"
+	],
+	"source": "https://github.com/yowkees/keyball",
+	"kit": [
+		"https://shop.yushakobo.jp/products/5358",
+		"https://shirogane-lab.net/items/64b8ed191435c1002bc4cd30"
+	],
+},
+{
+	"name": "Killer Whale",
+	"img": "killer-whale.webp",
+	"notes": "Supports multiple thumb modules and replacing corner keys with more wheels.",
+	"shape": [
+		"Split",
+		"Special"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 52,
+		"max": 56
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 2,
+		"max": 4
+	},
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {
+		"min": 0,
+		"max": 2
+	},
+	"encoderType": "Wheel",
+	"trackballs": {
+		"min": 0,
+		"max": 1
+	},
+	"dpads": {
+		"min": 0,
+		"max": 1
+	},
+	"dpadDirs": 4,
+	"assembly": "Adjustable",
+	"caseType": "Included",
+	"source": [
+		"[v:jp]https://github.com/Taro-Hayashi/KillerWhale",
+		"[v:en]https://github.com/Taro-Hayashi/KillerWhale/blob/main/README_EN.md"
+	],
+	"kit": [
+		"!https://tarohayashi.booth.pm/",
+		"!https://shop.yushakobo.jp/en/products/7948"
+	]
+},
+{
+	"name": "Smol",
+	"img": "smol.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 1,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 2,
+	"encoderType": [
+		"Knob",
+		"Wheel"
+	],
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/zzeneg/smol"
+},
+{
+	"name": "atreus52",
+	"img": "atreus52.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 52,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.3,
+	"switchProfile": "MX",
+	"caseType": "Included",
+	"source": "https://github.com/ergomechstore/Atreus52"
+},
+{
+	"name": "Wave",
+	"img": "built_wave_1.jpeg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": [
+		"No",
+		"Yes"
+	],
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 2,
+	"encoderType": [
+		"Knob",
+		"Wheel"
+	],
+	"lighting": "None",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/etiennecollin/wave"
+},
 null
 ];
 /* TODO
 https://www.slicemk.com/collections/all
-https://kbd.news/Taro-Hayashi-s-Killer-Whale-2074.html
-https://github.com/yowkees/keyball
-https://github.com/skarrmann/horizon
 https://github.com/duckyb/eternal-keypad
+https://github.com/mylestunglee/articulation70
+https://github.com/alabahuy/RART/tree/master/RART45
 hypergarlic
 */

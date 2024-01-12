@@ -671,7 +671,7 @@ window.rowStagData = [
 	"kit": "https://mechboards.co.uk/collections/kits/products/sesame-kit",
 	"prebuilt": "https://mechboards.co.uk/collections/pre-builds/products/sesame-kit-pre-built"
 },
-{
+/*{
 	"name": "KB69",
 	"img": "kb69.jpg",
 	"notes": "Designed to be printable in 4 parts on printers with bed size of 220x220mm.",
@@ -699,7 +699,7 @@ window.rowStagData = [
 	"assembly": "Handwired",
 	"caseType": "Included",
 	"source": "https://github.com/Jbam9/KB69"
-},
+},*/
 null
 ];
 /* TODO
