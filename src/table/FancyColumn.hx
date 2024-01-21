@@ -18,6 +18,7 @@ class FancyColumn<T> {
 	public var filterName:String = null;
 	public var shortName:String = null;
 	public var onNotes:Element->Void = null;
+	public var onEditorNotes:Element->Void = null;
 	public var show = true;
 	public var canShow = true;
 	public var canFilter = true;

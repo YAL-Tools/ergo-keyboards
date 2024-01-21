@@ -1535,7 +1535,7 @@ window.keyboardData = [
 {
 	"name": "Ergodonk",
 	"img": "ergodonk.jpg",
-	"shape": "Split",
+	"shape": ["Split", "Half"],
 	"stagger": "Column",
 	"connection": "Wired",
 	"keys": 56,
@@ -4351,12 +4351,231 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/etiennecollin/wave"
 },
+{
+	"name": "Egboard",
+	"img": "egboard.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.2,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "Custom",
+	"assembly": "Handwired",
+	"source": "https://github.com/ArchUsr64/egboard"
+},
+{
+	"name": "elephant42",
+	"img": "elephant42.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"outerKeys": -1,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"lighting": [
+		"None",
+		"RGB"
+	],
+	"firmware": "QMK",
+	"source": "https://github.com/illness072/elephant42"
+},
+{
+	"name": "gameboard",
+	"img": "gameboard.jpg",
+	"shape": [
+		"Split",
+		"Half"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 62,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 4,
+	"outerKeys": -1,
+	"cornerKeys": 0,
+	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": [
+		"MX",
+		"GateronLP"
+	],
+	"dpads": {
+		"min": 1,
+		"max": 2
+	},
+	"dpadDirs": 5,
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"source": "https://github.com/zzeneg/gameboard"
+},
+{
+	"name": "Lynx",
+	"img": [
+		"lynx-2.webp",
+		"lynx-1.webp",
+		"lynx-3.webp"
+	],
+	"notes": "This keyboard is too far outside my classification system",
+	"shape": [
+		"Split",
+		"Special"
+	],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 42,
+		"max": 62
+	},
+	"rows": 4,
+	"cols": 5,
+	"thumbKeys": {
+		"min": 4,
+		"max": 11
+	},
+	"innerKeys": -2,
+	"outerKeys": 2,
+	"cornerKeys": 4,
+	"pinkyStagger": 1,
+	"hotswap": "No",
+	"switchProfile": "Other",
+	"encoders": {
+		"min": 0,
+		"max": 2
+	},
+	"encoderType": "Wheel",
+	"pointingDevices": {
+		"min": 0,
+		"max": 2
+	},
+	"trackpoints": {
+		"min": 0,
+		"max": 2
+	},
+	"firmware": "Custom",
+	"software": "Custom",
+	"wristPads": "Detachable",
+	"caseType": "Included",
+	"web": "https://www.lynxware.org",
+	"source": "https://www.lynxware.org/diy",
+	"prebuilt": "https://lynxware.shop/"
+},
+{
+	"name": "Churn 40%",
+	"img": "Churn.jpeg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 4,
+	"cornerKeys": 1,
+	"navCluster": "Inline",
+	"pinkyStagger": 0.8,
+	"splay": "No",
+	"hotswap": "No",
+	"switchProfile": "GateronLP",
+	"lighting": "None",
+	"assembly": "Handwired",
+	"source": "https://github.com/luke-schutt/keyboards/tree/main/Churn"
+},
+{
+	"name": "Churn 60%",
+	"img": "churn-65.png",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 65,
+	"rows": 4,
+	"cols": 6,
+	"rcols": 7,
+	"thumbKeys": 5,
+	"cornerKeys": 3,
+	"navCluster": "Inline",
+	"pinkyStagger": 0.8,
+	"splay": "PinkyOnly",
+	"hotswap": "No",
+	"switchProfile": "GateronLP",
+	"lighting": "None",
+	"assembly": "Handwired",
+	"source": "https://github.com/luke-schutt/keyboards/tree/main/Churn"
+},
+{
+	"name": "ETERNAL Keypad",
+	"img": "ETERNAL-keypad.jpg",
+	"shape": [
+		"Split",
+		"Half"
+	],
+	"stagger": "Ortho",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 72,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 3,
+	"innerKeys": 3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": "Underglow",
+	"firmware": [
+		"QMK",
+		"ZMK"
+	],
+	"software": "VIA",
+	"source": "https://github.com/duckyb/eternal-keypad"
+},
+{
+	"name": "articulation70",
+	"img": [
+		"articulation70.jpg",
+		"articulation70a.jpg"
+	],
+	"notes": "Mini-numpad/navigation blocks can be broken off",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 46,
+		"max": 70
+	},
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 2,
+	"navCluster": [
+		"None",
+		"Full"
+	],
+	"numpad": [
+		"None",
+		"Mini"
+	],
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"caseType": "Included",
+	"source": "https://github.com/mylestunglee/articulation70"
+},
 null
 ];
 /* TODO
 https://www.slicemk.com/collections/all
-https://github.com/duckyb/eternal-keypad
-https://github.com/mylestunglee/articulation70
 https://github.com/alabahuy/RART/tree/master/RART45
-hypergarlic
+https://github.com/jdart/chortyl
+https://github.com/protieusz/StarShip-Centurion
 */

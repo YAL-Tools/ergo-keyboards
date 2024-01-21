@@ -62,6 +62,8 @@ class FancyTableFilters {
 			var colName = column.filterName ?? column.name;
 			var tr = document.createDivElement();
 			tr.classList.add("item");
+			tr.setAttribute("data-id", column.getId());
+			tr.setAttribute("data-name", column.name);
 			
 			var cbShow = document.createInputElement();
 			cbShow.disabled = !column.canShow;

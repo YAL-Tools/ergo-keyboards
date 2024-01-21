@@ -58,6 +58,8 @@ class FancyTableEditor {
 			
 			var tr = document.createDivElement();
 			tr.classList.add("item");
+			tr.setAttribute("data-id", column.getId());
+			tr.setAttribute("data-name", column.name);
 			
 			var divFilters = document.createDivElement();
 			column.buildEditor(divFilters, store, restore);
@@ -70,7 +72,7 @@ class FancyTableEditor {
 			var colNameEl = document.createSpanElement();
 			colNameEl.appendTextNode(colName);
 			colNameEl.classList.add("column-name");
-			FancyTableFilters.addNotes(column, colNameEl);
+			FancyTableFilters.addNotesFor(column.onEditorNotes ?? column.onNotes, colNameEl);
 			
 			meta.appendChild(colNameEl);
 			meta.appendChild(divFilters);

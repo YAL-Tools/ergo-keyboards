@@ -146,6 +146,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		shape.shortLabels[Shape.Monoblock] = "Mono";
 		shape.shortLabels[Shape.Unibody] = "Uni";
 		shape.shortLabels[Shape.Keywell] = "KW";
+		shape.shortLabels[Shape.Half] = "½";
 		shape.shortLabels[Shape.Special] = "*";
 		shape.columnCount = 2;
 		shape.onNotes = function(div) {
@@ -161,6 +162,9 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			shapeUL.appendElTextNode("li",
 				"Split means a keyboard consisting of two or more physical pieces that are connected " +
 				"together with a cable or wirelessly."
+			);
+			if (shape.usedValues.exists(Shape.Half)) shapeUL.appendElTextNode("li",
+				"Half means that it's a keypad/etc. and some work might be necessary to combine two of these"
 			);
 			if (shape.usedValues.exists(Shape.Special)) shapeUL.appendElTextNode("li",
 				"Special means something interesting - folding keyboards, layered keyboards, and so on."

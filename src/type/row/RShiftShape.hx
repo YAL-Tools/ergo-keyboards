@@ -9,5 +9,6 @@ enum RShiftShape {
 	LeftCut;
 	RightCut;
 	Wide;
+	Mini;
 	None;
 }

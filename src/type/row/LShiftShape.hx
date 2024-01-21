@@ -7,4 +7,5 @@ package type.row;
 enum LShiftShape {
 	ANSI;
 	ISO;
+	Mini;
 }

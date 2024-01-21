@@ -2,6 +2,8 @@ package ;
 import haxe.DynamicAccess;
 import js.Browser.*;
 import js.html.Element;
+import js.html.InputElement;
+import js.lib.RegExp;
 import table.FancyColumn;
 import table.*;
 import type.*;
@@ -30,6 +32,63 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		
 		mAddColumn(col = new IntRangeColumn("Key count", kb.keys));
 		col.shortName = "#keys";
+		col.onEditorNotes = function(div):Void {
+			var extra:InputElement = cast div.appendElTextNode("input");
+			//extra.type = "number";
+			extra.placeholder = "extra";
+			
+			var p = div.appendParaTextNode("");
+			var btn:InputElement = cast p.appendElTextNode("input");
+			btn.type = "button";
+			btn.value = "Calculate";
+			
+			var ul = div.appendElTextNode("ul");
+			btn.onclick = function() {
+				function findInput(id:String):InputElement {
+					return document.querySelectorAuto('#editor .item[data-id="$id"] .filters input');
+				}
+				function findValue(id:String):Int {
+					return Std.parseInt(findInput(id).value) ?? 0;
+				}
+				var rows = findValue("rows");
+				var dCols = findValue("dCols");
+				var qCols = findValue("qCols");
+				var aCols = findValue("aCols");
+				var zCols = findValue("zCols");
+				var log = [];
+				var out = 0;
+				function addFor(n:Int, name:String) {
+					if (n == 0) return;
+					out += n;
+					log.push('+$n for $name');
+				}
+				if (rows >= 5) addFor(13, "Esc and F-row");
+				if (rows >= 4) addFor(14 + dCols, "Num row (tilde to Bksp)");
+				if (rows >= 3) addFor(14 + qCols, "Q-row (Tab to \\|)");
+				if (rows >= 2) addFor(13 + aCols, "A-row (Caps to Enter)");
+				if (rows >= 1) addFor(12 + zCols, "Z-row (Shift to Shift)");
+				//
+				{
+					var xv = extra.value;
+					var xi = 0;
+					var rx = new RegExp("^(.+?)\\s*([+\\-])\\s*(\\d+)\\s*$");
+					for (_ in 0 ... 16) {
+						var mt = rx.exec(xv);
+						if (mt == null) break;
+						xi += (Std.parseInt(mt[3]) ?? 0) * (mt[2] == "-" ? -1 : 1);
+						xv = mt[1];
+					}
+					addFor((Std.parseInt(xv) ?? 0) + xi, "User-defined");
+				}
+				log.push('$out total');
+				
+				ul.innerHTML = "";
+				for (line in log) {
+					ul.appendElTextNode("li", line);
+				}
+				findInput("keys").value = "" + out;
+			}
+		};
 		
 		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));
 		col.onNotes = function(div) {
@@ -69,8 +128,8 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		}
 		addColCountCol(0, "1", mgf(kb.dCols), "-_", "=+");
 		addColCountCol(1, "Q", mgf(kb.qCols), "[{", "]}");
-		addColCountCol(2, "A", mgf(kb.qCols), ";:", "'\"");
-		addColCountCol(3, "Z", mgf(kb.qCols), ".>", "/?");
+		addColCountCol(2, "A", mgf(kb.aCols), ";:", "'\"");
+		addColCountCol(3, "Z", mgf(kb.zCols), ".>", "/?");
 	}
 	override function initClusters(kb:RowStagKeyboard):Void {
 		super.initClusters(kb);

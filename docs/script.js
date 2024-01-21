@@ -1088,6 +1088,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		shape.shortLabels.set(type_Shape.Monoblock,"Mono");
 		shape.shortLabels.set(type_Shape.Unibody,"Uni");
 		shape.shortLabels.set(type_Shape.Keywell,"KW");
+		shape.shortLabels.set(type_Shape.Half,"½");
 		shape.shortLabels.set(type_Shape.Special,"*");
 		shape.columnCount = 2;
 		shape.onNotes = function(div) {
@@ -1097,6 +1098,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 			tools_HtmlTools.appendElTextNode(shapeUL,"li","Unibody means a single-piece keyboard with " + "some sort of a gap in the middle of it.");
 			tools_HtmlTools.appendElTextNode(shapeUL,"li","Split means a keyboard consisting of two or more physical pieces that are connected " + "together with a cable or wirelessly.");
+			if(shape.usedValues.exists(type_Shape.Half)) {
+				tools_HtmlTools.appendElTextNode(shapeUL,"li","Half means that it's a keypad/etc. and some work might be necessary to combine two of these");
+			}
 			if(shape.usedValues.exists(type_Shape.Special)) {
 				tools_HtmlTools.appendElTextNode(shapeUL,"li","Special means something interesting - folding keyboards, layered keyboards, and so on.");
 			}
@@ -2267,6 +2271,82 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		}));
 		this.addColumn(col);
 		col.shortName = "#keys";
+		col.onEditorNotes = function(div) {
+			var extra = tools_HtmlTools.appendElTextNode(div,"input");
+			extra.placeholder = "extra";
+			var p = tools_HtmlTools.appendParaTextNode(div,"");
+			var btn = tools_HtmlTools.appendElTextNode(p,"input");
+			btn.type = "button";
+			btn.value = "Calculate";
+			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
+			btn.onclick = function() {
+				var findInput = function(id) {
+					return window.document.querySelector("#editor .item[data-id=\"" + id + "\"] .filters input");
+				};
+				var findValue = function(id) {
+					var tmp = Std.parseInt(findInput(id).value);
+					if(tmp != null) {
+						return tmp;
+					} else {
+						return 0;
+					}
+				};
+				var rows = findValue("rows");
+				var dCols = findValue("dCols");
+				var qCols = findValue("qCols");
+				var aCols = findValue("aCols");
+				var zCols = findValue("zCols");
+				var log = [];
+				var out = 0;
+				var addFor = function(n,name) {
+					if(n == 0) {
+						return;
+					}
+					out += n;
+					log.push("+" + n + " for " + name);
+				};
+				if(rows >= 5) {
+					addFor(13,"Esc and F-row");
+				}
+				if(rows >= 4) {
+					addFor(14 + dCols,"Num row (tilde to Bksp)");
+				}
+				if(rows >= 3) {
+					addFor(14 + qCols,"Q-row (Tab to \\|)");
+				}
+				if(rows >= 2) {
+					addFor(13 + aCols,"A-row (Caps to Enter)");
+				}
+				if(rows >= 1) {
+					addFor(12 + zCols,"Z-row (Shift to Shift)");
+				}
+				var xv = extra.value;
+				var xi = 0;
+				var rx = new RegExp("^(.+?)\\s*([+\\-])\\s*(\\d+)\\s*$");
+				var _g = 0;
+				while(_g < 16) {
+					var _ = _g++;
+					var mt = rx.exec(xv);
+					if(mt == null) {
+						break;
+					}
+					var tmp = Std.parseInt(mt[3]);
+					xi += (tmp != null ? tmp : 0) * (mt[2] == "-" ? -1 : 1);
+					xv = mt[1];
+				}
+				var tmp = Std.parseInt(xv);
+				addFor((tmp != null ? tmp : 0) + xi,"User-defined");
+				log.push("" + out + " total");
+				ul.innerHTML = "";
+				var _g = 0;
+				while(_g < log.length) {
+					var line = log[_g];
+					++_g;
+					tools_HtmlTools.appendElTextNode(ul,"li",line);
+				}
+				findInput("keys").value = "" + out;
+			};
+		};
 		col = new table_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.rows = setValue;
@@ -2316,20 +2396,20 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.qCols;
 			}
 		}),"[{","]}");
-		addColCountCol(2,"A",new table_FancyField("qCols",function(q,wantSet,setValue) {
+		addColCountCol(2,"A",new table_FancyField("aCols",function(q,wantSet,setValue) {
 			if(wantSet) {
-				q.qCols = setValue;
+				q.aCols = setValue;
 				return null;
 			} else {
-				return q.qCols;
+				return q.aCols;
 			}
 		}),";:","'\"");
-		addColCountCol(3,"Z",new table_FancyField("qCols",function(q,wantSet,setValue) {
+		addColCountCol(3,"Z",new table_FancyField("zCols",function(q,wantSet,setValue) {
 			if(wantSet) {
-				q.qCols = setValue;
+				q.zCols = setValue;
 				return null;
 			} else {
-				return q.qCols;
+				return q.zCols;
 			}
 		}),".>","/?");
 	}
@@ -3151,6 +3231,7 @@ var table_FancyColumn = function(name) {
 	this.canFilter = true;
 	this.canShow = true;
 	this.show = true;
+	this.onEditorNotes = null;
 	this.onNotes = null;
 	this.shortName = null;
 	this.filterName = null;
@@ -3339,6 +3420,8 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		}
 		var tr = window.document.createElement("div");
 		tr.classList.add("item");
+		tr.setAttribute("data-id",column.getId());
+		tr.setAttribute("data-name",column.name);
 		var divFilters = window.document.createElement("div");
 		column.buildEditor(divFilters,store,restore);
 		divFilters.classList.add("filters");
@@ -3349,7 +3432,8 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		var colNameEl = window.document.createElement("span");
 		colNameEl.appendChild(window.document.createTextNode(colName));
 		colNameEl.classList.add("column-name");
-		table_FancyTableFilters.addNotes(column,colNameEl);
+		var tmp1 = column.onEditorNotes;
+		table_FancyTableFilters.addNotesFor(tmp1 != null ? tmp1 : column.onNotes,colNameEl);
 		meta.appendChild(colNameEl);
 		meta.appendChild(divFilters);
 		tr.appendChild(meta);
@@ -3505,6 +3589,8 @@ table_FancyTableFilters.build = function(table,out) {
 		var colName = tmp != null ? tmp : column1[0].name;
 		var tr = window.document.createElement("div");
 		tr.classList.add("item");
+		tr.setAttribute("data-id",column1[0].getId());
+		tr.setAttribute("data-name",column1[0].name);
 		var cbShow = [window.document.createElement("input")];
 		cbShow[0].disabled = !column1[0].canShow;
 		cbShow[0].type = "checkbox";
@@ -5686,9 +5772,10 @@ var type_Shape = $hxEnums["type.Shape"] = { __ename__:true,__constructs__:null
 	,Unibody: {_hx_name:"Unibody",_hx_index:1,__enum__:"type.Shape",toString:$estr}
 	,Split: {_hx_name:"Split",_hx_index:2,__enum__:"type.Shape",toString:$estr}
 	,Keywell: {_hx_name:"Keywell",_hx_index:3,__enum__:"type.Shape",toString:$estr}
-	,Special: {_hx_name:"Special",_hx_index:4,__enum__:"type.Shape",toString:$estr}
+	,Half: {_hx_name:"Half",_hx_index:4,__enum__:"type.Shape",toString:$estr}
+	,Special: {_hx_name:"Special",_hx_index:5,__enum__:"type.Shape",toString:$estr}
 };
-type_Shape.__constructs__ = [type_Shape.Monoblock,type_Shape.Unibody,type_Shape.Split,type_Shape.Keywell,type_Shape.Special];
+type_Shape.__constructs__ = [type_Shape.Monoblock,type_Shape.Unibody,type_Shape.Split,type_Shape.Keywell,type_Shape.Half,type_Shape.Special];
 var type_Software = $hxEnums["type.Software"] = { __ename__:true,__constructs__:null
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.Software",toString:$estr}
 	,VIA: {_hx_name:"VIA",_hx_index:1,__enum__:"type.Software",toString:$estr}
@@ -5792,8 +5879,9 @@ type_row_FnPos.__constructs__ = [type_row_FnPos.None,type_row_FnPos.LeftMost,typ
 var type_row_LShiftShape = $hxEnums["type.row.LShiftShape"] = { __ename__:true,__constructs__:null
 	,ANSI: {_hx_name:"ANSI",_hx_index:0,__enum__:"type.row.LShiftShape",toString:$estr}
 	,ISO: {_hx_name:"ISO",_hx_index:1,__enum__:"type.row.LShiftShape",toString:$estr}
+	,Mini: {_hx_name:"Mini",_hx_index:2,__enum__:"type.row.LShiftShape",toString:$estr}
 };
-type_row_LShiftShape.__constructs__ = [type_row_LShiftShape.ANSI,type_row_LShiftShape.ISO];
+type_row_LShiftShape.__constructs__ = [type_row_LShiftShape.ANSI,type_row_LShiftShape.ISO,type_row_LShiftShape.Mini];
 var type_row_MouseWheel = $hxEnums["type.row.MouseWheel"] = { __ename__:true,__constructs__:null
 	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.row.MouseWheel",toString:$estr}
 	,Vertical: {_hx_name:"Vertical",_hx_index:1,__enum__:"type.row.MouseWheel",toString:$estr}
@@ -5805,9 +5893,10 @@ var type_row_RShiftShape = $hxEnums["type.row.RShiftShape"] = { __ename__:true,_
 	,LeftCut: {_hx_name:"LeftCut",_hx_index:1,__enum__:"type.row.RShiftShape",toString:$estr}
 	,RightCut: {_hx_name:"RightCut",_hx_index:2,__enum__:"type.row.RShiftShape",toString:$estr}
 	,Wide: {_hx_name:"Wide",_hx_index:3,__enum__:"type.row.RShiftShape",toString:$estr}
-	,None: {_hx_name:"None",_hx_index:4,__enum__:"type.row.RShiftShape",toString:$estr}
+	,Mini: {_hx_name:"Mini",_hx_index:4,__enum__:"type.row.RShiftShape",toString:$estr}
+	,None: {_hx_name:"None",_hx_index:5,__enum__:"type.row.RShiftShape",toString:$estr}
 };
-type_row_RShiftShape.__constructs__ = [type_row_RShiftShape.Normal,type_row_RShiftShape.LeftCut,type_row_RShiftShape.RightCut,type_row_RShiftShape.Wide,type_row_RShiftShape.None];
+type_row_RShiftShape.__constructs__ = [type_row_RShiftShape.Normal,type_row_RShiftShape.LeftCut,type_row_RShiftShape.RightCut,type_row_RShiftShape.Wide,type_row_RShiftShape.Mini,type_row_RShiftShape.None];
 var type_row_SpaceShape = $hxEnums["type.row.SpaceShape"] = { __ename__:true,__constructs__:null
 	,Normal: {_hx_name:"Normal",_hx_index:0,__enum__:"type.row.SpaceShape",toString:$estr}
 	,Split: {_hx_name:"Split",_hx_index:1,__enum__:"type.row.SpaceShape",toString:$estr}

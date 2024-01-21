@@ -9,5 +9,6 @@ enum Shape {
 	Unibody;
 	Split;
 	Keywell;
+	Half;
 	Special;
 }

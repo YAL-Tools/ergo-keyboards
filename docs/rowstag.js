@@ -215,28 +215,6 @@ window.rowStagData = [
 	"source": "https://github.com/Retne01/Bonsai"
 },
 {
-	"name": "Sesame",
-	"img": "Sesame.jpg",
-	"shape": "Unibody",
-	"stagger": "Row",
-	"connection": "Wired",
-	"keys": 65,
-	"rows": 4,
-	"lshift": "ANSI",
-	"rshift": "RightCut",
-	"enter": "ANSI",
-	"space": "SplitDistinctFn",
-	"leftMods": 2,
-	"rightMods": 1,
-	"hotswap": "No",
-	"switchProfile": "MX",
-	"firmware": "QMK",
-	"software": "VIA",
-	"assembly": "ThroughHole",
-	"caseType": "Included",
-	"source": "https://github.com/kb-elmo/sesame"
-},
-{
 	"name": "Goldtouch V2",
 	"img": "goldtouch-v2.jpg",
 	"shape": [
@@ -654,57 +632,150 @@ window.rowStagData = [
 	"img": "sesame.webp",
 	"shape": "Unibody",
 	"stagger": "Row",
+	"connection": "Wired",
 	"keys": 65,
 	"rows": 4,
 	"lshift": "ANSI",
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "SplitDistinctFn",
-	"backspace": "Normal",
 	"leftMods": 2,
 	"rightMods": 2,
 	"hotswap": "No",
 	"switchProfile": "MX",
+	"firmware": "QMK",
+	"software": "VIA",
 	"assembly": "ThroughHole",
 	"caseType": "Included",
 	"source": "https://github.com/kb-elmo/sesame",
 	"kit": "https://mechboards.co.uk/collections/kits/products/sesame-kit",
 	"prebuilt": "https://mechboards.co.uk/collections/pre-builds/products/sesame-kit-pre-built"
 },
-/*{
-	"name": "KB69",
-	"img": "kb69.jpg",
-	"notes": "Designed to be printable in 4 parts on printers with bed size of 220x220mm.",
-	"shape": "Monoblock",
-	"stagger": "Ortho",
+{
+	"name": "Sally",
+	"img": "sally.webp",
+	"shape": "Split",
+	"stagger": "Row",
 	"connection": "Wired",
-	"keys": 69,
-	"rows": 3,
+	"keys": 59,
+	"rows": 4,
+	"qCols": -1,
+	"aCols": -1,
+	"zCols": -1,
+	"lshift": "ANSI",
+	"rshift": "None",
+	"enter": "Mini",
+	"space": "Multi",
+	"backspace": "Short",
+	"thumbKeys": 4,
+	"leftMods": 0,
+	"rightMods": 0,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "Unknown",
+	"assembly": "Handwired",
+	"source": "https://github.com/STRMSKY/sally"
+},
+{
+	"name": "RK ROYAL KLUDGE RKS70",
+	"img": "rk-royal-kludge.jpg",
+	"notes": "Average-quality and surprisingly cheap",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": [
+		"Wired",
+		"Bluetooth",
+		"Wireless"
+	],
+	"keys": 74,
+	"rows": 4,
 	"lshift": "ANSI",
 	"rshift": "RightCut",
-	"enter": "Mini",
-	"space": "Normal",
-	"backspace": "Short",
-	"thumbKeys": 3,
-	"leftMods": {
-		"min": 3,
-		"max": 5
-	},
-	"rightMods": {
-		"min": 0,
-		"max": 3
-	},
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"leftMods": 3,
+	"rightMods": 3,
 	"navCluster": "Inline",
-	"numpad": "Mini",
-	"assembly": "Handwired",
-	"caseType": "Included",
-	"source": "https://github.com/Jbam9/KB69"
-},*/
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": "RGB",
+	"firmware": "Custom",
+	"software": "Custom",
+	"wristPads": "Detachable",
+	"prebuilt": [
+		"!http://en.rkgaming.com/product/41/",
+		"!https://www.amazon.com/RK-ROYAL-KLUDGE-Bluetooth-Mechanical/dp/B0C88WHV2W?th=1"
+	]
+},
+{
+	"name": "Feker Alice 98",
+	"img": "feker-alice-98.webp",
+	"notes": "A \"true\" Alice shape with aa slightly tented middle.",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": [
+		"Wired",
+		"Bluetooth",
+		"Wireless"
+	],
+	"keys": {
+		"min": 96,
+		"max": 98
+	},
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "Split",
+	"backspace": "Normal",
+	"leftMods": 3,
+	"rightMods": 2,
+	"navCluster": "Arrows",
+	"numpad": "Full",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"displays": {
+		"min": 0,
+		"max": 1
+	},
+	"lighting": "RGB",
+	"firmware": "Custom",
+	"software": "Custom",
+	"kit": "https://epomaker.com/products/feker-alice98",
+	"prebuilt": "https://epomaker.com/products/feker-alice98"
+},
+{
+	"name": "Saturn",
+	"img": "saturn.jfif",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 41,
+	"rows": 3,
+	"qCols": -2,
+	"aCols": -1,
+	"zCols": 0,
+	"lshift": "ANSI",
+	"rshift": "Mini",
+	"enter": "Mini",
+	"space": "Multi",
+	"thumbKeys": 3,
+	"leftMods": 1,
+	"rightMods": 2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"displays": {
+		"min": 0,
+		"max": 1
+	},
+	"caseType": "None",
+	"source": "https://github.com/joshyeram/SaturnPioneerVoyager"
+},
 null
 ];
 /* TODO
-https://www.amazon.com/RK-ROYAL-KLUDGE-Bluetooth-Mechanical/dp/B0C88RR3CM?th=1
-https://epomaker.com/products/feker-alice98
 https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
 */
