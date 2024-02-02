@@ -54,6 +54,9 @@ class FancyColumn<T> {
 	public function loadFilterParams(obj:DynamicAccess<String>):Bool {
 		return false;
 	}
+	public function getLegends():Array<FancyColumnLegend> {
+		return [];
+	}
 	
 	public var canSort = false;
 	public function compareKeyboards(a:T, b:T, ascending:Bool):Int {

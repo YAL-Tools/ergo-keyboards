@@ -60,6 +60,45 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 		}
 		super.buildFilter(out);
 	}
+	override public function matchesFilter(kb:KB):Bool {
+		if (filterTags.length == 0) return true;
+		var vals = getValue(kb);
+		if (vals == null) {
+			vals = defaultValue;
+			if (vals == null) vals = [];
+		}
+		switch (filterMode) {
+			case AnyOf:
+				for (val in vals) {
+					if (filterTags.contains(val)) return true;
+				}
+				return false;
+			case AllOf:
+				for (val in vals) {
+					if (!filterTags.contains(val)) return false;
+				}
+				return true;
+			case NoneOf:
+				for (val in vals) {
+					if (filterTags.contains(val)) return false;
+				}
+				return true;
+		}
+	}
+	
+	override public function getVisibleTagNamesForLegends():Array<String> {
+		var visible = new Map();
+		var arr = [];
+		for (row in table.rows) if (row.show) {
+			var vals = getValue(row.value);
+			if (vals == null) continue;
+			for (val in vals) if (!visible.exists(val)) {
+				visible[val] = true;
+				arr.push(tagToName(val));
+			}
+		}
+		return arr;
+	}
 	
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var optCtr = out.appendElTextNode("div");
@@ -91,31 +130,7 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 			optCtr.appendChild(row);
 		}
 	}
-	override public function matchesFilter(kb:KB):Bool {
-		if (filterTags.length == 0) return true;
-		var vals = getValue(kb);
-		if (vals == null) {
-			vals = defaultValue;
-			if (vals == null) vals = [];
-		}
-		switch (filterMode) {
-			case AnyOf:
-				for (val in vals) {
-					if (filterTags.contains(val)) return true;
-				}
-				return false;
-			case AllOf:
-				for (val in vals) {
-					if (!filterTags.contains(val)) return false;
-				}
-				return true;
-			case NoneOf:
-				for (val in vals) {
-					if (filterTags.contains(val)) return false;
-				}
-				return true;
-		}
-	}
+	
 	override public function save(kb:KB):Void {
 		var arr = field.access(kb);
 		if (arr != null) {

@@ -29,7 +29,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs"];
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard"];
-	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case"];
+	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Trackpad module] https://www.thingiverse.com/thing:5425081"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	add(kb);
 	kb = ColStagKeyboard._new("Unicorne",corne);
@@ -448,6 +448,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.keySpacing = [type_KeySpacing.MX];
 	kb.img = type_ValList.fromValue("iris.webp");
 	kb.kit = ["![v:r7] https://keeb.io/collections/iris-split-ergonomic-keyboard","![v:r5] https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
+	kb.extras = ["[v:Case with palm rests] https://github.com/elentok/iris-case"];
 	kb.prebuilt = ["![v:Multiple revisions] https://keeb.io/collections/iris-split-ergonomic-keyboard"];
 	kb.notes = ["NB! Choc/Alps switches are only available in Rev5, which isn't hotswap"];
 	addIris(kb);
@@ -782,6 +783,7 @@ table_FancyTable.prototype = {
 				}
 			}
 			tools_HtmlTools.setDisplayFlag(row.element,show);
+			row.show = show;
 			if(show) {
 				++found;
 			}
@@ -1829,6 +1831,10 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		while(_g < kbs.length) {
 			var kb = kbs[_g];
 			++_g;
+			if(typeof(kb) == "string") {
+				window.document.querySelector("#version").innerText = kb;
+				continue;
+			}
 			if(kb == null || !Reflect.isObject(kb)) {
 				continue;
 			}
@@ -1979,6 +1985,10 @@ Main.main = function() {
 		}
 		kbTable.sortBy(shuffler,false);
 		kbTable.updateURL();
+	};
+	window.document.querySelector("#copy-md").onclick = function() {
+		var md = table_FancyTableToMD.run(kbTable);
+		$global.navigator.clipboard.writeText(md);
 	};
 	kbTable.loadFilters(window.document.location.search);
 	$global.console.log("Hello!");
@@ -2561,6 +2571,10 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		while(_g < kbs.length) {
 			var kb = kbs[_g];
 			++_g;
+			if(typeof(kb) == "string") {
+				window.document.querySelector("#version").innerText = kb;
+				continue;
+			}
 			if(kb == null || !Reflect.isObject(kb)) {
 				continue;
 			}
@@ -3257,6 +3271,9 @@ table_FancyColumn.prototype = {
 	,loadFilterParams: function(obj) {
 		return false;
 	}
+	,getLegends: function() {
+		return [];
+	}
 	,compareKeyboards: function(a,b,ascending) {
 		return 0;
 	}
@@ -3265,6 +3282,11 @@ table_FancyColumn.prototype = {
 	,load: function(kb) {
 	}
 };
+var table_FancyColumnLegend = function(short,full) {
+	this.short = short;
+	this.full = full;
+};
+table_FancyColumnLegend.__name__ = true;
 var table_FancyField = function(name,access) {
 	this.name = name;
 	this.access = access;
@@ -3272,9 +3294,13 @@ var table_FancyField = function(name,access) {
 table_FancyField.__name__ = true;
 var table_FancyRow = function(ref) {
 	this.cells = [];
+	this.show = true;
 	var _gthis = this;
 	this.value = ref;
 	this.element = window.document.createElement("tr");
+	if(ref != null) {
+		this.element.fancyRow = this;
+	}
 	this.element.addEventListener("click",function(_) {
 		var cur = _gthis.element.parentElement.querySelector("tr.latest");
 		if(cur != null) {
@@ -3699,6 +3725,84 @@ table_FancyTableShuffler.prototype = $extend(table_FancyColumn.prototype,{
 		}
 	}
 });
+var table_FancyTableToMD = function() { };
+table_FancyTableToMD.__name__ = true;
+table_FancyTableToMD.run = function(table) {
+	var out_b = "";
+	var hasLegend = false;
+	var _g = 0;
+	var _g1 = table.columns;
+	while(_g < _g1.length) {
+		var col = _g1[_g];
+		++_g;
+		if(col.show) {
+			var legends = col.getLegends();
+			if(legends.length == 0) {
+				continue;
+			}
+			if(!hasLegend) {
+				hasLegend = true;
+				out_b += "|Column|Value|Explanation|";
+				out_b += "\n|-:|:-|:-|";
+			}
+			var tmp = col.shortName;
+			var colName = tmp != null ? tmp : col.name;
+			var tmp1 = col.filterName;
+			out_b += Std.string("\n|" + colName + "||" + (tmp1 != null ? tmp1 : col.name));
+			var _g2 = 0;
+			while(_g2 < legends.length) {
+				var legend = legends[_g2];
+				++_g2;
+				out_b += Std.string("\n|" + colName + "|" + legend.short + "|" + legend.full + "|");
+			}
+		}
+	}
+	if(hasLegend) {
+		out_b += "\n\n";
+	}
+	var cells = [];
+	var _g = 0;
+	var _g1 = table.columns;
+	while(_g < _g1.length) {
+		var col = _g1[_g];
+		++_g;
+		if(col.show) {
+			var tmp = col.shortName;
+			cells.push(tmp != null ? tmp : col.name);
+		}
+	}
+	out_b += Std.string("|" + cells.join("|") + "|");
+	var result = new Array(cells.length);
+	var _g = 0;
+	var _g1 = cells.length;
+	while(_g < _g1) {
+		var i = _g++;
+		result[i] = ":-";
+	}
+	out_b += Std.string("\n|" + result.join("|") + "|");
+	var _g = 0;
+	var _g1 = tools_HtmlTools.querySelectorAllAutoArr(table.outElement,"tr",HTMLTableRowElement);
+	while(_g < _g1.length) {
+		var tr = _g1[_g];
+		++_g;
+		var row = tr.fancyRow;
+		if(row == null || !row.show) {
+			continue;
+		}
+		cells = [];
+		var _g2 = 0;
+		var _g3 = row.cells;
+		while(_g2 < _g3.length) {
+			var cell = _g3[_g2];
+			++_g2;
+			if(cell.column.show) {
+				cells.push(cell.element.innerText);
+			}
+		}
+		out_b += Std.string("\n|" + cells.join("|") + "|");
+	}
+	return out_b;
+};
 var table_NumberColumnBase = function(name) {
 	this.sliderStep = "1";
 	this.suffix = "";
@@ -5093,6 +5197,28 @@ table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		}
 		return ret;
 	}
+	,getVisibleTagNamesForLegends: function() {
+		return [];
+	}
+	,getLegends: function() {
+		var names = this.getVisibleTagNamesForLegends();
+		var arr = [];
+		var _g = 0;
+		while(_g < names.length) {
+			var name = names[_g];
+			++_g;
+			var val = this.nameToTag(name);
+			var tmp = this.getShortLabel(val);
+			var short = tmp != null ? tmp : name;
+			var tmp1 = this.getFilterLabel(val);
+			var long = tmp1 != null ? tmp1 : name;
+			if(short == long) {
+				continue;
+			}
+			arr.push(new table_FancyColumnLegend(short,long));
+		}
+		return arr;
+	}
 });
 var table_TagColumnBase = function(name,field,et) {
 	this.shortLabels = new haxe_ds_EnumValueMap();
@@ -5183,6 +5309,41 @@ table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		}
 		table_TagColumnBase.prototype.buildFilter.call(this,out);
 	}
+	,matchesFilter: function(kb) {
+		if(this.filterTags.length == 0) {
+			return true;
+		}
+		var val = this.getValue(kb);
+		switch(this.filterMode._hx_index) {
+		case 0:
+			return this.filterTags.indexOf(val) != -1;
+		case 2:
+			return this.filterTags.indexOf(val) == -1;
+		default:
+			return true;
+		}
+	}
+	,getVisibleTagNamesForLegends: function() {
+		var visible = new haxe_ds_EnumValueMap();
+		var arr = [];
+		var _g = 0;
+		var _g1 = this.table.rows;
+		while(_g < _g1.length) {
+			var row = _g1[_g];
+			++_g;
+			if(row.show) {
+				var val = this.getValue(row.value);
+				if(val == null) {
+					continue;
+				}
+				if(!visible.exists(val)) {
+					visible.set(val,true);
+					arr.push(this.tagToName(val));
+				}
+			}
+		}
+		return arr;
+	}
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
 		var select = window.document.createElement("select");
@@ -5227,20 +5388,6 @@ table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			}
 		});
 		out.appendChild(select);
-	}
-	,matchesFilter: function(kb) {
-		if(this.filterTags.length == 0) {
-			return true;
-		}
-		var val = this.getValue(kb);
-		switch(this.filterMode._hx_index) {
-		case 0:
-			return this.filterTags.indexOf(val) != -1;
-		case 2:
-			return this.filterTags.indexOf(val) == -1;
-		default:
-			return true;
-		}
 	}
 	,save: function(kb) {
 		var val = this.field.access(kb);
@@ -5369,6 +5516,80 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		}
 		table_TagColumnBase.prototype.buildFilter.call(this,out);
 	}
+	,matchesFilter: function(kb) {
+		if(this.filterTags.length == 0) {
+			return true;
+		}
+		var vals = this.getValue(kb);
+		if(vals == null) {
+			vals = this.defaultValue;
+			if(vals == null) {
+				vals = [];
+			}
+		}
+		switch(this.filterMode._hx_index) {
+		case 0:
+			var _g = 0;
+			var _g1 = vals;
+			while(_g < _g1.length) {
+				var val = _g1[_g];
+				++_g;
+				if(this.filterTags.indexOf(val) != -1) {
+					return true;
+				}
+			}
+			return false;
+		case 1:
+			var _g = 0;
+			var _g1 = vals;
+			while(_g < _g1.length) {
+				var val = _g1[_g];
+				++_g;
+				if(this.filterTags.indexOf(val) == -1) {
+					return false;
+				}
+			}
+			return true;
+		case 2:
+			var _g = 0;
+			var _g1 = vals;
+			while(_g < _g1.length) {
+				var val = _g1[_g];
+				++_g;
+				if(this.filterTags.indexOf(val) != -1) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	,getVisibleTagNamesForLegends: function() {
+		var visible = new haxe_ds_EnumValueMap();
+		var arr = [];
+		var _g = 0;
+		var _g1 = this.table.rows;
+		while(_g < _g1.length) {
+			var row = _g1[_g];
+			++_g;
+			if(row.show) {
+				var vals = this.getValue(row.value);
+				if(vals == null) {
+					continue;
+				}
+				var _g2 = 0;
+				var _g3 = vals;
+				while(_g2 < _g3.length) {
+					var val = _g3[_g2];
+					++_g2;
+					if(!visible.exists(val)) {
+						visible.set(val,true);
+						arr.push(this.tagToName(val));
+					}
+				}
+			}
+		}
+		return arr;
+	}
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
 		var optCtr = tools_HtmlTools.appendElTextNode(out,"div");
@@ -5416,53 +5637,6 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			label.appendChild(window.document.createTextNode(name));
 			row.appendChild(label);
 			optCtr.appendChild(row);
-		}
-	}
-	,matchesFilter: function(kb) {
-		if(this.filterTags.length == 0) {
-			return true;
-		}
-		var vals = this.getValue(kb);
-		if(vals == null) {
-			vals = this.defaultValue;
-			if(vals == null) {
-				vals = [];
-			}
-		}
-		switch(this.filterMode._hx_index) {
-		case 0:
-			var _g = 0;
-			var _g1 = vals;
-			while(_g < _g1.length) {
-				var val = _g1[_g];
-				++_g;
-				if(this.filterTags.indexOf(val) != -1) {
-					return true;
-				}
-			}
-			return false;
-		case 1:
-			var _g = 0;
-			var _g1 = vals;
-			while(_g < _g1.length) {
-				var val = _g1[_g];
-				++_g;
-				if(this.filterTags.indexOf(val) == -1) {
-					return false;
-				}
-			}
-			return true;
-		case 2:
-			var _g = 0;
-			var _g1 = vals;
-			while(_g < _g1.length) {
-				var val = _g1[_g];
-				++_g;
-				if(this.filterTags.indexOf(val) != -1) {
-					return false;
-				}
-			}
-			return true;
 		}
 	}
 	,save: function(kb) {

@@ -80,6 +80,12 @@ class Main {
 			kbTable.sortBy(shuffler, false);
 			kbTable.updateURL();
 		}
+		//
+		document.querySelectorAuto("#copy-md", InputElement).onclick = function() {
+			var md = FancyTableToMD.run(kbTable);
+			navigator.clipboard.writeText(md);
+		}
+		//
 		kbTable.loadFilters(document.location.search);
 		console.log("Hello!");
 	}

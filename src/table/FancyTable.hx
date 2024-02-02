@@ -131,6 +131,7 @@ class FancyTable<T> {
 				break;
 			}
 			row.element.setDisplayFlag(show);
+			row.show = show;
 			if (show) found++;
 		}
 		if (countElement != null) countElement.innerText = "" + found;

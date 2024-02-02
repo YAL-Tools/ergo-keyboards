@@ -13,11 +13,14 @@ import js.html.TableRowElement;
 class FancyRow<T> {
 	public var value:T;
 	public var element:TableRowElement;
-	public var show:Bool;
+	public var show:Bool = true;
 	public var cells:Array<FancyTableCellBase<T>> = [];
 	public function new(ref:T) {
 		value = ref;
 		element = document.createTableRowElement();
+		if (ref != null) {
+			(cast element).fancyRow = this;
+		}
 		element.addEventListener("click", function(_) {
 			var cur = element.parentElement.querySelector("tr.latest");
 			if (cur != null) cur.classList.remove("latest");

@@ -222,6 +222,10 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		
 		var kbs:Array<ColStagKeyboard> = (cast window).keyboardData;
 		for (kb in kbs) {
+			if (kb is String) {
+				document.querySelector("#version").innerText = cast kb;
+				continue;
+			}
 			if (kb == null || !Reflect.isObject(kb)) continue;
 			for (col in columns) col.load(kb);
 			values.push(kb);

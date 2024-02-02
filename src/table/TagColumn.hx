@@ -42,6 +42,29 @@ class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, ET> {
 		}
 		super.buildFilter(out);
 	}
+	override public function matchesFilter(kb:KB):Bool {
+		if (filterTags.length == 0) return true;
+		var val = getValue(kb);
+		switch (filterMode) {
+			case AnyOf: return filterTags.contains(val);
+			case NoneOf: return !filterTags.contains(val);
+			default: return true;
+		}
+	}
+	
+	override public function getVisibleTagNamesForLegends():Array<String> {
+		var visible = new Map();
+		var arr = [];
+		for (row in table.rows) if (row.show) {
+			var val = getValue(row.value);
+			if (val == null) continue;
+			if (!visible.exists(val)) {
+				visible[val] = true;
+				arr.push(tagToName(val));
+			}
+		}
+		return arr;
+	}
 	
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var select = document.createSelectElement();
@@ -71,15 +94,7 @@ class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, ET> {
 		});
 		out.appendChild(select);
 	}
-	override public function matchesFilter(kb:KB):Bool {
-		if (filterTags.length == 0) return true;
-		var val = getValue(kb);
-		switch (filterMode) {
-			case AnyOf: return filterTags.contains(val);
-			case NoneOf: return !filterTags.contains(val);
-			default: return true;
-		}
-	}
+	
 	override public function save(kb:KB):Void {
 		var val = field.access(kb);
 		if (val != null) field.access(kb, true, cast val.getName());

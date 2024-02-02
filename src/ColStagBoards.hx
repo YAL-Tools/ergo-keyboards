@@ -68,6 +68,7 @@ class ColStagBoards {
 		];
 		kb.extras = [
 			"[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case",
+			"[v:Trackpad module] https://www.thingiverse.com/thing:5425081",
 		];
 		kb.img = "crkbd.jpg";
 		add(kb);
@@ -909,6 +910,9 @@ class ColStagBoards {
 			"![v:r5] https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard",
 			"https://mechboards.co.uk/collections/kits/products/iris-kit",
 			"https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0",
+		];
+		kb.extras = [
+			"[v:Case with palm rests] https://github.com/elentok/iris-case",
 		];
 		kb.prebuilt = [
 			"![v:Multiple revisions] https://keeb.io/collections/iris-split-ergonomic-keyboard",

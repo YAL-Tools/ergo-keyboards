@@ -139,5 +139,20 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 		}
 		return ret;
 	}
+	public function getVisibleTagNamesForLegends():Array<String> {
+		return [];
+	}
+	override public function getLegends():Array<FancyColumnLegend> {
+		var names = getVisibleTagNamesForLegends();
+		var arr = [];
+		for (name in names) {
+			var val = nameToTag(name);
+			var short = getShortLabel(val) ?? name;
+			var long = getFilterLabel(val) ?? name;
+			if (short == long) continue;
+			arr.push(new FancyColumnLegend(short, long));
+		}
+		return arr;
+	}
 }
 typedef TagLikeColumnBaseTC = EitherType<EnumValue, String>;
