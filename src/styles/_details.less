@@ -1,0 +1,37 @@
+// Styles for the <details> element
+body {
+  details {
+    border: 1px solid;
+    // padding: @space;
+    border-radius: @border-radius;
+    margin: @space * 0.5 0;
+    break-inside: avoid;
+    summary {
+      cursor: pointer;
+      padding: @space;
+    }
+
+    &[open] {
+      padding: @space;
+      summary {
+        margin-bottom: @space;
+        padding: 0;
+      }
+    }
+  }
+}
+
+// day mode
+body:not(.night) {
+  details {
+    border-color: @color-border-day;
+    background-color: @color-foreground-day;
+  }
+}
+// night mode
+body.night {
+  details {
+    border-color: @color-border-night;
+    background-color: @color-foreground-night;
+  }
+}

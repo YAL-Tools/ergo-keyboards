@@ -1,0 +1,26 @@
+/*
+  To style the <details> elements use _details.less instead.
+*/
+
+// Styles for the filter section
+div#filter {
+  columns: 3;
+}
+
+div:has(> #clear-filters) {
+  align-items: center;
+  gap: @space * 0.5;
+}
+
+// Styles for the single filter atom
+div#filter {
+  .item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    > input,
+    > div.name {
+      margin: @space * 0.25;
+    }
+  }
+}

@@ -31,10 +31,20 @@ You'll need [Haxe](https://haxe.org) installed.
 Open a terminal/Command Prompt/PowerShell/whatever in the directory
 (on Windows, this is done by shift-right-clicking an empty spot in Explorer),
 type the following, and press Enter
+
 ```
 haxe build.hxml
 ```
+
 If Haxe is installed and all is well, docs/script.js will be updated.
+
+### Building stylesheets
+
+You'll need NodeJS and less installed. Nodemon is optional, but recommended for live reloading the changes.
+
+Run the command: `nodemon --exec lessc .\src\styles\styles.less .\docs\style.css`
+
+This will update the style.css whenever you make a change in any `.less` file.
 
 ## Credits
 
