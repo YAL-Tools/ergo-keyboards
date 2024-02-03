@@ -149,8 +149,10 @@
 		<input type="text" id="share-field" />
 	</div>
 	<div id="filter"></div>
-	<div>
-		Showing <span id="count">0</span> keyboard(s)
+	<div class="table-counter">
+        <span class="table-counter__text">
+            Showing <span id="count">0</span> keyboard(s)
+        </span>
 		<input type="button" value="Shuffle" id="shuffle"/>
 		<input type="button" value="Copy table" id="copy-md" style="display:none" />
 	</div>
@@ -160,7 +162,7 @@
 	<details id="editor-outer">
 		<summary>Submit a keyboard?</summary>
 		<input type="button" id="editor-reset" value="Reset form"/>
-		<select id="editor-load">
+		<select id="editor-load" open>
 			<option selected value="">Load an existing keyboard?</option>
 		</select>
 		<form id="editor"></form>

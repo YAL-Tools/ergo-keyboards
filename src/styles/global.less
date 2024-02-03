@@ -5,6 +5,9 @@ body {
 
   a {
     color: @color-link-day;
+    &:visited {
+      filter: brightness(125%);
+    }
   }
 }
 
@@ -14,6 +17,9 @@ body.night {
 
   a {
     color: @color-link-night;
+    &:visited {
+      filter: brightness(125%);
+    }
   }
 }
 
@@ -26,15 +32,13 @@ h2 {
   margin-bottom: @space * 2;
 }
 
-// table {
-//   width: 100%;
-// }
+.tag-options[column-count="2"] {
+  columns: 2;
+}
 
-// th,
-// td {
-//   text-align: left;
-//   vertical-align: top;
-// }
+.tag-options[column-count="3"] {
+  columns: 3;
+}
 
 body:not(.rowstag) .if-rowstag {
   display: none;
@@ -42,6 +46,16 @@ body:not(.rowstag) .if-rowstag {
 
 body.rowstag .if-colstag {
   display: none;
+}
+
+input[invalid] {
+  outline: 2px solid @color-error;
+}
+
+.has-notes {
+  cursor: help;
+  text-decoration: underline dotted;
+  text-decoration-color: @color-product;
 }
 
 // #filter,
@@ -102,11 +116,6 @@ body.rowstag .if-colstag {
 //   }
 // }
 
-// .has-notes {
-//   cursor: help;
-//   text-decoration: underline;
-// }
-
 // @media only screen and (min-width: 600px) {
 //   #filter,
 //   #editor {
@@ -126,14 +135,6 @@ body.rowstag .if-colstag {
 //   #editor {
 //     columns: 4;
 //   }
-// }
-
-// .tag-options[column-count="2"] {
-//   columns: 2;
-// }
-
-// .tag-options[column-count="3"] {
-//   columns: 3;
 // }
 
 // #editor-outer {
@@ -157,10 +158,10 @@ body.rowstag .if-colstag {
 //     }
 //   }
 
-//   textarea {
-//     width: 100%;
-//     resize: vertical;
-//   }
+textarea {
+  width: 100%;
+  resize: vertical;
+}
 
 //   .filters.range {
 //     display: flex;
@@ -234,19 +235,6 @@ body.rowstag .if-colstag {
 //   }
 // }
 
-// input[invalid] {
-//   outline: 2px solid #f77;
-// }
-
-// body.night {
-//   background-color: @color-background-night;
-//   color: @color-text-night;
-
-//   details {
-//     background-color: @color-foreground-night;
-//   }
-// }
-
 // body.night,
 // .tippy-content {
 //   @border: @color-border-night;
@@ -289,73 +277,12 @@ body.rowstag .if-colstag {
 //   }
 // }
 
-// .tippy-content {
-//   .tippy-photo {
-//     max-width: 100%;
-//     height: auto;
-//     border-radius: 3px;
-//   }
+// body.night {
+//   background-color: @color-background-night;
+//   color: @color-text-night;
 
-//   p,
-//   ul,
-//   pre {
-//     margin: 0.5em 0;
-//   }
-
-//   p,
-//   ul {
-//     &:first-child {
-//       margin-top: 0;
-//     }
-
-//     &:last-child {
-//       margin-bottom: 0;
-//     }
-//   }
-
-//   ul {
-//     padding-left: 1em;
-//   }
-
-//   p.img {
-//     text-align: center;
-//     font-size: 85%;
-
-//     img {
-//       max-width: 100%;
-//       height: auto;
-//       border-radius: 3px;
-//       outline: 1px solid currentColor;
-//     }
-//   }
-
-//   pre,
-//   code {
-//     font-size: 90%;
-//     background: rgba(0, 0, 0, 0.8);
-//   }
-
-//   pre {
-//     padding: 0.2em;
-//     border-radius: 0.3em;
-//   }
-
-//   code {
-//     padding: 0.1em 0.1em;
-//   }
-
-//   table {
-//     border-spacing: 0;
-//   }
-
-//   table.links {
-//     .flags {
-//       text-align: right;
-//     }
-
-//     .variants {
-//       padding-left: 0.3em;
-//     }
+//   details {
+//     background-color: @color-foreground-night;
 //   }
 // }
 

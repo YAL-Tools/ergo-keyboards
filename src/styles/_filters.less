@@ -17,10 +17,24 @@ div#filter {
   .item {
     display: flex;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     > input,
     > div.name {
       margin: @space * 0.25;
     }
   }
+
+  // .numrow {
+  //   label {
+  //     display: flex;
+  //     align-items: center;
+  //   }
+  // }
+}
+
+.table-counter {
+  display: flex;
+  align-items: center;
+  gap: @space;
+  margin: @space 0;
 }
