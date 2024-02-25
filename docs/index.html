@@ -4,9 +4,9 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width,minimum-scale=1" />
 	<meta property="theme-color" content="#FFF037" />
-	<title>YAL's ergo keyboard list</title>
-	
+	<title>YAL's Ergo Keyboard List</title>
 	<meta name="description" content="A sortable and filterable list of ergonomic keyboards!" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	
 	<meta property="og:image" content="https://yal-tools.github.io/ergo-keyboards/img/og.png" />
 	<meta property="og:image:width" content="1080" />
@@ -127,7 +127,7 @@
 	<p>
 		List last updated at <span id="version" title="ISO YYYY-MM-DD">?</span>.
 	</p>
-	<h2 style="margin-bottom: 0">What to show and what to filter</h2>
+	<h2>What to show and what to filter</h2>
 	<details>
 		<summary>Filter legend</summary>
 		<p>
@@ -140,7 +140,7 @@
 			If something is <span class="has-notes">underlined</span>, you can click/tap it to read notes.
 		</p>
 	</details>
-	<div style="margin-top: 0.25em; margin-bottom: 0.75em; display: flex">
+	<div class="filters-toolbar" style="margin-top: 0.25em; margin-bottom: 0.75em; display: flex">
 		<input type="button" id="clear-filters" value="Clear filters" />
 		<input type="button" id="copy-share-url" value="Share filters" style="margin-left: 0.3em" />
 		<label><input type="checkbox" id="auto-update-url" checked/>
@@ -149,8 +149,10 @@
 		<input type="text" id="share-field" />
 	</div>
 	<div id="filter"></div>
-	<div>
-		Showing <span id="count">0</span> keyboard(s)
+	<div class="table-counter">
+        <span class="table-counter__text">
+            Showing <span id="count">0</span> keyboard(s)
+        </span>
 		<input type="button" value="Shuffle" id="shuffle"/>
 		<input type="button" value="Copy table" id="copy-md" style="display:none" />
 	</div>
@@ -167,7 +169,7 @@
 	<details id="editor-outer">
 		<summary>Submit a keyboard?</summary>
 		<input type="button" id="editor-reset" value="Reset form"/>
-		<select id="editor-load">
+		<select id="editor-load" open>
 			<option selected value="">Load an existing keyboard?</option>
 		</select>
 		<form id="editor"></form>

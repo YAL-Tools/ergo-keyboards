@@ -1,0 +1,52 @@
+// Style for the "Submit a keyboard?" section
+details#editor-outer {
+  #editor {
+    columns: 3;
+  }
+
+  details {
+    box-shadow: @elevation-1;
+  }
+
+  textarea {
+    max-width: 100%;
+    resize: vertical;
+    font-size: @font-size;
+  }
+
+  textarea#editor-output {
+    margin-top: @space;
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  div.name {
+    margin-top: @space;
+  }
+
+  .filters.range {
+    display: flex;
+    width: 100%;
+
+    > input {
+      flex-grow: 1;
+      max-width: 4em;
+    }
+  }
+}
+
+.night {
+  details#editor-outer {
+    details {
+      background: @color-background-night;
+      box-shadow: @elevation-2;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  details#editor-outer {
+    #editor {
+      columns: 4;
+    }
+  }
+}

@@ -1,86 +1,41 @@
-/* NB! Edit style.less, not the compiled style.css */
+* {
+  box-sizing: border-box;
+}
 body {
-  font: 15px sans-serif;
-  overflow: auto;
+  font: 12px sans-serif;
+  padding: 8px;
+  color: #1c2025;
+  accent-color: #673ab7;
 }
-table {
-  width: 100%;
+body a {
+  color: #0079f4;
 }
-th,
-td {
-  text-align: left;
-  vertical-align: top;
+body a:visited {
+  filter: brightness(125%);
 }
-body:not(.rowstag) .if-rowstag {
+body .has-notes {
+  text-decoration-color: #673ab7;
+}
+body.night {
+  background-color: #101418;
+  color: #e5eaf2;
+  accent-color: #8561c5;
+}
+body.night a {
+  color: #4eb2ff;
+}
+body.night a:visited {
+  filter: brightness(125%);
+}
+body.night .has-notes {
+  text-decoration-color: #8561c5;
+}
+#share-field {
   display: none;
 }
-body.rowstag .if-colstag {
-  display: none;
-}
-#filter,
-#editor {
-  columns: 1;
-  margin-bottom: 0.5em;
-}
-#filter > details,
-#editor > details {
-  border: 1px solid #ddd;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  margin-bottom: 0.3em;
-  break-inside: avoid;
-}
-#filter .note,
-#editor .note {
-  line-height: 1.25;
-}
-#filter .item,
-#editor .item {
-  display: flex;
-  align-items: start;
-  width: 100%;
-}
-#filter .item > div,
-#editor .item > div {
-  flex-grow: 1;
-}
-#filter .numrow {
-  display: flex;
-  flex-wrap: wrap;
-}
-#filter .numrow > label {
-  min-width: 5em;
-}
-#filter .numrow input[type="number"] {
-  width: 4em;
-  margin: 0 0.3em;
-}
-#filter .numrow input[type="range"] {
-  width: 3em;
-  flex-grow: 1;
-  max-width: 10em;
-}
-.has-notes {
-  cursor: help;
-  text-decoration: underline;
-}
-@media only screen and (min-width: 600px) {
-  #filter,
-  #editor {
-    columns: 2;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  #filter,
-  #editor {
-    columns: 3;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  #filter,
-  #editor {
-    columns: 4;
-  }
+h1,
+h2 {
+  margin-bottom: 16px;
 }
 .tag-options[column-count="2"] {
   columns: 2;
@@ -88,120 +43,259 @@ body.rowstag .if-colstag {
 .tag-options[column-count="3"] {
   columns: 3;
 }
-#editor-outer {
-  margin-top: 1em;
+body:not(.rowstag) .if-rowstag {
+  display: none;
 }
-#editor-outer > summary {
-  font-size: 125%;
-  font-weight: bold;
+body.rowstag .if-colstag {
+  display: none;
 }
-#editor-outer > input {
-  margin: 0.5em 0;
+input[invalid] {
+  outline: 2px solid #d32f2f;
 }
-#editor-outer .item {
-  margin: 0.25em 0;
+.has-notes {
+  cursor: help;
+  text-decoration: underline dotted;
+}
+.numrow {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
-#editor-outer .item > .name {
+.numrow > label {
+  min-width: 5em;
+}
+.numrow input[type="number"] {
+  width: 4em;
+  margin: 0 0.3em;
+}
+.numrow input[type="range"] {
+  width: 3em;
   flex-grow: 1;
+  max-width: 10em;
 }
-#editor-outer textarea {
+textarea {
   width: 100%;
   resize: vertical;
 }
-#editor-outer .filters.range {
-  display: flex;
+body table#data {
   width: 100%;
-  margin-top: 0.15em;
-}
-#editor-outer .filters.range > input {
-  flex-grow: 1;
-  max-width: 4em;
-}
-#data {
-  border: 1px solid #ddd;
-  position: relative;
-  margin-top: 0.5em;
+  border-radius: 4px;
+  margin: 8px auto;
   border-spacing: 0;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
 }
-#data th.can-sort {
+body table#data th,
+body table#data tr,
+body table#data td {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: middle;
+}
+body table#data th,
+body table#data td {
+  padding: 4px;
+}
+body table#data th {
+  line-height: 1.5;
+  position: sticky;
+  top: 0;
+}
+body table#data th.can-sort {
   cursor: pointer;
   /*position: relative;*/
 }
-#data th.can-sort.sort-column:after {
+body table#data th.can-sort.sort-column:after {
   position: absolute;
   right: 0.2em;
   bottom: 0.2em;
   content: "↓";
 }
-#data th.can-sort.sort-column.sort-ascending:after {
+body table#data th.can-sort.sort-column.sort-ascending:after {
   content: "↑";
 }
-#data > tr > td,
-#data > tr > th {
-  padding: 2px;
-  border-bottom: 1px solid #ddd;
-}
-#data > tr > th {
-  line-height: 1.5;
-  position: sticky;
-  top: 0;
-  background-color: #F6F8FA;
-}
-#data > tr:last-child > td,
-#data > tr:last-child > th {
-  border-bottom: none;
-}
-#data tr.latest {
-  background-color: #374bff10;
-}
-#data tr:hover {
-  background-color: #FFE03730;
-}
-#data a.preview img {
-  margin-top: 0.3em;
+body table#data a.preview img {
+  margin-top: 4px;
   display: block;
   width: 100%;
   max-width: 320px;
 }
-input[invalid] {
-  outline: 2px solid #f77;
+body th {
+  border-bottom: 1px solid black;
 }
-body.night {
-  background-color: #405070;
-  color: white;
+body:not(.night) table#data {
+  background-color: #f8fafb;
+  border: 1px solid #e5eaf2;
 }
-body.night a,
-.tippy-content a {
-  color: #9DEC76;
+body:not(.night) tr:hover:not(:first-child) {
+  background-color: rgba(103, 58, 183, 0.2);
 }
-body.night a:visited,
-.tippy-content a:visited {
-  color: #7ef0ff;
+body:not(.night) th {
+  background-color: #f1f1f1;
 }
-body.night #filter details,
-.tippy-content #filter details {
-  border-color: #a5b5ce;
+body:not(.night) th,
+body:not(.night) td {
+  border-bottom: 1px solid #e5eaf2;
 }
-body.night #data,
-.tippy-content #data {
-  border-color: #a5b5ce;
+body.night table#data {
+  background-color: #0f1924;
+  border: 1px solid #1b2128;
 }
-body.night #data td,
-.tippy-content #data td {
-  border-color: #a5b5ce;
+body.night tr:hover:not(:first-child) {
+  background-color: rgba(133, 97, 197, 0.2);
 }
-body.night #data tr.latest,
-.tippy-content #data tr.latest {
-  background-color: #37ff6919;
+body.night th {
+  background-color: #292b2f;
 }
-body.night #data tr:hover,
-.tippy-content #data tr:hover {
-  background-color: #3794ff30;
+body.night th,
+body.night td {
+  border-bottom: 1px solid #1b2128;
 }
-body.night #data > tr > th,
-.tippy-content #data > tr > th {
-  background-color: #596987;
+body details {
+  border: 1px solid;
+  border-radius: 4px;
+  margin: 4px 0;
+  break-inside: avoid;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+body details summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px;
+}
+body details[open] {
+  padding: 8px;
+}
+body details[open] summary {
+  margin-bottom: 8px;
+  padding: 0;
+}
+body:not(.night) details {
+  border-color: #e5eaf2;
+  background-color: #f8fafb;
+}
+body.night details {
+  border-color: #1b2128;
+  background-color: #0f1924;
+}
+button,
+input[type="button"] {
+  border: 1px solid #673ab7;
+  background: none;
+  padding: 3.2px 9.6px;
+  border-radius: 4px;
+  color: #673ab7;
+  transition: background 150ms, border 150ms;
+  cursor: pointer;
+}
+button:hover,
+input[type="button"]:hover {
+  background: #8561c530;
+}
+body.night button,
+body.night input[type="button"] {
+  border: 1px solid #8561c5;
+  color: #8561c5;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #673ab7;
+}
+.night input[type="checkbox"],
+.night input[type="radio"] {
+  accent-color: #8561c5;
+}
+/*
+  To style the <details> elements use _details.less instead.
+*/
+div#filter {
+  columns: 3;
+}
+div:has(> #clear-filters) {
+  align-items: center;
+  gap: 4px;
+}
+div#filter .item {
+  padding: 1.6px;
+  display: flex;
+  align-items: start;
+  width: 100%;
+}
+div#filter .item > input,
+div#filter .item > div.name {
+  margin: 2px;
+}
+div#filter .item > div.name {
+  flex-grow: 1;
+}
+div#filter .filters {
+  margin: 8px 0;
+}
+.table-counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+details#editor-outer #editor {
+  columns: 3;
+}
+details#editor-outer details {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+details#editor-outer textarea {
+  max-width: 100%;
+  resize: vertical;
+  font-size: 12px;
+}
+details#editor-outer textarea#editor-output {
+  margin-top: 8px;
+  font-family: "Courier New", Courier, monospace;
+}
+details#editor-outer div.name {
+  margin-top: 8px;
+}
+details#editor-outer .filters.range {
+  display: flex;
+  width: 100%;
+}
+details#editor-outer .filters.range > input {
+  flex-grow: 1;
+  max-width: 4em;
+}
+.night details#editor-outer details {
+  background: #101418;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (min-width: 1400px) {
+  details#editor-outer #editor {
+    columns: 4;
+  }
+}
+select,
+input[type="select"] {
+  background: #f1f1f1;
+  border-radius: 4px 4px 0 0;
+  border: none;
+  padding: 4px 9.6px;
+  margin: 4px 0;
+  transition: background 150ms, border 150ms;
+  cursor: pointer;
+}
+select option,
+input[type="select"] option {
+  color: unset;
+}
+body:not(.night) select,
+body:not(.night) input[type="select"] {
+  color: #1c2025;
+  border-bottom: 1px solid #1c2025;
+}
+body.night select,
+body.night input[type="select"] {
+  color: #e5eaf2;
+  background: #101418;
+  border: 1px solid #1b2128;
 }
 .tippy-content .tippy-photo {
   max-width: 100%;
@@ -254,13 +348,4 @@ body.night #data > tr > th,
 }
 .tippy-content table.links .variants {
   padding-left: 0.3em;
-}
-#share-field {
-  flex-grow: 1;
-  margin-left: 0.25em;
-  display: none;
-}
-img.flag {
-  vertical-align: middle;
-  margin-top: -1px;
 }

@@ -1,0 +1,69 @@
+.tippy-content {
+  .tippy-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+  }
+
+  p,
+  ul,
+  pre {
+    margin: 0.5em 0;
+  }
+
+  p,
+  ul {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    padding-left: 1em;
+  }
+
+  p.img {
+    text-align: center;
+    font-size: 85%;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 3px;
+      outline: 1px solid currentColor;
+    }
+  }
+
+  pre,
+  code {
+    font-size: 90%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  pre {
+    padding: 0.2em;
+    border-radius: 0.3em;
+  }
+
+  code {
+    padding: 0.1em 0.1em;
+  }
+
+  table {
+    border-spacing: 0;
+  }
+
+  table.links {
+    .flags {
+      text-align: right;
+    }
+
+    .variants {
+      padding-left: 0.3em;
+    }
+  }
+}
