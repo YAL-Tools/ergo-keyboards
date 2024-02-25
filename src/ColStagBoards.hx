@@ -68,6 +68,7 @@ class ColStagBoards {
 		];
 		kb.extras = [
 			"[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case",
+			"[v:Unibody case] https://www.thingiverse.com/thing:6455098",
 			"[v:Trackpad module] https://www.thingiverse.com/thing:5425081",
 		];
 		kb.img = "crkbd.jpg";

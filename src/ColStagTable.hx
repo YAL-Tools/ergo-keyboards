@@ -230,6 +230,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 			for (col in columns) col.load(kb);
 			values.push(kb);
 		}
+		ToDoList.set((cast window).keyboardTODOs);
 	}
 	override public function post():Void {
 		for (kb in values) {

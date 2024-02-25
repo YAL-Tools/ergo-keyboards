@@ -775,11 +775,15 @@ window.rowStagData = [
 },
 "2024-02-01"
 ];
-/* TODO
-https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
-https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
-https://keeb.io/products/fourier-40-split-staggered-keyboard
-https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
-https://github.com/keebio/fourier
+window.rowStagTODOs = `
+Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
+Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
 https://github.com/JellyTitan/ErgoDonk-Zero
+https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
+Feker Alice 80 https://www.whatgeek.com/products/feker-alice-80-mechanical-keyboard
+Hatsukey70 https://shop.yushakobo.jp/en/products/8361?_pos=1&_sid=d253ab30f&_ss=r
+Majestouch Xacro M10SP https://www.diatec.co.jp/en/xacro/m10sp.php
+`
+/* TODO
+https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
 */

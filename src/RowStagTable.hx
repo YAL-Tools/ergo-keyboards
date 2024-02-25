@@ -228,6 +228,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 			for (col in columns) col.load(kb);
 			values.push(kb);
 		}
+		ToDoList.set((cast window).rowStagTODOs);
 	}
 	override public function post():Void {
 		for (kb in values) {

@@ -22,6 +22,7 @@ class Main {
 	static function main() {
 		LinkListColumn.domainCountries = (cast window).domainCountries;
 		LinkListColumn.countryTags = (cast window).countryTags;
+		ToDoList.element = document.querySelectorAuto("#todo");
 		//
 		var divFilters:Element = document.querySelectorAuto("#filter");
 		var kbTable:KeyboardTable<Keyboard>;

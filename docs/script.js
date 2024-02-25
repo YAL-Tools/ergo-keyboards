@@ -29,7 +29,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs"];
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard"];
-	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Trackpad module] https://www.thingiverse.com/thing:5425081"];
+	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Trackpad module] https://www.thingiverse.com/thing:5425081"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	add(kb);
 	kb = ColStagKeyboard._new("Unicorne",corne);
@@ -1847,6 +1847,7 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 			this.values.push(kb);
 		}
+		ToDoList.set(window.keyboardTODOs);
 	}
 	,post: function() {
 		var _g = 0;
@@ -1942,6 +1943,7 @@ Main.__name__ = true;
 Main.main = function() {
 	table_LinkListColumn.domainCountries = window.domainCountries;
 	table_LinkListColumn.countryTags = window.countryTags;
+	ToDoList.element = window.document.querySelector("#todo");
 	var divFilters = window.document.querySelector("#filter");
 	var kbTable;
 	if(window.document.body.classList.contains("rowstag")) {
@@ -2587,6 +2589,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 			this.values.push(kb);
 		}
+		ToDoList.set(window.rowStagTODOs);
 	}
 	,post: function() {
 		var _g = 0;
@@ -2698,6 +2701,74 @@ StringTools.trim = function(s) {
 };
 StringTools.replace = function(s,sub,by) {
 	return s.split(sub).join(by);
+};
+var ToDoList = function() { };
+ToDoList.__name__ = true;
+ToDoList.set = function(text) {
+	text = StringTools.trim(text);
+	var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
+	var rxURL = new RegExp("^(https?://\\S+)\\s*(.*)");
+	var rxLinkSuffix = new RegExp("^.+/(.+?)(?:/)?(?:\\?.*)?$");
+	var rxEraseEnd = new RegExp("^(.+)[-_](?:keyboard|kbd|kit|pcb)$","i");
+	ToDoList.element.innerHTML = "";
+	var _g = 0;
+	var _g1 = text.split("\n");
+	while(_g < _g1.length) {
+		var line = _g1[_g];
+		++_g;
+		line = StringTools.trim(line);
+		if(line == "") {
+			continue;
+		}
+		var mt = rxURL.exec(line);
+		var label = null;
+		if(mt == null) {
+			mt = rxAfterText.exec(line);
+			if(mt == null) {
+				continue;
+			}
+			label = mt[1];
+			line = mt[2];
+			mt = rxURL.exec(line);
+		} else {
+			var smt = rxLinkSuffix.exec(mt[1]);
+			if(smt == null) {
+				continue;
+			}
+			label = smt[1];
+			var _g2 = 0;
+			while(_g2 < 16) {
+				var i = _g2++;
+				smt = rxEraseEnd.exec(label);
+				if(smt == null) {
+					break;
+				}
+				label = smt[1];
+			}
+		}
+		var li = window.document.createElement("li");
+		var a = window.document.createElement("a");
+		a.appendChild(window.document.createTextNode(label));
+		a.href = mt[1];
+		li.appendChild(a);
+		line = mt[2];
+		var _g3 = 2;
+		while(_g3 < 16) {
+			var i1 = _g3++;
+			mt = rxURL.exec(line);
+			if(mt == null) {
+				break;
+			}
+			a = window.document.createElement("a");
+			a.href = mt[1];
+			line = mt[2];
+			li.appendChild(window.document.createTextNode(" · "));
+			a.appendChild(window.document.createTextNode("link " + i1));
+			li.appendChild(a);
+		}
+		ToDoList.element.appendChild(li);
+		haxe_Log.trace(label,{ fileName : "src/ToDoList.hx", lineNumber : 61, className : "ToDoList", methodName : "set", customParams : [line]});
+	}
 };
 var Type = function() { };
 Type.__name__ = true;
@@ -2931,6 +3002,31 @@ haxe_Exception.prototype = $extend(Error.prototype,{
 		return this.__nativeException;
 	}
 });
+var haxe_Log = function() { };
+haxe_Log.__name__ = true;
+haxe_Log.formatOutput = function(v,infos) {
+	var str = Std.string(v);
+	if(infos == null) {
+		return str;
+	}
+	var pstr = infos.fileName + ":" + infos.lineNumber;
+	if(infos.customParams != null) {
+		var _g = 0;
+		var _g1 = infos.customParams;
+		while(_g < _g1.length) {
+			var v = _g1[_g];
+			++_g;
+			str += ", " + Std.string(v);
+		}
+	}
+	return pstr + ": " + str;
+};
+haxe_Log.trace = function(v,infos) {
+	var str = haxe_Log.formatOutput(v,infos);
+	if(typeof(console) != "undefined" && console.log != null) {
+		console.log(str);
+	}
+};
 var haxe_ValueException = function(value,previous,native) {
 	haxe_Exception.call(this,String(value),previous,native);
 	this.value = value;
