@@ -15,13 +15,21 @@ div:has(> #clear-filters) {
 // Styles for the single filter atom
 div#filter {
   .item {
+    padding: @space * 0.2;
     display: flex;
+    align-items: start;
     width: 100%;
-    align-items: flex-start;
     > input,
     > div.name {
       margin: @space * 0.25;
     }
+    > div.name {
+      flex-grow: 1;
+    }
+  }
+
+  .filters {
+    margin: @space 0;
   }
 
   // .numrow {

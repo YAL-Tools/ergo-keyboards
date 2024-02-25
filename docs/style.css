@@ -1,7 +1,11 @@
+* {
+  box-sizing: border-box;
+}
 body {
   font: 12px sans-serif;
   padding: 8px;
   color: #1c2025;
+  accent-color: #673ab7;
 }
 body a {
   color: #0079f4;
@@ -9,15 +13,22 @@ body a {
 body a:visited {
   filter: brightness(125%);
 }
+body .has-notes {
+  text-decoration-color: #673ab7;
+}
 body.night {
   background-color: #101418;
   color: #e5eaf2;
+  accent-color: #8561c5;
 }
 body.night a {
   color: #4eb2ff;
 }
 body.night a:visited {
   filter: brightness(125%);
+}
+body.night .has-notes {
+  text-decoration-color: #8561c5;
 }
 #share-field {
   display: none;
@@ -44,7 +55,23 @@ input[invalid] {
 .has-notes {
   cursor: help;
   text-decoration: underline dotted;
-  text-decoration-color: #8561c5;
+}
+.numrow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.numrow > label {
+  min-width: 5em;
+}
+.numrow input[type="number"] {
+  width: 4em;
+  margin: 0 0.3em;
+}
+.numrow input[type="range"] {
+  width: 3em;
+  flex-grow: 1;
+  max-width: 10em;
 }
 textarea {
   width: 100%;
@@ -55,6 +82,7 @@ body table#data {
   border-radius: 4px;
   margin: 8px auto;
   border-spacing: 0;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
 }
 body table#data th,
 body table#data tr,
@@ -67,9 +95,6 @@ body table#data td {
 body table#data th,
 body table#data td {
   padding: 4px;
-}
-body table#data tr:hover:not(:first-child) {
-  background-color: rgba(133, 97, 197, 0.2);
 }
 body table#data th {
   line-height: 1.5;
@@ -102,6 +127,9 @@ body:not(.night) table#data {
   background-color: #f8fafb;
   border: 1px solid #e5eaf2;
 }
+body:not(.night) tr:hover:not(:first-child) {
+  background-color: rgba(103, 58, 183, 0.2);
+}
 body:not(.night) th {
   background-color: #f1f1f1;
 }
@@ -112,6 +140,9 @@ body:not(.night) td {
 body.night table#data {
   background-color: #0f1924;
   border: 1px solid #1b2128;
+}
+body.night tr:hover:not(:first-child) {
+  background-color: rgba(133, 97, 197, 0.2);
 }
 body.night th {
   background-color: #292b2f;
@@ -125,6 +156,7 @@ body details {
   border-radius: 4px;
   margin: 4px 0;
   break-inside: avoid;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
 }
 body details summary {
   font-weight: bold;
@@ -148,11 +180,11 @@ body.night details {
 }
 button,
 input[type="button"] {
-  border: 1px solid #8561c5;
+  border: 1px solid #673ab7;
   background: none;
   padding: 3.2px 9.6px;
   border-radius: 4px;
-  color: #8561c5;
+  color: #673ab7;
   transition: background 150ms, border 150ms;
   cursor: pointer;
 }
@@ -160,7 +192,17 @@ button:hover,
 input[type="button"]:hover {
   background: #8561c530;
 }
-input[type="checkbox"] {
+body.night button,
+body.night input[type="button"] {
+  border: 1px solid #8561c5;
+  color: #8561c5;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #673ab7;
+}
+.night input[type="checkbox"],
+.night input[type="radio"] {
   accent-color: #8561c5;
 }
 /*
@@ -174,13 +216,20 @@ div:has(> #clear-filters) {
   gap: 4px;
 }
 div#filter .item {
+  padding: 1.6px;
   display: flex;
+  align-items: start;
   width: 100%;
-  align-items: flex-start;
 }
 div#filter .item > input,
 div#filter .item > div.name {
   margin: 2px;
+}
+div#filter .item > div.name {
+  flex-grow: 1;
+}
+div#filter .filters {
+  margin: 8px 0;
 }
 .table-counter {
   display: flex;
@@ -190,6 +239,38 @@ div#filter .item > div.name {
 }
 details#editor-outer #editor {
   columns: 3;
+}
+details#editor-outer details {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+details#editor-outer textarea {
+  max-width: 100%;
+  resize: vertical;
+  font-size: 12px;
+}
+details#editor-outer textarea#editor-output {
+  margin-top: 8px;
+  font-family: "Courier New", Courier, monospace;
+}
+details#editor-outer div.name {
+  margin-top: 8px;
+}
+details#editor-outer .filters.range {
+  display: flex;
+  width: 100%;
+}
+details#editor-outer .filters.range > input {
+  flex-grow: 1;
+  max-width: 4em;
+}
+.night details#editor-outer details {
+  background: #101418;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (min-width: 1400px) {
+  details#editor-outer #editor {
+    columns: 4;
+  }
 }
 select,
 input[type="select"] {
@@ -213,6 +294,7 @@ body:not(.night) input[type="select"] {
 body.night select,
 body.night input[type="select"] {
   color: #e5eaf2;
+  background: #101418;
   border: 1px solid #1b2128;
 }
 .tippy-content .tippy-photo {

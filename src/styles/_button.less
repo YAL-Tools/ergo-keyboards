@@ -1,10 +1,10 @@
 button,
 input[type="button"] {
-  border: 1px solid @color-product;
+  border: 1px solid @color-product-day;
   background: none;
   padding: @space * 0.4 @space * 1.2;
   border-radius: @border-radius;
-  color: @color-product;
+  color: @color-product-day;
   transition: background 150ms, border 150ms;
   cursor: pointer;
 
@@ -13,8 +13,10 @@ input[type="button"] {
   }
 }
 
-// body.night {
-//   button,
-//   input[type="button"] {
-//   }
-// }
+body.night {
+  button,
+  input[type="button"] {
+    border: 1px solid @color-product-night;
+    color: @color-product-night;
+  }
+}

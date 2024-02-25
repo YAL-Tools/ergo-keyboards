@@ -1,7 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font: @font-size sans-serif;
   padding: @space;
   color: @color-text-day;
+  accent-color: @color-product-day;
 
   a {
     color: @color-link-day;
@@ -9,17 +14,26 @@ body {
       filter: brightness(125%);
     }
   }
+
+  .has-notes {
+    text-decoration-color: @color-product-day;
+  }
 }
 
 body.night {
   background-color: @color-background-night;
   color: @color-text-night;
+  accent-color: @color-product-night;
 
   a {
     color: @color-link-night;
     &:visited {
       filter: brightness(125%);
     }
+  }
+
+  .has-notes {
+    text-decoration-color: @color-product-night;
   }
 }
 
@@ -55,7 +69,27 @@ input[invalid] {
 .has-notes {
   cursor: help;
   text-decoration: underline dotted;
-  text-decoration-color: @color-product;
+}
+
+.numrow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  > label {
+    min-width: 5em;
+  }
+
+  input[type="number"] {
+    width: 4em;
+    margin: 0 0.3em;
+  }
+
+  input[type="range"] {
+    width: 3em;
+    flex-grow: 1;
+    max-width: 10em;
+  }
 }
 
 // #filter,
