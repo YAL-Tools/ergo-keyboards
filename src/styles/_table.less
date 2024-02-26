@@ -5,10 +5,6 @@ body {
     margin: @space auto;
     border-spacing: 0;
     box-shadow: @elevation-2;
-    
-    >tr.latest {
-      background-color: #374bff10;
-    }
 
     >tr>th,
     >tr,
@@ -66,8 +62,11 @@ body:not(.night) {
     border: @border-day;
     
     >tr {
+      &.latest {
+        background-color: rgba(@color-latest-day, 7%);
+      }
       &:hover:not(:first-child) {
-        background-color: rgba(@color-product-day, 20%);
+        background-color: rgba(@color-product-day, 10%);
       }
     }
     >tr>th {
@@ -86,6 +85,9 @@ body.night {
     border: @border-night;
     
     >tr {
+      &.latest {
+        background-color: rgba(@color-latest-night, 10%);
+      }
       &:hover:not(:first-child) {
         background-color: rgba(@color-product-night, 20%);
       }
