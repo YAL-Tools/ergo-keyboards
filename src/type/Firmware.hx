@@ -11,5 +11,6 @@ enum Firmware {
 	ZMK;
 	KMK;
 	PRK;
+	FAK;
 	Custom;
 }

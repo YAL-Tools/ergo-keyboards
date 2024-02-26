@@ -4828,7 +4828,7 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 		var lines = this.field.access(kb);
 		var link = null;
 		if(!(lines == null || lines.length == 0)) {
-			if(lines.length == 1 && this.canShowSingle) {
+			if(lines.length == 1 && this.canShowSingle && !StringTools.startsWith(lines[0],"[")) {
 				link = window.document.createElement("a");
 				link.appendChild(window.document.createTextNode("➜"));
 				link.href = lines[0];
@@ -5972,9 +5972,10 @@ var type_Firmware = $hxEnums["type.Firmware"] = { __ename__:true,__constructs__:
 	,ZMK: {_hx_name:"ZMK",_hx_index:3,__enum__:"type.Firmware",toString:$estr}
 	,KMK: {_hx_name:"KMK",_hx_index:4,__enum__:"type.Firmware",toString:$estr}
 	,PRK: {_hx_name:"PRK",_hx_index:5,__enum__:"type.Firmware",toString:$estr}
-	,Custom: {_hx_name:"Custom",_hx_index:6,__enum__:"type.Firmware",toString:$estr}
+	,FAK: {_hx_name:"FAK",_hx_index:6,__enum__:"type.Firmware",toString:$estr}
+	,Custom: {_hx_name:"Custom",_hx_index:7,__enum__:"type.Firmware",toString:$estr}
 };
-type_Firmware.__constructs__ = [type_Firmware.Unknown,type_Firmware.Simple,type_Firmware.QMK,type_Firmware.ZMK,type_Firmware.KMK,type_Firmware.PRK,type_Firmware.Custom];
+type_Firmware.__constructs__ = [type_Firmware.Unknown,type_Firmware.Simple,type_Firmware.QMK,type_Firmware.ZMK,type_Firmware.KMK,type_Firmware.PRK,type_Firmware.FAK,type_Firmware.Custom];
 var type_HotSwap = $hxEnums["type.HotSwap"] = { __ename__:true,__constructs__:null
 	,Unspecified: {_hx_name:"Unspecified",_hx_index:0,__enum__:"type.HotSwap",toString:$estr}
 	,No: {_hx_name:"No",_hx_index:1,__enum__:"type.HotSwap",toString:$estr}

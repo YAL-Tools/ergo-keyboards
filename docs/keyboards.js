@@ -4923,30 +4923,221 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"source": "https://github.com/JRiggles/DELPHI-kbd"
 },
+{
+	"name": "Zodiark",
+	"img": "Zodiark.webp",
+	"notes": "Based on Sofle V2, structurally closer to Redox/ErgoDash",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 64,
+		"max": 70
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"innerKeys": 2,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.4,
+	"hotswap": "Yes",
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"encoders": {
+		"min": 0,
+		"max": 6
+	},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"web": "https://www.splitlogic.xyz/",
+	"source": "[v:\"soon\"] https://github.com/Aleblazer",
+	"kit": "https://www.splitlogic.xyz/shop"
+},
+{
+	"name": "0xPM",
+	"img": "0xPM.webp",
+	"shape": "Split",
+	"connection": "Wired",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"firmware": "FAK",
+	"caseType": "Included",
+	"source": "https://github.com/llmerlos/0xPM"
+},
+{
+	"name": "slabV",
+	"img": "SlabV.webp",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"hotswap": [
+		"No",
+		"Yes"
+	],
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/brickbots/slabv"
+},
+{
+	"name": "Elora",
+	"img": "Elora.webp",
+	"notes": "Supports \"modules\" for additional functionality",
+	"keys": 62,
+	"rows": 6,
+	"cols": 4,
+	"thumbKeys": 5,
+	"innerKeys": 1,
+	"pinkyStagger": 0.7,
+	"hotswap": [
+		"No",
+		"Yes"
+	],
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
+	"keySpacing": "MX",
+	"encoders": {
+		"min": 0,
+		"max": 6
+	},
+	"encoderType": "Knob",
+	"trackpoints": {
+		"min": 0,
+		"max": 2
+	},
+	"displays": {
+		"min": 0,
+		"max": 2
+	},
+	"lighting": "Underglow",
+	"firmware": "QMK",
+	"software": "Vial",
+	"kit": "https://splitkb.com/products/elora",
+	"prebuilt": "[v:MX only!] https://splitkb.com/products/elora"
+},
+{
+	"name": "Redpoll",
+	"img": "Redpoll.webp",
+	"shape": "Unibody",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 46,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"pinkyStagger": 0.7,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": "Handwired",
+	"web": "https://feierabendprojekte.wordpress.com/2024/01/13/my-new-travel-companion/",
+	"source": [
+		"[v:case] https://github.com/Azel4231/scad-keyboards",
+		"[v:firmware] https://github.com/Azel4231/zmk-config"
+	]
+},
+{
+	"name": "Signum 3.0",
+	"img": [
+		"signum3.0_assembled_sm.jpg",
+		"signum_3.0_pcb_options.jpg"
+	],
+	"notes": "Each column has 5-6 possible stagger options",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 48,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 3,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"assembly": "Adjustable",
+	"caseType": "None",
+	"kit": "http://www.troyfletcher.net/shop.html",
+	"prebuilt": "http://www.troyfletcher.net/shop.html"
+},
+{
+	"name": "Signum 3.1",
+	"img": [
+		"signum_3.1_assembled.webp",
+		"signum_3.1_pcb_small.jpg"
+	],
+	"notes": "Each column has 5-6 possible stagger options",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 3,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"assembly": "Adjustable",
+	"caseType": "None",
+	"kit": "http://www.troyfletcher.net/shop.html",
+	"prebuilt": "http://www.troyfletcher.net/shop.html"
+},
+{
+	"name": "StarShip-Centurion",
+	"img": "starship-centurion.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 39,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"innerKeys": 3,
+	"pinkyStagger": 0.7,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"trackballSize": 34,
+	"lighting": "Simple",
+	"caseType": "Included",
+	"source": "https://github.com/protieusz/StarShip-Centurion"
+},
 "2024-02-26"
 ];
 window.keyboardTODOs = `
-Signum 3.0 http://www.troyfletcher.net/shop.html
-https://github.com/protieusz/StarShip-Centurion
-https://splitkb.com/products/elora
 https://github.com/krikun98/Skean
 https://github.com/krikun98/jorian840
 https://www.littlekeyboards.com/products/naked48led-keyboard-kit https://salicylic-acid3.booth.pm/items/1271568
 https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit
 https://github.com/doesntfazer/frigate https://www.reddit.com/r/ErgoMechKeyboards/comments/13fpjps/frigate_early_adopters_is_now_available_to_order/
-https://github.com/brickbots/slabv
 https://github.com/taylorzr/goshawk
 https://github.com/davidphilipbarr/demeter
 https://github.com/DreaM117er/MagWave44
 Cornepad https://kbd.news/Cornepad-2265.html
 https://github.com/zzeneg/duet?tab=readme-ov-file
 Ch55p34 https://kbd.news/Ch55p34-2256.html
-Redpoll https://kbd.news/Redpoll-2254.html
-Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/
-https://github.com/okke-formsma/dactyl-manuform-tight/
+Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/ https://github.com/okke-formsma/dactyl-manuform-tight/
 https://github.com/davidphilipbarr/hypergolic
-Zodiark https://kbd.news/Zodiark-743.html
-https://github.com/llmerlos/0xPM
 AWKB https://kbd.news/AWKB-A-Weird-Keyboard-2289.html
 `;
 /* TODO

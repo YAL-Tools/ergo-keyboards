@@ -204,7 +204,7 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 		var link:AnchorElement = null;
 		if (lines == null || lines.length == 0) {
 			// OK!
-		} else if (lines.length == 1 && canShowSingle) {
+		} else if (lines.length == 1 && canShowSingle && !lines[0].startsWith("[")) {
 			link = document.createAnchorElement();
 			link.appendTextNode("➜");
 			link.href = lines[0];
