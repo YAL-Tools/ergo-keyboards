@@ -5,23 +5,27 @@ body {
     margin: @space auto;
     border-spacing: 0;
     box-shadow: @elevation-2;
+    
+    >tr.latest {
+      background-color: #374bff10;
+    }
 
-    th,
-    tr,
-    td {
+    >tr>th,
+    >tr,
+    >tr>td {
       margin: 0;
       padding: 0;
       text-align: left;
       vertical-align: middle;
     }
 
-    th,
-    td {
+    >tr>th,
+    >tr>td {
       padding: @space * 0.5;
     }
 
     // table header
-    th {
+    >tr>th {
       line-height: 1.5;
       position: sticky;
       top: 0;
@@ -51,7 +55,7 @@ body {
     }
   }
 
-  th {
+  >tr>th {
     border-bottom: 1px solid black;
   }
 }
@@ -60,19 +64,19 @@ body:not(.night) {
   table#data {
     background-color: @color-foreground-day;
     border: @border-day;
-  }
-
-  tr {
-    &:hover:not(:first-child) {
-      background-color: rgba(@color-product-day, 20%);
+    
+    >tr {
+      &:hover:not(:first-child) {
+        background-color: rgba(@color-product-day, 20%);
+      }
     }
-  }
-  th {
-    background-color: @color-gray-09;
-  }
-  th,
-  td {
-    border-bottom: @border-day;
+    >tr>th {
+      background-color: @color-gray-09;
+    }
+    >tr>th,
+    >tr>td {
+      border-bottom: @border-day;
+    }
   }
 }
 
@@ -80,18 +84,18 @@ body.night {
   table#data {
     background-color: @color-foreground-night;
     border: @border-night;
-  }
-
-  tr {
-    &:hover:not(:first-child) {
-      background-color: rgba(@color-product-night, 20%);
+    
+    >tr {
+      &:hover:not(:first-child) {
+        background-color: rgba(@color-product-night, 20%);
+      }
     }
-  }
-  th {
-    background-color: @color-gray-02;
-  }
-  th,
-  td {
-    border-bottom: @border-night;
+    >tr>th {
+      background-color: @color-gray-02;
+    }
+    >tr>th,
+    >tr>td {
+      border-bottom: @border-night;
+    }
   }
 }
