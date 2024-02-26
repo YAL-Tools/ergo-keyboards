@@ -4778,6 +4778,29 @@ window.keyboardData = [
 	"source": "https://github.com/climent/atreyu"
 },
 {
+	"name": "Urchin",
+	"img": "urchin.png",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 2,
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"assembly": "PCB",
+	"caseType": "Included",
+	"source": "https://github.com/duckyb/urchin"
+},
+{
 	"name": "IK",
 	"img": "ik.jpg",
 	"shape": "Split",
