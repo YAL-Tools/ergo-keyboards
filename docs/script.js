@@ -187,7 +187,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = ColStagKeyboard._new("NeoDox",redox);
 	kb.connection = [type_Connection.Wired];
 	kb.assembly = [];
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX],type_KeySpacing.MX);
 	kb.prebuilt = type_ValList.fromValue("https://ergomech.store/shop/neodox-52");
 	kb.img = type_ValList.fromValue("NeoDox.jpg");
 	kb.notes = type_ValList.fromValue("Like Redox, but with 1u edge keys");
@@ -196,7 +196,7 @@ ColStagBoards.init = function(keyboards) {
 	var ergodash = kb;
 	kb.source = type_ValList.fromValue("https://github.com/omkbd/ErgoDash");
 	kb.img = type_ValList.fromValue("Ergodash.jpg");
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX],type_KeySpacing.MX);
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash"];
@@ -205,7 +205,8 @@ ColStagBoards.init = function(keyboards) {
 	kb = ColStagKeyboard._new("ErgoDash LP",ergodash);
 	kb.source = type_ValList.fromValue("https://keypcb.xyz/ErgoDash-LP");
 	kb.img = type_ValList.fromValue("ErgoDashLP.jpg");
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
+	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.Choc);
+	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
 	add(kb);
 	kb = { name : "ErgoMax", source : type_ValList.fromValue("https://github.com/LouWii/ErgoMax"), img : type_ValList.fromValue("ergomax.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -355,7 +356,7 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	add({ name : "3w6", keys : type_NumRange.fromArray([35,36]), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), thumbKeys : type_NumRange.fromInt(3), trackballs : type_NumRange.fromArray([0,1]), trackballSize : pimoroniSize, hotswap : [type_HotSwap.No], switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.Choc), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/weteor/3W6"), kit : ["https://keycapsss.com/diy-kits/191/3w6-rp2040-split-keyboard-kit"], prebuilt : ["https://shop.beekeeb.com/product/pre-soldered-3w6-keyboard/"], img : type_ValList.fromValue("3w6_rev2.jpg")});
 	add({ name : "CozyKeys Bloomer", keys : type_NumRange.fromInt(87), cols : type_NumRange.fromInt(6), rows : type_NumRange.fromInt(5), thumbKeys : type_NumRange.fromInt(5), cornerKeys : type_NumRange.fromInt(6), navCluster : type_ValList.fromValue(type_NavCluster.Full), hotswap : [type_HotSwap.No], switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), shape : type_ValList.fromValue(type_Shape.Unibody), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/cozykeys/Bloomer"), img : type_ValList.fromValue("Bloomer.jfif")});
-	add({ name : "Keyclicks W-Ergolite", keys : type_NumRange.fromInt(66), cols : type_NumRange.fromInt(7), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromInt(5), hotswap : [type_HotSwap.Yes], switchProfile : [type_SwitchProfile.MX,type_SwitchProfile.GateronLP], connection : [type_Connection.Wireless], firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.Vial), caseType : type_ValList.fromValue(type_CaseType.Included), prebuilt : type_ValList.fromValue("!https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2"), img : type_ValList.fromValue("W-Ergolite.webp")});
+	add({ name : "Ergolite", keys : type_NumRange.fromInt(66), cols : type_NumRange.fromInt(7), rows : type_NumRange.fromInt(4), thumbKeys : type_NumRange.fromInt(5), hotswap : [type_HotSwap.Yes], switchProfile : [type_SwitchProfile.MX,type_SwitchProfile.GateronLP], connection : [type_Connection.Wireless], firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.Vial), caseType : type_ValList.fromValue(type_CaseType.Included), prebuilt : ["https://www.ergokbd.com/products/if-ergolite-wireless2-4g-hotswap-split-mechanical-keyboard-low-profile-pre-soldered-acrylic-vial-programmable-ergodox-ergodone-if-ergo"], img : type_ValList.fromValue("W-Ergolite.webp")});
 	kb = { name : "Tern", shape : type_ValList.fromValue(type_Shape.Unibody), keys : type_NumRange.fromInt(30), cols : type_NumRange.fromInt(5), rows : type_NumRange.fromInt(3), innerKeys : type_NumRange.fromInt(-1), outerKeys : type_NumRange.fromInt(-1), thumbKeys : type_NumRange.fromInt(2), hotswap : [type_HotSwap.Yes], switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.CFX), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/rschenk/tern"), img : type_ValList.fromValue("tern.jpeg")};
 	kb.splay = type_SplayBase.Yes;
 	add(kb);

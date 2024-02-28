@@ -5139,6 +5139,9 @@ Ch55p34 https://kbd.news/Ch55p34-2256.html
 Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/ https://github.com/okke-formsma/dactyl-manuform-tight/
 https://github.com/davidphilipbarr/hypergolic
 AWKB https://kbd.news/AWKB-A-Weird-Keyboard-2289.html
+Redox Manuform https://www.thingiverse.com/thing:3503380
+IF-ERGO https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard
+Kimiko https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6
 `;
 /* TODO
 https://www.slicemk.com/collections/all

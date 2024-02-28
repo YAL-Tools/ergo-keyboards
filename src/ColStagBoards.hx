@@ -396,7 +396,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("NeoDox", redox);
 		kb.connection = [Wired];
 		kb.assembly = [];
-		kb.setHotswap([MX, Choc], MX);
+		kb.setHotswap([MX], MX);
 		kb.prebuilt = "https://ergomech.store/shop/neodox-52";
 		kb.img = "NeoDox.jpg";
 		kb.notes = "Like Redox, but with 1u edge keys";
@@ -405,7 +405,7 @@ class ColStagBoards {
 		var ergodash = kb = new ColStagKeyboard("ErgoDash");
 		kb.source = "https://github.com/omkbd/ErgoDash";
 		kb.img = "Ergodash.jpg";
-		kb.setHotswap(MX);
+		kb.setNotswap([MX], MX);
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras([2, 4], 3, 0, 4);
 		kb.kit = [
@@ -418,7 +418,8 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("ErgoDash LP", ergodash);
 		kb.source = "https://keypcb.xyz/ErgoDash-LP";
 		kb.img = "ErgoDashLP.jpg";
-		kb.setHotswap(Choc);
+		kb.switchProfile = Choc;
+		kb.setNotswap([Choc], MX);
 		add(kb);
 		
 		kb = {
@@ -756,7 +757,7 @@ class ColStagBoards {
 		});
 		
 		add({
-			name: "Keyclicks W-Ergolite",
+			name: "Ergolite",
 			keys: 66,
 			cols: 7, rows: 4,
 			thumbKeys: 5,
@@ -766,7 +767,10 @@ class ColStagBoards {
 			firmware: QMK,
 			software: Vial,
 			caseType: Included,
-			prebuilt: "!https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2",
+			prebuilt: [
+				//"https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2", // off sale?
+				"https://www.ergokbd.com/products/if-ergolite-wireless2-4g-hotswap-split-mechanical-keyboard-low-profile-pre-soldered-acrylic-vial-programmable-ergodox-ergodone-if-ergo"
+			],
 			img: "W-Ergolite.webp",
 		});
 		
