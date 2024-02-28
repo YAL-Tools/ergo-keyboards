@@ -233,12 +233,10 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		ToDoList.set((cast window).keyboardTODOs);
 	}
 	override public function post():Void {
+		super.post();
 		for (kb in values) {
 			if (kb.stagger == null) kb.stagger = StaggerType.Column;
 			if (kb.stagger == Ortho && kb.pinkyStagger == null) kb.pinkyStagger = 0;
-			if (kb.caseType == null && kb.assembly != null && kb.assembly.contains(Handwired)) {
-				kb.caseType = [Included];
-			}
 		}
 	}
 }

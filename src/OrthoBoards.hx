@@ -99,6 +99,7 @@ class OrthoBoards {
 		kb.setMatrix([56, 108], [7, 9], [3, 5]);
 		kb.setExtras(4, 0, 0, 4);
 		kb.switchProfile = [MX, Choc, Alps];
+		kb.hotswap = [No];
 		kb.shape = Split;
 		kb.stagger = Ortho;
 		kb.caseType = [None];
@@ -171,6 +172,7 @@ class OrthoBoards {
 		kb.kit = "!https://keeb.io/products/viterbi-keyboard-pcbs-5x7-70-split-ortholinear";
 		kb.caseType = [Included];
 		kb.img = "viterbi.webp";
+		kb.addSKBC();
 		add(kb);
 		
 		function addRebound(kb:ColStagKeyboard) {

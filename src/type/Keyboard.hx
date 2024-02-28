@@ -61,8 +61,8 @@ typedef Keyboard = {
 	?source:ValList<String>,
 	?kit:ValList<String>,
 	?prebuilt:ValList<String>,
+	?layoutRef:ValList<String>,
 	
 	?assembly:ValList<Assembly>,
 	?lighting:ValList<Lighting>,
-	// TODO: palmrest and tenting
 }

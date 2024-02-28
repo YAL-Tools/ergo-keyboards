@@ -52,6 +52,10 @@ from ColStagKeyboardBase to ColStagKeyboardBase {
 		this.firmware = Firmware.QMK;
 		this.software = sw;
 	}
+	public function addSKBC() {
+		if (this.layoutRef == null) this.layoutRef = [];
+		this.layoutRef.push("SKBC");
+	}
 }
 typedef ColStagKeyboardBase = {> Keyboard,
 	?cols:IntRange,

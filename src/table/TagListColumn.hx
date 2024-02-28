@@ -144,8 +144,14 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 	override public function load(kb:KB):Void {
 		var names = field.access(kb);
 		if (names != null) {
-			if (names is String) names = cast [names];
-			var arr = names.map(e -> type.createByName(cast e));
+			if (!(names is Array)) names = cast [names];
+			var arr = [];
+			for (name in names) {
+				if (name is Bool) {
+					name = cast ((cast name:Bool) ? "Yes" : "No");
+				}
+				arr.push(type.createByName(cast name));
+			}
 			field.access(kb, true, arr);
 		}
 	}

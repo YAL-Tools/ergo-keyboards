@@ -302,12 +302,33 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 		mAddColumn(lc = new LinkListColumn("Kits", kb.kit));
 		lc.shortName = "Kit";
+		lc.onNotes = function(div:Element) {
+			div.appendParaTextNode("A keyboard sold in a state that requires soldering.");
+			div.appendParaTextNode("A kit typically consists a PCB, case,"
+				+ " and components (controllers, sockets, switches)"
+				+ ", but PCBs are also considered to be kits here");
+		}
 		
 		mAddColumn(lc = new LinkListColumn("Pre-built", kb.prebuilt));
 		lc.onNotes = function(div:Element):Void {
-			div.appendParaTextNode("");
+			div.appendParaTextNode("A keyboard sold in a state that does not require soldering.");
+			div.appendParaTextNode("This includes pre-soldered keyboards"
+				+ " (that you only need to put your switches/keycaps onto)"
+				+ " and fully built keyboards."
+			);
 		}
 		lc.shortName = "PB";
+		
+		mAddColumn(lc = new LinkListColumn("Layout ref", kb.layoutRef));
+		lc.show = false;
+		lc.onNotes = function(div:Element):Void {
+			div.appendParaTextNode("If there's a PDF/etc. that you can print"
+				+ " to check how your fingers would rest on the keyboard,"
+				+ " this links to that.");
+			div.appendParaTextNode("For open-source keyboards with PCBs,"
+				+ " you may also print the .kicad_pcb file from KiCad.");
+		}
+		lc.shortName = "LR";
 		
 		var avail_fd = new FancyField("availability", function(obj:KB, ?set, ?val) {
 			if (set) return null;
@@ -586,7 +607,20 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 	}
 	public function post() {
-		
+		for (kb in values) {
+			if (kb.assembly == null) {
+				kb.assembly = [PCB];
+			} else if (kb.assembly.contains(Handwired)) {
+				if (kb.caseType == null) kb.caseType = [Included];
+				if (kb.hotswap == null) kb.hotswap = [No];
+			}
+			if (kb.hotswap == null && kb.switchProfile.safeContains(CherryULP)) {
+				kb.hotswap = [No];
+			}
+			if (kb.layoutRef != null) for (i => lr in kb.layoutRef) {
+				if (lr == "SKBC") kb.layoutRef[i] = "[n:splitKbCompare] https://jhelvy.github.io/splitKbCompare/";
+			}
+		}
 	}
 	public function new() {
 		super();

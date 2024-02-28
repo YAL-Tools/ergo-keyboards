@@ -234,7 +234,7 @@ div#filter .item > div.name {
 div#filter .item > div.name {
   flex-grow: 1;
 }
-div#filter .filters {
+div#filter .filters:not(:empty) {
   margin: 8px 0;
 }
 .table-counter {

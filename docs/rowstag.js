@@ -277,7 +277,8 @@ window.rowStagData = [
 	"software": "Custom",
 	"wristPads": "Integrated",
 	"caseType": "Included",
-	"prebuilt": "https://dygma.com/products/dygma-raise"
+	"prebuilt": "https://dygma.com/products/dygma-raise",
+	"layoutRef": "https://support.dygma.com/hc/en-us/articles/15110448574621-How-can-I-visualize-the-Dygma-Defy-or-the-Dygma-Raise-on-my-desk",
 },
 {
 	"name": "cool844",

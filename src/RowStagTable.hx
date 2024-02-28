@@ -231,6 +231,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		ToDoList.set((cast window).rowStagTODOs);
 	}
 	override public function post():Void {
+		super.post();
 		for (kb in values) {
 			kb.stagger ??= Row;
 		}

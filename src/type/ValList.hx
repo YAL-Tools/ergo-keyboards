@@ -15,4 +15,9 @@ package type;
 		if (val == null) return [];
 		return [val];
 	}
+	
+	public function safeContains(v:T):Bool {
+		if (this == null) return false;
+		return this.contains(v);
+	}
 }

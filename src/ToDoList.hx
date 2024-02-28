@@ -26,10 +26,13 @@ class ToDoList {
 			var label:String = null;
 			if (mt == null) { // hopefully "label http://" 
 				mt = rxAfterText.exec(line);
-				if (mt == null) continue;
-				label = mt[1];
-				line = mt[2];
-				mt = rxURL.exec(line);
+				if (mt == null) {
+					label = line;
+				} else {
+					label = mt[1];
+					line = mt[2];
+					mt = rxURL.exec(line);
+				}
 			} else { // starts with a link
 				var smt = rxLinkSuffix.exec(mt[1]);
 				if (smt == null) continue;
@@ -41,24 +44,27 @@ class ToDoList {
 				}
 			}
 			var li = Browser.document.createLIElement();
-			var a = Browser.document.createAnchorElement();
-			a.appendTextNode(label);
-			a.href = mt[1];
-			li.appendChild(a);
-			
-			line = mt[2];
-			for (i in 2 ... 16) {
-				mt = rxURL.exec(line);
-				if (mt == null) break;
-				a = Browser.document.createAnchorElement();
+			if (mt != null) {
+				var a = Browser.document.createAnchorElement();
+				a.appendTextNode(label);
 				a.href = mt[1];
-				line = mt[2];
-				li.appendTextNode(" · ");
-				a.appendTextNode("link " + i);
 				li.appendChild(a);
+				
+				line = mt[2];
+				for (i in 2 ... 16) {
+					mt = rxURL.exec(line);
+					if (mt == null) break;
+					a = Browser.document.createAnchorElement();
+					a.href = mt[1];
+					line = mt[2];
+					li.appendTextNode(" · ");
+					a.appendTextNode("link " + i);
+					li.appendChild(a);
+				}
+			} else {
+				li.appendTextNode(label);
 			}
 			element.appendChild(li);
-			trace(label, line);
 		}
 	}
 }

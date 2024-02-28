@@ -56,6 +56,7 @@ class ColStagBoards {
 			"[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/",
 			"[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/",
 			"[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs",
+			"https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox",
 		];
 		kb.prebuilt = [
 			"https://customkbd.com/collections/split-keyboards/products/corne-classic-kit",
@@ -72,6 +73,7 @@ class ColStagBoards {
 			"[v:Trackpad module] https://www.thingiverse.com/thing:5425081",
 		];
 		kb.img = "crkbd.jpg";
+		kb.addSKBC();
 		add(kb);
 		
 		kb = new ColStagKeyboard("Unicorne", corne);
@@ -120,6 +122,7 @@ class ColStagBoards {
 			"[v:v2 printable case] https://github.com/kb-elmo/SofleCase",
 		];
 		kb.img = "sofle.jpg";
+		kb.addSKBC();
 		addSofle(kb);
 		
 		kb = new ColStagKeyboard("Sofle Choc");
@@ -191,6 +194,7 @@ class ColStagBoards {
 				"https://www.littlekeyboards.com/collections/lily58-pcb-kits",
 				"https://keyhive.xyz/shop/lily58",
 				"https://kriscables.com/lily58/",
+				"https://keycapsss.com/keyboard-parts/pcbs/71/lily58l-split-keyboard-pcb",
 				"[US] https://capsuledeluxe.com/tag/manta58/"
 			],
 			prebuilt: [
@@ -209,6 +213,7 @@ class ColStagBoards {
 		kb.setExtras(4, 1, 0, 0);
 		kb.caseType = Included;
 		kb.setHotswap([MX, Choc], MX);
+		kb.addSKBC();
 		add(kb);
 		
 		kb = new ColStagKeyboard("Kyria");
@@ -221,6 +226,7 @@ class ColStagBoards {
 		kb.source = "https://github.com/splitkb/kyria";
 		kb.kit = "!https://splitkb.com/products/kyria-rev3-pcb-kit";
 		kb.img = "Kyria.jpg";
+		kb.addSKBC();
 		add(kb);
 		
 		function addEgg(kb:ColStagKeyboard) {
@@ -267,7 +273,7 @@ class ColStagBoards {
 		
 		kb = {
 			name: "Pangaea",
-			assembly: Assembly.Adjustable,
+			assembly: [PCB, Assembly.Adjustable],
 			encoders: [0, 2],
 			source: "https://github.com/e3w2q/Pangaea-keyboard",
 			img: "Pangaea.jpg",
@@ -356,6 +362,7 @@ class ColStagBoards {
 			kb.caseType = Included;
 			kb.setHotswap(MX);
 			kb.setQMK();
+			kb.layoutRef = "https://github.com/vlkv/avalanche/tree/master/layout_tester/pdf";
 			add(kb);
 		}
 		addAvalanche({
@@ -391,11 +398,12 @@ class ColStagBoards {
 			"https://falba.tech/custom-redox-v9b7d173b068d/",
 			"https://shop.beekeeb.com/product/redox-fully-assembled/",
 		];
+		kb.addSKBC();
 		add(kb);
 		
 		kb = new ColStagKeyboard("NeoDox", redox);
 		kb.connection = [Wired];
-		kb.assembly = [];
+		kb.assembly = [PCB];
 		kb.setHotswap([MX], MX);
 		kb.prebuilt = "https://ergomech.store/shop/neodox-52";
 		kb.img = "NeoDox.jpg";
@@ -411,8 +419,10 @@ class ColStagBoards {
 		kb.kit = [
 			"https://keebd.com/products/ergodash-keyboard-kit",
 			"https://shop.yushakobo.jp/en/products/ergodash",
+			"https://keycapsss.com/keyboard-parts/pcbs/63/ergodash-split-keyboard-pcb",
 		];
 		kb.caseType = Included;
+		kb.addSKBC();
 		add(kb);
 		
 		kb = new ColStagKeyboard("ErgoDash LP", ergodash);
@@ -439,7 +449,7 @@ class ColStagBoards {
 			source: "https://github.com/gorbit99/penguin",
 			img: "penguin.jpg"
 		};
-		kb.setHotswap(Choc, Choc);
+		kb.setNotswap(Choc, Choc);
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras(5, 2, 0, 4);
 		kb.setQMK();
@@ -509,6 +519,7 @@ class ColStagBoards {
 		kb = {
 			name: "Chunky",
 			encoders: 2,
+			hotswap: [Yes],
 			trackballs: [0, 2],
 			trackpads: [0, 2],
 			trackpadSize: 40,
@@ -569,9 +580,11 @@ class ColStagBoards {
 			source: "https://github.com/Durburz/interphase",
 			img: "interphase.jpg",
 		};
+		kb.setNotswap([MX]);
 		kb.setMatrix(66, 7, 4);
 		kb.setExtras(2, 0, -1, 4);
 		kb.caseType = [None];
+		kb.addSKBC();
 		add(kb);
 		
 		kb = {
@@ -878,6 +891,7 @@ class ColStagBoards {
 			"https://new.boardsource.xyz/products/Reviung41",
 			"https://customkbd.com/collections/split-keyboards/products/reviung-41",
 		];
+		kb.addSKBC();
 		addReviung41(kb);
 		
 		kb = new ColStagKeyboard("Reviung41 with trackball");
@@ -896,6 +910,7 @@ class ColStagBoards {
 		kb.source = "https://github.com/vvhg1/fisk";
 		kb.img = "fisk.jpg";
 		kb.caseType = Included;
+		kb.assembly = Assembly.Handwired;
 		add(kb);
 		
 		function addIris(kb:ColStagKeyboard) {
@@ -925,6 +940,7 @@ class ColStagBoards {
 		kb.notes = [
 			"NB! Choc/Alps switches are only available in Rev5, which isn't hotswap",
 		];
+		kb.addSKBC();
 		addIris(kb);
 		
 		kb = new ColStagKeyboard("Iris CE");
@@ -1017,6 +1033,7 @@ class ColStagBoards {
 		kb.caseType = Included;
 		kb.prebuilt = "!https://www.zsa.io/voyager/";
 		kb.img = "zsa-voyager.jpg";
+		kb.layoutRef = "https://www.zsa.io/assets/voyager/1-1.pdf";
 		add(kb);
 		
 		kb = new ColStagKeyboard("ZSA Moonlander");
@@ -1030,6 +1047,8 @@ class ColStagBoards {
 		kb.caseType = Included;
 		kb.prebuilt = "!https://www.zsa.io/moonlander/";
 		kb.img = "zsa-moonlander.avif";
+		kb.layoutRef = "https://www.zsa.io/1-1.pdf";
+		kb.addSKBC();
 		add(kb);
 		
 		kb = new ColStagKeyboard("ErgoDox EZ");
@@ -1043,6 +1062,7 @@ class ColStagBoards {
 		kb.caseType = Included;
 		kb.prebuilt = "!https://ergodox-ez.com/";
 		kb.img = "ergodox-ez.avif";
+		kb.addSKBC();
 		add(kb);
 		
 		kb = new ColStagKeyboard("Dygma Defy");
@@ -1056,6 +1076,7 @@ class ColStagBoards {
 		kb.caseType = Included;
 		kb.prebuilt = "!https://dygma.com/pages/defy";
 		kb.img = "dygma-defy.webp";
+		kb.addSKBC();
 		add(kb);
 		
 		kb = new ColStagKeyboard("Osprey");
@@ -1081,6 +1102,7 @@ class ColStagBoards {
 			"![CA][v:Cases] https://store.jpconstantineau.com/#/group/split_boards"
 		];
 		kb.img = "Ergotravel.jpg";
+		kb.addSKBC();
 		add(kb);
 	}
 }

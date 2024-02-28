@@ -62,7 +62,8 @@ window.keyboardData = [
 	],
 	"source": "https://github.com/TweetyDaBird/Lotus-Keyboard",
 	"kit": "![se] https://lectronz.com/stores/tweetys-wild-thinking",
-	"prebuilt": "![se] https://lectronz.com/stores/tweetys-wild-thinking"
+	"prebuilt": "![se] https://lectronz.com/stores/tweetys-wild-thinking",
+	"layoutRef": "SKBC",
 },
 {
 	"name": "ximi",
@@ -105,7 +106,7 @@ window.keyboardData = [
 	]
 },
 {
-	"name": "faux fox keyboard (ffkb)",
+	"name": "faux fox keyboard (ffkb) v3",
 	"img": "ffkb.jpg",
 	"shape": "Unibody",
 	"stagger": "Column",
@@ -127,7 +128,10 @@ window.keyboardData = [
 		"MX",
 		"Choc"
 	],
+	"hotswap": true,
 	"encoders": 2,
+	"encoderType": ["Knob", "Wheel"],
+	"pointingDevices": [0, 1],
 	"trackballs": {
 		"min": 0,
 		"max": 1
@@ -141,6 +145,18 @@ window.keyboardData = [
 	"caseType": "Included",
 	"kit": [
 		"!https://fingerpunch.xyz/product/faux-fox-keyboard-v3/"
+	]
+},
+{
+	"name": "faux fox keyboard (ffkb) v4",
+	"parent": "faux fox keyboard (ffkb) v3",
+	"switchProfile": [
+		"MX",
+		"Choc",
+		"GateronLP",
+	],
+	"kit": [
+		"!https://fingerpunch.xyz/product/faux-fox-keyboard-v4/"
 	]
 },
 {
@@ -173,7 +189,8 @@ window.keyboardData = [
 	"encoderType": "Knob",
 	"caseType": "Included",
 	"kit": "!https://keeb.io/collections/nyquist-keyboard-collection",
-	"prebuilt": "!https://keeb.io/collections/pre-built-keyboards/products/nyquist-keyboard-pre-built"
+	"prebuilt": "!https://keeb.io/collections/pre-built-keyboards/products/nyquist-keyboard-pre-built",
+	"layoutRef": "SKBC",
 },
 {
 	"name": "Keyboardio Atreus",
@@ -195,7 +212,8 @@ window.keyboardData = [
 	"software": "Custom",
 	"caseType": "Included",
 	"kit": "https://shop.yushakobo.jp/en/products/keyboardio-atreus-diy-kit",
-	"prebuilt": "https://shop.keyboard.io/collections/keyboardio-atreus/products/keyboardio-atreus"
+	"prebuilt": "https://shop.keyboard.io/collections/keyboardio-atreus/products/keyboardio-atreus",
+	"layoutRef": "SKBC"
 },
 {
 	"name": "KLOR",
@@ -222,6 +240,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.5,
 	"splay": "PinkyOnly",
 	"switchProfile": "MX",
+	"hotswap": "Yes",
 	"encoders": {
 		"min": 0,
 		"max": 2
@@ -331,6 +350,7 @@ window.keyboardData = [
 {
 	"name": "pica40",
 	"img": "pica40.jpg",
+	"notes": ["MX hotswap only"],
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": [
@@ -344,7 +364,7 @@ window.keyboardData = [
 	"outerKeys": -1,
 	"pinkyStagger": 0.6,
 	"splay": "PinkyOnly",
-	"hotswap": "Unspecified",
+	"hotswap": ["Yes", "No"],
 	"switchProfile": [
 		"MX",
 		"ChocV2"
@@ -865,7 +885,8 @@ window.keyboardData = [
 	"encoders": 2,
 	"firmware": "QMK",
 	"caseType": "Included",
-	"kit": "https://www.boardsource.xyz/products/microdox"
+	"kit": "https://www.boardsource.xyz/products/microdox",
+	"layoutRef": "SKBC",
 },
 {
 	"name": "Kinesis Advantage360",
@@ -1025,6 +1046,7 @@ window.keyboardData = [
 	"img": "sweep.jpg",
 	"shape": "Split",
 	"stagger": "Column",
+	"notes": ["Hotswap/switches depend on variant"],
 	"connection": [
 		"Wired",
 		"Bluetooth"
@@ -1038,6 +1060,7 @@ window.keyboardData = [
 		"ChocV2",
 		"Alps"
 	],
+	"hotswap": [true, false],
 	"keySpacing": "Choc",
 	"firmware": [
 		"QMK",
@@ -1049,7 +1072,8 @@ window.keyboardData = [
 		"https://holykeebs.com",
 		"https://42keebs.eu/shop/kits/pro-micro-based/sweep-30-low-profile-split-ergo-kit/",
 		"https://mechboards.co.uk/collections/kits/products/ferris-sweep-kit",
-		"https://keebmaker.com/collections/kits"
+		"https://keebmaker.com/collections/kits",
+		"https://keycapsss.com/keyboard-parts/pcbs/249/sweep-ferris-fork-split-keyboard-pcb"
 	]
 },
 {
@@ -1067,6 +1091,7 @@ window.keyboardData = [
 		"Choc",
 		"Alps"
 	],
+	"hotswap": false,
 	"keySpacing": "MX",
 	"caseType": "Included",
 	"source": "https://github.com/Na-Cly/splitreus62"
@@ -1085,6 +1110,7 @@ window.keyboardData = [
 	"outerKeys": -1,
 	"pinkyStagger": 0.7,
 	"switchProfile": "MX",
+	"hotswap": false,
 	"encoders": 2,
 	"encoderType": "Knob",
 	"trackpads": 1,
@@ -1255,7 +1281,8 @@ window.keyboardData = [
 	"firmware": "Custom",
 	"caseType": "Included",
 	"web": "https://www.esrille.com/keyboard/",
-	"prebuilt": "!https://www.esrille.com/keyboard/store.html"
+	"prebuilt": "!https://www.esrille.com/keyboard/store.html",
+	"layoutRef": "https://www.esrille.com/keyboard/#papercraft"
 },
 {
 	"name": "Chocofly",
@@ -1294,6 +1321,8 @@ window.keyboardData = [
 		"min": 54,
 		"max": 60
 	},
+	"switchProfile": "MX",
+	"hotswap": false,
 	"rows": 4,
 	"cols": 6,
 	"thumbKeys": 3,
@@ -1719,7 +1748,7 @@ window.keyboardData = [
 	"navCluster": "Duo",
 	"pinkyStagger": 0.2,
 	"hotswap": "Yes",
-	"switchProfile": ["MX", "OutemuLP"],
+	"switchProfile": "MX",
 	"firmware": "QMK",
 	"software": "VIA",
 	"wristPads": [
@@ -1735,6 +1764,8 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": "Wired",
+	"switchProfile": ["MX", "Choc"],
+	"hotswap": true,
 	"keys": 70,
 	"rows": 4,
 	"cols": 7,
@@ -1792,7 +1823,8 @@ window.keyboardData = [
 	"source": "https://github.com/beekeeb/piantor",
 	"kit": [
 		"!https://shop.beekeeb.com/product/piantor-keyboard-kit/",
-		"https://keycapsss.com/diy-kits/237/piantor-split-keyboard-kit"
+		"https://keycapsss.com/diy-kits/237/piantor-split-keyboard-kit",
+		"https://keycapsss.com/keyboard-parts/pcbs/239/piantor-split-keyboard-pcb"
 	],
 	"prebuilt": "!https://shop.beekeeb.com/product/pre-soldered-piantor-split-keyboard/"
 },
@@ -2263,6 +2295,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.8,
 	"splay": "PinkyOnly",
 	"switchProfile": "Choc",
+	"hotswap": true,
 	"encoders": 2,
 	"encoderType": "Knob",
 	"firmware": "ZMK",
@@ -2479,7 +2512,8 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"firmware": "QMK",
 	"caseType": "None",
-	"source": "https://github.com/raychengy/fifi_split_keeb"
+	"source": "https://github.com/raychengy/fifi_split_keeb",
+	"layoutRef": "SKBC"
 },
 {
 	"name": "chocofifi",
@@ -2597,9 +2631,10 @@ window.keyboardData = [
 {
 	"name": "Le Chiffre",
 	"img": "Le-Chiffre.jpg",
+	"notes": "See Le Chiffre BLE for Bluetooth version",
 	"shape": "Unibody",
 	"stagger": "Column",
-	"connection": "Wired",
+	"connection": ["Wired", "Bluetooth"],
 	"keys": 34,
 	"rows": 3,
 	"cols": 5,
@@ -2610,6 +2645,7 @@ window.keyboardData = [
 		"Choc",
 		"Alps"
 	],
+	"hotswap": false,
 	"encoders": 1,
 	"encoderType": "Knob",
 	"displays": 1,
@@ -2699,7 +2735,11 @@ window.keyboardData = [
 	],
 	"caseType": "Included",
 	"source": "https://github.com/MangoIV/dracuLad",
-	"kit": "https://www.littlekeyboards.com/products/draculad-pcb-kit"
+	"kit": [
+		"https://www.littlekeyboards.com/products/draculad-pcb-kit",
+		"https://keycapsss.com/keyboard-parts/pcbs/166/draculad-split-keyboard-pcb",
+	],
+	"layoutRef": "SKBC",
 },
 {
 	"name": "cocot46plus",
@@ -2884,7 +2924,8 @@ window.keyboardData = [
 		"max": 10
 	},
 	"caseType": "Included",
-	"source": "https://github.com/macroxue/keyboard-diy"
+	"source": "https://github.com/macroxue/keyboard-diy",
+	"layoutRef": "SKBC",
 },
 {
 	"name": "swepp",
@@ -3024,6 +3065,8 @@ window.keyboardData = [
 	"thumbKeys": 4,
 	"innerKeys": 1,
 	"cornerKeys": 4,
+	"swichProfile": ["MX", "Choc"],
+	"hotswap": true,
 	"encoders": 2,
 	"encoderType": "Knob",
 	"trackballs": 1,
@@ -3170,7 +3213,8 @@ window.keyboardData = [
 	"cols": 7,
 	"thumbKeys": 4,
 	"cornerKeys": 4,
-	"switchProfile": "MX",
+	"switchProfile": ["MX", "Choc"],
+	"hotswap": false,
 	"firmware": "QMK",
 	"assembly": [
 		"PCB",
@@ -3725,6 +3769,7 @@ window.keyboardData = [
 },
 {
 	"name": "Sugar Glider",
+	"shape": "Unibody",
 	"img": "sugar-glider.jpg",
 	"keys": {
 		"min": 44,
@@ -3802,28 +3847,45 @@ window.keyboardData = [
 	"source": "https://github.com/Mposiblee/Zireael"
 },
 {
-	"name": "Pteron",
+	"name": "Pteron 4x6",
 	"img": "pteron.jpg",
-	"notes": "Has 3x5, 3x6, and 4x6 styles.",
+	"notes": "Has 3x5, 3x6, and 4x6 variants.",
 	"shape": "Unibody",
 	"connection": "Wired",
-	"keys": {
-		"min": 38,
-		"max": 56
-	},
-	"rows": {
-		"min": 3,
-		"max": 4
-	},
-	"cols": {
-		"min": 5,
-		"max": 6
-	},
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
 	"thumbKeys": 4,
 	"pinkyStagger": 0.3,
 	"switchProfile": "MX",
+	"hotswap": false,
 	"firmware": "QMK",
-	"source": "https://github.com/FSund/pteron-keyboard"
+	"assembly": ["Handwired", "PCB"],
+	"source": [
+		"[v: handwired] https://github.com/FSund/pteron-keyboard",
+		"[v: PCB] https://github.com/kraken-jokes/pteron-pcb"
+	],
+	"layoutRef": "SKBC"
+},
+{
+	"name": "Pteron 3x6",
+	"parent": "Pteron 4x6",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"assembly": ["Handwired"],
+	"source": "https://github.com/FSund/pteron-keyboard",
+},
+{
+	"name": "Pteron 3x5",
+	"parent": "Pteron 4x6",
+	"keys": 38,
+	"rows": 3,
+	"cols": 5,
+	"source": [
+		"[v: handwired] https://github.com/FSund/pteron-keyboard",
+		"[v: PCB] https://github.com/harshitgoel96/pteron36-split-keyboard"
+	]
 },
 {
 	"name": "Closis",
@@ -4052,6 +4114,7 @@ window.keyboardData = [
 	"thumbKeys": 2,
 	"pinkyStagger": 0.3,
 	"switchProfile": "Topre",
+	"hotswap": false,
 	"encoders": 1,
 	"encoderType": "Knob",
 	"displays": 1,
@@ -4137,6 +4200,7 @@ window.keyboardData = [
 	},
 	"pinkyStagger": 0.4,
 	"switchProfile": "MX",
+	"hotswap": true,
 	"trackballs": 1,
 	"firmware": "QMK",
 	"software": [
@@ -4164,6 +4228,7 @@ window.keyboardData = [
 	},
 	"pinkyStagger": 0.4,
 	"switchProfile": "MX",
+	"hotswap": true,
 	"trackballs": 1,
 	"firmware": "QMK",
 	"software": [
@@ -4191,6 +4256,7 @@ window.keyboardData = [
 	},
 	"pinkyStagger": 0.4,
 	"switchProfile": "MX",
+	"hotswap": true,
 	"trackballs": 1,
 	"firmware": "QMK",
 	"software": [
@@ -4224,6 +4290,7 @@ window.keyboardData = [
 	},
 	"pinkyStagger": 0.4,
 	"switchProfile": "MX",
+	"hotswap": true,
 	"trackballs": 1,
 	"firmware": "QMK",
 	"software": [
@@ -4323,6 +4390,7 @@ window.keyboardData = [
 	"cornerKeys": 4,
 	"pinkyStagger": 0.3,
 	"switchProfile": "MX",
+	"hotswap": true,
 	"caseType": "Included",
 	"source": "https://github.com/ergomechstore/Atreus52"
 },
@@ -4389,7 +4457,8 @@ window.keyboardData = [
 		"RGB"
 	],
 	"firmware": "QMK",
-	"source": "https://github.com/illness072/elephant42"
+	"source": "https://github.com/illness072/elephant42",
+	"layoutRef": "SKBC"
 },
 {
 	"name": "gameboard",
@@ -4762,6 +4831,7 @@ window.keyboardData = [
 		"MX",
 		"Choc"
 	],
+	"hotswap": true,
 	"keySpacing": [
 		"MX",
 		"Choc"
@@ -4969,6 +5039,7 @@ window.keyboardData = [
 		"MX",
 		"Choc"
 	],
+	"hotswap": true,
 	"keySpacing": "MX",
 	"firmware": "FAK",
 	"caseType": "Included",
@@ -5141,12 +5212,19 @@ https://github.com/davidphilipbarr/hypergolic
 AWKB https://kbd.news/AWKB-A-Weird-Keyboard-2289.html
 Redox Manuform https://www.thingiverse.com/thing:3503380
 IF-ERGO https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard
+YAEMK https://karlk90.github.io/yaemk-split-kb/
+FAW36 https://keycapsss.com/keyboard-parts/pcbs/253/faw36-ortholinear-split-keyboard-pcb?c=14
+Cygnus https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
+https://github.com/tamanishi/Pinky3
 Kimiko https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6
-`;
-/* TODO
-https://www.slicemk.com/collections/all
 rhymestone
 Chimera Ortho
+`;
+/* TODO
+Claw44
+Gergo
+ZEN2
+https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
 
 https://kbd.news/aball-a-buttonless-trackball-139.html
