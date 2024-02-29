@@ -4182,6 +4182,17 @@ window.keyboardData = [
 	"source": "https://github.com/skarrmann/horizon"
 },
 {
+	"name": "Morizon",
+	"parent": "Horizon",
+	"img": "morizon-mx-top.jpg",
+	"notes": "Like Horizon, but with an extra row",
+	"keys": 66,
+	"rows": 4,
+	"cols": 6,
+	"innerKeys": 2,
+	"source": "https://github.com/skarrmann/morizon",
+},
+{
 	"name": "Keyball46",
 	"img": "keyball46.jpg",
 	"notes": "Slightly asymmetrical",
@@ -5193,7 +5204,73 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/protieusz/StarShip-Centurion"
 },
-"2024-02-26"
+{
+	"name": "YAEMK",
+	"img": "YAEMK.webp",
+	"notes": "Pairs of thumb keys can be replaced with 2Us",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {
+		"min": 64,
+		"max": 66
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 4,
+		"max": 6
+	},
+	"innerKeys": 3,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"displays": {
+		"min": 0,
+		"max": 2
+	},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"web": "https://karlk90.github.io/yaemk-split-kb/",
+	"source": "https://github.com/KarlK90/yaemk-split-kb"
+},
+{
+	"name": "Kimiko",
+	"img": "kimiko.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": {
+		"min": 60,
+		"max": 62
+	},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {
+		"min": 6,
+		"max": 7
+	},
+	"innerKeys": {
+		"min": 0,
+		"max": 1
+	},
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {
+		"min": 0,
+		"max": 2
+	},
+	"encoderType": "Knob",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"kit": "https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6"
+},
+"2024-02-29"
 ];
 window.keyboardTODOs = `
 https://github.com/krikun98/Skean
@@ -5210,13 +5287,10 @@ Ch55p34 https://kbd.news/Ch55p34-2256.html
 Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/ https://github.com/okke-formsma/dactyl-manuform-tight/
 https://github.com/davidphilipbarr/hypergolic
 AWKB https://kbd.news/AWKB-A-Weird-Keyboard-2289.html
-Redox Manuform https://www.thingiverse.com/thing:3503380
-IF-ERGO https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard
-YAEMK https://karlk90.github.io/yaemk-split-kb/
 FAW36 https://keycapsss.com/keyboard-parts/pcbs/253/faw36-ortholinear-split-keyboard-pcb?c=14
 Cygnus https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
-https://github.com/tamanishi/Pinky3
-Kimiko https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6
+https://github.com/lapidot/ADuck
+https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux
 rhymestone
 Chimera Ortho
 `;

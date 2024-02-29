@@ -351,6 +351,12 @@ class ColStagBoards {
 		kb.setHotswap(MX);
 		add(kb);
 		
+		kb = new ColStagKeyboard("Pinky3", "Pinky4");
+		kb.img = "Pinky3.jpg";
+		kb.setMatrix(50, 6, 3);
+		kb.innerKeys = 3;
+		add(kb);
+		
 		function addAvalanche(kb:ColStagKeyboard) {
 			kb.outerKeys = [0, 1];
 			kb.thumbKeys = [6, 7];
@@ -408,6 +414,12 @@ class ColStagBoards {
 		kb.prebuilt = "https://ergomech.store/shop/neodox-52";
 		kb.img = "NeoDox.jpg";
 		kb.notes = "Like Redox, but with 1u edge keys";
+		add(kb);
+		
+		kb = new ColStagKeyboard("Redox Manuform", redox);
+		kb.shape = [Split, Keywell];
+		kb.assembly = [Handwired];
+		kb.notes = ["A Redox / Dactyl Manuform mix"];
 		add(kb);
 		
 		var ergodash = kb = new ColStagKeyboard("ErgoDash");
@@ -1002,15 +1014,28 @@ class ColStagBoards {
 		];
 		add(kb);
 		
-		kb = new ColStagKeyboard("MOMOKA ERGO");
+		kb = new ColStagKeyboard("Ergodox-like");
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras(6, 0, 0, 5);
-		kb.setHotswap(MX);
+		kb.switchProfile = [MX];
+		kb.hotswap = [Yes, No];
 		kb.setQMK();
 		kb.caseType = Included;
-		kb.web = "https://www.momoka.co/ergo";
-		kb.prebuilt = "!https://momoka.store/collections/keyboards/products/momoka-ergo";
+		kb.web = "";
+		kb.kit = [
+			"https://drop.com/buy/infinity-ergodox",
+			"https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2",
+		];
+		kb.prebuilt = [
+			"https://momoka.store/collections/keyboards/products/momoka-ergo",
+			"https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
+			"https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
+		],
 		kb.img = "momoka-ergo.webp";
+		kb.notes = [
+			"There are multiple keyboards using an Ergodox[-like] layout",
+			"Ergodox EZ is separated from these due to presence of tenting legs",
+		];
 		add(kb);
 		
 		kb = new ColStagKeyboard("Keyboardio Model 100");

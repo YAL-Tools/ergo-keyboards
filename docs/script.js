@@ -158,6 +158,10 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.Included];
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	add(kb);
+	kb = ColStagKeyboard._new("Pinky3","Pinky4");
+	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(50),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
+	kb.innerKeys = type_NumRange.fromInt(3);
+	add(kb);
 	var addAvalanche = function(kb) {
 		kb.outerKeys = type_NumRange.fromArray([0,1]);
 		kb.thumbKeys = type_NumRange.fromArray([6,7]);
