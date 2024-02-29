@@ -172,7 +172,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		};
 		addColumn(shape);
 		
-		var staggerType = new TagColumn("Stagger type", mgf(kb.stagger), StaggerType);
+		var staggerType = new TagListColumn("Stagger type", mgf(kb.stagger), StaggerType);
 		staggerType.show = false;
 		staggerType.shortName = "Stag";
 		staggerType.filterLabels[StaggerType.Column] = "Columnar";

@@ -4556,15 +4556,15 @@ window.keyboardData = [
 {
 	"name": "Churn 40%",
 	"img": "Churn.jpeg",
+	"notes": "Column stagger can be adjusted in the .scad file",
 	"shape": "Unibody",
-	"stagger": "Column",
+	"stagger": ["Column", "Ortho"],
 	"connection": "Wired",
 	"keys": 38,
 	"rows": 3,
 	"cols": 5,
 	"thumbKeys": 4,
 	"cornerKeys": 1,
-	"navCluster": "Inline",
 	"pinkyStagger": 0.8,
 	"splay": "No",
 	"hotswap": "No",
@@ -4575,10 +4575,8 @@ window.keyboardData = [
 },
 {
 	"name": "Churn 60%",
+	"parent": "Churn 40%",
 	"img": "churn-65.png",
-	"shape": "Unibody",
-	"stagger": "Column",
-	"connection": "Wired",
 	"keys": 65,
 	"rows": 4,
 	"cols": 6,
@@ -4586,12 +4584,7 @@ window.keyboardData = [
 	"thumbKeys": 5,
 	"cornerKeys": 3,
 	"navCluster": "Inline",
-	"pinkyStagger": 0.8,
 	"splay": "PinkyOnly",
-	"hotswap": "No",
-	"switchProfile": "GateronLP",
-	"lighting": "None",
-	"assembly": "Handwired",
 	"source": "https://github.com/luke-schutt/keyboards/tree/main/Churn"
 },
 {
@@ -5291,6 +5284,7 @@ FAW36 https://keycapsss.com/keyboard-parts/pcbs/253/faw36-ortholinear-split-keyb
 Cygnus https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
 https://github.com/lapidot/ADuck
 https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux
+https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl
 rhymestone
 Chimera Ortho
 `;

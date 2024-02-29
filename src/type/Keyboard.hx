@@ -17,7 +17,7 @@ typedef Keyboard = {
 	?notes:ValList<String>,
 	
 	?shape:ValList<Shape>,
-	?stagger:StaggerType,
+	?stagger:ValList<StaggerType>,
 	?connection:ValList<Connection>,
 	
 	?hotswap:ValList<HotSwap>,

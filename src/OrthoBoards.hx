@@ -7,6 +7,7 @@ import type.SwitchProfile;
 import type.Assembly;
 import type.Shape;
 import type.Splay;
+import type.StaggerType;
 
 /**
  * ...
@@ -15,7 +16,7 @@ import type.Splay;
 class OrthoBoards {
 	public static function init(keyboards:Array<ColStagKeyboard>) {
 		function add(kb:ColStagKeyboard) {
-			kb.stagger ??= Ortho;
+			if (kb.stagger == null) kb.stagger = [Ortho];
 			kb.shape ??= Split;
 			keyboards.push(kb);
 		}
@@ -41,7 +42,6 @@ class OrthoBoards {
 		kb.setHotswap([MX]);
 		kb.shape = Unibody;
 		kb.pinkyStagger = 0.3;
-		kb.stagger = Ortho;
 		kb.trackballSize = pimoroniSize;
 		kb.trackballs = [0, 1];
 		kb.caseType = [Included];
@@ -51,7 +51,6 @@ class OrthoBoards {
 		
 		kb = new ColStagKeyboard("Bancouver40");
 		kb.shape = Monoblock;
-		kb.stagger = Ortho;
 		kb.setMatrix(40, 5, 3);
 		kb.setExtras(3, 0, 0, 4);
 		kb.setHotswap(Choc, CFX);
@@ -62,7 +61,6 @@ class OrthoBoards {
 		
 		kb = new ColStagKeyboard("minipeg48");
 		kb.shape = Monoblock;
-		kb.stagger = Ortho;
 		kb.setMatrix(48, 6, 3);
 		kb.setExtras(3, 0, 0, 4);
 		kb.setHotswap(Choc, CFX);
@@ -77,7 +75,6 @@ class OrthoBoards {
 		kb.setHotswap(Choc, Choc);
 		kb.splay = PinkyOnly;
 		kb.shape = Unibody;
-		kb.stagger = Ortho;
 		kb.source = "https://github.com/brickbots/chocV";
 		kb.caseType = [None];
 		kb.img = "ChocV.jpg";
@@ -89,7 +86,6 @@ class OrthoBoards {
 		kb.setHotswap(Choc, Choc);
 		kb.splay = PinkyOnly;
 		kb.shape = Unibody;
-		kb.stagger = Ortho;
 		kb.source = "https://github.com/ImStuBTW/chonkv";
 		kb.caseType = [Included];
 		kb.img = "ChonkV.jpg";
@@ -101,7 +97,6 @@ class OrthoBoards {
 		kb.switchProfile = [MX, Choc, Alps];
 		kb.hotswap = [No];
 		kb.shape = Split;
-		kb.stagger = Ortho;
 		kb.caseType = [None];
 		kb.extras = [
 			"[v:Case] https://www.thingiverse.com/thing:3089077",
@@ -112,7 +107,6 @@ class OrthoBoards {
 		add(kb);
 		
 		kb = new ColStagKeyboard("Ergo42");
-		kb.stagger = Ortho;
 		kb.setMatrix(56, 7, 3);
 		kb.setExtras(3, 0, 0, 4);
 		kb.setQMK();
@@ -184,7 +178,6 @@ class OrthoBoards {
 			add(kb);
 		}
 		kb = new ColStagKeyboard("Rebound");
-		kb.stagger = Ortho;
 		kb.shape = Unibody;
 		kb.kit = "!https://store.montsinger.net/products/rebound";
 		kb.img = "rebound.webp";

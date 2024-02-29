@@ -20,7 +20,7 @@ import type.CaseType;
 class ColStagBoards {
 	public static function init(keyboards:Array<ColStagKeyboard>) {
 		function add(kb:ColStagKeyboard) {
-			kb.stagger ??= Column;
+			if (kb.stagger == null) kb.stagger = [Column];
 			kb.shape ??= Split;
 			keyboards.push(kb);
 		}
@@ -1030,7 +1030,7 @@ class ColStagBoards {
 			"https://momoka.store/collections/keyboards/products/momoka-ergo",
 			"https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
 			"https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
-		],
+		];
 		kb.img = "momoka-ergo.webp";
 		kb.notes = [
 			"There are multiple keyboards using an Ergodox[-like] layout",

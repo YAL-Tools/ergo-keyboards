@@ -233,7 +233,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 	override public function post():Void {
 		super.post();
 		for (kb in values) {
-			kb.stagger ??= Row;
+			if (kb.stagger == null) kb.stagger = [Row];
 		}
 	}
 }

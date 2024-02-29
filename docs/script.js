@@ -11,7 +11,9 @@ var ColStagBoards = function() { };
 ColStagBoards.__name__ = true;
 ColStagBoards.init = function(keyboards) {
 	var add = function(kb) {
-		kb.stagger = kb.stagger != null ? kb.stagger : type_StaggerType.Column;
+		if(kb.stagger == null) {
+			kb.stagger = [type_StaggerType.Column];
+		}
 		kb.shape = kb.shape != null ? kb.shape : type_ValList.fromValue(type_Shape.Split);
 		keyboards.push(kb);
 	};
@@ -159,6 +161,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	add(kb);
 	kb = ColStagKeyboard._new("Pinky3","Pinky4");
+	kb.img = type_ValList.fromValue("Pinky3.jpg");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(50),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	kb.innerKeys = type_NumRange.fromInt(3);
 	add(kb);
@@ -201,6 +204,11 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("https://ergomech.store/shop/neodox-52");
 	kb.img = type_ValList.fromValue("NeoDox.jpg");
 	kb.notes = type_ValList.fromValue("Like Redox, but with 1u edge keys");
+	add(kb);
+	kb = ColStagKeyboard._new("Redox Manuform",redox);
+	kb.shape = [type_Shape.Split,type_Shape.Keywell];
+	kb.assembly = [type_Assembly.Handwired];
+	kb.notes = ["A Redox / Dactyl Manuform mix"];
 	add(kb);
 	kb = ColStagKeyboard._new("ErgoDash");
 	var ergodash = kb;
@@ -517,15 +525,18 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("glove80.jpg");
 	kb.notes = ["There is no hot-swap. However, MoErgo offers an unsoldered version that saves one from having to unsolder the built-in switches. Still, one needs to solder the new ones.","Hardware extension support: 6 digital GPIOs (inside the case)"];
 	add(kb);
-	kb = ColStagKeyboard._new("MOMOKA ERGO");
+	kb = ColStagKeyboard._new("Ergodox-like");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(70),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(6),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(5));
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	kb.switchProfile = [type_SwitchProfile.MX];
+	kb.hotswap = [type_HotSwap.Yes,type_HotSwap.No];
 	ColStagKeyboard.setQMK(kb);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.web = type_ValList.fromValue("https://www.momoka.co/ergo");
-	kb.prebuilt = type_ValList.fromValue("!https://momoka.store/collections/keyboards/products/momoka-ergo");
+	kb.web = type_ValList.fromValue("");
+	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2"];
+	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard"];
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
+	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout","Ergodox EZ is separated from these due to presence of tenting legs"];
 	add(kb);
 	kb = ColStagKeyboard._new("Keyboardio Model 100");
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(64),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
@@ -1137,7 +1148,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		};
 		this.addColumn(shape);
-		var staggerType = new table_TagColumn("Stagger type",new table_FancyField("stagger",function(q,wantSet,setValue) {
+		var staggerType = new table_TagListColumn("Stagger type",new table_FancyField("stagger",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.stagger = setValue;
 				return null;
@@ -1938,10 +1949,11 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			var kb = _g1[_g];
 			++_g;
 			if(kb.stagger == null) {
-				kb.stagger = type_StaggerType.Column;
-			}
-			if(kb.stagger == type_StaggerType.Ortho && kb.pinkyStagger == null) {
-				kb.pinkyStagger = 0;
+				kb.stagger = type_ValList.fromValue(type_StaggerType.Column);
+			} else if(kb.stagger.indexOf(type_StaggerType.Ortho) != -1) {
+				if(kb.pinkyStagger == null) {
+					kb.pinkyStagger = 0;
+				}
 			}
 		}
 	}
@@ -2079,7 +2091,9 @@ var OrthoBoards = function() { };
 OrthoBoards.__name__ = true;
 OrthoBoards.init = function(keyboards) {
 	var add = function(kb) {
-		kb.stagger = kb.stagger != null ? kb.stagger : type_StaggerType.Ortho;
+		if(kb.stagger == null) {
+			kb.stagger = [type_StaggerType.Ortho];
+		}
 		kb.shape = kb.shape != null ? kb.shape : type_ValList.fromValue(type_Shape.Split);
 		keyboards.push(kb);
 	};
@@ -2097,7 +2111,6 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.pinkyStagger = 0.3;
-	kb.stagger = type_StaggerType.Ortho;
 	kb.trackballSize = pimoroniSize;
 	kb.trackballs = type_NumRange.fromArray([0,1]);
 	kb.caseType = [type_CaseType.Included];
@@ -2106,7 +2119,6 @@ OrthoBoards.init = function(keyboards) {
 	add(kb);
 	kb = ColStagKeyboard._new("Bancouver40");
 	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
-	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(40),type_NumRange.fromInt(5),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.CFX);
@@ -2116,7 +2128,6 @@ OrthoBoards.init = function(keyboards) {
 	add(kb);
 	kb = ColStagKeyboard._new("minipeg48");
 	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
-	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(48),type_NumRange.fromInt(6),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.CFX);
@@ -2130,7 +2141,6 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	kb.splay = type_SplayBase.PinkyOnly;
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
-	kb.stagger = type_StaggerType.Ortho;
 	kb.source = type_ValList.fromValue("https://github.com/brickbots/chocV");
 	kb.caseType = [type_CaseType.None];
 	kb.img = type_ValList.fromValue("ChocV.jpg");
@@ -2141,7 +2151,6 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	kb.splay = type_SplayBase.PinkyOnly;
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
-	kb.stagger = type_StaggerType.Ortho;
 	kb.source = type_ValList.fromValue("https://github.com/ImStuBTW/chonkv");
 	kb.caseType = [type_CaseType.Included];
 	kb.img = type_ValList.fromValue("ChonkV.jpg");
@@ -2152,14 +2161,12 @@ OrthoBoards.init = function(keyboards) {
 	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
 	kb.hotswap = [type_HotSwap.No];
 	kb.shape = type_ValList.fromValue(type_Shape.Split);
-	kb.stagger = type_StaggerType.Ortho;
 	kb.caseType = [type_CaseType.None];
 	kb.extras = ["[v:Case] https://www.thingiverse.com/thing:3089077","![v:Plates] https://keeb.io/products/bfo-9000-case-plates"];
 	kb.kit = type_ValList.fromValue("!https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear");
 	kb.img = type_ValList.fromValue("bfo-9000.jpg");
 	add(kb);
 	kb = ColStagKeyboard._new("Ergo42");
-	kb.stagger = type_StaggerType.Ortho;
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(56),type_NumRange.fromInt(7),type_NumRange.fromInt(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(3),type_NumRange.fromInt(0),type_NumRange.fromInt(0),type_NumRange.fromInt(4));
 	ColStagKeyboard.setQMK(kb);
@@ -2219,13 +2226,12 @@ OrthoBoards.init = function(keyboards) {
 		add(kb);
 	};
 	kb = ColStagKeyboard._new("Rebound");
-	kb.stagger = type_StaggerType.Ortho;
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("!https://store.montsinger.net/products/rebound");
 	kb.img = type_ValList.fromValue("rebound.webp");
 	addRebound(kb);
 	kb = ColStagKeyboard._new("Rebound-S");
-	kb.stagger = type_StaggerType.Column;
+	kb.stagger = type_ValList.fromValue(type_StaggerType.Column);
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.kit = type_ValList.fromValue("!https://store.montsinger.net/products/rebound-s");
 	kb.img = type_ValList.fromValue("rebound-s.webp");
@@ -2679,7 +2685,9 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		while(_g < _g1.length) {
 			var kb = _g1[_g];
 			++_g;
-			kb.stagger = kb.stagger != null ? kb.stagger : type_StaggerType.Row;
+			if(kb.stagger == null) {
+				kb.stagger = [type_StaggerType.Row];
+			}
 		}
 	}
 });
