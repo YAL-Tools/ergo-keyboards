@@ -30,6 +30,28 @@ body.night a:visited {
 body.night .has-notes {
   text-decoration-color: #8561c5;
 }
+#filter,
+#editor {
+  columns: 1;
+}
+@media only screen and (min-width: 600px) {
+  #filter,
+  #editor {
+    columns: 2;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  #filter,
+  #editor {
+    columns: 3;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  #filter,
+  #editor {
+    columns: 4;
+  }
+}
 #share-field {
   display: none;
 }
@@ -214,9 +236,6 @@ input[type="radio"] {
 /*
   To style the <details> elements use _details.less instead.
 */
-div#filter {
-  columns: 3;
-}
 div:has(> #clear-filters) {
   align-items: center;
   gap: 4px;
@@ -242,9 +261,6 @@ div#filter .filters:not(:empty) {
   align-items: center;
   gap: 8px;
   margin: 8px 0;
-}
-details#editor-outer #editor {
-  columns: 3;
 }
 details#editor-outer details {
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
@@ -272,11 +288,6 @@ details#editor-outer .filters.range > input {
 .night details#editor-outer details {
   background: #101418;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
-}
-@media only screen and (min-width: 1400px) {
-  details#editor-outer #editor {
-    columns: 4;
-  }
 }
 select,
 input[type="select"] {
@@ -357,4 +368,9 @@ body.night input[type="select"] {
 }
 .tippy-content table.links .variants {
   padding-left: 0.3em;
+}
+.tippy-content button,
+.tippy-content input[type="button"] {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
 }

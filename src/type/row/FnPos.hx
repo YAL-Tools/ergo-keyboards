@@ -6,13 +6,17 @@ package type.row;
  */
 enum FnPos {
 	None;
+	//
 	LeftMost;
 	AfterLCtl;
 	AfterLGui;
+	ReplaceLGui;
 	AfterLAlt;
+	//
 	BeforeRAlt;
 	BeforeMenu;
 	BeforeRGui;
+	ReplaceRGui;
 	BeforeRCtl;
 	RightMost;
 	Elsewhere;

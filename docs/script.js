@@ -94,7 +94,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 	add(kb);
-	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["!https://shop.yushakobo.jp/products/lily58-pro/","https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58","https://holykeebs.com/products/trackball-lily58-low-profile","https://new.boardsource.xyz/products/lulu","https://new.boardsource.xyz/products/lily58","https://42keebs.eu/shop/kits/pro-micro-based/lily58-pro-hotswap-split-ergo-50-kit-black-white/","https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://keebd.com/products/lily58-pro-keyboard-kit","https://www.littlekeyboards.com/collections/lily58-pcb-kits","https://keyhive.xyz/shop/lily58","https://kriscables.com/lily58/","https://keycapsss.com/keyboard-parts/pcbs/71/lily58l-split-keyboard-pcb","[US] https://capsuledeluxe.com/tag/manta58/"], prebuilt : ["https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://ergomech.store/shop/sofle-v2-sandwich-style-12","https://ergomech.store/shop/lily58-enclose-case-15","https://kriscables.com/lily58/","https://new.boardsource.xyz/products/lily58"], extras : ["[US][v:Case files] https://capsuledeluxe.com/tag/manta58/"], img : type_ValList.fromValue("lily58.jpg")};
+	kb = { name : "Lily58", source : type_ValList.fromValue("https://github.com/kata0510/Lily58"), kit : ["!https://shop.yushakobo.jp/products/lily58-pro/","https://mechboards.co.uk/collections/kits/products/lily58-kit","https://splitkb.com/collections/keyboard-kits/products/aurora-lily58","https://holykeebs.com/products/trackball-lily58-low-profile","https://new.boardsource.xyz/products/lulu","https://new.boardsource.xyz/products/lily58","https://42keebs.eu/shop/kits/pro-micro-based/lily58-pro-hotswap-split-ergo-50-kit-black-white/","https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://keebd.com/products/lily58-pro-keyboard-kit","https://www.littlekeyboards.com/collections/lily58-pcb-kits","https://keyhive.xyz/shop/lily58","https://kriscables.com/lily58/","https://keycapsss.com/keyboard-parts/pcbs/71/lily58l-split-keyboard-pcb","[US] https://capsuledeluxe.com/tag/manta58/"], prebuilt : ["https://customkbd.com/collections/split-keyboards/products/lily-58-pro-keyboard-kit","https://ergomech.store/shop/sofle-v2-sandwich-style-12","https://ergomech.store/shop/lily58-enclose-case-15","https://kriscables.com/lily58/","https://new.boardsource.xyz/products/lily58"], extras : ["[US][v:Case files] https://capsuledeluxe.com/tag/manta58/","[v:Case with palmrest] https://github.com/AgentCosmic/lily58_case"], img : type_ValList.fromValue("lily58.jpg")};
 	ColStagKeyboard.setMatrix(kb,type_NumRange.fromInt(58),type_NumRange.fromInt(6),type_NumRange.fromInt(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromInt(4),type_NumRange.fromInt(1),type_NumRange.fromInt(0),type_NumRange.fromInt(0));
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -2602,12 +2602,25 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		}),type_row_FnPos);
 		fnPos.shortName = "@Fn";
 		fnPos.shortLabels.set(type_row_FnPos.LeftMost,"Left");
-		fnPos.shortLabels.set(type_row_FnPos.RightMost,"Right");
 		fnPos.shortLabels.set(type_row_FnPos.AfterLCtl,"LCtl Fn");
 		fnPos.shortLabels.set(type_row_FnPos.AfterLGui,"LGui Fn");
+		fnPos.shortLabels.set(type_row_FnPos.ReplaceLGui,"-LGui");
 		fnPos.shortLabels.set(type_row_FnPos.AfterLAlt,"LAlt Fn");
-		fnPos.filterLabels.set(type_row_FnPos.AfterLAlt,"After Left Alt");
+		fnPos.shortLabels.set(type_row_FnPos.BeforeRCtl,"Fn RCtl");
+		fnPos.shortLabels.set(type_row_FnPos.BeforeRGui,"Fn RGui");
+		fnPos.shortLabels.set(type_row_FnPos.ReplaceLGui,"-RGui");
+		fnPos.shortLabels.set(type_row_FnPos.BeforeRAlt,"Fn RAlt");
+		fnPos.shortLabels.set(type_row_FnPos.BeforeMenu,"Fn Menu");
+		fnPos.shortLabels.set(type_row_FnPos.RightMost,"Right");
+		fnPos.filterLabels.set(type_row_FnPos.AfterLCtl,"After Left Control");
 		fnPos.filterLabels.set(type_row_FnPos.AfterLGui,"After Left Gui (Win/Cmd/Meta)");
+		fnPos.filterLabels.set(type_row_FnPos.ReplaceLGui,"Replaces Left Gui (Win/Cmd/Meta)");
+		fnPos.filterLabels.set(type_row_FnPos.AfterLAlt,"After Left Alt");
+		fnPos.filterLabels.set(type_row_FnPos.BeforeRAlt,"Before Right Alt");
+		fnPos.filterLabels.set(type_row_FnPos.BeforeMenu,"Before Menu");
+		fnPos.filterLabels.set(type_row_FnPos.ReplaceRGui,"Replaces Right Gui (Win/Cmd/Meta)");
+		fnPos.filterLabels.set(type_row_FnPos.BeforeRGui,"Before Right Gui (Win/Cmd/Meta)");
+		fnPos.filterLabels.set(type_row_FnPos.BeforeRCtl,"Before Right Control");
 		fnPos.onNotes = function(div) {
 			var p = tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a ");
 			tools_HtmlTools.appendElTextNode(p,"i","non-remappable");
@@ -6215,15 +6228,17 @@ var type_row_FnPos = $hxEnums["type.row.FnPos"] = { __ename__:true,__constructs_
 	,LeftMost: {_hx_name:"LeftMost",_hx_index:1,__enum__:"type.row.FnPos",toString:$estr}
 	,AfterLCtl: {_hx_name:"AfterLCtl",_hx_index:2,__enum__:"type.row.FnPos",toString:$estr}
 	,AfterLGui: {_hx_name:"AfterLGui",_hx_index:3,__enum__:"type.row.FnPos",toString:$estr}
-	,AfterLAlt: {_hx_name:"AfterLAlt",_hx_index:4,__enum__:"type.row.FnPos",toString:$estr}
-	,BeforeRAlt: {_hx_name:"BeforeRAlt",_hx_index:5,__enum__:"type.row.FnPos",toString:$estr}
-	,BeforeMenu: {_hx_name:"BeforeMenu",_hx_index:6,__enum__:"type.row.FnPos",toString:$estr}
-	,BeforeRGui: {_hx_name:"BeforeRGui",_hx_index:7,__enum__:"type.row.FnPos",toString:$estr}
-	,BeforeRCtl: {_hx_name:"BeforeRCtl",_hx_index:8,__enum__:"type.row.FnPos",toString:$estr}
-	,RightMost: {_hx_name:"RightMost",_hx_index:9,__enum__:"type.row.FnPos",toString:$estr}
-	,Elsewhere: {_hx_name:"Elsewhere",_hx_index:10,__enum__:"type.row.FnPos",toString:$estr}
+	,ReplaceLGui: {_hx_name:"ReplaceLGui",_hx_index:4,__enum__:"type.row.FnPos",toString:$estr}
+	,AfterLAlt: {_hx_name:"AfterLAlt",_hx_index:5,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeRAlt: {_hx_name:"BeforeRAlt",_hx_index:6,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeMenu: {_hx_name:"BeforeMenu",_hx_index:7,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeRGui: {_hx_name:"BeforeRGui",_hx_index:8,__enum__:"type.row.FnPos",toString:$estr}
+	,ReplaceRGui: {_hx_name:"ReplaceRGui",_hx_index:9,__enum__:"type.row.FnPos",toString:$estr}
+	,BeforeRCtl: {_hx_name:"BeforeRCtl",_hx_index:10,__enum__:"type.row.FnPos",toString:$estr}
+	,RightMost: {_hx_name:"RightMost",_hx_index:11,__enum__:"type.row.FnPos",toString:$estr}
+	,Elsewhere: {_hx_name:"Elsewhere",_hx_index:12,__enum__:"type.row.FnPos",toString:$estr}
 };
-type_row_FnPos.__constructs__ = [type_row_FnPos.None,type_row_FnPos.LeftMost,type_row_FnPos.AfterLCtl,type_row_FnPos.AfterLGui,type_row_FnPos.AfterLAlt,type_row_FnPos.BeforeRAlt,type_row_FnPos.BeforeMenu,type_row_FnPos.BeforeRGui,type_row_FnPos.BeforeRCtl,type_row_FnPos.RightMost,type_row_FnPos.Elsewhere];
+type_row_FnPos.__constructs__ = [type_row_FnPos.None,type_row_FnPos.LeftMost,type_row_FnPos.AfterLCtl,type_row_FnPos.AfterLGui,type_row_FnPos.ReplaceLGui,type_row_FnPos.AfterLAlt,type_row_FnPos.BeforeRAlt,type_row_FnPos.BeforeMenu,type_row_FnPos.BeforeRGui,type_row_FnPos.ReplaceRGui,type_row_FnPos.BeforeRCtl,type_row_FnPos.RightMost,type_row_FnPos.Elsewhere];
 var type_row_LShiftShape = $hxEnums["type.row.LShiftShape"] = { __ename__:true,__constructs__:null
 	,ANSI: {_hx_name:"ANSI",_hx_index:0,__enum__:"type.row.LShiftShape",toString:$estr}
 	,ISO: {_hx_name:"ISO",_hx_index:1,__enum__:"type.row.LShiftShape",toString:$estr}

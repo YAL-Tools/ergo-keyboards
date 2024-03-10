@@ -206,6 +206,7 @@ class ColStagBoards {
 			],
 			extras: [
 				"[US][v:Case files] https://capsuledeluxe.com/tag/manta58/",
+				"[v:Case with palmrest] https://github.com/AgentCosmic/lily58_case",
 			],
 			img: "lily58.jpg",
 		};

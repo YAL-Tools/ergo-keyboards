@@ -180,13 +180,29 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		
 		var fnPos = new TagColumn("Fn position", mgf(kb.fnPos), FnPos);
 		fnPos.shortName = "@Fn";
+		//
 		fnPos.shortLabels[FnPos.LeftMost] = "Left";
-		fnPos.shortLabels[FnPos.RightMost] = "Right";
 		fnPos.shortLabels[FnPos.AfterLCtl] = "LCtl Fn";
 		fnPos.shortLabels[FnPos.AfterLGui] = "LGui Fn";
+		fnPos.shortLabels[FnPos.ReplaceLGui] = "-LGui";
 		fnPos.shortLabels[FnPos.AfterLAlt] = "LAlt Fn";
-		fnPos.filterLabels[FnPos.AfterLAlt] = "After Left Alt";
+		fnPos.shortLabels[FnPos.BeforeRCtl] = "Fn RCtl";
+		fnPos.shortLabels[FnPos.BeforeRGui] = "Fn RGui";
+		fnPos.shortLabels[FnPos.ReplaceLGui] = "-RGui";
+		fnPos.shortLabels[FnPos.BeforeRAlt] = "Fn RAlt";
+		fnPos.shortLabels[FnPos.BeforeMenu] = "Fn Menu";
+		fnPos.shortLabels[FnPos.RightMost] = "Right";
+		//
+		fnPos.filterLabels[FnPos.AfterLCtl] = "After Left Control";
 		fnPos.filterLabels[FnPos.AfterLGui] = "After Left Gui (Win/Cmd/Meta)";
+		fnPos.filterLabels[FnPos.ReplaceLGui] = "Replaces Left Gui (Win/Cmd/Meta)";
+		fnPos.filterLabels[FnPos.AfterLAlt] = "After Left Alt";
+		fnPos.filterLabels[FnPos.BeforeRAlt] = "Before Right Alt";
+		fnPos.filterLabels[FnPos.BeforeMenu] = "Before Menu";
+		fnPos.filterLabels[FnPos.ReplaceRGui] = "Replaces Right Gui (Win/Cmd/Meta)";
+		fnPos.filterLabels[FnPos.BeforeRGui] = "Before Right Gui (Win/Cmd/Meta)";
+		fnPos.filterLabels[FnPos.BeforeRCtl] = "Before Right Control";
+		//
 		fnPos.onNotes = function(div:Element):Void {
 			var p = div.appendParaTextNode("If a keyboard has a ");
 			p.appendElTextNode("i", "non-remappable");

@@ -5285,6 +5285,7 @@ Cygnus https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
 https://github.com/lapidot/ADuck
 https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux
 https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl
+https://github.com/fxkuehl/mantis
 rhymestone
 Chimera Ortho
 `;
