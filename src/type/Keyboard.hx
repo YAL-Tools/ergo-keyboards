@@ -11,7 +11,7 @@ typedef Keyboard = {
 	name:String,
 	?parent:String,
 	?hidden:Bool,
-	?keys:IntRange,
+	?keys:NumRangeList<Int>,
 	
 	?img:ValList<String>,
 	?notes:ValList<String>,

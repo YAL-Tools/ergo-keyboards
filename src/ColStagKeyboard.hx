@@ -7,6 +7,7 @@ import type.Software;
 import type.SwitchProfile;
 import type.ValList;
 import type.*;
+import type.NumRangeList;
 
 /**
  * @author YellowAfterlife
@@ -23,7 +24,7 @@ from ColStagKeyboardBase to ColStagKeyboardBase {
 			this.parent = (parent:ColStagKeyboard).name;
 		}
 	}
-	public function setMatrix(keys:IntRange, cols:IntRange, rows:IntRange) {
+	public function setMatrix(keys:IntRangeList, cols:IntRange, rows:IntRange) {
 		this.keys = keys;
 		this.cols = cols;
 		this.rows = rows;

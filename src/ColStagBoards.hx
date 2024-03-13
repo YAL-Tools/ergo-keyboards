@@ -4,6 +4,7 @@ import type.Firmware;
 import type.HotSwap;
 import type.KeySpacing;
 import type.NavCluster;
+import type.NumRangeList;
 import type.Software;
 import type.Connection;
 import type.SwitchProfile;
@@ -412,15 +413,18 @@ class ColStagBoards {
 		kb.connection = [Wired];
 		kb.assembly = [PCB];
 		kb.setHotswap([MX], MX);
+		kb.encoders = [0, 2];
 		kb.prebuilt = "https://ergomech.store/shop/neodox-52";
 		kb.img = "NeoDox.jpg";
-		kb.notes = "Like Redox, but with 1u edge keys";
+		kb.notes = "Like Redox, but with 1u edge keys and optional rotary encoders";
 		add(kb);
 		
 		kb = new ColStagKeyboard("Redox Manuform", redox);
 		kb.shape = [Split, Keywell];
 		kb.assembly = [Handwired];
 		kb.notes = ["A Redox / Dactyl Manuform mix"];
+		kb.img = "redox-manuform.webp";
+		kb.source = "https://www.thingiverse.com/thing:3503380";
 		add(kb);
 		
 		var ergodash = kb = new ColStagKeyboard("ErgoDash");
@@ -570,6 +574,7 @@ class ColStagBoards {
 		};
 		kb.setMatrix(68, 6, 4);
 		kb.setExtras(9);
+		kb.hotswap = [No];
 		kb.caseType = [None];
 		add(kb);
 		
@@ -640,23 +645,32 @@ class ColStagBoards {
 			kb.prebuilt = "https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/";
 			add(kb);
 		}
-		kb = new ColStagKeyboard("Hillside 52/56");
-		kb.setMatrix([44, 56], [5, 6], 3);
-		kb.setExtras(5, 0, 0, [3, 4]);
+		
+		kb = new ColStagKeyboard("Hillside 52");
+		kb.setMatrix(IntRangeList.either(44, 52), [5, 6], 3);
+		kb.setExtras(5, 0, 0, 3);
+		kb.splay = Yes;
 		kb.navCluster = [Arrows, Duo];
-		kb.img = [
-			"Hillside-52.webp",
-			"Hillside-56.jpg",
-		];
+		kb.img = "Hillside-52.webp";
 		addHillside(kb);
 		
-		kb = new ColStagKeyboard("Hillside 46/48");
-		kb.setMatrix([40, 48], [5, 6], 3);
-		kb.setExtras(5, 0, 0, [0, 1]);
-		kb.img = [
-			"Hillside-46.jpg",
-			"Hillside-48.jpg",
-		];
+		kb = new ColStagKeyboard("Hillside 56");
+		kb.setMatrix(IntRangeList.either(48, 56), [5, 6], 3);
+		kb.setExtras(5, 0, 0, 4);
+		kb.navCluster = [Arrows, Duo];
+		kb.img = "Hillside-56.jpg";
+		addHillside(kb);
+		
+		kb = new ColStagKeyboard("Hillside 46");
+		kb.setMatrix(IntRangeList.either(40, 46), [5, 6], 3);
+		kb.setExtras(5, 0, 0, 0);
+		kb.img = "Hillside-46.jpg";
+		addHillside(kb);
+		
+		kb = new ColStagKeyboard("Hillside 48");
+		kb.setMatrix(IntRangeList.either(42, 48), [5, 6], 3);
+		kb.setExtras(5, 0, 0, 1);
+		kb.img = "Hillside-48.jpg";
 		addHillside(kb);
 		
 		kb = {
@@ -701,7 +715,7 @@ class ColStagBoards {
 			name: "Dilemma",
 			keys: [34, 36],
 			cols: 5, rows: 3,
-			thumbKeys: [2, 4],
+			thumbKeys: [2, 3],
 			source: "https://github.com/Bastardkb/Dilemma",
 			kit: "!https://bastardkb.com/product/dilemma/",
 			prebuilt: "!https://bastardkb.com/product/dilemma-prebuilt-preorder/",
@@ -737,6 +751,7 @@ class ColStagBoards {
 			navCluster: Full,
 			source: "https://github.com/mylestunglee/articulation80",
 			img: "articulation80.jpg",
+			notes: "Numpad/navigation blocks and top row can be breaken off."
 		};
 		kb.setHotswap([Choc], KeySpacing.Choc);
 		kb.setMatrix([56, 80], 6, 4);

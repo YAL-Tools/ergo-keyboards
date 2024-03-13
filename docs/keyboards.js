@@ -71,10 +71,7 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": "Wired",
-	"keys": {
-		"min": 36,
-		"max": 42
-	},
+	"keys": [[36], [42]],
 	"rows": 3,
 	"cols": {
 		"min": 5,
@@ -114,10 +111,7 @@ window.keyboardData = [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": {
-		"min": 36,
-		"max": 42
-	},
+	"keys": [[36], [42]],
 	"rows": 3,
 	"cols": {
 		"min": 5,
@@ -220,10 +214,7 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": "Wired",
-	"keys": {
-		"min": 36,
-		"max": 42
-	},
+	"keys": [[36], [42]],
 	"rows": 3,
 	"cols": {
 		"min": 5,
@@ -542,35 +533,44 @@ window.keyboardData = [
 },
 {
 	"name": "Charybdis",
-	"img": [
-		"Charybdis.jpg",
-		"Charybdis-2.jpg"
-	],
+	"img": "Charybdis-2.jpg",
 	"shape": [
 		"Split",
 		"Keywell"
 	],
 	"stagger": "Column",
-	"keys": {
-		"min": 35,
-		"max": 56
-	},
-	"rows": {
-		"min": 3,
-		"max": 4
-	},
-	"cols": {
-		"min": 5,
-		"max": 6
-	},
-	"thumbKeys": {
-		"min": 3,
-		"max": 5
-	},
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": [3, 5],
 	"trackballs": 1,
 	"caseType": "Included",
 	"hotswap": "No",
 	"switchProfile": "MX",
+	"source": "https://github.com/Bastardkb/Charybdis",
+	"kit": "!https://bastardkb.com/charybdis/",
+	"prebuilt": "!https://bastardkb.com/prebuilts/"
+},
+{
+	"name": "Charybdis Mini",
+	"parent": "Charybdis",
+	"keys": 41,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": [2, 3],
+	"img": "Charybdis-mini.jpg",
+	"source": "https://github.com/Bastardkb/Charybdis",
+	"kit": "!https://bastardkb.com/charybdis/",
+	"prebuilt": "!https://bastardkb.com/prebuilts/"
+},
+{
+	"name": "Charybdis Nano",
+	"parent": "Charybdis",
+	"keys": 35,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": [2, 3],
+	"img": "Charybdis.jpg",
 	"source": "https://github.com/Bastardkb/Charybdis",
 	"kit": "!https://bastardkb.com/charybdis/",
 	"prebuilt": "!https://bastardkb.com/prebuilts/"
@@ -942,6 +942,10 @@ window.keyboardData = [
 {
 	"name": "Thumbs Up!",
 	"img": "thumbsup.jpg",
+	"notes": [
+		"A layered PCB forms a \"staircase\" of keys",
+		"Creator has a variety of revisions with different key counts"
+	],
 	"shape": [
 		"Unibody",
 		"Special"
@@ -951,10 +955,7 @@ window.keyboardData = [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": {
-		"min": 38,
-		"max": 58
-	},
+	"keys": [38, 44, 46, 58],
 	"rows": {
 		"min": 3,
 		"max": 4
@@ -975,9 +976,13 @@ window.keyboardData = [
 	],
 	"tenting": 15,
 	"firmware": "QMK",
-	"caseType": "None",
-	"web": "https://www.thumbsup.shop",
-	"prebuilt": "!https://www.thumbsup.shop/shop"
+	"caseType": "Included",
+	"web": [
+		"https://www.thumbsup.shop",
+		"https://new.reddit.com/user/ak66666/submitted/",
+		"https://thumbsupkeyboards.etsy.com"
+	],
+	"prebuilt": "!https://thumbsupkeyboards.etsy.com"
 },
 {
 	"name": "Planeta",
@@ -1314,6 +1319,7 @@ window.keyboardData = [
 {
 	"name": "Sotka",
 	"img": "sotka.jpg",
+	"notes": "Not pictured: you can have a partial row with 3 extra keys and a rotary encoder",
 	"shape": "Split",
 	"stagger": "Ortho",
 	"connection": "Wired",
@@ -1515,9 +1521,11 @@ window.keyboardData = [
 {
 	"name": "Protocol Seven",
 	"img": "protocol-seven.jpg",
+	"notes": "Supports a third switch type that I am unable to recognize",
 	"shape": "Unibody",
 	"stagger": "Column",
-	"switchProfile": "Choc",
+	"switchProfile": ["MX", "Choc", "Other"],
+	"hotswap": false,
 	"keys": 106,
 	"rows": 5,
 	"cols": 7,
@@ -1621,10 +1629,7 @@ window.keyboardData = [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": {
-		"min": 54,
-		"max": 64
-	},
+	"keys": [[54], [64]],
 	"rows": {
 		"min": 3,
 		"max": 4
@@ -1721,6 +1726,7 @@ window.keyboardData = [
 	"innerKeys": 3,
 	"cornerKeys": 3,
 	"navCluster": "Arrows",
+	"switchProfile": "MX",
 	"pinkyStagger": 0.3,
 	"firmware": "QMK",
 	"assembly": "Handwired",
@@ -1862,10 +1868,10 @@ window.keyboardData = [
 	],
 	"stagger": "Column",
 	"connection": "Wired",
-	"keys": {
+	/*"keys": {
 		"min": 20,
 		"max": 100
-	},
+	},*/
 	"rows": {
 		"min": 2,
 		"max": 5
@@ -2122,10 +2128,7 @@ window.keyboardData = [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": {
-		"min": 40,
-		"max": 46
-	},
+	"keys": [[40], [46]],
 	"rows": 3,
 	"cols": {
 		"min": 5,
@@ -2857,6 +2860,7 @@ window.keyboardData = [
 	"cornerKeys": 5,
 	"pinkyStagger": 0.2,
 	"switchProfile": "MX",
+	"hotswap": false,
 	"firmware": "PRK",
 	"caseType": "Included",
 	"web": "https://www.reddit.com/r/MechanicalKeyboards/comments/104kcvw/this_is_my_first_commission_i_call_it_the_quetzal/",
@@ -4624,10 +4628,7 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": "Wired",
-	"keys": {
-		"min": 46,
-		"max": 70
-	},
+	"keys": [[46], [58], [70]],
 	"rows": 3,
 	"cols": 6,
 	"thumbKeys": 3,
@@ -4738,10 +4739,7 @@ window.keyboardData = [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": {
-		"min": 36,
-		"max": 42
-	},
+	"keys": [[36], 42],
 	"rows": 3,
 	"cols": {
 		"min": 5,
@@ -5073,8 +5071,8 @@ window.keyboardData = [
 	"img": "Elora.webp",
 	"notes": "Supports \"modules\" for additional functionality",
 	"keys": 62,
-	"rows": 6,
-	"cols": 4,
+	"rows": 4,
+	"cols": 6,
 	"thumbKeys": 5,
 	"innerKeys": 1,
 	"pinkyStagger": 0.7,

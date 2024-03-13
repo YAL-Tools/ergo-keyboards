@@ -8,7 +8,7 @@ package type;
 	public inline function new(min:T, max:T) {
 		this = {min:min, max:max};
 	}
-	@:from public static function fromInt<T>(val:T) {
+	@:from public static function fromValue<T>(val:T) {
 		return new NumRange(val, val);
 	}
 	@:from public static function fromArray<T>(arr:Array<T>) {

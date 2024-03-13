@@ -31,7 +31,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		
 		initColConnection(kb);
 		
-		mAddColumn(col = new IntRangeColumn("Key count", kb.keys));
+		mAddColumn(col = new IntRangeListColumn("Key count", kb.keys));
 		col.shortName = "#keys";
 		
 		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));

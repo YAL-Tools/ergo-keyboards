@@ -319,17 +319,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		}
 		lc.shortName = "PB";
 		
-		mAddColumn(lc = new LinkListColumn("Layout ref", kb.layoutRef));
-		lc.show = false;
-		lc.onNotes = function(div:Element):Void {
-			div.appendParaTextNode("If there's a PDF/etc. that you can print"
-				+ " to check how your fingers would rest on the keyboard,"
-				+ " this links to that.");
-			div.appendParaTextNode("For open-source keyboards with PCBs,"
-				+ " you may also print the .kicad_pcb file from KiCad.");
-		}
-		lc.shortName = "LR";
-		
 		var avail_fd = new FancyField("availability", function(obj:KB, ?set, ?val) {
 			if (set) return null;
 			function has(list:ValList<String>) {
@@ -348,6 +337,17 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		avail.canEdit = false;
 		avail.show = false;
 		addColumn(avail);
+		
+		mAddColumn(lc = new LinkListColumn("Layout ref", kb.layoutRef));
+		lc.show = false;
+		lc.onNotes = function(div:Element):Void {
+			div.appendParaTextNode("If there's a PDF/etc. that you can print"
+				+ " to check how your fingers would rest on the keyboard,"
+				+ " this links to that.");
+			div.appendParaTextNode("For open-source keyboards with PCBs,"
+				+ " you may also print the .kicad_pcb file from KiCad.");
+		}
+		lc.shortName = "LR";
 	}
 	function initInputs(kb:KB) {
 		var header = addFilterHeader("Other input devices");

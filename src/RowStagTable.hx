@@ -30,7 +30,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		initColConnection(kb);
 		var col:FancyColumn<RowStagKeyboard>;
 		
-		mAddColumn(col = new IntRangeColumn("Key count", kb.keys));
+		mAddColumn(col = new IntRangeListColumn("Key count", kb.keys));
 		col.shortName = "#keys";
 		col.onEditorNotes = function(div):Void {
 			var extra:InputElement = cast div.appendElTextNode("input");

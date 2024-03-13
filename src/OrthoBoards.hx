@@ -1,6 +1,8 @@
 package ;
 import type.CaseType;
 import type.Firmware;
+import type.NumRangeList;
+import type.Numpad;
 import type.Software;
 import type.Connection;
 import type.SwitchProfile;
@@ -91,20 +93,25 @@ class OrthoBoards {
 		kb.img = "ChonkV.jpg";
 		add(kb);
 		
-		kb = new ColStagKeyboard("BFO-9000");
-		kb.setMatrix([56, 108], [7, 9], [3, 5]);
-		kb.setExtras(4, 0, 0, 4);
-		kb.switchProfile = [MX, Choc, Alps];
-		kb.hotswap = [No];
-		kb.shape = Split;
-		kb.caseType = [None];
-		kb.extras = [
-			"[v:Case] https://www.thingiverse.com/thing:3089077",
-			"![v:Plates] https://keeb.io/products/bfo-9000-case-plates",
-		];
-		kb.kit = "!https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear";
-		kb.img = "bfo-9000.jpg";
-		add(kb);
+		for (rows in 4 ... 7) {
+			kb = new ColStagKeyboard('BFO-9000 (${rows}x#)');
+			kb.setMatrix(IntRangeList.either(rows * 14, rows * 16, rows * 18), [7, 9], rows + 1);
+			kb.setExtras(4, 0, 0, 4);
+			kb.switchProfile = [MX, Choc, Alps];
+			kb.hotswap = [No];
+			kb.shape = Split;
+			kb.caseType = [None];
+			kb.extras = [
+				"[v:Case] https://www.thingiverse.com/thing:3089077",
+				"![v:Plates] https://keeb.io/products/bfo-9000-case-plates",
+			];
+			kb.kit = "!https://keeb.io/collections/split-keyboard-parts/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear";
+			kb.img = "bfo-9000.jpg";
+			kb.notes = [
+				"Uses breakaway rows and columns to allow matrices from 7x4 to 9x6"
+			];
+			add(kb);
+		}
 		
 		kb = new ColStagKeyboard("Ergo42");
 		kb.setMatrix(56, 7, 3);
@@ -122,12 +129,13 @@ class OrthoBoards {
 		kb.setHotswap([MX, Choc], MX);
 		kb.shape = Unibody;
 		kb.mcols = 3;
+		kb.numpad = [Numpad.Mini];
 		kb.setExtras([3, 4], [2, 4], 0, 3);
 		kb.setQMK(Vial);
 		kb.caseType = [Included];
 		kb.source = "https://github.com/weteor/ChonkyKong";
 		kb.img = "chonkyKong.jpg";
-		kb.notes = "Doesn't fit very well with the existing classification system.";
+		kb.notes = "Some pairs of keys can be swapped for 2us";
 		add(kb);
 		
 		kb = new ColStagKeyboard("Buran");
@@ -170,18 +178,21 @@ class OrthoBoards {
 		add(kb);
 		
 		function addRebound(kb:ColStagKeyboard) {
-			kb.setMatrix([42, 50], 6, 3);
+			kb.setMatrix([47, 50], 6, 3);
 			kb.setExtras([2, 4], 0, 0, [1, 4]);
 			kb.setHotswap([MX, Choc]);
 			kb.caseType = CaseType.Included;
 			kb.encoders = 1;
+			kb.notes = "Pairs of 1.5u keys can be 1us instead; one or two keys in the middle";
 			add(kb);
 		}
+		//
 		kb = new ColStagKeyboard("Rebound");
 		kb.shape = Unibody;
 		kb.kit = "!https://store.montsinger.net/products/rebound";
 		kb.img = "rebound.webp";
 		addRebound(kb);
+		//
 		kb = new ColStagKeyboard("Rebound-S");
 		kb.stagger = Column;
 		kb.shape = Unibody;
