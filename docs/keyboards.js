@@ -66,6 +66,17 @@ window.keyboardData = [
 	"layoutRef": "SKBC",
 },
 {
+	"name": "Sofle Choc Wireless",
+	"parent": "Sofle Choc",
+	"img": "sofle_choc_wireless_with_niceview.jpg",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": [58, 60],
+	"innerKeys": [0, 1],
+	"encoders": [0, 2],
+	"firmware": "ZMK",
+	"source": "https://github.com/db-ok/SofleChocWireless",
+},
+{
 	"name": "ximi",
 	"img": "ximi.jpg",
 	"shape": "Split",
@@ -2977,7 +2988,7 @@ window.keyboardData = [
 	"name": "Vesuveus",
 	"img": "Vesuveus.jpg",
 	"shape": "Unibody",
-	"stagger": "Ortho",
+	"stagger": "Column",
 	"connection": "Wired",
 	"keys": 42,
 	"rows": 3,
@@ -4558,7 +4569,7 @@ window.keyboardData = [
 	"prebuilt": "https://lynxware.shop/"
 },
 {
-	"name": "Churn 40%",
+	"name": "Churn",
 	"img": "Churn.jpeg",
 	"notes": "Column stagger can be adjusted in the .scad file",
 	"shape": "Unibody",
@@ -4578,8 +4589,8 @@ window.keyboardData = [
 	"source": "https://github.com/luke-schutt/keyboards/tree/main/Churn"
 },
 {
-	"name": "Churn 60%",
-	"parent": "Churn 40%",
+	"name": "Churn Plus",
+	"parent": "Churn",
 	"img": "churn-65.png",
 	"keys": 65,
 	"rows": 4,
@@ -4589,7 +4600,7 @@ window.keyboardData = [
 	"cornerKeys": 3,
 	"navCluster": "Inline",
 	"splay": "PinkyOnly",
-	"source": "https://github.com/luke-schutt/keyboards/tree/main/Churn"
+	"source": "inherit"
 },
 {
 	"name": "ETERNAL Keypad",
@@ -4934,7 +4945,7 @@ window.keyboardData = [
 	"splay": "Yes",
 	"switchProfile": "MX",
 	"lighting": "RGB",
-	"web": "https://github.com/omkbd/Sector"
+	"source": "https://github.com/omkbd/Sector"
 },
 {
 	"name": "SectorD",
@@ -4945,7 +4956,7 @@ window.keyboardData = [
 	"cols": 6,
 	"thumbKeys": 5,
 	"innerKeys": 1,
-	"web": "https://github.com/omkbd/Sector"
+	"source": "inherit"
 },
 {
 	"name": "SectorH",
@@ -4958,7 +4969,7 @@ window.keyboardData = [
 	"innerKeys": 1,
 	"cornerKeys": 4,
 	"pinkyStagger": 0,
-	"web": "https://github.com/omkbd/Sector"
+	"source": "inherit"
 },
 {
 	"name": "ReRedox",
@@ -5261,7 +5272,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"kit": "https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6"
 },
-"2024-02-29"
+"2024-03-15"
 ];
 window.keyboardTODOs = `
 https://github.com/krikun98/Skean

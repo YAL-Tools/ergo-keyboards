@@ -66,7 +66,16 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		// don't copy link lists to children:
 		var tmp = Reflect.copy(parent);
 		for (col in columns) if (col is LinkListColumn) {
-			(cast col:LinkListColumn<KB>).field.access(tmp, true, null);
+			var llc:LinkListColumn<KB> = cast col;
+			var llCurr = llc.field.access(kb);
+			if (llCurr != null && llCurr is Array) {
+				if (llCurr.remove("inherit")) {
+					var llParent = llc.field.access(tmp);
+					var k = llParent.length;
+					while (--k >= 0) llCurr.unshift(llParent[k]);
+				}
+			}
+			llc.field.access(tmp, true, null);
 		}
 		
 		for (key in Object.keys(tmp)) {
@@ -607,6 +616,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 	}
 	public function post() {
+		resolveParents();
 		for (kb in values) {
 			if (kb.assembly == null) {
 				kb.assembly = [PCB];

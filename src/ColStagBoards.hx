@@ -357,6 +357,8 @@ class ColStagBoards {
 		kb.img = "Pinky3.jpg";
 		kb.setMatrix(50, 6, 3);
 		kb.innerKeys = 3;
+		kb.source = "https://github.com/tamanishi/Pinky3";
+		kb.kit = "https://www.littlekeyboards.com/products/pinky3-keyboard-kit";
 		add(kb);
 		
 		function addAvalanche(kb:ColStagKeyboard) {

@@ -1,4 +1,5 @@
 package table;
+import js.html.AnchorElement;
 import js.html.TableRowElement;
 import table.FancyRow;
 import table.FancyTable;
@@ -44,7 +45,12 @@ class FancyTableToMD {
 			if (row == null || !row.show) continue;
 			cells = [];
 			for (cell in row.cells) if (cell.column.show) {
-				cells.push(cell.element.innerText);
+				var text = cell.element.innerText;
+				var a:AnchorElement = cast cell.element.querySelector("a");
+				if (a != null && !StringTools.startsWith(a.href, "javascript:")) {
+					text = '[$text](${a.href})';
+				}
+				cells.push(text);
 			}
 			out.add("\n|" + cells.join("|") + "|");
 		}

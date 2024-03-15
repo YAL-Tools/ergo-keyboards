@@ -164,6 +164,8 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("Pinky3.jpg");
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(50)],type_NumRange.fromValue(6),type_NumRange.fromValue(3));
 	kb.innerKeys = type_NumRange.fromValue(3);
+	kb.source = type_ValList.fromValue("https://github.com/tamanishi/Pinky3");
+	kb.kit = type_ValList.fromValue("https://www.littlekeyboards.com/products/pinky3-keyboard-kit");
 	add(kb);
 	var addAvalanche = function(kb) {
 		kb.outerKeys = type_NumRange.fromArray([0,1]);
@@ -1034,7 +1036,16 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			var col = _g1[_g];
 			++_g;
 			if(((col) instanceof table_LinkListColumn)) {
-				col.field.access(tmp,true,null);
+				var llc = col;
+				var llCurr = llc.field.access(kb);
+				if(llCurr != null && ((llCurr) instanceof Array)) {
+					if(HxOverrides.remove(llCurr,"inherit")) {
+						var llParent = llc.field.access(tmp);
+						var k = llParent.length;
+						while(--k >= 0) llCurr.unshift(llParent[k]);
+					}
+				}
+				llc.field.access(tmp,true,null);
 			}
 		}
 		var _g = 0;
@@ -1704,6 +1715,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 	,initKeyboards: function() {
 	}
 	,post: function() {
+		this.resolveParents();
 		var _g = 0;
 		var _g1 = this.values;
 		while(_g < _g1.length) {
@@ -2058,7 +2070,6 @@ Main.main = function() {
 	} else {
 		kbTable = new ColStagTable();
 	}
-	kbTable.resolveParents();
 	var tmp = window.document.querySelector("#count");
 	kbTable.countElement = tmp;
 	kbTable.buildFilters(divFilters);
@@ -2094,6 +2105,47 @@ Main.main = function() {
 		}
 		kbTable.sortBy(shuffler,false);
 		kbTable.updateURL();
+	};
+	var showImg = false;
+	var showImgCb = window.document.querySelector("#show-images");
+	showImgCb.onchange = function() {
+		if(showImgCb.checked == showImg) {
+			return;
+		}
+		showImg = showImgCb.checked;
+		var _g = 0;
+		var _g1 = kbTable.rows;
+		while(_g < _g1.length) {
+			var row = _g1[_g];
+			++_g;
+			var cell = row.cells[0];
+			if(showImg) {
+				var _g2 = 0;
+				var _g3 = row.value.img;
+				while(_g2 < _g3.length) {
+					var src = _g3[_g2];
+					++_g2;
+					var small = "img-small/" + haxe_io_Path.withExtension(src,"webp");
+					var img = window.document.createElement("img");
+					img.src = small;
+					img.classList.add("small");
+					var a = window.document.createElement("a");
+					a.href = "img/" + src;
+					a.target = "_blank";
+					a.classList.add("preview");
+					a.appendChild(img);
+					cell.element.appendChild(a);
+				}
+			} else {
+				var _g4 = 0;
+				var _g5 = tools_HtmlTools.querySelectorAllAutoArr(cell.element,"a.preview",HTMLImageElement);
+				while(_g4 < _g5.length) {
+					var img1 = _g5[_g4];
+					++_g4;
+					img1.remove();
+				}
+			}
+		}
 	};
 	window.document.querySelector("#copy-md").onclick = function() {
 		var md = table_FancyTableToMD.run(kbTable);
@@ -4017,7 +4069,12 @@ table_FancyTableToMD.run = function(table) {
 			var cell = _g3[_g2];
 			++_g2;
 			if(cell.column.show) {
-				cells.push(cell.element.innerText);
+				var text = cell.element.innerText;
+				var a = cell.element.querySelector("a");
+				if(a != null && !StringTools.startsWith(a.href,"javascript:")) {
+					text = "[" + text + "](" + a.href + ")";
+				}
+				cells.push(text);
 			}
 		}
 		out_b += Std.string("\n|" + cells.join("|") + "|");
@@ -5261,6 +5318,7 @@ table_LinkListRowItem.__name__ = true;
 var table_NameColumn = function(name,field) {
 	table_FancyColumn.call(this,name);
 	this.field = field;
+	this.canFilter = false;
 	this.canSort = true;
 };
 table_NameColumn.__name__ = true;
@@ -5268,54 +5326,6 @@ table_NameColumn.__super__ = table_FancyColumn;
 table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 	matchesFilter: function(kb) {
 		return true;
-	}
-	,buildFilter: function(out) {
-		var _gthis = this;
-		var showImgDiv = tools_HtmlTools.appendElTextNode(out,"label");
-		var showImgCb = tools_HtmlTools.createCheckboxElement(window.document);
-		var showImg = false;
-		showImgCb.onchange = function() {
-			if(showImgCb.checked == showImg) {
-				return;
-			}
-			showImg = showImgCb.checked;
-			var _g = 0;
-			var _g1 = _gthis.table.rows;
-			while(_g < _g1.length) {
-				var row = _g1[_g];
-				++_g;
-				var cell = row.cells[0];
-				if(showImg) {
-					var _g2 = 0;
-					var _g3 = row.value.img;
-					while(_g2 < _g3.length) {
-						var src = _g3[_g2];
-						++_g2;
-						var small = "img-small/" + haxe_io_Path.withExtension(src,"webp");
-						var img = window.document.createElement("img");
-						img.src = small;
-						img.classList.add("small");
-						var a = window.document.createElement("a");
-						a.href = "img/" + src;
-						a.target = "_blank";
-						a.classList.add("preview");
-						a.appendChild(img);
-						cell.element.appendChild(a);
-					}
-				} else {
-					var _g4 = 0;
-					var _g5 = tools_HtmlTools.querySelectorAllAutoArr(cell.element,"a.preview",HTMLImageElement);
-					while(_g4 < _g5.length) {
-						var img1 = _g5[_g4];
-						++_g4;
-						img1.remove();
-					}
-				}
-			}
-		};
-		showImgDiv.appendChild(showImgCb);
-		showImgDiv.appendChild(window.document.createTextNode("Show images"));
-		table_FancyColumn.prototype.buildFilter.call(this,out);
 	}
 	,buildValue: function(out,kb) {
 		if(kb.img != null || kb.notes != null) {

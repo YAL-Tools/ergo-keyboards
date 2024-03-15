@@ -6,6 +6,7 @@ import js.Lib;
 import ColStagTable;
 import js.html.DetailsElement;
 import js.html.Element;
+import js.html.ImageElement;
 import js.html.InputElement;
 import table.FancyTableShuffler;
 import table.*;
@@ -29,7 +30,6 @@ class Main {
 		if (document.body.classList.contains("rowstag")) {
 			kbTable = cast new RowStagTable();
 		} else kbTable = cast new ColStagTable();
-		kbTable.resolveParents();
 		kbTable.countElement = document.querySelectorAuto("#count");
 		kbTable.buildFilters(divFilters);
 		kbTable.buildTable(document.querySelectorAuto("#data"));
@@ -80,6 +80,30 @@ class Main {
 			}
 			kbTable.sortBy(shuffler, false);
 			kbTable.updateURL();
+		}
+		//
+		var showImg = false;
+		var showImgCb:InputElement = document.querySelectorAuto("#show-images");
+		showImgCb.onchange = function() {
+			if (showImgCb.checked == showImg) return;
+			showImg = showImgCb.checked;
+			for (row in kbTable.rows) {
+				var cell = row.cells[0];
+				if (showImg) for (src in row.value.img) {
+					var small = "img-small/" + haxe.io.Path.withExtension(src, "webp");
+					var img = document.createImageElement();
+					img.src = small;
+					img.classList.add("small");
+					var a = document.createAnchorElement();
+					a.href = "img/" + src;
+					a.target = "_blank";
+					a.classList.add("preview");
+					a.appendChild(img);
+					cell.element.appendChild(a);
+				} else for (img in cell.element.querySelectorAllAutoArr("a.preview", ImageElement)) {
+					img.remove();
+				}
+			}
 		}
 		//
 		document.querySelectorAuto("#copy-md", InputElement).onclick = function() {
