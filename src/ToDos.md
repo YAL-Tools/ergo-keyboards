@@ -1,0 +1,2 @@
+- Separate trackpoint and stick
+- Replace tenting angle with tenting type (tented middle, tenting legs)

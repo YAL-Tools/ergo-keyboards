@@ -2224,7 +2224,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("ChonkV.jpg");
 	add(kb);
 	kb = ColStagKeyboard._new("BFO-9000 (" + 4 + "x#)");
-	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(56,64,72),type_NumRange.fromArray([7,9]),type_NumRange.fromValue(5));
+	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(56,64,72),type_NumRange.fromArray([7,9]),type_NumRange.fromValue(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(4),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
 	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
 	kb.hotswap = [type_HotSwap.No];
@@ -2236,7 +2236,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.notes = ["Uses breakaway rows and columns to allow matrices from 7x4 to 9x6"];
 	add(kb);
 	kb = ColStagKeyboard._new("BFO-9000 (" + 5 + "x#)");
-	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(70,80,90),type_NumRange.fromArray([7,9]),type_NumRange.fromValue(6));
+	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(70,80,90),type_NumRange.fromArray([7,9]),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(4),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
 	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
 	kb.hotswap = [type_HotSwap.No];
@@ -2248,7 +2248,7 @@ OrthoBoards.init = function(keyboards) {
 	kb.notes = ["Uses breakaway rows and columns to allow matrices from 7x4 to 9x6"];
 	add(kb);
 	kb = ColStagKeyboard._new("BFO-9000 (" + 6 + "x#)");
-	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(84,96,108),type_NumRange.fromArray([7,9]),type_NumRange.fromValue(7));
+	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(84,96,108),type_NumRange.fromArray([7,9]),type_NumRange.fromValue(5));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(4),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
 	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.Alps];
 	kb.hotswap = [type_HotSwap.No];

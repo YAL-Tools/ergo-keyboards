@@ -5295,8 +5295,13 @@ https://github.com/lapidot/ADuck
 https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux
 https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl
 https://github.com/fxkuehl/mantis
+https://github.com/moduloindustries/thinkeys
+https://github.com/saoto28/pineapple60
+https://kbd.news/FCS42S-keyboard-1317.html
+https://github.com/triliu/JESK56
 rhymestone
 Chimera Ortho
+Maltron keyboards
 `;
 /* TODO
 Claw44

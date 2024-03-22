@@ -95,7 +95,7 @@ class OrthoBoards {
 		
 		for (rows in 4 ... 7) {
 			kb = new ColStagKeyboard('BFO-9000 (${rows}x#)');
-			kb.setMatrix(IntRangeList.either(rows * 14, rows * 16, rows * 18), [7, 9], rows + 1);
+			kb.setMatrix(IntRangeList.either(rows * 14, rows * 16, rows * 18), [7, 9], rows - 1);
 			kb.setExtras(4, 0, 0, 4);
 			kb.switchProfile = [MX, Choc, Alps];
 			kb.hotswap = [No];

@@ -12,7 +12,7 @@ using tools.HtmlTools;
 class FancyTableToMD {
 	public static function run<T>(table:FancyTable<T>) {
 		var out = new StringBuf();
-		
+		// seek(/^(\|\[.+?\])\(.+?\)(.+\|)\[➜\](\(.+?\))\|/gm, "$1$3$2")
 		var hasLegend = false;
 		for (col in table.columns) if (col.show) {
 			var legends = col.getLegends();
