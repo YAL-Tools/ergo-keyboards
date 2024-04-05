@@ -1033,6 +1033,10 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
+	"source": [
+		"https://github.com/ergohaven/K02",
+		"https://oshwlab.com/yuriiq/k02",
+	],
 	"prebuilt": "!https://ergohaven.xyz/shop/tproduct/339856256-523210054391-k02"
 },
 {
@@ -5299,16 +5303,32 @@ https://github.com/moduloindustries/thinkeys
 https://github.com/saoto28/pineapple60
 https://kbd.news/FCS42S-keyboard-1317.html
 https://github.com/triliu/JESK56
+https://github.com/jcmkk3/trochilidae
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1bpza30/rzr36_ble_choc_version_of_my_earlier_slice36/
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1br8lx0/my_new_keyboard_prime52/
+https://github.com/kumekay/crabapplepad
+https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
+https://github.com/vinniefranco/anglerfish-splitk-keeb
+IF-CORNE
+Corne v4
 rhymestone
 Chimera Ortho
 Maltron keyboards
-`;
-/* TODO
 Claw44
 Gergo
 ZEN2
+Jian
+Jorne
+GrabShell https://grabshell.site/en/home-en/
+`;
+/* TODO
+
 https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
 
 https://kbd.news/aball-a-buttonless-trackball-139.html
+https://github.com/george-norton/peacock
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
+https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
+17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
 */

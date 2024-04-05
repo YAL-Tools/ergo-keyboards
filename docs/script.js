@@ -358,7 +358,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(1));
 	kb.img = type_ValList.fromValue("Hillside-48.jpg");
 	addHillside(kb);
-	kb = { name : "Drift", source : type_ValList.fromValue("https://github.com/Timception/Drift/"), prebuilt : type_ValList.fromValue("![th] https://solo.to/timception"), encoderType : type_ValList.fromValue(type_EncoderType.Wheel), encoders : type_NumRange.fromValue(2), displays : type_NumRange.fromValue(2), img : type_ValList.fromValue("Drift.jpg")};
+	kb = { name : "Drift", web : type_ValList.fromValue("https://github.com/Timception/Drift/"), prebuilt : type_ValList.fromValue("![th] https://solo.to/timception"), encoderType : type_ValList.fromValue(type_EncoderType.Wheel), encoders : type_NumRange.fromValue(2), displays : type_NumRange.fromValue(2), img : type_ValList.fromValue("Drift.jpg")};
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(68)],type_NumRange.fromValue(8),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(-1),type_NumRange.fromValue(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));

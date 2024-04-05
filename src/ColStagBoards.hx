@@ -677,7 +677,7 @@ class ColStagBoards {
 		
 		kb = {
 			name: "Drift",
-			source: "https://github.com/Timception/Drift/",
+			web: "https://github.com/Timception/Drift/",
 			prebuilt: "![th] https://solo.to/timception",
 			encoderType: EncoderType.Wheel,
 			encoders: 2,
