@@ -5276,7 +5276,49 @@ window.keyboardData = [
 	"caseType": "Included",
 	"kit": "https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6"
 },
-"2024-03-15"
+{
+	"name": "Anglerfish",
+	"img": "Anglerfish.jpg",
+	"notes": [
+		"\"Anglerfish, a split keyboard with 3x5 column staggered keys, two thumb keys, and a trackpoint.",
+		"",
+		"The Trackpoint can be placed on either side, and the PCB is a reversible design.\""
+	],
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"innerKeys": 0,
+	"outerKeys": 0,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
+	"splay": "No",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Other",
+	"encoders": 0,
+	"pointingDevices": 1,
+	"trackballs": 0,
+	"trackpads": 0,
+	"trackpoints": 1,
+	"dpads": 0,
+	"displays": 0,
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": "PCB",
+	"wristPads": "None",
+	"tenting": {
+		"min": 30,
+		"max": 85
+	},
+	"source": "https://github.com/vinniefranco/anglerfish-splitk-keeb",
+	"layoutRef": "https://github.com/vinniefranco/anglerfish-splitk-keeb/blob/main/assets/pcb/anglerfish.kicad_pcb"
+},
+"2024-04-08"
 ];
 window.keyboardTODOs = `
 https://github.com/krikun98/Skean
@@ -5308,7 +5350,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1bpza30/rzr36_ble_choc_versi
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1br8lx0/my_new_keyboard_prime52/
 https://github.com/kumekay/crabapplepad
 https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
-https://github.com/vinniefranco/anglerfish-splitk-keeb
+https://github.com/yanghu/unicorne
 IF-CORNE
 Corne v4
 rhymestone

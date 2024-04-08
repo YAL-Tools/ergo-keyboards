@@ -1,2 +1,4 @@
 - Separate trackpoint and stick
 - Replace tenting angle with tenting type (tented middle, tenting legs)
+- Add a "Reversible PCB" flag to Assembly Specifics
+- Tag ZMK-only keyboards as "only BT" connection since you can't connect the halves together (...yet)
