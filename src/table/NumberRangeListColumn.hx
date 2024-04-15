@@ -101,6 +101,12 @@ class NumberRangeListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, 
 	}
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var fd:TextAreaElement = Browser.document.createTextAreaElement();
+		fd.rows = 3;
+		fd.placeholder = [
+			"One value/range per line, e.g.",
+			"42",
+			"42..44",
+		].join("\n");
 		fd.onchange = function() {
 			var ranges = parseLines(fd.value);
 			fd.setAttributeFlag("invalid", ranges == null);
@@ -114,7 +120,11 @@ class NumberRangeListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, 
 		});
 		restore.push(function(kb) {
 			var ranges = field.access(kb);
-			fd.value = ranges.map(r -> r.toString()).join("\n");
+			if (ranges == null || ranges.length == 0) {
+				fd.value = "";
+			} else {
+				fd.value = ranges.map(r -> r.toString()).join("\n");
+			}
 		});
 	}
 	override public function save(kb:KB):Void {

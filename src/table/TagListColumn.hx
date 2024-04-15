@@ -60,6 +60,10 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 		}
 		super.buildFilter(out);
 	}
+	
+	public function tagsContain(tags:Array<ET>, tag:ET) {
+		return tags.contains(tag);
+	}
 	override public function matchesFilter(kb:KB):Bool {
 		if (filterTags.length == 0) return true;
 		var vals = getValue(kb);
@@ -69,18 +73,18 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 		}
 		switch (filterMode) {
 			case AnyOf:
-				for (val in vals) {
-					if (filterTags.contains(val)) return true;
+				for (val in filterTags) {
+					if (tagsContain(vals, val)) return true;
 				}
 				return false;
 			case AllOf:
-				for (val in vals) {
-					if (!filterTags.contains(val)) return false;
+				for (val in filterTags) {
+					if (!tagsContain(vals, val)) return false;
 				}
 				return true;
 			case NoneOf:
-				for (val in vals) {
-					if (filterTags.contains(val)) return false;
+				for (val in filterTags) {
+					if (tagsContain(vals, val)) return false;
 				}
 				return true;
 		}
@@ -106,6 +110,7 @@ class TagListColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, Val
 		optCtr.setAttribute("column-count", "" + columnCount);
 		for (ctr in Type.getEnumConstructs(type)) {
 			var val:ET = Type.createEnum(type, ctr);
+			if (!showInEditor(val)) continue;
 			var name = filterLabels[val] ?? ctr;
 			
 			var cb = document.createCheckboxElement();

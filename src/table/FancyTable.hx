@@ -204,6 +204,7 @@ class FancyTable<T> {
 		var wantFilter = false;
 		for (column in columns) {
 			var filter = column.loadFilterParams(obj);
+			if (column.filterCheckbox == null) continue;
 			column.filterCheckbox.checked = filter;
 			if (filter) {
 				column.filterCheckbox.triggerChange();

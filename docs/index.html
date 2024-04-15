@@ -25,7 +25,7 @@
 	<meta property="twitter:image:height" content="600" />
 	<meta property="twitter:url" content="https://yal-tools.github.io/ergo-keyboards/" />
 	
-	<link rel="stylesheet" href="style.css?v=2024-03-13" /> 
+	<link rel="stylesheet" href="style.css?v=2024-04-16" /> 
 	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
 <body>
@@ -166,9 +166,9 @@
 	<details id="todo-outer" style="margin-top: 0.5em">
 		<summary>Unsorted keyboards</summary>
 		Feel free to fill out and submit these if you have a moment.
-		<ul id="todo"><li>
+		<ol id="todo"><li>
 			Nothing here at the moment!
-		</li></ul>
+		</li></ol>
 	</details>
 	<details id="editor-outer">
 		<summary>Submit a keyboard?</summary>
@@ -176,6 +176,22 @@
 		<select id="editor-load" open>
 			<option selected value="">Load an existing keyboard?</option>
 		</select>
+		<details>
+			<summary>Notes</summary>
+			<ul><li>
+				The only obligatory fields are Name and Image URL(s).<br>
+				Anything that is not filled out will default to 0 (for numbers)
+				or the first option (for checkboxes)<br>
+				So, for example, if a keyboard doesn't have any pointing devices,
+				you don't have to fill out a bunch of 0s.
+			</li><li>
+				"Right-side columns" is auto-filled to "Columns" if not set.
+			</li><li>
+				If a keyboard supports <em>either</em> trackballs or touchpads
+				(as seen on Ximi), you'll need to fill out the "pointing devices"
+				field (or the numbers will be added up).
+			</li></ul>
+		</details>
 		<form id="editor"></form>
 		<input type="button" id="editor-test" value="Test"/>
 		<input type="button" id="editor-build" value="Generate JSON"/>
@@ -256,10 +272,10 @@
 	<script src="lib/popper.min.js"></script>
 	<script src="lib/tippy-bundle.umd.js"></script>
 	
-	<script src="keyboards.js?v=2024-04-08"></script>
-	<script src="rowstag.js?v=2024-03-13"></script>
+	<script src="keyboards.js?v=2024-04-16"></script>
+	<script src="rowstag.js?v=2024-04-16"></script>
 	<script src="origins.js?v=2024-03-13"></script>
-	<script src="script.js?v=2024-03-13"></script>
+	<script src="script.js?v=2024-04-16"></script>
 	
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4R5QPPHC8M"></script>

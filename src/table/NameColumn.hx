@@ -4,7 +4,9 @@ import externs.TippyOptions;
 import js.html.DivElement;
 import js.html.Element;
 import js.html.ImageElement;
+import js.html.SelectElement;
 import js.lib.RegExp;
+import table.StringColumn;
 import type.GetSetOn;
 import type.IntRange;
 import type.Keyboard;
@@ -16,17 +18,11 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
-	public var field:FancyField<KB, String>;
+class NameColumn<KB:Keyboard> extends StringColumn<KB> {
 	public function new(name:String, field:FancyField<KB, String>) {
-		super(name);
-		this.field = field;
-		canFilter = false;
-		canSort = true;
+		super(name, field);
 	}
-	override public function matchesFilter(kb:KB):Bool {
-		return true;
-	}
+	
 	override public function buildValue(out:Element, kb:KB):Void {
 		if (kb.img != null || kb.notes != null) {
 			var srcs:Array<String>;
@@ -71,30 +67,15 @@ class NameColumn<KB:Keyboard> extends FancyColumn<KB> {
 			out.appendTextNode(field.access(kb));
 		}
 	}
-	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
-		var an = field.access(a).toUpperCase();
-		var bn = field.access(b).toUpperCase();
-		var sign = an == bn ? 0 : (an < bn ? -1 : 1);
-		if (ascending) sign = -sign;
-		return sign;
-	}
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
-		var fd = document.createInputElement();
-		fd.type = "text";
-		store.push(function(kb) {
-			kb.name = fd.value;
-		});
-		restore.push(function(kb) {
-			fd.value = kb.name;
-		});
-		fd.placeholder = "Cool Keyboard";
-		out.appendChild(fd);
+		super.buildEditor(out, store, restore);
+		editorField.placeholder = "Cool Keyboard";
 		out.appendLineBreak();
 		
 		{
 			var textarea = document.createTextAreaElement();
 			textarea.style.marginTop = "0.25em";
-			textarea.placeholder = "one image URL per line";
+			textarea.placeholder = "One image URL per line";
 			out.appendChild(textarea);
 			store.push(function(kb) {
 				var text = textarea.value;

@@ -19,7 +19,7 @@ using StringTools;
  * ...
  * @author YellowAfterlife
  */
-class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
+class LinkListColumn<KB> extends FancyColumn<KB> {
 	public static var domainCountries:DynamicAccess<String> = new DynamicAccess();
 	public static var countryTags:DynamicAccess<String> = new DynamicAccess();
 	public var canShowSingle = false;
@@ -87,7 +87,10 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 					case "v", "var", "variant": variant = text; usesVariants = true;
 					case "a", "alt": alt = text;
 					case "": origins.push(text);
-					default: console.error('Unknown tag "$tag" in "$_href" in "${kb.name}');
+					default: {
+						var name = (cast kb).name;
+						console.error('Unknown tag "$tag" in "$_href" in "$name"');
+					};
 				}
 			}
 			
@@ -225,7 +228,7 @@ class LinkListColumn<KB:Keyboard> extends FancyColumn<KB> {
 		}
 		//out.appendTextNode(lines != null ? "" + lines.length : "");
 		(link ?? out).title = [
-			kb.name,
+			(cast kb).name,
 			name + " (" + (lines != null ? lines.length : 0) + ")"
 		].join("\n");
 	}

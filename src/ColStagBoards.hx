@@ -401,11 +401,19 @@ class ColStagBoards {
 		kb.connection = [Wired, Bluetooth];
 		kb.assembly = [PCB, Handwired];
 		kb.source = "https://github.com/mattdibi/redox-keyboard";
+		kb.extras = [
+			"[v:Case] https://github.com/Pastitas/Redox-neo-Case/",
+		];
 		kb.kit = [
 			"https://shop.beekeeb.com/product/redox-wireless-hotswap-keyboard-kit/",
+			"https://falbatech.click/products/Redox-Partially-assembled-with-electronics-cables-One-Hand-p613839989",
+			"https://falbatech.click/products/REDOX-Wireless-PCB-Electrical-Boards-Set-of-2-receiver-PCB-p613839986",
+			"https://falbatech.click/products/REDOX-PCB-Electrical-Boards-Set-of-2-p613836203",
 		];
 		kb.prebuilt = [
-			"https://falba.tech/custom-redox-v9b7d173b068d/",
+			"[v:Wired] https://falbatech.click/products/ReDOX-Fully-Assembled-Custom-Mechanical-Keyboard-p633260018",
+			"[v:Wired] https://falbatech.click/products/Redox-Mechanical-Keyboard-in-Bamboo-Casing-with-Stone-Effect-Elegance-and-Style-for-Enthusiasts-free-Shipping-p613843863",
+			"[v:BT] https://falbatech.click/products/ReDOX-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p633260056",
 			"https://shop.beekeeb.com/product/redox-fully-assembled/",
 		];
 		kb.addSKBC();
@@ -761,6 +769,7 @@ class ColStagBoards {
 		kb.lcols = [6, 9];
 		kb.splay = true;
 		kb.caseType = Included;
+		kb.numpad = [None, Mini];
 		add(kb);
 		
 		add({
@@ -863,7 +872,7 @@ class ColStagBoards {
 		kb.cornerKeys = 1;
 		kb.encoders = 1;
 		kb.wristPads = Detachable;
-		kb.tenting = 6;
+		kb.tenting = [Fixed];
 		kb.caseType = Included;
 		kb.source = "https://github.com/sevmeyer/chrumm-keyboard/";
 		kb.img = "Chrumm.jpg";
@@ -1061,7 +1070,7 @@ class ColStagBoards {
 		kb.setExtras(5, 3, 0, 0);
 		kb.setHotswap(MX);
 		kb.wristPads = Integrated;
-		kb.tenting = [0, 15];
+		kb.tenting = [Legs, Mount];
 		kb.caseType = Included;
 		kb.prebuilt = "!https://shop.keyboard.io/products/model-100";
 		kb.img = "keyboardio-m100.webp";
@@ -1072,7 +1081,7 @@ class ColStagBoards {
 		kb.setExtras(2, 0, 0, 0);
 		kb.setHotswap(Choc, MX);
 		kb.setQMK(Custom);
-		kb.tenting = [0, 4];
+		kb.tenting = [None, Legs, Mount];
 		kb.caseType = Included;
 		kb.prebuilt = "!https://www.zsa.io/voyager/";
 		kb.img = "zsa-voyager.jpg";
@@ -1085,7 +1094,7 @@ class ColStagBoards {
 		kb.setHotswap(MX);
 		kb.setQMK(Custom);
 		kb.wristPads = Detachable;
-		kb.tenting = [0, 40];
+		kb.tenting = [None, Legs, Mount];
 		kb.tilt = [ -10, 0];
 		kb.caseType = Included;
 		kb.prebuilt = "!https://www.zsa.io/moonlander/";
@@ -1100,7 +1109,7 @@ class ColStagBoards {
 		kb.setHotswap(MX);
 		kb.setQMK(Custom);
 		kb.wristPads = Detachable;
-		kb.tenting = [0, 11];
+		kb.tenting = [None, Legs, Mount];
 		kb.tilt = [ -10, 0];
 		kb.caseType = Included;
 		kb.prebuilt = "!https://ergodox-ez.com/";
@@ -1114,7 +1123,7 @@ class ColStagBoards {
 		kb.setHotswap(MX);
 		kb.connection = [Wired, Bluetooth];
 		kb.wristPads = Integrated;
-		kb.tenting = [0, 60];
+		kb.tenting = [None, Legs, Mount];
 		kb.tilt = [ -10, 0];
 		kb.caseType = Included;
 		kb.prebuilt = "!https://dygma.com/pages/defy";

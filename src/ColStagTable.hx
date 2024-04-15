@@ -34,8 +34,9 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		mAddColumn(col = new IntRangeListColumn("Key count", kb.keys));
 		col.shortName = "#keys";
 		
-		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));
-		col.onNotes = function(div) {
+		var rowsCol:IntRangeColumn<ColStagKeyboard>;
+		mAddColumn(rowsCol = new IntRangeColumn("Rows", kb.rows));
+		rowsCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"The number of rows in a keyboard half's main area,"
 				+ " not counting the thumb-keys row."
@@ -48,6 +49,8 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 				+ " - most of these keyboards are reprogrammable."
 			);
 		};
+		rowsCol.filterMinDefault = 4;
+		rowsCol.filterMaxDefault = 3;
 		
 		mAddColumn(col = new IntRangeColumn("Columns", kb.cols));
 		col.onNotes = function(div) {

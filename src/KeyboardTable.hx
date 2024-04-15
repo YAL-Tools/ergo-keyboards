@@ -1,5 +1,6 @@
 package;
 import haxe.Constraints.Function;
+import haxe.Json;
 import js.html.Element;
 import table.FancyColumn;
 import table.FancyField;
@@ -9,6 +10,7 @@ import table.IntListColumn;
 import table.IntRangeColumn;
 import table.LinkListColumn;
 import table.NameColumn;
+import table.ParentColumn;
 import table.TagColumn;
 import table.TagListColumn;
 import type.Assembly;
@@ -76,6 +78,9 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				}
 			}
 			llc.field.access(tmp, true, null);
+		}
+		if (kb.img == null && parent.img != null) {
+			kb.img = parent.img.copy();
 		}
 		
 		for (key in Object.keys(tmp)) {
@@ -146,9 +151,12 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 	
 	function initGeneral(kb:KB) {
 		var col:FancyColumn<KB>;
-		mAddColumn(col = new NameColumn("Name & photo", kb.name));
 		
 		addFilterHeader("General");
+		mAddColumn(col = new NameColumn("Name & photo", kb.name));
+		
+		mAddColumn(col = new ParentColumn("Parent", kb.parent));
+		col.show = false;
 		
 		var shape = new TagListColumn("Shape", mgf(kb.shape), Shape);
 		shape.show = false;
@@ -216,16 +224,22 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		};
 		addColumn(hotswap);
 		
-		var switchType = new TagListColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
+		var switchType = new SwitchProfileColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
 		switchType.shortName = "SwP";
+		//
+		switchType.filterLabels[SwitchProfile.AnyHP] = "High-profile";
+		switchType.filterLabels[SwitchProfile.AnyLP] = "Low-profile";
 		switchType.filterLabels[SwitchProfile.Choc] = "Kailh Choc V1";
 		switchType.filterLabels[SwitchProfile.ChocV2] = "Kailh Choc V2";
 		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron LP";
+		//
 		switchType.shortLabels[SwitchProfile.Unknown] = "";
 		switchType.shortLabels[SwitchProfile.GateronLP] = "GLP";
 		switchType.shortLabels[SwitchProfile.OutemuLP] = "OLP";
 		switchType.shortLabels[SwitchProfile.CherryULP] = "CULP";
 		switchType.shortLabels[SwitchProfile.Optical] = "Opt";
+		switchType.hideInEditor[SwitchProfile.AnyHP] = true;
+		switchType.hideInEditor[SwitchProfile.AnyLP] = true;
 		switchType.columnCount = 2;
 		addColumn(switchType);
 		
@@ -488,7 +502,12 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		}
 		addColumn(palm);
 		
-		var irCol:IntRangeColumn<KB>;
+		var tkCol = new TagListColumn("Tenting", mgf(kb.tenting), Tenting);
+		tkCol.show = false;
+		tkCol.columnCount = 2;
+		addColumn(tkCol);
+		
+		/*var irCol:IntRangeColumn<KB>;
 		mAddColumn(irCol = new IntRangeColumn("Tilt", kb.tilt));
 		irCol.suffix = "°";
 		irCol.show = false;
@@ -520,7 +539,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				"Measured in degrees, approximately (unless specified by author/manufacturer).",
 				"Much like with above, you can always make up for this yourself."
 			);
-		}
+		}*/
 		
 		var ctCol = new TagListColumn("Case", mgf(kb.caseType), CaseType);
 		ctCol.onNotes = function(div) {
@@ -586,12 +605,31 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		asm.defaultValue = [];
 		asm.columnCount = 2;
 		asm.onNotes = function(div) {
-			div.appendParaTextNode(
-				"Assume keyboards to have PCBs unless specified otherwise."
-			);
-			div.appendParaTextNode(
-				"If a keyboard is marked as both PCB and handwire, it has two versions."
-			);
+			var ul = div.appendElTextNode("ul");
+			if (asm.usedValues.exists(Handwired)) {
+				ul.appendElMarkupNode("li",
+					"<b>PCB</b> means that the keyboard uses a circuit board."
+					+ "<br>This means less soldering, but you have to order a PCB from somewhere."
+				);
+				ul.appendElMarkupNode("li",
+					"<b>Handwired</b> means that the keyboard is wired by hand,"
+					+ " usually in a 3d-printed case. This is more work,"
+					+ " but can make it easier to assemble a keyboard in countries where"
+					+ " ordering PCBs might be unreasonably expensive."
+				);
+				ul.appendElMarkupNode("li",
+					"Some keyboards have separate PCB and Handwired versions."
+				);
+			}
+			if (asm.usedValues.exists(Diodeless)) {
+				var li = ul.appendElTextNode("li");
+				li.innerHTML = (
+					"<b>Diodeless</b> means that the keyboard <i>definitely</i> doesn't use diodes,"
+					+ " which means a little less soldering.<br>"
+					+ "This classification is work-in-progress,"
+					+ " but keyboards with 36 keys or less are typically diodeless."
+				);
+			}
 		}
 		//asm.shortLabels[Assembly.Unspecified] = "";
 		asm.shortName = "Assembly";
@@ -615,7 +653,11 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 	public function initKeyboards() {
 		
 	}
+	public var rawKeyboards:Array<KB> = [];
 	public function post() {
+		rawKeyboards = values.map(function(kb) {
+			return cast tools.ValueTools.copy(kb);
+		});
 		resolveParents();
 		for (kb in values) {
 			if (kb.assembly == null) {
@@ -623,6 +665,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			} else if (kb.assembly.contains(Handwired)) {
 				if (kb.caseType == null) kb.caseType = [Included];
 				if (kb.hotswap == null) kb.hotswap = [No];
+			} else {
+				if (!kb.assembly.contains(PCB)) kb.assembly.unshift(PCB);
 			}
 			if (kb.hotswap == null && kb.switchProfile.safeContains(CherryULP)) {
 				kb.hotswap = [No];

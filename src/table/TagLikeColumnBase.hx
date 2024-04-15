@@ -31,6 +31,9 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	public function showInFilters(val:VT):Bool {
 		return true;
 	}
+	public function showInEditor(val:VT):Bool {
+		return true;
+	}
 	
 	public function new(name:String, field:FancyField<T, FT>) {
 		super(name);

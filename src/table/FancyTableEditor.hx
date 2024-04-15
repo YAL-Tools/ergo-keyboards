@@ -1,4 +1,6 @@
 package table;
+import js.Syntax;
+import haxe.DynamicAccess;
 import haxe.Json;
 import js.html.FormElement;
 import js.html.InputElement;
@@ -14,6 +16,8 @@ import table.FancyColumn;
 import table.FancyTableFilters;
 import table.FancyRow;
 import KeyboardTable;
+import table.LinkListColumn;
+import tools.CompactJsonPrinter;
 import type.IntRange;
 import type.Keyboard;
 using tools.HtmlTools;
@@ -24,6 +28,33 @@ import js.Browser.*;
  * @author YellowAfterlife
  */
 class FancyTableEditor {
+	static function print<KB>(table:FancyTable<KB>, kb:Any) {
+		var buf = new StringBuf();
+		buf.add("{");
+		
+		var pretty:DynamicAccess<Bool> = { notes: true };
+		for (col in table.columns) if (col is LinkListColumn) {
+			pretty[(cast col:LinkListColumn<KB>).field.name] = true;
+		}
+		
+		var sep = false;
+		for (fd in Reflect.fields(kb)) {
+			var val = Reflect.field(kb, fd);
+			if (Syntax.strictEq(val, js.Lib.undefined)) continue;
+			if (sep) buf.add(","); else sep = true;
+			buf.add("\n\t");
+			var str:String;
+			if (pretty[fd]) {
+				str = Json.stringify(val, null, "\t");
+				str = StringTools.replace(str, "\n", "\n\t");
+			} else {
+				str = CompactJsonPrinter.print(val, null, "");
+			}
+			buf.add(Json.stringify(fd) + ": " + str);
+		}
+		buf.add("\n}");
+		return buf.toString();
+	}
 	public static function build<KB>(table:FancyTable<KB>,
 		out:FormElement,
 		ddLoad:SelectElement,
@@ -88,7 +119,7 @@ class FancyTableEditor {
 		}
 		btBuild.onclick = function() {
 			var kb = buildKeyboard();
-			fdJSON.value = Json.stringify(kb, null, "\t") + ",";
+			fdJSON.value = print(table, kb) + ",";
 		}
 		btReset.onclick = function() {
 			if (!window.confirm(
@@ -98,7 +129,7 @@ class FancyTableEditor {
 		}
 		
 		if (table is KeyboardTable) {
-			var kbs = (cast table:KeyboardTable<Keyboard>).values;
+			var kbs = (cast table:KeyboardTable<Keyboard>).rawKeyboards;
 			kbs.sort(function(a, b) {
 				var an = a.name.toUpperCase();
 				var bn = b.name.toUpperCase();

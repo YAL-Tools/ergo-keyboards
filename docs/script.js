@@ -195,8 +195,9 @@ ColStagBoards.init = function(keyboards) {
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
 	kb.assembly = [type_Assembly.PCB,type_Assembly.Handwired];
 	kb.source = type_ValList.fromValue("https://github.com/mattdibi/redox-keyboard");
-	kb.kit = ["https://shop.beekeeb.com/product/redox-wireless-hotswap-keyboard-kit/"];
-	kb.prebuilt = ["https://falba.tech/custom-redox-v9b7d173b068d/","https://shop.beekeeb.com/product/redox-fully-assembled/"];
+	kb.extras = ["[v:Case] https://github.com/Pastitas/Redox-neo-Case/"];
+	kb.kit = ["https://shop.beekeeb.com/product/redox-wireless-hotswap-keyboard-kit/","https://falbatech.click/products/Redox-Partially-assembled-with-electronics-cables-One-Hand-p613839989","https://falbatech.click/products/REDOX-Wireless-PCB-Electrical-Boards-Set-of-2-receiver-PCB-p613839986","https://falbatech.click/products/REDOX-PCB-Electrical-Boards-Set-of-2-p613836203"];
+	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/ReDOX-Fully-Assembled-Custom-Mechanical-Keyboard-p633260018","[v:Wired] https://falbatech.click/products/Redox-Mechanical-Keyboard-in-Bamboo-Casing-with-Stone-Effect-Elegance-and-Style-for-Enthusiasts-free-Shipping-p613843863","[v:BT] https://falbatech.click/products/ReDOX-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p633260056","https://shop.beekeeb.com/product/redox-fully-assembled/"];
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
 	kb = ColStagKeyboard._new("NeoDox",redox);
@@ -392,6 +393,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.lcols = type_NumRange.fromArray([6,9]);
 	kb.splay = type_SplayBase.Yes;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+	kb.numpad = [type_Numpad.None,type_Numpad.Mini];
 	add(kb);
 	add({ name : "3w6", keys : type_NumRangeList.fromSimpleArray([35,36]), cols : type_NumRange.fromValue(5), rows : type_NumRange.fromValue(3), thumbKeys : type_NumRange.fromValue(3), trackballs : type_NumRange.fromArray([0,1]), trackballSize : pimoroniSize, hotswap : [type_HotSwap.No], switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : type_ValList.fromValue(type_KeySpacing.Choc), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/weteor/3W6"), kit : ["https://keycapsss.com/diy-kits/191/3w6-rp2040-split-keyboard-kit"], prebuilt : ["https://shop.beekeeb.com/product/pre-soldered-3w6-keyboard/"], img : type_ValList.fromValue("3w6_rev2.jpg")});
 	add({ name : "CozyKeys Bloomer", keys : [type_NumRange.fromValue(87)], cols : type_NumRange.fromValue(6), rows : type_NumRange.fromValue(5), thumbKeys : type_NumRange.fromValue(5), cornerKeys : type_NumRange.fromValue(6), navCluster : type_ValList.fromValue(type_NavCluster.Full), hotswap : [type_HotSwap.No], switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), shape : type_ValList.fromValue(type_Shape.Unibody), caseType : type_ValList.fromValue(type_CaseType.Included), source : type_ValList.fromValue("https://github.com/cozykeys/Bloomer"), img : type_ValList.fromValue("Bloomer.jfif")});
@@ -415,7 +417,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.cornerKeys = type_NumRange.fromValue(1);
 	kb.encoders = type_NumRange.fromValue(1);
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
-	kb.tenting = type_NumRange.fromValue(6);
+	kb.tenting = [type_Tenting.Fixed];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.source = type_ValList.fromValue("https://github.com/sevmeyer/chrumm-keyboard/");
 	kb.img = type_ValList.fromValue("Chrumm.jpg");
@@ -561,7 +563,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5),type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
-	kb.tenting = type_NumRange.fromArray([0,15]);
+	kb.tenting = [type_Tenting.Legs,type_Tenting.Mount];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("!https://shop.keyboard.io/products/model-100");
 	kb.img = type_ValList.fromValue("keyboardio-m100.webp");
@@ -571,7 +573,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(2),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(0));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Custom));
-	kb.tenting = type_NumRange.fromArray([0,4]);
+	kb.tenting = [type_Tenting.None,type_Tenting.Legs,type_Tenting.Mount];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("!https://www.zsa.io/voyager/");
 	kb.img = type_ValList.fromValue("zsa-voyager.jpg");
@@ -583,7 +585,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Custom));
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
-	kb.tenting = type_NumRange.fromArray([0,40]);
+	kb.tenting = [type_Tenting.None,type_Tenting.Legs,type_Tenting.Mount];
 	kb.tilt = type_NumRange.fromArray([-10,0]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("!https://www.zsa.io/moonlander/");
@@ -597,7 +599,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Custom));
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
-	kb.tenting = type_NumRange.fromArray([0,11]);
+	kb.tenting = [type_Tenting.None,type_Tenting.Legs,type_Tenting.Mount];
 	kb.tilt = type_NumRange.fromArray([-10,0]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("!https://ergodox-ez.com/");
@@ -610,7 +612,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
-	kb.tenting = type_NumRange.fromArray([0,60]);
+	kb.tenting = [type_Tenting.None,type_Tenting.Legs,type_Tenting.Mount];
 	kb.tilt = type_NumRange.fromArray([-10,0]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("!https://dygma.com/pages/defy");
@@ -706,7 +708,15 @@ var table_FancyTable = function() {
 };
 table_FancyTable.__name__ = true;
 table_FancyTable.prototype = {
-	addColumn: function(col) {
+	columns: null
+	,filterOrder: null
+	,values: null
+	,header: null
+	,rows: null
+	,countElement: null
+	,testRow: null
+	,outElement: null
+	,addColumn: function(col) {
 		col.table = this;
 		this.columns.push(col);
 		this.filterOrder.push(table_FancyTableFilterOrder.Column(col));
@@ -732,6 +742,8 @@ table_FancyTable.prototype = {
 			this.header.element.after(row.element);
 		}
 	}
+	,sortColHead: null
+	,sortAscending: null
 	,createRow: function(keyboard) {
 		var row = new table_FancyRow(keyboard);
 		var _g = 0;
@@ -812,6 +824,7 @@ table_FancyTable.prototype = {
 			this.countElement.innerText = "" + this.values.length;
 		}
 	}
+	,canUpdateFilters: null
 	,updateFilters: function(_updateURL) {
 		if(_updateURL == null) {
 			_updateURL = true;
@@ -897,6 +910,8 @@ table_FancyTable.prototype = {
 		}
 		return "?" + paramPairs.join("&");
 	}
+	,canUpdateURL: null
+	,baseURL: null
 	,updateURL: function() {
 		if(!this.canUpdateURL) {
 			return;
@@ -933,6 +948,9 @@ table_FancyTable.prototype = {
 			var column = _g1[_g];
 			++_g;
 			var filter = column.loadFilterParams(obj);
+			if(column.filterCheckbox == null) {
+				continue;
+			}
 			column.filterCheckbox.checked = filter;
 			if(filter) {
 				tools_HtmlTools.triggerChange(column.filterCheckbox);
@@ -976,8 +994,10 @@ table_FancyTable.prototype = {
 		this.outElement.appendChild(this.testRow.element);
 		this.rows.push(this.testRow);
 	}
+	,__class__: table_FancyTable
 };
 var KeyboardTable = function() {
+	this.rawKeyboards = [];
 	table_FancyTable.call(this);
 	var inits = this.getInits();
 	var _g = 0;
@@ -1047,6 +1067,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				}
 				llc.field.access(tmp,true,null);
 			}
+		}
+		if(kb.img == null && parent.img != null) {
+			kb.img = parent.img.slice();
 		}
 		var _g = 0;
 		var _g1 = Object.keys(tmp);
@@ -1135,6 +1158,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumn(numpad);
 	}
 	,initGeneral: function(kb) {
+		this.addFilterHeader("General");
 		var col = new table_NameColumn("Name & photo",new table_FancyField("name",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.name = setValue;
@@ -1144,7 +1168,16 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(col);
-		this.addFilterHeader("General");
+		col = new table_ParentColumn("Parent",new table_FancyField("parent",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.parent = setValue;
+				return null;
+			} else {
+				return q.parent;
+			}
+		}));
+		this.addColumn(col);
+		col.show = false;
 		var shape = new table_TagListColumn("Shape",new table_FancyField("shape",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.shape = setValue;
@@ -1226,7 +1259,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			return true;
 		};
 		this.addColumn(hotswap);
-		var switchType = new table_TagListColumn("Switch profile",new table_FancyField("switchProfile",function(q,wantSet,setValue) {
+		var switchType = new type_SwitchProfileColumn("Switch profile",new table_FancyField("switchProfile",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.switchProfile = setValue;
 				return null;
@@ -1235,6 +1268,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_SwitchProfile);
 		switchType.shortName = "SwP";
+		switchType.filterLabels.set(type_SwitchProfile.AnyHP,"High-profile");
+		switchType.filterLabels.set(type_SwitchProfile.AnyLP,"Low-profile");
 		switchType.filterLabels.set(type_SwitchProfile.Choc,"Kailh Choc V1");
 		switchType.filterLabels.set(type_SwitchProfile.ChocV2,"Kailh Choc V2");
 		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron LP");
@@ -1243,6 +1278,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		switchType.shortLabels.set(type_SwitchProfile.OutemuLP,"OLP");
 		switchType.shortLabels.set(type_SwitchProfile.CherryULP,"CULP");
 		switchType.shortLabels.set(type_SwitchProfile.Optical,"Opt");
+		switchType.hideInEditor.set(type_SwitchProfile.AnyHP,true);
+		switchType.hideInEditor.set(type_SwitchProfile.AnyLP,true);
 		switchType.columnCount = 2;
 		this.addColumn(switchType);
 		var colSpacing = new table_TagListColumn("Key spacing",new table_FancyField("keySpacing",function(q,wantSet,setValue) {
@@ -1539,7 +1576,6 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		};
 	}
 	,initConveniences: function(kb) {
-		var _gthis = this;
 		var header = this.addFilterHeader("Conveniences");
 		var col;
 		var palm = new table_TagListColumn("Palm/wrist pads",new table_FancyField("wristPads",function(q,wantSet,setValue) {
@@ -1560,36 +1596,17 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			tools_HtmlTools.appendParaTextNode(div,"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them" + " separately, or use any other semi-soft object of your choice" + " (such as a folded little towel or a Purple Squishy)","Some people argue that making your own palm rest is often preferable as you can" + " pick the height/firmness.");
 		};
 		this.addColumn(palm);
-		var irCol = new table_IntRangeColumn("Tilt",new table_FancyField("tilt",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.tilt = setValue;
-				return null;
-			} else {
-				return q.tilt;
-			}
-		}));
-		this.addColumn(irCol);
-		irCol.suffix = "°";
-		irCol.show = false;
-		irCol.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Measured in degrees, approximately (unless specified by author/manufacturer).","Positive values mean that the back edge of the keyboard is positioned higher than" + " the front edge relative to the surface it's sitting on.","A range usually means that keyboard has a pair (or few) legs on front/back.","Not filled out for keywell keyboards since this doesn't make sense there.","If the keyboard has no legs, you can always add your own - adhesive legs for laptops" + " work perfectly well for keyboards too.");
-		};
-		irCol = new table_IntRangeColumn("Tenting",new table_FancyField("tenting",function(q,wantSet,setValue) {
+		var tkCol = new table_TagListColumn("Tenting",new table_FancyField("tenting",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.tenting = setValue;
 				return null;
 			} else {
 				return q.tenting;
 			}
-		}));
-		this.addColumn(irCol);
-		irCol.suffix = "°";
-		irCol.show = false;
-		irCol.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Some keyboards have an integrated system to raise the middle part of the keyboard" + " to keep palms at a more natural angle - usually either holes for tenting-legs" + " or magnets hidden in the bottom plate.");
-			_gthis.addImagePara(div,"high-stakes-tenting.jpg",450,244,"30mm vs 15mm tenting legs on ErgoHaven's K:02");
-			tools_HtmlTools.appendParaTextNode(div,"Measured in degrees, approximately (unless specified by author/manufacturer).","Much like with above, you can always make up for this yourself.");
-		};
+		}),type_Tenting);
+		tkCol.show = false;
+		tkCol.columnCount = 2;
+		this.addColumn(tkCol);
 		var ctCol = new table_TagListColumn("Case",new table_FancyField("caseType",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.caseType = setValue;
@@ -1693,8 +1710,16 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		asm.defaultValue = [];
 		asm.columnCount = 2;
 		asm.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"Assume keyboards to have PCBs unless specified otherwise.");
-			tools_HtmlTools.appendParaTextNode(div,"If a keyboard is marked as both PCB and handwire, it has two versions.");
+			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
+			if(asm.usedValues.exists(type_Assembly.Handwired)) {
+				tools_HtmlTools.appendElMarkupNode(ul,"li","<b>PCB</b> means that the keyboard uses a circuit board." + "<br>This means less soldering, but you have to order a PCB from somewhere.");
+				tools_HtmlTools.appendElMarkupNode(ul,"li","<b>Handwired</b> means that the keyboard is wired by hand," + " usually in a 3d-printed case. This is more work," + " but can make it easier to assemble a keyboard in countries where" + " ordering PCBs might be unreasonably expensive.");
+				tools_HtmlTools.appendElMarkupNode(ul,"li","Some keyboards have separate PCB and Handwired versions.");
+			}
+			if(asm.usedValues.exists(type_Assembly.Diodeless)) {
+				var li = tools_HtmlTools.appendElTextNode(ul,"li");
+				li.innerHTML = "<b>Diodeless</b> means that the keyboard <i>definitely</i> doesn't use diodes," + " which means a little less soldering.<br>" + "This classification is work-in-progress," + " but keyboards with 36 keys or less are typically diodeless.";
+			}
 		};
 		asm.shortName = "Assembly";
 		asm.show = false;
@@ -1714,7 +1739,17 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 	}
 	,initKeyboards: function() {
 	}
+	,rawKeyboards: null
 	,post: function() {
+		var _this = this.values;
+		var result = new Array(_this.length);
+		var _g = 0;
+		var _g1 = _this.length;
+		while(_g < _g1) {
+			var i = _g++;
+			result[i] = tools_ValueTools.copy(_this[i]);
+		}
+		this.rawKeyboards = result;
 		this.resolveParents();
 		var _g = 0;
 		var _g1 = this.values;
@@ -1730,6 +1765,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				if(kb.hotswap == null) {
 					kb.hotswap = [type_HotSwap.No];
 				}
+			} else if(kb.assembly.indexOf(type_Assembly.PCB) == -1) {
+				kb.assembly.unshift(type_Assembly.PCB);
 			}
 			if(kb.hotswap == null && type_ValList.safeContains(kb.switchProfile,type_SwitchProfile.CherryULP)) {
 				kb.hotswap = [type_HotSwap.No];
@@ -1749,6 +1786,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}
 	}
+	,__class__: KeyboardTable
 });
 var ColStagTable = function() {
 	KeyboardTable.call(this);
@@ -1770,7 +1808,7 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		}));
 		this.addColumn(col);
 		col.shortName = "#keys";
-		col = new table_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
+		var rowsCol = new table_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.rows = setValue;
 				return null;
@@ -1778,12 +1816,14 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.rows;
 			}
 		}));
-		this.addColumn(col);
-		col.onNotes = function(div) {
+		this.addColumn(rowsCol);
+		rowsCol.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard half's main area," + " not counting the thumb-keys row.");
 			_gthis.addImagePara(div,"matrix.png",450,250,"Key matrix on a Redox keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"Conventionally, 4th row is typically used for digit keys" + " and 5th row is typically used for F-key," + " but don't let anyone tell you what to do" + " - most of these keyboards are reprogrammable.");
 		};
+		rowsCol.filterMinDefault = 4;
+		rowsCol.filterMaxDefault = 3;
 		col = new table_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.cols = setValue;
@@ -1985,9 +2025,18 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}
 	}
+	,__class__: ColStagTable
 });
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
+HxOverrides.dateStr = function(date) {
+	var m = date.getMonth() + 1;
+	var d = date.getDate();
+	var h = date.getHours();
+	var mi = date.getMinutes();
+	var s = date.getSeconds();
+	return date.getFullYear() + "-" + (m < 10 ? "0" + m : "" + m) + "-" + (d < 10 ? "0" + d : "" + d) + " " + (h < 10 ? "0" + h : "" + h) + ":" + (mi < 10 ? "0" + mi : "" + mi) + ":" + (s < 10 ? "0" + s : "" + s);
+};
 HxOverrides.cca = function(s,index) {
 	var x = s.charCodeAt(index);
 	if(x != x) {
@@ -2023,6 +2072,11 @@ var KeyboardTableInit = function(id,fn) {
 	this.fn = fn;
 };
 KeyboardTableInit.__name__ = true;
+KeyboardTableInit.prototype = {
+	id: null
+	,fn: null
+	,__class__: KeyboardTableInit
+};
 var KeyboardTableInitList = {};
 KeyboardTableInitList._new = function() {
 	return [];
@@ -2798,6 +2852,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}
 	}
+	,__class__: RowStagTable
 });
 var Std = function() { };
 Std.__name__ = true;
@@ -2810,6 +2865,14 @@ Std.parseInt = function(x) {
 		return null;
 	}
 	return v;
+};
+var StringBuf = function() {
+	this.b = "";
+};
+StringBuf.__name__ = true;
+StringBuf.prototype = {
+	b: null
+	,__class__: StringBuf
 };
 var StringTools = function() { };
 StringTools.__name__ = true;
@@ -2858,6 +2921,9 @@ StringTools.htmlEscape = function(s,quotes) {
 		}
 	}
 	return buf_b;
+};
+StringTools.htmlUnescape = function(s) {
+	return s.split("&gt;").join(">").split("&lt;").join("<").split("&quot;").join("\"").split("&#039;").join("'").split("&amp;").join("&");
 };
 StringTools.startsWith = function(s,start) {
 	if(s.length >= start.length) {
@@ -2972,6 +3038,18 @@ ToDoList.set = function(text) {
 		ToDoList.element.appendChild(li);
 	}
 };
+var ValueType = $hxEnums["ValueType"] = { __ename__:true,__constructs__:null
+	,TNull: {_hx_name:"TNull",_hx_index:0,__enum__:"ValueType",toString:$estr}
+	,TInt: {_hx_name:"TInt",_hx_index:1,__enum__:"ValueType",toString:$estr}
+	,TFloat: {_hx_name:"TFloat",_hx_index:2,__enum__:"ValueType",toString:$estr}
+	,TBool: {_hx_name:"TBool",_hx_index:3,__enum__:"ValueType",toString:$estr}
+	,TObject: {_hx_name:"TObject",_hx_index:4,__enum__:"ValueType",toString:$estr}
+	,TFunction: {_hx_name:"TFunction",_hx_index:5,__enum__:"ValueType",toString:$estr}
+	,TClass: ($_=function(c) { return {_hx_index:6,c:c,__enum__:"ValueType",toString:$estr}; },$_._hx_name="TClass",$_.__params__ = ["c"],$_)
+	,TEnum: ($_=function(e) { return {_hx_index:7,e:e,__enum__:"ValueType",toString:$estr}; },$_._hx_name="TEnum",$_.__params__ = ["e"],$_)
+	,TUnknown: {_hx_name:"TUnknown",_hx_index:8,__enum__:"ValueType",toString:$estr}
+};
+ValueType.__constructs__ = [ValueType.TNull,ValueType.TInt,ValueType.TFloat,ValueType.TBool,ValueType.TObject,ValueType.TFunction,ValueType.TClass,ValueType.TEnum,ValueType.TUnknown];
 var Type = function() { };
 Type.__name__ = true;
 Type.createEnum = function(e,constr,params) {
@@ -3003,6 +3081,48 @@ Type.createEnumIndex = function(e,index,params) {
 		throw haxe_Exception.thrown(index + " is not a valid enum constructor index");
 	}
 	return Type.createEnum(e,c,params);
+};
+Type.getInstanceFields = function(c) {
+	var a = [];
+	for(var i in c.prototype) a.push(i);
+	HxOverrides.remove(a,"__class__");
+	HxOverrides.remove(a,"__properties__");
+	return a;
+};
+Type.typeof = function(v) {
+	switch(typeof(v)) {
+	case "boolean":
+		return ValueType.TBool;
+	case "function":
+		if(v.__name__ || v.__ename__) {
+			return ValueType.TObject;
+		}
+		return ValueType.TFunction;
+	case "number":
+		if(Math.ceil(v) == v % 2147483648.0) {
+			return ValueType.TInt;
+		}
+		return ValueType.TFloat;
+	case "object":
+		if(v == null) {
+			return ValueType.TNull;
+		}
+		var e = v.__enum__;
+		if(e != null) {
+			return ValueType.TEnum($hxEnums[e]);
+		}
+		var c = js_Boot.getClass(v);
+		if(c != null) {
+			return ValueType.TClass(c);
+		}
+		return ValueType.TObject;
+	case "string":
+		return ValueType.TClass(String);
+	case "undefined":
+		return ValueType.TNull;
+	default:
+		return ValueType.TUnknown;
+	}
 };
 Type.enumParameters = function(e) {
 	var enm = $hxEnums[e.__enum__];
@@ -3197,12 +3317,16 @@ haxe_Exception.thrown = function(value) {
 };
 haxe_Exception.__super__ = Error;
 haxe_Exception.prototype = $extend(Error.prototype,{
-	unwrap: function() {
+	__skipStack: null
+	,__nativeException: null
+	,__previousException: null
+	,unwrap: function() {
 		return this.__nativeException;
 	}
 	,get_native: function() {
 		return this.__nativeException;
 	}
+	,__class__: haxe_Exception
 });
 var haxe_ValueException = function(value,previous,native) {
 	haxe_Exception.call(this,String(value),previous,native);
@@ -3211,15 +3335,18 @@ var haxe_ValueException = function(value,previous,native) {
 haxe_ValueException.__name__ = true;
 haxe_ValueException.__super__ = haxe_Exception;
 haxe_ValueException.prototype = $extend(haxe_Exception.prototype,{
-	unwrap: function() {
+	value: null
+	,unwrap: function() {
 		return this.value;
 	}
+	,__class__: haxe_ValueException
 });
 var haxe_ds_BalancedTree = function() {
 };
 haxe_ds_BalancedTree.__name__ = true;
 haxe_ds_BalancedTree.prototype = {
-	set: function(key,value) {
+	root: null
+	,set: function(key,value) {
 		this.root = this.setLoop(key,value,this.root);
 	}
 	,get: function(key) {
@@ -3292,6 +3419,7 @@ haxe_ds_BalancedTree.prototype = {
 	,compare: function(k1,k2) {
 		return Reflect.compare(k1,k2);
 	}
+	,__class__: haxe_ds_BalancedTree
 };
 var haxe_ds_TreeNode = function(l,k,v,r,h) {
 	if(h == null) {
@@ -3318,6 +3446,14 @@ var haxe_ds_TreeNode = function(l,k,v,r,h) {
 	}
 };
 haxe_ds_TreeNode.__name__ = true;
+haxe_ds_TreeNode.prototype = {
+	left: null
+	,right: null
+	,key: null
+	,value: null
+	,_height: null
+	,__class__: haxe_ds_TreeNode
+};
 var haxe_ds_EnumValueMap = function() {
 	haxe_ds_BalancedTree.call(this);
 };
@@ -3361,7 +3497,16 @@ haxe_ds_EnumValueMap.prototype = $extend(haxe_ds_BalancedTree.prototype,{
 			return Reflect.compare(v1,v2);
 		}
 	}
+	,__class__: haxe_ds_EnumValueMap
 });
+var haxe_ds_StringMap = function() {
+	this.h = Object.create(null);
+};
+haxe_ds_StringMap.__name__ = true;
+haxe_ds_StringMap.prototype = {
+	h: null
+	,__class__: haxe_ds_StringMap
+};
 var haxe_io_Path = function(path) {
 	switch(path) {
 	case ".":case "..":
@@ -3397,9 +3542,14 @@ haxe_io_Path.withExtension = function(path,ext) {
 	return s.toString();
 };
 haxe_io_Path.prototype = {
-	toString: function() {
+	dir: null
+	,file: null
+	,ext: null
+	,backslash: null
+	,toString: function() {
 		return (this.dir == null ? "" : this.dir + (this.backslash ? "\\" : "/")) + this.file + (this.ext == null ? "" : "." + this.ext);
 	}
+	,__class__: haxe_io_Path
 };
 var haxe_iterators_ArrayIterator = function(array) {
 	this.current = 0;
@@ -3407,15 +3557,35 @@ var haxe_iterators_ArrayIterator = function(array) {
 };
 haxe_iterators_ArrayIterator.__name__ = true;
 haxe_iterators_ArrayIterator.prototype = {
-	hasNext: function() {
+	array: null
+	,current: null
+	,hasNext: function() {
 		return this.current < this.array.length;
 	}
 	,next: function() {
 		return this.array[this.current++];
 	}
+	,__class__: haxe_iterators_ArrayIterator
 };
 var js_Boot = function() { };
 js_Boot.__name__ = true;
+js_Boot.getClass = function(o) {
+	if(o == null) {
+		return null;
+	} else if(((o) instanceof Array)) {
+		return Array;
+	} else {
+		var cl = o.__class__;
+		if(cl != null) {
+			return cl;
+		}
+		var name = js_Boot.__nativeClassName(o);
+		if(name != null) {
+			return js_Boot.__resolveNativeClass(name);
+		}
+		return null;
+	}
+};
 js_Boot.__string_rec = function(o,s) {
 	if(o == null) {
 		return "null";
@@ -3508,6 +3678,16 @@ js_Boot.__string_rec = function(o,s) {
 		return String(o);
 	}
 };
+js_Boot.__nativeClassName = function(o) {
+	var name = js_Boot.__toStr.call(o).slice(8,-1);
+	if(name == "Object" || name == "Function" || name == "Math" || name == "JSON") {
+		return null;
+	}
+	return name;
+};
+js_Boot.__resolveNativeClass = function(name) {
+	return $global[name];
+};
 var table_FancyColumn = function(name) {
 	this.canSort = false;
 	this.nullCaption = "";
@@ -3527,7 +3707,21 @@ var table_FancyColumn = function(name) {
 };
 table_FancyColumn.__name__ = true;
 table_FancyColumn.prototype = {
-	getId: function() {
+	table: null
+	,name: null
+	,filterName: null
+	,shortName: null
+	,onNotes: null
+	,onEditorNotes: null
+	,show: null
+	,canShow: null
+	,canFilter: null
+	,canEdit: null
+	,wantFilter: null
+	,showCheckbox: null
+	,filterCheckbox: null
+	,nullCaption: null
+	,getId: function() {
 		return this.name;
 	}
 	,buildValue: function(out,kb) {
@@ -3547,6 +3741,7 @@ table_FancyColumn.prototype = {
 	,getLegends: function() {
 		return [];
 	}
+	,canSort: null
 	,compareKeyboards: function(a,b,ascending) {
 		return 0;
 	}
@@ -3554,17 +3749,28 @@ table_FancyColumn.prototype = {
 	}
 	,load: function(kb) {
 	}
+	,__class__: table_FancyColumn
 };
 var table_FancyColumnLegend = function(short,full) {
 	this.short = short;
 	this.full = full;
 };
 table_FancyColumnLegend.__name__ = true;
+table_FancyColumnLegend.prototype = {
+	short: null
+	,full: null
+	,__class__: table_FancyColumnLegend
+};
 var table_FancyField = function(name,access) {
 	this.name = name;
 	this.access = access;
 };
 table_FancyField.__name__ = true;
+table_FancyField.prototype = {
+	name: null
+	,access: null
+	,__class__: table_FancyField
+};
 var table_FancyRow = function(ref) {
 	this.cells = [];
 	this.show = true;
@@ -3583,10 +3789,22 @@ var table_FancyRow = function(ref) {
 	});
 };
 table_FancyRow.__name__ = true;
+table_FancyRow.prototype = {
+	value: null
+	,element: null
+	,show: null
+	,cells: null
+	,__class__: table_FancyRow
+};
 var table_FancyTableCellBase = function(col) {
 	this.column = col;
 };
 table_FancyTableCellBase.__name__ = true;
+table_FancyTableCellBase.prototype = {
+	element: null
+	,column: null
+	,__class__: table_FancyTableCellBase
+};
 var table_FancyTableCell = function(col) {
 	table_FancyTableCellBase.call(this,col);
 	this.element = window.document.createElement("td");
@@ -3594,6 +3812,7 @@ var table_FancyTableCell = function(col) {
 table_FancyTableCell.__name__ = true;
 table_FancyTableCell.__super__ = table_FancyTableCellBase;
 table_FancyTableCell.prototype = $extend(table_FancyTableCellBase.prototype,{
+	__class__: table_FancyTableCell
 });
 var table_FancyTableHeaderCell = function(col) {
 	table_FancyTableCellBase.call(this,col);
@@ -3602,6 +3821,7 @@ var table_FancyTableHeaderCell = function(col) {
 table_FancyTableHeaderCell.__name__ = true;
 table_FancyTableHeaderCell.__super__ = table_FancyTableCellBase;
 table_FancyTableHeaderCell.prototype = $extend(table_FancyTableCellBase.prototype,{
+	__class__: table_FancyTableHeaderCell
 });
 var table_FancyTableFilterOrder = $hxEnums["table.FancyTableFilterOrder"] = { __ename__:true,__constructs__:null
 	,Column: ($_=function(col) { return {_hx_index:0,col:col,__enum__:"table.FancyTableFilterOrder",toString:$estr}; },$_._hx_name="Column",$_.__params__ = ["col"],$_)
@@ -3614,11 +3834,22 @@ var table_FancyFilterHeader = function(text) {
 	this.text = text;
 };
 table_FancyFilterHeader.__name__ = true;
+table_FancyFilterHeader.prototype = {
+	text: null
+	,filterNotes: null
+	,editorNotes: null
+	,__class__: table_FancyFilterHeader
+};
 var table_FancyHeaderNote = function(text,func) {
 	this.text = text;
 	this.func = func;
 };
 table_FancyHeaderNote.__name__ = true;
+table_FancyHeaderNote.prototype = {
+	text: null
+	,func: null
+	,__class__: table_FancyHeaderNote
+};
 var table_FancyTableControls = function() { };
 table_FancyTableControls.__name__ = true;
 table_FancyTableControls.clearFilters = function(table,divFilters) {
@@ -3677,6 +3908,47 @@ table_FancyTableControls.createShareButton = function(table,btShare) {
 };
 var table_FancyTableEditor = function() { };
 table_FancyTableEditor.__name__ = true;
+table_FancyTableEditor.print = function(table,kb) {
+	var buf_b = "";
+	buf_b += "{";
+	var pretty = { notes : true};
+	var _g = 0;
+	var _g1 = table.columns;
+	while(_g < _g1.length) {
+		var col = _g1[_g];
+		++_g;
+		if(((col) instanceof table_LinkListColumn)) {
+			pretty[col.field.name] = true;
+		}
+	}
+	var sep = false;
+	var _g = 0;
+	var _g1 = Reflect.fields(kb);
+	while(_g < _g1.length) {
+		var fd = _g1[_g];
+		++_g;
+		var val = Reflect.field(kb,fd);
+		if(((val) === undefined)) {
+			continue;
+		}
+		if(sep) {
+			buf_b += ",";
+		} else {
+			sep = true;
+		}
+		buf_b += "\n\t";
+		var str;
+		if(pretty[fd]) {
+			str = JSON.stringify(val,null,"\t");
+			str = StringTools.replace(str,"\n","\n\t");
+		} else {
+			str = tools_CompactJsonPrinter.print(val,null,"");
+		}
+		buf_b += Std.string(JSON.stringify(fd) + ": " + str);
+	}
+	buf_b += "\n}";
+	return buf_b;
+};
 table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,fdJSON) {
 	var dest = out;
 	var store = [];
@@ -3757,7 +4029,7 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 	};
 	btBuild.onclick = function() {
 		var kb = buildKeyboard();
-		var tmp = JSON.stringify(kb,null,"\t");
+		var tmp = table_FancyTableEditor.print(table,kb);
 		fdJSON.value = tmp + ",";
 	};
 	btReset.onclick = function() {
@@ -3767,7 +4039,7 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		out.reset();
 	};
 	if(((table) instanceof KeyboardTable)) {
-		var kbs = table.values;
+		var kbs = table.rawKeyboards;
 		kbs.sort(function(a,b) {
 			var an = a.name.toUpperCase();
 			var bn = b.name.toUpperCase();
@@ -3884,6 +4156,9 @@ table_FancyTableFilters.build = function(table,out) {
 			continue;
 		}
 		var column1 = [column];
+		if(!column1[0].canFilter) {
+			continue;
+		}
 		var tmp = column1[0].filterName;
 		var colName = tmp != null ? tmp : column1[0].name;
 		var tr = window.document.createElement("div");
@@ -3997,6 +4272,7 @@ table_FancyTableShuffler.prototype = $extend(table_FancyColumn.prototype,{
 			return 1;
 		}
 	}
+	,__class__: table_FancyTableShuffler
 });
 var table_FancyTableToMD = function() { };
 table_FancyTableToMD.__name__ = true;
@@ -4103,9 +4379,25 @@ var table_NumberColumnBase = function(name) {
 table_NumberColumnBase.__name__ = true;
 table_NumberColumnBase.__super__ = table_FancyColumn;
 table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
-	getId: function() {
+	field: null
+	,getId: function() {
 		return this.field.name;
 	}
+	,filterMin: null
+	,filterMinDefault: null
+	,filterMinField: null
+	,filterMinSlider: null
+	,filterMinCheckbox: null
+	,filterMax: null
+	,filterMaxDefault: null
+	,filterMaxField: null
+	,filterMaxSlider: null
+	,filterMaxCheckbox: null
+	,filterIncludeNull: null
+	,filterIncludeNullLabel: null
+	,filterIncludeNullCheckbox: null
+	,suffix: null
+	,sliderStep: null
 	,parseFilterValue: function(val) {
 		return null;
 	}
@@ -4364,6 +4656,7 @@ table_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		}
 		return ret;
 	}
+	,__class__: table_NumberColumnBase
 });
 var table_NumberColumn = function(name,field) {
 	this.defaultValue = 0;
@@ -4399,7 +4692,8 @@ table_NumberColumn.compareValues = function(a,b) {
 };
 table_NumberColumn.__super__ = table_NumberColumnBase;
 table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
-	getKnownRange: function(keyboards) {
+	defaultValue: null
+	,getKnownRange: function(keyboards) {
 		var min = null;
 		var max = null;
 		var _g = 0;
@@ -4474,6 +4768,7 @@ table_NumberColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 		}
 		return table_NumberColumn.compareValues(bv,av);
 	}
+	,__class__: table_NumberColumn
 });
 var table_FloatColumn = function(name,field) {
 	table_NumberColumn.call(this,name,field);
@@ -4484,6 +4779,7 @@ table_FloatColumn.prototype = $extend(table_NumberColumn.prototype,{
 	parseFilterValue: function(val) {
 		return table_NumberColumn.parseFloatValue(val);
 	}
+	,__class__: table_FloatColumn
 });
 var table_NumberListColumn = function(name,field) {
 	this.defaultValue = [];
@@ -4493,7 +4789,8 @@ var table_NumberListColumn = function(name,field) {
 table_NumberListColumn.__name__ = true;
 table_NumberListColumn.__super__ = table_NumberColumnBase;
 table_NumberListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
-	getKnownRange: function(keyboards) {
+	defaultValue: null
+	,getKnownRange: function(keyboards) {
 		var min = null;
 		var max = null;
 		var _g = 0;
@@ -4623,6 +4920,7 @@ table_NumberListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 			return table_NumberColumn.compareValues(bm,am);
 		}
 	}
+	,__class__: table_NumberListColumn
 });
 var table_IntListColumn = function(name,field) {
 	table_NumberListColumn.call(this,name,field);
@@ -4633,6 +4931,7 @@ table_IntListColumn.prototype = $extend(table_NumberListColumn.prototype,{
 	parseFilterValue: function(val) {
 		return table_NumberColumn.parseIntValue(val);
 	}
+	,__class__: table_IntListColumn
 });
 var table_NumberRangeColumn = function(name,field) {
 	this.defaultValue = { min : 0, max : 0};
@@ -4642,7 +4941,8 @@ var table_NumberRangeColumn = function(name,field) {
 table_NumberRangeColumn.__name__ = true;
 table_NumberRangeColumn.__super__ = table_NumberColumnBase;
 table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
-	getKnownRange: function(keyboards) {
+	defaultValue: null
+	,getKnownRange: function(keyboards) {
 		var min = null;
 		var max = null;
 		var _g = 0;
@@ -4761,6 +5061,7 @@ table_NumberRangeColumn.prototype = $extend(table_NumberColumnBase.prototype,{
 			this.field.access(kb,true,{ min : num, max : num});
 		}
 	}
+	,__class__: table_NumberRangeColumn
 });
 var table_IntRangeColumn = function(name,field) {
 	table_NumberRangeColumn.call(this,name,field);
@@ -4771,6 +5072,7 @@ table_IntRangeColumn.prototype = $extend(table_NumberRangeColumn.prototype,{
 	parseFilterValue: function(val) {
 		return table_NumberColumn.parseIntValue(val);
 	}
+	,__class__: table_IntRangeColumn
 });
 var table_NumberRangeListColumn = function(name,field) {
 	this.defaultValue = [];
@@ -4780,7 +5082,8 @@ var table_NumberRangeListColumn = function(name,field) {
 table_NumberRangeListColumn.__name__ = true;
 table_NumberRangeListColumn.__super__ = table_NumberColumnBase;
 table_NumberRangeListColumn.prototype = $extend(table_NumberColumnBase.prototype,{
-	getKnownRange: function(keyboards) {
+	defaultValue: null
+	,getKnownRange: function(keyboards) {
 		var min = null;
 		var max = null;
 		var _g = 0;
@@ -4910,6 +5213,8 @@ table_NumberRangeListColumn.prototype = $extend(table_NumberColumnBase.prototype
 	,buildEditor: function(out,store,restore) {
 		var _gthis = this;
 		var fd = window.document.createElement("textarea");
+		fd.rows = 3;
+		fd.placeholder = ["One value/range per line, e.g.","42","42..44"].join("\n");
 		fd.onchange = function() {
 			var ranges = _gthis.parseLines(fd.value);
 			tools_HtmlTools.setAttributeFlag(fd,"invalid",ranges == null);
@@ -4925,14 +5230,18 @@ table_NumberRangeListColumn.prototype = $extend(table_NumberColumnBase.prototype
 		});
 		restore.push(function(kb) {
 			var ranges = _gthis.field.access(kb);
-			var result = new Array(ranges.length);
-			var _g = 0;
-			var _g1 = ranges.length;
-			while(_g < _g1) {
-				var i = _g++;
-				result[i] = type_NumRange.toString(ranges[i]);
+			if(ranges == null || ranges.length == 0) {
+				fd.value = "";
+			} else {
+				var result = new Array(ranges.length);
+				var _g = 0;
+				var _g1 = ranges.length;
+				while(_g < _g1) {
+					var i = _g++;
+					result[i] = type_NumRange.toString(ranges[i]);
+				}
+				fd.value = result.join("\n");
 			}
-			fd.value = result.join("\n");
 		});
 	}
 	,save: function(kb) {
@@ -4981,6 +5290,7 @@ table_NumberRangeListColumn.prototype = $extend(table_NumberColumnBase.prototype
 			this.field.access(kb,true,[{ min : num, max : num}]);
 		}
 	}
+	,__class__: table_NumberRangeListColumn
 });
 var table_IntRangeListColumn = function(name,field) {
 	table_NumberRangeListColumn.call(this,name,field);
@@ -4991,6 +5301,7 @@ table_IntRangeListColumn.prototype = $extend(table_NumberRangeListColumn.prototy
 	parseFilterValue: function(val) {
 		return table_NumberColumn.parseIntValue(val);
 	}
+	,__class__: table_IntRangeListColumn
 });
 var table_LinkListColumn = function(name,field) {
 	this.defaultValue = "";
@@ -5015,9 +5326,12 @@ table_LinkListColumn.createFlag = function(origin) {
 };
 table_LinkListColumn.__super__ = table_FancyColumn;
 table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
-	getId: function() {
+	canShowSingle: null
+	,field: null
+	,getId: function() {
 		return this.field.name;
 	}
+	,defaultValue: null
 	,matchesFilter: function(kb) {
 		var lines = this.field.access(kb);
 		if(lines != null) {
@@ -5078,7 +5392,8 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 					usesVariants = true;
 					break;
 				default:
-					$global.console.error("Unknown tag \"" + tag + "\" in \"" + _href + "\" in \"" + kb.name);
+					var name = kb.name;
+					$global.console.error("Unknown tag \"" + tag + "\" in \"" + _href + "\" in \"" + name + "\"");
 				}
 			}
 			var pos1 = href.indexOf("@");
@@ -5301,6 +5616,7 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 	,loadFilterParams: function(obj) {
 		return obj[this.field.name] != null;
 	}
+	,__class__: table_LinkListColumn
 });
 var table_LinkListRow = function(label) {
 	this.origins = [];
@@ -5309,25 +5625,248 @@ var table_LinkListRow = function(label) {
 	this.label = label;
 };
 table_LinkListRow.__name__ = true;
+table_LinkListRow.prototype = {
+	official: null
+	,items: null
+	,label: null
+	,origins: null
+	,__class__: table_LinkListRow
+};
 var table_LinkListRowItem = function() {
 	this.alt = null;
 	this.url = null;
 	this.label = null;
 };
 table_LinkListRowItem.__name__ = true;
-var table_NameColumn = function(name,field) {
+table_LinkListRowItem.prototype = {
+	label: null
+	,url: null
+	,alt: null
+	,__class__: table_LinkListRowItem
+};
+var table_StringColumn = function(name,field) {
+	this.filterField = null;
+	this.filterWordsText = "";
+	this.filterWords = [];
+	this.filterModeSelect = null;
+	this.filterMode = table_TagFilterMode.AnyOf;
+	this.emptyToNull = false;
 	table_FancyColumn.call(this,name);
 	this.field = field;
-	this.canFilter = false;
 	this.canSort = true;
 };
-table_NameColumn.__name__ = true;
-table_NameColumn.__super__ = table_FancyColumn;
-table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
-	matchesFilter: function(kb) {
-		return true;
-	}
+table_StringColumn.__name__ = true;
+table_StringColumn.__super__ = table_FancyColumn;
+table_StringColumn.prototype = $extend(table_FancyColumn.prototype,{
+	field: null
+	,emptyToNull: null
 	,buildValue: function(out,kb) {
+		var text = this.field.access(kb);
+		out.appendChild(window.document.createTextNode(text));
+	}
+	,compareKeyboards: function(a,b,ascending) {
+		var an = this.field.access(a).toUpperCase();
+		var bn = this.field.access(b).toUpperCase();
+		var sign = an == bn ? 0 : an < bn ? -1 : 1;
+		if(ascending) {
+			sign = -sign;
+		}
+		return sign;
+	}
+	,filterMode: null
+	,filterModeSelect: null
+	,filterWords: null
+	,filterWordsText: null
+	,filterField: null
+	,buildFilter: function(out) {
+		var _gthis = this;
+		var modeSelect = window.document.createElement("select");
+		var _g = 0;
+		var _this = table_TagFilterMode.__constructs__;
+		var result = new Array(_this.length);
+		var _g1 = 0;
+		var _g2 = _this.length;
+		while(_g1 < _g2) {
+			var i = _g1++;
+			result[i] = _this[i]._hx_name;
+		}
+		var _g1 = result;
+		while(_g < _g1.length) {
+			var ctr = _g1[_g];
+			++_g;
+			var val = Type.createEnum(table_TagFilterMode,ctr,null);
+			var name;
+			switch(val._hx_index) {
+			case 0:
+				name = "Any of these";
+				break;
+			case 1:
+				name = "All of these";
+				break;
+			case 2:
+				name = "None of these";
+				break;
+			}
+			var opt = window.document.createElement("option");
+			opt.value = ctr;
+			opt.appendChild(window.document.createTextNode(name));
+			if(val == table_TagFilterMode.AnyOf) {
+				opt.selected = true;
+			}
+			modeSelect.appendChild(opt);
+		}
+		modeSelect.onchange = function(_) {
+			var old = _gthis.filterMode;
+			var tmp = Type.createEnum(table_TagFilterMode,modeSelect.value,null);
+			_gthis.filterMode = tmp != null ? tmp : table_TagFilterMode.AnyOf;
+			if(old != _gthis.filterMode) {
+				_gthis.table.updateFilters();
+			}
+		};
+		this.filterModeSelect = modeSelect;
+		out.appendChild(modeSelect);
+		this.filterField = window.document.createElement("textarea");
+		this.filterField.placeholder = "word1\nword2";
+		var syncWords = function() {
+			var newWords = _gthis.filterField.value.split("\n");
+			var result = new Array(newWords.length);
+			var _g = 0;
+			var _g1 = newWords.length;
+			while(_g < _g1) {
+				var i = _g++;
+				result[i] = StringTools.trim(newWords[i]).toLowerCase();
+			}
+			newWords = result;
+			var _g = [];
+			var _g1 = 0;
+			var _g2 = newWords;
+			while(_g1 < _g2.length) {
+				var v = _g2[_g1];
+				++_g1;
+				if(v != "") {
+					_g.push(v);
+				}
+			}
+			newWords = _g;
+			var newText = newWords.join("\n");
+			if(newText == _gthis.filterWordsText) {
+				return;
+			}
+			_gthis.filterWordsText = newText;
+			_gthis.filterWords = newWords;
+			_gthis.table.updateFilters();
+		};
+		tools_HtmlTools.addFieldChangeEventListener(this.filterField,function(_) {
+			syncWords();
+		});
+		out.appendChild(this.filterField);
+	}
+	,matchesFilter: function(kb) {
+		if(this.filterWords.length == 0) {
+			return true;
+		}
+		var lqn = this.field.access(kb).toLowerCase();
+		var _g = 0;
+		var _g1 = this.filterWords;
+		while(_g < _g1.length) {
+			var word = _g1[_g];
+			++_g;
+			switch(this.filterMode._hx_index) {
+			case 0:
+				if(lqn.indexOf(word) >= 0) {
+					return true;
+				}
+				break;
+			case 1:
+				if(lqn.indexOf(word) < 0) {
+					return false;
+				}
+				break;
+			case 2:
+				if(lqn.indexOf(word) >= 0) {
+					return false;
+				}
+				break;
+			}
+		}
+		return this.filterMode != table_TagFilterMode.AnyOf;
+	}
+	,editorField: null
+	,buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		var fd = window.document.createElement("input");
+		fd.type = "text";
+		store.push(function(kb) {
+			if(_gthis.emptyToNull && StringTools.trim(fd.value) == "") {
+				return;
+			}
+			_gthis.field.access(kb,true,fd.value);
+		});
+		restore.push(function(kb) {
+			var val = _gthis.field.access(kb);
+			fd.value = val != null ? val : "";
+		});
+		fd.placeholder = "Cool Keyboard";
+		out.appendChild(fd);
+		this.editorField = fd;
+	}
+	,saveFilterParams: function(obj) {
+		var name = this.field.name;
+		if(this.filterMode != table_TagFilterMode.AnyOf) {
+			var e = this.filterMode;
+			obj[name + "-mode"] = $hxEnums[e.__enum__].__constructs__[e._hx_index]._hx_name;
+		}
+		if(this.filterWords.length > 0) {
+			var _this = this.filterWords;
+			var result = new Array(_this.length);
+			var _g = 0;
+			var _g1 = _this.length;
+			while(_g < _g1) {
+				var i = _g++;
+				result[i] = StringTools.htmlEscape(_this[i],true);
+			}
+			obj[name] = result.join("+");
+		}
+	}
+	,loadFilterParams: function(obj) {
+		var name = this.field.name;
+		var mode = obj[name + "-mode"];
+		var ret = false;
+		if(mode != null) {
+			try {
+				this.filterMode = Type.createEnum(table_TagFilterMode,mode,null);
+				this.filterModeSelect.value = mode;
+				tools_HtmlTools.triggerChange(this.filterModeSelect);
+				ret = true;
+			} catch( _g ) {
+				$global.console.error("Invalid filter mode " + mode + " for " + name);
+			}
+		}
+		var listStr = obj[name];
+		if(listStr != null) {
+			var list = listStr.split("+");
+			var result = new Array(list.length);
+			var _g = 0;
+			var _g1 = list.length;
+			while(_g < _g1) {
+				var i = _g++;
+				result[i] = StringTools.htmlUnescape(list[i]);
+			}
+			this.filterWords = result;
+			this.filterField.value = this.filterWords.join("\n");
+			ret = true;
+		}
+		return ret;
+	}
+	,__class__: table_StringColumn
+});
+var table_NameColumn = function(name,field) {
+	table_StringColumn.call(this,name,field);
+};
+table_NameColumn.__name__ = true;
+table_NameColumn.__super__ = table_StringColumn;
+table_NameColumn.prototype = $extend(table_StringColumn.prototype,{
+	buildValue: function(out,kb) {
 		if(kb.img != null || kb.notes != null) {
 			var srcs;
 			if(kb.img != null) {
@@ -5391,30 +5930,13 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 			out.appendChild(window.document.createTextNode(text));
 		}
 	}
-	,compareKeyboards: function(a,b,ascending) {
-		var an = this.field.access(a).toUpperCase();
-		var bn = this.field.access(b).toUpperCase();
-		var sign = an == bn ? 0 : an < bn ? -1 : 1;
-		if(ascending) {
-			sign = -sign;
-		}
-		return sign;
-	}
 	,buildEditor: function(out,store,restore) {
-		var fd = window.document.createElement("input");
-		fd.type = "text";
-		store.push(function(kb) {
-			kb.name = fd.value;
-		});
-		restore.push(function(kb) {
-			fd.value = kb.name;
-		});
-		fd.placeholder = "Cool Keyboard";
-		out.appendChild(fd);
+		table_StringColumn.prototype.buildEditor.call(this,out,store,restore);
+		this.editorField.placeholder = "Cool Keyboard";
 		out.appendChild(window.document.createElement("br"));
 		var textarea = window.document.createElement("textarea");
 		textarea.style.marginTop = "0.25em";
-		textarea.placeholder = "one image URL per line";
+		textarea.placeholder = "One image URL per line";
 		out.appendChild(textarea);
 		store.push(function(kb) {
 			var text = textarea.value;
@@ -5471,6 +5993,61 @@ table_NameColumn.prototype = $extend(table_FancyColumn.prototype,{
 			kb.notes = [kb.notes];
 		}
 	}
+	,__class__: table_NameColumn
+});
+var table_ParentColumn = function(name,field) {
+	table_StringColumn.call(this,name,field);
+	this.emptyToNull = true;
+	this.canFilter = false;
+};
+table_ParentColumn.__name__ = true;
+table_ParentColumn.__super__ = table_StringColumn;
+table_ParentColumn.prototype = $extend(table_StringColumn.prototype,{
+	buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		table_StringColumn.prototype.buildEditor.call(this,out,store,restore);
+		out.appendChild(window.document.createElement("br"));
+		var def = "Pick a keyboard?";
+		var selector = window.document.createElement("select");
+		var _this = this.table.values;
+		var result = new Array(_this.length);
+		var _g = 0;
+		var _g1 = _this.length;
+		while(_g < _g1) {
+			var i = _g++;
+			result[i] = _this[i].name;
+		}
+		var names = result;
+		names.sort(function(a,b) {
+			var an = a.toLowerCase();
+			var bn = b.toLowerCase();
+			if(an < bn) {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		names.unshift(def);
+		var _g = 0;
+		while(_g < names.length) {
+			var name = names[_g];
+			++_g;
+			var opt = window.document.createElement("option");
+			opt.value = name;
+			opt.text = name;
+			selector.appendChild(opt);
+		}
+		selector.value = def;
+		selector.onchange = function(_) {
+			if(selector.value == def) {
+				return;
+			}
+			_gthis.editorField.value = selector.value;
+			selector.value = def;
+		};
+		out.appendChild(selector);
+	}
+	,__class__: table_ParentColumn
 });
 var table_TagLikeColumnBase = function(name,field) {
 	this.filterModeSelect = null;
@@ -5485,12 +6062,30 @@ var table_TagLikeColumnBase = function(name,field) {
 table_TagLikeColumnBase.__name__ = true;
 table_TagLikeColumnBase.__super__ = table_FancyColumn;
 table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
-	getId: function() {
+	field: null
+	,columnCount: null
+	,getId: function() {
 		return this.field.name;
 	}
+	,getTagNames: null
+	,tagToIndex: null
+	,tagToName: null
+	,indexToTag: null
+	,nameToTag: null
+	,getDefaultTag: null
+	,getFilterLabel: null
+	,getShortLabel: null
 	,showInFilters: function(val) {
 		return true;
 	}
+	,showInEditor: function(val) {
+		return true;
+	}
+	,filterTags: null
+	,filterCheckboxes: null
+	,isMulti: null
+	,filterMode: null
+	,filterModeSelect: null
 	,buildFilter: function(out) {
 		var _gthis = this;
 		var modeSelect = window.document.createElement("select");
@@ -5670,8 +6265,10 @@ table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 		}
 		return arr;
 	}
+	,__class__: table_TagLikeColumnBase
 });
 var table_TagColumnBase = function(name,field,et) {
+	this.hideInEditor = new haxe_ds_EnumValueMap();
 	this.shortLabels = new haxe_ds_EnumValueMap();
 	this.filterLabels = new haxe_ds_EnumValueMap();
 	table_TagLikeColumnBase.call(this,name,field);
@@ -5680,9 +6277,16 @@ var table_TagColumnBase = function(name,field,et) {
 table_TagColumnBase.__name__ = true;
 table_TagColumnBase.__super__ = table_TagLikeColumnBase;
 table_TagColumnBase.prototype = $extend(table_TagLikeColumnBase.prototype,{
-	getId: function() {
+	filterLabels: null
+	,shortLabels: null
+	,hideInEditor: null
+	,showInEditor: function(val) {
+		return !this.hideInEditor.exists(val);
+	}
+	,getId: function() {
 		return this.field.name;
 	}
+	,type: null
 	,getDefaultTag: function() {
 		return Type.createEnumIndex(this.type,0,null);
 	}
@@ -5715,6 +6319,7 @@ table_TagColumnBase.prototype = $extend(table_TagLikeColumnBase.prototype,{
 	,getShortLabel: function(val) {
 		return this.shortLabels.get(val);
 	}
+	,__class__: table_TagColumnBase
 });
 var table_TagColumn = function(name,field,et) {
 	this.usedValues = new haxe_ds_EnumValueMap();
@@ -5727,7 +6332,8 @@ var table_TagColumn = function(name,field,et) {
 table_TagColumn.__name__ = true;
 table_TagColumn.__super__ = table_TagColumnBase;
 table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
-	getDefaultTag: function() {
+	defaultValue: null
+	,getDefaultTag: function() {
 		return this.defaultValue;
 	}
 	,getValue: function(kb) {
@@ -5741,6 +6347,7 @@ table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 	,buildValue: function(out,kb) {
 		table_TagLikeColumnTools.buildSingleValue(this,out,kb);
 	}
+	,usedValues: null
 	,showInFilters: function(val) {
 		return this.usedValues.exists(val);
 	}
@@ -5852,6 +6459,7 @@ table_TagColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			this.field.access(kb,true,Type.createEnum(this.type,val,null));
 		}
 	}
+	,__class__: table_TagColumn
 });
 var table_TagFilterMode = $hxEnums["table.TagFilterMode"] = { __ename__:true,__constructs__:null
 	,AnyOf: {_hx_name:"AnyOf",_hx_index:0,__enum__:"table.TagFilterMode",toString:$estr}
@@ -5902,7 +6510,9 @@ var table_TagListColumn = function(name,field,et) {
 table_TagListColumn.__name__ = true;
 table_TagListColumn.__super__ = table_TagColumnBase;
 table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
-	getValue: function(kb) {
+	defaultValue: null
+	,onBuildValue: null
+	,getValue: function(kb) {
 		var tmp = this.field.access(kb);
 		if(tmp != null) {
 			return tmp;
@@ -5942,6 +6552,7 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			out.appendChild(window.document.createTextNode(text));
 		}
 	}
+	,usedValues: null
 	,showInFilters: function(val) {
 		return this.usedValues.exists(val);
 	}
@@ -5967,6 +6578,9 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		}
 		table_TagColumnBase.prototype.buildFilter.call(this,out);
 	}
+	,tagsContain: function(tags,tag) {
+		return tags.indexOf(tag) != -1;
+	}
 	,matchesFilter: function(kb) {
 		if(this.filterTags.length == 0) {
 			return true;
@@ -5981,33 +6595,33 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 		switch(this.filterMode._hx_index) {
 		case 0:
 			var _g = 0;
-			var _g1 = vals;
+			var _g1 = this.filterTags;
 			while(_g < _g1.length) {
 				var val = _g1[_g];
 				++_g;
-				if(this.filterTags.indexOf(val) != -1) {
+				if(this.tagsContain(vals,val)) {
 					return true;
 				}
 			}
 			return false;
 		case 1:
 			var _g = 0;
-			var _g1 = vals;
+			var _g1 = this.filterTags;
 			while(_g < _g1.length) {
 				var val = _g1[_g];
 				++_g;
-				if(this.filterTags.indexOf(val) == -1) {
+				if(!this.tagsContain(vals,val)) {
 					return false;
 				}
 			}
 			return true;
 		case 2:
 			var _g = 0;
-			var _g1 = vals;
+			var _g1 = this.filterTags;
 			while(_g < _g1.length) {
 				var val = _g1[_g];
 				++_g;
-				if(this.filterTags.indexOf(val) != -1) {
+				if(this.tagsContain(vals,val)) {
 					return false;
 				}
 			}
@@ -6060,6 +6674,9 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			var ctr = _g1[_g];
 			++_g;
 			var val = [Type.createEnum(this.type,ctr)];
+			if(!this.showInEditor(val[0])) {
+				continue;
+			}
 			var tmp = this.filterLabels.get(val[0]);
 			var name = tmp != null ? tmp : ctr;
 			var cb = [tools_HtmlTools.createCheckboxElement(window.document)];
@@ -6128,7 +6745,185 @@ table_TagListColumn.prototype = $extend(table_TagColumnBase.prototype,{
 			this.field.access(kb,true,arr);
 		}
 	}
+	,__class__: table_TagListColumn
 });
+var tools_CompactJsonPrinter = function(replacer,space) {
+	this.replacer = replacer;
+	this.indent = space;
+	this.pretty = space != null;
+	this.nind = 0;
+	this.buf = new StringBuf();
+};
+tools_CompactJsonPrinter.__name__ = true;
+tools_CompactJsonPrinter.print = function(o,replacer,space) {
+	var printer = new tools_CompactJsonPrinter(replacer,space);
+	printer.write("",o);
+	return printer.buf.b;
+};
+tools_CompactJsonPrinter.prototype = {
+	buf: null
+	,replacer: null
+	,indent: null
+	,pretty: null
+	,nind: null
+	,ipad: function() {
+	}
+	,newl: function() {
+	}
+	,write: function(k,v) {
+		if(this.replacer != null) {
+			v = this.replacer(k,v);
+		}
+		var _g = Type.typeof(v);
+		switch(_g._hx_index) {
+		case 0:
+			this.buf.b += "null";
+			break;
+		case 1:
+			this.buf.b += Std.string(v);
+			break;
+		case 2:
+			var v1 = isFinite(v) ? Std.string(v) : "null";
+			this.buf.b += Std.string(v1);
+			break;
+		case 3:
+			this.buf.b += Std.string(v);
+			break;
+		case 4:
+			this.fieldsString(v,Reflect.fields(v));
+			break;
+		case 5:
+			this.buf.b += "\"<fun>\"";
+			break;
+		case 6:
+			var c = _g.c;
+			if(c == String) {
+				this.quote(v);
+			} else if(c == Array) {
+				var v1 = v;
+				this.buf.b += String.fromCodePoint(91);
+				var len = v1.length;
+				var last = len - 1;
+				var _g1 = 0;
+				var _g2 = len;
+				while(_g1 < _g2) {
+					var i = _g1++;
+					if(i > 0) {
+						this.buf.b += ", ";
+					} else {
+						this.nind++;
+					}
+					this.write(i,v1[i]);
+					if(i == last) {
+						this.nind--;
+					}
+				}
+				this.buf.b += String.fromCodePoint(93);
+			} else if(c == haxe_ds_StringMap) {
+				var v1 = v;
+				var o = { };
+				var h = v1.h;
+				var _g_h = h;
+				var _g_keys = Object.keys(h);
+				var _g_length = _g_keys.length;
+				var _g_current = 0;
+				while(_g_current < _g_length) {
+					var k = _g_keys[_g_current++];
+					o[k] = v1.h[k];
+				}
+				var v1 = o;
+				this.fieldsString(v1,Reflect.fields(v1));
+			} else if(c == Date) {
+				var v1 = v;
+				this.quote(HxOverrides.dateStr(v1));
+			} else {
+				this.classString(v);
+			}
+			break;
+		case 7:
+			var _g1 = _g.e;
+			var i = v._hx_index;
+			this.buf.b += Std.string(i == null ? "null" : "" + i);
+			break;
+		case 8:
+			this.buf.b += "\"???\"";
+			break;
+		}
+	}
+	,classString: function(v) {
+		this.fieldsString(v,Type.getInstanceFields(js_Boot.getClass(v)));
+	}
+	,objString: function(v) {
+		this.fieldsString(v,Reflect.fields(v));
+	}
+	,fieldsString: function(v,fields) {
+		this.buf.b += String.fromCodePoint(123);
+		var len = fields.length;
+		var last = len - 1;
+		var first = true;
+		var _g = 0;
+		var _g1 = len;
+		while(_g < _g1) {
+			var i = _g++;
+			var f = fields[i];
+			var value = Reflect.field(v,f);
+			if(Reflect.isFunction(value)) {
+				continue;
+			}
+			if(first) {
+				this.nind++;
+				first = false;
+			} else {
+				this.buf.b += ", ";
+			}
+			this.quote(f);
+			this.buf.b += String.fromCodePoint(58);
+			if(this.pretty) {
+				this.buf.b += String.fromCodePoint(32);
+			}
+			this.write(f,value);
+			if(i == last) {
+				this.nind--;
+			}
+		}
+		this.buf.b += String.fromCodePoint(125);
+	}
+	,quote: function(s) {
+		this.buf.b += String.fromCodePoint(34);
+		var i = 0;
+		var length = s.length;
+		while(i < length) {
+			var c = s.charCodeAt(i++);
+			switch(c) {
+			case 8:
+				this.buf.b += "\\b";
+				break;
+			case 9:
+				this.buf.b += "\\t";
+				break;
+			case 10:
+				this.buf.b += "\\n";
+				break;
+			case 12:
+				this.buf.b += "\\f";
+				break;
+			case 13:
+				this.buf.b += "\\r";
+				break;
+			case 34:
+				this.buf.b += "\\\"";
+				break;
+			case 92:
+				this.buf.b += "\\\\";
+				break;
+			default:
+				this.buf.b += String.fromCodePoint(c);
+			}
+		}
+		this.buf.b += String.fromCodePoint(34);
+	}
+	,__class__: tools_CompactJsonPrinter
+};
 var tools_FancyTableMacro = function() { };
 tools_FancyTableMacro.__name__ = true;
 var tools_HtmlTools = function() { };
@@ -6193,6 +6988,14 @@ tools_HtmlTools.appendElTextNode = function(e,tag,text) {
 	var p = window.document.createElement(tag);
 	if(text != null) {
 		p.appendChild(window.document.createTextNode(text));
+	}
+	e.appendChild(p);
+	return p;
+};
+tools_HtmlTools.appendElMarkupNode = function(e,tag,html) {
+	var p = window.document.createElement(tag);
+	if(html != null) {
+		p.innerHTML = html;
 	}
 	e.appendChild(p);
 	return p;
@@ -6288,14 +7091,63 @@ tools_HtmlTools.setDisplayFlag = function(el,visible) {
 tools_HtmlTools.triggerChange = function(el) {
 	el.dispatchEvent(new CustomEvent("change"));
 };
+var tools_ValueTools = function() { };
+tools_ValueTools.__name__ = true;
+tools_ValueTools.copy = function(val,depth) {
+	if(depth == null) {
+		depth = 0;
+	} else {
+		++depth;
+	}
+	if(val == null) {
+		return val;
+	}
+	if(Reflect.isEnumValue(val)) {
+		if(Type.enumParameters(val).length > 0) {
+			throw haxe_Exception.thrown("todo!");
+		}
+		return val;
+	}
+	if(typeof(val) == "string" || typeof(val) == "number") {
+		return val;
+	}
+	if(((val) instanceof Array)) {
+		var _g = [];
+		var _g_current = 0;
+		var _g_array = val;
+		while(_g_current < _g_array.length) {
+			var _g_value = _g_array[_g_current];
+			var _g_key = _g_current++;
+			var i = _g_key;
+			var item = _g_value;
+			_g.push(tools_ValueTools.copy(item,depth));
+		}
+		return _g;
+	}
+	if(Reflect.isObject(val)) {
+		var obj = { };
+		var _g = 0;
+		var _g1 = Reflect.fields(val);
+		while(_g < _g1.length) {
+			var fd = _g1[_g];
+			++_g;
+			var sub = Reflect.field(val,fd);
+			sub = tools_ValueTools.copy(sub,depth);
+			obj[fd] = sub;
+		}
+		return obj;
+	}
+	throw haxe_Exception.thrown("todo!");
+};
 var type_Assembly = $hxEnums["type.Assembly"] = { __ename__:true,__constructs__:null
 	,Unspecified: {_hx_name:"Unspecified",_hx_index:0,__enum__:"type.Assembly",toString:$estr}
 	,PCB: {_hx_name:"PCB",_hx_index:1,__enum__:"type.Assembly",toString:$estr}
 	,ThroughHole: {_hx_name:"ThroughHole",_hx_index:2,__enum__:"type.Assembly",toString:$estr}
-	,Handwired: {_hx_name:"Handwired",_hx_index:3,__enum__:"type.Assembly",toString:$estr}
-	,Adjustable: {_hx_name:"Adjustable",_hx_index:4,__enum__:"type.Assembly",toString:$estr}
+	,Diodeless: {_hx_name:"Diodeless",_hx_index:3,__enum__:"type.Assembly",toString:$estr}
+	,Handwired: {_hx_name:"Handwired",_hx_index:4,__enum__:"type.Assembly",toString:$estr}
+	,Adjustable: {_hx_name:"Adjustable",_hx_index:5,__enum__:"type.Assembly",toString:$estr}
 };
-type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.PCB,type_Assembly.ThroughHole,type_Assembly.Handwired,type_Assembly.Adjustable];
+type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.PCB,type_Assembly.ThroughHole,type_Assembly.Diodeless,type_Assembly.Handwired,type_Assembly.Adjustable];
 var type_Availability = $hxEnums["type.Availability"] = { __ename__:true,__constructs__:null
 	,OpenSource: {_hx_name:"OpenSource",_hx_index:0,__enum__:"type.Availability",toString:$estr}
 	,Kit: {_hx_name:"Kit",_hx_index:1,__enum__:"type.Availability",toString:$estr}
@@ -6538,20 +7390,114 @@ var type_SwitchKind = $hxEnums["type.SwitchKind"] = { __ename__:true,__construct
 type_SwitchKind.__constructs__ = [type_SwitchKind.Linear,type_SwitchKind.Tactile,type_SwitchKind.Clicky,type_SwitchKind.Other];
 var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__constructs__:null
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.SwitchProfile",toString:$estr}
-	,MX: {_hx_name:"MX",_hx_index:1,__enum__:"type.SwitchProfile",toString:$estr}
-	,Choc: {_hx_name:"Choc",_hx_index:2,__enum__:"type.SwitchProfile",toString:$estr}
-	,ChocV2: {_hx_name:"ChocV2",_hx_index:3,__enum__:"type.SwitchProfile",toString:$estr}
-	,Alps: {_hx_name:"Alps",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
-	,GateronLP: {_hx_name:"GateronLP",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
-	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
-	,CherryULP: {_hx_name:"CherryULP",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
-	,Optical: {_hx_name:"Optical",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
-	,Topre: {_hx_name:"Topre",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
-	,Simple: {_hx_name:"Simple",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
-	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
+	,AnyHP: {_hx_name:"AnyHP",_hx_index:1,__enum__:"type.SwitchProfile",toString:$estr}
+	,AnyLP: {_hx_name:"AnyLP",_hx_index:2,__enum__:"type.SwitchProfile",toString:$estr}
+	,MX: {_hx_name:"MX",_hx_index:3,__enum__:"type.SwitchProfile",toString:$estr}
+	,Choc: {_hx_name:"Choc",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
+	,ChocV2: {_hx_name:"ChocV2",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
+	,ChocMini: {_hx_name:"ChocMini",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
+	,Alps: {_hx_name:"Alps",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
+	,GateronLP: {_hx_name:"GateronLP",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
+	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
+	,CherryULP: {_hx_name:"CherryULP",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
+	,Optical: {_hx_name:"Optical",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
+	,Topre: {_hx_name:"Topre",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
+	,Simple: {_hx_name:"Simple",_hx_index:13,__enum__:"type.SwitchProfile",toString:$estr}
+	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:14,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:15,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.AnyHP,type_SwitchProfile.AnyLP,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.ChocMini,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
+var type_SwitchProfileTools = function() { };
+type_SwitchProfileTools.__name__ = true;
+type_SwitchProfileTools.isHP = function(p) {
+	switch(p._hx_index) {
+	case 1:
+		return true;
+	case 3:
+		return true;
+	case 7:
+		return true;
+	case 11:
+		return true;
+	case 12:
+		return true;
+	case 13:
+		return true;
+	default:
+		return false;
+	}
+};
+type_SwitchProfileTools.isLP = function(p) {
+	switch(p._hx_index) {
+	case 2:
+		return true;
+	case 4:
+		return true;
+	case 5:
+		return true;
+	case 6:
+		return true;
+	case 8:
+		return true;
+	case 9:
+		return true;
+	case 10:
+		return true;
+	case 14:
+		return true;
+	default:
+		return false;
+	}
+};
+var type_SwitchProfileColumn = function(name,field,et) {
+	table_TagListColumn.call(this,name,field,et);
+};
+type_SwitchProfileColumn.__name__ = true;
+type_SwitchProfileColumn.__super__ = table_TagListColumn;
+type_SwitchProfileColumn.prototype = $extend(table_TagListColumn.prototype,{
+	showInFilters: function(val) {
+		switch(val._hx_index) {
+		case 1:case 2:
+			return true;
+		default:
+			return table_TagListColumn.prototype.showInFilters.call(this,val);
+		}
+	}
+	,tagsContain: function(tags,tag) {
+		switch(tag._hx_index) {
+		case 1:
+			var _g = 0;
+			while(_g < tags.length) {
+				var val = tags[_g];
+				++_g;
+				if(type_SwitchProfileTools.isHP(val)) {
+					return true;
+				}
+			}
+			return false;
+		case 2:
+			var _g = 0;
+			while(_g < tags.length) {
+				var val = tags[_g];
+				++_g;
+				if(type_SwitchProfileTools.isLP(val)) {
+					return true;
+				}
+			}
+			return false;
+		default:
+			return table_TagListColumn.prototype.tagsContain.call(this,tags,tag);
+		}
+	}
+	,__class__: type_SwitchProfileColumn
+});
+var type_Tenting = $hxEnums["type.Tenting"] = { __ename__:true,__constructs__:null
+	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.Tenting",toString:$estr}
+	,Fixed: {_hx_name:"Fixed",_hx_index:1,__enum__:"type.Tenting",toString:$estr}
+	,Legs: {_hx_name:"Legs",_hx_index:2,__enum__:"type.Tenting",toString:$estr}
+	,Mount: {_hx_name:"Mount",_hx_index:3,__enum__:"type.Tenting",toString:$estr}
+};
+type_Tenting.__constructs__ = [type_Tenting.None,type_Tenting.Fixed,type_Tenting.Legs,type_Tenting.Mount];
 var type_ValList = {};
 type_ValList.get_length = function(this1) {
 	return this1.length;
@@ -6642,8 +7588,11 @@ if(typeof(performance) != "undefined" ? typeof(performance.now) == "function" : 
 	HxOverrides.now = performance.now.bind(performance);
 }
 if( String.fromCodePoint == null ) String.fromCodePoint = function(c) { return c < 0x10000 ? String.fromCharCode(c) : String.fromCharCode((c>>10)+0xD7C0)+String.fromCharCode((c&0x3FF)+0xDC00); }
+Object.defineProperty(String.prototype,"__class__",{ value : String, enumerable : false, writable : true});
 String.__name__ = true;
 Array.__name__ = true;
+Date.prototype.__class__ = Date;
+Date.__name__ = "Date";
 var Tippy = window["tippy"];
 js_Boot.__toStr = ({ }).toString;
 Main.baseURL = "https://yal-tools.github.io/ergo-keyboards/";

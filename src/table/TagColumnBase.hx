@@ -18,6 +18,10 @@ class TagColumnBase<T, ET:EnumValue, FT> extends TagLikeColumnBase<T, ET, FT> {
 	public var filterLabels:Map<ET, String> = new Map();
 	public var shortLabels:Map<ET, String> = new Map();
 	
+	public var hideInEditor:Map<ET, Bool> = new Map();
+	override function showInEditor(val:ET):Bool {
+		return !hideInEditor.exists(val);
+	}
 	
 	override public function getId():String {
 		return field.name;

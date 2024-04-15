@@ -49,7 +49,7 @@ typedef Keyboard = {
 	?numpad:ValList<Numpad>,
 	
 	?wristPads:ValList<WristPads>,
-	?tenting:IntRange,
+	?tenting:ValList<Tenting>,
 	?tilt:IntRange,
 	?caseType:ValList<CaseType>,
 	?extras:ValList<String>,

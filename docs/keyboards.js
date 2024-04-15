@@ -52,10 +52,6 @@ window.keyboardData = [
 		"min": 0,
 		"max": 20
 	},
-	"tenting": {
-		"min": 0,
-		"max": 20
-	},
 	"caseType": [
 		"Included",
 		"ThirdParty"
@@ -155,6 +151,7 @@ window.keyboardData = [
 {
 	"name": "faux fox keyboard (ffkb) v4",
 	"parent": "faux fox keyboard (ffkb) v3",
+	"connection": "Wired",
 	"switchProfile": [
 		"MX",
 		"Choc",
@@ -645,7 +642,7 @@ window.keyboardData = [
 	"switchProfile": "Choc",
 	"keySpacing": "Choc",
 	"displays": 1,
-	"tenting": 5,
+	"tenting": "Fixed",
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/crides/fissure"
@@ -691,7 +688,7 @@ window.keyboardData = [
 	"cols": 5,
 	"thumbKeys": 5,
 	"cornerKeys": 3,
-	"tenting": [0, 30],
+	"tenting": ["None", "Legs"],
 	"hotswap": "No",
 	"switchProfile": "Choc",
 	"firmware": "ZMK",
@@ -817,7 +814,7 @@ window.keyboardData = [
 	},
 	"hotswap": "No",
 	"switchProfile": "MX",
-	"tenting": 7.5,
+	"tenting": "Fixed",
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/atulloh/oddball"
@@ -985,7 +982,7 @@ window.keyboardData = [
 		"Choc",
 		"Alps"
 	],
-	"tenting": 15,
+	"tenting": "Fixed",
 	"firmware": "QMK",
 	"caseType": "Included",
 	"web": [
@@ -1029,7 +1026,7 @@ window.keyboardData = [
 	"hotswap": "Yes",
 	"switchProfile": "MX",
 	"displays": 2,
-	"tenting": { "min": 0, "max": 15 },
+	"tenting": ["None", "Legs"],
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
@@ -1293,7 +1290,7 @@ window.keyboardData = [
 	"thumbKeys": 5,
 	"innerKeys": 2,
 	"outerKeys": 1,
-	"tenting": 12,
+	"tenting": "Fixed",
 	"tilt": 10,
 	"splay": "Yes",
 	"hotswap": "Yes",
@@ -1449,7 +1446,6 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"encoders": 1,
 	"encoderType": "Knob",
-	"tenting": [0, 5],
 	"caseType": "Included",
 	"source": "https://github.com/tompi/cheapino"
 },
@@ -1548,6 +1544,7 @@ window.keyboardData = [
 	"thumbKeys": 2,
 	"cornerKeys": 2,
 	"navCluster": "Duo",
+	"numpad": "Full",
 	"pinkyStagger": 0.8,
 	"caseType": "Included",
 	"source": "https://github.com/dotleon/protocol_seven"
@@ -1628,10 +1625,6 @@ window.keyboardData = [
 	"hotswap": "No",
 	"switchProfile": "MX",
 	"firmware": "QMK",
-	"tenting": {
-		"min": 0,
-		"max": 5
-	},
 	"caseType": "Included",
 	"source": "https://github.com/floookay/pluckey"
 },
@@ -2161,10 +2154,6 @@ window.keyboardData = [
 	},
 	"displays": 2,
 	"firmware": "ZMK",
-	"tenting": {
-		"min": 0,
-		"max": 5
-	},
 	"caseType": "Included",
 	"web": [
 		"https://www.reddit.com/r/ErgoMechKeyboards/comments/17opz7v/hillsideview_a_modified_hillside_46_with_niceview/",
@@ -2270,7 +2259,6 @@ window.keyboardData = [
 	"assembly": "PCB",
 	"wristPads": "None",
 	"tilt": 0,
-	"tenting": 0,
 	"caseType": "ThirdParty",
 	"web": "https://github.com/kilipan/zilpzalp",
 	"source": "https://github.com/kilipan/zilpzalp",
@@ -2317,10 +2305,6 @@ window.keyboardData = [
 	"encoders": 2,
 	"encoderType": "Knob",
 	"firmware": "ZMK",
-	"tenting": {
-		"min": 0,
-		"max": 5
-	},
 	"caseType": "Included",
 	"source": "https://github.com/GEIGEIGEIST/klotz"
 },
@@ -2619,10 +2603,6 @@ window.keyboardData = [
 		"min": -5,
 		"max": 5
 	},
-	"tenting": {
-		"min": 0,
-		"max": 5
-	},
 	"caseType": "Included",
 	"source": "https://github.com/kbjunky/IIICC"
 },
@@ -2871,6 +2851,7 @@ window.keyboardData = [
 	"keys": 104,
 	"rows": 5,
 	"cols": 7,
+	"numpad": "Full",
 	"thumbKeys": 4,
 	"cornerKeys": 5,
 	"pinkyStagger": 0.2,
@@ -2938,10 +2919,7 @@ window.keyboardData = [
 	"hotswap": "No",
 	"switchProfile": "MX",
 	"assembly": "Handwired",
-	"tenting": {
-		"min": 0,
-		"max": 10
-	},
+	"tenting": ["None", "Legs"],
 	"caseType": "Included",
 	"source": "https://github.com/macroxue/keyboard-diy",
 	"layoutRef": "SKBC",
@@ -2981,10 +2959,7 @@ window.keyboardData = [
 	"trackpads": 2,
 	"trackpadSize": 40,
 	"assembly": "Handwired",
-	"tenting": {
-		"min": 0,
-		"max": 10
-	},
+	"tenting": "Legs",
 	"caseType": "Included",
 	"source": "https://github.com/RaphCoder13/Birdy44"
 },
@@ -5311,14 +5286,293 @@ window.keyboardData = [
 	"firmware": "ZMK",
 	"assembly": "PCB",
 	"wristPads": "None",
-	"tenting": {
-		"min": 30,
-		"max": 85
-	},
+	"tenting": ["Fixed", "Legs"],
 	"source": "https://github.com/vinniefranco/anglerfish-splitk-keeb",
 	"layoutRef": "https://github.com/vinniefranco/anglerfish-splitk-keeb/blob/main/assets/pcb/anglerfish.kicad_pcb"
 },
-"2024-04-08"
+{
+	"name": "crabapplepad",
+	"img": "crabapplepad.jpeg",
+	"notes": "A folding keyboard with a spot for Magic Trackpad in the middle. Uses Kailh X-switches",
+	"shape": [
+		"Unibody",
+		"Special"
+	],
+	"stagger": "Row",
+	"connection": [
+		"Wired",
+		"Bluetooth"
+	],
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "Other",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://github.com/kumekay/crabapplepad"
+},
+{
+	"name": "IF-CORNE",
+	"img": "if-corne.webp",
+	"notes": "Runs (a fork of) Vial, but cannot be re-flashed by end user.",
+	"parent": "Corne/crkbd",
+	"connection": "Wireless",
+	"software": [
+		"Vial",
+		"Custom"
+	],
+	"prebuilt": "https://www.ergokbd.com/products/if-corne-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-corne-crkb"
+},
+{
+	"name": "Maltron L90",
+	"img": "Maltron-L90.webp",
+	"notes": [
+		"Photo from ErgoCanada.",
+		"One of the longer-running keyboards.",
+		"There is also a flat version of this keyboard that a bit of a weird spot."
+	],
+	"shape": ["Unibody", "Keywell"],
+	"stagger": "Column",
+	"keys": 126,
+	"rows": 5,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 7,
+	"numpad": "Full",
+	"pinkyStagger": 0.5,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"pointingDevices": {"min": 0, "max": 1},
+	"trackballs": {"min": 0, "max": 1},
+	"lighting": "None",
+	"firmware": "Custom",
+	"prebuilt": "https://www.maltron.com/store/p20/Maltron_L90_dual_hand_fully_ergonomic_%283D%29_keyboard_-_US_English.html"
+},
+{
+	"name": "Unicorne",
+	"img": "unicorne.webp",
+	"notes": "Not to be confused with BoardSource's Unicorne, a split Corne variant.",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {"min": 42, "max": 44},
+	"rows": 3,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": {"min": 3, "max": 4},
+	"pinkyStagger": 0.6,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": "Knob",
+	"displays": {"min": 0, "max": 1},
+	"lighting": "Underglow",
+	"assembly": "PCB",
+	"source": "https://github.com/yanghu/unicorne"
+},
+{
+	"name": "Architeuthis dux (a.dux)",
+	"img": "adux.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 1,
+	"splay": "Yes",
+	"hotswap": ["No", "Yes"],
+	"switchProfile": "Choc",
+	"source": "https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux"
+},
+{
+	"name": "Razer36 / Rzr36",
+	"img": "razer36.webp",
+	"shape": "Split",
+	"connection": "Bluetooth",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"caseType": "Included",
+	"source": "https://github.com/MReavley/Razer36"
+},
+{
+	"name": "Prime52",
+	"img": "prime52.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 46,
+	"rows": 3,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 2,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": ["Choc", "ChocV2"],
+	"encoders": 4,
+	"encoderType": ["Knob", "Wheel"],
+	"pointingDevices": 2,
+	"trackpoints": 2,
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": "PCB",
+	"caseType": "Included",
+	"source": "https://github.com/DreaM117er/Prime52/"
+},
+{
+	"name": "Ferris 0.1",
+	"img": "ferris.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 2,
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc", "ChocMini"],
+	"keySpacing": "MX",
+	"firmware": ["QMK", "ZMK"],
+	"assembly": "PCB",
+	"caseType": "None",
+	"source": [
+		"[v:Choc] https://github.com/pierrechevalier83/ferris/blob/main/0.1/base/readme.md",
+		"[v:Mini] https://github.com/pierrechevalier83/ferris/blob/main/0.1/low/readme.md",
+		"[v:High (MX)] https://github.com/pierrechevalier83/ferris/blob/main/0.1/high/readme.md",
+	]
+},
+{
+	"name": "Ferris 0.1 - Compact",
+	"parent": "Ferris 0.1",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"source": "https://github.com/pierrechevalier83/ferris/blob/main/0.1/compact/readme.md"
+},
+{
+	"name": "Ferris 0.2",
+	"parent": "Ferris 0.1",
+	"switchProfile": ["Choc", "ChocMini"],
+	"keySpacing": "Choc",
+	"source": [
+		"[v:Compact] https://github.com/pierrechevalier83/ferris/blob/main/0.2/compact/readme.md",
+		"[v:Mini] https://github.com/pierrechevalier83/ferris/blob/main/0.2/mini/readme.md"
+	]
+},
+{
+	"name": "Ferris 0.2 - Bling",
+	"parent": "Ferris 0.1",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"tenting": "Mount",
+	"caseType": "Included",
+	"source": "https://github.com/pierrechevalier83/ferris/blob/main/0.2/bling/readme.md"
+},
+{
+	"name": "Ferris 0.2 - High",
+	"parent": "Ferris 0.1",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"source": "https://github.com/pierrechevalier83/ferris/blob/main/0.2/high/readme.md"
+},
+{
+	"name": "Zaphod Lite",
+	"img": "zaphod-lite.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"displays": 1,
+	"lighting": "None",
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://gitlab.com/lpgalaxy/zaphod/-/tree/main/lite"
+},
+{
+	"name": "Demeter",
+	"img": "demeter.webp",
+	"notes": "Features reachy thumbs",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.8,
+	"splay": "PinkyOnly",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": ["QMK", "ZMK"],
+	"assembly": ["PCB", "Diodeless"],
+	"source": "https://github.com/davidphilipbarr/demeter"
+},
+{
+	"name": "Duet",
+	"img": "duet.jpg",
+	"notes": "A split keyboard with a magnetic connector",
+	"shape": ["Unibody", "Split", "Special"],
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 40,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"outerKeys": -1,
+	"pinkyStagger": 0.15,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"displays": {"min": 0, "max": 1},
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://github.com/zzeneg/duet"
+},
+{
+	"name": "Rhymestone",
+	"img": "rhymestone.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 40,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"displays": {"min": 0, "max": 2},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"source": "https://github.com/marksard/Keyboards",
+	"kit": [
+		"https://keebd.com/products/rhymestone-40-split-keyboard-kit",
+		"https://www.boardsource.xyz/products/Rhymestone",
+		"https://customkbd.com/products/rhymestone-keyboard-kit"
+	]
+},
+"2024-04-16"
 ];
 window.keyboardTODOs = `
 https://github.com/krikun98/Skean
@@ -5327,10 +5581,8 @@ https://www.littlekeyboards.com/products/naked48led-keyboard-kit https://salicyl
 https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit
 https://github.com/doesntfazer/frigate https://www.reddit.com/r/ErgoMechKeyboards/comments/13fpjps/frigate_early_adopters_is_now_available_to_order/
 https://github.com/taylorzr/goshawk
-https://github.com/davidphilipbarr/demeter
 https://github.com/DreaM117er/MagWave44
 Cornepad https://kbd.news/Cornepad-2265.html
-https://github.com/zzeneg/duet?tab=readme-ov-file
 Ch55p34 https://kbd.news/Ch55p34-2256.html
 Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/ https://github.com/okke-formsma/dactyl-manuform-tight/
 https://github.com/davidphilipbarr/hypergolic
@@ -5338,7 +5590,6 @@ AWKB https://kbd.news/AWKB-A-Weird-Keyboard-2289.html
 FAW36 https://keycapsss.com/keyboard-parts/pcbs/253/faw36-ortholinear-split-keyboard-pcb?c=14
 Cygnus https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
 https://github.com/lapidot/ADuck
-https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux
 https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl
 https://github.com/fxkuehl/mantis
 https://github.com/moduloindustries/thinkeys
@@ -5346,22 +5597,32 @@ https://github.com/saoto28/pineapple60
 https://kbd.news/FCS42S-keyboard-1317.html
 https://github.com/triliu/JESK56
 https://github.com/jcmkk3/trochilidae
-https://www.reddit.com/r/ErgoMechKeyboards/comments/1bpza30/rzr36_ble_choc_version_of_my_earlier_slice36/
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1br8lx0/my_new_keyboard_prime52/
-https://github.com/kumekay/crabapplepad
 https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
-https://github.com/yanghu/unicorne
-IF-CORNE
+https://github.com/kvietcong/the-abyss
 Corne v4
-rhymestone
 Chimera Ortho
-Maltron keyboards
+More Maltron keyboards
 Claw44
 Gergo
 ZEN2
 Jian
 Jorne
+FalbaTech's Redox_FT Low-profile
 GrabShell https://grabshell.site/en/home-en/
+https://github.com/kaihchang/Ascend_splay_split_keyboard
+https://github.com/cacheworks/Wubbo
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1bzyw9b/gull_v1/
+https://github.com/ardakilic/woodpecker-keyboard/
+https://github.com/dlip/tamatama
+https://github.com/anarion80/porcupine
+https://github.com/aroum/kalmar
+https://github.com/foostan/corneliuskbd
+https://github.com/geoffder/dometyl-keyboard/tree/main/things/niztyl
+https://fingerpunch.xyz/product/barobord/ https://fingerpunch.xyz/product/big-barobord/
+https://fingerpunch.xyz/product/rock-on/ https://fingerpunch.xyz/product/rock-on-v2/ https://fingerpunch.xyz/product/rock-on-v3/ https://fingerpunch.xyz/product/rock-on-bpe/
+https://fingerpunch.xyz/product/kucheza/
+https://fingerpunch.xyz/product/luakeeb/
+https://fingerpunch.xyz/product/vulpes-majora/
 `;
 /* TODO
 
@@ -5372,5 +5633,6 @@ https://kbd.news/aball-a-buttonless-trackball-139.html
 https://github.com/george-norton/peacock
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1c3muo0/anu_pncateho_mouse_10key_chord_keyboard/
 17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
 */

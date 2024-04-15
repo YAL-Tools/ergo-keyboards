@@ -64,6 +64,12 @@ class HtmlTools {
 		e.appendChild(p);
 		return p;
 	}
+	public static function appendElMarkupNode(e:Element, tag:String, ?html:String) {
+		var p = Browser.document.createElement(tag);
+		if (html != null) p.innerHTML = html;
+		e.appendChild(p);
+		return p;
+	}
 	
 	public static function addFieldChangeEventListener(e:Element, f:Event->Void) {
 		e.addEventListener("change", f);
