@@ -194,7 +194,7 @@ body details summary {
 body details[open] {
   padding: 8px;
 }
-body details[open] summary {
+body details[open] > summary {
   margin-bottom: 8px;
   padding: 0;
 }
