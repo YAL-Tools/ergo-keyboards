@@ -1993,6 +1993,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
+	"source": "https://github.com/jamessa/Pragmatic",
 	"kit": [
 		"!https://www.pragmatic.com.tw/shop/60-mx-8"
 	]
@@ -2014,6 +2015,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
+	"source": "https://github.com/jamessa/Pragmatic",
 	"kit": [
 		"![v:MX] https://www.pragmatic.com.tw/shop/pragmatic54-115",
 		"![v:Choc] https://www.pragmatic.com.tw/shop/choc54-62",
@@ -2036,9 +2038,10 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
+	"source": "https://github.com/jamessa/Pragmatic",
 	"kit": [
 		"![v:MX] https://www.pragmatic.com.tw/shop/pragmatic36-105",
-		"![v:Choc] https://www.pragmatic.com.tw/shop/wu-shi-36ai-zhou-89",
+		"![v:Choc] https://www.pragmatic.com.tw/shop/wu-shi-36ai-zhou-89"
 	]
 },
 {
@@ -2058,9 +2061,10 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
+	"source": "https://github.com/jamessa/Pragmatic",
 	"kit": [
 		"![v:MX] https://www.pragmatic.com.tw/shop/pragmatic36-111",
-		"![v:Choc] https://www.pragmatic.com.tw/shop/wu-shi-42ai-zhou-93",
+		"![v:Choc] https://www.pragmatic.com.tw/shop/wu-shi-42ai-zhou-93"
 	]
 },
 {
