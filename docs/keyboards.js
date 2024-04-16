@@ -455,6 +455,8 @@ window.keyboardData = [
 	"cols": 5,
 	"thumbKeys": 2,
 	"pinkyStagger": 0.5,
+	"switchProfile": "MX",
+	"hotswap": "Yes",
 	"encoders": 1,
 	"encoderType": "Knob",
 	"displays": 1,
@@ -5426,6 +5428,7 @@ window.keyboardData = [
 	"pinkyStagger": 1,
 	"splay": "Yes",
 	"hotswap": ["No", "Yes"],
+	"assembly": "Diodeless",
 	"switchProfile": "Choc",
 	"source": "https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux"
 },
@@ -5781,6 +5784,152 @@ window.keyboardData = [
 	"assembly": "Handwired",
 	"source": "https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0"
 },
+{
+	"name": "FAW36",
+	"img": "FAW36.jpg",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": "Knob",
+	"firmware": "ZMK",
+	"source": [
+		"https://github.com/Germain-Gadel/faw36",
+		"https://github.com/Germain-Gadel/zmk-config-faw36"
+	],
+	"kit": "https://keycapsss.com/keyboard-parts/pcbs/253/faw36-ortholinear-split-keyboard-pcb"
+},
+{
+	"name": "Niztyl",
+	"img": "niztyl.jpg",
+	"notes": "Uses omnipolar hall-effect sensors",
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"hotswap": "No",
+	"switchProfile": "Other",
+	"assembly": "Handwired",
+	"source": "https://github.com/geoffder/dometyl-keyboard/tree/main/things/niztyl"
+},
+{
+	"name": "luakeeb",
+	"img": "luakeeb.jpg",
+	"notes": [
+		"Not related to Lua programming language in any way.",
+		"Requires a custom case to use trackballs."
+	],
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": [{"min": 36, "max": 36}, {"min": 42, "max": 42}],
+	"rows": 3,
+	"cols": {"min": 5, "max": 6},
+	"thumbKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"trackballs": {"min": 0, "max": 2},
+	"trackballSize": 4.4,
+	"lighting": "RGB",
+	"firmware": ["QMK", "ZMK"],
+	"caseType": "Included",
+	"kit": "https://fingerpunch.xyz/product/luakeeb/"
+},
+{
+	"name": "Porcupine",
+	"img": "porcupine_prototype_final.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": [{"min": 36, "max": 36}, {"min": 38, "max": 38}, {"min": 42, "max": 42}],
+	"rows": 3,
+	"cols": {"min": 5, "max": 6},
+	"thumbKeys": {"min": 3, "max": 4},
+	"pinkyStagger": 1,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "QMK",
+	"tenting": "Mount",
+	"caseType": "None",
+	"source": "https://github.com/anarion80/porcupine"
+},
+{
+	"name": "Corne/crkbd V4",
+	"img": "corne-v4.webp",
+	"notes": "Inner keys can be replaced with encoders.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {"min": 42, "max": 46},
+	"rows": 3,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 3,
+	"innerKeys": {"min": 0, "max": 2},
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc", "ChocV2"],
+	"keySpacing": "MX",
+	"encoders": {"min": 0, "max": 4},
+	"encoderType": "Knob",
+	"displays": {"min": 0, "max": 2},
+	"lighting": ["None", "RGB"],
+	"caseType": "Included",
+	"source": [
+		"[v:MX] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_en.md",
+		"[v:Choc] https://github.com/foostan/crkbd/blob/main/docs/corne-chocolate/v4/buildguide_en.md"
+	]
+},
+{
+	"name": "Gull",
+	"img": "gull.webp",
+	"notes": "No handwiring, only flexible PCBs and acrylic plates",
+	"shape": ["Unibody", "Keywell", "Special"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"assembly": "PCB",
+	"caseType": "Included",
+	"source": "https://github.com/Sneftel/gull"
+},
+{
+	"name": "Cornepad",
+	"img": "cornepad.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 52,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"numpad": "Mini",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": "Handwired",
+	"source": "https://from2d.com/freebies/cornepad/"
+},
 "2024-04-16"
 ];
 window.keyboardTODOs = `
@@ -5791,14 +5940,11 @@ https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit
 https://github.com/doesntfazer/frigate https://www.reddit.com/r/ErgoMechKeyboards/comments/13fpjps/frigate_early_adopters_is_now_available_to_order/
 https://github.com/taylorzr/goshawk
 https://github.com/DreaM117er/MagWave44
-Cornepad https://kbd.news/Cornepad-2265.html
 Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/ https://github.com/okke-formsma/dactyl-manuform-tight/
 https://github.com/davidphilipbarr/hypergolic
-FAW36 https://keycapsss.com/keyboard-parts/pcbs/253/faw36-ortholinear-split-keyboard-pcb?c=14
 https://github.com/lapidot/ADuck
 https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl
 https://github.com/jcmkk3/trochilidae
-Corne v4
 Chimera Ortho
 More Maltron keyboards
 Claw44
@@ -5807,18 +5953,14 @@ ZEN2
 Jian
 Jorne
 GrabShell https://grabshell.site/en/home-en/
-https://github.com/kaihchang/Ascend_splay_split_keyboard
 https://github.com/cacheworks/Wubbo
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1bzyw9b/gull_v1/
 https://github.com/ardakilic/woodpecker-keyboard/
-https://github.com/anarion80/porcupine
 https://github.com/aroum/kalmar
 https://github.com/foostan/corneliuskbd
-https://github.com/geoffder/dometyl-keyboard/tree/main/things/niztyl
 https://fingerpunch.xyz/product/rock-on/ https://fingerpunch.xyz/product/rock-on-v2/ https://fingerpunch.xyz/product/rock-on-v3/ https://fingerpunch.xyz/product/rock-on-bpe/
-https://fingerpunch.xyz/product/kucheza/
-https://fingerpunch.xyz/product/luakeeb/
+kucheza (game pad) https://fingerpunch.xyz/product/kucheza/
 https://fingerpunch.xyz/product/vulpes-majora/
+https://github.com/andrewjrae/rae-dux
 `;
 /* TODO
 

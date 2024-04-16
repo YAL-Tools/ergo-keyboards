@@ -662,19 +662,31 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		});
 		resolveParents();
 		for (kb in values) {
-			if (kb.assembly == null) {
-				kb.assembly = [PCB];
-			} else if (kb.assembly.contains(Handwired)) {
+			kb.assembly ??= [];
+			
+			if (kb.assembly.contains(Handwired)) {
+				// a handwired keyboard is a case on its own
 				if (kb.caseType == null) kb.caseType = [Included];
+				// usually not hot-swappable unless you're crafty
 				if (kb.hotswap == null) kb.hotswap = [No];
-			} else {
-				if (!kb.assembly.contains(PCB)) kb.assembly.unshift(PCB);
+			} else if (!kb.assembly.contains(PCB)) {
+				// PCB if not said otherwise
+				kb.assembly.unshift(PCB);
 			}
+			
+			// Cherry Ultra Low Profile is not hot-swappable
 			if (kb.hotswap == null && kb.switchProfile.safeContains(CherryULP)) {
 				kb.hotswap = [No];
 			}
-			if (kb.layoutRef != null) for (i => lr in kb.layoutRef) {
-				if (lr == "SKBC") kb.layoutRef[i] = "[n:splitKbCompare] https://jhelvy.github.io/splitKbCompare/";
+			
+			//
+			if (kb.switchProfile != null
+				&& kb.switchProfile.contains(MX)
+				&& (kb.keySpacing == null || kb.keySpacing.length == 0)
+			) kb.keySpacing = [MX];
+			
+			if (kb.layoutRef != null) for (i => lr in kb.layoutRef) if (lr == "SKBC") {
+				kb.layoutRef[i] = "[n:splitKbCompare] https://jhelvy.github.io/splitKbCompare/";
 			}
 		}
 	}

@@ -1803,9 +1803,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		while(_g < _g1.length) {
 			var kb = _g1[_g];
 			++_g;
-			if(kb.assembly == null) {
-				kb.assembly = [type_Assembly.PCB];
-			} else if(kb.assembly.indexOf(type_Assembly.Handwired) != -1) {
+			kb.assembly = kb.assembly != null ? kb.assembly : [];
+			if(kb.assembly.indexOf(type_Assembly.Handwired) != -1) {
 				if(kb.caseType == null) {
 					kb.caseType = [type_CaseType.Included];
 				}
@@ -1817,6 +1816,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 			if(kb.hotswap == null && type_ValList.safeContains(kb.switchProfile,type_SwitchProfile.CherryULP)) {
 				kb.hotswap = [type_HotSwap.No];
+			}
+			if(kb.switchProfile != null && kb.switchProfile.indexOf(type_SwitchProfile.MX) != -1 && (kb.keySpacing == null || kb.keySpacing.length == 0)) {
+				kb.keySpacing = [type_KeySpacing.MX];
 			}
 			if(kb.layoutRef != null) {
 				var _g_current = 0;
