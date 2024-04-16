@@ -16,6 +16,7 @@ ColStagBoards.init = function(keyboards) {
 		}
 		kb.shape = kb.shape != null ? kb.shape : type_ValList.fromValue(type_Shape.Split);
 		keyboards.push(kb);
+		return kb;
 	};
 	var pimoroniSize = 4.4;
 	var keySpacing;
@@ -55,11 +56,34 @@ ColStagBoards.init = function(keyboards) {
 	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
 	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
 	kb.kit = ["[v:v2] https://keebd.com/en-us/products/sofle-v2-keyboard-kit","[v:v2] https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419","[v:v1, v1 Choc, v2] https://mechboards.co.uk/collections/kits/products/sofle-kit","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2] https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/","[v:v2 RGB] https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit","[v:v2] https://keebd.com/products/sofle-v2-1-choc-keyboard-kit","[v:v2 RGB] https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit","[v:MX, Choc] https://keebmaker.com/collections/kits"];
-	kb.prebuilt = ["[v:MX] https://falba.tech/https-falba-tech-buy-a-custom-keyboard-sofle/","[v:v2 RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","[v:v2] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-set/","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2, v2 RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib="];
+	kb.prebuilt = ["[v:MX] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372","[v:MX wireless] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372","[v:v2 RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","[v:v2] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-set/","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2, v2 RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib="];
 	kb.extras = ["[v:v2 tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/","[v:v2 printable case] https://github.com/kb-elmo/SofleCase"];
 	kb.img = type_ValList.fromValue("sofle.jpg");
 	ColStagKeyboard.addSKBC(kb);
 	addSofle(kb);
+	var sofle = kb;
+	var addSofleFT = function(kb) {
+		kb.notes = type_ValList.fromValue("Featuring a variety of bamboo cases");
+		kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+		kb.keys = type_NumRangeList.either(58,60);
+		kb.encoders = type_NumRange.fromArray([0,2]);
+		kb.displays = type_NumRange.fromArray([0,2]);
+		kb.tenting = [type_Tenting.None,type_Tenting.Legs];
+		ColStagKeyboard.setQMK(kb,[type_Software.VIA]);
+		add(kb);
+	};
+	kb = ColStagKeyboard._new("Sofle FT",sofle);
+	kb.img = type_ValList.fromValue("sofle-ft-wireless.webp");
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
+	kb.kit = ["[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-p613836129","[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Wireless-p613834138"];
+	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585","[v:Wireless] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585"];
+	addSofleFT(kb);
+	kb = ColStagKeyboard._new("Sofle FT LP",sofle);
+	kb.img = type_ValList.fromValue("sofle-ft-lp.webp");
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
+	kb.kit = ["[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-low-profile-p613843876","[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Low-Profile-Wireless-p613870266"];
+	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/Sofle-Low-profile-Fully-Assembled-Custom-Mechanical-Keyboard-p631773376","[v:Wireless] https://falbatech.click/products/Sofle-Low-profile-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631799062"];
+	addSofleFT(kb);
 	kb = ColStagKeyboard._new("Sofle Choc");
 	kb.notes = ["Sofle Choc, not to be confused with Choc Sofle (which has different pinky stagger)"];
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
@@ -68,7 +92,6 @@ ColStagBoards.init = function(keyboards) {
 	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
 	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
 	kb.kit = ["https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit","https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/"];
-	kb.prebuilt = ["https://falba.tech/sofle-low-profile/","https://ergomech.store/shop/sofle-choc-ergomech-store-revision-47"];
 	kb.img = type_ValList.fromValue("sofle-choc.jpg");
 	kb.pinkyStagger = 0.3;
 	addSofle(kb);
@@ -200,12 +223,23 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/ReDOX-Fully-Assembled-Custom-Mechanical-Keyboard-p633260018","[v:Wired] https://falbatech.click/products/Redox-Mechanical-Keyboard-in-Bamboo-Casing-with-Stone-Effect-Elegance-and-Style-for-Enthusiasts-free-Shipping-p613843863","[v:BT] https://falbatech.click/products/ReDOX-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p633260056","https://shop.beekeeb.com/product/redox-fully-assembled/"];
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
+	kb = ColStagKeyboard._new("Redox FT",redox);
+	kb.img = type_ValList.fromValue("redox-ft.webp");
+	kb.assembly = [type_Assembly.PCB];
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
+	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+	kb.tenting = [type_Tenting.None,type_Tenting.Legs];
+	var redoxFT = add(kb);
+	kb = ColStagKeyboard._new("Redox FT LP",redoxFT);
+	kb.img = type_ValList.fromValue("redox-ft-lp.webp");
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
+	add(kb);
 	kb = ColStagKeyboard._new("NeoDox",redox);
 	kb.connection = [type_Connection.Wired];
 	kb.assembly = [type_Assembly.PCB];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX],type_KeySpacing.MX);
 	kb.encoders = type_NumRange.fromArray([0,2]);
-	kb.prebuilt = type_ValList.fromValue("https://ergomech.store/shop/neodox-52");
+	kb.prebuilt = ["https://ergomech.store/shop/neodox-52","https://ergomech.store/shop/neodox-sandwich-style-exclusive-418"];
 	kb.img = type_ValList.fromValue("NeoDox.jpg");
 	kb.notes = type_ValList.fromValue("Like Redox, but with 1u edge keys and optional rotary encoders");
 	add(kb);
@@ -232,6 +266,11 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("ErgoDashLP.jpg");
 	kb.switchProfile = type_ValList.fromValue(type_SwitchProfile.Choc);
 	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
+	add(kb);
+	kb = ColStagKeyboard._new("ErgoDash_FT",ergodash);
+	kb.img = type_ValList.fromValue("ergodash-ft.webp");
+	kb.hotswap = [type_HotSwap.Yes];
+	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/ErgoDash-Fully-Assembled-Custom-Mechanical-Keyboard-p630613785");
 	add(kb);
 	kb = { name : "ErgoMax", source : type_ValList.fromValue("https://github.com/LouWii/ErgoMax"), img : type_ValList.fromValue("ergomax.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -477,8 +516,9 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setQMK(kb);
 	kb.source = type_ValList.fromValue("https://github.com/vvhg1/fisk");
 	kb.img = type_ValList.fromValue("fisk.jpg");
-	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.assembly = type_ValList.fromValue(type_Assembly.Handwired);
+	kb.assembly = [type_Assembly.Handwired];
+	kb.displays = type_NumRange.fromValue(2);
+	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX]);
 	add(kb);
 	var addIris = function(kb) {
 		ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(56)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
@@ -554,9 +594,14 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.web = type_ValList.fromValue("");
 	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2"];
-	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard"];
+	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415"];
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
 	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout","Ergodox EZ is separated from these due to presence of tenting legs"];
+	var ergodoxy = add(kb);
+	kb = ColStagKeyboard._new("Ergodox_FT LP",ergodoxy);
+	kb.img = type_ValList.fromValue("ergodox-ft-lp.jpg");
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc]);
+	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480");
 	add(kb);
 	kb = ColStagKeyboard._new("Keyboardio Model 100");
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(64)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
@@ -1272,6 +1317,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		switchType.filterLabels.set(type_SwitchProfile.AnyLP,"Low-profile");
 		switchType.filterLabels.set(type_SwitchProfile.Choc,"Kailh Choc V1");
 		switchType.filterLabels.set(type_SwitchProfile.ChocV2,"Kailh Choc V2");
+		switchType.filterLabels.set(type_SwitchProfile.ChocMini,"Kailh Choc Mini");
+		switchType.filterLabels.set(type_SwitchProfile.KXSwitch,"Kailh X-Switch");
 		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron LP");
 		switchType.shortLabels.set(type_SwitchProfile.Unknown,"");
 		switchType.shortLabels.set(type_SwitchProfile.GateronLP,"GLP");
@@ -2393,20 +2440,6 @@ OrthoBoards.init = function(keyboards) {
 	kb.kit = type_ValList.fromValue("https://www.rgbkb.net/collections/sol-3");
 	kb.prebuilt = type_ValList.fromValue("https://www.rgbkb.net/collections/sol-3/products/sol-3-keyboard-prebuilt");
 	kb.img = type_ValList.fromValue("sol3.webp");
-	add(kb);
-	kb = ColStagKeyboard._new("Equals 48");
-	ColStagKeyboard.setMatrix(kb,type_NumRangeList.fromSimpleArray([47,48]),type_NumRange.fromValue(6),type_NumRange.fromValue(3));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
-	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
-	kb.kit = type_ValList.fromValue("https://www.boardsource.xyz/products/equals-48-kit");
-	kb.img = type_ValList.fromValue("equals48.webp");
-	add(kb);
-	kb = ColStagKeyboard._new("Equals 60");
-	ColStagKeyboard.setMatrix(kb,type_NumRangeList.fromSimpleArray([59,60]),type_NumRange.fromValue(6),type_NumRange.fromValue(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
-	kb.shape = type_ValList.fromValue(type_Shape.Monoblock);
-	kb.kit = type_ValList.fromValue("https://www.boardsource.xyz/products/equals-60-kit");
-	kb.img = type_ValList.fromValue("equals60.webp");
 	add(kb);
 };
 var Reflect = function() { };
@@ -4039,7 +4072,8 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		out.reset();
 	};
 	if(((table) instanceof KeyboardTable)) {
-		var kbs = table.rawKeyboards;
+		var kbTable = table;
+		var kbs = kbTable.rawKeyboards;
 		kbs.sort(function(a,b) {
 			var an = a.name.toUpperCase();
 			var bn = b.name.toUpperCase();
@@ -4088,10 +4122,16 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 				fn(kb);
 			}
 		};
+		btTest.onclick = function() {
+			var kb = buildKeyboard();
+			kbTable.resolveParent(kb);
+			table.loadTest(kb);
+		};
+	} else {
+		btTest.onclick = function() {
+			table.loadTest(buildKeyboard());
+		};
 	}
-	btTest.onclick = function() {
-		table.loadTest(buildKeyboard());
-	};
 };
 var table_FancyTableFilters = function() { };
 table_FancyTableFilters.__name__ = true;
@@ -7396,17 +7436,18 @@ var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__con
 	,Choc: {_hx_name:"Choc",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
 	,ChocV2: {_hx_name:"ChocV2",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
 	,ChocMini: {_hx_name:"ChocMini",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
-	,Alps: {_hx_name:"Alps",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
-	,GateronLP: {_hx_name:"GateronLP",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
-	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
-	,CherryULP: {_hx_name:"CherryULP",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
-	,Optical: {_hx_name:"Optical",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
-	,Topre: {_hx_name:"Topre",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
-	,Simple: {_hx_name:"Simple",_hx_index:13,__enum__:"type.SwitchProfile",toString:$estr}
-	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:14,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:15,__enum__:"type.SwitchProfile",toString:$estr}
+	,KXSwitch: {_hx_name:"KXSwitch",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
+	,Alps: {_hx_name:"Alps",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
+	,GateronLP: {_hx_name:"GateronLP",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
+	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
+	,CherryULP: {_hx_name:"CherryULP",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
+	,Optical: {_hx_name:"Optical",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
+	,Topre: {_hx_name:"Topre",_hx_index:13,__enum__:"type.SwitchProfile",toString:$estr}
+	,Simple: {_hx_name:"Simple",_hx_index:14,__enum__:"type.SwitchProfile",toString:$estr}
+	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:15,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:16,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.AnyHP,type_SwitchProfile.AnyLP,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.ChocMini,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.AnyHP,type_SwitchProfile.AnyLP,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.ChocMini,type_SwitchProfile.KXSwitch,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
 var type_SwitchProfileTools = function() { };
 type_SwitchProfileTools.__name__ = true;
 type_SwitchProfileTools.isHP = function(p) {
@@ -7415,13 +7456,13 @@ type_SwitchProfileTools.isHP = function(p) {
 		return true;
 	case 3:
 		return true;
-	case 7:
-		return true;
-	case 11:
+	case 8:
 		return true;
 	case 12:
 		return true;
 	case 13:
+		return true;
+	case 14:
 		return true;
 	default:
 		return false;
@@ -7437,13 +7478,15 @@ type_SwitchProfileTools.isLP = function(p) {
 		return true;
 	case 6:
 		return true;
-	case 8:
+	case 7:
 		return true;
 	case 9:
 		return true;
 	case 10:
 		return true;
-	case 14:
+	case 11:
+		return true;
+	case 15:
 		return true;
 	default:
 		return false;

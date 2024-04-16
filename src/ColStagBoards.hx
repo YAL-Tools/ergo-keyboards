@@ -1,4 +1,5 @@
 package ;
+import type.IntRange;
 import type.EncoderType;
 import type.Firmware;
 import type.HotSwap;
@@ -24,6 +25,7 @@ class ColStagBoards {
 			if (kb.stagger == null) kb.stagger = [Column];
 			kb.shape ??= Split;
 			keyboards.push(kb);
+			return kb;
 		}
 		var pimoroniSize = 4.4;
 		var keySpacing:Array<KeySpacing>;
@@ -112,7 +114,8 @@ class ColStagBoards {
 			"[v:MX, Choc] https://keebmaker.com/collections/kits",
 		];
 		kb.prebuilt = [
-			"[v:MX] https://falba.tech/https-falba-tech-buy-a-custom-keyboard-sofle/",
+			"[v:MX] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372",
+			"[v:MX wireless] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372",
 			"[v:v2 RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/",
 			"[v:v2] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-set/",
 			"[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards",
@@ -125,6 +128,43 @@ class ColStagBoards {
 		kb.img = "sofle.jpg";
 		kb.addSKBC();
 		addSofle(kb);
+		var sofle = kb;
+		
+		function addSofleFT(kb:ColStagKeyboard) {
+			kb.notes = "Featuring a variety of bamboo cases";
+			kb.connection = [Wired, Bluetooth];
+			kb.keys = IntRangeList.either(58, 60);
+			kb.encoders = [0, 2];
+			kb.displays = [0, 2];
+			kb.tenting = [None, Legs];
+			kb.setQMK([VIA]);
+			add(kb);
+		}
+		kb = new ColStagKeyboard("Sofle FT", sofle);
+		kb.img = "sofle-ft-wireless.webp";
+		kb.setHotswap([MX]);
+		kb.kit = [
+			"[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-p613836129",
+			"[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Wireless-p613834138",
+		];
+		kb.prebuilt = [
+			"[v:Wired] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585",
+			"[v:Wireless] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585",
+		];
+		addSofleFT(kb);
+		
+		kb = new ColStagKeyboard("Sofle FT LP", sofle);
+		kb.img = "sofle-ft-lp.webp";
+		kb.setHotswap([Choc], MX);
+		kb.kit = [
+			"[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-low-profile-p613843876",
+			"[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Low-Profile-Wireless-p613870266",
+		];
+		kb.prebuilt = [
+			"[v:Wired] https://falbatech.click/products/Sofle-Low-profile-Fully-Assembled-Custom-Mechanical-Keyboard-p631773376",
+			"[v:Wireless] https://falbatech.click/products/Sofle-Low-profile-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631799062",
+		];
+		addSofleFT(kb);
 		
 		kb = new ColStagKeyboard("Sofle Choc");
 		kb.notes = [
@@ -140,10 +180,6 @@ class ColStagBoards {
 			"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187",
 			"https://www.littlekeyboards.com/products/sofle-choc-pcb-kit",
 			"https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/",
-		];
-		kb.prebuilt = [
-			"https://falba.tech/sofle-low-profile/",
-			"https://ergomech.store/shop/sofle-choc-ergomech-store-revision-47",
 		];
 		kb.img = "sofle-choc.jpg";
 		kb.pinkyStagger = 0.3;
@@ -419,12 +455,28 @@ class ColStagBoards {
 		kb.addSKBC();
 		add(kb);
 		
+		kb = new ColStagKeyboard("Redox FT", redox);
+		kb.img = "redox-ft.webp";
+		kb.assembly = [PCB];
+		kb.setHotswap([MX]);
+		kb.connection = [Wired, Bluetooth];
+		kb.tenting = [None, Legs];
+		var redoxFT = add(kb);
+		
+		kb = new ColStagKeyboard("Redox FT LP", redoxFT);
+		kb.img = "redox-ft-lp.webp";
+		kb.setHotswap([Choc], MX);
+		add(kb);
+		
 		kb = new ColStagKeyboard("NeoDox", redox);
 		kb.connection = [Wired];
 		kb.assembly = [PCB];
 		kb.setHotswap([MX], MX);
 		kb.encoders = [0, 2];
-		kb.prebuilt = "https://ergomech.store/shop/neodox-52";
+		kb.prebuilt = [
+			"https://ergomech.store/shop/neodox-52",
+			"https://ergomech.store/shop/neodox-sandwich-style-exclusive-418",
+		];
 		kb.img = "NeoDox.jpg";
 		kb.notes = "Like Redox, but with 1u edge keys and optional rotary encoders";
 		add(kb);
@@ -457,6 +509,12 @@ class ColStagBoards {
 		kb.img = "ErgoDashLP.jpg";
 		kb.switchProfile = Choc;
 		kb.setNotswap([Choc], MX);
+		add(kb);
+		
+		kb = new ColStagKeyboard("ErgoDash_FT", ergodash);
+		kb.img = "ergodash-ft.webp";
+		kb.hotswap = [Yes];
+		kb.prebuilt = "https://falbatech.click/products/ErgoDash-Fully-Assembled-Custom-Mechanical-Keyboard-p630613785";
 		add(kb);
 		
 		kb = {
@@ -948,8 +1006,9 @@ class ColStagBoards {
 		kb.setQMK();
 		kb.source = "https://github.com/vvhg1/fisk";
 		kb.img = "fisk.jpg";
-		kb.caseType = Included;
-		kb.assembly = Assembly.Handwired;
+		kb.assembly = [Handwired];
+		kb.displays = 2;
+		kb.setNotswap([MX]);
 		add(kb);
 		
 		function addIris(kb:ColStagKeyboard) {
@@ -1057,12 +1116,19 @@ class ColStagBoards {
 			"https://momoka.store/collections/keyboards/products/momoka-ergo",
 			"https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
 			"https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
+			"https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415",
 		];
 		kb.img = "momoka-ergo.webp";
 		kb.notes = [
 			"There are multiple keyboards using an Ergodox[-like] layout",
 			"Ergodox EZ is separated from these due to presence of tenting legs",
 		];
+		var ergodoxy = add(kb);
+		
+		kb = new ColStagKeyboard("Ergodox_FT LP", ergodoxy);
+		kb.img = "ergodox-ft-lp.jpg";
+		kb.setHotswap([Choc]);
+		kb.prebuilt = "https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480";
 		add(kb);
 		
 		kb = new ColStagKeyboard("Keyboardio Model 100");

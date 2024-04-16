@@ -4,6 +4,7 @@ window.domainCountries = {
 	"bastardkb.com": "nl",
 	"ergohaven.xyz": "ru",
 	"falba.tech": "pl",
+	"falbatech.click": "pl",
 	"keycapsss.com": "de",
 	"boardsource.xyz": "us",
 	"keeb.io": "us",

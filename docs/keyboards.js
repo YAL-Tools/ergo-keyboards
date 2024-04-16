@@ -17,6 +17,13 @@ window.keyboardData = [
 	"kit": "!https://shop.profetkeyboards.com/category/atreus62"
 },
 {
+	"name": "Atreus62_FT",
+	"parent": "atreus62",
+	"img": "atreus62-ft.jpg",
+	"hotswap": true,
+	"prebuilt": "https://falbatech.click/products/Atreus62_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630566564"
+},
+{
 	"name": "Lotus 58",
 	"img": "lotus58.webp",
 	"shape": "Split",
@@ -665,7 +672,7 @@ window.keyboardData = [
 	"rcols": 6,
 	"thumbKeys": 3,
 	"pinkyStagger": 1.5,
-	"switchProfile": "Other",
+	"switchProfile": "ChocMini",
 	"trackpads": 1,
 	"displays": 1,
 	"caseType": "None",
@@ -1936,6 +1943,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 4
 	},
+	"switchProfile": ["MX", "Choc"],
 	"caseType": "Included",
 	"kit": "https://www.diykeyboards.com/keyboards/keyboard-kits/product/dactyl-manuform-kit",
 	"source": "https://github.com/abstracthat/dactyl-manuform",
@@ -2568,6 +2576,7 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": "Wired",
+	"switchProfile": "MX",
 	"keys": 64,
 	"rows": 4,
 	"cols": 6,
@@ -2594,7 +2603,7 @@ window.keyboardData = [
 	"switchProfile": [
 		"Choc",
 		"ChocV2",
-		"Other"
+		"KXSwitch"
 	],
 	"dpads": 2,
 	"dpadDirs": 5,
@@ -3110,6 +3119,8 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"innerKeys": 1,
 	"pinkyStagger": 0.4,
+	"switchProfile": ["GateronLP", "Choc"],
+	"keySpacing": "MX",
 	"encoders": 2,
 	"encoderType": "Knob",
 	"assembly": "Handwired",
@@ -3173,7 +3184,7 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"cornerKeys": 4,
 	"hotswap": "No",
-	"switchProfile": "Other",
+	"switchProfile": "KXSwitch",
 	"firmware": "QMK",
 	"source": "https://github.com/hazels-garage/shortstack"
 },
@@ -3576,7 +3587,7 @@ window.keyboardData = [
 	"hotswap": "No",
 	"switchProfile": [
 		"Choc",
-		"Other"
+		"KXSwitch"
 	],
 	"keySpacing": "Choc",
 	"firmware": "ZMK",
@@ -3640,14 +3651,40 @@ window.keyboardData = [
 	"cornerKeys": 3,
 	"pinkyStagger": 0.8,
 	"hotswap": "Yes",
-	"switchProfile": [
-		"MX",
-		"Choc"
-	],
+	"switchProfile": ["MX", "Choc"],
+	"encoders": 2,
+	"trackballs": [0, 1],
+	"displays": [0, 1],
 	"lighting": "RGB",
 	"firmware": "QMK",
 	"software": "Vial",
-	"source": "https://github.com/sadekbaroudi/barobord"
+	"source": "https://github.com/sadekbaroudi/barobord",
+	"kit": "https://fingerpunch.xyz/product/barobord/"
+},
+{
+	"name": "Big Barobord",
+	"img": "big-barobord.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 52,
+	"rows": 4,
+	"cols": 5,
+	"thumbKeys": 3,
+	"innerKeys": 1,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"encoders": {"min": 0, "max": 1},
+	"encoderType": ["Knob", "Wheel"],
+	"trackballs": {"min": 0, "max": 1},
+	"displays": {"min": 0, "max": 1},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"extras": "[v:cases] https://github.com/sadekbaroudi/fingerpunch/tree/master/keyboards/bigbarobord/cases",
+	"kit": "https://fingerpunch.xyz/product/big-barobord/"
 },
 {
 	"name": "Heron v1",
@@ -4503,7 +4540,10 @@ window.keyboardData = [
 		"lynx-1.webp",
 		"lynx-3.webp"
 	],
-	"notes": "This keyboard is too far outside my classification system",
+	"notes": [
+		"This keyboard is too far outside my classification system.",
+		"Uses mouse switches with custom caps for keys."
+	],
 	"shape": [
 		"Split",
 		"Special"
@@ -5309,7 +5349,7 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"pinkyStagger": 0.8,
 	"hotswap": "No",
-	"switchProfile": "Other",
+	"switchProfile": "KXSwitch",
 	"lighting": "None",
 	"firmware": "ZMK",
 	"caseType": "Included",
@@ -5572,6 +5612,175 @@ window.keyboardData = [
 		"https://customkbd.com/products/rhymestone-keyboard-kit"
 	]
 },
+{
+	"name": "Sofle Hybrid",
+	"img": "ergomech-sofle-hybrid.jpg",
+	"notes": "Replaces the right encoder with a 5-way switch",
+	"parent": "Sofle Choc",
+	"connection": ["Wired", "Bluetooth"],
+	"switchProfile": ["MX", "Choc"],
+	"encoders": 1,
+	"encoderType": "Wheel",
+	"dpads": 1,
+	"dpadDirs": 5,
+	"firmware": ["QMK", "ZMK"],
+	"prebuilt": [
+		"https://ergomech.store/shop/sofle-hybrid-aluminum-version-exclusive-403",
+		"https://ergomech.store/shop/sofle-hybrid-sandwich-style-423"
+	]
+},
+{
+	"name": "tamatama",
+	"img": "tamatama.jpg",
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 28,
+	"rows": 3,
+	"cols": 4,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.6,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"trackballs": 2,
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"source": "https://github.com/dlip/tamatama",
+	"pointingDevices": 2
+},
+{
+	"name": "JESK56",
+	"img": "jesk56.jpg",
+	"notes": "Uses a novel type of key matrix to have adequate rollover on a unibody diodeless keyboard.",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"assembly": "Diodeless",
+	"caseType": "Included",
+	"source": "https://github.com/triliu/JESK56"
+},
+{
+	"name": "Mantis",
+	"img": "mantis-x3.jpg",
+	"notes": "Layered design for hexagonal keycaps",
+	"shape": ["Unibody", "Special"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 40,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 4,
+	"outerKeys": 1,
+	"pinkyStagger": 0.5,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"tenting": "Fixed",
+	"caseType": "Included",
+	"source": "https://github.com/fxkuehl/mantis"
+},
+{
+	"name": "Abyss",
+	"img": "abyss.jpg",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.9,
+	"splay": "Yes",
+	"hotswap": ["No", "Yes"],
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Diodeless"],
+	"caseType": "None",
+	"source": "https://github.com/kvietcong/the-abyss"
+},
+{
+	"name": "AWKB",
+	"img": "awkb.jpeg",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": {"min": 35, "max": 36},
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {"min": 2, "max": 3},
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {"min": 0, "max": 1},
+	"trackballs": 1,
+	"firmware": "QMK",
+	"caseType": "None",
+	"source": "https://github.com/wj-zhe/awkb",
+	"pointingDevices": 1
+},
+{
+	"name": "Ch55p34",
+	"img": "Ch55p34.jpg",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "FAK",
+	"source": "https://github.com/doesntfazer/Ch55p34-keyboard"
+},
+{
+	"name": "Kai Ascend",
+	"img": "ascend.jpg",
+	"notes": "Uses Choc V1 switches for thumb keys",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"outerKeys": 1,
+	"pinkyStagger": 0.7,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"displays": 2,
+	"firmware": "ZMK",
+	"source": "https://github.com/kaihchang/Ascend_splay_split_keyboard"
+},
+{
+	"name": "Cygnus 1.0",
+	"img": "cygnus.jpg",
+	"notes": [
+		"A few variants of the keyboard exist.",
+		"Uses mini-PCBs for switches."
+	],
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": [{"min": 36, "max": 36}, {"min": 42, "max": 42}],
+	"rows": 3,
+	"cols": {"min": 5, "max": 6},
+	"thumbKeys": 3,
+	"pinkyStagger": 0.5,
+	"switchProfile": "MX",
+	"firmware": ["QMK", "ZMK"],
+	"assembly": "Handwired",
+	"source": "https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0"
+},
 "2024-04-16"
 ];
 window.keyboardTODOs = `
@@ -5583,22 +5792,12 @@ https://github.com/doesntfazer/frigate https://www.reddit.com/r/ErgoMechKeyboard
 https://github.com/taylorzr/goshawk
 https://github.com/DreaM117er/MagWave44
 Cornepad https://kbd.news/Cornepad-2265.html
-Ch55p34 https://kbd.news/Ch55p34-2256.html
 Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/ https://github.com/okke-formsma/dactyl-manuform-tight/
 https://github.com/davidphilipbarr/hypergolic
-AWKB https://kbd.news/AWKB-A-Weird-Keyboard-2289.html
 FAW36 https://keycapsss.com/keyboard-parts/pcbs/253/faw36-ortholinear-split-keyboard-pcb?c=14
-Cygnus https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
 https://github.com/lapidot/ADuck
 https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl
-https://github.com/fxkuehl/mantis
-https://github.com/moduloindustries/thinkeys
-https://github.com/saoto28/pineapple60
-https://kbd.news/FCS42S-keyboard-1317.html
-https://github.com/triliu/JESK56
 https://github.com/jcmkk3/trochilidae
-https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0
-https://github.com/kvietcong/the-abyss
 Corne v4
 Chimera Ortho
 More Maltron keyboards
@@ -5607,18 +5806,15 @@ Gergo
 ZEN2
 Jian
 Jorne
-FalbaTech's Redox_FT Low-profile
 GrabShell https://grabshell.site/en/home-en/
 https://github.com/kaihchang/Ascend_splay_split_keyboard
 https://github.com/cacheworks/Wubbo
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1bzyw9b/gull_v1/
 https://github.com/ardakilic/woodpecker-keyboard/
-https://github.com/dlip/tamatama
 https://github.com/anarion80/porcupine
 https://github.com/aroum/kalmar
 https://github.com/foostan/corneliuskbd
 https://github.com/geoffder/dometyl-keyboard/tree/main/things/niztyl
-https://fingerpunch.xyz/product/barobord/ https://fingerpunch.xyz/product/big-barobord/
 https://fingerpunch.xyz/product/rock-on/ https://fingerpunch.xyz/product/rock-on-v2/ https://fingerpunch.xyz/product/rock-on-v3/ https://fingerpunch.xyz/product/rock-on-bpe/
 https://fingerpunch.xyz/product/kucheza/
 https://fingerpunch.xyz/product/luakeeb/
@@ -5628,6 +5824,11 @@ https://fingerpunch.xyz/product/vulpes-majora/
 
 https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
+
+https://kbd.news/FCS42S-keyboard-1317.html
+https://github.com/moduloindustries/thinkeys
+https://github.com/saoto28/pineapple60
+https://sterling-key.com/
 
 https://kbd.news/aball-a-buttonless-trackball-139.html
 https://github.com/george-norton/peacock

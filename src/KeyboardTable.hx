@@ -231,6 +231,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		switchType.filterLabels[SwitchProfile.AnyLP] = "Low-profile";
 		switchType.filterLabels[SwitchProfile.Choc] = "Kailh Choc V1";
 		switchType.filterLabels[SwitchProfile.ChocV2] = "Kailh Choc V2";
+		switchType.filterLabels[SwitchProfile.ChocMini] = "Kailh Choc Mini";
+		switchType.filterLabels[SwitchProfile.KXSwitch] = "Kailh X-Switch";
 		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron LP";
 		//
 		switchType.shortLabels[SwitchProfile.Unknown] = "";

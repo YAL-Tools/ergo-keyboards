@@ -14,6 +14,7 @@ enum SwitchProfile {
 	Choc;
 	ChocV2;
 	ChocMini;
+	KXSwitch;
 	Alps;
 	GateronLP;
 	OutemuLP;
@@ -42,6 +43,7 @@ class SwitchProfileTools {
 			case Choc: true;
 			case ChocV2: true;
 			case ChocMini: true;
+			case KXSwitch: true;
 			case GateronLP: true;
 			case OutemuLP: true;
 			case CherryULP: true;

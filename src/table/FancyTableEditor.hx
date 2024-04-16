@@ -129,7 +129,8 @@ class FancyTableEditor {
 		}
 		
 		if (table is KeyboardTable) {
-			var kbs = (cast table:KeyboardTable<Keyboard>).rawKeyboards;
+			var kbTable:KeyboardTable<Keyboard> = cast table;
+			var kbs = kbTable.rawKeyboards;
 			kbs.sort(function(a, b) {
 				var an = a.name.toUpperCase();
 				var bn = b.name.toUpperCase();
@@ -152,10 +153,16 @@ class FancyTableEditor {
 				if (kb == null) return;
 				for (fn in restore) fn(cast kb);
 			}
-		}
-		
-		btTest.onclick = function() {
-			table.loadTest(buildKeyboard());
+			//
+			btTest.onclick = function() {
+				var kb = buildKeyboard();
+				kbTable.resolveParent(cast kb);
+				table.loadTest(kb);
+			}
+		} else {
+			btTest.onclick = function() {
+				table.loadTest(buildKeyboard());
+			}
 		}
 	}
 }
