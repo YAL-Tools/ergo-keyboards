@@ -1772,8 +1772,54 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		asm.show = false;
 		this.addColumn(asm);
 	}
+	,initControllers: function(kb) {
+		var _gthis = this;
+		this.addFilterHeader("Controllers");
+		var nCol = new table_IntRangeColumn("Count",new table_FancyField("ctlCount",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.ctlCount = setValue;
+				return null;
+			} else {
+				return q.ctlCount;
+			}
+		}));
+		nCol.show = false;
+		_gthis.addColumn(nCol);
+		var tcol = new table_StringTagColumn("Footprint",new table_FancyField("ctlFootprint",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.ctlFootprint = setValue;
+				return null;
+			} else {
+				return q.ctlFootprint;
+			}
+		}),null);
+		tcol.separator = ",";
+		tcol.show = false;
+		_gthis.addColumn(tcol);
+		tcol = new table_StringTagColumn("Pin Count",new table_FancyField("ctlPinCount",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.ctlPinCount = setValue;
+				return null;
+			} else {
+				return q.ctlPinCount;
+			}
+		}),null);
+		tcol.show = false;
+		_gthis.addColumn(tcol);
+		tcol = new table_StringTagColumn("Controller",new table_FancyField("ctlName",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.ctlName = setValue;
+				return null;
+			} else {
+				return q.ctlName;
+			}
+		}),null);
+		tcol.separator = ",";
+		tcol.show = false;
+		_gthis.addColumn(tcol);
+	}
 	,getInits: function() {
-		return [new KeyboardTableInit("general",$bind(this,this.initGeneral)),new KeyboardTableInit("clusters",$bind(this,this.initClusters)),new KeyboardTableInit("switch",$bind(this,this.initSwitch)),new KeyboardTableInit("inputs",$bind(this,this.initInputs)),new KeyboardTableInit("curios",$bind(this,this.initCuriosities)),new KeyboardTableInit("conveniences",$bind(this,this.initConveniences)),new KeyboardTableInit("links",$bind(this,this.initLinks))];
+		return [new KeyboardTableInit("general",$bind(this,this.initGeneral)),new KeyboardTableInit("clusters",$bind(this,this.initClusters)),new KeyboardTableInit("switch",$bind(this,this.initSwitch)),new KeyboardTableInit("inputs",$bind(this,this.initInputs)),new KeyboardTableInit("curios",$bind(this,this.initCuriosities)),new KeyboardTableInit("controller",$bind(this,this.initControllers)),new KeyboardTableInit("conveniences",$bind(this,this.initConveniences)),new KeyboardTableInit("links",$bind(this,this.initLinks))];
 	}
 	,resolveParents: function() {
 		var _g = 0;
@@ -2055,6 +2101,41 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 				col.load(kb);
 			}
 			this.values.push(kb);
+		}
+		var csv = tools_CsvParser.parse(window.mcuData);
+		csv.shift();
+		var _g = 0;
+		while(_g < csv.length) {
+			var row = csv[_g];
+			++_g;
+			var name = row[0];
+			var _g1 = [];
+			var _g2 = 0;
+			var _g3 = this.values;
+			while(_g2 < _g3.length) {
+				var v = _g3[_g2];
+				++_g2;
+				if(v.name == name) {
+					_g1.push(v);
+				}
+			}
+			var kb = _g1[0];
+			if(kb == null) {
+				$global.console.log("MCU CSV refers to missing keyboard \"" + name + "\"");
+				continue;
+			}
+			if(row[1] != "") {
+				kb.ctlCount = type_NumRange.fromValue(Std.parseInt(row[1]));
+			}
+			if(row[2] != "") {
+				kb.ctlFootprint = row[2];
+			}
+			if(row[3] != "") {
+				kb.ctlPinCount = row[3];
+			}
+			if(row[4] != "") {
+				kb.ctlName = row[4];
+			}
 		}
 		ToDoList.set(window.keyboardTODOs);
 	}
@@ -6309,6 +6390,116 @@ table_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 	}
 	,__class__: table_TagLikeColumnBase
 });
+var table_StringTagColumn = function(name,field,tags) {
+	this.separator = null;
+	this.defaultValue = null;
+	table_TagLikeColumnBase.call(this,name,field);
+	this.field = field;
+	this.tags = tags;
+};
+table_StringTagColumn.__name__ = true;
+table_StringTagColumn.__super__ = table_TagLikeColumnBase;
+table_StringTagColumn.prototype = $extend(table_TagLikeColumnBase.prototype,{
+	defaultValue: null
+	,tags: null
+	,separator: null
+	,getValue: function(item) {
+		var tmp = this.field.access(item);
+		if(tmp != null) {
+			return tmp;
+		} else {
+			return this.defaultValue;
+		}
+	}
+	,getDefaultTag: function() {
+		return this.defaultValue;
+	}
+	,getTagNames: function() {
+		return this.tags;
+	}
+	,tagToIndex: function(val) {
+		return this.tags.indexOf(val);
+	}
+	,tagToName: function(val) {
+		return val;
+	}
+	,indexToTag: function(ind) {
+		return this.tags[ind];
+	}
+	,nameToTag: function(name) {
+		if(this.tags.indexOf(name) != -1) {
+			return name;
+		} else {
+			return null;
+		}
+	}
+	,getFilterLabel: function(val) {
+		return val;
+	}
+	,getShortLabel: function(val) {
+		return val;
+	}
+	,matchesFilter: function(item) {
+		if(this.filterTags.length == 0) {
+			return true;
+		}
+		var val = this.getValue(item);
+		switch(this.filterMode._hx_index) {
+		case 0:
+			return this.filterTags.indexOf(val) != -1;
+		case 2:
+			return this.filterTags.indexOf(val) == -1;
+		default:
+			return true;
+		}
+	}
+	,buildFilter: function(out) {
+		if(this.tags == null) {
+			this.tags = [];
+			var found_h = Object.create(null);
+			var _g = 0;
+			var _g1 = this.table.values;
+			while(_g < _g1.length) {
+				var item = _g1[_g];
+				++_g;
+				var str = this.field.access(item);
+				if(str == null) {
+					continue;
+				}
+				var vals;
+				if(this.separator != null) {
+					vals = str.split(this.separator);
+					var result = new Array(vals.length);
+					var _g2 = 0;
+					var _g3 = vals.length;
+					while(_g2 < _g3) {
+						var i = _g2++;
+						result[i] = StringTools.trim(vals[i]);
+					}
+					vals = result;
+				} else {
+					vals = [str];
+				}
+				var _g4 = 0;
+				while(_g4 < vals.length) {
+					var val = vals[_g4];
+					++_g4;
+					var vlq = val.toLowerCase();
+					if(Object.prototype.hasOwnProperty.call(found_h,vlq)) {
+						continue;
+					}
+					found_h[vlq] = true;
+					this.tags.push(val);
+				}
+			}
+		}
+		table_TagLikeColumnBase.prototype.buildFilter.call(this,out);
+	}
+	,buildValue: function(out,item) {
+		table_TagLikeColumnTools.buildSingleValue(this,out,item);
+	}
+	,__class__: table_StringTagColumn
+});
 var table_TagColumnBase = function(name,field,et) {
 	this.hideInEditor = new haxe_ds_EnumValueMap();
 	this.shortLabels = new haxe_ds_EnumValueMap();
@@ -6965,6 +7156,79 @@ tools_CompactJsonPrinter.prototype = {
 		this.buf.b += String.fromCodePoint(34);
 	}
 	,__class__: tools_CompactJsonPrinter
+};
+var tools_CsvParser = function() { };
+tools_CsvParser.__name__ = true;
+tools_CsvParser.parse = function(str) {
+	str = StringTools.replace(str,"\r","");
+	var row = [];
+	var table = [row];
+	var quote = false;
+	var pos = 0;
+	var len = str.length;
+	var buf = new StringBuf();
+	var start = 0;
+	var __flush_till;
+	while(pos < len) {
+		var c = str.charCodeAt(pos++);
+		switch(c) {
+		case 10:
+			if(!quote) {
+				__flush_till = pos - 1;
+				if(__flush_till > start) {
+					var len1 = __flush_till - start;
+					buf.b += len1 == null ? HxOverrides.substr(str,start,null) : HxOverrides.substr(str,start,len1);
+				}
+				row.push(buf.b);
+				buf = new StringBuf();
+				row = [];
+				table.push(row);
+				start = pos;
+			}
+			break;
+		case 34:
+			__flush_till = pos - 1;
+			if(__flush_till > start) {
+				var len2 = __flush_till - start;
+				buf.b += len2 == null ? HxOverrides.substr(str,start,null) : HxOverrides.substr(str,start,len2);
+			}
+			if(quote) {
+				if(pos < len && str.charCodeAt(pos) == 34) {
+					buf.b += String.fromCodePoint(34);
+					++pos;
+				} else {
+					quote = false;
+				}
+			} else {
+				quote = true;
+			}
+			start = pos;
+			break;
+		case 44:
+			if(!quote) {
+				__flush_till = pos - 1;
+				if(__flush_till > start) {
+					var len3 = __flush_till - start;
+					buf.b += len3 == null ? HxOverrides.substr(str,start,null) : HxOverrides.substr(str,start,len3);
+				}
+				row.push(buf.b);
+				buf = new StringBuf();
+				start = pos;
+			}
+			break;
+		}
+	}
+	__flush_till = pos;
+	if(__flush_till > start) {
+		var len = __flush_till - start;
+		buf.b += len == null ? HxOverrides.substr(str,start,null) : HxOverrides.substr(str,start,len);
+	}
+	row.push(buf.b);
+	var last = table.length - 1;
+	if(table[last].length == 1 && table[last][0] == "") {
+		table.pop();
+	}
+	return table;
 };
 var tools_FancyTableMacro = function() { };
 tools_FancyTableMacro.__name__ = true;

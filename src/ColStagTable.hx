@@ -1,4 +1,5 @@
 package ;
+import tools.CsvParser;
 import js.Browser.*;
 import type.*;
 import js.html.Element;
@@ -220,9 +221,11 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		addColumn(splay);
 	}
 	override public function initKeyboards():Void {
+		// code keyboards:
 		ColStagBoards.init(values);
 		OrthoBoards.init(values);
 		
+		// visual editor keyboards:
 		var kbs:Array<ColStagKeyboard> = (cast window).keyboardData;
 		for (kb in kbs) {
 			if (kb is String) {
@@ -233,6 +236,24 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 			for (col in columns) col.load(kb);
 			values.push(kb);
 		}
+		
+		// MCU data:
+		var csv = CsvParser.parse((cast window).mcuData);
+		csv.shift(); // remove header
+		for (row in csv) {
+			var name = row[0];
+			var kb = values.filter(kb -> kb.name == name)[0];
+			if (kb == null) {
+				console.log('MCU CSV refers to missing keyboard "$name"');
+				continue;
+			}
+			if (row[1] != "") kb.ctlCount = Std.parseInt(row[1]);
+			if (row[2] != "") kb.ctlFootprint = row[2];
+			if (row[3] != "") kb.ctlPinCount = row[3];
+			if (row[4] != "") kb.ctlName = row[4];
+		}
+		
+		//
 		ToDoList.set((cast window).keyboardTODOs);
 	}
 	override public function post():Void {

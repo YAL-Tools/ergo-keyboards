@@ -1,4 +1,5 @@
 package;
+import table.StringTagColumn;
 import haxe.Constraints.Function;
 import haxe.Json;
 import js.html.Element;
@@ -638,6 +639,29 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		asm.show = false;
 		addColumn(asm);
 	}
+	function initControllers(kb:KB) {
+		addFilterHeader("Controllers");
+		inline function addHidden(col:FancyColumn<KB>) {
+			col.show = false;
+			addColumn(col);
+		}
+		
+		var nCol = new IntRangeColumn("Count", mgf(kb.ctlCount));
+		addHidden(nCol);
+		
+		var tcol:StringTagColumn<KB>;
+		
+		tcol = new StringTagColumn("Footprint", mgf(kb.ctlFootprint), null);
+		tcol.separator = ",";
+		addHidden(tcol);
+		
+		tcol = new StringTagColumn("Pin Count", mgf(kb.ctlPinCount), null);
+		addHidden(tcol);
+		
+		tcol = new StringTagColumn("Controller", mgf(kb.ctlName), null);
+		tcol.separator = ",";
+		addHidden(tcol);
+	}
 	public function getInits():KeyboardTableInitList<KB> {
 		return [
 			new KeyboardTableInit("general", initGeneral),
@@ -645,6 +669,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			new KeyboardTableInit("switch", initSwitch),
 			new KeyboardTableInit("inputs", initInputs),
 			new KeyboardTableInit("curios", initCuriosities),
+			new KeyboardTableInit("controller", initControllers),
 			new KeyboardTableInit("conveniences", initConveniences),
 			new KeyboardTableInit("links", initLinks),
 		];

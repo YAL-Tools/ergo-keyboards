@@ -54,6 +54,12 @@ typedef Keyboard = {
 	?caseType:ValList<CaseType>,
 	?extras:ValList<String>,
 	
+	// controller stuff
+	?ctlCount:IntRange,
+	?ctlFootprint:String,
+	?ctlPinCount:String,
+	?ctlName:String,
+	
 	?firmware:ValList<Firmware>,
 	?software:ValList<Software>,
 	

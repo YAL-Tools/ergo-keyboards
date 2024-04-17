@@ -1,5 +1,6 @@
 package table;
 import js.html.Element;
+using StringTools;
 
 /**
  * ...
@@ -8,6 +9,7 @@ import js.html.Element;
 class StringTagColumn<T> extends TagLikeColumnBase<T, String, String> {
 	public var defaultValue:String = null;
 	public var tags:Array<String>;
+	public var separator:String = null;
 	public function new(name:String, field:FancyField<T, String>, tags:Array<String>) {
 		super(name, field);
 		this.field = field;
@@ -50,6 +52,29 @@ class StringTagColumn<T> extends TagLikeColumnBase<T, String, String> {
 			case NoneOf: return !filterTags.contains(val);
 			default: return true;
 		}
+	}
+	
+	override function buildFilter(out:Element) {
+		if (tags == null) {
+			tags = [];
+			var found = new Map();
+			for (item in table.values) {
+				var str = field.access(item);
+				if (str == null) continue;
+				var vals;
+				if (separator != null) {
+					vals = str.split(separator);
+					vals = vals.map(s -> s.trim());
+				} else vals = [str];
+				for (val in vals) {
+					var vlq = val.toLowerCase();
+					if (found.exists(vlq)) continue;
+					found[vlq] = true;
+					tags.push(val);
+				}
+			}
+		}
+		super.buildFilter(out);
 	}
 	
 	override public function buildValue(out:Element, item:T):Void {
