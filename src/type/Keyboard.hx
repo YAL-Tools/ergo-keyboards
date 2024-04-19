@@ -56,9 +56,9 @@ typedef Keyboard = {
 	
 	// controller stuff
 	?ctlCount:IntRange,
-	?ctlFootprint:String,
-	?ctlPinCount:String,
-	?ctlName:String,
+	?ctlFootprint:ValList<String>,
+	?ctlPinCount:ValList<String>,
+	?ctlName:ValList<String>,
 	
 	?firmware:ValList<Firmware>,
 	?software:ValList<Software>,

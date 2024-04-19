@@ -1,5 +1,5 @@
 package type;
-import table.TagListColumn;
+import table.tag.TagListColumn;
 import table.FancyField;
 
 /**

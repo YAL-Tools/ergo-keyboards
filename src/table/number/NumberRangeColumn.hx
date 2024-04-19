@@ -1,11 +1,11 @@
-package table;
+package table.number;
 import type.*;
 import haxe.DynamicAccess;
 import js.Browser;
 import js.html.InputElement;
 import table.FancyField;
-import table.NumberColumn;
-import table.NumberColumnBase;
+import table.number.NumberColumn;
+import table.number.NumberColumnBase;
 import type.GetSetOn;
 import js.html.Element;
 using tools.HtmlTools;

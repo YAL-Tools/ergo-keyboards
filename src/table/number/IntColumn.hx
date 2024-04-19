@@ -1,5 +1,5 @@
-package table;
-import table.NumberColumn;
+package table.number;
+import table.number.NumberColumn;
 import type.GetSetOn;
 import type.NumRange;
 

@@ -1,7 +1,7 @@
-package table;
-import table.NumberColumn;
-import table.NumberRangeColumn;
-import table.NumberRangeListColumn;
+package table.number;
+import table.number.NumberColumn;
+import table.number.NumberRangeColumn;
+import table.number.NumberRangeListColumn;
 import type.Keyboard;
 
 /**

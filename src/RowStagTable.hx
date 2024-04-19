@@ -7,11 +7,11 @@ import js.lib.RegExp;
 import table.FancyColumn;
 import table.*;
 import type.*;
-import table.TagColumn;
+import table.tag.TagColumn;
+import table.number.IntRangeColumn;
 import type.row.*;
 import table.FancyField;
-import table.IntRangeColumn;
-import table.TagListColumn;
+import table.tag.TagListColumn;
 import tools.FancyTableMacro.*;
 using tools.HtmlTools;
 

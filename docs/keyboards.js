@@ -465,18 +465,19 @@ window.keyboardData = [
 	"source": "https://github.com/jstevej/fidrildi"
 },
 {
-	"name": "Corax56",
-	"img": "Corax56.jpg",
+	"name": "Corax",
+	"img": "Corax.jpg",
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": 56,
+	"keys": [54, 56],
 	"rows": 4,
 	"cols": 6,
 	"thumbKeys": 4,
+	"outerKeys": [-1, 0],
 	"pinkyStagger": 0.66,
 	"splay": "PinkyOnly",
 	"hotswap": "Yes",
@@ -487,7 +488,7 @@ window.keyboardData = [
 	"displays": 2,
 	"firmware": "ZMK",
 	"caseType": "Included",
-	"source": "https://github.com/dnlbauer/corax56-keyboard"
+	"source": "https://github.com/dnlbauer/corax-keyboard"
 },
 {
 	"name": "Kaly",

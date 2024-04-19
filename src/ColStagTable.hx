@@ -4,17 +4,14 @@ import js.Browser.*;
 import type.*;
 import js.html.Element;
 import table.FancyField;
-import table.FloatColumn;
-import table.IntRangeColumn;
-import table.LinkListColumn;
-import table.TagColumn;
-import table.TagListColumn;
+import table.number.*;
+import table.tag.*;
+import table.number.IntRangeColumn;
 import type.Keyboard;
 import type.HotSwap;
 import tools.FancyTableMacro.*;
 import table.FancyTable;
 import table.FancyColumn;
-import table.TagColumnBase;
 import table.*;
 import KeyboardTable;
 import type.Splay.SplayBase;
@@ -238,20 +235,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		}
 		
 		// MCU data:
-		var csv = CsvParser.parse((cast window).mcuData);
-		csv.shift(); // remove header
-		for (row in csv) {
-			var name = row[0];
-			var kb = values.filter(kb -> kb.name == name)[0];
-			if (kb == null) {
-				console.log('MCU CSV refers to missing keyboard "$name"');
-				continue;
-			}
-			if (row[1] != "") kb.ctlCount = Std.parseInt(row[1]);
-			if (row[2] != "") kb.ctlFootprint = row[2];
-			if (row[3] != "") kb.ctlPinCount = row[3];
-			if (row[4] != "") kb.ctlName = row[4];
-		}
+		ControllerColumn.initKeyboards(this);
 		
 		//
 		ToDoList.set((cast window).keyboardTODOs);

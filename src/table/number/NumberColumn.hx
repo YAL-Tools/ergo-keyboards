@@ -1,4 +1,4 @@
-package table;
+package table.number;
 import type.*;
 import haxe.DynamicAccess;
 import js.Browser;

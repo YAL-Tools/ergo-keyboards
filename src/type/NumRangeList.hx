@@ -1,6 +1,6 @@
 package type;
 import haxe.Rest;
-import table.NumberColumn;
+import table.number.NumberColumn;
 
 /**
  * ...

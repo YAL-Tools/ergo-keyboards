@@ -1,7 +1,7 @@
-package table;
+package table.number;
 import type.*;
 import js.html.Element;
-import table.NumberColumn;
+import table.number.NumberColumn;
 import type.NumRange;
 using tools.HtmlTools;
 

@@ -14,7 +14,7 @@ class ValueTools {
 			if ((val:EnumValue).getParameters().length > 0) throw "todo!";
 			return val;
 		}
-		if (val is String || val is Float) return val;
+		if (val is String || val is Float || val is Bool) return val;
 		if (val is Array) {
 			return [for (i => item in (val:Array<Any>)) copy(item, depth)];
 		}

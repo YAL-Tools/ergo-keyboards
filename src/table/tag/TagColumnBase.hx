@@ -1,4 +1,4 @@
-package table;
+package table.tag;
 import haxe.DynamicAccess;
 import js.html.Element;
 import js.html.InputElement;
@@ -21,6 +21,11 @@ class TagColumnBase<T, ET:EnumValue, FT> extends TagLikeColumnBase<T, ET, FT> {
 	public var hideInEditor:Map<ET, Bool> = new Map();
 	override function showInEditor(val:ET):Bool {
 		return !hideInEditor.exists(val);
+	}
+	
+	public var usedValues:Map<ET, Bool> = new Map();
+	override public function showInFilters(val:ET):Bool {
+		return usedValues.exists(val);
 	}
 	
 	override public function getId():String {
@@ -47,10 +52,10 @@ class TagColumnBase<T, ET:EnumValue, FT> extends TagLikeColumnBase<T, ET, FT> {
 		return type.createByName(name);
 	}
 	public function getFilterLabel(val:ET):String {
-		return filterLabels[val];
+		return filterLabels[val] ?? val.getName();
 	}
 	public function getShortLabel(val:ET):String {
-		return shortLabels[val];
+		return shortLabels[val] ?? val.getName();
 	}
 	
 	public function new(name:String, field:FancyField<T, FT>, et:Enum<ET>) {
