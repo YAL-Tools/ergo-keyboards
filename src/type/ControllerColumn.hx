@@ -87,13 +87,16 @@ class ControllerColumn<T> extends StringTagListColumn<T> {
 			}
 			//
 			if (row[1] != "") kb.ctlCount ??= Std.parseInt(row[1]);
+			//Treat ctlPinCount as an int
+			if (row[3] != "") kb.ctlPinCount ??= Std.parseInt(row[3]);
 			//
 			for (i in 2 ... 5) {
 				var vals = parseCsvItem(row[i]);
 				if (vals == null) continue;
 				switch (i) {
 					case 2: kb.ctlFootprint ??= vals;
-					case 3: kb.ctlPinCount ??= vals;
+					//Treat ctlPinCount as string
+					//case 3: kb.ctlPinCount ??= vals;
 					case 4: kb.ctlName ??= vals;
 				}
 			}

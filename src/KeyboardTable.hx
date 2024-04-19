@@ -640,8 +640,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		tcol = new ControllerColumn("Footprint", mgf(kb.ctlFootprint), null);
 		addHidden(tcol);
 		
-		tcol = new ControllerColumn("Pin Count", mgf(kb.ctlPinCount), null);
-		addHidden(tcol);
+		var nCol = new IntRangeColumn("Pin Count", mgf(kb.ctlPinCount));
+		addHidden(nCol);
 		
 		tcol = new ControllerColumn("Controller", mgf(kb.ctlName), null);
 		addHidden(tcol);
