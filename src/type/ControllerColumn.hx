@@ -75,6 +75,19 @@ class ControllerColumn<T> extends StringTagListColumn<T> {
 		}
 		return vals;
 	}
+	static function parseIntPlus(str:String) {
+		static var rx = new RegExp("^(.+)\\s*\\+\\s*(\\d+)\\s*$"); // ... +5
+		var add = 0;
+		var mt = rx.exec(str);
+		while (mt != null) {
+			add += Std.parseInt(mt[2]);
+			str = mt[1];
+			mt = rx.exec(str);
+		}
+		var min = Std.parseInt(str);
+		if (min == null) return null;
+		return new IntRange(min, min + add);
+	}
 	public static function initKeyboards<T:Keyboard>(table:KeyboardTable<T>) {
 		var csv = CsvParser.parse((cast window).mcuData);
 		csv.shift(); // remove header
@@ -86,14 +99,21 @@ class ControllerColumn<T> extends StringTagListColumn<T> {
 				continue;
 			}
 			//
-			if (row[1] != "") kb.ctlCount ??= Std.parseInt(row[1]);
+			if (row[1] != "" && kb.ctlCount == null) {
+				var range = IntRange.parseInt(row[1]);
+				if (range != null) kb.ctlCount = range;
+			}
 			//
-			for (i in 2 ... 5) {
-				var vals = parseCsvItem(row[i]);
+			if (row[3] != "" && kb.ctlPinCount == null) {
+				var range = parseIntPlus(row[3]);
+				if (range != null) kb.ctlPinCount = range;
+			}
+			//
+			for (col in [2, 4]) {
+				var vals = parseCsvItem(row[col]);
 				if (vals == null) continue;
-				switch (i) {
+				switch (col) {
 					case 2: kb.ctlFootprint ??= vals;
-					case 3: kb.ctlPinCount ??= vals;
 					case 4: kb.ctlName ??= vals;
 				}
 			}

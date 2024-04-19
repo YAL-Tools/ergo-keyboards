@@ -635,16 +635,18 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		var nCol = new IntRangeColumn("Count", mgf(kb.ctlCount));
 		addHidden(nCol);
 		
-		var tcol:ControllerColumn<KB>;
+		var ctlCol:ControllerColumn<KB>;
 		
-		tcol = new ControllerColumn("Footprint", mgf(kb.ctlFootprint), null);
-		addHidden(tcol);
+		ctlCol = new ControllerColumn("Footprint", mgf(kb.ctlFootprint), null);
+		ctlCol.columnCount = 2;
+		addHidden(ctlCol);
 		
-		tcol = new ControllerColumn("Pin Count", mgf(kb.ctlPinCount), null);
-		addHidden(tcol);
+		nCol = new IntRangeColumn("Pin Count", mgf(kb.ctlPinCount));
+		addHidden(nCol);
 		
-		tcol = new ControllerColumn("Controller", mgf(kb.ctlName), null);
-		addHidden(tcol);
+		ctlCol = new ControllerColumn("Controller", mgf(kb.ctlName), null);
+		ctlCol.columnCount = 2;
+		addHidden(ctlCol);
 	}
 	public function getInits():KeyboardTableInitList<KB> {
 		return [

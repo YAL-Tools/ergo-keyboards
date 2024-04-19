@@ -1769,7 +1769,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		nCol.show = false;
 		_gthis.addColumn(nCol);
-		var tcol = new type_ControllerColumn("Footprint",new table_FancyField("ctlFootprint",function(q,wantSet,setValue) {
+		var ctlCol = new type_ControllerColumn("Footprint",new table_FancyField("ctlFootprint",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.ctlFootprint = setValue;
 				return null;
@@ -1777,19 +1777,20 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.ctlFootprint;
 			}
 		}),null);
-		tcol.show = false;
-		_gthis.addColumn(tcol);
-		tcol = new type_ControllerColumn("Pin Count",new table_FancyField("ctlPinCount",function(q,wantSet,setValue) {
+		ctlCol.columnCount = 2;
+		ctlCol.show = false;
+		_gthis.addColumn(ctlCol);
+		nCol = new table_number_IntRangeColumn("Pin Count",new table_FancyField("ctlPinCount",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.ctlPinCount = setValue;
 				return null;
 			} else {
 				return q.ctlPinCount;
 			}
-		}),null);
-		tcol.show = false;
-		_gthis.addColumn(tcol);
-		tcol = new type_ControllerColumn("Controller",new table_FancyField("ctlName",function(q,wantSet,setValue) {
+		}));
+		nCol.show = false;
+		_gthis.addColumn(nCol);
+		ctlCol = new type_ControllerColumn("Controller",new table_FancyField("ctlName",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.ctlName = setValue;
 				return null;
@@ -1797,8 +1798,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.ctlName;
 			}
 		}),null);
-		tcol.show = false;
-		_gthis.addColumn(tcol);
+		ctlCol.columnCount = 2;
+		ctlCol.show = false;
+		_gthis.addColumn(ctlCol);
 	}
 	,getInits: function() {
 		return [new KeyboardTableInit("general",$bind(this,this.initGeneral)),new KeyboardTableInit("clusters",$bind(this,this.initClusters)),new KeyboardTableInit("switch",$bind(this,this.initSwitch)),new KeyboardTableInit("inputs",$bind(this,this.initInputs)),new KeyboardTableInit("curios",$bind(this,this.initCuriosities)),new KeyboardTableInit("controller",$bind(this,this.initControllers)),new KeyboardTableInit("conveniences",$bind(this,this.initConveniences)),new KeyboardTableInit("links",$bind(this,this.initLinks))];
@@ -7316,6 +7318,20 @@ type_ControllerColumn.parseCsvItem = function(str) {
 	}
 	return vals;
 };
+type_ControllerColumn.parseIntPlus = function(str) {
+	var add = 0;
+	var mt = type_ControllerColumn.parseIntPlus_rx.exec(str);
+	while(mt != null) {
+		add += Std.parseInt(mt[2]);
+		str = mt[1];
+		mt = type_ControllerColumn.parseIntPlus_rx.exec(str);
+	}
+	var min = Std.parseInt(str);
+	if(min == null) {
+		return null;
+	}
+	return { min : min, max : min + add};
+};
 type_ControllerColumn.initKeyboards = function(table) {
 	var csv = tools_CsvParser.parse(window.mcuData);
 	csv.shift();
@@ -7338,12 +7354,26 @@ type_ControllerColumn.initKeyboards = function(table) {
 		if(kb == null) {
 			continue;
 		}
-		if(row[1] != "") {
-			kb.ctlCount = kb.ctlCount != null ? kb.ctlCount : type_NumRange.fromValue(Std.parseInt(row[1]));
+		if(row[1] != "" && kb.ctlCount == null) {
+			var range = type_NumRange.parseInt(row[1]);
+			if(range != null) {
+				kb.ctlCount = range;
+			}
 		}
-		var _g4 = 2;
-		while(_g4 < 5) {
-			var i = _g4++;
+		if(row[3] != "" && kb.ctlPinCount == null) {
+			var range1 = type_ControllerColumn.parseIntPlus(row[3]);
+			if(range1 != null) {
+				kb.ctlPinCount = range1;
+			}
+		}
+		var _g4 = 0;
+		var _g5 = [2,4];
+		while(_g4 < _g5.length) {
+			var i = _g5[_g4];
+			++_g4;
+			if(i == 3) {
+				continue;
+			}
 			var vals = type_ControllerColumn.parseCsvItem(row[i]);
 			if(vals == null) {
 				continue;
@@ -7351,9 +7381,6 @@ type_ControllerColumn.initKeyboards = function(table) {
 			switch(i) {
 			case 2:
 				kb.ctlFootprint = kb.ctlFootprint != null ? kb.ctlFootprint : vals;
-				break;
-			case 3:
-				kb.ctlPinCount = kb.ctlPinCount != null ? kb.ctlPinCount : vals;
 				break;
 			case 4:
 				kb.ctlName = kb.ctlName != null ? kb.ctlName : vals;
@@ -7531,6 +7558,16 @@ type_NumRange.fromArray = function(arr) {
 		throw haxe_Exception.thrown("Expected [min, max]");
 	}
 	return { min : arr[0], max : arr[1]};
+};
+type_NumRange.parseInt = function(str) {
+	var mt = type_NumRange.parseInt_rxRange.exec(str);
+	if(mt != null) {
+		var min = Std.parseInt(mt[1]);
+		var max = Std.parseInt(mt[2]);
+		return { min : min, max : max};
+	} else {
+		return type_NumRange.fromValue(Std.parseInt(str));
+	}
 };
 type_NumRange.toString = function(this1) {
 	if(this1 == null) {
@@ -7904,7 +7941,9 @@ table_LinkListColumn.countryTags = { };
 table_LinkListColumn.rxFlag = new RegExp("\\[flag:\\s*(\\w+)(?:\\|(.+?))\\]","g");
 table_LinkListColumn.rxAt = new RegExp("(.+?)\\s*@\\s*(https?://.+)");
 table_number_NumberRangeListColumn.rxRange = new RegExp("^(.+?)(-|\\.{2,3})(.+?)$");
+type_ControllerColumn.parseIntPlus_rx = new RegExp("^(.+)\\s*\\+\\s*(\\d+)\\s*$");
 type_ControllerColumn.otherPrefix = "!";
 type_ControllerColumn.otherMatcher = new RegExp("^(.+),\\s*(!.+)$");
+type_NumRange.parseInt_rxRange = new RegExp("^\\s*" + "(\\d+)" + "\\s*" + "(?:\\.\\.|-)" + "\\s*" + "(\\d+)" + "\\s*" + "$");
 Main.main();
 })(typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
