@@ -5966,6 +5966,7 @@ https://fingerpunch.xyz/product/rock-on/ https://fingerpunch.xyz/product/rock-on
 kucheza (game pad) https://fingerpunch.xyz/product/kucheza/
 https://fingerpunch.xyz/product/vulpes-majora/
 https://github.com/andrewjrae/rae-dux
+https://controller.works/products/mini42-low-profile-ergonomic-keyboard
 `;
 /* TODO
 

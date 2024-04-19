@@ -238,10 +238,7 @@ window.rowStagData = [
 	"switchProfile": "Simple",
 	"lighting": "None",
 	"firmware": "Simple",
-	"tenting": {
-		"min": 0,
-		"max": 30
-	},
+	"tenting": ["Legs"],
 	"caseType": "Included",
 	"prebuilt": [
 		"![v:PC] https://shop.goldtouch.com/collections/ergonomic-keyboards/products/goldtouch-v2-adjustable-comfort-keyboard-pc-only",
@@ -394,7 +391,7 @@ window.rowStagData = [
 	},
 	"firmware": "QMK",
 	"software": "VIA",
-	"tenting": 5,
+	"tenting": "Fixed",
 	"caseType": "Included",
 	"kit": "https://gcustomcables.com/products/libra-mini-keyboard-kit"
 },
@@ -422,7 +419,7 @@ window.rowStagData = [
 	"firmware": "Custom",
 	"software": "Custom",
 	"wristPads": "Integrated",
-	"tenting": 7,
+	"tenting": "Fixed",
 	"caseType": "Included",
 	"prebuilt": "https://cloudnineergo.com/products/cloud-nine-ergotkl-ergonomic-split-mechanical-keyboard"
 },
