@@ -335,7 +335,7 @@ ut22,1,Nice!Nano,29,nRF52840
 Vesuveus,1,"RP2040-Zero, Pro Micro",23,RP2040
 Viterbi,2,Pro Micro,24,ATmega32U4
 Wave,2,Elite-C,29,ATmega32U4
-Willow64,2,Pro Micro,24,#N/A
+Willow64,2,Pro Micro,24,ATmega32U4
 X-2,1,"!Blue Pill, !Black Pill",44,"!STM32F103C8T6, !STM32F401, !STM32F411"
 ximi,2,Onboard/SMD,0,RP2040
 YAEMK,2,Onboard/SMD,0,"!STM32F303CCT6, !GD32VF103CBT6"
