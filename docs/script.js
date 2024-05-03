@@ -1767,6 +1767,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.ctlCount;
 			}
 		}));
+		nCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"(Minimum) number of microcontrollers used;");
+			tools_HtmlTools.appendParaTextNode(div,"this number can vary between variants");
+		};
 		nCol.show = false;
 		_gthis.addColumn(nCol);
 		var tcol = new type_ControllerColumn("Footprint",new table_FancyField("ctlFootprint",function(q,wantSet,setValue) {
@@ -1777,6 +1781,11 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.ctlFootprint;
 			}
 		}),null);
+		tcol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"This refers to the microcontroller footprint used.");
+			tools_HtmlTools.appendParaTextNode(div,"Nice!Nano and Elite-C are usually compatible with Pro Micro footprints, but a standard Pro Micro will not work if only Nice!Nano or Elite-C are specified");
+			tools_HtmlTools.appendParaTextNode(div,"Onboard/SMD refers to controllers without a daughterboard, such as the Ferris, or commercial boards, such as the Ergodox EZ");
+		};
 		tcol.show = false;
 		_gthis.addColumn(tcol);
 		var nCol = new table_number_IntRangeColumn("Pin Count",new table_FancyField("ctlPinCount",function(q,wantSet,setValue) {
@@ -1787,6 +1796,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.ctlPinCount;
 			}
 		}));
+		nCol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"(Minimum) number of pins required.");
+			tools_HtmlTools.appendParaTextNode(div,"This is most useful with handwired boards, as this is a number derived from footprint.");
+		};
 		nCol.show = false;
 		_gthis.addColumn(nCol);
 		tcol = new type_ControllerColumn("Controller",new table_FancyField("ctlName",function(q,wantSet,setValue) {
@@ -1797,6 +1810,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.ctlName;
 			}
 		}),null);
+		tcol.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"The actual chip used on daughter boards.");
+			tools_HtmlTools.appendParaTextNode(div,"Pro Micro boards marked as ATmega32U4-only should be able to use an RP2040 variant, but the board docs did not specify. This is common with boards designed before QMK added RP2040 support");
+		};
 		tcol.show = false;
 		_gthis.addColumn(tcol);
 	}
