@@ -1,19 +1,17 @@
 package ;
+import tools.CsvParser;
 import js.Browser.*;
 import type.*;
 import js.html.Element;
 import table.FancyField;
-import table.FloatColumn;
-import table.IntRangeColumn;
-import table.LinkListColumn;
-import table.TagColumn;
-import table.TagListColumn;
+import table.number.*;
+import table.tag.*;
+import table.number.IntRangeColumn;
 import type.Keyboard;
 import type.HotSwap;
 import tools.FancyTableMacro.*;
 import table.FancyTable;
 import table.FancyColumn;
-import table.TagColumnBase;
 import table.*;
 import KeyboardTable;
 import type.Splay.SplayBase;
@@ -220,9 +218,11 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		addColumn(splay);
 	}
 	override public function initKeyboards():Void {
+		// code keyboards:
 		ColStagBoards.init(values);
 		OrthoBoards.init(values);
 		
+		// visual editor keyboards:
 		var kbs:Array<ColStagKeyboard> = (cast window).keyboardData;
 		for (kb in kbs) {
 			if (kb is String) {
@@ -233,6 +233,11 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 			for (col in columns) col.load(kb);
 			values.push(kb);
 		}
+		
+		// MCU data:
+		ControllerColumn.initKeyboards(this);
+		
+		//
 		ToDoList.set((cast window).keyboardTODOs);
 	}
 	override public function post():Void {

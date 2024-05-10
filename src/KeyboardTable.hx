@@ -2,17 +2,15 @@ package;
 import haxe.Constraints.Function;
 import haxe.Json;
 import js.html.Element;
+import table.*;
+import table.number.*;
+import table.tag.*;
 import table.FancyColumn;
 import table.FancyField;
 import table.FancyTable;
-import table.FloatColumn;
-import table.IntListColumn;
-import table.IntRangeColumn;
 import table.LinkListColumn;
 import table.NameColumn;
 import table.ParentColumn;
-import table.TagColumn;
-import table.TagListColumn;
 import type.Assembly;
 import type.CaseType;
 import type.*;
@@ -205,23 +203,12 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 	function initSwitch(kb:KB) {
 		addFilterHeader("Switches and keycaps");
 		
-		var hotswap = new TagListColumn("Hot-swappable switches", mgf(kb.hotswap), HotSwap);
+		var hotswap = new HotSwapColumn("Hot-swappable switches", mgf(kb.hotswap), HotSwap);
 		hotswap.shortName = "hs";
 		hotswap.shortLabels[HotSwap.Unspecified] = "";
 		hotswap.shortLabels[HotSwap.Yes] = "+";
 		hotswap.shortLabels[HotSwap.No] = "-";
 		hotswap.columnCount = 2;
-		hotswap.onBuildValue = function(out:Element, vals:ValList<HotSwap>, kb) {
-			if (vals.contains(HotSwap.Yes)) {
-				if (vals.contains(HotSwap.No)) {
-					out.appendTextNode(String.fromCharCode(177)); // +-
-				} else out.appendTextNode("+");
-			} else if (vals.contains(HotSwap.No)) {
-				out.appendTextNode("-");
-			}
-			if (vals.contains(HotSwap.Special)) out.appendTextNode("*");
-			return true;
-		};
 		addColumn(hotswap);
 		
 		var switchType = new SwitchProfileColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
@@ -638,6 +625,29 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		asm.show = false;
 		addColumn(asm);
 	}
+	function initControllers(kb:KB) {
+		addFilterHeader("Controllers");
+		inline function addHidden(col:FancyColumn<KB>) {
+			col.show = false;
+			addColumn(col);
+		}
+		
+		var nCol = new IntRangeColumn("Count", mgf(kb.ctlCount));
+		addHidden(nCol);
+		
+		var ctlCol:ControllerColumn<KB>;
+		
+		ctlCol = new ControllerColumn("Footprint", mgf(kb.ctlFootprint), null);
+		ctlCol.columnCount = 2;
+		addHidden(ctlCol);
+		
+		nCol = new IntRangeColumn("Pin Count", mgf(kb.ctlPinCount));
+		addHidden(nCol);
+		
+		ctlCol = new ControllerColumn("Controller", mgf(kb.ctlName), null);
+		ctlCol.columnCount = 2;
+		addHidden(ctlCol);
+	}
 	public function getInits():KeyboardTableInitList<KB> {
 		return [
 			new KeyboardTableInit("general", initGeneral),
@@ -645,6 +655,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			new KeyboardTableInit("switch", initSwitch),
 			new KeyboardTableInit("inputs", initInputs),
 			new KeyboardTableInit("curios", initCuriosities),
+			new KeyboardTableInit("controller", initControllers),
 			new KeyboardTableInit("conveniences", initConveniences),
 			new KeyboardTableInit("links", initLinks),
 		];
@@ -662,7 +673,11 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		});
 		resolveParents();
 		for (kb in values) {
-			kb.assembly ??= [];
+			if (kb.assembly == null) {
+				kb.assembly = [];
+			} else if (kb.assembly is String) {
+				kb.assembly = [cast kb.assembly];
+			}
 			
 			if (kb.assembly.contains(Handwired)) {
 				// a handwired keyboard is a case on its own

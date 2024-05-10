@@ -7,6 +7,7 @@ import js.html.Element;
 import js.html.InputElement;
 import js.html.SelectElement;
 import js.html.TextAreaElement;
+import table.tag.TagFilterMode;
 import type.IntRange;
 import type.Keyboard;
 import js.Browser.*;

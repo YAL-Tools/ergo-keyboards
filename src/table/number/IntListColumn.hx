@@ -1,6 +1,6 @@
-package table;
+package table.number;
 import type.*;
-import table.NumberColumn;
+import table.number.NumberColumn;
 
 /**
  * ...

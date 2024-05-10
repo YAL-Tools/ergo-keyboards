@@ -1,4 +1,4 @@
-package table;
+package table.tag;
 using tools.HtmlTools;
 import js.html.Element;
 import js.html.InputElement;
@@ -9,11 +9,14 @@ import haxe.DynamicAccess;
 import haxe.extern.EitherType;
 
 /**
- * NB! FT can be ValList<VT>
+ * Important remarks:
+ * - FT can be ValList<VT>
+ * - You cannot have usedValues in here because an EitherType-constrained type cannot be used as a map key.
  * @author YellowAfterlife
  */
 abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	public var field:FancyField<T, FT>;
+	public var defaultValue:FT = null;
 	public var columnCount = 1;
 	
 	override public function getId():String {
@@ -28,9 +31,10 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	abstract public function getDefaultTag():VT;
 	abstract public function getFilterLabel(val:VT):String;
 	abstract public function getShortLabel(val:VT):String;
-	public function showInFilters(val:VT):Bool {
-		return true;
+	public function getShortNotes(val:VT):String {
+		return null;
 	}
+	
 	public function showInEditor(val:VT):Bool {
 		return true;
 	}
@@ -46,7 +50,23 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	
 	public var filterMode:TagFilterMode = AnyOf;
 	public var filterModeSelect:SelectElement = null;
+	
+	public function getValue(item:T):FT {
+		return field.access(item) ?? defaultValue;
+	}
+	public function tagsContain(tags:Array<VT>, tag:VT) {
+		return tags.contains(tag);
+	}
+	
+	public function showInFilters(val:VT):Bool {
+		return true;
+	}
+	public function buildUsedValues():Void {
+		
+	}
+	
 	override public function buildFilter(out:Element):Void {
+		buildUsedValues();
 		var modeSelect = document.createSelectElement();
 		for (ctr in TagFilterMode.getConstructors()) {
 			var val = TagFilterMode.createByName(ctr);
@@ -75,7 +95,7 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 		for (ctr in getTagNames()) {
 			var val:VT = nameToTag(ctr);
 			if (!showInFilters(val)) continue;
-			var name = getFilterLabel(val) ?? ctr;
+			var name = getFilterLabel(val);
 			
 			var cb = document.createCheckboxElement();
 			cb.checked = filterTags.contains(val);
@@ -150,8 +170,8 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 		var arr = [];
 		for (name in names) {
 			var val = nameToTag(name);
-			var short = getShortLabel(val) ?? name;
-			var long = getFilterLabel(val) ?? name;
+			var short = getShortLabel(val);
+			var long = getFilterLabel(val);
 			if (short == long) continue;
 			arr.push(new FancyColumnLegend(short, long));
 		}

@@ -1,11 +1,11 @@
-package table;
-import type.*;
+package table.number;
+import type.Keyboard;
 
 /**
  * ...
  * @author YellowAfterlife
  */
-class FloatRangeColumn<KB:Keyboard> extends NumberRangeColumn<KB, Float> {
+class FloatColumn<T> extends NumberColumn<T, Float> {
 	override public function parseFilterValue(val:String):Float {
 		return NumberColumn.parseFloatValue(val);
 	}

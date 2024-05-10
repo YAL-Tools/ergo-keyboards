@@ -21,6 +21,7 @@ import type.Keyboard;
 class Main {
 	public static var baseURL:String = "https://yal-tools.github.io/ergo-keyboards/";
 	static function main() {
+		tools.HaxeBugs.ref();
 		LinkListColumn.domainCountries = (cast window).domainCountries;
 		LinkListColumn.countryTags = (cast window).countryTags;
 		ToDoList.element = document.querySelectorAuto("#todo");
