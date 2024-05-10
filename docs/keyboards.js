@@ -5967,6 +5967,7 @@ kucheza (game pad) https://fingerpunch.xyz/product/kucheza/
 https://fingerpunch.xyz/product/vulpes-majora/
 https://github.com/andrewjrae/rae-dux
 https://controller.works/products/mini42-low-profile-ergonomic-keyboard
+https://github.com/ChrisChrisLoLo/beyblock20
 `;
 /* TODO
 

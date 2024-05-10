@@ -7369,16 +7369,13 @@ type_ControllerColumn.initKeyboards = function(table) {
 		var _g4 = 0;
 		var _g5 = [2,4];
 		while(_g4 < _g5.length) {
-			var i = _g5[_g4];
+			var col = _g5[_g4];
 			++_g4;
-			if(i == 3) {
-				continue;
-			}
-			var vals = type_ControllerColumn.parseCsvItem(row[i]);
+			var vals = type_ControllerColumn.parseCsvItem(row[col]);
 			if(vals == null) {
 				continue;
 			}
-			switch(i) {
+			switch(col) {
 			case 2:
 				kb.ctlFootprint = kb.ctlFootprint != null ? kb.ctlFootprint : vals;
 				break;
