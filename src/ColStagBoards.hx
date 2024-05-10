@@ -74,6 +74,7 @@ class ColStagBoards {
 			"[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case",
 			"[v:Unibody case] https://www.thingiverse.com/thing:6455098",
 			"[v:Trackpad module] https://www.thingiverse.com/thing:5425081",
+			"[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case",
 		];
 		kb.img = "crkbd.jpg";
 		kb.addSKBC();
@@ -196,7 +197,9 @@ class ColStagBoards {
 		kb.trackballSize = pimoroniSize;
 		kb.caseType = Included;
 		kb.web = "https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/sofle/sofleplus";
-		kb.prebuilt = "![n:xcmkb]https://github.com/superxc3/xcmkb";
+		kb.prebuilt = [
+			"![n:xcmkb]https://github.com/superxc3/xcmkb"
+		];
 		kb.img = "xcmkb-sofle-plus.jpg";
 		kb.notes = "A number of small improvements over regular Sofle.";
 		add(kb);
@@ -1114,7 +1117,7 @@ class ColStagBoards {
 		];
 		kb.prebuilt = [
 			"https://momoka.store/collections/keyboards/products/momoka-ergo",
-			"https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
+			"https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone",
 			"https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
 			"https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415",
 		];

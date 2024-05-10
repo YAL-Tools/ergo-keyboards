@@ -327,6 +327,9 @@ window.keyboardData = [
 {
 	"name": "stront",
 	"img": "stront.jpg",
+	"notes": [
+		"Note: Separate MX/KS-33 and Choc PCBs"
+	],
 	"shape": "Split",
 	"stagger": "Column",
 	"keys": 38,
@@ -3297,7 +3300,7 @@ window.keyboardData = [
 	"cols": 5,
 	"thumbKeys": 3,
 	"cornerKeys": 1,
-	"hotswap": "Yes",
+	"hotswap": "No",
 	"switchProfile": [
 		"MX",
 		"Choc",
@@ -4960,7 +4963,7 @@ window.keyboardData = [
 	"img": "SectorC.webp",
 	"notes": "Not much is known about these",
 	"shape": "Split",
-	"stagger": "Column",
+	"stagger": "Ortho",
 	"connection": "Wired",
 	"keys": 46,
 	"rows": 3,
@@ -5262,7 +5265,8 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"caseType": "Included",
 	"web": "https://karlk90.github.io/yaemk-split-kb/",
-	"source": "https://github.com/KarlK90/yaemk-split-kb"
+	"source": "https://github.com/KarlK90/yaemk-split-kb",
+	"layoutRef": "https://karlk90.github.io/yaemk-split-kb/yaemk_layout_tester_a4.pdf"
 },
 {
 	"name": "Kimiko",
@@ -5966,8 +5970,31 @@ kucheza (game pad) https://fingerpunch.xyz/product/kucheza/
 https://fingerpunch.xyz/product/vulpes-majora/
 https://github.com/andrewjrae/rae-dux
 https://controller.works/products/mini42-low-profile-ergonomic-keyboard
+https://github.com/j-w-e/wysteria https://new.reddit.com/r/ErgoMechKeyboards/comments/1c83kz3/wysteria_my_new_36key/
+K:03
+High Plains Drifter
+https://satt.booth.pm/items/1644450 https://github.com/satt99/caravelle-build-guide
+https://github.com/snsten/Klein
+https://github.com/miketronic/brkn-keyboard
+https://kbd.news/NewType-36-2358.html
+https://kbd.news/Trio-2356.html
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1cgn2fk/phnx_ergonomic_custom_mechanical_keyboard/
+https://github.com/JPricey/dactyl-high-profile
+Low Profile Dactyl https://github.com/omurovec/dactyl-high-profile
+Eek! https://github.com/Klackygears/eek_doc
+UnSplit https://github.com/swiftrax/UnSplit https://kbd.news/UnSplit-338.html
+https://github.com/llmerlos/0xLM
+https://xcmkb.com/products/sofleplus-trackpad-mx?variant=45262205387011
+https://www.velocifiretech.com/products/dumang-dk6-ergo-v2
+https://github.com/ixxoid/dactyl-keyboard
+Stront40 https://github.com/zzeneg/stront
+Wysteria
+https://github.com/v0Ch/vfk-001
+https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
+https://kbd.news/VColChoc44-1029.html
 `;
 /* TODO
+https://www.printables.com/model/763144-nusumu-corne-keyboard-case
 
 https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
@@ -5983,4 +6010,7 @@ https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1c3muo0/anu_pncateho_mouse_10key_chord_keyboard/
 17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
+https://kbd.news/Beeball-1646.html
+https://www.keaworkshop.com/kea-profile-keycaps-project
 */

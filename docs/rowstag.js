@@ -1069,7 +1069,7 @@ Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira
 Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
 https://github.com/JellyTitan/ErgoDonk-Zero
 https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
-Hatsukey70 https://shop.yushakobo.jp/en/products/8361?_pos=1&_sid=d253ab30f&_ss=r
+Hatsukey70 https://shop.yushakobo.jp/en/products/8361
 Majestouch Xacro M10SP https://www.diatec.co.jp/en/xacro/m10sp.php
 Perixx PERIBOARD-613 B
 BC Split Ergonomic
@@ -1078,6 +1078,12 @@ Core Mechanics Project: 0001
 R-Go Split Break
 Mistel keyboards
 Keebio keyboards
+CIDOO ABM066
+UHKv2
+https://kbd.news/Amano-1886.html
+https://kbd.news/Feather-40-1733.html
+YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
+https://kbd.news/Kolibri-keyboard-1093.html
 `
 /* TODO
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0

@@ -16,13 +16,14 @@ class ToDoList {
 		var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 		var rxURL = new RegExp("^(https?://\\S+)\\s*(.*)");
 		var rxLinkSuffix = new RegExp("^.+/(.+?)(?:/)?(?:\\?.*)?$");
+		var rxKbdNews = new RegExp("^https://kbd.news/(.+)-\\d+.html");
 		var rxEraseEnd = new RegExp("^(.+)[-_](?:keyboard|kbd|kit|pcb)$", "i");
 		element.innerHTML = "";
 		for (line in text.split("\n")) {
 			line = line.trim();
 			if (line == "") continue;
 			
-			var mt = rxURL.exec(line);
+			var mt = rxURL.exec(line), smt;
 			var label:String = null;
 			if (mt == null) { // hopefully "label http://" 
 				mt = rxAfterText.exec(line);
@@ -33,16 +34,24 @@ class ToDoList {
 					line = mt[2];
 					mt = rxURL.exec(line);
 				}
-			} else { // starts with a link
-				var smt = rxLinkSuffix.exec(mt[1]);
-				if (smt == null) continue;
-				label = smt[1];
-				for (i in 0 ... 16) {
+			}
+			else {
+				var isKbdNews = false;
+				if ((smt = rxKbdNews.exec(mt[1])) != null) {
+					isKbdNews = true;
+					label = smt[1];
+				} else if ((smt = rxLinkSuffix.exec(mt[1])) != null) {
+					label = smt[1];
+				} else continue;
+				//
+				for (_ in 0 ... 16) {
 					smt = rxEraseEnd.exec(label);
 					if (smt == null) break;
 					label = smt[1];
 				}
+				if (isKbdNews) label = label.replace("-", " ");
 			}
+			
 			var li = Browser.document.createLIElement();
 			if (mt != null) {
 				var a = Browser.document.createAnchorElement();
