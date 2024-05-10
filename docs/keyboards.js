@@ -5110,34 +5110,21 @@ window.keyboardData = [
 	"name": "Elora",
 	"img": "Elora.webp",
 	"notes": "Supports \"modules\" for additional functionality",
+	"shape": "Split",
 	"keys": 62,
 	"rows": 4,
 	"cols": 6,
 	"thumbKeys": 5,
 	"innerKeys": 1,
 	"pinkyStagger": 0.7,
-	"hotswap": [
-		"No",
-		"Yes"
-	],
-	"switchProfile": [
-		"MX",
-		"Choc"
-	],
+	"hotswap": ["No", "Yes"],
+	"switchProfile": ["MX", "Choc"],
 	"keySpacing": "MX",
-	"encoders": {
-		"min": 0,
-		"max": 6
-	},
+	"encoders": {"min": 0, "max": 6},
 	"encoderType": "Knob",
-	"trackpoints": {
-		"min": 0,
-		"max": 2
-	},
-	"displays": {
-		"min": 0,
-		"max": 2
-	},
+	"pointingDevices": {"min": 0, "max": 2},
+	"trackpoints": {"min": 0, "max": 2},
+	"displays": {"min": 0, "max": 2},
 	"lighting": "Underglow",
 	"firmware": "QMK",
 	"software": "Vial",

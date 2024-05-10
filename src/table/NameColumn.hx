@@ -45,8 +45,9 @@ class NameColumn<KB:Keyboard> extends StringColumn<KB> {
 			
 			var opts = new TippyOptions();
 			opts.trigger = "click";
+			opts.placement = "top-start";
 			opts.interactive = true;
-			opts.maxWidth = 640;
+			opts.maxWidth = 658;
 			opts.setLazyContent(function() {
 				var div = document.createDivElement();
 				if (srcs != null) for (src in srcs) {

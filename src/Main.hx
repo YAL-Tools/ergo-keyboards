@@ -90,6 +90,15 @@ class Main {
 			showImg = showImgCb.checked;
 			for (row in kbTable.rows) {
 				var cell = row.cells[0];
+				if (!showImg) {
+					for (img in cell.element.querySelectorAllAutoArr("a.preview", ImageElement)) {
+						img.remove();
+					}
+					for (img in cell.element.querySelectorAllAutoArr("br.preview", ImageElement)) {
+						img.remove();
+					}
+					continue;
+				}
 				if (showImg) for (src in row.value.img) {
 					var small = "img-small/" + haxe.io.Path.withExtension(src, "webp");
 					var img = document.createImageElement();
@@ -100,9 +109,31 @@ class Main {
 					a.target = "_blank";
 					a.classList.add("preview");
 					a.appendChild(img);
+					//
+					var opts = new TippyOptions();
+					opts.trigger = "click";
+					opts.interactive = true;
+					opts.maxWidth = 658;
+					opts.placement = "top-start";
+					opts.appendTo = () -> cell.element;
+					opts.setLazyContent(function() {
+						var div = document.createDivElement();
+						var img = document.createImageElement();
+						img.src = "img/" + src;
+						var p = document.createParagraphElement();
+						p.classList.add("img");
+						p.appendChild(img);
+						div.appendChild(p);
+						return div;
+					});
+					a.onclick = () -> false;
+					Tippy.bind(img, opts);
+					//
+					var br = document.createBRElement();
+					br.classList.add("preview");
+					cell.element.appendChild(br);
+					//
 					cell.element.appendChild(a);
-				} else for (img in cell.element.querySelectorAllAutoArr("a.preview", ImageElement)) {
-					img.remove();
 				}
 			}
 		}

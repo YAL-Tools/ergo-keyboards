@@ -136,9 +136,11 @@ body table#data > tr > th.can-sort.sort-column:after {
 body table#data > tr > th.can-sort.sort-column.sort-ascending:after {
   content: "↑";
 }
-body table#data a.preview img {
+body table#data a.preview {
+  clear: both;
+}
+body table#data a.preview > img {
   margin-top: 4px;
-  display: block;
   width: 100%;
   max-width: 320px;
 }

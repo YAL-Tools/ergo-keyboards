@@ -627,7 +627,7 @@ window.rowStagData = [
 },
 {
 	"name": "Sesame",
-	"img": "sesame.webp",
+	"img": "sesame-1.webp",
 	"shape": "Unibody",
 	"stagger": "Row",
 	"connection": "Wired",
