@@ -32,7 +32,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs","https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox"];
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard"];
-	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Trackpad module] https://www.thingiverse.com/thing:5425081"];
+	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
@@ -106,7 +106,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.trackballSize = pimoroniSize;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.web = type_ValList.fromValue("https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/sofle/sofleplus");
-	kb.prebuilt = type_ValList.fromValue("![n:xcmkb]https://github.com/superxc3/xcmkb");
+	kb.prebuilt = ["![n:xcmkb]https://github.com/superxc3/xcmkb"];
 	kb.img = type_ValList.fromValue("xcmkb-sofle-plus.jpg");
 	kb.notes = type_ValList.fromValue("A number of small improvements over regular Sofle.");
 	add(kb);
@@ -594,7 +594,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.web = type_ValList.fromValue("");
 	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2"];
-	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone https://keyclicks.ca/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415"];
+	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415"];
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
 	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout","Ergodox EZ is separated from these due to presence of tenting legs"];
 	var ergodoxy = add(kb);
@@ -3044,6 +3044,7 @@ ToDoList.set = function(text) {
 	var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 	var rxURL = new RegExp("^(https?://\\S+)\\s*(.*)");
 	var rxLinkSuffix = new RegExp("^.+/(.+?)(?:/)?(?:\\?.*)?$");
+	var rxKbdNews = new RegExp("^https://kbd.news/(.+)-\\d+.html");
 	var rxEraseEnd = new RegExp("^(.+)[-_](?:keyboard|kbd|kit|pcb)$","i");
 	ToDoList.element.innerHTML = "";
 	var _g = 0;
@@ -3056,6 +3057,7 @@ ToDoList.set = function(text) {
 			continue;
 		}
 		var mt = rxURL.exec(line);
+		var smt;
 		var label = null;
 		if(mt == null) {
 			mt = rxAfterText.exec(line);
@@ -3067,19 +3069,30 @@ ToDoList.set = function(text) {
 				mt = rxURL.exec(line);
 			}
 		} else {
-			var smt = rxLinkSuffix.exec(mt[1]);
-			if(smt == null) {
-				continue;
+			var isKbdNews = false;
+			smt = rxKbdNews.exec(mt[1]);
+			if(smt != null) {
+				isKbdNews = true;
+				label = smt[1];
+			} else {
+				smt = rxLinkSuffix.exec(mt[1]);
+				if(smt != null) {
+					label = smt[1];
+				} else {
+					continue;
+				}
 			}
-			label = smt[1];
 			var _g2 = 0;
 			while(_g2 < 16) {
-				var i = _g2++;
+				var _ = _g2++;
 				smt = rxEraseEnd.exec(label);
 				if(smt == null) {
 					break;
 				}
 				label = smt[1];
+			}
+			if(isKbdNews) {
+				label = StringTools.replace(label,"-"," ");
 			}
 		}
 		var li = window.document.createElement("li");
@@ -3091,7 +3104,7 @@ ToDoList.set = function(text) {
 			line = mt[2];
 			var _g3 = 2;
 			while(_g3 < 16) {
-				var i1 = _g3++;
+				var i = _g3++;
 				mt = rxURL.exec(line);
 				if(mt == null) {
 					break;
@@ -3100,7 +3113,7 @@ ToDoList.set = function(text) {
 				a.href = mt[1];
 				line = mt[2];
 				li.appendChild(window.document.createTextNode(" · "));
-				a.appendChild(window.document.createTextNode("link " + i1));
+				a.appendChild(window.document.createTextNode("link " + i));
 				li.appendChild(a);
 			}
 		} else {
