@@ -5072,6 +5072,7 @@ window.keyboardData = [
 	"name": "0xPM",
 	"img": "0xPM.webp",
 	"shape": "Split",
+	"stagger": "Ortho",
 	"connection": "Wired",
 	"keys": 44,
 	"rows": 3,
@@ -5926,6 +5927,39 @@ window.keyboardData = [
 	"assembly": "Handwired",
 	"source": "https://from2d.com/freebies/cornepad/"
 },
+{
+	"name": "SoflePLUS Trackpad",
+	"img": "sofle-plus-tp.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"numpad": "None",
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": "MX",
+	"encoders": 1,
+	"encoderType": ["Knob", "Wheel"],
+	"pointingDevices": 0,
+	"trackballs": 0,
+	"trackpads": 1,
+	"displays": 1,
+	"lighting": "Underglow",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": "PCB",
+	"ctlFootprint": "Pro Micro",
+	"ctlName": "RP2040",
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "Included",
+	"web": "[MY] https://xcmkb.com",
+	"prebuilt": "[MY] https://xcmkb.com/products/sofleplus-trackpad-mx"
+},
 "2024-04-16"
 ];
 window.keyboardTODOs = `
@@ -5981,6 +6015,10 @@ https://github.com/v0Ch/vfk-001
 https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 https://kbd.news/VColChoc44-1029.html
 https://github.com/ChrisChrisLoLo/beyblock20
+https://github.com/telzo2000/cool536 https://booth.pm/en/items/4190386
+https://github.com/GreenMashedPotato/Shrimp42
+Mitosis
+Chimera
 `;
 /* TODO
 https://www.printables.com/model/763144-nusumu-corne-keyboard-case

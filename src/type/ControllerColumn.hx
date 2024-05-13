@@ -33,6 +33,9 @@ class ControllerColumn<T> extends StringTagListColumn<T> {
 		}
 		if (hasOther && !tags.contains("Other")) tags.push("Other");
 	}
+	override public function nameToTag(name:String):String {
+		return name;
+	}
 	override function tagsContain(tags:Array<String>, tag:String):Bool {
 		if (tag == "Other") {
 			for (t in tags) {

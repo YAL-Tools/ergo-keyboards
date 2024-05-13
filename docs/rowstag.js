@@ -1084,6 +1084,7 @@ https://kbd.news/Amano-1886.html
 https://kbd.news/Feather-40-1733.html
 YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
 https://kbd.news/Kolibri-keyboard-1093.html
+https://www.adesso.com/products/tru-form-ergonomic-touchpad-keyboard/
 `
 /* TODO
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0

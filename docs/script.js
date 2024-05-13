@@ -7484,6 +7484,9 @@ type_ControllerColumn.prototype = $extend(table_tag_StringTagListColumn.prototyp
 			this.tags.push("Other");
 		}
 	}
+	,nameToTag: function(name) {
+		return name;
+	}
 	,tagsContain: function(tags,tag) {
 		if(tag == "Other") {
 			var _g = 0;

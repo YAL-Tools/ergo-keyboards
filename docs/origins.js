@@ -62,5 +62,6 @@ window.countryTags = {
 	"IL": "[flag:il|Israel]",
 	"SE": "[flag:se|Sweden]",
 	"PT": "[flag:pt|Portugal]",
+	"MY": "[flag:my|Malaysia]",
 	"EU": "[flag:europeanunion|Europe]",
 };
