@@ -80,6 +80,7 @@ ColStagBoards.init = function(keyboards) {
 	addSofleFT(kb);
 	kb = ColStagKeyboard._new("Sofle FT LP",sofle);
 	kb.img = type_ValList.fromValue("sofle-ft-lp.webp");
+	kb.lighting = [type_Lighting.None];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.kit = ["[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-low-profile-p613843876","[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Low-Profile-Wireless-p613870266"];
 	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/Sofle-Low-profile-Fully-Assembled-Custom-Mechanical-Keyboard-p631773376","[v:Wireless] https://falbatech.click/products/Sofle-Low-profile-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631799062"];
@@ -232,6 +233,7 @@ ColStagBoards.init = function(keyboards) {
 	var redoxFT = add(kb);
 	kb = ColStagKeyboard._new("Redox FT LP",redoxFT);
 	kb.img = type_ValList.fromValue("redox-ft-lp.webp");
+	kb.lighting = [type_Lighting.None];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
 	add(kb);
 	kb = ColStagKeyboard._new("NeoDox",redox);
@@ -288,7 +290,7 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	kb = { name : "Taira", source : type_ValList.fromValue("https://github.com/strayer/taira-keyboard"), connection : [type_Connection.Wired,type_Connection.Bluetooth], firmware : type_ValList.fromValue(type_Firmware.ZMK), img : type_ValList.fromValue("taira-1.0.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
+	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(66)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([5,6]),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromArray([3,4]));
 	add(kb);
@@ -601,6 +603,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = ColStagKeyboard._new("Ergodox_FT LP",ergodoxy);
 	kb.img = type_ValList.fromValue("ergodox-ft-lp.jpg");
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc]);
+	kb.lighting = [type_Lighting.None];
 	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480");
 	add(kb);
 	kb = ColStagKeyboard._new("Keyboardio Model 100");

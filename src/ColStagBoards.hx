@@ -156,6 +156,7 @@ class ColStagBoards {
 		
 		kb = new ColStagKeyboard("Sofle FT LP", sofle);
 		kb.img = "sofle-ft-lp.webp";
+		kb.lighting = [None];
 		kb.setHotswap([Choc], MX);
 		kb.kit = [
 			"[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-low-profile-p613843876",
@@ -468,6 +469,7 @@ class ColStagBoards {
 		
 		kb = new ColStagKeyboard("Redox FT LP", redoxFT);
 		kb.img = "redox-ft-lp.webp";
+		kb.lighting = [None];
 		kb.setHotswap([Choc], MX);
 		add(kb);
 		
@@ -552,7 +554,7 @@ class ColStagBoards {
 			img: "taira-1.0.jpg"
 		};
 		kb.caseType = Included;
-		kb.setHotswap(Choc, Choc);
+		kb.setHotswap(Choc, MX);
 		kb.setMatrix(66, 6, 4);
 		kb.setExtras([5, 6], 0, 0, [3, 4]);
 		add(kb);
@@ -1131,6 +1133,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("Ergodox_FT LP", ergodoxy);
 		kb.img = "ergodox-ft-lp.jpg";
 		kb.setHotswap([Choc]);
+		kb.lighting = [None];
 		kb.prebuilt = "https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480";
 		add(kb);
 		

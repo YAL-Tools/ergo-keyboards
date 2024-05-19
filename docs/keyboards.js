@@ -469,7 +469,7 @@ window.keyboardData = [
 },
 {
 	"name": "Corax",
-	"img": "Corax.jpg",
+	"img": "Corax56.jpg",
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": [
@@ -2015,7 +2015,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.7,
 	"hotswap": "Yes",
 	"switchProfile": ["MX", "Choc"],
-	"keySpacing": ["MX", "Choc"],
+	"keySpacing": ["MX"],
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
@@ -5957,8 +5957,11 @@ window.keyboardData = [
 	"wristPads": "None",
 	"tenting": "None",
 	"caseType": "Included",
-	"web": "[MY] https://xcmkb.com",
-	"prebuilt": "[MY] https://xcmkb.com/products/sofleplus-trackpad-mx"
+	"web": "!https://xcmkb.com",
+	"prebuilt": [
+		"!https://xcmkb.com/products/sofleplus-trackpad-mx",
+		"!https://xcmkb.com/products/sofleplus-trackpad-lp"
+	]
 },
 "2024-04-16"
 ];
@@ -6006,7 +6009,6 @@ Low Profile Dactyl https://github.com/omurovec/dactyl-high-profile
 Eek! https://github.com/Klackygears/eek_doc
 UnSplit https://github.com/swiftrax/UnSplit https://kbd.news/UnSplit-338.html
 https://github.com/llmerlos/0xLM
-https://xcmkb.com/products/sofleplus-trackpad-mx?variant=45262205387011
 https://www.velocifiretech.com/products/dumang-dk6-ergo-v2
 https://github.com/ixxoid/dactyl-keyboard
 Stront40 https://github.com/zzeneg/stront
@@ -6019,25 +6021,43 @@ https://github.com/telzo2000/cool536 https://booth.pm/en/items/4190386
 https://github.com/GreenMashedPotato/Shrimp42
 Mitosis
 Chimera
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1cr2kk1/ad_scottowing_pcb_edition_available_now/
+https://github.com/raeedcho/temper
+https://github.com/smores56
+https://github.com/lapidot/2BKeyboard
+https://kbd.news/FCS42S-keyboard-1317.html
+https://github.com/claybford/ergothwack https://www.claytonbford.com/portfolio/ergothwack
+https://github.com/Squalius-cephalus/silakka44
+https://github.com/choubbikeyboards/scaffold
 `;
-/* TODO
-https://www.printables.com/model/763144-nusumu-corne-keyboard-case
+/* Other TODOs
 
 https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
 
-https://kbd.news/FCS42S-keyboard-1317.html
-https://github.com/moduloindustries/thinkeys
-https://github.com/saoto28/pineapple60
+Wired-Wireless converter
+https://new.reddit.com/r/olkb/comments/1ahxfed/gb_sterlingkey_a_bluetooth_adapter_to_turn_your/
 https://sterling-key.com/
 
+Laptop keyboard replacements:
+https://github.com/moduloindustries/thinkeys
+https://github.com/saoto28/pineapple60
+
+Pointing devices:
 https://kbd.news/aball-a-buttonless-trackball-139.html
 https://github.com/george-norton/peacock
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
-https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1c3muo0/anu_pncateho_mouse_10key_chord_keyboard/
-17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
 https://kbd.news/Beeball-1646.html
+
+Trickery:
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
+
+Knobs & Caps:
+https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
+17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
 https://www.keaworkshop.com/kea-profile-keycaps-project
+
+Unreleased:
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
+Naya Create
 */

@@ -1085,6 +1085,8 @@ https://kbd.news/Feather-40-1733.html
 YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
 https://kbd.news/Kolibri-keyboard-1093.html
 https://www.adesso.com/products/tru-form-ergonomic-touchpad-keyboard/
+https://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-keyboard/
+https://ajazzstore.com/products/ajazz-aks068-pro
 `
 /* TODO
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
