@@ -749,7 +749,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/sanderboer/chonkybois"
 },
-{
+/*{ // off-sale?
 	"name": "Harper",
 	"img": "harper.jpg",
 	"shape": "Split",
@@ -774,7 +774,7 @@ window.keyboardData = [
 		"![UA] https://t.me/splitted_space",
 		"![UA] https://www.olx.ua/uk/list/user/gydXk/"
 	]
-},
+},*/
 {
 	"name": "Torn",
 	"img": "torn.jpg",
@@ -5963,6 +5963,58 @@ window.keyboardData = [
 		"!https://xcmkb.com/products/sofleplus-trackpad-lp"
 	]
 },
+{
+	"name": "Lea",
+	"img": "Lea.webp",
+	"notes": "A Sofle V2-like keyboard with underglow and an ARM Cortex-M0+ STM32 controller.",
+	"parent": "Sofle",
+	"connection": "Wired",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlName": "Other",
+	"caseType": "Included",
+	"prebuilt": "https://splitted.space/keyboards/lea"
+},
+{
+	"name": "Cleo",
+	"img": "Cleo.webp",
+	"notes": "A Corne (V3)-like keyboard with ARM Cortex-M0+ STM32",
+	"connection": "Wired",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"lighting": "RGB",
+	"caseType": "Included",
+	"prebuilt": "https://splitted.space/keyboards/cleo"
+},
+{
+	"name": "Shrimp42",
+	"img": "Shrimp42.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.9,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Alps"],
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlPinCount": 24,
+	"ctlName": "ATmega32U4",
+	"caseType": "Included",
+	"source": "https://github.com/GreenMashedPotato/Shrimp42"
+},
 "2024-04-16"
 ];
 window.keyboardTODOs = `
@@ -6018,7 +6070,6 @@ https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 https://kbd.news/VColChoc44-1029.html
 https://github.com/ChrisChrisLoLo/beyblock20
 https://github.com/telzo2000/cool536 https://booth.pm/en/items/4190386
-https://github.com/GreenMashedPotato/Shrimp42
 Mitosis
 Chimera
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cr2kk1/ad_scottowing_pcb_edition_available_now/

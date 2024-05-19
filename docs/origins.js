@@ -39,6 +39,7 @@ window.domainCountries = {
 	"kriscables.com": "pt",
 	"aliexpress.com": "cn",
 	"xcmkb.com": "my",
+	"splitted.space": "ua",
 };
 window.countryTags = {
 	"UK": "[flag:gb|United Kingdom]",
