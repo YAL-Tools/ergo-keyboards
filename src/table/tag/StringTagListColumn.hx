@@ -3,6 +3,10 @@ import type.*;
 import js.html.Element;
 
 class StringTagListColumn<T> extends StringTagColumnBase<T, Array<String>> {
+	public function new(name:String, field:FancyField<T, Array<String>>, tags:Array<String>) {
+		super(name, field, tags);
+		isMulti = true;
+	}
 	//
 	override public function buildValue(out:Element, kb:T):Void {
 		TagLikeListColumnTools.buildValue(this, out, kb);

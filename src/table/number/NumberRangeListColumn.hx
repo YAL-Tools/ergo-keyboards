@@ -132,10 +132,27 @@ class NumberRangeListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, 
 		if (ranges != null) {
 			if (ranges.length == 1) {
 				var first = ranges[0];
-				if (first.min == first.max) {
+				if (first is Array) {
+					
+				} else if (first.min == first.max) {
 					field.access(kb, true, cast first.min);
-				} else if (!(first is Array)) {
+				} else {
 					field.access(kb, true, cast first);
+				}
+			} else {
+				var changed = false;
+				for (i in 0 ... ranges.length) {
+					var range = ranges[i];
+					if (range is Array) {
+						//
+					} else if (range.min == range.max) {
+						if (!changed) {
+							changed = true;
+							ranges = ranges.copy();
+							field.access(kb, true, ranges);
+						}
+						ranges[i] = cast [range.min];
+					}
 				}
 			}
 		}
@@ -144,12 +161,13 @@ class NumberRangeListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, 
 		var val = field.access(kb);
 		if (val is Array) {
 			if (val.length == 2 && val[0] is Float && val[1] is Float) {
-				// [1, 2]
+				// [1, 2] (backwards compatibility)
 				var vala:Array<NT> = cast val;
 				field.access(kb, true, [new NumRange(vala[0], vala[1])]);
-			} else for (i => sub in val) {
+			}
+			else for (i => sub in val) {
 				if (sub is Array) {
-					// [[1, 2], ...]
+					// [..., [1, 2], ...]
 					var suba:Array<NT> = cast sub;
 					if (suba.length >= 2) {
 						val[i] = new NumRange(suba[0], suba[1]);
@@ -157,7 +175,7 @@ class NumberRangeListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, 
 						val[i] = NumRange.fromValue(suba[0]);
 					}
 				} else if (sub is Float) {
-					// [[1, 2], 3]
+					// [..., 3, ...]
 					val[i] = NumRange.fromValue((cast sub:NT));
 				}
 			}

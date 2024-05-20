@@ -32,7 +32,7 @@ class ColStagBoards {
 		var kb:ColStagKeyboard;
 		
 		var corne = kb = new ColStagKeyboard("Corne/crkbd");
-		kb.setMatrix(42, 6, 3);
+		kb.setMatrix(new IntRange(36, 42), new IntRange(5, 6), 3);
 		kb.setExtras(3);
 		kb.setHotswap([MX, Choc]);
 		kb.connection = [Wired, Wireless];
@@ -60,6 +60,11 @@ class ColStagBoards {
 			"[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/",
 			"[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs",
 			"https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox",
+			//
+			"[v:v3 MX] https://falbatech.click/products/Pre-soldered-Corne-p613836639",
+			"[v:v3 MX mini] https://falbatech.click/products/Pre-soldered-Corne-mini-p613854160",
+			"[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-Wireless-p613843630",
+			"[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-mini-Wireless-p613843878",
 		];
 		kb.prebuilt = [
 			"https://customkbd.com/collections/split-keyboards/products/corne-classic-kit",
@@ -69,6 +74,13 @@ class ColStagBoards {
 			"[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/",
 			"[v:BT Choc] https://keyclicks.ca/products/choc-corne",
 			"[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard",
+			//
+			"[v:MX] https://falbatech.click/products/Corne-Fully-Assembled-Custom-Mechanical-Keyboard-p630685502",
+			"[v:MX mini] https://falbatech.click/products/Corne-mini-Fully-Assembled-Custom-Mechanical-Keyboard-p630813323",
+			"[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Dark-Bamboo-Keyboard-shipping-in-24h-p613843609",
+			"[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Natural-Bamboo-Keyboard-with-Tilt-Tent-Set-in-shipping-24h-p613843369",
+			"[v:MX BT] https://falbatech.click/products/Corne-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p630685504",
+			"[v:MX BT mini] https://falbatech.click/products/Corne-mini-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631346754"
 		];
 		kb.extras = [
 			"[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case",
@@ -464,13 +476,35 @@ class ColStagBoards {
 		kb.assembly = [PCB];
 		kb.setHotswap([MX]);
 		kb.connection = [Wired, Bluetooth];
+		kb.lighting = [None];
 		kb.tenting = [None, Legs];
+		kb.kit = [
+			"[v:Partial?] https://falbatech.click/products/Redox-Partially-assembled-with-electronics-cables-p613843963",
+			"[v:Wired] https://falbatech.click/products/Pre-soldered-REDOX-Wired-p613836642",
+			"[v:BT] https://falbatech.click/products/Pre-soldered-REDOX_FT-Wireless-p646459789",
+			"[v:Gaming?] https://falbatech.click/products/Pre-soldered-REDOX-Gaming-Version-One-Hand-p613853136",
+		];
+		kb.prebuilt = [
+			"[v:wired] https://falbatech.click/products/ReDOX-Fully-Assembled-Custom-Mechanical-Keyboard-p633260018",
+			"[v:wired] https://falbatech.click/products/Complete-Redox-Wired-Bamboo-Black-version-with-usb-c-Shipping-in-24-hours-p613836397",
+			"[v:wired] https://falbatech.click/products/Redox-Mechanical-Keyboard-in-Bamboo-Casing-with-Stone-Effect-Elegance-and-Style-for-Enthusiasts-free-Shipping-p613843863",
+			"[v:BT] https://falbatech.click/products/Pre-soldered-REDOX-Wireless-p613836477",
+			"[v:BT] https://falbatech.click/products/ReDOX-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p633260056",
+			"[v:BT] https://falbatech.click/products/ReDOX_FT-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p648828330",
+		];
 		var redoxFT = add(kb);
 		
 		kb = new ColStagKeyboard("Redox FT LP", redoxFT);
 		kb.img = "redox-ft-lp.webp";
-		kb.lighting = [None];
 		kb.setHotswap([Choc], MX);
+		kb.kit = [
+			"[v:wired] https://falbatech.click/products/Pre-soldered-REDOX_FT-Wired-Low-Profile-p646462293",
+			"[v:BT] https://falbatech.click/products/Pre-soldered-REDOX_FT-Wireless-Low-Profile-p646460072",		
+		];
+		kb.prebuilt = [
+			"[v:wired] https://falbatech.click/products/ReDOX_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p645216766",
+			"[v:BT] https://falbatech.click/products/ReDOX_FT-Wireless-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p645216841",
+		];
 		add(kb);
 		
 		kb = new ColStagKeyboard("NeoDox", redox);
@@ -497,7 +531,7 @@ class ColStagBoards {
 		var ergodash = kb = new ColStagKeyboard("ErgoDash");
 		kb.source = "https://github.com/omkbd/ErgoDash";
 		kb.img = "Ergodash.jpg";
-		kb.setNotswap([MX], MX);
+		kb.setNotswap([MX, Alps], MX);
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras([2, 4], 3, 0, 4);
 		kb.kit = [
@@ -518,8 +552,23 @@ class ColStagBoards {
 		
 		kb = new ColStagKeyboard("ErgoDash_FT", ergodash);
 		kb.img = "ergodash-ft.webp";
-		kb.hotswap = [Yes];
-		kb.prebuilt = "https://falbatech.click/products/ErgoDash-Fully-Assembled-Custom-Mechanical-Keyboard-p630613785";
+		kb.setHotswap([MX]);
+		kb.lighting = [Simple];
+		kb.connection = [Wired, Bluetooth];
+		kb.kit = [
+			"[v:wired] https://falbatech.click/products/Pre-soldered-ErgoDash-p613842367",
+			"[v:wireless] https://falbatech.click/products/Pre-soldered-ErgoDash-Wireless-p613839936",
+		];
+		kb.prebuilt = [
+			"https://falbatech.click/products/ErgoDash-Fully-Assembled-Custom-Mechanical-Keyboard-p630613785",
+		];
+		add(kb);
+		
+		kb = new ColStagKeyboard("ErgoDash_FT Blue", ergodash);
+		kb.img = "ergodash-ft.webp";
+		kb.setNotswap([MX], MX);
+		kb.lighting = [Simple];
+		kb.prebuilt = "https://falbatech.click/products/ErgoDash-Blue-backlite-Shipping-in-24-hours-p613853121";
 		add(kb);
 		
 		kb = {
@@ -1116,6 +1165,8 @@ class ColStagBoards {
 		kb.kit = [
 			"https://drop.com/buy/infinity-ergodox",
 			"https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2",
+			"https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128",
+			"https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460"
 		];
 		kb.prebuilt = [
 			"https://momoka.store/collections/keyboards/products/momoka-ergo",
@@ -1134,6 +1185,10 @@ class ColStagBoards {
 		kb.img = "ergodox-ft-lp.jpg";
 		kb.setHotswap([Choc]);
 		kb.lighting = [None];
+		kb.kit = [
+			"https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614",
+			"https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388",
+		];
 		kb.prebuilt = "https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480";
 		add(kb);
 		

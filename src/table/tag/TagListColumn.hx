@@ -11,6 +11,7 @@ class TagListColumn<KB, ET:EnumValue> extends TagColumnBase<KB, ET, ValList<ET>>
 	public function new(name:String, field:FancyField<KB, ValList<ET>>, et:Enum<ET>) {
 		super(name, field, et);
 		defaultValue = et.createByIndex(0);
+		isMulti = true;
 	}
 	// shared:
 	override public function buildValue(out:Element, kb:KB):Void {

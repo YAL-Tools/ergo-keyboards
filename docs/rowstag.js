@@ -229,7 +229,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"fnPos": "Elsewhere",
 	"leftMods": 3,
 	"rightMods": 3,
@@ -288,7 +288,7 @@ window.rowStagData = [
 	"rshift": "LeftCut",
 	"enter": "ANSI",
 	"space": "SplitDistinctFn",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 2,
 	"rightMods": 0,
 	"navCluster": "Arrows",
@@ -372,7 +372,7 @@ window.rowStagData = [
 	"rshift": "LeftCut",
 	"enter": "ANSI",
 	"space": "SplitDistinct",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"thumbKeys": 2,
 	"leftMods": {
 		"min": 2,
@@ -407,7 +407,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "SplitDistinct",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 3,
 	"rightMods": 2,
 	"navCluster": "Inline",
@@ -467,7 +467,7 @@ window.rowStagData = [
 		"ISO"
 	],
 	"space": "SplitDistinct",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 3,
 	"rightMods": 1,
 	"navCluster": [
@@ -506,7 +506,7 @@ window.rowStagData = [
 	],
 	"space": "Multi",
 	"backspace": [
-		"Normal",
+		"Wide",
 		"Short"
 	],
 	"thumbKeys": 3,
@@ -583,7 +583,7 @@ window.rowStagData = [
 	"rshift": "Normal",
 	"enter": "ANSI",
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"fnPos": "AfterLCtl",
 	"leftMods": 3,
 	"rightMods": 4,
@@ -612,7 +612,7 @@ window.rowStagData = [
 	"rshift": "Normal",
 	"enter": "ISO",
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"fnPos": "BeforeRCtl",
 	"leftMods": 3,
 	"rightMods": 3,
@@ -725,7 +725,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 3,
 	"rightMods": 2,
 	"navCluster": "Arrows",
@@ -792,7 +792,7 @@ window.rowStagData = [
 		"ISO"
 	],
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"fnPos": "Elsewhere",
 	"leftMods": 3,
 	"rightMods": 2,
@@ -826,7 +826,7 @@ window.rowStagData = [
 		"ISO"
 	],
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"fnPos": "Elsewhere",
 	"leftMods": 3,
 	"rightMods": 2,
@@ -885,7 +885,7 @@ window.rowStagData = [
 	],
 	"rshift": "RightCut",
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"fnPos": "AfterLCtl",
 	"leftMods": 3,
 	"rightMods": 3,
@@ -913,7 +913,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 3,
 	"rightMods": 3,
 	"navCluster": "Arrows",
@@ -938,7 +938,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "SplitDistinct",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 4,
 	"rightMods": 3,
 	"navCluster": "Inline",
@@ -965,7 +965,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "SplitDistinctFn",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 3,
 	"rightMods": 2,
 	"navCluster": "Inline",
@@ -993,7 +993,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "SplitDistinctFn",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 2,
 	"rightMods": 2,
 	"navCluster": "Inline",
@@ -1018,7 +1018,7 @@ window.rowStagData = [
 	"rshift": "RightCut",
 	"enter": "ANSI",
 	"space": "SplitDistinctFn",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"leftMods": 4,
 	"rightMods": 4,
 	"navCluster": "Inline",
@@ -1047,7 +1047,7 @@ window.rowStagData = [
 	"rshift": "Normal",
 	"enter": "ANSI",
 	"space": "Split",
-	"backspace": "Normal",
+	"backspace": "Wide",
 	"fnPos": "ReplaceRGui",
 	"leftMods": 3,
 	"rightMods": 2,
@@ -1062,7 +1062,61 @@ window.rowStagData = [
 	"caseType": "Included",
 	"prebuilt": "![v:wireless] https://www.logitech.com/en-us/products/keyboards/k860-split-ergonomic.920-009166.html"
 },
-"2024-03-10"
+{
+	"name": "Arisu FT",
+	"img": "arisu_ft.webp",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"keys": 67,
+	"rows": 4,
+	"dCols": 1,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinctFn",
+	"backspace": "Short",
+	"fnPos": "None",
+	"leftMods": 2,
+	"rightMods": 1,
+	"navCluster": "Inline",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"lighting": "None",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"prebuilt": "https://falbatech.click/products/Arisu-Unibody-Wooden-Ergonomic-Keyboard-p613843366"
+},
+{
+	"name": "Majestouch Xacro M10SP",
+	"img": ["Majestouch-Xacro-M10SP.webp", "Majestouch-Xacro-M10SP-ISO.webp"],
+	"notes": "A 60%-ish keyboard with a pair of extra columns in the middle",
+	"shape": "Split",
+	"keys": [[72], [76]],
+	"rows": 4,
+	"dCols": 2,
+	"qCols": 2,
+	"aCols": 2,
+	"zCols": 2,
+	"lshift": "ANSI",
+	"rshift": ["Normal", "LeftCut"],
+	"enter": ["ANSI", "ISO"],
+	"space": "Multi",
+	"backspace": ["Wide", "Split"],
+	"thumbKeys": 2,
+	"leftMods": {"min": 3, "max": 4},
+	"rightMods": {"min": 4, "max": 5},
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "Custom",
+	"software": "Custom",
+	"tenting": "Legs",
+	"caseType": "Included",
+	"prebuilt": [
+		"[v:en] https://www.diatec.co.jp/en/xacro/m10sp.php",
+		"[v:jp] https://diatec.co.jp/shop/xacro/m10sp.php"
+	]
+},
+"2024-05-20"
 ];
 window.rowStagTODOs = `
 Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
@@ -1070,7 +1124,6 @@ Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-sp
 https://github.com/JellyTitan/ErgoDonk-Zero
 https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
 Hatsukey70 https://shop.yushakobo.jp/en/products/8361
-Majestouch Xacro M10SP https://www.diatec.co.jp/en/xacro/m10sp.php
 Perixx PERIBOARD-613 B
 BC Split Ergonomic
 Kinesis Freestyle2
@@ -1087,6 +1140,7 @@ https://kbd.news/Kolibri-keyboard-1093.html
 https://www.adesso.com/products/tru-form-ergonomic-touchpad-keyboard/
 https://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-keyboard/
 https://ajazzstore.com/products/ajazz-aks068-pro
+https://spaceholdings.net/collections/keyboards/products/sp-111
 `
 /* TODO
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0

@@ -70,6 +70,13 @@ class HtmlTools {
 		e.appendChild(p);
 		return p;
 	}
+	public static function appendExplainer(e:Element, name:String, desc:String){
+		var li = Browser.document.createLIElement();
+		appendElTextNode(li, "b", name);
+		appendTextNode(li, " " + desc);
+		e.appendChild(li);
+		return li;
+	}
 	
 	public static function addFieldChangeEventListener(e:Element, f:Event->Void) {
 		e.addEventListener("change", f);

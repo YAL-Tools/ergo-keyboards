@@ -154,15 +154,15 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		space.columnCount = 2;
 		space.onNotes = function(div:Element):Void {
 			var ul = div.appendElTextNode("ul"), li:Element;
-			li = div.appendElTextNode("li");
+			li = ul.appendElTextNode("li");
 			li.appendElTextNode("b", "SplitDistinct");
 			li.appendTextNode(" means that the two halves of the spacebar "
 				+ "emit different key codes or can be configured");
-			li = div.appendElTextNode("li");
+			li = ul.appendElTextNode("li");
 			li.appendElTextNode("b", "SplitDistinctFn");
 			li.appendTextNode(" means same as above, "
 				+ "but also that there's an extra 1u key on one of them");
-			li = div.appendElTextNode("li");
+			li = ul.appendElTextNode("li");
 			li.appendElTextNode("b", "Multi");
 			li.appendTextNode(" means that both spacebars are split into two or more keys"
 				+ " (see Thumb Keys)");
@@ -172,6 +172,12 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		var bksp = new TagListColumn("Backspace", mgf(kb.backspace), BkspShape);
 		bksp.columnCount = 2;
 		bksp.shortName = "Bksp";
+		bksp.onNotes = function(div:Element):Void {
+			var ul = div.appendElTextNode("ul");
+			ul.appendExplainer("Wide", "is the standard size, usually 2u");
+			ul.appendExplainer("Split", "is two (usually 1u) keys, commonly seen in CJK keyboards");
+			ul.appendExplainer("Short", "is a shorter (1.5u or less) key without another key to keep it company");
+		}
 		addHidden(bksp);
 		
 		var thumbKeys = new IntRangeColumn("Thumb keys", mgf(kb.thumbKeys));

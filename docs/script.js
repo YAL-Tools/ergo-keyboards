@@ -22,7 +22,7 @@ ColStagBoards.init = function(keyboards) {
 	var keySpacing;
 	var kb = ColStagKeyboard._new("Corne/crkbd");
 	var corne = kb;
-	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(42)],type_NumRange.fromValue(6),type_NumRange.fromValue(3));
+	ColStagKeyboard.setMatrix(kb,[{ min : 36, max : 42}],{ min : 5, max : 6},type_NumRange.fromValue(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.connection = [type_Connection.Wired,type_Connection.Wireless];
@@ -30,8 +30,8 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.ThirdParty];
 	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
-	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs","https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox"];
-	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard"];
+	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs","https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox","[v:v3 MX] https://falbatech.click/products/Pre-soldered-Corne-p613836639","[v:v3 MX mini] https://falbatech.click/products/Pre-soldered-Corne-mini-p613854160","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-Wireless-p613843630","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-mini-Wireless-p613843878"];
+	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard","[v:MX] https://falbatech.click/products/Corne-Fully-Assembled-Custom-Mechanical-Keyboard-p630685502","[v:MX mini] https://falbatech.click/products/Corne-mini-Fully-Assembled-Custom-Mechanical-Keyboard-p630813323","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Dark-Bamboo-Keyboard-shipping-in-24h-p613843609","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Natural-Bamboo-Keyboard-with-Tilt-Tent-Set-in-shipping-24h-p613843369","[v:MX BT] https://falbatech.click/products/Corne-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p630685504","[v:MX BT mini] https://falbatech.click/products/Corne-mini-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631346754"];
 	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	ColStagKeyboard.addSKBC(kb);
@@ -229,12 +229,16 @@ ColStagBoards.init = function(keyboards) {
 	kb.assembly = [type_Assembly.PCB];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+	kb.lighting = [type_Lighting.None];
 	kb.tenting = [type_Tenting.None,type_Tenting.Legs];
+	kb.kit = ["[v:Partial?] https://falbatech.click/products/Redox-Partially-assembled-with-electronics-cables-p613843963","[v:Wired] https://falbatech.click/products/Pre-soldered-REDOX-Wired-p613836642","[v:BT] https://falbatech.click/products/Pre-soldered-REDOX_FT-Wireless-p646459789","[v:Gaming?] https://falbatech.click/products/Pre-soldered-REDOX-Gaming-Version-One-Hand-p613853136"];
+	kb.prebuilt = ["[v:wired] https://falbatech.click/products/ReDOX-Fully-Assembled-Custom-Mechanical-Keyboard-p633260018","[v:wired] https://falbatech.click/products/Complete-Redox-Wired-Bamboo-Black-version-with-usb-c-Shipping-in-24-hours-p613836397","[v:wired] https://falbatech.click/products/Redox-Mechanical-Keyboard-in-Bamboo-Casing-with-Stone-Effect-Elegance-and-Style-for-Enthusiasts-free-Shipping-p613843863","[v:BT] https://falbatech.click/products/Pre-soldered-REDOX-Wireless-p613836477","[v:BT] https://falbatech.click/products/ReDOX-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p633260056","[v:BT] https://falbatech.click/products/ReDOX_FT-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p648828330"];
 	var redoxFT = add(kb);
 	kb = ColStagKeyboard._new("Redox FT LP",redoxFT);
 	kb.img = type_ValList.fromValue("redox-ft-lp.webp");
-	kb.lighting = [type_Lighting.None];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
+	kb.kit = ["[v:wired] https://falbatech.click/products/Pre-soldered-REDOX_FT-Wired-Low-Profile-p646462293","[v:BT] https://falbatech.click/products/Pre-soldered-REDOX_FT-Wireless-Low-Profile-p646460072"];
+	kb.prebuilt = ["[v:wired] https://falbatech.click/products/ReDOX_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p645216766","[v:BT] https://falbatech.click/products/ReDOX_FT-Wireless-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p645216841"];
 	add(kb);
 	kb = ColStagKeyboard._new("NeoDox",redox);
 	kb.connection = [type_Connection.Wired];
@@ -256,7 +260,7 @@ ColStagBoards.init = function(keyboards) {
 	var ergodash = kb;
 	kb.source = type_ValList.fromValue("https://github.com/omkbd/ErgoDash");
 	kb.img = type_ValList.fromValue("Ergodash.jpg");
-	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX],type_KeySpacing.MX);
+	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps],type_KeySpacing.MX);
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(70)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
 	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash","https://keycapsss.com/keyboard-parts/pcbs/63/ergodash-split-keyboard-pcb"];
@@ -271,8 +275,17 @@ ColStagBoards.init = function(keyboards) {
 	add(kb);
 	kb = ColStagKeyboard._new("ErgoDash_FT",ergodash);
 	kb.img = type_ValList.fromValue("ergodash-ft.webp");
-	kb.hotswap = [type_HotSwap.Yes];
-	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/ErgoDash-Fully-Assembled-Custom-Mechanical-Keyboard-p630613785");
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
+	kb.lighting = [type_Lighting.Simple];
+	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+	kb.kit = ["[v:wired] https://falbatech.click/products/Pre-soldered-ErgoDash-p613842367","[v:wireless] https://falbatech.click/products/Pre-soldered-ErgoDash-Wireless-p613839936"];
+	kb.prebuilt = ["https://falbatech.click/products/ErgoDash-Fully-Assembled-Custom-Mechanical-Keyboard-p630613785"];
+	add(kb);
+	kb = ColStagKeyboard._new("ErgoDash_FT Blue",ergodash);
+	kb.img = type_ValList.fromValue("ergodash-ft.webp");
+	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX],type_KeySpacing.MX);
+	kb.lighting = [type_Lighting.Simple];
+	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/ErgoDash-Blue-backlite-Shipping-in-24-hours-p613853121");
 	add(kb);
 	kb = { name : "ErgoMax", source : type_ValList.fromValue("https://github.com/LouWii/ErgoMax"), img : type_ValList.fromValue("ergomax.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -595,7 +608,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setQMK(kb);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.web = type_ValList.fromValue("");
-	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2"];
+	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2","https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460"];
 	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415"];
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
 	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout","Ergodox EZ is separated from these due to presence of tenting legs"];
@@ -604,6 +617,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("ergodox-ft-lp.jpg");
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc]);
 	kb.lighting = [type_Lighting.None];
+	kb.kit = ["https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614","https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388"];
 	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480");
 	add(kb);
 	kb = ColStagKeyboard._new("Keyboardio Model 100");
@@ -1436,6 +1450,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		avail.shortLabels.set(type_Availability.OpenSource,"O");
 		avail.shortLabels.set(type_Availability.Kit,"K");
 		avail.shortLabels.set(type_Availability.PreBuilt,"PB");
+		avail.filterTags = [type_Availability.Kit,type_Availability.PreBuilt];
 		avail.canEdit = false;
 		avail.show = false;
 		this.addColumn(avail);
@@ -2826,13 +2841,13 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		space.columnCount = 2;
 		space.onNotes = function(div) {
 			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
-			var li = tools_HtmlTools.appendElTextNode(div,"li");
+			var li = tools_HtmlTools.appendElTextNode(ul,"li");
 			tools_HtmlTools.appendElTextNode(li,"b","SplitDistinct");
 			li.appendChild(window.document.createTextNode(" means that the two halves of the spacebar " + "emit different key codes or can be configured"));
-			li = tools_HtmlTools.appendElTextNode(div,"li");
+			li = tools_HtmlTools.appendElTextNode(ul,"li");
 			tools_HtmlTools.appendElTextNode(li,"b","SplitDistinctFn");
 			li.appendChild(window.document.createTextNode(" means same as above, " + "but also that there's an extra 1u key on one of them"));
-			li = tools_HtmlTools.appendElTextNode(div,"li");
+			li = tools_HtmlTools.appendElTextNode(ul,"li");
 			tools_HtmlTools.appendElTextNode(li,"b","Multi");
 			li.appendChild(window.document.createTextNode(" means that both spacebars are split into two or more keys" + " (see Thumb Keys)"));
 		};
@@ -2847,6 +2862,12 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		}),type_row_BkspShape);
 		bksp.columnCount = 2;
 		bksp.shortName = "Bksp";
+		bksp.onNotes = function(div) {
+			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
+			tools_HtmlTools.appendExplainer(ul,"Wide","is the standard size, usually 2u");
+			tools_HtmlTools.appendExplainer(ul,"Split","is two (usually 1u) keys, commonly seen in CJK keyboards");
+			tools_HtmlTools.appendExplainer(ul,"Short","is a shorter (1.5u or less) key without another key to keep it company");
+		};
 		addHidden(bksp);
 		var thumbKeys = new table_number_IntRangeColumn("Thumb keys",new table_FancyField("thumbKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -5987,10 +6008,30 @@ table_number_NumberRangeListColumn.prototype = $extend(table_number_NumberColumn
 		if(ranges != null) {
 			if(ranges.length == 1) {
 				var first = ranges[0];
-				if(first.min == first.max) {
-					this.field.access(kb,true,first.min);
-				} else if(!((first) instanceof Array)) {
-					this.field.access(kb,true,first);
+				if(!((first) instanceof Array)) {
+					if(first.min == first.max) {
+						this.field.access(kb,true,first.min);
+					} else {
+						this.field.access(kb,true,first);
+					}
+				}
+			} else {
+				var changed = false;
+				var _g = 0;
+				var _g1 = ranges.length;
+				while(_g < _g1) {
+					var i = _g++;
+					var range = ranges[i];
+					if(!((range) instanceof Array)) {
+						if(range.min == range.max) {
+							if(!changed) {
+								changed = true;
+								ranges = ranges.slice();
+								this.field.access(kb,true,ranges);
+							}
+							ranges[i] = [range.min];
+						}
+					}
 				}
 			}
 		}
@@ -6334,6 +6375,7 @@ table_tag_StringTagColumnBase.prototype = $extend(table_tag_TagLikeColumnBase.pr
 });
 var table_tag_StringTagListColumn = function(name,field,tags) {
 	table_tag_StringTagColumnBase.call(this,name,field,tags);
+	this.isMulti = true;
 };
 table_tag_StringTagListColumn.__name__ = true;
 table_tag_StringTagListColumn.__super__ = table_tag_StringTagColumnBase;
@@ -6805,6 +6847,7 @@ table_tag_TagLikeListColumnTools.buildEditor = function(column,out,store,restore
 var table_tag_TagListColumn = function(name,field,et) {
 	table_tag_TagColumnBase.call(this,name,field,et);
 	this.defaultValue = type_ValList.fromValue(Type.createEnumIndex(et,0,null));
+	this.isMulti = true;
 };
 table_tag_TagListColumn.__name__ = true;
 table_tag_TagListColumn.__super__ = table_tag_TagColumnBase;
@@ -7177,6 +7220,13 @@ tools_HtmlTools.appendElMarkupNode = function(e,tag,html) {
 	}
 	e.appendChild(p);
 	return p;
+};
+tools_HtmlTools.appendExplainer = function(e,name,desc) {
+	var li = window.document.createElement("li");
+	tools_HtmlTools.appendElTextNode(li,"b",name);
+	li.appendChild(window.document.createTextNode(" " + desc));
+	e.appendChild(li);
+	return li;
 };
 tools_HtmlTools.addFieldChangeEventListener = function(e,f) {
 	e.addEventListener("change",f);
@@ -7927,10 +7977,11 @@ var type_WristPads = $hxEnums["type.WristPads"] = { __ename__:true,__constructs_
 };
 type_WristPads.__constructs__ = [type_WristPads.None,type_WristPads.Integrated,type_WristPads.Detachable];
 var type_row_BkspShape = $hxEnums["type.row.BkspShape"] = { __ename__:true,__constructs__:null
-	,Normal: {_hx_name:"Normal",_hx_index:0,__enum__:"type.row.BkspShape",toString:$estr}
-	,Short: {_hx_name:"Short",_hx_index:1,__enum__:"type.row.BkspShape",toString:$estr}
+	,Wide: {_hx_name:"Wide",_hx_index:0,__enum__:"type.row.BkspShape",toString:$estr}
+	,Split: {_hx_name:"Split",_hx_index:1,__enum__:"type.row.BkspShape",toString:$estr}
+	,Short: {_hx_name:"Short",_hx_index:2,__enum__:"type.row.BkspShape",toString:$estr}
 };
-type_row_BkspShape.__constructs__ = [type_row_BkspShape.Normal,type_row_BkspShape.Short];
+type_row_BkspShape.__constructs__ = [type_row_BkspShape.Wide,type_row_BkspShape.Split,type_row_BkspShape.Short];
 var type_row_EnterShape = $hxEnums["type.row.EnterShape"] = { __ename__:true,__constructs__:null
 	,ANSI: {_hx_name:"ANSI",_hx_index:0,__enum__:"type.row.EnterShape",toString:$estr}
 	,ISO: {_hx_name:"ISO",_hx_index:1,__enum__:"type.row.EnterShape",toString:$estr}

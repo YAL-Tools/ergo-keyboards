@@ -96,6 +96,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		conType.shortLabels[Connection.Bluetooth] = "BT";
 		conType.shortLabels[Connection.Wireless] = "P";
 		conType.filterLabels[Connection.Wireless] = "Other wireless";
+		conType.filterTags = [Bluetooth, Wireless];
 		conType.columnCount = 2;
 		addColumn(conType);
 	}
@@ -209,6 +210,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		hotswap.shortLabels[HotSwap.Yes] = "+";
 		hotswap.shortLabels[HotSwap.No] = "-";
 		hotswap.columnCount = 2;
+		hotswap.filterTags = [Yes];
 		addColumn(hotswap);
 		
 		var switchType = new SwitchProfileColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
@@ -346,6 +348,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		avail.shortLabels[Availability.OpenSource] = "O";
 		avail.shortLabels[Availability.Kit] = "K";
 		avail.shortLabels[Availability.PreBuilt] = "PB";
+		avail.filterTags = [Kit, PreBuilt];
 		avail.canEdit = false;
 		avail.show = false;
 		addColumn(avail);

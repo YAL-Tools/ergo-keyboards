@@ -21,6 +21,7 @@ window.keyboardData = [
 	"parent": "atreus62",
 	"img": "atreus62-ft.jpg",
 	"hotswap": true,
+	"kit": "https://falbatech.click/products/Pre-soldered-Atreus62_FT-p613839930",
 	"prebuilt": "https://falbatech.click/products/Atreus62_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630566564"
 },
 {
@@ -223,6 +224,18 @@ window.keyboardData = [
 	"kit": "https://shop.yushakobo.jp/en/products/keyboardio-atreus-diy-kit",
 	"prebuilt": "https://shop.keyboard.io/collections/keyboardio-atreus/products/keyboardio-atreus",
 	"layoutRef": "SKBC"
+},
+{
+	"name": "Atreus42_FT",
+	"img": "Atreus42_FT.webp",
+	"parent": "Keyboardio Atreus",
+	"notes": ["Slightly tighter (and without a pair of middle keys) than the regular Atreus"],
+	"keys": 42,
+	"innerKeys": 0,
+	"firmware": "QMK",
+	"software": [],
+	"kit": "https://falbatech.click/products/Pre-soldered-Atreus42_FT-p613853133",
+	"prebuilt": "https://falbatech.click/products/Atreus42_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630587646",
 },
 {
 	"name": "KLOR",
@@ -884,6 +897,26 @@ window.keyboardData = [
 	"kit": "![us] https://gestaltinput.com/products/santoku-keyboard-kit-black"
 },
 {
+	"name": "MiniDox",
+	"img": "minidox.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 3,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Alps"],
+	"firmware": "QMK",
+	"ctlCount": 2,
+	"caseType": "Included",
+	"source": "https://github.com/That-Canadian/MiniDox_PCB",
+	"kit": "https://shop.profetkeyboards.com/product/minidox-pcb-set",
+	"prebuilt": "https://falbatech.click/products/MiniDox-Fully-Assembled-Custom-Mechanical-Keyboard-p631289446",
+	"layoutRef": "SKBC"
+},
+{
 	"name": "Microdox",
 	"img": "microdox.webp",
 	"shape": "Split",
@@ -903,7 +936,8 @@ window.keyboardData = [
 		"MX",
 		"Choc"
 	],
-	"encoders": 2,
+	"encoders": [0, 2],
+	"displays": 2,
 	"firmware": "QMK",
 	"caseType": "Included",
 	"kit": "https://www.boardsource.xyz/products/microdox",
@@ -6015,7 +6049,20 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/GreenMashedPotato/Shrimp42"
 },
-"2024-04-16"
+{
+	"name": "ErgoDash Mini",
+	"img": "ergodash-mini.webp",
+	"parent": "ErgoDash",
+	"keys": 56,
+	"rows": 3,
+	"innerKeys": 2,
+	"source": "https://github.com/omkbd/ErgoDash/tree/master/mini",
+	"kit": [
+		"https://shop.yushakobo.jp/en/products/ergodash-mini",
+		"https://keeb-finder.com/keyboards/ergodash-mini-keyboard-kit"
+	]
+},
+"2024-05-20"
 ];
 window.keyboardTODOs = `
 https://github.com/krikun98/Skean
@@ -6107,6 +6154,7 @@ Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
 17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
 https://www.keaworkshop.com/kea-profile-keycaps-project
+https://ramaworks.store/products/grid-set-a
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
