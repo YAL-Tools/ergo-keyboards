@@ -162,6 +162,7 @@ class OrthoBoards {
 			"https://keyhive.xyz/shop/helix-kit",
 			"https://www.switchtop.com/product/helix-keyboard-kit",
 			"https://www.littlekeyboards.com/collections/helix-pcb-kits",
+			"https://splitkb.com/collections/keyboard-kits/products/aurora-helix",
 		];
 		kb.caseType = [Included];
 		kb.img = "helix.webp";

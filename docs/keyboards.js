@@ -6062,10 +6062,39 @@ window.keyboardData = [
 		"https://keeb-finder.com/keyboards/ergodash-mini-keyboard-kit"
 	]
 },
+{
+	"name": "Skean",
+	"img": "Skean.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"outerKeys": 1,
+	"navCluster": "None",
+	"numpad": "None",
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Alps"],
+	"keySpacing": "MX",
+	"encoders": 0,
+	"pointingDevices": 0,
+	"displays": 0,
+	"firmware": "ZMK",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "Other",
+	"ctlPinCount": 0,
+	"ctlName": "nRF52840",
+	"wristPads": "None",
+	"tenting": "None",
+	"source": "https://github.com/krikun98/Skean"
+},
 "2024-05-20"
 ];
 window.keyboardTODOs = `
-https://github.com/krikun98/Skean
 https://github.com/krikun98/jorian840
 https://www.littlekeyboards.com/products/naked48led-keyboard-kit https://salicylic-acid3.booth.pm/items/1271568
 https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit
