@@ -243,6 +243,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 	override public function post():Void {
 		super.post();
 		for (kb in values) {
+			if (kb.shape == null) kb.shape = [Split];
 			if (kb.stagger == null) {
 				kb.stagger = StaggerType.Column;
 			} else if (kb.stagger.contains(Ortho)) {

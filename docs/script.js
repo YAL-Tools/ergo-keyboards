@@ -1162,6 +1162,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
 		conType.shortLabels.set(type_Connection.Wireless,"P");
 		conType.filterLabels.set(type_Connection.Wireless,"Other wireless");
+		conType.filterTags = [type_Connection.Bluetooth,type_Connection.Wireless];
 		conType.columnCount = 2;
 		this.addColumn(conType);
 	}
@@ -1304,6 +1305,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		hotswap.shortLabels.set(type_HotSwap.Yes,"+");
 		hotswap.shortLabels.set(type_HotSwap.No,"-");
 		hotswap.columnCount = 2;
+		hotswap.filterTags = [type_HotSwap.Yes];
 		this.addColumn(hotswap);
 		var switchType = new type_SwitchProfileColumn("Switch profile",new table_FancyField("switchProfile",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2118,6 +2120,12 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		while(_g < _g1.length) {
 			var kb = _g1[_g];
 			++_g;
+			if(kb.shape == null) {
+				kb.shape = [type_Shape.Split];
+			}
+			if(kb.shape == null) {
+				kb.shape = [type_Shape.Split];
+			}
 			if(kb.stagger == null) {
 				kb.stagger = type_ValList.fromValue(type_StaggerType.Column);
 			} else if(kb.stagger.indexOf(type_StaggerType.Ortho) != -1) {
@@ -2498,7 +2506,7 @@ OrthoBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(4),type_NumRange.fromValue(1),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
 	kb.source = type_ValList.fromValue("https://github.com/MakotoKurauchi/helix");
-	kb.kit = ["!https://shop.yushakobo.jp/en/products/2143","https://mechboards.co.uk/products/helix-kit","https://customkbd.com/collections/split-keyboards/products/helix-kit","https://keyhive.xyz/shop/helix-kit","https://www.switchtop.com/product/helix-keyboard-kit","https://www.littlekeyboards.com/collections/helix-pcb-kits"];
+	kb.kit = ["!https://shop.yushakobo.jp/en/products/2143","https://mechboards.co.uk/products/helix-kit","https://customkbd.com/collections/split-keyboards/products/helix-kit","https://keyhive.xyz/shop/helix-kit","https://www.switchtop.com/product/helix-keyboard-kit","https://www.littlekeyboards.com/collections/helix-pcb-kits","https://splitkb.com/collections/keyboard-kits/products/aurora-helix"];
 	kb.caseType = [type_CaseType.Included];
 	kb.img = type_ValList.fromValue("helix.webp");
 	add(kb);

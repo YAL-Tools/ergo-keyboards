@@ -2,7 +2,7 @@ window.keyboardData = [
 {
 	"name": "atreus62",
 	"img": "atreus62.jpg",
-	"shape": "Monoblock",
+	"shape": "Unibody",
 	"stagger": "Column",
 	"connection": "Wired",
 	"keys": 62,
@@ -4038,7 +4038,7 @@ window.keyboardData = [
 {
 	"name": "ErgoChoco",
 	"img": "ErgoChoco.jpg",
-	"shape": "Monoblock",
+	"shape": "Unibody",
 	"stagger": "Column",
 	"connection": "Wired",
 	"keys": 42,
@@ -5371,7 +5371,7 @@ window.keyboardData = [
 		"Unibody",
 		"Special"
 	],
-	"stagger": "Row",
+	"stagger": "Column",
 	"connection": [
 		"Wired",
 		"Bluetooth"
@@ -6016,6 +6016,7 @@ window.keyboardData = [
 {
 	"name": "Cleo",
 	"img": "Cleo.webp",
+	"shape": "Split",
 	"notes": "A Corne (V3)-like keyboard with ARM Cortex-M0+ STM32",
 	"connection": "Wired",
 	"hotswap": "Yes",
@@ -6092,12 +6093,136 @@ window.keyboardData = [
 	"tenting": "None",
 	"source": "https://github.com/krikun98/Skean"
 },
+{
+	"name": "Jian",
+	"img": "Jian.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 0,
+	"outerKeys": 1,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.5,
+	"switchProfile": ["MX", "Choc", "Alps"],
+	"encoders": 0,
+	"pointingDevices": 0,
+	"trackballs": 0,
+	"trackpads": 0,
+	"trackpoints": 0,
+	"dpads": 0,
+	"displays": 0,
+	"lighting": ["Simple", "Underglow"],
+	"firmware": "QMK",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlPinCount": 24,
+	"web": [
+		"https://t.me/KgOfHedgehogs"
+	],
+	"source": "https://github.com/KGOH/Jian-Info?tab=readme-ov-file",
+},
+{
+	"name": "Jorian 840",
+	"img": "jorian840.webp",
+	"parent": "Jian",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 0,
+	"outerKeys": 1,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Alps", "Other"],
+	"encoders": 0,
+	"pointingDevices": 0,
+	"trackballs": 0,
+	"trackpads": 0,
+	"trackpoints": 0,
+	"dpads": 0,
+	"displays": 0,
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": ["Onboard/SMD", "Other"],
+	"ctlPinCount": 0,
+	"ctlName": "nRF52840",
+	"wristPads": "None",
+	"tenting": "None",
+	"web": "http://www.keyboard-layout-editor.com/#/gists/4b6c2af67148f58ddd6c6b2976c4370f",
+	"source": "https://github.com/krikun98/jorian840?tab=readme-ov-file",
+},
+{
+	"name": "Mitosis",
+	"img": "Mitosis.webp",
+	"notes": "Uses 3x nrf51822 chips ",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wireless",
+	"keys": 46,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": {"min": 4, "max": 8},
+	"cornerKeys": {"min": 0, "max": 4},
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.5,
+	"switchProfile": "MX",
+	"encoders": 0,
+	"pointingDevices": 0,
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlCount": 4,
+	"ctlFootprint": ["Pro Micro", "Onboard/SMD", "Other"],
+	"ctlPinCount": 24,
+	"ctlName": ["ATmega32U4", "Other"],
+	"source": "https://github.com/babarrett/mitosis-docs/blob/master/mitosis-README.md",
+	"prebuilt": "https://flashquark.com/product/gb-mitosis-wireless-split-ergonomic-keyboard-w-acrylic-case/"
+},
+{
+	"name": "Naked48LED",
+	"img": "naked48.webp",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 48,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 6,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"lighting": "RGB",
+	"ctlFootprint": "Pro Micro",
+	"ctlName": ["RP2040", "ATmega32U4", "nRF52840"],
+	"kit": [
+		"https://www.littlekeyboards.com/products/naked48led-keyboard-kit",
+		"https://salicylic-acid3.booth.pm/items/1271568"
+	]
+},
+{
+	"name": "Naked60BMP",
+	"parent": "Naked48LED",
+	"img": "naked60.webp",
+	"keys": 60,
+	"rows": 4,
+	"kit": "https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit"
+},
 "2024-05-20"
 ];
 window.keyboardTODOs = `
-https://github.com/krikun98/jorian840
-https://www.littlekeyboards.com/products/naked48led-keyboard-kit https://salicylic-acid3.booth.pm/items/1271568
-https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit
 https://github.com/doesntfazer/frigate https://www.reddit.com/r/ErgoMechKeyboards/comments/13fpjps/frigate_early_adopters_is_now_available_to_order/
 https://github.com/taylorzr/goshawk
 https://github.com/DreaM117er/MagWave44
@@ -6111,7 +6236,6 @@ More Maltron keyboards
 Claw44
 Gergo
 ZEN2
-Jian
 Jorne
 GrabShell https://grabshell.site/en/home-en/
 https://github.com/cacheworks/Wubbo
@@ -6146,7 +6270,6 @@ https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 https://kbd.news/VColChoc44-1029.html
 https://github.com/ChrisChrisLoLo/beyblock20
 https://github.com/telzo2000/cool536 https://booth.pm/en/items/4190386
-Mitosis
 Chimera
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cr2kk1/ad_scottowing_pcb_edition_available_now/
 https://github.com/raeedcho/temper
@@ -6158,6 +6281,8 @@ https://github.com/Squalius-cephalus/silakka44
 https://github.com/choubbikeyboards/scaffold
 `;
 /* Other TODOs
+
+https://new.reddit.com/r/crkbd/comments/1afrhbn/custom_gasketmount_case_complete/
 
 https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
