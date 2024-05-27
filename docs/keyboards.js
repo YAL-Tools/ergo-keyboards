@@ -6227,7 +6227,7 @@ window.keyboardData = [
 	"rows": 4,
 	"kit": "https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit"
 },
-"2024-05-20"
+"2024-05-27"
 ];
 window.keyboardTODOs = `
 https://github.com/doesntfazer/frigate https://www.reddit.com/r/ErgoMechKeyboards/comments/13fpjps/frigate_early_adopters_is_now_available_to_order/

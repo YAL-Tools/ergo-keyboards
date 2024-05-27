@@ -10,6 +10,7 @@ import table.StringColumn;
 import type.GetSetOn;
 import type.IntRange;
 import type.Keyboard;
+import type.NamedThing;
 import js.Browser.*;
 using tools.HtmlTools;
 
@@ -18,7 +19,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NameColumn<KB:Keyboard> extends StringColumn<KB> {
+class NameColumn<KB:NamedThing> extends StringColumn<KB> {
 	public function new(name:String, field:FancyField<KB, String>) {
 		super(name, field);
 	}

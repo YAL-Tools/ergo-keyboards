@@ -236,9 +236,6 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		
 		// MCU data:
 		ControllerColumn.initKeyboards(this);
-		
-		//
-		ToDoList.set((cast window).keyboardTODOs);
 	}
 	override public function post():Void {
 		super.post();

@@ -510,7 +510,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("NeoDox", redox);
 		kb.connection = [Wired];
 		kb.assembly = [PCB];
-		kb.setHotswap([MX], MX);
+		kb.setHotswap([MX, Choc], MX);
 		kb.encoders = [0, 2];
 		kb.prebuilt = [
 			"https://ergomech.store/shop/neodox-52",

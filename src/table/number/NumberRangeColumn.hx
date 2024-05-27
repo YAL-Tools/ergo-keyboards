@@ -14,7 +14,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NumberRangeColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NumRange<NT>> {
+class NumberRangeColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB, NT, NumRange<NT>> {
 	public var defaultValue:NumRange<NT> = cast new NumRange(0, 0);
 	public function new(name:String, field:FancyField<KB, NumRange<NT>>) {
 		super(name);

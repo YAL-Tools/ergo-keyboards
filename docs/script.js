@@ -243,7 +243,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = ColStagKeyboard._new("NeoDox",redox);
 	kb.connection = [type_Connection.Wired];
 	kb.assembly = [type_Assembly.PCB];
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX],type_KeySpacing.MX);
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.encoders = type_NumRange.fromArray([0,2]);
 	kb.prebuilt = ["https://ergomech.store/shop/neodox-52","https://ergomech.store/shop/neodox-sandwich-style-exclusive-418"];
 	kb.img = type_ValList.fromValue("NeoDox.jpg");
@@ -601,7 +601,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.notes = ["There is no hot-swap. However, MoErgo offers an unsoldered version that saves one from having to unsolder the built-in switches. Still, one needs to solder the new ones.","Hardware extension support: 6 digital GPIOs (inside the case)"];
 	add(kb);
 	kb = ColStagKeyboard._new("Ergodox-like");
-	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(70)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
+	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(76)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(6),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(5));
 	kb.switchProfile = [type_SwitchProfile.MX];
 	kb.hotswap = [type_HotSwap.Yes,type_HotSwap.No];
@@ -2111,7 +2111,6 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			this.values.push(kb);
 		}
 		type_ControllerColumn.initKeyboards(this);
-		ToDoList.set(window.keyboardTODOs);
 	}
 	,post: function() {
 		KeyboardTable.prototype.post.call(this);
@@ -2120,9 +2119,6 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		while(_g < _g1.length) {
 			var kb = _g1[_g];
 			++_g;
-			if(kb.shape == null) {
-				kb.shape = [type_Shape.Split];
-			}
 			if(kb.shape == null) {
 				kb.shape = [type_Shape.Split];
 			}
@@ -2177,64 +2173,11 @@ HxOverrides.remove = function(a,obj) {
 HxOverrides.now = function() {
 	return Date.now();
 };
-var KeyboardTableInit = function(id,fn) {
-	this.id = id;
-	this.fn = fn;
-};
-KeyboardTableInit.__name__ = true;
-KeyboardTableInit.prototype = {
-	id: null
-	,fn: null
-	,__class__: KeyboardTableInit
-};
-var KeyboardTableInitList = {};
-KeyboardTableInitList._new = function() {
-	return [];
-};
-KeyboardTableInitList.insertAfter = function(this1,id,el) {
-	var _g_current = 0;
-	var _g_array = this1;
-	while(_g_current < _g_array.length) {
-		var _g_value = _g_array[_g_current];
-		var _g_key = _g_current++;
-		var i = _g_key;
-		var q = _g_value;
-		if(q.id == id) {
-			this1.splice(i + 1,0,el);
-			return;
-		}
-	}
-	throw haxe_Exception.thrown("Couldn't find \"" + id + "\"");
-};
-KeyboardTableInitList.insertBefore = function(this1,id,el) {
-	var _g_current = 0;
-	var _g_array = this1;
-	while(_g_current < _g_array.length) {
-		var _g_value = _g_array[_g_current];
-		var _g_key = _g_current++;
-		var i = _g_key;
-		var q = _g_value;
-		if(q.id == id) {
-			this1.splice(i,0,el);
-			return;
-		}
-	}
-	throw haxe_Exception.thrown("Couldn't find \"" + id + "\"");
-};
-var Main = function() { };
-Main.__name__ = true;
-Main.main = function() {
+var KeyboardPage = function() { };
+KeyboardPage.__name__ = true;
+KeyboardPage.main = function(kbTable) {
 	tools_HaxeBugs.ref();
-	table_LinkListColumn.domainCountries = window.domainCountries;
-	table_LinkListColumn.countryTags = window.countryTags;
-	ToDoList.element = window.document.querySelector("#todo");
 	var divFilters = window.document.querySelector("#filter");
-	var kbTable;
-	if(window.document.body.classList.contains("rowstag")) {
-		kbTable = new RowStagTable();
-	} else {
-		kbTable = new ColStagTable();
-	}
 	var tmp = window.document.querySelector("#count");
 	kbTable.countElement = tmp;
 	kbTable.buildFilters(divFilters);
@@ -2361,6 +2304,65 @@ Main.main = function() {
 	};
 	kbTable.loadFilters(window.document.location.search);
 	$global.console.log("Hello!");
+};
+var KeyboardTableInit = function(id,fn) {
+	this.id = id;
+	this.fn = fn;
+};
+KeyboardTableInit.__name__ = true;
+KeyboardTableInit.prototype = {
+	id: null
+	,fn: null
+	,__class__: KeyboardTableInit
+};
+var KeyboardTableInitList = {};
+KeyboardTableInitList._new = function() {
+	return [];
+};
+KeyboardTableInitList.insertAfter = function(this1,id,el) {
+	var _g_current = 0;
+	var _g_array = this1;
+	while(_g_current < _g_array.length) {
+		var _g_value = _g_array[_g_current];
+		var _g_key = _g_current++;
+		var i = _g_key;
+		var q = _g_value;
+		if(q.id == id) {
+			this1.splice(i + 1,0,el);
+			return;
+		}
+	}
+	throw haxe_Exception.thrown("Couldn't find \"" + id + "\"");
+};
+KeyboardTableInitList.insertBefore = function(this1,id,el) {
+	var _g_current = 0;
+	var _g_array = this1;
+	while(_g_current < _g_array.length) {
+		var _g_value = _g_array[_g_current];
+		var _g_key = _g_current++;
+		var i = _g_key;
+		var q = _g_value;
+		if(q.id == id) {
+			this1.splice(i,0,el);
+			return;
+		}
+	}
+	throw haxe_Exception.thrown("Couldn't find \"" + id + "\"");
+};
+var Main = function() { };
+Main.__name__ = true;
+Main.main = function() {
+	table_LinkListColumn.domainCountries = window.domainCountries;
+	table_LinkListColumn.countryTags = window.countryTags;
+	var kbTable;
+	if(window.document.body.classList.contains("rowstag")) {
+		kbTable = new RowStagTable();
+	} else {
+		kbTable = new ColStagTable();
+	}
+	KeyboardPage.main(kbTable);
+	ToDoList.element = window.document.querySelector("#todo");
+	ToDoList.set(window.keyboardTODOs);
 };
 Math.__name__ = true;
 var OrthoBoards = function() { };
@@ -8054,7 +8056,7 @@ Date.prototype.__class__ = Date;
 Date.__name__ = "Date";
 var Tippy = window["tippy"];
 js_Boot.__toStr = ({ }).toString;
-Main.baseURL = "https://yal-tools.github.io/ergo-keyboards/";
+KeyboardPage.baseURL = "https://yal-tools.github.io/ergo-keyboards/";
 table_LinkListColumn.domainCountries = { };
 table_LinkListColumn.countryTags = { };
 table_LinkListColumn.rxFlag = new RegExp("\\[flag:\\s*(\\w+)(?:\\|(.+?))\\]","g");

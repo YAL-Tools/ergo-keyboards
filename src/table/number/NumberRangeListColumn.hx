@@ -16,7 +16,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class NumberRangeListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, NumRangeList<NT>> {
+class NumberRangeListColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB, NT, NumRangeList<NT>> {
 	public var defaultValue:Array<NumRange<NT>> = [];
 	public function new(name:String, field:FancyField<KB, NumRangeList<NT>>) {
 		super(name);

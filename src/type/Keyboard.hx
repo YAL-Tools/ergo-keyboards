@@ -7,14 +7,10 @@ import type.ValList;
 /**
  * @author YellowAfterlife
  */
-typedef Keyboard = {
-	name:String,
+typedef Keyboard = {>NamedThing,
 	?parent:String,
 	?hidden:Bool,
 	?keys:NumRangeList<Int>,
-	
-	?img:ValList<String>,
-	?notes:ValList<String>,
 	
 	?shape:ValList<Shape>,
 	?stagger:ValList<StaggerType>,
