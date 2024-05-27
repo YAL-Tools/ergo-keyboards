@@ -1155,7 +1155,7 @@ class ColStagBoards {
 		add(kb);
 		
 		kb = new ColStagKeyboard("Ergodox-like");
-		kb.setMatrix(70, 6, 4);
+		kb.setMatrix(76, 6, 4);
 		kb.setExtras(6, 0, 0, 5);
 		kb.switchProfile = [MX];
 		kb.hotswap = [Yes, No];

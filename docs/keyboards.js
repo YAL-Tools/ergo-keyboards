@@ -5664,6 +5664,13 @@ window.keyboardData = [
 	]
 },
 {
+	"name": "Sofle GLP",
+	"parent": "Sofle Hybrid",
+	"img": "sofle-glp.webp",
+	"switchProfile": "GateronLP",
+	"prebuilt": "https://ergomech.store/shop/sofle-glp-aluminum-version-exclusive-gateron-low-profile-443",
+},
+{
 	"name": "tamatama",
 	"img": "tamatama.jpg",
 	"shape": ["Split", "Keywell"],
@@ -6279,6 +6286,9 @@ https://kbd.news/FCS42S-keyboard-1317.html
 https://github.com/claybford/ergothwack https://www.claytonbford.com/portfolio/ergothwack
 https://github.com/Squalius-cephalus/silakka44
 https://github.com/choubbikeyboards/scaffold
+https://github.com/hazels-garage/kurp
+https://github.com/geoffder/dometyl-keyboard/tree/main/things/dartyl_choc
+https://github.com/soundmonster/samoklava
 `;
 /* Other TODOs
 
@@ -6303,14 +6313,19 @@ https://kbd.news/Beeball-1646.html
 
 Trickery:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
+https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyboard_v20/aaaa
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
 17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
 https://www.keaworkshop.com/kea-profile-keycaps-project
 https://ramaworks.store/products/grid-set-a
+https://www.thingiverse.com/thing:5932496
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
+https://www.reddit.com/r/olkb/comments/1cz6dmk/my_first_finished_handwire_build_prototyping_an/
 Naya Create
 */
