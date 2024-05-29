@@ -1,5 +1,4 @@
 package table ;
-import externs.Tippy;
 import externs.TippyOptions;
 import haxe.DynamicAccess;
 import js.html.Element;
@@ -30,6 +29,7 @@ class FancyTable<T> {
 	public var countElement:Element = null;
 	public var testRow:FancyRow<T> = null;
 	public var outElement:Element = null;
+	public var displayFlags:Int = 0;
 	
 	public function new() {
 		
@@ -63,6 +63,7 @@ class FancyTable<T> {
 		var row = new FancyRow(keyboard);
 		for (column in columns) {
 			var cell = new FancyTableCell(column);
+			cell.element.setAttribute("data-column", column.shortName ?? column.name);
 			cell.element.setDisplayFlag(column.show);
 			column.buildValue(cell.element, keyboard);
 			row.cells.push(cell);

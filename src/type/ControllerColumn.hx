@@ -53,7 +53,7 @@ class ControllerColumn<T> extends StringTagListColumn<T> {
 		if (val.startsWith(otherPrefix)) return val.substring(otherPrefix.length);
 		return super.getFilterLabel(val);
 	}
-	override function getShortNotes(val:String):String {
+	override function getShortNotes(item:T, val:String):String {
 		if (val.startsWith(otherPrefix)) return val.substring(otherPrefix.length);
 		return null;
 	}

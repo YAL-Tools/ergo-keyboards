@@ -159,32 +159,32 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 		var shape = new TagListColumn("Shape", mgf(kb.shape), Shape);
 		shape.show = false;
+		shape.columnCount = 2;
+		//
 		shape.shortLabels[Shape.Monoblock] = "Mono";
 		shape.shortLabels[Shape.Unibody] = "Uni";
 		shape.shortLabels[Shape.Keywell] = "KW";
 		shape.shortLabels[Shape.Half] = "½";
 		shape.shortLabels[Shape.Special] = "*";
-		shape.columnCount = 2;
+		//
+		shape.filterNotes[Shape.Monoblock] = (
+			"A single-piece keyboard with no gaps, the usual.\n"+
+			"There are a couple of these here that are interesting in some way."
+		);
+		shape.filterNotes[Shape.Unibody] = "A single-piece keyboard with some sort of a gap in the middle.";
+		shape.filterNotes[Shape.Split] = (
+			"A keyboard consisting of two or more physical pieces "+
+			"that are connected together with a cable or wirelessly."
+		);
+		shape.filterNotes[Shape.Half] = (
+			"Keypads and alike, some work may be necessary to combine two of these."
+		);
+		shape.filterNotes[Shape.Special] = (
+			"Something interesting - folding keyboards, layered keyboards, and so on."
+		);
+		//
 		shape.onNotes = function(div) {
-			var shapeUL = div.appendElTextNode("ul", "");
-			if (shape.usedValues.exists(Shape.Monoblock)) shapeUL.appendElTextNode("li",
-				"Monoblock means a single-piece keyboard with no gaps, "+
-				"such as with common non-ergonomic keyboards."
-			);
-			shapeUL.appendElTextNode("li",
-				"Unibody means a single-piece keyboard with " +
-				"some sort of a gap in the middle of it."
-			);
-			shapeUL.appendElTextNode("li",
-				"Split means a keyboard consisting of two or more physical pieces that are connected " +
-				"together with a cable or wirelessly."
-			);
-			if (shape.usedValues.exists(Shape.Half)) shapeUL.appendElTextNode("li",
-				"Half means that it's a keypad/etc. and some work might be necessary to combine two of these"
-			);
-			if (shape.usedValues.exists(Shape.Special)) shapeUL.appendElTextNode("li",
-				"Special means something interesting - folding keyboards, layered keyboards, and so on."
-			);
+			shape.appendFilterNotes(div);
 		};
 		addColumn(shape);
 		
@@ -707,6 +707,10 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				kb.layoutRef[i] = "[n:splitKbCompare] https://jhelvy.github.io/splitKbCompare/";
 			}
 		}
+	}
+	override function loadTest(kb:KB) {
+		resolveParent(kb);
+		super.loadTest(kb);
 	}
 	public function new() {
 		super();

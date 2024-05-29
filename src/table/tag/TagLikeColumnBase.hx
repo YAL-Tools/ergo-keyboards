@@ -31,7 +31,8 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	abstract public function getDefaultTag():VT;
 	abstract public function getFilterLabel(val:VT):String;
 	abstract public function getShortLabel(val:VT):String;
-	public function getShortNotes(val:VT):String {
+	
+	public function getShortNotes(item:T, val:VT):String {
 		return null;
 	}
 	
@@ -61,6 +62,31 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	public function showInFilters(val:VT):Bool {
 		return true;
 	}
+	
+	public function getFilterNotes(val:VT):String {
+		return null;
+	}
+	public function appendFilterNotes(out:Element) {
+		var ul:Element = null;
+		for (name in getTagNames()) {
+			var tag = nameToTag(name);
+			if (!showInFilters(tag)) continue;
+			var notes = getFilterNotes(tag);
+			if (notes == null) continue;
+			if (ul == null) {
+				ul = out.appendElTextNode("ul");
+			}
+			var li = ul.appendElTextNode("li");
+			li.appendElTextNode("b", getFilterLabel(tag));
+			li.appendElTextNode("br");
+			var sep = false;
+			for (line in notes.split("\n")) {
+				if (sep) li.appendLineBreak(); else sep = true;
+				li.appendTextNode(line);
+			}
+		}
+	}
+	
 	public function buildUsedValues():Void {
 		
 	}

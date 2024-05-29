@@ -55,7 +55,7 @@ class TagLikeListColumnTools {
 		for (i => tag in tags) {
 			if (i > 0) out.appendTextNode(", ");
 			var span = out.appendElTextNode("span", column.getShortLabel(tag));
-			var notes = column.getShortNotes(tag);
+			var notes = column.getShortNotes(item, tag);
 			if (notes != null) {
 				FancyTableFilters.addNotesFor(function(ne) {
 					ne.appendTextNode(notes);

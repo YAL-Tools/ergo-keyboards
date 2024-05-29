@@ -6289,6 +6289,7 @@ https://github.com/choubbikeyboards/scaffold
 https://github.com/hazels-garage/kurp
 https://github.com/geoffder/dometyl-keyboard/tree/main/things/dartyl_choc
 https://github.com/soundmonster/samoklava
+Inland MK-47
 `;
 /* Other TODOs
 

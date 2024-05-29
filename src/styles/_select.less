@@ -1,9 +1,16 @@
-select,
-input[type="select"] {
-  background: @color-gray-09;
-  border-radius: @border-radius @border-radius 0 0;
-  border: none;
-  padding: @space * 0.5 @space * 1.2;
+select {
+  &:not([size]) {
+    background: @color-gray-09;
+    border-radius: @border-radius @border-radius 0 0;
+    border: none;
+    padding: @space * 0.5 @space * 1.2;
+  }
+  &[size] {
+    overflow: auto;
+    option {
+      padding: @space * 0.2 @space * 1.2;
+    }
+  }
   margin: @space * 0.5 0;
   // border-radius: @border-radius;
   transition: background 150ms, border 150ms;
@@ -15,15 +22,13 @@ input[type="select"] {
 }
 
 body:not(.night) {
-  select,
-  input[type="select"] {
+  select {
     color: @color-text-day;
     border-bottom: 1px solid @color-text-day;
   }
 }
 body.night {
-  select,
-  input[type="select"] {
+  select {
     color: @color-text-night;
     background: @color-foreground-night-2;
     border: @border-night;

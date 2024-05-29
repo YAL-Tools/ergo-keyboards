@@ -24,14 +24,14 @@ class TagLikeColumnTools {
 		var val:ET = self.getValue(item);
 		if (val != null) {
 			var name = self.tagToName(val);
-			out.appendTextNode(self.getShortLabel(val));
+			out.appendElTextNode("span", self.getShortLabel(val));
 			out.title = [
 				getName(item),
 				self.name + ":",
 				self.getFilterLabel(val),
 			].join("\n");
 		} else {
-			out.appendTextNode(self.nullCaption);
+			out.appendElTextNode("span", self.nullCaption);
 		}
 	}
 	
@@ -65,6 +65,7 @@ class TagLikeColumnTools {
 		var select = document.createSelectElement();
 		// "" is here for "default" selection
 		var ctrs = [""].concat(column.getTagNames());
+		select.size = ctrs.length;
 		for (ctr in ctrs) {
 			var name:String;
 			if (ctr != "") {

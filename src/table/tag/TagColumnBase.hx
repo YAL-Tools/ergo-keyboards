@@ -28,6 +28,11 @@ class TagColumnBase<T, ET:EnumValue, FT> extends TagLikeColumnBase<T, ET, FT> {
 		return usedValues.exists(val);
 	}
 	
+	public var filterNotes:Map<ET, String> = new Map();
+	override function getFilterNotes(val:ET):String {
+		return filterNotes[val];
+	}
+	
 	override public function getId():String {
 		return field.name;
 	}

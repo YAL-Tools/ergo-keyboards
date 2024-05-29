@@ -102,6 +102,7 @@ textarea {
 body table#data {
   width: 100%;
   border-radius: 4px;
+  border: 1px solid;
   margin: 8px auto;
   border-spacing: 0;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
@@ -117,6 +118,7 @@ body table#data > tr > td {
 body table#data > tr > th,
 body table#data > tr > td {
   padding: 4px;
+  border-bottom: 1px solid;
 }
 body table#data > tr > th {
   line-height: 1.5;
@@ -136,20 +138,17 @@ body table#data > tr > th.can-sort.sort-column:after {
 body table#data > tr > th.can-sort.sort-column.sort-ascending:after {
   content: "↑";
 }
-body table#data a.preview {
-  clear: both;
-}
 body table#data a.preview > img {
   margin-top: 4px;
   width: 100%;
   max-width: 320px;
 }
-body > tr > th {
+ > tr > th {
   border-bottom: 1px solid black;
 }
 body:not(.night) table#data {
   background-color: #f8fafb;
-  border: 1px solid #e5eaf2;
+  border-color: #e5eaf2;
 }
 body:not(.night) table#data > tr.latest {
   background-color: rgba(55, 75, 255, 0.07);
@@ -162,11 +161,11 @@ body:not(.night) table#data > tr > th {
 }
 body:not(.night) table#data > tr > th,
 body:not(.night) table#data > tr > td {
-  border-bottom: 1px solid #e5eaf2;
+  border-bottom-color: #e5eaf2;
 }
 body.night table#data {
   background-color: #0f1924;
-  border: 1px solid #1b2128;
+  border-color: #1b2128;
 }
 body.night table#data > tr.latest {
   background-color: rgba(55, 75, 255, 0.1);
@@ -179,7 +178,36 @@ body.night table#data > tr > th {
 }
 body.night table#data > tr > th,
 body.night table#data > tr > td {
-  border-bottom: 1px solid #1b2128;
+  border-bottom-color: #1b2128;
+}
+body table#data.gallery {
+  display: block;
+  width: 100%;
+  column-width: 280px;
+}
+body table#data.gallery > tr:first-child {
+  display: none;
+}
+body table#data.gallery > tr {
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+}
+body table#data.gallery > tr a.preview > img {
+  max-width: 100%;
+}
+body table#data.gallery > tr:not(.latest) > td:not(:first-child) {
+  display: none;
+}
+body table#data.gallery > tr.latest > td {
+  border-bottom-width: 0;
+}
+body table#data.gallery > tr.latest td:empty {
+  display: none;
+}
+body table#data.gallery > tr.latest td:not(:first-child):before {
+  content: attr(data-column) ": ";
+  font-weight: bold;
 }
 body details {
   border: 1px solid;
@@ -291,27 +319,31 @@ details#editor-outer .filters.range > input {
   background: #101418;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
 }
-select,
-input[type="select"] {
-  background: #f1f1f1;
-  border-radius: 4px 4px 0 0;
-  border: none;
-  padding: 4px 9.6px;
+select {
   margin: 4px 0;
   transition: background 150ms, border 150ms;
   cursor: pointer;
 }
-select option,
-input[type="select"] option {
+select:not([size]) {
+  background: #f1f1f1;
+  border-radius: 4px 4px 0 0;
+  border: none;
+  padding: 4px 9.6px;
+}
+select[size] {
+  overflow: auto;
+}
+select[size] option {
+  padding: 1.6px 9.6px;
+}
+select option {
   color: unset;
 }
-body:not(.night) select,
-body:not(.night) input[type="select"] {
+body:not(.night) select {
   color: #1c2025;
   border-bottom: 1px solid #1c2025;
 }
-body.night select,
-body.night input[type="select"] {
+body.night select {
   color: #e5eaf2;
   background: #101418;
   border: 1px solid #1b2128;

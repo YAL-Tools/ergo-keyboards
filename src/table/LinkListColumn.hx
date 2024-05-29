@@ -22,6 +22,7 @@ using StringTools;
 class LinkListColumn<KB> extends FancyColumn<KB> {
 	public static var domainCountries:DynamicAccess<String> = new DynamicAccess();
 	public static var countryTags:DynamicAccess<String> = new DynamicAccess();
+	public var symbolHTML = "➜";
 	public var canShowSingle = false;
 	public var field:FancyField<KB, ValList<String>>;
 	override public function getId():String {
@@ -209,12 +210,12 @@ class LinkListColumn<KB> extends FancyColumn<KB> {
 			// OK!
 		} else if (lines.length == 1 && canShowSingle && !lines[0].startsWith("[")) {
 			link = document.createAnchorElement();
-			link.appendTextNode("➜");
+			link.innerHTML = symbolHTML;
 			link.href = lines[0];
 			out.appendChild(link);
 		} else {
 			link = document.createAnchorElement();
-			link.appendTextNode("➜");
+			link.innerHTML = symbolHTML;
 			link.href = "javascript:void(0)";
 			out.appendChild(link);
 			

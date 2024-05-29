@@ -1,5 +1,6 @@
 package ;
 
+import js.html.SelectElement;
 import externs.Tippy;
 import externs.TippyOptions;
 import js.Lib;
@@ -34,7 +35,8 @@ class KeyboardPage {
 			document.querySelectorAuto("#editor-reset"),
 			document.querySelectorAuto("#editor-build"),
 			document.querySelectorAuto("#editor-test"),
-			document.querySelectorAuto("#editor-output")
+			document.querySelectorAuto("#editor-output"),
+			document.querySelectorAuto("#editor-load-json")
 		);
 		//
 		var loc = document.location;
@@ -77,60 +79,15 @@ class KeyboardPage {
 			kbTable.updateURL();
 		}
 		//
-		var showImg = false;
-		var showImgCb:InputElement = document.querySelectorAuto("#show-images");
-		showImgCb.onchange = function() {
-			if (showImgCb.checked == showImg) return;
-			showImg = showImgCb.checked;
-			for (row in kbTable.rows) {
-				var cell = row.cells[0];
-				if (!showImg) {
-					for (img in cell.element.querySelectorAllAutoArr("a.preview", ImageElement)) {
-						img.remove();
-					}
-					for (img in cell.element.querySelectorAllAutoArr("br.preview", ImageElement)) {
-						img.remove();
-					}
-					continue;
-				}
-				if (showImg) for (src in row.value.img) {
-					var small = "img-small/" + haxe.io.Path.withExtension(src, "webp");
-					var img = document.createImageElement();
-					img.src = small;
-					img.classList.add("small");
-					var a = document.createAnchorElement();
-					a.href = "img/" + src;
-					a.target = "_blank";
-					a.classList.add("preview");
-					a.appendChild(img);
-					//
-					var opts = new TippyOptions();
-					opts.trigger = "click";
-					opts.interactive = true;
-					opts.maxWidth = 658;
-					opts.placement = "top-start";
-					opts.appendTo = () -> cell.element;
-					opts.setLazyContent(function() {
-						var div = document.createDivElement();
-						var img = document.createImageElement();
-						img.src = "img/" + src;
-						var p = document.createParagraphElement();
-						p.classList.add("img");
-						p.appendChild(img);
-						div.appendChild(p);
-						return div;
-					});
-					a.onclick = () -> false;
-					Tippy.bind(img, opts);
-					//
-					var br = document.createBRElement();
-					br.classList.add("preview");
-					cell.element.appendChild(br);
-					//
-					cell.element.appendChild(a);
-				}
-			}
+		var displayMode:SelectElement = document.querySelectorAuto("#display-mode");
+		var galleryNote:Element = document.querySelectorAuto("#gallery-note");
+		function displayModeChanged() {
+			var flags = Std.parseInt(displayMode.value);
+			galleryNote.setDisplayFlag(flags & 2 != 0);
+			FancyTableDisplayMode.set(kbTable, flags);
 		}
+		displayMode.onchange = displayModeChanged;
+		window.setTimeout(displayModeChanged);
 		//
 		document.querySelectorAuto("#copy-md", InputElement).onclick = function() {
 			var md = FancyTableToMD.run(kbTable);

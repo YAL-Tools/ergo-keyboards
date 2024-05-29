@@ -24,13 +24,17 @@ class Main {
 		LinkListColumn.countryTags = (cast window).countryTags;
 		
 		var kbTable:KeyboardTable<Keyboard>;
-		if (document.body.classList.contains("rowstag")) {
+		var row = document.body.classList.contains("rowstag");
+		if (row) {
 			kbTable = cast new RowStagTable();
 		} else kbTable = cast new ColStagTable();
 		KeyboardPage.main(kbTable);
 		
 		ToDoList.element = document.querySelectorAuto("#todo");
-		ToDoList.set((cast window).keyboardTODOs);
+		ToDoList.set(row
+			? (cast window).rowStagTODOs
+			: (cast window).keyboardTODOs
+		);
 	}
 	
 }

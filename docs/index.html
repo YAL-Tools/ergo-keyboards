@@ -155,10 +155,16 @@
         </span>
 		<input type="button" value="Shuffle" id="shuffle"/>
 		<input type="button" value="Copy table" id="copy-md" style="display:none" />
-		<label style="display: inline-flex; align-items: center;">
-			<input type="checkbox" id="show-images" />
-			<span>Show images</span>
-		</label>
+		Display mode:
+		<select id="display-mode">
+			<option value="0">Table</option>
+			<option value="1">Table with images</option>
+			<option value="2">Compact</option>
+			<option value="3">Gallery</option>
+		</select>
+	</div>
+	<div id="gallery-note" style="display: none;">
+		<b>Note:</b> click on an item to expand it
 	</div>
 	<table id="data">
 		

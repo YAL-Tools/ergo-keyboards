@@ -1,4 +1,5 @@
 package table;
+import type.NamedThing;
 import js.Syntax;
 import haxe.DynamicAccess;
 import haxe.Json;
@@ -21,6 +22,7 @@ import tools.CompactJsonPrinter;
 import type.IntRange;
 import type.Keyboard;
 using tools.HtmlTools;
+using StringTools;
 import js.Browser.*;
 
 /**
@@ -43,8 +45,16 @@ class FancyTableEditor {
 			if (Syntax.strictEq(val, js.Lib.undefined)) continue;
 			if (sep) buf.add(","); else sep = true;
 			buf.add("\n\t");
+			
+			var wantPretty = pretty[fd];
+			if (!wantPretty
+				&& (val is Array)
+				&& ((val:Array<String>)[0] is String)
+				&& ((val:Array<String>)[0].length > 20)
+			) wantPretty = true;
+			
 			var str:String;
-			if (pretty[fd]) {
+			if (wantPretty) {
 				str = Json.stringify(val, null, "\t");
 				str = StringTools.replace(str, "\n", "\n\t");
 			} else {
@@ -55,13 +65,14 @@ class FancyTableEditor {
 		buf.add("\n}");
 		return buf.toString();
 	}
-	public static function build<KB>(table:FancyTable<KB>,
+	public static function build<KB:NamedThing>(table:FancyTable<KB>,
 		out:FormElement,
 		ddLoad:SelectElement,
 		btReset:InputElement,
 		btBuild:InputElement,
 		btTest:InputElement,
-		fdJSON:TextAreaElement
+		fdJSON:TextAreaElement,
+		btLoadJSON:InputElement,
 	) {
 		var dest:Element = out;
 		var store:Array<KB->Void> = [];
@@ -128,9 +139,13 @@ class FancyTableEditor {
 			out.reset();
 		}
 		
-		if (table is KeyboardTable) {
-			var kbTable:KeyboardTable<Keyboard> = cast table;
-			var kbs = kbTable.rawKeyboards;
+		if (true) {
+			var isKB = (table is KeyboardTable);
+			var kbTable:KeyboardTable<Keyboard> = isKB ? cast table : null;
+			var kbs:Array<KB>;
+			if (isKB) {
+				kbs = cast kbTable.rawKeyboards;
+			} else kbs = table.values.copy();
 			kbs.sort(function(a, b) {
 				var an = a.name.toUpperCase();
 				var bn = b.name.toUpperCase();
@@ -154,9 +169,22 @@ class FancyTableEditor {
 				for (fn in restore) fn(cast kb);
 			}
 			//
+			if (btLoadJSON != null) btLoadJSON.onclick = () -> {
+				var firstField:InputElement = out.querySelectorAuto("input");
+				if (firstField.value != ""
+					&& !window.confirm("Are you sure that you want to replace fields with those from JSON? This cannot be undone!")
+				) return;
+				
+				var text = fdJSON.value;
+				if (text.endsWith(",")) text = text.substring(0, text.length - 1);
+				var item = Json.parse(text);
+				for (col in table.columns) col.load(item);
+				for (fn in restore) fn(item);
+				fdJSON.value = "";
+			}
+			//
 			btTest.onclick = function() {
 				var kb = buildKeyboard();
-				kbTable.resolveParent(cast kb);
 				table.loadTest(kb);
 			}
 		} else {

@@ -759,6 +759,7 @@ var table_FancyTable = function() {
 	this.canUpdateFilters = true;
 	this.sortAscending = false;
 	this.sortColHead = null;
+	this.displayFlags = 0;
 	this.outElement = null;
 	this.testRow = null;
 	this.countElement = null;
@@ -778,6 +779,7 @@ table_FancyTable.prototype = {
 	,countElement: null
 	,testRow: null
 	,outElement: null
+	,displayFlags: null
 	,addColumn: function(col) {
 		col.table = this;
 		this.columns.push(col);
@@ -814,6 +816,8 @@ table_FancyTable.prototype = {
 			var column = _g1[_g];
 			++_g;
 			var cell = new table_FancyTableCell(column);
+			var tmp = column.shortName;
+			cell.element.setAttribute("data-column",tmp != null ? tmp : column.name);
 			tools_HtmlTools.setDisplayFlag(cell.element,column.show);
 			column.buildValue(cell.element,keyboard);
 			row.cells.push(cell);
@@ -1250,25 +1254,21 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_Shape);
 		shape.show = false;
+		shape.columnCount = 2;
 		shape.shortLabels.set(type_Shape.Monoblock,"Mono");
 		shape.shortLabels.set(type_Shape.Unibody,"Uni");
 		shape.shortLabels.set(type_Shape.Keywell,"KW");
 		shape.shortLabels.set(type_Shape.Half,"½");
 		shape.shortLabels.set(type_Shape.Special,"*");
-		shape.columnCount = 2;
+		var v = "A single-piece keyboard with no gaps, the usual.\n" + "There are a couple of these here that are interesting in some way.";
+		shape.filterNotes.set(type_Shape.Monoblock,v);
+		shape.filterNotes.set(type_Shape.Unibody,"A single-piece keyboard with some sort of a gap in the middle.");
+		var v = "A keyboard consisting of two or more physical pieces " + "that are connected together with a cable or wirelessly.";
+		shape.filterNotes.set(type_Shape.Split,v);
+		shape.filterNotes.set(type_Shape.Half,"Keypads and alike, some work may be necessary to combine two of these.");
+		shape.filterNotes.set(type_Shape.Special,"Something interesting - folding keyboards, layered keyboards, and so on.");
 		shape.onNotes = function(div) {
-			var shapeUL = tools_HtmlTools.appendElTextNode(div,"ul","");
-			if(shape.usedValues.exists(type_Shape.Monoblock)) {
-				tools_HtmlTools.appendElTextNode(shapeUL,"li","Monoblock means a single-piece keyboard with no gaps, " + "such as with common non-ergonomic keyboards.");
-			}
-			tools_HtmlTools.appendElTextNode(shapeUL,"li","Unibody means a single-piece keyboard with " + "some sort of a gap in the middle of it.");
-			tools_HtmlTools.appendElTextNode(shapeUL,"li","Split means a keyboard consisting of two or more physical pieces that are connected " + "together with a cable or wirelessly.");
-			if(shape.usedValues.exists(type_Shape.Half)) {
-				tools_HtmlTools.appendElTextNode(shapeUL,"li","Half means that it's a keypad/etc. and some work might be necessary to combine two of these");
-			}
-			if(shape.usedValues.exists(type_Shape.Special)) {
-				tools_HtmlTools.appendElTextNode(shapeUL,"li","Special means something interesting - folding keyboards, layered keyboards, and so on.");
-			}
+			shape.appendFilterNotes(div);
 		};
 		this.addColumn(shape);
 		var staggerType = new table_tag_TagListColumn("Stagger type",new table_FancyField("stagger",function(q,wantSet,setValue) {
@@ -1889,6 +1889,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}
 	}
+	,loadTest: function(kb) {
+		this.resolveParent(kb);
+		table_FancyTable.prototype.loadTest.call(this,kb);
+	}
 	,__class__: KeyboardTable
 });
 var ColStagTable = function() {
@@ -2182,7 +2186,7 @@ KeyboardPage.main = function(kbTable) {
 	kbTable.countElement = tmp;
 	kbTable.buildFilters(divFilters);
 	kbTable.buildTable(window.document.querySelector("#data"));
-	table_FancyTableEditor.build(kbTable,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"));
+	table_FancyTableEditor.build(kbTable,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"),window.document.querySelector("#editor-load-json"));
 	var loc = window.document.location;
 	if(loc.protocol != "file:") {
 		kbTable.baseURL = loc.origin + loc.pathname;
@@ -2214,90 +2218,15 @@ KeyboardPage.main = function(kbTable) {
 		kbTable.sortBy(shuffler,false);
 		kbTable.updateURL();
 	};
-	var showImg = false;
-	var showImgCb = window.document.querySelector("#show-images");
-	showImgCb.onchange = function() {
-		if(showImgCb.checked == showImg) {
-			return;
-		}
-		showImg = showImgCb.checked;
-		var _g = 0;
-		var _g1 = kbTable.rows;
-		while(_g < _g1.length) {
-			var row = _g1[_g];
-			++_g;
-			var cell = [row.cells[0]];
-			if(!showImg) {
-				var _g2 = 0;
-				var _g3 = tools_HtmlTools.querySelectorAllAutoArr(cell[0].element,"a.preview",HTMLImageElement);
-				while(_g2 < _g3.length) {
-					var img = _g3[_g2];
-					++_g2;
-					img.remove();
-				}
-				var _g4 = 0;
-				var _g5 = tools_HtmlTools.querySelectorAllAutoArr(cell[0].element,"br.preview",HTMLImageElement);
-				while(_g4 < _g5.length) {
-					var img1 = _g5[_g4];
-					++_g4;
-					img1.remove();
-				}
-				continue;
-			}
-			if(showImg) {
-				var _g6 = 0;
-				var _g7 = row.value.img;
-				while(_g6 < _g7.length) {
-					var src = [_g7[_g6]];
-					++_g6;
-					var small = "img-small/" + haxe_io_Path.withExtension(src[0],"webp");
-					var img2 = window.document.createElement("img");
-					img2.src = small;
-					img2.classList.add("small");
-					var a = window.document.createElement("a");
-					a.href = "img/" + src[0];
-					a.target = "_blank";
-					a.classList.add("preview");
-					a.appendChild(img2);
-					var this1 = { };
-					this1["theme"] = "translucent";
-					var opts = this1;
-					opts["trigger"] = "click";
-					opts["interactive"] = true;
-					opts["maxWidth"] = 658;
-					opts["placement"] = "top-start";
-					var v = (function(cell) {
-						return function() {
-							return cell[0].element;
-						};
-					})(cell);
-					opts["appendTo"] = v;
-					externs_TippyOptions.setLazyContent(opts,(function(src) {
-						return function() {
-							var div = window.document.createElement("div");
-							var img = window.document.createElement("img");
-							img.src = "img/" + src[0];
-							var p = window.document.createElement("p");
-							p.classList.add("img");
-							p.appendChild(img);
-							div.appendChild(p);
-							return div;
-						};
-					})(src));
-					a.onclick = (function() {
-						return function() {
-							return false;
-						};
-					})();
-					Tippy(img2,opts);
-					var br = window.document.createElement("br");
-					br.classList.add("preview");
-					cell[0].element.appendChild(br);
-					cell[0].element.appendChild(a);
-				}
-			}
-		}
+	var displayMode = window.document.querySelector("#display-mode");
+	var galleryNote = window.document.querySelector("#gallery-note");
+	var displayModeChanged = function() {
+		var flags = Std.parseInt(displayMode.value);
+		tools_HtmlTools.setDisplayFlag(galleryNote,(flags & 2) != 0);
+		table_FancyTableDisplayMode.set(kbTable,flags);
 	};
+	displayMode.onchange = displayModeChanged;
+	window.setTimeout(displayModeChanged);
 	window.document.querySelector("#copy-md").onclick = function() {
 		var md = table_FancyTableToMD.run(kbTable);
 		$global.navigator.clipboard.writeText(md);
@@ -2355,14 +2284,15 @@ Main.main = function() {
 	table_LinkListColumn.domainCountries = window.domainCountries;
 	table_LinkListColumn.countryTags = window.countryTags;
 	var kbTable;
-	if(window.document.body.classList.contains("rowstag")) {
+	var row = window.document.body.classList.contains("rowstag");
+	if(row) {
 		kbTable = new RowStagTable();
 	} else {
 		kbTable = new ColStagTable();
 	}
 	KeyboardPage.main(kbTable);
 	ToDoList.element = window.document.querySelector("#todo");
-	ToDoList.set(window.keyboardTODOs);
+	ToDoList.set(row ? window.rowStagTODOs : window.keyboardTODOs);
 };
 Math.__name__ = true;
 var OrthoBoards = function() { };
@@ -2986,7 +2916,6 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 			this.values.push(kb);
 		}
-		ToDoList.set(window.rowStagTODOs);
 	}
 	,post: function() {
 		KeyboardTable.prototype.post.call(this);
@@ -3076,6 +3005,15 @@ StringTools.htmlUnescape = function(s) {
 StringTools.startsWith = function(s,start) {
 	if(s.length >= start.length) {
 		return s.lastIndexOf(start,0) == 0;
+	} else {
+		return false;
+	}
+};
+StringTools.endsWith = function(s,end) {
+	var elen = end.length;
+	var slen = s.length;
+	if(slen >= elen) {
+		return s.indexOf(end,slen - elen) == slen - elen;
 	} else {
 		return false;
 	}
@@ -4073,6 +4011,95 @@ table_FancyTableControls.createShareButton = function(table,btShare) {
 		}
 	};
 };
+var table_FancyTableDisplayMode = function() { };
+table_FancyTableDisplayMode.__name__ = true;
+table_FancyTableDisplayMode.set = function(table,flags) {
+	if(table.displayFlags == flags) {
+		return;
+	}
+	var hadImages = (table.displayFlags & 1) != 0;
+	table.displayFlags = flags;
+	var showImages = (flags & 1) != 0;
+	var gallery = (flags & 2) != 0;
+	tools_HtmlTools.setTokenFlag(table.outElement.classList,"gallery",gallery);
+	if(showImages == hadImages) {
+		return;
+	}
+	var _g = 0;
+	var _g1 = table.rows;
+	while(_g < _g1.length) {
+		var row = _g1[_g];
+		++_g;
+		var cell = [row.cells[0]];
+		if(!showImages) {
+			var _g2 = 0;
+			var _g3 = tools_HtmlTools.querySelectorAllAutoArr(cell[0].element,"a.preview",HTMLImageElement);
+			while(_g2 < _g3.length) {
+				var img = _g3[_g2];
+				++_g2;
+				img.remove();
+			}
+			var _g4 = 0;
+			var _g5 = tools_HtmlTools.querySelectorAllAutoArr(cell[0].element,"br.preview",HTMLImageElement);
+			while(_g4 < _g5.length) {
+				var img1 = _g5[_g4];
+				++_g4;
+				img1.remove();
+			}
+			continue;
+		}
+		var _g6 = 0;
+		var _g7 = row.value.img;
+		while(_g6 < _g7.length) {
+			var src = [_g7[_g6]];
+			++_g6;
+			var small = "img-small/" + haxe_io_Path.withExtension(src[0],"webp");
+			var img2 = window.document.createElement("img");
+			img2.src = small;
+			img2.classList.add("small");
+			var a = window.document.createElement("a");
+			a.href = "img/" + src[0];
+			a.target = "_blank";
+			a.classList.add("preview");
+			a.appendChild(img2);
+			var this1 = { };
+			this1["theme"] = "translucent";
+			var opts = this1;
+			opts["trigger"] = "click";
+			opts["interactive"] = true;
+			opts["maxWidth"] = 658;
+			opts["placement"] = "top-start";
+			var v = (function(cell) {
+				return function() {
+					return cell[0].element;
+				};
+			})(cell);
+			opts["appendTo"] = v;
+			externs_TippyOptions.setLazyContent(opts,(function(src) {
+				return function() {
+					var div = window.document.createElement("div");
+					var img = window.document.createElement("img");
+					img.src = "img/" + src[0];
+					var p = window.document.createElement("p");
+					p.classList.add("img");
+					p.appendChild(img);
+					div.appendChild(p);
+					return div;
+				};
+			})(src));
+			a.onclick = (function() {
+				return function() {
+					return false;
+				};
+			})();
+			Tippy(img2,opts);
+			var br = window.document.createElement("br");
+			br.classList.add("preview");
+			cell[0].element.appendChild(br);
+			cell[0].element.appendChild(a);
+		}
+	}
+};
 var table_FancyTableEditor = function() { };
 table_FancyTableEditor.__name__ = true;
 table_FancyTableEditor.print = function(table,kb) {
@@ -4104,8 +4131,12 @@ table_FancyTableEditor.print = function(table,kb) {
 			sep = true;
 		}
 		buf_b += "\n\t";
+		var wantPretty = pretty[fd];
+		if(!wantPretty && ((val) instanceof Array) && typeof(val[0]) == "string" && val[0].length > 20) {
+			wantPretty = true;
+		}
 		var str;
-		if(pretty[fd]) {
+		if(wantPretty) {
 			str = JSON.stringify(val,null,"\t");
 			str = StringTools.replace(str,"\n","\n\t");
 		} else {
@@ -4116,7 +4147,7 @@ table_FancyTableEditor.print = function(table,kb) {
 	buf_b += "\n}";
 	return buf_b;
 };
-table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,fdJSON) {
+table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,fdJSON,btLoadJSON) {
 	var dest = out;
 	var store = [];
 	var restore = [];
@@ -4205,67 +4236,93 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		}
 		out.reset();
 	};
-	if(((table) instanceof KeyboardTable)) {
-		var kbTable = table;
-		var kbs = kbTable.rawKeyboards;
-		kbs.sort(function(a,b) {
-			var an = a.name.toUpperCase();
-			var bn = b.name.toUpperCase();
-			if(an < bn) {
-				return -1;
-			} else {
-				return 1;
-			}
-		});
-		var _g = 0;
-		while(_g < kbs.length) {
-			var kb = kbs[_g];
-			++_g;
-			var option = window.document.createElement("option");
-			var text = kb.name;
-			option.appendChild(window.document.createTextNode(text));
-			ddLoad.appendChild(option);
+	var isKB = ((table) instanceof KeyboardTable);
+	var kbTable = isKB ? table : null;
+	var kbs;
+	if(isKB) {
+		kbs = kbTable.rawKeyboards;
+	} else {
+		kbs = table.values.slice();
+	}
+	kbs.sort(function(a,b) {
+		var an = a.name.toUpperCase();
+		var bn = b.name.toUpperCase();
+		if(an < bn) {
+			return -1;
+		} else {
+			return 1;
 		}
-		ddLoad.onchange = function() {
-			if(ddLoad.value == "") {
+	});
+	var _g = 0;
+	while(_g < kbs.length) {
+		var kb = kbs[_g];
+		++_g;
+		var option = window.document.createElement("option");
+		var text = kb.name;
+		option.appendChild(window.document.createTextNode(text));
+		ddLoad.appendChild(option);
+	}
+	ddLoad.onchange = function() {
+		if(ddLoad.value == "") {
+			return;
+		}
+		var name = ddLoad.value;
+		if(!window.confirm("Are you sure that you want to replace fields with those of \"" + name + "\"? This cannot be undone!")) {
+			return;
+		}
+		ddLoad.value = "";
+		var _g = [];
+		var _g1 = 0;
+		var _g2 = kbs;
+		while(_g1 < _g2.length) {
+			var v = _g2[_g1];
+			++_g1;
+			if(v.name == name) {
+				_g.push(v);
+			}
+		}
+		var kb = _g[0];
+		if(kb == null) {
+			return;
+		}
+		var _g = 0;
+		while(_g < restore.length) {
+			var fn = restore[_g];
+			++_g;
+			fn(kb);
+		}
+	};
+	if(btLoadJSON != null) {
+		btLoadJSON.onclick = function() {
+			var firstField = out.querySelector("input");
+			if(firstField.value != "" && !window.confirm("Are you sure that you want to replace fields with those from JSON? This cannot be undone!")) {
 				return;
 			}
-			var name = ddLoad.value;
-			if(!window.confirm("Are you sure that you want to replace fields with those of \"" + name + "\"? This cannot be undone!")) {
-				return;
+			var text = fdJSON.value;
+			if(StringTools.endsWith(text,",")) {
+				text = text.substring(0,text.length - 1);
 			}
-			ddLoad.value = "";
-			var _g = [];
-			var _g1 = 0;
-			var _g2 = kbs;
-			while(_g1 < _g2.length) {
-				var v = _g2[_g1];
-				++_g1;
-				if(v.name == name) {
-					_g.push(v);
-				}
-			}
-			var kb = _g[0];
-			if(kb == null) {
-				return;
+			var item = JSON.parse(text);
+			var _g = 0;
+			var _g1 = table.columns;
+			while(_g < _g1.length) {
+				var col = _g1[_g];
+				++_g;
+				col.load(item);
 			}
 			var _g = 0;
 			while(_g < restore.length) {
 				var fn = restore[_g];
 				++_g;
-				fn(kb);
+				fn(item);
 			}
-		};
-		btTest.onclick = function() {
-			var kb = buildKeyboard();
-			kbTable.resolveParent(kb);
-			table.loadTest(kb);
-		};
-	} else {
-		btTest.onclick = function() {
-			table.loadTest(buildKeyboard());
+			fdJSON.value = "";
 		};
 	}
+	btTest.onclick = function() {
+		var kb = buildKeyboard();
+		table.loadTest(kb);
+	};
 };
 var table_FancyTableFilters = function() { };
 table_FancyTableFilters.__name__ = true;
@@ -4534,6 +4591,7 @@ table_FancyTableToMD.run = function(table) {
 var table_LinkListColumn = function(name,field) {
 	this.defaultValue = "";
 	this.canShowSingle = false;
+	this.symbolHTML = "➜";
 	table_FancyColumn.call(this,name);
 	this.field = field;
 };
@@ -4554,7 +4612,8 @@ table_LinkListColumn.createFlag = function(origin) {
 };
 table_LinkListColumn.__super__ = table_FancyColumn;
 table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
-	canShowSingle: null
+	symbolHTML: null
+	,canShowSingle: null
 	,field: null
 	,getId: function() {
 		return this.field.name;
@@ -4775,12 +4834,12 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 		if(!(lines == null || lines.length == 0)) {
 			if(lines.length == 1 && this.canShowSingle && !StringTools.startsWith(lines[0],"[")) {
 				link = window.document.createElement("a");
-				link.appendChild(window.document.createTextNode("➜"));
+				link.innerHTML = this.symbolHTML;
 				link.href = lines[0];
 				out.appendChild(link);
 			} else {
 				link = window.document.createElement("a");
-				link.appendChild(window.document.createTextNode("➜"));
+				link.innerHTML = this.symbolHTML;
 				link.href = "javascript:void(0)";
 				out.appendChild(link);
 				var this1 = { };
@@ -6120,7 +6179,7 @@ table_tag_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 	,getDefaultTag: null
 	,getFilterLabel: null
 	,getShortLabel: null
-	,getShortNotes: function(val) {
+	,getShortNotes: function(item,val) {
 		return null;
 	}
 	,showInEditor: function(val) {
@@ -6144,6 +6203,45 @@ table_tag_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 	}
 	,showInFilters: function(val) {
 		return true;
+	}
+	,getFilterNotes: function(val) {
+		return null;
+	}
+	,appendFilterNotes: function(out) {
+		var ul = null;
+		var _g = 0;
+		var _g1 = this.getTagNames();
+		while(_g < _g1.length) {
+			var name = _g1[_g];
+			++_g;
+			var tag = this.nameToTag(name);
+			if(!this.showInFilters(tag)) {
+				continue;
+			}
+			var notes = this.getFilterNotes(tag);
+			if(notes == null) {
+				continue;
+			}
+			if(ul == null) {
+				ul = tools_HtmlTools.appendElTextNode(out,"ul");
+			}
+			var li = tools_HtmlTools.appendElTextNode(ul,"li");
+			tools_HtmlTools.appendElTextNode(li,"b",this.getFilterLabel(tag));
+			tools_HtmlTools.appendElTextNode(li,"br");
+			var sep = false;
+			var _g2 = 0;
+			var _g3 = notes.split("\n");
+			while(_g2 < _g3.length) {
+				var line = _g3[_g2];
+				++_g2;
+				if(sep) {
+					li.appendChild(window.document.createElement("br"));
+				} else {
+					sep = true;
+				}
+				li.appendChild(window.document.createTextNode(line));
+			}
+		}
 	}
 	,buildUsedValues: function() {
 	}
@@ -6414,6 +6512,7 @@ table_tag_StringTagListColumn.prototype = $extend(table_tag_StringTagColumnBase.
 	,__class__: table_tag_StringTagListColumn
 });
 var table_tag_TagColumnBase = function(name,field,et) {
+	this.filterNotes = new haxe_ds_EnumValueMap();
 	this.usedValues = new haxe_ds_EnumValueMap();
 	this.hideInEditor = new haxe_ds_EnumValueMap();
 	this.shortLabels = new haxe_ds_EnumValueMap();
@@ -6433,6 +6532,10 @@ table_tag_TagColumnBase.prototype = $extend(table_tag_TagLikeColumnBase.prototyp
 	,usedValues: null
 	,showInFilters: function(val) {
 		return this.usedValues.exists(val);
+	}
+	,filterNotes: null
+	,getFilterNotes: function(val) {
+		return this.filterNotes.get(val);
 	}
 	,getId: function() {
 		return this.field.name;
@@ -6530,12 +6633,10 @@ table_tag_TagLikeColumnTools.buildSingleValue = function(self,out,item) {
 	var val = self.getValue(item);
 	if(val != null) {
 		var name = self.tagToName(val);
-		var text = self.getShortLabel(val);
-		out.appendChild(window.document.createTextNode(text));
+		tools_HtmlTools.appendElTextNode(out,"span",self.getShortLabel(val));
 		out.title = [table_tag_TagLikeColumnTools.getName(item),self.name + ":",self.getFilterLabel(val)].join("\n");
 	} else {
-		var text = self.nullCaption;
-		out.appendChild(window.document.createTextNode(text));
+		tools_HtmlTools.appendElTextNode(out,"span",self.nullCaption);
 	}
 };
 table_tag_TagLikeColumnTools.buildUsedValues = function(column,usedValues) {
@@ -6570,6 +6671,7 @@ table_tag_TagLikeColumnTools.matchesFilters = function(column,item) {
 table_tag_TagLikeColumnTools.buildEditor = function(column,out,store,restore) {
 	var select = window.document.createElement("select");
 	var ctrs = [""].concat(column.getTagNames());
+	select.size = ctrs.length;
 	var _g = 0;
 	while(_g < ctrs.length) {
 		var ctr = ctrs[_g];
@@ -6716,7 +6818,7 @@ table_tag_TagLikeListColumnTools.buildValue = function(column,out,item) {
 			out.appendChild(window.document.createTextNode(", "));
 		}
 		var span = tools_HtmlTools.appendElTextNode(out,"span",column.getShortLabel(tag));
-		var notes = [column.getShortNotes(tag)];
+		var notes = [column.getShortNotes(item,tag)];
 		if(notes[0] != null) {
 			table_FancyTableFilters.addNotesFor((function(notes) {
 				return function(ne) {
@@ -7576,7 +7678,7 @@ type_ControllerColumn.prototype = $extend(table_tag_StringTagListColumn.prototyp
 		}
 		return table_tag_StringTagListColumn.prototype.getFilterLabel.call(this,val);
 	}
-	,getShortNotes: function(val) {
+	,getShortNotes: function(item,val) {
 		if(StringTools.startsWith(val,type_ControllerColumn.otherPrefix)) {
 			return val.substring(type_ControllerColumn.otherPrefix.length);
 		}

@@ -8,7 +8,7 @@ using tools.HtmlTools;
  * ...
  * @author YellowAfterlife
  */
-class TagColumn<KB:Keyboard, ET:EnumValue> extends TagColumnBase<KB, ET, ET> {
+class TagColumn<KB, ET:EnumValue> extends TagColumnBase<KB, ET, ET> {
 	public function new(name:String, field:FancyField<KB, ET>, et:Enum<ET>) {
 		super(name, field, et);
 	}

@@ -1,64 +1,64 @@
-body {
-  table#data {
-    width: 100%;
-    border-radius: @border-radius;
-    margin: @space auto;
-    border-spacing: 0;
-    box-shadow: @elevation-2;
+body table#data {
+  width: 100%;
+  border-radius: @border-radius;
+  border: 1px solid;
+  margin: @space auto;
+  border-spacing: 0;
+  box-shadow: @elevation-2;
 
-    >tr>th,
-    >tr,
-    >tr>td {
-      margin: 0;
-      padding: 0;
-      text-align: left;
-      vertical-align: middle;
-    }
+  >tr>th,
+  >tr,
+  >tr>td {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    vertical-align: middle;
+  }
 
-    >tr>th,
-    >tr>td {
-      padding: @space * 0.5;
-    }
+  >tr>th,
+  >tr>td {
+    padding: @space * 0.5;
+    border-bottom: 1px solid;
+  }
 
-    // table header
-    >tr>th {
-      line-height: 1.5;
-      position: sticky;
-      top: 0;
+  // table header
+  >tr>th {
+    line-height: 1.5;
+    position: sticky;
+    top: 0;
 
-      &.can-sort {
-        cursor: pointer;
+    &.can-sort {
+      cursor: pointer;
 
-        /*position: relative;*/
-        &.sort-column:after {
-          position: absolute;
-          right: 0.2em;
-          bottom: 0.2em;
-          content: "↓";
-        }
+      /*position: relative;*/
+      &.sort-column:after {
+        position: absolute;
+        right: 0.2em;
+        bottom: 0.2em;
+        content: "↓";
+      }
 
-        &.sort-column.sort-ascending:after {
-          content: "↑";
-        }
+      &.sort-column.sort-ascending:after {
+        content: "↑";
       }
     }
-
-    a.preview > img {
-      margin-top: @space * 0.5;
-      width: 100%;
-      max-width: 320px;
-    }
   }
 
-  >tr>th {
-    border-bottom: 1px solid black;
+  a.preview > img {
+    margin-top: @space * 0.5;
+    width: 100%;
+    max-width: 320px;
   }
+}
+
+>tr>th {
+  border-bottom: 1px solid black;
 }
 
 body:not(.night) {
   table#data {
     background-color: @color-foreground-day;
-    border: @border-day;
+    border-color: @color-border-day;
     
     >tr {
       &.latest {
@@ -73,7 +73,7 @@ body:not(.night) {
     }
     >tr>th,
     >tr>td {
-      border-bottom: @border-day;
+      border-bottom-color: @color-border-day;
     }
   }
 }
@@ -81,7 +81,7 @@ body:not(.night) {
 body.night {
   table#data {
     background-color: @color-foreground-night;
-    border: @border-night;
+    border-color: @color-border-night;
     
     >tr {
       &.latest {
@@ -96,7 +96,48 @@ body.night {
     }
     >tr>th,
     >tr>td {
-      border-bottom: @border-night;
+      border-bottom-color: @color-border-night;
+    }
+  }
+}
+
+body table#data.gallery {
+  display: block;
+  width: 100%;
+  column-width: 280px;
+  
+  > tr:first-child {
+    // hide header
+    display: none;
+  }
+  
+  > tr {
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+    
+    a.preview > img {
+      // columns can be a little wider, so stretch images
+      max-width: 100%;
+    }
+    &:not(.latest) > td:not(:first-child) {
+      // hide non-first fields unless selected
+      display: none;
+    }
+    &.latest {
+      > td {
+        // hide cell borders
+        border-bottom-width: 0;
+      }
+      td:empty {
+        // hide empty cells
+        display: none;
+      }
+      td:not(:first-child):before {
+        // prefix with column names
+        content: attr(data-column) ": ";
+        font-weight: bold;
+      }
     }
   }
 }
