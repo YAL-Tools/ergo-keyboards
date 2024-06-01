@@ -1244,6 +1244,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(col);
+		col.onEditorNotes = function(out) {
+			tools_HtmlTools.appendParaTextNode(out,"Inherits any missing fields (except lists of links) from the specified keyboard.","This primarily exists for distinct variations of the same design","Load the definition of Sofle Choc Wireless for an example.");
+		};
 		col.show = false;
 		var shape = new table_tag_TagListColumn("Shape",new table_FancyField("shape",function(q,wantSet,setValue) {
 			if(wantSet) {

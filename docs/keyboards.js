@@ -6227,17 +6227,257 @@ window.keyboardData = [
 	"rows": 4,
 	"kit": "https://www.littlekeyboards.com/products/naked60bmp-keyboard-kit"
 },
-"2024-05-27"
+{
+	"name": "Frigate",
+	"img": "Frigate.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": [[32], [34]],
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.75,
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"trackpads": 1,
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlCount": 1,
+	"ctlFootprint": "RP2040-Zero",
+	"ctlName": "RP2040",
+	"caseType": "Included",
+	"web": "https://www.reddit.com/r/ErgoMechKeyboards/comments/13fpjps/frigate_early_adopters_is_now_available_to_order/",
+	"source": [
+		"https://github.com/doesntfazer/frigate",
+		"https://github.com/doesntfazer/Keyboard-Dweebs-Firmware-repository/tree/main/VIAL-QMK/Frigate"
+	]
+},
+{
+	"name": "Goshawk",
+	"img": "Goshawk.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"outerKeys": 1,
+	"pinkyStagger": 0.5,
+	"splay": "Yes",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"firmware": "ZMK",
+	"assembly": "Handwired",
+	"ctlCount": 1,
+	"ctlFootprint": "Nice!Nano",
+	"ctlPinCount": 20,
+	"ctlName": "nRF52840",
+	"source": [
+		"https://github.com/taylorzr/goshawk?tab=readme-ov-file",
+		"https://github.com/taylorzr/zmk-config/tree/master/config/boards/shields/goshawk"
+	]
+},
+{
+	"name": "MagWave44",
+	"img": "MagWave44.webp",
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"keys": 44,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.5,
+	"splay": "PinkyOnly",
+	"switchProfile": "GateronLP",
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": "Knob",
+	"lighting": "Simple",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": ["PCB", "Handwired"],
+	"ctlCount": 2,
+	"ctlFootprint": ["Pro Micro", "RP2040-Zero"],
+	"ctlPinCount": 23,
+	"ctlName": ["RP2040", "ATmega32U4"],
+	"tenting": "Mount",
+	"source": "https://github.com/DreaM117er/MagWave44"
+},
+{
+	"name": "Tightyl",
+	"img": "Tightyl.webp",
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 46,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 2,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlName": "ATmega32U4",
+	"caseType": "Included",
+	"source": "https://github.com/okke-formsma/dactyl-manuform-tight"
+},
+{
+	"name": "hypergolic",
+	"img": "hypergolic.webp",
+	"notes": [
+		"iambroom lists all these as inspirations on the low profile keyboard subreddit (14 May 2021): \"Meishi (foostan), 5plit, Kyria, Gergoplex, Ferris, Corne, Squiggle, Absolem, Pseudoku's drawings (Tron?), Jian, Jorian, Apoptosis, Miniaxe\"",
+		"https://discord.com/channels/669011382284451861/812354221839351868/842713617417764894"
+	],
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.8,
+	"splay": "Yes",
+	"hotswap": "No",
+	"switchProfile": ["Choc", "ChocMini"],
+	"keySpacing": "Choc",
+	"encoders": 0,
+	"pointingDevices": 0,
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Diodeless"],
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"ctlPinCount": 26,
+	"ctlName": "nRF52840",
+	"caseType": "None",
+	"source": "https://github.com/davidphilipbarr/hypergolic"
+},
+{
+	"name": "ADuck",
+	"img": "ADuck.webp",
+	"parent": "Architeuthis dux (a.dux)",
+	"shape": "Split",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.5,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 0,
+	"pointingDevices": 0,
+	"displays": 0,
+	"firmware": ["QMK", "ZMK"],
+	"assembly": ["PCB", "Diodeless"],
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlPinCount": 24,
+	"ctlName": ["ATmega32U4", "nRF52840"],
+	"tenting": "None",
+	"source": "https://github.com/lapidot/ADuck"
+},
+{
+	"name": "48keys",
+	"img": "48keys.webp",
+	"notes": [
+		"This board only exists as a 3D model AFAICT. According to creator's reddit profile, he never built it.",
+		"https://www.reddit.com/user/ihihbs/submitted/"
+	],
+	"shape": "Unibody",
+	"keys": 48,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.5,
+	"splay": "No",
+	"assembly": "Handwired",
+	"source": "https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl"
+},
+{
+	"name": "trochilidae - Rufous",
+	"img": "rufous.webp",
+	"notes": [
+		"The GitHub repo indicates two separate keyboards, Rufous and Berylline.",
+		"",
+		"Both are generated with Ergogen"
+	],
+	"parent": "hummingbird",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.75,
+	"splay": "Yes",
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc", "ChocV2", "ChocMini"],
+	"keySpacing": ["MX", "MinMX", "Choc"],
+	"encoders": 0,
+	"pointingDevices": 0,
+	"assembly": ["PCB", "Adjustable"],
+	"ctlCount": 1,
+	"ctlFootprint": "XIAO",
+	"ctlPinCount": 14,
+	"ctlName": ["RP2040", "nRF52840"],
+	"source": "https://github.com/jcmkk3/trochilidae"
+},
+{
+	"name": "trochilidae - Berylline",
+	"img": "berylline.webp",
+	"notes": [
+		"The GitHub repo indicates two separate keyboards, Rufous and Berylline.",
+		"",
+		"Both are generated with Ergogen"
+	],
+	"parent": "trochilidae - Rufous",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 30,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.75,
+	"splay": "Yes",
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": ["MX", "MinMX", "Choc"],
+	"encoders": 0,
+	"pointingDevices": 0,
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Adjustable"],
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlPinCount": 14,
+	"ctlName": "nRF52840",
+	"tenting": "Mount",
+	"source": "https://github.com/jcmkk3/trochilidae"
+},
+"2024-06-01"
 ];
 window.keyboardTODOs = `
-https://github.com/doesntfazer/frigate https://www.reddit.com/r/ErgoMechKeyboards/comments/13fpjps/frigate_early_adopters_is_now_available_to_order/
-https://github.com/taylorzr/goshawk
-https://github.com/DreaM117er/MagWave44
-Tightyl https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/ https://github.com/okke-formsma/dactyl-manuform-tight/
-https://github.com/davidphilipbarr/hypergolic
-https://github.com/lapidot/ADuck
-https://github.com/luke-schutt/keyboards/blob/main/48keys/48keys.stl
-https://github.com/jcmkk3/trochilidae
 Chimera Ortho
 More Maltron keyboards
 Claw44
@@ -6268,7 +6508,7 @@ Low Profile Dactyl https://github.com/omurovec/dactyl-high-profile
 Eek! https://github.com/Klackygears/eek_doc
 UnSplit https://github.com/swiftrax/UnSplit https://kbd.news/UnSplit-338.html
 https://github.com/llmerlos/0xLM
-https://www.velocifiretech.com/products/dumang-dk6-ergo-v2
+DK6 (needs notes on troublesome software) https://www.velocifiretech.com/products/dumang-dk6-ergo-v2
 https://github.com/ixxoid/dactyl-keyboard
 Stront40 https://github.com/zzeneg/stront
 Wysteria
@@ -6293,6 +6533,8 @@ Inland MK-47
 https://github.com/foureight84/sofle-keyboard-pimoroni
 https://www.slicemk.com/pages/ergodox-wireless
 https://www.slicemk.com/products/ergodoxlp-wireless
+https://github.com/klouderone/cornev4promicroedition
+Sofle with caveats! https://www.doioshop.com/products/sofle-split-keyboard-bluetooth-dual-mode-mechanical-keyboard-kit?VariantsId=10249 https://www.reddit.com/r/ErgoMechKeyboards/comments/1d4xeqh/comment/l6k8vu3/?utm_source=reddit&utm_medium=web2x&context=3https://www.reddit.com/r/ErgoMechKeyboards/comments/1d4xeqh/comment/l6k8vu3/
 `;
 /* Other TODOs
 
