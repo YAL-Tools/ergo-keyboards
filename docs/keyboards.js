@@ -2376,7 +2376,7 @@ window.keyboardData = [
 	"outerKeys": 1,
 	"pinkyStagger": 0.8,
 	"splay": "Yes",
-	"hotswap": "No",
+	"hotswap": ["Yes", "No"],
 	"switchProfile": "Choc",
 	"firmware": [
 		"QMK",
@@ -6290,10 +6290,14 @@ https://github.com/hazels-garage/kurp
 https://github.com/geoffder/dometyl-keyboard/tree/main/things/dartyl_choc
 https://github.com/soundmonster/samoklava
 Inland MK-47
+https://github.com/foureight84/sofle-keyboard-pimoroni
+https://www.slicemk.com/pages/ergodox-wireless
+https://www.slicemk.com/products/ergodoxlp-wireless
 `;
 /* Other TODOs
 
 https://new.reddit.com/r/crkbd/comments/1afrhbn/custom_gasketmount_case_complete/
+https://github.com/petejohanson/mk-family-tree
 
 https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
@@ -6323,6 +6327,7 @@ https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
 https://www.keaworkshop.com/kea-profile-keycaps-project
 https://ramaworks.store/products/grid-set-a
 https://www.thingiverse.com/thing:5932496
+https://github.com/dohn-joh/keycaps
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
