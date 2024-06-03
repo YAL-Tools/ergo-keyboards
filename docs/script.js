@@ -679,7 +679,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.prebuilt = type_ValList.fromValue("!https://dygma.com/pages/defy");
 	kb.img = type_ValList.fromValue("dygma-defy.webp");
-	ColStagKeyboard.addSKBC(kb);
+	kb.layoutRef = ["https://support.dygma.com/hc/en-us/articles/15110448574621-How-can-I-visualize-the-Dygma-Defy-or-the-Dygma-Raise-on-my-desk"];
 	add(kb);
 	kb = ColStagKeyboard._new("Osprey");
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(74)],type_NumRange.fromValue(7),type_NumRange.fromValue(4));

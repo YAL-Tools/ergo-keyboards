@@ -1255,7 +1255,7 @@ class ColStagBoards {
 		kb.caseType = Included;
 		kb.prebuilt = "!https://dygma.com/pages/defy";
 		kb.img = "dygma-defy.webp";
-		kb.addSKBC();
+		kb.layoutRef = ["https://support.dygma.com/hc/en-us/articles/15110448574621-How-can-I-visualize-the-Dygma-Defy-or-the-Dygma-Raise-on-my-desk"];
 		add(kb);
 		
 		kb = new ColStagKeyboard("Osprey");

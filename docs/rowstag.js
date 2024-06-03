@@ -1116,7 +1116,45 @@ window.rowStagData = [
 		"[v:jp] https://diatec.co.jp/shop/xacro/m10sp.php"
 	]
 },
-"2024-05-20"
+{
+	"name": "Kinesis Form",
+	"img": "Kinesis-Form.webp",
+	"notes": [
+		"Ships 30 July 2024",
+		"",
+		"Trackpad is in portrait orientation "
+	],
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 85,
+	"rows": 5,
+	"dCols": 0,
+	"qCols": 0,
+	"aCols": 0,
+	"zCols": 0,
+	"lshift": "ISO",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "Split",
+	"backspace": "Wide",
+	"fnPos": "None",
+	"leftMods": 4,
+	"rightMods": 3,
+	"navCluster": "Inline",
+	"numpad": "None",
+	"hotswap": "Unspecified",
+	"switchProfile": "GateronLP",
+	"encoders": 0,
+	"pointingDevices": 1,
+	"trackpads": 1,
+	"trackpadSize": 13.1,
+	"displays": 0,
+	"lighting": "Simple",
+	"firmware": "Unknown",
+	"prebuilt": "https://kinesis-ergo.com/shop/form/"
+},
+"2024-06-03"
 ];
 window.rowStagTODOs = `
 Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/

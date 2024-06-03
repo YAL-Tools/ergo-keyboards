@@ -6534,7 +6534,8 @@ https://github.com/foureight84/sofle-keyboard-pimoroni
 https://www.slicemk.com/pages/ergodox-wireless
 https://www.slicemk.com/products/ergodoxlp-wireless
 https://github.com/klouderone/cornev4promicroedition
-Sofle with caveats! https://www.doioshop.com/products/sofle-split-keyboard-bluetooth-dual-mode-mechanical-keyboard-kit?VariantsId=10249 https://www.reddit.com/r/ErgoMechKeyboards/comments/1d4xeqh/comment/l6k8vu3/?utm_source=reddit&utm_medium=web2x&context=3https://www.reddit.com/r/ErgoMechKeyboards/comments/1d4xeqh/comment/l6k8vu3/
+Sofle with caveats! https://www.doioshop.com/products/sofle-split-keyboard-bluetooth-dual-mode-mechanical-keyboard-kit?VariantsId=10249 https://www.reddit.com/r/ErgoMechKeyboards/comments/1d4xeqh/comment/l6k8vu3/
+https://github.com/allymparker/crkbd/tree/main/corneroll https://new.reddit.com/r/ErgoMechKeyboards/comments/1d5ltaq/corneroll_wireless_hotswap_niceview_with/
 `;
 /* Other TODOs
 
