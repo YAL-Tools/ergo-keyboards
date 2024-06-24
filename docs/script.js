@@ -379,7 +379,10 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(4),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
 	ColStagKeyboard.setQMK(kb);
 	add(kb);
-	var addHillside = function(kb) {
+	var addHillside = function(kb,is56) {
+		if(is56 == null) {
+			is56 = false;
+		}
 		kb.splay = type_SplayBase.Optional;
 		ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 		ColStagKeyboard.setQMK(kb);
@@ -387,7 +390,9 @@ ColStagBoards.init = function(keyboards) {
 		kb.caseType = [type_CaseType.None];
 		kb.source = type_ValList.fromValue("https://github.com/mmccoyd/hillside");
 		kb.kit = type_ValList.fromValue("https://shop.beekeeb.com/product/hillside-keyboard-kit/");
-		kb.prebuilt = type_ValList.fromValue("https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/");
+		if(!is56) {
+			kb.prebuilt = type_ValList.fromValue("https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/");
+		}
 		add(kb);
 	};
 	kb = ColStagKeyboard._new("Hillside 52");
@@ -402,7 +407,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
 	kb.navCluster = [type_NavCluster.Arrows,type_NavCluster.Duo];
 	kb.img = type_ValList.fromValue("Hillside-56.jpg");
-	addHillside(kb);
+	addHillside(kb,true);
 	kb = ColStagKeyboard._new("Hillside 46");
 	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(40,46),type_NumRange.fromArray([5,6]),type_NumRange.fromValue(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(0));

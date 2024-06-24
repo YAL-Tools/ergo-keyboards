@@ -6475,7 +6475,183 @@ window.keyboardData = [
 	"tenting": "Mount",
 	"source": "https://github.com/jcmkk3/trochilidae"
 },
-"2024-06-01"
+{
+	"name": "Pierce",
+	"img": "Pierce.webp",
+	"notes": "Uses 2-3 YJ-14015 / Core51822 (B) for 2.4ghz wireless. Uses Pro Micro for either one half (wired) or the dongle (full wireless) for QMK. Both halves are connected wirelessly regardless.  Requires ST-Link programmer to program wireless chips.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Wireless"],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.75,
+	"splay": "No",
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc", "Alps"],
+	"keySpacing": "MX",
+	"encoders": 0,
+	"pointingDevices": {"min": 0, "max": 1},
+	"trackpoints": {"min": 0, "max": 1},
+	"displays": 0,
+	"lighting": "Unknown",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlCount": {"min": 3, "max": 4},
+	"ctlFootprint": ["Pro Micro", "Onboard/SMD"],
+	"ctlPinCount": {"min": 24, "max": 36},
+	"ctlName": ["ATmega32U4", "Other"],
+	"source": "https://github.com/durken1/pierce/blob/master/README.md",
+	"kit": "https://shop.beekeeb.com/product/wireless-pierce-2-keyboard-kit/"
+},
+{
+	"name": "gurt-portable",
+	"img": "gurt-portable.webp",
+	"notes": "Uses three (3) YJ-14015 / Core51822 (B) for 2.4ghz wireless. Uses Pro Micro dongle for QMK. Requires ST-Link programmer to program wireless chips.",
+	"parent": "Pierce",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wireless",
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.5,
+	"splay": "PinkyOnly",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 0,
+	"pointingDevices": 0,
+	"trackpoints": 0,
+	"displays": 0,
+	"lighting": "Unknown",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlCount": 4,
+	"ctlFootprint": ["Pro Micro", "Onboard/SMD"],
+	"ctlPinCount": {"min": 24, "max": 36},
+	"ctlName": ["ATmega32U4", "Other"],
+	"source": "https://github.com/CarlFabian/gurt-portable?tab=readme-ov-file"
+},
+{
+	"name": "CREPE",
+	"img": "CREPE.webp",
+	"shape": "Monoblock",
+	"stagger": "Ortho",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 40,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"hotswap": "No",
+	"switchProfile": "KXSwitch",
+	"lighting": "None",
+	"firmware": ["QMK", "ZMK"],
+	"ctlCount": 1,
+	"ctlFootprint": "Pro Micro",
+	"caseType": "None",
+	"source": "https://github.com/hazels-garage/crepe"
+},
+{
+	"name": "dust",
+	"img": "dust.webp",
+	"notes": "\"dust is my attempt at making the thinnest sweep-alike.\"",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "KXSwitch",
+	"lighting": "None",
+	"firmware": ["QMK", "ZMK"],
+	"ctlCount": 2,
+	"ctlFootprint": "XIAO",
+	"caseType": "None",
+	"source": "https://github.com/hazels-garage/dust"
+},
+{
+	"name": "mini42",
+	"img": "mini42.webp",
+	"notes": "A Corne-like keyboard with Choc spacing",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "QMK",
+	"software": ["VIA", "Vial"],
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"caseType": "Included",
+	"prebuilt": "https://controller.works/products/mini42-low-profile-ergonomic-keyboard"
+},
+{
+	"name": "BR/KN",
+	"img": "brkn.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 28,
+	"rows": 3,
+	"cols": 4,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "CFX",
+	"trackballs": 2,
+	"trackballSize": 16,
+	"lighting": "Underglow",
+	"firmware": "QMK",
+	"ctlCount": 2,
+	"ctlFootprint": "RP2040-Zero",
+	"caseType": "Included",
+	"source": "https://github.com/miketronic/brkn-keyboard",
+},
+{
+	"name": "vfk-001",
+	"img": "vfk-001.webp",
+	"notes": "A folding vertical dactyl-style keyboard with removable stabilizer in the middle",
+	"shape": ["Split", "Keywell", "Special"],
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"trackballs": {"min": 0, "max": 1},
+	"trackballSize": 34,
+	"lighting": "None",
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"tenting": "Legs",
+	"caseType": "Included",
+	"source": "https://github.com/v0Ch/vfk-001"
+},
+"2024-06-24"
 ];
 window.keyboardTODOs = `
 Chimera Ortho
@@ -6493,13 +6669,11 @@ https://fingerpunch.xyz/product/rock-on/ https://fingerpunch.xyz/product/rock-on
 kucheza (game pad) https://fingerpunch.xyz/product/kucheza/
 https://fingerpunch.xyz/product/vulpes-majora/
 https://github.com/andrewjrae/rae-dux
-https://controller.works/products/mini42-low-profile-ergonomic-keyboard
 https://github.com/j-w-e/wysteria https://new.reddit.com/r/ErgoMechKeyboards/comments/1c83kz3/wysteria_my_new_36key/
 K:03
 High Plains Drifter
 https://satt.booth.pm/items/1644450 https://github.com/satt99/caravelle-build-guide
 https://github.com/snsten/Klein
-https://github.com/miketronic/brkn-keyboard
 https://kbd.news/NewType-36-2358.html
 https://kbd.news/Trio-2356.html
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cgn2fk/phnx_ergonomic_custom_mechanical_keyboard/
@@ -6512,7 +6686,6 @@ DK6 (needs notes on troublesome software) https://www.velocifiretech.com/product
 https://github.com/ixxoid/dactyl-keyboard
 Stront40 https://github.com/zzeneg/stront
 Wysteria
-https://github.com/v0Ch/vfk-001
 https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 https://kbd.news/VColChoc44-1029.html
 https://github.com/ChrisChrisLoLo/beyblock20
@@ -6536,8 +6709,18 @@ https://www.slicemk.com/products/ergodoxlp-wireless
 https://github.com/klouderone/cornev4promicroedition
 Sofle with caveats! https://www.doioshop.com/products/sofle-split-keyboard-bluetooth-dual-mode-mechanical-keyboard-kit?VariantsId=10249 https://www.reddit.com/r/ErgoMechKeyboards/comments/1d4xeqh/comment/l6k8vu3/
 https://github.com/allymparker/crkbd/tree/main/corneroll https://new.reddit.com/r/ErgoMechKeyboards/comments/1d5ltaq/corneroll_wireless_hotswap_niceview_with/
+https://github.com/zxku/Allium58CAD/blob/main/readme.md
+Svalboard (and how does that map to column-row classification)
+https://github.com/Vaarai/Cornia https://new.reddit.com/r/ErgoMechKeyboards/comments/1ddoohp/first_ergo_build_from_scratch/
+dove36
+id75
+https://github.com/chelming/swept-crkbd
+Sofle Pico https://www.soflepico.com
+https://github.com/dohn-joh/alias
 `;
 /* Other TODOs
+Note to self: add a separate "this keyboard is a mouse" tag
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 
 https://new.reddit.com/r/crkbd/comments/1afrhbn/custom_gasketmount_case_complete/
 https://github.com/petejohanson/mk-family-tree
@@ -6567,7 +6750,7 @@ https://new.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyb
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
 17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
-https://www.keaworkshop.com/kea-profile-keycaps-project
+https://www.keaworkshop.com/kea-profile-keycaps-project https://github.com/Kneecrust/keycaps
 https://ramaworks.store/products/grid-set-a
 https://www.thingiverse.com/thing:5932496
 https://github.com/dohn-joh/keycaps
@@ -6576,5 +6759,6 @@ Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
 https://www.reddit.com/r/olkb/comments/1cz6dmk/my_first_finished_handwire_build_prototyping_an/
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1dk3fhk/introducing_the_lucca_58he_a_hall_effect_split/
 Naya Create
 */

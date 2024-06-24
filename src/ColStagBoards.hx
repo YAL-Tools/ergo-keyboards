@@ -756,7 +756,7 @@ class ColStagBoards {
 		kb.setQMK();
 		add(kb);
 		
-		function addHillside(kb:ColStagKeyboard) {
+		function addHillside(kb:ColStagKeyboard, is56:Bool = false) {
 			kb.splay = Splay.Optional;
 			kb.setHotswap(Choc, Choc);
 			kb.setQMK();
@@ -764,7 +764,7 @@ class ColStagBoards {
 			kb.caseType = [None];
 			kb.source = "https://github.com/mmccoyd/hillside";
 			kb.kit = "https://shop.beekeeb.com/product/hillside-keyboard-kit/";
-			kb.prebuilt = "https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/";
+			if (!is56) kb.prebuilt = "https://shop.beekeeb.com/product/pre-soldered-hillside-keyboard/";
 			add(kb);
 		}
 		
@@ -781,7 +781,7 @@ class ColStagBoards {
 		kb.setExtras(5, 0, 0, 4);
 		kb.navCluster = [Arrows, Duo];
 		kb.img = "Hillside-56.jpg";
-		addHillside(kb);
+		addHillside(kb, true);
 		
 		kb = new ColStagKeyboard("Hillside 46");
 		kb.setMatrix(IntRangeList.either(40, 46), [5, 6], 3);

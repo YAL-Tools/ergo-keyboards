@@ -1182,7 +1182,10 @@ https://spaceholdings.net/collections/keyboards/products/sp-111
 https://www.qwertykeys.com/products/neo-ergo
 https://www.nocfree.com/products/nocfree-lite
 https://www.primekb.com/collections/keyboards
+https://nullbits.co/snap/
+https://www.hidergo.fi/shop/disconnect_mk1/
 `
 /* TODO
+https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
 */
