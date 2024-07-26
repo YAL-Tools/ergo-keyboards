@@ -6717,12 +6717,29 @@ id75
 https://github.com/chelming/swept-crkbd
 Sofle Pico https://www.soflepico.com
 https://github.com/dohn-joh/alias
+https://github.com/xommmmmmmm/QueueNineChimera
+https://mtnkbd.com/products/lets-tango-case
+https://github.com/ThePurox/Hexatana-RGB
+https://github.com/thpoll83/PolyKybd
+https://github.com/mikeholscher/zmk-config-mikefive https://new.reddit.com/r/ErgoMechKeyboards/comments/1e4xl8q/3d_cad_file_and_kicad_footprint_of_kailh_pg1316s/
+https://github.com/christianselig/caldera-keyboard
+https://github.com/gzowski/Ashwing66
+https://github.com/c-botz/crowkb https://www.reddit.com/r/ErgoMechKeyboards/comments/1e7k9fp/first_custom_design_crowkb_46/
+https://github.com/eswai/QOL56
+https://github.com/rschenk/re-gret
+https://github.com/dpapavas/lagrange-keyboard
+https://www.ergokb.tw/products/phoenix/
+https://github.com/dlip/tenshi https://new.reddit.com/r/ErgoMechKeyboards/comments/1ebsjye/tenshi_split_keyboard_with_slideadjustable/
+https://github.com/jeffdhooton/jingis38 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec0cyf/38key_columnstagger_board_build/
 `;
 /* Other TODOs
 Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 
+Koolerton macropads
+
 https://new.reddit.com/r/crkbd/comments/1afrhbn/custom_gasketmount_case_complete/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1dvjcxc/comment/lbox6ab/?utm_source=reddit&utm_medium=web2x&context=3
 https://github.com/petejohanson/mk-family-tree
 
 https://www.slicemk.com/collections/all
@@ -6761,4 +6778,7 @@ https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_co
 https://www.reddit.com/r/olkb/comments/1cz6dmk/my_first_finished_handwire_build_prototyping_an/
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dk3fhk/introducing_the_lucca_58he_a_hall_effect_split/
 Naya Create
+
+Obsolete:
+TypeMatrix
 */

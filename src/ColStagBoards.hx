@@ -1164,7 +1164,7 @@ class ColStagBoards {
 		kb.web = "";
 		kb.kit = [
 			"https://drop.com/buy/infinity-ergodox",
-			"https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2",
+			"https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2",
 			"https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128",
 			"https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460"
 		];
