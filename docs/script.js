@@ -613,7 +613,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setQMK(kb);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.web = type_ValList.fromValue("");
-	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/ergodox-pcb-dual-layer-electrical-boards-set-of-2","https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460"];
+	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2","https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460"];
 	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415"];
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
 	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout","Ergodox EZ is separated from these due to presence of tenting legs"];

@@ -6651,13 +6651,160 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/v0Ch/vfk-001"
 },
-"2024-06-24"
+{
+	"name": "Chimera Ortho",
+	"img": "chimera-ortho.webp",
+	"notes": "Feel free to submit a correction if you figure out the gerber",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wireless",
+	"keys": 46,
+	"rows": 3,
+	"cols": 7,
+	"thumbKeys": 2,
+	"switchProfile": "MX",
+	"caseType": "Included",
+	"source": "https://github.com/jawn-smith/Chimera"
+},
+{
+	"name": "Rock On V1",
+	"img": "rock-on-v1.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 66,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"innerKeys": 4,
+	"cornerKeys": 5,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"displays": {"min": 0, "max": 1},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"ctlCount": 1,
+	"ctlFootprint": ["Elite-C", "Nice!Nano"],
+	"caseType": "Included",
+	"kit": "https://fingerpunch.xyz/product/rock-on/"
+},
+{
+	"name": "Rock On V2",
+	"img": "rock-on-v2.webp",
+	"parent": "Rock On V1",
+	"keys": {"min": 64, "max": 66},
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": ["Knob", "Wheel"],
+	"pointingDevices": {"min": 0, "max": 1},
+	"trackballs": {"min": 0, "max": 1},
+	"trackpads": {"min": 0, "max": 1},
+	"kit": "https://fingerpunch.xyz/product/rock-on-v2/"
+},
+{
+	"name": "Rock On V3",
+	"img": "rock-on-v3.webp",
+	"parent": "Rock On V1",
+	"keys": {"min": 66, "max": 69},
+	"encoders": {"min": 0, "max": 3},
+	"pointingDevices": {"min": 0, "max": 1},
+	"trackballs": {"min": 0, "max": 1},
+	"trackpads": {"min": 0, "max": 1},
+	"kit": "https://fingerpunch.xyz/product/rock-on-v3/"
+},
+{
+	"name": "eek!",
+	"img": "eek.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"ctlCount": 1,
+	"ctlFootprint": "Pro Micro",
+	"caseType": "Included",
+	"source": "https://github.com/Klackygears/eek_doc"
+},
+{
+	"name": "ergoTHWACK",
+	"img": "ergoTHWACK.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 69,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {"min": 4, "max": 5},
+	"innerKeys": {"min": 1, "max": 3},
+	"cornerKeys": 4,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "GateronLP",
+	"encoders": 3,
+	"encoderType": "Knob",
+	"trackpoints": 1,
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "ZMK",
+	"ctlCount": 2,
+	"wristPads": "Integrated",
+	"tenting": "Legs",
+	"caseType": "Included",
+	"web": "https://www.claytonbford.com/portfolio/ergothwack",
+	"source": "https://github.com/claybford/ergothwack",
+	"pointingDevices": 1
+},
+{
+	"name": "Kurp",
+	"img": "kurp.webp",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": ["Wired", "Bluetooth"],
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"displays": {"min": 0, "max": 1},
+	"lighting": "None",
+	"firmware": ["QMK", "ZMK"],
+	"ctlFootprint": "Pro Micro",
+	"caseType": "Included",
+	"source": "https://github.com/hazels-garage/kurp"
+},
+{
+	"name": "PolyKybd Split72",
+	"img": "polykybd.webp",
+	"notes": "Featuring little displays in keys",
+	"shape": ["Split", "Special"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 72,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"innerKeys": 3,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"trackpads": 1,
+	"displays": 2,
+	"lighting": "Simple",
+	"firmware": "QMK",
+	"ctlCount": 2,
+	"source": "https://github.com/thpoll83/PolyKybd",
+	"kit": "https://github.com/thpoll83/PolyKybd"
+},
+"2024-08-08"
 ];
 window.keyboardTODOs = `
-Chimera Ortho
 More Maltron keyboards
 Claw44
-Gergo
 ZEN2
 Jorne
 GrabShell https://grabshell.site/en/home-en/
@@ -6665,7 +6812,6 @@ https://github.com/cacheworks/Wubbo
 https://github.com/ardakilic/woodpecker-keyboard/
 https://github.com/aroum/kalmar
 https://github.com/foostan/corneliuskbd
-https://fingerpunch.xyz/product/rock-on/ https://fingerpunch.xyz/product/rock-on-v2/ https://fingerpunch.xyz/product/rock-on-v3/ https://fingerpunch.xyz/product/rock-on-bpe/
 kucheza (game pad) https://fingerpunch.xyz/product/kucheza/
 https://fingerpunch.xyz/product/vulpes-majora/
 https://github.com/andrewjrae/rae-dux
@@ -6679,7 +6825,6 @@ https://kbd.news/Trio-2356.html
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1cgn2fk/phnx_ergonomic_custom_mechanical_keyboard/
 https://github.com/JPricey/dactyl-high-profile
 Low Profile Dactyl https://github.com/omurovec/dactyl-high-profile
-Eek! https://github.com/Klackygears/eek_doc
 UnSplit https://github.com/swiftrax/UnSplit https://kbd.news/UnSplit-338.html
 https://github.com/llmerlos/0xLM
 DK6 (needs notes on troublesome software) https://www.velocifiretech.com/products/dumang-dk6-ergo-v2
@@ -6696,10 +6841,8 @@ https://github.com/raeedcho/temper
 https://github.com/smores56
 https://github.com/lapidot/2BKeyboard
 https://kbd.news/FCS42S-keyboard-1317.html
-https://github.com/claybford/ergothwack https://www.claytonbford.com/portfolio/ergothwack
 https://github.com/Squalius-cephalus/silakka44
 https://github.com/choubbikeyboards/scaffold
-https://github.com/hazels-garage/kurp
 https://github.com/geoffder/dometyl-keyboard/tree/main/things/dartyl_choc
 https://github.com/soundmonster/samoklava
 Inland MK-47
@@ -6720,7 +6863,6 @@ https://github.com/dohn-joh/alias
 https://github.com/xommmmmmmm/QueueNineChimera
 https://mtnkbd.com/products/lets-tango-case
 https://github.com/ThePurox/Hexatana-RGB
-https://github.com/thpoll83/PolyKybd
 https://github.com/mikeholscher/zmk-config-mikefive https://new.reddit.com/r/ErgoMechKeyboards/comments/1e4xl8q/3d_cad_file_and_kicad_footprint_of_kailh_pg1316s/
 https://github.com/christianselig/caldera-keyboard
 https://github.com/gzowski/Ashwing66
@@ -6731,10 +6873,21 @@ https://github.com/dpapavas/lagrange-keyboard
 https://www.ergokb.tw/products/phoenix/
 https://github.com/dlip/tenshi https://new.reddit.com/r/ErgoMechKeyboards/comments/1ebsjye/tenshi_split_keyboard_with_slideadjustable/
 https://github.com/jeffdhooton/jingis38 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec0cyf/38key_columnstagger_board_build/
+https://github.com/carrefinho/forager
+Sofle Choc with V2 pinky stagger https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit/
+https://github.com/thewinger/winsplit https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
+https://github.com/Maka8295/Lucca-58HE https://new.reddit.com/r/ErgoMechKeyboards/comments/1dk3fhk/introducing_the_lucca_58he_a_hall_effect_split/
+https://github.com/Aodrulez/zenFlow
+https://github.com/AlaaSaadAbdo/battoota/tree/main/boards/30keys/Ghazal https://new.reddit.com/r/ErgoMechKeyboards/comments/1eibqxn/ghazal_a_30_key_wireless_unibody_with_integrated/
+https://github.com/yangit/flactyl https://new.reddit.com/r/ErgoMechKeyboards/comments/13qep4y/after_4_year_lurking_and_2_years_building_my_own/
 `;
 /* Other TODOs
 Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
+
+Cases
+rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
+sofle https://new.reddit.com/r/ErgoMechKeyboards/comments/1ej0ngl/my_3d_printed_sofle_v1_case_wireless_and_modular/
 
 Koolerton macropads
 
@@ -6763,6 +6916,11 @@ Trickery:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
 https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyboard_v20/aaaa
+https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
+
+Keypads:
+http://fingerpunch.xyz/product/kucheza/
+https://www.lemokey.com/products/lemokey-x0-qmk-wired-mechanical-gaming-keypad
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
@@ -6770,14 +6928,12 @@ https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
 https://www.keaworkshop.com/kea-profile-keycaps-project https://github.com/Kneecrust/keycaps
 https://ramaworks.store/products/grid-set-a
 https://www.thingiverse.com/thing:5932496
-https://github.com/dohn-joh/keycaps
+lever caps https://github.com/dohn-joh/keycaps
 
 Unreleased:
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1cfg3vr/mikefive_a_kailh_pg1316_keyboard/
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
 https://www.reddit.com/r/olkb/comments/1cz6dmk/my_first_finished_handwire_build_prototyping_an/
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1dk3fhk/introducing_the_lucca_58he_a_hall_effect_split/
 Naya Create
+https://www.arrowmechanics.com/produkty
 
 Obsolete:
 TypeMatrix

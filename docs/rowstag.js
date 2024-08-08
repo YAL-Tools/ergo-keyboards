@@ -1154,23 +1154,167 @@ window.rowStagData = [
 	"firmware": "Unknown",
 	"prebuilt": "https://kinesis-ergo.com/shop/form/"
 },
-"2024-06-03"
+{
+	"name": "Goldtouch Elite",
+	"img": "goldtouch-elite.webp",
+	"notes": "Low-profile...ish?",
+	"parent": "Goldtouch V2",
+	"connection": "Wired",
+	"switchProfile": "SimpleLP",
+	"prebuilt": "https://shop.goldtouch.com/collections/ergonomic-keyboards/products/elite-adjustable-ergonomic-keyboard-pc-mac"
+},
+{
+	"name": "Mistel MD600",
+	"img": "mistel-md600.webp",
+	"shape": ["Split", "Split"],
+	"stagger": "Row",
+	"connection": "Bluetooth",
+	"keys": 64,
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"fnPos": "LeftMost",
+	"leftMods": 3,
+	"rightMods": 2,
+	"navCluster": "None",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": ["None", "RGB"],
+	"firmware": "Custom",
+	"tenting": "Legs",
+	"caseType": "Included",
+	"web": "https://mistelkeyboard.com/products/0a26d32ac1e3b1d2af2896e00bb1177a",
+	"prebuilt": [
+		"[v:RGB] https://www.amazon.com/BAROCCOMiSTEL-Mechanical-Split-Alice-Transparent-Bluetooth5-0/dp/B0CJ2DT5YZ/",
+		"[v:Unlit?] https://www.amazon.com/BAROCCOMiSTEL-Mechanical-Split-Alice-Bluetooth5-0-Compatible/dp/B0CYLBBDVJ/"
+	]
+},
+{
+	"name": "Mistel MD770",
+	"img": "mistel-md770.webp",
+	"shape": ["Monoblock", "Split"],
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 85,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"fnPos": "ReplaceRGui",
+	"leftMods": 3,
+	"rightMods": 2,
+	"navCluster": "Inline",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"lighting": "RGB",
+	"firmware": "Custom",
+	"caseType": "Included",
+	"web": "https://mistelkeyboard.com/products/bd20945a731491407807e80d48c5d790",
+	"prebuilt": [
+		"[v:Wired] https://www.amazon.com/Mistel-BAROCCO-Mechanical-Keyboard-Ergonomic/dp/B0CBV9XYFM",
+		"[v:Bluetooth] https://www.amazon.com/Mistel-Bluetooth-Mechanical-Ergonomic-DoubleShot/dp/B08GX11XK4"
+	]
+},
+{
+	"name": "Hatsukey70",
+	"img": "Hatsukey70.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 70,
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": "LeftCut",
+	"enter": "Mini",
+	"space": "Multi",
+	"backspace": "Short",
+	"thumbKeys": 3,
+	"leftMods": 4,
+	"rightMods": 2,
+	"navCluster": "Arrows",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "QMK",
+	"software": "Remap",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"caseType": "Included",
+	"kit": "https://shop.yushakobo.jp/en/products/8361"
+},
+{
+	"name": "UHK 60 v2",
+	"img": "uhkv2.webp",
+	"notes": "Features thumb modules (3-key cluster, trackball, trackpoint, touchpad)",
+	"shape": ["Monoblock", "Split"],
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": {"min": 63, "max": 66},
+	"rows": 4,
+	"lshift": ["ANSI", "ISO"],
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "Multi",
+	"backspace": "Wide",
+	"leftMods": 4,
+	"rightMods": 4,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"pointingDevices": {"min": 0, "max": 1},
+	"trackballs": {"min": 0, "max": 1},
+	"trackpads": {"min": 0, "max": 1},
+	"trackpoints": {"min": 0, "max": 1},
+	"lighting": "RGB",
+	"firmware": "Custom",
+	"software": "Custom",
+	"wristPads": "Detachable",
+	"tenting": ["Legs", "Mount"],
+	"caseType": "Included",
+	"web": "https://ultimatehackingkeyboard.com/",
+	"prebuilt": "https://ultimatehackingkeyboard.com/product/uhk60v2"
+},
+{
+	"name": "Ergodonk Zero",
+	"img": "ergodonk-zero.webp",
+	"notes": "Column-staggered with emphasis on using standard-sized keys",
+	"shape": "Split",
+	"stagger": "Row",
+	"keys": 101,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "Multi",
+	"backspace": "Wide",
+	"thumbKeys": 6,
+	"leftMods": 5,
+	"rightMods": 5,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"ctlFootprint": "RP2040-Zero",
+	"caseType": "None",
+	"source": "https://github.com/JellyTitan/ErgoDonk-Zero"
+},
+"2024-08-08"
 ];
 window.rowStagTODOs = `
 Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
 Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
-https://github.com/JellyTitan/ErgoDonk-Zero
 https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
-Hatsukey70 https://shop.yushakobo.jp/en/products/8361
 Perixx PERIBOARD-613 B
 BC Split Ergonomic
 Kinesis Freestyle2
 Core Mechanics Project: 0001
 R-Go Split Break
-Mistel keyboards
 Keebio keyboards
 CIDOO ABM066
-UHKv2
 https://kbd.news/Amano-1886.html
 https://kbd.news/Feather-40-1733.html
 YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
@@ -1194,6 +1338,9 @@ Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
+
+See if someone makes a split based on this:
+https://github.com/riskable/void_switch_65_pct
 
 Not out yet:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec6zv8/familiar_yet_ergonomic/
