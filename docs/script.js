@@ -605,25 +605,29 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("glove80.jpg");
 	kb.notes = ["There is no hot-swap. However, MoErgo offers an unsoldered version that saves one from having to unsolder the built-in switches. Still, one needs to solder the new ones.","Hardware extension support: 6 digital GPIOs (inside the case)"];
 	add(kb);
-	kb = ColStagKeyboard._new("Ergodox-like");
+	kb = ColStagKeyboard._new("Ergodox[-like]");
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(76)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(6),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(5));
-	kb.switchProfile = [type_SwitchProfile.MX];
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(6),type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(5));
+	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth,type_Connection.Wireless];
+	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc];
+	kb.tenting = [type_Tenting.Legs];
 	kb.hotswap = [type_HotSwap.Yes,type_HotSwap.No];
 	ColStagKeyboard.setQMK(kb);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.web = type_ValList.fromValue("");
-	kb.kit = ["https://drop.com/buy/infinity-ergodox","https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2","https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460"];
-	kb.prebuilt = ["https://momoka.store/collections/keyboards/products/momoka-ergo","https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415"];
-	kb.img = type_ValList.fromValue("momoka-ergo.webp");
-	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout","Ergodox EZ is separated from these due to presence of tenting legs"];
+	kb.kit = ["[v:MX] https://drop.com/buy/infinity-ergodox","[v:MX] https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2","[v:MX] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","[v:MX half] https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460","[v:Choc] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614"];
+	kb.prebuilt = ["[v:MX, legs, mount] https://ergodox-ez.com/","[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415","[v:Choc+legs] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388","[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite","[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro","[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless","[v:MX] https://www.ergokb.tw/products/phoenix/"];
+	kb.img = type_ValList.fromValue("ergodox-ez.webp");
+	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout"];
 	var ergodoxy = add(kb);
-	kb = ColStagKeyboard._new("Ergodox_FT LP",ergodoxy);
-	kb.img = type_ValList.fromValue("ergodox-ft-lp.jpg");
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc]);
-	kb.lighting = [type_Lighting.None];
-	kb.kit = ["https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614","https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388"];
-	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480");
+	kb = ColStagKeyboard._new("MOMOKA ERGO",ergodoxy);
+	kb.img = type_ValList.fromValue("momoka-ergo.webp");
+	kb.notes = type_ValList.fromValue("Few keys less than a regular Ergodox");
+	kb.innerKeys = type_NumRange.fromValue(0);
+	kb.connection = [type_Connection.Wired];
+	kb.switchProfile = [type_SwitchProfile.MX];
+	kb.tenting = [];
+	kb.hotswap = [type_HotSwap.Yes];
+	kb.prebuilt = type_ValList.fromValue("[v:no inner keys] https://momoka.store/collections/keyboards/products/momoka-ergo");
 	add(kb);
 	kb = ColStagKeyboard._new("Keyboardio Model 100");
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(64)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
@@ -658,19 +662,6 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = type_ValList.fromValue("!https://www.zsa.io/moonlander/");
 	kb.img = type_ValList.fromValue("zsa-moonlander.avif");
 	kb.layoutRef = type_ValList.fromValue("https://www.zsa.io/1-1.pdf");
-	ColStagKeyboard.addSKBC(kb);
-	add(kb);
-	kb = ColStagKeyboard._new("ErgoDox EZ");
-	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(76)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(6),type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(5));
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
-	ColStagKeyboard.setQMK(kb,type_ValList.fromValue(type_Software.Custom));
-	kb.wristPads = type_ValList.fromValue(type_WristPads.Detachable);
-	kb.tenting = [type_Tenting.None,type_Tenting.Legs,type_Tenting.Mount];
-	kb.tilt = type_NumRange.fromArray([-10,0]);
-	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.prebuilt = type_ValList.fromValue("!https://ergodox-ez.com/");
-	kb.img = type_ValList.fromValue("ergodox-ez.avif");
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
 	kb = ColStagKeyboard._new("Dygma Defy");
@@ -1168,11 +1159,18 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}),type_Connection);
 		conType.shortName = "Con";
 		conType.shortLabels.set(type_Connection.Wired,"W");
+		conType.shortLabels.set(type_Connection.WiredHalf,"W+BT");
+		conType.filterLabels.set(type_Connection.WiredHalf,"Wired+Bluetooth");
+		conType.filterNotes.set(type_Connection.WiredHalf,"For ZMK keyboards, one half can be connected to the computer while the other talks to it over air");
 		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
 		conType.shortLabels.set(type_Connection.Wireless,"P");
 		conType.filterLabels.set(type_Connection.Wireless,"Other wireless");
+		conType.filterNotes.set(type_Connection.Wireless,"2.4G dongles and alike");
 		conType.filterTags = [type_Connection.Bluetooth,type_Connection.Wireless];
 		conType.columnCount = 2;
+		conType.onNotes = function(div) {
+			conType.appendFilterNotes(div);
+		};
 		this.addColumn(conType);
 	}
 	,initColNav: function(kb,corner) {
@@ -1878,6 +1876,16 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 			if(kb.hotswap == null && type_ValList.safeContains(kb.switchProfile,type_SwitchProfile.CherryULP)) {
 				kb.hotswap = [type_HotSwap.No];
+			}
+			if(kb.firmware != null && kb.firmware.length == 1 && kb.firmware[0] == type_Firmware.ZMK && kb.shape != null && kb.shape.indexOf(type_Shape.Split) != -1) {
+				if(kb.connection == null) {
+					kb.connection = [type_Connection.Bluetooth];
+				} else {
+					HxOverrides.remove(kb.connection,type_Connection.Wired);
+					if(kb.connection.indexOf(type_Connection.WiredHalf) == -1) {
+						kb.connection.push(type_Connection.WiredHalf);
+					}
+				}
 			}
 			if(kb.switchProfile != null && kb.switchProfile.indexOf(type_SwitchProfile.MX) != -1 && (kb.keySpacing == null || kb.keySpacing.length == 0)) {
 				kb.keySpacing = [type_KeySpacing.MX];
@@ -3064,6 +3072,7 @@ var ToDoList = function() { };
 ToDoList.__name__ = true;
 ToDoList.set = function(text) {
 	text = StringTools.trim(text);
+	var rxKeyCount = new RegExp("^(\\d+)(%)?([usm])?\\s+(.*)");
 	var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 	var rxURL = new RegExp("^(https?://\\S+)\\s*(.*)");
 	var rxLinkSuffix = new RegExp("^.+/(.+?)(?:/)?(?:\\?.*)?$");
@@ -3079,9 +3088,37 @@ ToDoList.set = function(text) {
 		if(line == "") {
 			continue;
 		}
-		var mt = rxURL.exec(line);
+		var formFactor = null;
+		var mt = rxKeyCount.exec(line);
+		if(mt != null) {
+			formFactor = mt[1];
+			if(mt[2] == null) {
+				formFactor += "-key";
+			} else {
+				formFactor += "%";
+			}
+			if(mt[3] != null) {
+				var formFactor1;
+				switch(mt[3]) {
+				case "m":
+					formFactor1 = "monoblock";
+					break;
+				case "s":
+					formFactor1 = "split";
+					break;
+				case "u":
+					formFactor1 = "unibody";
+					break;
+				default:
+					formFactor1 = "?";
+				}
+				formFactor += " " + formFactor1;
+			}
+			line = mt[4];
+		}
 		var smt;
 		var label = null;
+		mt = rxURL.exec(line);
 		if(mt == null) {
 			mt = rxAfterText.exec(line);
 			if(mt == null) {
@@ -3119,6 +3156,9 @@ ToDoList.set = function(text) {
 			}
 		}
 		var li = window.document.createElement("li");
+		if(formFactor != null) {
+			li.appendChild(window.document.createTextNode("[" + formFactor + "] "));
+		}
 		if(mt != null) {
 			var a = window.document.createElement("a");
 			a.appendChild(window.document.createTextNode(label));
@@ -7513,8 +7553,9 @@ var type_Connection = $hxEnums["type.Connection"] = { __ename__:true,__construct
 	,Wired: {_hx_name:"Wired",_hx_index:0,__enum__:"type.Connection",toString:$estr}
 	,Bluetooth: {_hx_name:"Bluetooth",_hx_index:1,__enum__:"type.Connection",toString:$estr}
 	,Wireless: {_hx_name:"Wireless",_hx_index:2,__enum__:"type.Connection",toString:$estr}
+	,WiredHalf: {_hx_name:"WiredHalf",_hx_index:3,__enum__:"type.Connection",toString:$estr}
 };
-type_Connection.__constructs__ = [type_Connection.Wired,type_Connection.Bluetooth,type_Connection.Wireless];
+type_Connection.__constructs__ = [type_Connection.Wired,type_Connection.Bluetooth,type_Connection.Wireless,type_Connection.WiredHalf];
 var type_ControllerColumn = function(name,field,tags) {
 	table_tag_StringTagListColumn.call(this,name,field,tags);
 };
@@ -7691,6 +7732,41 @@ type_ControllerColumn.prototype = $extend(table_tag_StringTagListColumn.prototyp
 			return val.substring(type_ControllerColumn.otherPrefix.length);
 		}
 		return null;
+	}
+	,buildEditor: function(out,store,restore) {
+		var _gthis = this;
+		table_tag_StringTagListColumn.prototype.buildEditor.call(this,out,store,restore);
+		var otherFd = window.document.createElement("input");
+		otherFd.placeholder = "Other";
+		out.appendChild(otherFd);
+		store.push(function(kb) {
+			var val = otherFd.value;
+			var arr = _gthis.field.access(kb);
+			if(arr != null) {
+				HxOverrides.remove(arr,"Other");
+			}
+			if(StringTools.trim(val) == "") {
+				return;
+			}
+			if(arr == null) {
+				arr = [];
+				_gthis.field.access(kb,true,arr);
+			}
+			arr.push("!" + val);
+		});
+		restore.push(function(kb) {
+			var arr = _gthis.field.access(kb);
+			if(arr != null) {
+				var _g = 0;
+				while(_g < arr.length) {
+					var item = arr[_g];
+					++_g;
+					if(StringTools.startsWith(item,"!")) {
+						otherFd.value = item.substring(1);
+					}
+				}
+			}
+		});
 	}
 	,__class__: type_ControllerColumn
 });
@@ -8071,6 +8147,9 @@ type_Tenting.__constructs__ = [type_Tenting.None,type_Tenting.Fixed,type_Tenting
 var type_ValList = {};
 type_ValList.get_length = function(this1) {
 	return this1.length;
+};
+type_ValList.asArray = function(this1) {
+	return this1;
 };
 type_ValList.aget = function(this1,i) {
 	return this1[i];

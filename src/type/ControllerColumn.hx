@@ -1,9 +1,11 @@
 package type;
 
+import js.html.Element;
 import js.lib.RegExp;
 import tools.CsvParser;
 import table.tag.StringTagListColumn;
 import js.Browser.*;
+using tools.HtmlTools;
 using StringTools;
 
 class ControllerColumn<T> extends StringTagListColumn<T> {
@@ -90,6 +92,34 @@ class ControllerColumn<T> extends StringTagListColumn<T> {
 		var min = Std.parseInt(str);
 		if (min == null) return null;
 		return new IntRange(min, min + add);
+	}
+	override public function buildEditor(out:Element, store:Array<T->Void>, restore:Array<T->Void>):Void {
+		super.buildEditor(out, store, restore);
+		var otherFd = document.createInputElement();
+		otherFd.placeholder = "Other";
+		out.appendChild(otherFd);
+		store.push(function(kb) {
+			var val = otherFd.value;
+			
+			var arr = field.access(kb);
+			if (arr != null) arr.remove("Other");
+			
+			if (val.trim() == "") return;
+			
+			if (arr == null) {
+				arr = [];
+				field.access(kb, true, arr);
+			}
+			arr.push("!" + val);
+		});
+		restore.push(function(kb) {
+			var arr = field.access(kb);
+			if (arr != null) {
+				for (item in arr) if (item.startsWith("!")) {
+					otherFd.value = item.substring(1);
+				}
+			}
+		});
 	}
 	public static function initKeyboards<T:Keyboard>(table:KeyboardTable<T>) {
 		var csv = CsvParser.parse((cast window).mcuData);

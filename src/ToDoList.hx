@@ -13,6 +13,7 @@ class ToDoList {
 	public static var element:Element;
 	public static function set(text:String) {
 		text = StringTools.trim(text);
+		var rxKeyCount = new RegExp("^(\\d+)(%)?([usm])?\\s+(.*)");
 		var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 		var rxURL = new RegExp("^(https?://\\S+)\\s*(.*)");
 		var rxLinkSuffix = new RegExp("^.+/(.+?)(?:/)?(?:\\?.*)?$");
@@ -23,8 +24,30 @@ class ToDoList {
 			line = line.trim();
 			if (line == "") continue;
 			
-			var mt = rxURL.exec(line), smt;
+			var formFactor:String = null;
+			var mt = rxKeyCount.exec(line);
+			if (mt != null) {
+				formFactor = mt[1];
+				//
+				if (mt[2] == null) {
+					formFactor += "-key";
+				} else formFactor += "%";
+				//
+				if (mt[3] != null) {
+					formFactor += " " + switch (mt[3]) {
+						case "u": "unibody";
+						case "s": "split";
+						case "m": "monoblock";
+						default: "?";
+					}
+				}
+				//
+				line = mt[4];
+			}
+			
+			var smt;
 			var label:String = null;
+			mt = rxURL.exec(line);
 			if (mt == null) { // hopefully "label http://" 
 				mt = rxAfterText.exec(line);
 				if (mt == null) {
@@ -53,6 +76,9 @@ class ToDoList {
 			}
 			
 			var li = Browser.document.createLIElement();
+			if (formFactor != null) {
+				li.appendTextNode('[$formFactor] ');
+			}
 			if (mt != null) {
 				var a = Browser.document.createAnchorElement();
 				a.appendTextNode(label);

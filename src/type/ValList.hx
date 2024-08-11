@@ -8,6 +8,10 @@ package type;
 	public var length(get, never):Int;
 	inline function get_length() return this.length;
 	
+	public inline function asArray(){
+		return this;
+	}
+	
 	@:arrayAccess inline function aget(i:Int):T return this[i];
 	@:arrayAccess inline function aset(i:Int, v:T):T return this[i] = v;
 	

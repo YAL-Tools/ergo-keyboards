@@ -1154,42 +1154,48 @@ class ColStagBoards {
 		];
 		add(kb);
 		
-		kb = new ColStagKeyboard("Ergodox-like");
+		kb = new ColStagKeyboard("Ergodox[-like]");
 		kb.setMatrix(76, 6, 4);
-		kb.setExtras(6, 0, 0, 5);
-		kb.switchProfile = [MX];
+		kb.setExtras(6, 3, 0, 5);
+		kb.connection = [Wired, Bluetooth, Wireless];
+		kb.switchProfile = [MX, Choc];
+		kb.tenting = [Legs];
 		kb.hotswap = [Yes, No];
 		kb.setQMK();
 		kb.caseType = Included;
-		kb.web = "";
 		kb.kit = [
-			"https://drop.com/buy/infinity-ergodox",
-			"https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2",
-			"https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128",
-			"https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460"
+			"[v:MX] https://drop.com/buy/infinity-ergodox",
+			"[v:MX] https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2",
+			"[v:MX] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128",
+			"[v:MX half] https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460",
+			"[v:Choc] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614",
 		];
 		kb.prebuilt = [
-			"https://momoka.store/collections/keyboards/products/momoka-ergo",
-			"https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone",
-			"https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
-			"https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415",
+			"[v:MX, legs, mount] https://ergodox-ez.com/",
+			"[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone",
+			"[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
+			"[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415",
+			"[v:Choc+legs] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388",
+			"[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite",
+			"[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro",
+			"[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless",
+			"[v:MX] https://www.ergokb.tw/products/phoenix/",
 		];
-		kb.img = "momoka-ergo.webp";
+		kb.img = "ergodox-ez.webp";
 		kb.notes = [
 			"There are multiple keyboards using an Ergodox[-like] layout",
-			"Ergodox EZ is separated from these due to presence of tenting legs",
 		];
 		var ergodoxy = add(kb);
 		
-		kb = new ColStagKeyboard("Ergodox_FT LP", ergodoxy);
-		kb.img = "ergodox-ft-lp.jpg";
-		kb.setHotswap([Choc]);
-		kb.lighting = [None];
-		kb.kit = [
-			"https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614",
-			"https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388",
-		];
-		kb.prebuilt = "https://falbatech.click/products/Ergodox_FT-Low-Profile-Fully-Assembled-Custom-Mechanical-Keyboard-p613836480";
+		kb = new ColStagKeyboard("MOMOKA ERGO", ergodoxy);
+		kb.img = "momoka-ergo.webp";
+		kb.notes = "Few keys less than a regular Ergodox";
+		kb.innerKeys = 0;
+		kb.connection = [Wired];
+		kb.switchProfile = [MX];
+		kb.tenting = [];
+		kb.hotswap = [Yes];
+		kb.prebuilt = "[v:no inner keys] https://momoka.store/collections/keyboards/products/momoka-ergo";
 		add(kb);
 		
 		kb = new ColStagKeyboard("Keyboardio Model 100");
@@ -1230,7 +1236,7 @@ class ColStagBoards {
 		kb.addSKBC();
 		add(kb);
 		
-		kb = new ColStagKeyboard("ErgoDox EZ");
+		/*kb = new ColStagKeyboard("ErgoDox EZ");
 		kb.setMatrix(76, 6, 4);
 		kb.setExtras(6, 3, 0, 5);
 		kb.setHotswap(MX);
@@ -1242,7 +1248,7 @@ class ColStagBoards {
 		kb.prebuilt = "!https://ergodox-ez.com/";
 		kb.img = "ergodox-ez.avif";
 		kb.addSKBC();
-		add(kb);
+		add(kb);*/
 		
 		kb = new ColStagKeyboard("Dygma Defy");
 		kb.setMatrix(68, 6, 4);

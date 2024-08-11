@@ -18,10 +18,12 @@ from ColStagKeyboardBase to ColStagKeyboardBase {
 		this = { name: name };
 		if (parent == null) {
 			//
-		} else if (parent is String) {
-			this.parent = parent;
 		} else {
-			this.parent = (parent:ColStagKeyboard).name;
+			if (parent is String) {
+				this.parent = parent;
+			} else {
+				this.parent = (parent:ColStagKeyboard).name;
+			}
 		}
 	}
 	public function setMatrix(keys:IntRangeList, cols:IntRange, rows:IntRange) {

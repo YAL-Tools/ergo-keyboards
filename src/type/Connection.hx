@@ -8,4 +8,5 @@ enum Connection {
 	Wired;
 	Bluetooth;
 	Wireless;
+	WiredHalf;
 }

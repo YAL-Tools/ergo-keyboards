@@ -93,11 +93,22 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		var conType = new TagListColumn("Connection", mgf(kb.connection), Connection);
 		conType.shortName = "Con";
 		conType.shortLabels[Connection.Wired] = "W";
+		
+		conType.shortLabels[Connection.WiredHalf] = "W+BT";
+		conType.filterLabels[Connection.WiredHalf] = "Wired+Bluetooth";
+		conType.filterNotes[Connection.WiredHalf] = "For ZMK keyboards, one half can be connected to the computer (and communicate over USB) while the other talks to it over air";
+		
 		conType.shortLabels[Connection.Bluetooth] = "BT";
+		
 		conType.shortLabels[Connection.Wireless] = "P";
 		conType.filterLabels[Connection.Wireless] = "Other wireless";
+		conType.filterNotes[Connection.Wireless] = "2.4G dongles and alike";
+		
 		conType.filterTags = [Bluetooth, Wireless];
 		conType.columnCount = 2;
+		conType.onNotes = function(div) {
+			conType.appendFilterNotes(div);
+		};
 		addColumn(conType);
 	}
 	function initColNav(kb:KB, corner:Bool) {
@@ -702,6 +713,23 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			// Cherry Ultra Low Profile is not hot-swappable
 			if (kb.hotswap == null && kb.switchProfile.safeContains(CherryULP)) {
 				kb.hotswap = [No];
+			}
+			
+			// ZMK splits can't currently be used in double-wired mode:
+			if (kb.firmware != null
+				&& kb.firmware.length == 1
+				&& kb.firmware[0] == ZMK
+				&& kb.shape != null
+				&& kb.shape.contains(Split)
+			) {
+				if (kb.connection == null) {
+					kb.connection = [Bluetooth];
+				} else {
+					kb.connection.remove(Wired);
+					if (!kb.connection.contains(WiredHalf)) {
+						kb.connection.push(WiredHalf);
+					}
+				}
 			}
 			
 			//

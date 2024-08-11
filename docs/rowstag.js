@@ -1305,35 +1305,35 @@ window.rowStagData = [
 "2024-08-08"
 ];
 window.rowStagTODOs = `
-Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
-Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
-https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
-Perixx PERIBOARD-613 B
-BC Split Ergonomic
-Kinesis Freestyle2
-Core Mechanics Project: 0001
-R-Go Split Break
-Keebio keyboards
-CIDOO ABM066
-https://kbd.news/Amano-1886.html
-https://kbd.news/Feather-40-1733.html
-YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
-https://kbd.news/Kolibri-keyboard-1093.html
-https://www.adesso.com/products/tru-form-ergonomic-touchpad-keyboard/
-https://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-keyboard/
-https://ajazzstore.com/products/ajazz-aks068-pro
-https://spaceholdings.net/collections/keyboards/products/sp-111
-https://www.qwertykeys.com/products/neo-ergo
-https://www.nocfree.com/products/nocfree-lite
-https://www.primekb.com/collections/keyboards
-https://nullbits.co/snap/
-https://www.hidergo.fi/shop/disconnect_mk1/
-https://github.com/chadbailey59/CB70
-LEOBOG A75
-https://github.com/ecopoesis/nek-type-a
-Koolertron Split https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html
-HP 960 https://www.hp.com/us-en/shop/pdp/hp-960-ergonomic-wireless-keyboard
-Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
+65%u Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
+40%s Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
+65%u https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
+75%u Perixx PERIBOARD-613 B
+75%u BC Split Ergonomic
+75%s Kinesis Freestyle2
+75%s Core Mechanics Project: 0001
+75%s R-Go Split Break
+65%s Keebio keyboards
+65%s CIDOO ABM066
+60%u https://kbd.news/Amano-1886.html
+40%u https://kbd.news/Feather-40-1733.html
+65%u YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
+65%u https://kbd.news/Kolibri-keyboard-1093.html
+100%u https://www.adesso.com/products/tru-form-ergonomic-touchpad-keyboard/
+100%u https://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-keyboard/
+65%u https://ajazzstore.com/products/ajazz-aks068-pro
+65%u https://www.qwertykeys.com/products/neo-ergo
+65%s https://www.nocfree.com/products/nocfree-lite
+60%u https://www.primekb.com/collections/keyboards
+75%s https://nullbits.co/snap/
+60%s https://www.hidergo.fi/shop/disconnect_mk1/
+65%s https://github.com/chadbailey59/CB70
+75%u LEOBOG A75
+80%u https://github.com/ecopoesis/nek-type-a
+75%s Koolertron Split https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html
+80%u HP 960 https://www.hp.com/us-en/shop/pdp/hp-960-ergonomic-wireless-keyboard
+98%u Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
+65%s https://github.com/thewinger/winsplit https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
 `
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case
@@ -1344,4 +1344,7 @@ https://github.com/riskable/void_switch_65_pct
 
 Not out yet:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec6zv8/familiar_yet_ergonomic/
+
+Gone?:
+100%s https://spaceholdings.net/collections/keyboards/products/sp-111
 */
