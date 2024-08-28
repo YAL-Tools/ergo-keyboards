@@ -52,7 +52,7 @@ class FancyTable<T> {
 	public function sortBy(sortColumn:FancyColumn<T>, ascending:Bool) {
 		var sortRows = rows.copy();
 		sortRows.sort(function(a, b) {
-			return sortColumn.compareKeyboards(a.value, b.value, ascending);
+			return sortColumn.compareValues(a.value, b.value, ascending);
 		});
 		sortRows.reverse();
 		for (row in sortRows) header.element.after(row.element);

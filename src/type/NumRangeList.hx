@@ -41,14 +41,14 @@ import table.number.NumberColumn;
 	public function calcMin(def:T = cast 0):T {
 		var result:T = null;
 		for (range in this) {
-			if (result == null || NumberColumn.compareValues(range.min, result) < 0) result = range.min;
+			if (result == null || NumberColumn.compareNumbers(range.min, result) < 0) result = range.min;
 		}
 		return result ?? def;
 	}
 	public function calcMax(def:T = cast 0):T {
 		var result:T = null;
 		for (range in this) {
-			if (result == null || NumberColumn.compareValues(range.max, result) > 0) result = range.max;
+			if (result == null || NumberColumn.compareNumbers(range.max, result) > 0) result = range.max;
 		}
 		return result ?? def;
 	}

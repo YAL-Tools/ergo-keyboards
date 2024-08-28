@@ -30,7 +30,7 @@ class StringColumn<KB> extends FancyColumn<KB> {
 		out.appendTextNode(field.access(kb));
 	}
 	
-	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
+	override public function compareValues(a:KB, b:KB, ascending:Bool):Int {
 		var an = field.access(a).toUpperCase();
 		var bn = field.access(b).toUpperCase();
 		var sign = an == bn ? 0 : (an < bn ? -1 : 1);

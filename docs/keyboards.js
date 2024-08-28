@@ -816,6 +816,7 @@ window.keyboardData = [
 	"software": "VIA",
 	"assembly": "ThroughHole",
 	"caseType": "Included",
+	"extras": "[v:hipro case] https://github.com/rtitmuss/torn/blob/master/case/HiPro%20Case/readme.md",
 	"source": "https://github.com/rtitmuss/torn"
 },
 {
@@ -5926,6 +5927,9 @@ window.keyboardData = [
 	"displays": {"min": 0, "max": 2},
 	"lighting": ["None", "RGB"],
 	"caseType": "Included",
+	"extras": [
+		"[v:Wireless choc case] https://www.printables.com/pl/model/972917-corne-choc-wireless-v4-case",
+	],
 	"source": [
 		"[v:MX] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_en.md",
 		"[v:Choc] https://github.com/foostan/crkbd/blob/main/docs/corne-chocolate/v4/buildguide_en.md"
@@ -6202,7 +6206,7 @@ window.keyboardData = [
 {
 	"name": "Naked48LED",
 	"img": "naked48.webp",
-	"shape": "Split",
+	"shape": "Unibody",
 	"stagger": "Ortho",
 	"connection": ["Wired", "Bluetooth"],
 	"keys": 48,
@@ -7004,7 +7008,28 @@ Svalboard (and how does that map to column-row classification)
 48u https://github.com/tumler/ReviungDash
 64u https://github.com/Geobert/snowslide_site
 32u https://github.com/protieusz/Fanta-Manta/tree/main
+56s https://github.com/gehennaXXIV/Doro56
+32s https://github.com/bennytrouser/NostrumX
+48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
+64s FelixKeeb https://shop.beekeeb.com/product/wireless-felixkeeb-choc/ https://shop.beekeeb.com/product/wireless-felix-keeb/
+64s Snowflake https://github.com/kbranch/snowflake_keyboard
+40u KUSOboard https://github.com/covah901/KUSOboard
+100%s Wren https://github.com/oliviahanley/wren-keyboard
+46s https://github.com/kobakos/Splay46
+50s https://github.com/tewtham/dactyl-typesafe
+60s musashi60 (note: also supports/ed trackpoints?) https://github.com/hamano/musashi60
+56s https://github.com/cosimini/cambkb
+60s https://github.com/Tymut/Moon60
+58s https://kbd.news/SOWGull-2392.html
+42u https://github.com/kapee1/osprey-remix
+44s https://github.com/focusaurus/kipra-keyboard
+42s https://github.com/Squalius-cephalus/silakka44
+56s https://kbd.news/Tranquility-v2-39.html
+Cygnus 4x6+3
+r-track https://gitlab.com/keyboards1/dm_r_track/-/tree/master/boolean
+https://www.printables.com/model/314112-dactyl-manuball
 `;
+
 /* Other TODOs
 Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
@@ -7013,7 +7038,8 @@ Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
 sofle https://new.reddit.com/r/ErgoMechKeyboards/comments/1ej0ngl/my_3d_printed_sofle_v1_case_wireless_and_modular/
 
-Koolerton macropads
+Generators:
+https://github.com/pashutk/ergopad
 
 https://new.reddit.com/r/crkbd/comments/1afrhbn/custom_gasketmount_case_complete/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1dvjcxc/comment/lbox6ab/?utm_source=reddit&utm_medium=web2x&context=3
@@ -7035,16 +7061,26 @@ https://kbd.news/aball-a-buttonless-trackball-139.html
 https://github.com/george-norton/peacock
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1c3muo0/anu_pncateho_mouse_10key_chord_keyboard/
 https://kbd.news/Beeball-1646.html
+https://github.com/jfedor2/trackbowl-mk2
 
 Trickery:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
 https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyboard_v20/aaaa
 https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
+https://new.reddit.com/r/ErgoMechKeyboards/comments/10kvbqp/keyboard_made_entirely_of_low_force_5_direction/
+https://kbd.news/3D-printed-hotswap-sockets-V4-750.html
 
 Keypads:
 http://fingerpunch.xyz/product/kucheza/
 https://www.lemokey.com/products/lemokey-x0-qmk-wired-mechanical-gaming-keypad
+https://www.amazon.com/dp/B0BRFSB1LN/ref=sbl_dpx_pc-accessories-keyboards_B00ZR7POQQ_0
+https://github.com/kb-elmo/GameHand
+https://gitlab.com/to1ne/marconi16
+https://github.com/bobbicodes/trochee
+https://github.com/Staacks/inkkeys
+https://github.com/klouderone/SeagullMacropad
+Koolerton macropads
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
@@ -7053,6 +7089,15 @@ https://www.keaworkshop.com/kea-profile-keycaps-project https://github.com/Kneec
 https://ramaworks.store/products/grid-set-a
 https://www.thingiverse.com/thing:5932496
 lever caps https://github.com/dohn-joh/keycaps
+
+Lower-profile MX switches:
+Tecsee Medium
+OUTEMU medium-low profile
+
+Lower-profile MX keycaps:
+NuPhy
+XVX Horizon
+Tai-Hao Thins
 
 Unreleased:
 https://www.reddit.com/r/olkb/comments/1cz6dmk/my_first_finished_handwire_build_prototyping_an/

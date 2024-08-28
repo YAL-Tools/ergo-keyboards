@@ -573,8 +573,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		xCol.onNotes = function(div) {
 			div.appendParaTextNode("Cases, tenting kits, and so on");
 		}
-		xCol.show = false;
-		xCol.shortName = "xt";
+		xCol.shortName = "+";
 		addColumn(xCol);
 	}
 	function initCuriosities(kb:KB) {

@@ -17,6 +17,7 @@ import KeyboardTable;
 import type.Splay.SplayBase;
 using tools.HtmlTools;
 
+#if keyboards
 /**
  * ...
  * @author YellowAfterlife
@@ -249,3 +250,4 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		}
 	}
 }
+#end

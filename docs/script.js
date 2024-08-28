@@ -32,7 +32,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs","https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox","[v:v3 MX] https://falbatech.click/products/Pre-soldered-Corne-p613836639","[v:v3 MX mini] https://falbatech.click/products/Pre-soldered-Corne-mini-p613854160","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-Wireless-p613843630","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-mini-Wireless-p613843878"];
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard","[v:MX] https://falbatech.click/products/Corne-Fully-Assembled-Custom-Mechanical-Keyboard-p630685502","[v:MX mini] https://falbatech.click/products/Corne-mini-Fully-Assembled-Custom-Mechanical-Keyboard-p630813323","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Dark-Bamboo-Keyboard-shipping-in-24h-p613843609","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Natural-Bamboo-Keyboard-with-Tilt-Tent-Set-in-shipping-24h-p613843369","[v:MX BT] https://falbatech.click/products/Corne-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p630685504","[v:MX BT mini] https://falbatech.click/products/Corne-mini-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631346754"];
-	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case"];
+	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Unibody tray] https://www.thingiverse.com/thing:4897653","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case","[v:LP Case] https://www.thingiverse.com/thing:4549765 @ https://kbd.news/Corne-LP-case-810.html","[v:Case] https://github.com/kisonecat/corne-case","[v:Tented case] https://www.thingiverse.com/thing:4705667","[v:Magnetic case] https://github.com/Runningtarrens/Mcorne"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
@@ -616,12 +616,13 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.kit = ["[v:MX] https://drop.com/buy/infinity-ergodox","[v:MX] https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2","[v:MX] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","[v:MX half] https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460","[v:Choc] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614"];
 	kb.prebuilt = ["[v:MX, legs, mount] https://ergodox-ez.com/","[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415","[v:Choc+legs] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388","[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite","[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro","[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless","[v:MX] https://www.ergokb.tw/products/phoenix/"];
-	kb.img = type_ValList.fromValue("ergodox-ez.webp");
+	kb.img = type_ValList.fromValue("ergodox-ez.avif");
 	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout"];
 	var ergodoxy = add(kb);
 	kb = ColStagKeyboard._new("MOMOKA ERGO",ergodoxy);
 	kb.img = type_ValList.fromValue("momoka-ergo.webp");
 	kb.notes = type_ValList.fromValue("Few keys less than a regular Ergodox");
+	kb.keys = [type_NumRange.fromValue(70)];
 	kb.innerKeys = type_NumRange.fromValue(0);
 	kb.connection = [type_Connection.Wired];
 	kb.switchProfile = [type_SwitchProfile.MX];
@@ -792,7 +793,7 @@ table_FancyTable.prototype = {
 	,sortBy: function(sortColumn,ascending) {
 		var sortRows = this.rows.slice();
 		sortRows.sort(function(a,b) {
-			return sortColumn.compareKeyboards(a.value,b.value,ascending);
+			return sortColumn.compareValues(a.value,b.value,ascending);
 		});
 		sortRows.reverse();
 		var _g = 0;
@@ -1161,7 +1162,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		conType.shortLabels.set(type_Connection.Wired,"W");
 		conType.shortLabels.set(type_Connection.WiredHalf,"W+BT");
 		conType.filterLabels.set(type_Connection.WiredHalf,"Wired+Bluetooth");
-		conType.filterNotes.set(type_Connection.WiredHalf,"For ZMK keyboards, one half can be connected to the computer while the other talks to it over air");
+		conType.filterNotes.set(type_Connection.WiredHalf,"For ZMK keyboards, one half can be connected to the computer (and communicate over USB) while the other talks to it over air");
 		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
 		conType.shortLabels.set(type_Connection.Wireless,"P");
 		conType.filterLabels.set(type_Connection.Wireless,"Other wireless");
@@ -1695,8 +1696,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		xCol.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Cases, tenting kits, and so on");
 		};
-		xCol.show = false;
-		xCol.shortName = "xt";
+		xCol.shortName = "+";
 		this.addColumn(xCol);
 	}
 	,initCuriosities: function(kb) {
@@ -3895,7 +3895,7 @@ table_FancyColumn.prototype = {
 		return [];
 	}
 	,canSort: null
-	,compareKeyboards: function(a,b,ascending) {
+	,compareValues: function(a,b,ascending) {
 		return 0;
 	}
 	,save: function(kb) {
@@ -4544,7 +4544,7 @@ var table_FancyTableShuffler = function(name) {
 table_FancyTableShuffler.__name__ = true;
 table_FancyTableShuffler.__super__ = table_FancyColumn;
 table_FancyTableShuffler.prototype = $extend(table_FancyColumn.prototype,{
-	compareKeyboards: function(a,b,ascending) {
+	compareValues: function(a,b,ascending) {
 		if(Math.random() < 0.5) {
 			return -1;
 		} else {
@@ -4999,7 +4999,7 @@ table_StringColumn.prototype = $extend(table_FancyColumn.prototype,{
 		var text = this.field.access(kb);
 		out.appendChild(window.document.createTextNode(text));
 	}
-	,compareKeyboards: function(a,b,ascending) {
+	,compareValues: function(a,b,ascending) {
 		var an = this.field.access(a).toUpperCase();
 		var bn = this.field.access(b).toUpperCase();
 		var sign = an == bn ? 0 : an < bn ? -1 : 1;
@@ -5709,7 +5709,7 @@ table_number_NumberColumn.parseFloatValue = function(val) {
 	}
 	return f;
 };
-table_number_NumberColumn.compareValues = function(a,b) {
+table_number_NumberColumn.compareNumbers = function(a,b) {
 	if(a < b) {
 		return -1;
 	}
@@ -5786,15 +5786,15 @@ table_number_NumberColumn.prototype = $extend(table_number_NumberColumnBase.prot
 		}
 		return true;
 	}
-	,compareKeyboards: function(a,b,ascending) {
+	,compareValues: function(a,b,ascending) {
 		var tmp = this.field.access(a);
 		var av = tmp != null ? tmp : this.defaultValue;
 		var tmp = this.field.access(b);
 		var bv = tmp != null ? tmp : this.defaultValue;
 		if(ascending) {
-			return table_number_NumberColumn.compareValues(av,bv);
+			return table_number_NumberColumn.compareNumbers(av,bv);
 		}
-		return table_number_NumberColumn.compareValues(bv,av);
+		return table_number_NumberColumn.compareNumbers(bv,av);
 	}
 	,__class__: table_number_NumberColumn
 });
@@ -5862,15 +5862,15 @@ table_number_NumberRangeColumn.prototype = $extend(table_number_NumberColumnBase
 		}
 		return true;
 	}
-	,compareKeyboards: function(a,b,ascending) {
+	,compareValues: function(a,b,ascending) {
 		var tmp = this.field.access(a);
 		var ar = tmp != null ? tmp : this.defaultValue;
 		var tmp = this.field.access(b);
 		var br = tmp != null ? tmp : this.defaultValue;
 		if(ascending) {
-			return table_number_NumberColumn.compareValues(ar.min,br.min);
+			return table_number_NumberColumn.compareNumbers(ar.min,br.min);
 		} else {
-			return table_number_NumberColumn.compareValues(br.max,ar.max);
+			return table_number_NumberColumn.compareNumbers(br.max,ar.max);
 		}
 	}
 	,buildEditor: function(out,store,restore) {
@@ -6016,7 +6016,7 @@ table_number_NumberRangeListColumn.prototype = $extend(table_number_NumberColumn
 		}
 		return false;
 	}
-	,compareKeyboards: function(a,b,ascending) {
+	,compareValues: function(a,b,ascending) {
 		var tmp = this.field.access(a);
 		var ar = tmp != null ? tmp : this.defaultValue;
 		var tmp = this.field.access(b);
@@ -6035,7 +6035,7 @@ table_number_NumberRangeListColumn.prototype = $extend(table_number_NumberColumn
 			} else if(bv == null) {
 				return 1;
 			}
-			return table_number_NumberColumn.compareValues(av,bv);
+			return table_number_NumberColumn.compareNumbers(av,bv);
 		} else {
 			av = type_NumRangeList.calcMax(ar);
 			bv = type_NumRangeList.calcMax(br);
@@ -6048,7 +6048,7 @@ table_number_NumberRangeListColumn.prototype = $extend(table_number_NumberColumn
 			} else if(bv == null) {
 				return 1;
 			}
-			return table_number_NumberColumn.compareValues(bv,av);
+			return table_number_NumberColumn.compareNumbers(bv,av);
 		}
 	}
 	,parseLines: function(text) {
@@ -6567,6 +6567,15 @@ var table_tag_TagColumnBase = function(name,field,et) {
 	this.filterLabels = new haxe_ds_EnumValueMap();
 	table_tag_TagLikeColumnBase.call(this,name,field);
 	this.type = et;
+	var _this = et.__constructs__;
+	var result = new Array(_this.length);
+	var _g = 0;
+	var _g1 = _this.length;
+	while(_g < _g1) {
+		var i = _g++;
+		result[i] = _this[i]._hx_name;
+	}
+	this.constructors = result;
 };
 table_tag_TagColumnBase.__name__ = true;
 table_tag_TagColumnBase.__super__ = table_tag_TagLikeColumnBase;
@@ -6589,19 +6598,12 @@ table_tag_TagColumnBase.prototype = $extend(table_tag_TagLikeColumnBase.prototyp
 		return this.field.name;
 	}
 	,type: null
+	,constructors: null
 	,getDefaultTag: function() {
 		return Type.createEnumIndex(this.type,0,null);
 	}
 	,getTagNames: function() {
-		var _this = this.type.__constructs__;
-		var result = new Array(_this.length);
-		var _g = 0;
-		var _g1 = _this.length;
-		while(_g < _g1) {
-			var i = _g++;
-			result[i] = _this[i]._hx_name;
-		}
-		return result;
+		return this.constructors;
 	}
 	,tagToIndex: function(val) {
 		return val._hx_index;
@@ -6634,12 +6636,15 @@ table_tag_TagColumnBase.prototype = $extend(table_tag_TagLikeColumnBase.prototyp
 	,__class__: table_tag_TagColumnBase
 });
 var table_tag_TagColumn = function(name,field,et) {
+	this.sortOrder = [];
 	table_tag_TagColumnBase.call(this,name,field,et);
+	this.canSort = true;
 };
 table_tag_TagColumn.__name__ = true;
 table_tag_TagColumn.__super__ = table_tag_TagColumnBase;
 table_tag_TagColumn.prototype = $extend(table_tag_TagColumnBase.prototype,{
-	buildValue: function(out,kb) {
+	sortOrder: null
+	,buildValue: function(out,kb) {
 		table_tag_TagLikeColumnTools.buildSingleValue(this,out,kb);
 	}
 	,buildUsedValues: function() {
@@ -6659,6 +6664,33 @@ table_tag_TagColumn.prototype = $extend(table_tag_TagColumnBase.prototype,{
 	}
 	,load: function(kb) {
 		table_tag_TagLikeColumnTools.load(this,kb);
+	}
+	,compareValues: function(a,b,ascending) {
+		var av = this.field.access(a);
+		var bv = this.field.access(b);
+		if(this.sortOrder.length != 0) {
+			var ai = this.sortOrder.indexOf(av);
+			if(ai < 0) {
+				ai = this.sortOrder.length;
+			}
+			var bi = this.sortOrder.indexOf(bv);
+			if(bi < 0) {
+				bi = this.sortOrder.length;
+			}
+			if(ascending) {
+				return ai - bi;
+			} else {
+				return bi - ai;
+			}
+		} else {
+			var ai = av != null ? av._hx_index : this.constructors.length;
+			var bi = bv != null ? bv._hx_index : this.constructors.length;
+			if(ascending) {
+				return ai - bi;
+			} else {
+				return bi - ai;
+			}
+		}
 	}
 	,__class__: table_tag_TagColumn
 });
@@ -7938,7 +7970,7 @@ type_NumRangeList.calcMin = function(this1,def) {
 	while(_g < this1.length) {
 		var range = this1[_g];
 		++_g;
-		if(result == null || table_number_NumberColumn.compareValues(range.min,result) < 0) {
+		if(result == null || table_number_NumberColumn.compareNumbers(range.min,result) < 0) {
 			result = range.min;
 		}
 	}
@@ -7958,7 +7990,7 @@ type_NumRangeList.calcMax = function(this1,def) {
 	while(_g < this1.length) {
 		var range = this1[_g];
 		++_g;
-		if(result == null || table_number_NumberColumn.compareValues(range.max,result) > 0) {
+		if(result == null || table_number_NumberColumn.compareNumbers(range.max,result) > 0) {
 			result = range.max;
 		}
 	}

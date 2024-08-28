@@ -1,3 +1,4 @@
 -cp src
 -js docs/script.js
 -main Main
+flags.hxml

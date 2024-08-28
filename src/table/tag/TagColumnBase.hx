@@ -38,11 +38,12 @@ class TagColumnBase<T, ET:EnumValue, FT> extends TagLikeColumnBase<T, ET, FT> {
 	}
 	
 	public var type:Enum<ET>;
+	public var constructors:Array<String>;
 	public function getDefaultTag() {
 		return type.createByIndex(0);
 	}
 	public function getTagNames():Array<String> {
-		return type.getConstructors();
+		return constructors;
 	}
 	public function tagToIndex(val:ET):Int {
 		return val.getIndex();
@@ -66,5 +67,6 @@ class TagColumnBase<T, ET:EnumValue, FT> extends TagLikeColumnBase<T, ET, FT> {
 	public function new(name:String, field:FancyField<T, FT>, et:Enum<ET>) {
 		super(name, field);
 		this.type = et;
+		constructors = et.getConstructors();
 	}
 }

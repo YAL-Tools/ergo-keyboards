@@ -22,7 +22,7 @@ class NumberColumn<VT, NT:Float> extends NumberColumnBase<VT, NT, NT> {
 		if (Math.isNaN(f)) return null;
 		return f;
 	}
-	public static function compareValues<NT:Float>(a:NT, b:NT) {
+	public static function compareNumbers<NT:Float>(a:NT, b:NT) {
 		if (a < b) return -1;
 		if (a > b) return 1;
 		return 0;
@@ -74,10 +74,10 @@ class NumberColumn<VT, NT:Float> extends NumberColumnBase<VT, NT, NT> {
 		if (filterMax != null && val > filterMax) return false;
 		return true;
 	}
-	override public function compareKeyboards(a:VT, b:VT, ascending:Bool):Int {
+	override public function compareValues(a:VT, b:VT, ascending:Bool):Int {
 		var av = field.access(a) ?? defaultValue;
 		var bv = field.access(b) ?? defaultValue;
-		if (ascending) return compareValues(av, bv);
-		return compareValues(bv, av);
+		if (ascending) return compareNumbers(av, bv);
+		return compareNumbers(bv, av);
 	}
 }

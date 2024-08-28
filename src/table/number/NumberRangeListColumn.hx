@@ -52,7 +52,7 @@ class NumberRangeListColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB
 		}
 		return false;
 	}
-	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
+	override public function compareValues(a:KB, b:KB, ascending:Bool):Int {
 		var ar = field.access(a) ?? defaultValue;
 		var br = field.access(b) ?? defaultValue;
 		var av:NT, bv:NT;
@@ -62,14 +62,14 @@ class NumberRangeListColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB
 			if (av == null) {
 				return bv == null ? 0 : -1;
 			} else if (bv == null) return 1;
-			return NumberColumn.compareValues(av, bv);
+			return NumberColumn.compareNumbers(av, bv);
 		} else {
 			av = ar.calcMax();
 			bv = br.calcMax();
 			if (av == null) {
 				return bv == null ? 0 : -1;
 			} else if (bv == null) return 1;
-			return NumberColumn.compareValues(bv, av);
+			return NumberColumn.compareNumbers(bv, av);
 		}
 	}
 	static var rxRange = new RegExp("^(.+?)(-|\\.{2,3})(.+?)$");

@@ -47,12 +47,12 @@ class NumberRangeColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB, NT
 		if (filterMax != null && val.min > filterMax) return false;
 		return true;
 	}
-	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
+	override public function compareValues(a:KB, b:KB, ascending:Bool):Int {
 		var ar = field.access(a) ?? defaultValue;
 		var br = field.access(b) ?? defaultValue;
 		if (ascending) {
-			return NumberColumn.compareValues(ar.min, br.min);
-		} else return NumberColumn.compareValues(br.max, ar.max);
+			return NumberColumn.compareNumbers(ar.min, br.min);
+		} else return NumberColumn.compareNumbers(br.max, ar.max);
 	}
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var fds:Array<InputElement> = [];

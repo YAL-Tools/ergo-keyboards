@@ -59,7 +59,7 @@ class FancyColumn<T> {
 	}
 	
 	public var canSort = false;
-	public function compareKeyboards(a:T, b:T, ascending:Bool):Int {
+	public function compareValues(a:T, b:T, ascending:Bool):Int {
 		return 0;
 	}
 	// if saving/loading requires preprocessing, these two should apply/undo that

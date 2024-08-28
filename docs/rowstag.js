@@ -1305,7 +1305,11 @@ window.rowStagData = [
 "2024-08-08"
 ];
 window.rowStagTODOs = `
-65%u Various Alice boards https://www.reddit.com/r/ErgoMechKeyboards/comments/18nzira/budget_alice_keyboards/
+65%u Akko ACR Pro Alice Plus
+75%u Keychron V10
+65%u Keychron V8
+65%u Epomaker Alice Kit https://epomaker.com/products/epomaker-alice-via-diy-kit
+65%u Orange Boy Ergo https://mechwild.com/product/orange-boy-ergo/
 40%s Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
 65%u https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
 75%u Perixx PERIBOARD-613 B
@@ -1315,6 +1319,7 @@ window.rowStagTODOs = `
 75%s R-Go Split Break
 65%s Keebio keyboards
 65%s CIDOO ABM066
+65%s CIDOO V68
 60%u https://kbd.news/Amano-1886.html
 40%u https://kbd.news/Feather-40-1733.html
 65%u YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
@@ -1334,6 +1339,11 @@ window.rowStagTODOs = `
 80%u HP 960 https://www.hp.com/us-en/shop/pdp/hp-960-ergonomic-wireless-keyboard
 98%u Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
 65%s https://github.com/thewinger/winsplit https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
+100% X9 https://www.amazon.com/dp/B08FMMGMPN
+40%u Cisne
+75%s YDMK Split FL84
+80%s https://github.com/jurassic73/split89
+65%u https://github.com/cassiozen/FatBee/
 `
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case

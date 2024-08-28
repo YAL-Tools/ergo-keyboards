@@ -45,7 +45,7 @@ class NumberListColumn<KB:Keyboard, NT:Float> extends NumberColumnBase<KB, NT, V
 		}
 		return filterMin == null && filterMax == null;
 	}
-	override public function compareKeyboards(a:KB, b:KB, ascending:Bool):Int {
+	override public function compareValues(a:KB, b:KB, ascending:Bool):Int {
 		var al = field.access(a) ?? [];
 		var bl = field.access(b) ?? [];
 		var am = null;

@@ -1,4 +1,5 @@
 package ;
+#if keyboards
 import type.IntRange;
 import type.EncoderType;
 import type.Firmware;
@@ -85,8 +86,13 @@ class ColStagBoards {
 		kb.extras = [
 			"[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case",
 			"[v:Unibody case] https://www.thingiverse.com/thing:6455098",
+			"[v:Unibody tray] https://www.thingiverse.com/thing:4897653",
 			"[v:Trackpad module] https://www.thingiverse.com/thing:5425081",
 			"[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case",
+			"[v:LP Case] https://www.thingiverse.com/thing:4549765 @ https://kbd.news/Corne-LP-case-810.html",
+			"[v:Case] https://github.com/kisonecat/corne-case",
+			"[v:Tented case] https://www.thingiverse.com/thing:4705667",
+			"[v:Magnetic case] https://github.com/Runningtarrens/Mcorne",
 		];
 		kb.img = "crkbd.jpg";
 		kb.addSKBC();
@@ -1181,7 +1187,7 @@ class ColStagBoards {
 			"[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless",
 			"[v:MX] https://www.ergokb.tw/products/phoenix/",
 		];
-		kb.img = "ergodox-ez.webp";
+		kb.img = "ergodox-ez.avif";
 		kb.notes = [
 			"There are multiple keyboards using an Ergodox[-like] layout",
 		];
@@ -1190,6 +1196,7 @@ class ColStagBoards {
 		kb = new ColStagKeyboard("MOMOKA ERGO", ergodoxy);
 		kb.img = "momoka-ergo.webp";
 		kb.notes = "Few keys less than a regular Ergodox";
+		kb.keys = 70;
 		kb.innerKeys = 0;
 		kb.connection = [Wired];
 		kb.switchProfile = [MX];
@@ -1291,3 +1298,4 @@ class ColStagBoards {
 		add(kb);
 	}
 }
+#end
