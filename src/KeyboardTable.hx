@@ -236,6 +236,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		//
 		switchType.filterLabels[SwitchProfile.AnyHP] = "High-profile";
 		switchType.filterLabels[SwitchProfile.AnyLP] = "Low-profile";
+		switchType.filterLabels[SwitchProfile.AnyMechanical] = "Mechanical";
+		switchType.filterLabels[SwitchProfile.AnySimple] = "Non-mechanical";
 		switchType.filterLabels[SwitchProfile.Choc] = "Kailh Choc V1";
 		switchType.filterLabels[SwitchProfile.ChocV2] = "Kailh Choc V2";
 		switchType.filterLabels[SwitchProfile.ChocMini] = "Kailh Choc Mini";
@@ -243,12 +245,18 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron LP";
 		//
 		switchType.shortLabels[SwitchProfile.Unknown] = "";
+		switchType.shortLabels[SwitchProfile.KXSwitch] = "KX";
+		switchType.shortLabels[SwitchProfile.ChocMini] = "mChoc";
 		switchType.shortLabels[SwitchProfile.GateronLP] = "GLP";
 		switchType.shortLabels[SwitchProfile.OutemuLP] = "OLP";
 		switchType.shortLabels[SwitchProfile.CherryULP] = "CULP";
 		switchType.shortLabels[SwitchProfile.Optical] = "Opt";
+		//
 		switchType.hideInEditor[SwitchProfile.AnyHP] = true;
 		switchType.hideInEditor[SwitchProfile.AnyLP] = true;
+		switchType.hideInEditor[SwitchProfile.AnyMechanical] = true;
+		switchType.hideInEditor[SwitchProfile.AnySimple] = true;
+		//
 		switchType.columnCount = 2;
 		addColumn(switchType);
 		
@@ -495,6 +503,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		var col:FancyColumn<KB>;
 		
 		var palm = new TagListColumn("Palm/wrist pads", mgf(kb.wristPads), WristPads);
+		palm.shortName = "Pads";
 		palm.show = false;
 		palm.shortLabels[WristPads.None] = "";
 		palm.shortLabels[WristPads.Integrated] = "+";

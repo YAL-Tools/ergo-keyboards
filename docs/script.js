@@ -1325,18 +1325,24 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		switchType.shortName = "SwP";
 		switchType.filterLabels.set(type_SwitchProfile.AnyHP,"High-profile");
 		switchType.filterLabels.set(type_SwitchProfile.AnyLP,"Low-profile");
+		switchType.filterLabels.set(type_SwitchProfile.AnyMechanical,"Mechanical");
+		switchType.filterLabels.set(type_SwitchProfile.AnySimple,"Non-mechanical");
 		switchType.filterLabels.set(type_SwitchProfile.Choc,"Kailh Choc V1");
 		switchType.filterLabels.set(type_SwitchProfile.ChocV2,"Kailh Choc V2");
 		switchType.filterLabels.set(type_SwitchProfile.ChocMini,"Kailh Choc Mini");
 		switchType.filterLabels.set(type_SwitchProfile.KXSwitch,"Kailh X-Switch");
 		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron LP");
 		switchType.shortLabels.set(type_SwitchProfile.Unknown,"");
+		switchType.shortLabels.set(type_SwitchProfile.KXSwitch,"KX");
+		switchType.shortLabels.set(type_SwitchProfile.ChocMini,"mChoc");
 		switchType.shortLabels.set(type_SwitchProfile.GateronLP,"GLP");
 		switchType.shortLabels.set(type_SwitchProfile.OutemuLP,"OLP");
 		switchType.shortLabels.set(type_SwitchProfile.CherryULP,"CULP");
 		switchType.shortLabels.set(type_SwitchProfile.Optical,"Opt");
 		switchType.hideInEditor.set(type_SwitchProfile.AnyHP,true);
 		switchType.hideInEditor.set(type_SwitchProfile.AnyLP,true);
+		switchType.hideInEditor.set(type_SwitchProfile.AnyMechanical,true);
+		switchType.hideInEditor.set(type_SwitchProfile.AnySimple,true);
 		switchType.columnCount = 2;
 		this.addColumn(switchType);
 		var colSpacing = new table_tag_TagListColumn("Key spacing",new table_FancyField("keySpacing",function(q,wantSet,setValue) {
@@ -1644,6 +1650,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.wristPads;
 			}
 		}),type_WristPads);
+		palm.shortName = "Pads";
 		palm.show = false;
 		palm.shortLabels.set(type_WristPads.None,"");
 		palm.shortLabels.set(type_WristPads.Integrated,"+");
@@ -8067,37 +8074,39 @@ var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__con
 	,Unknown: {_hx_name:"Unknown",_hx_index:0,__enum__:"type.SwitchProfile",toString:$estr}
 	,AnyHP: {_hx_name:"AnyHP",_hx_index:1,__enum__:"type.SwitchProfile",toString:$estr}
 	,AnyLP: {_hx_name:"AnyLP",_hx_index:2,__enum__:"type.SwitchProfile",toString:$estr}
-	,MX: {_hx_name:"MX",_hx_index:3,__enum__:"type.SwitchProfile",toString:$estr}
-	,Choc: {_hx_name:"Choc",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
-	,ChocV2: {_hx_name:"ChocV2",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
-	,ChocMini: {_hx_name:"ChocMini",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
-	,KXSwitch: {_hx_name:"KXSwitch",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
-	,Alps: {_hx_name:"Alps",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
-	,GateronLP: {_hx_name:"GateronLP",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
-	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
-	,CherryULP: {_hx_name:"CherryULP",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
-	,Optical: {_hx_name:"Optical",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
-	,Topre: {_hx_name:"Topre",_hx_index:13,__enum__:"type.SwitchProfile",toString:$estr}
-	,Simple: {_hx_name:"Simple",_hx_index:14,__enum__:"type.SwitchProfile",toString:$estr}
-	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:15,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:16,__enum__:"type.SwitchProfile",toString:$estr}
+	,AnyMechanical: {_hx_name:"AnyMechanical",_hx_index:3,__enum__:"type.SwitchProfile",toString:$estr}
+	,AnySimple: {_hx_name:"AnySimple",_hx_index:4,__enum__:"type.SwitchProfile",toString:$estr}
+	,MX: {_hx_name:"MX",_hx_index:5,__enum__:"type.SwitchProfile",toString:$estr}
+	,Choc: {_hx_name:"Choc",_hx_index:6,__enum__:"type.SwitchProfile",toString:$estr}
+	,ChocV2: {_hx_name:"ChocV2",_hx_index:7,__enum__:"type.SwitchProfile",toString:$estr}
+	,ChocMini: {_hx_name:"ChocMini",_hx_index:8,__enum__:"type.SwitchProfile",toString:$estr}
+	,KXSwitch: {_hx_name:"KXSwitch",_hx_index:9,__enum__:"type.SwitchProfile",toString:$estr}
+	,Alps: {_hx_name:"Alps",_hx_index:10,__enum__:"type.SwitchProfile",toString:$estr}
+	,GateronLP: {_hx_name:"GateronLP",_hx_index:11,__enum__:"type.SwitchProfile",toString:$estr}
+	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
+	,CherryULP: {_hx_name:"CherryULP",_hx_index:13,__enum__:"type.SwitchProfile",toString:$estr}
+	,Optical: {_hx_name:"Optical",_hx_index:14,__enum__:"type.SwitchProfile",toString:$estr}
+	,Topre: {_hx_name:"Topre",_hx_index:15,__enum__:"type.SwitchProfile",toString:$estr}
+	,Simple: {_hx_name:"Simple",_hx_index:16,__enum__:"type.SwitchProfile",toString:$estr}
+	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:17,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:18,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.AnyHP,type_SwitchProfile.AnyLP,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.ChocMini,type_SwitchProfile.KXSwitch,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.AnyHP,type_SwitchProfile.AnyLP,type_SwitchProfile.AnyMechanical,type_SwitchProfile.AnySimple,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.ChocMini,type_SwitchProfile.KXSwitch,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
 var type_SwitchProfileTools = function() { };
 type_SwitchProfileTools.__name__ = true;
 type_SwitchProfileTools.isHP = function(p) {
 	switch(p._hx_index) {
 	case 1:
 		return true;
-	case 3:
+	case 5:
 		return true;
-	case 8:
-		return true;
-	case 12:
-		return true;
-	case 13:
+	case 10:
 		return true;
 	case 14:
+		return true;
+	case 15:
+		return true;
+	case 16:
 		return true;
 	default:
 		return false;
@@ -8107,24 +8116,34 @@ type_SwitchProfileTools.isLP = function(p) {
 	switch(p._hx_index) {
 	case 2:
 		return true;
-	case 4:
-		return true;
-	case 5:
-		return true;
 	case 6:
 		return true;
 	case 7:
 		return true;
-	case 9:
+	case 8:
 		return true;
-	case 10:
+	case 9:
 		return true;
 	case 11:
 		return true;
-	case 15:
+	case 12:
+		return true;
+	case 13:
+		return true;
+	case 17:
 		return true;
 	default:
 		return false;
+	}
+};
+type_SwitchProfileTools.isMech = function(p) {
+	switch(p._hx_index) {
+	case 16:
+		return false;
+	case 17:
+		return false;
+	default:
+		return true;
 	}
 };
 var type_SwitchProfileColumn = function(name,field,et) {
@@ -8137,6 +8156,13 @@ type_SwitchProfileColumn.prototype = $extend(table_tag_TagListColumn.prototype,{
 		switch(val._hx_index) {
 		case 1:case 2:
 			return true;
+		case 3:case 4:
+			if(!table_tag_TagListColumn.prototype.showInFilters.call(this,type_SwitchProfile.Simple)) {
+				return table_tag_TagListColumn.prototype.showInFilters.call(this,type_SwitchProfile.SimpleLP);
+			} else {
+				return true;
+			}
+			break;
 		default:
 			return table_tag_TagListColumn.prototype.showInFilters.call(this,val);
 		}
@@ -8144,25 +8170,57 @@ type_SwitchProfileColumn.prototype = $extend(table_tag_TagListColumn.prototype,{
 	,tagsContain: function(tags,tag) {
 		switch(tag._hx_index) {
 		case 1:
+			var fn = type_SwitchProfileTools.isHP;
+			var ret = false;
 			var _g = 0;
 			while(_g < tags.length) {
 				var val = tags[_g];
 				++_g;
-				if(type_SwitchProfileTools.isHP(val)) {
-					return true;
+				if(fn(val)) {
+					ret = true;
+					break;
 				}
 			}
-			return false;
+			return ret;
 		case 2:
+			var fn = type_SwitchProfileTools.isLP;
+			var ret = false;
 			var _g = 0;
 			while(_g < tags.length) {
 				var val = tags[_g];
 				++_g;
-				if(type_SwitchProfileTools.isLP(val)) {
-					return true;
+				if(fn(val)) {
+					ret = true;
+					break;
 				}
 			}
-			return false;
+			return ret;
+		case 3:
+			var fn = type_SwitchProfileTools.isMech;
+			var ret = false;
+			var _g = 0;
+			while(_g < tags.length) {
+				var val = tags[_g];
+				++_g;
+				if(fn(val)) {
+					ret = true;
+					break;
+				}
+			}
+			return ret;
+		case 4:
+			var fn = type_SwitchProfileTools.isMech;
+			var ret = false;
+			var _g = 0;
+			while(_g < tags.length) {
+				var val = tags[_g];
+				++_g;
+				if(fn(val)) {
+					ret = true;
+					break;
+				}
+			}
+			return !ret;
 		default:
 			return table_tag_TagListColumn.prototype.tagsContain.call(this,tags,tag);
 		}
