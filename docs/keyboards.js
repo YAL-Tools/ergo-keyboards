@@ -7030,6 +7030,8 @@ r-track https://gitlab.com/keyboards1/dm_r_track/-/tree/master/boolean
 https://www.printables.com/model/314112-dactyl-manuball
 50s https://github.com/gargum/Iyada/tree/main/kiraibuilds/iyada
 48m https://github.com/MakerJake01/J46K
+64s https://github.com/siderakb/ergo-snm-keyboard
+30u https://github.com/doesntfazer/Goober
 `;
 
 /* Other TODOs

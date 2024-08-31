@@ -129,11 +129,11 @@ body table#data.gallery {
         // hide cell borders
         border-bottom-width: 0;
       }
-      td:empty {
+      > td:empty {
         // hide empty cells
         display: none;
       }
-      td:not(:first-child):before {
+      > td:not(:first-child):before {
         // prefix with column names
         content: attr(data-column) ": ";
         font-weight: bold;

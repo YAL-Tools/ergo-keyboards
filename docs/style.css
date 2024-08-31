@@ -202,10 +202,10 @@ body table#data.gallery > tr:not(.latest) > td:not(:first-child) {
 body table#data.gallery > tr.latest > td {
   border-bottom-width: 0;
 }
-body table#data.gallery > tr.latest td:empty {
+body table#data.gallery > tr.latest > td:empty {
   display: none;
 }
-body table#data.gallery > tr.latest td:not(:first-child):before {
+body table#data.gallery > tr.latest > td:not(:first-child):before {
   content: attr(data-column) ": ";
   font-weight: bold;
 }
