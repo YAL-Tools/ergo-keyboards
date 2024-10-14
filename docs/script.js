@@ -615,7 +615,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setQMK(kb);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.kit = ["[v:MX] https://drop.com/buy/infinity-ergodox","[v:MX] https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2","[v:MX] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","[v:MX half] https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460","[v:Choc] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614"];
-	kb.prebuilt = ["[v:MX, legs, mount] https://ergodox-ez.com/","[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415","[v:Choc+legs] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388","[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite","[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro","[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless","[v:MX] https://www.ergokb.tw/products/phoenix/"];
+	kb.prebuilt = ["[v:MX, legs, mount] https://ergodox-ez.com/","[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415","[v:Choc+legs] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388","[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite","[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro","[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless","[v:MX] https://www.ergokb.tw/products/phoenix/","[v:MX] https://www.amazon.com/Apos-ErgoDox-Ergonomic-Mechanical-Keyboard/dp/B0CYV3WFTC/","[v:MX] https://apos.audio/products/ergodox-76-hot-dox-v2-mechanical-keyboard"];
 	kb.img = type_ValList.fromValue("ergodox-ez.avif");
 	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout"];
 	var ergodoxy = add(kb);
@@ -4502,7 +4502,9 @@ table_FancyTableFilters.build = function(table,out) {
 			};
 		})(cbShow,column1);
 		column1[0].showCheckbox = cbShow[0];
-		tr.appendChild(cbShow[0]);
+		var lbShow = window.document.createElement("label");
+		lbShow.appendChild(cbShow[0]);
+		tr.appendChild(lbShow);
 		var this1 = { };
 		this1["theme"] = "translucent";
 		var toShow = this1;
@@ -4526,7 +4528,9 @@ table_FancyTableFilters.build = function(table,out) {
 			};
 		})(cbFilter,divFilters,column1);
 		column1[0].filterCheckbox = cbFilter[0];
-		tr.appendChild(cbFilter[0]);
+		var lbFilter = window.document.createElement("label");
+		lbFilter.appendChild(cbFilter[0]);
+		tr.appendChild(lbFilter);
 		var this2 = { };
 		this2["theme"] = "translucent";
 		var toFilter = this2;

@@ -1296,7 +1296,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/tadfisher/nyx-kb"
 },
-{
+/*{
 	"name": "Centromere Plus",
 	"img": "Centromere-Plus.webp",
 	"shape": "Split",
@@ -1325,7 +1325,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"caseType": "Included",
 	"kit": "!https://southpawdesign.net/collections/all"
-},
+},*/
 {
 	"name": "NISSE",
 	"img": "NISSE.jpg",
@@ -2266,7 +2266,6 @@ window.keyboardData = [
 	"notes": "different versions with different spacings, switch compatability, and case options",
 	"shape": [
 		"Unibody",
-		"Split"
 	],
 	"stagger": "Column",
 	"connection": [
@@ -2313,7 +2312,6 @@ window.keyboardData = [
 	"wristPads": "None",
 	"tilt": 0,
 	"caseType": "ThirdParty",
-	"web": "https://github.com/kilipan/zilpzalp",
 	"source": "https://github.com/kilipan/zilpzalp",
 	"kit": "https://keeb.supply/products/zilpzalp"
 },
@@ -2618,7 +2616,7 @@ window.keyboardData = [
 {
 	"name": "MM60Ergo",
 	"img": "mm60ergo.jpg",
-	"shape": "Split",
+	"shape": "Unibody",
 	"stagger": "Column",
 	"connection": "Wired",
 	"switchProfile": "MX",
@@ -5395,6 +5393,7 @@ window.keyboardData = [
 	"notes": "Runs (a fork of) Vial, but cannot be re-flashed by end user.",
 	"parent": "Corne/crkbd",
 	"connection": "Wireless",
+	"switchProfile": "MX",
 	"software": [
 		"Vial",
 		"Custom"
@@ -5564,7 +5563,7 @@ window.keyboardData = [
 {
 	"name": "Zaphod Lite",
 	"img": "zaphod-lite.jpg",
-	"shape": "Split",
+	"shape": "Unibody",
 	"stagger": "Column",
 	"connection": ["Wired", "Bluetooth"],
 	"keys": 34,
@@ -7032,11 +7031,36 @@ https://www.printables.com/model/314112-dactyl-manuball
 48m https://github.com/MakerJake01/J46K
 64s https://github.com/siderakb/ergo-snm-keyboard
 30u https://github.com/doesntfazer/Goober
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
+https://github.com/shardvark1/Tulip62 https://new.reddit.com/r/ErgoMechKeyboards/comments/1farymh/my_first_keyboard_i_designed_calling_it_the_tulip/
+https://github.com/flinguenheld/chew
+https://github.com/lapidot/TAP4
+54s https://github.com/Squalius-cephalus/silakka54
+https://github.com/victorlucachi/void40
+https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
+https://fornellas.github.io/3d_printed_keyboard/
+https://oshwhub.com/joba/works
+https://github.com/fiendie/NomadKeyboard
+42s https://github.com/triliu/Heawood42
+36s https://github.com/RasmusKoit/pipar
+34s https://github.com/eggsworks/solanum
+26u https://github.com/grassfedreeve/akohekohe
+KLOR with Choc V1 support https://github.com/sadekbaroudi/KLOR
+42u Treble https://github.com/kkckrnz/treble
+58s Bicycle https://github.com/peej/bicycle-keyboard
+70u https://github.com/triliu/reJESK
+https://github.com/ssbb/tako
+https://github.com/brucedjones/dactyl-stabilized https://photos.app.goo.gl/FvHTLifnzGaTiMUD9
+36s Waterfowl
+44s https://new.reddit.com/r/ErgoMechKeyboards/comments/1fyxy85/imperial44_v1_are_now_open_sourced/
+40s https://github.com/danbiba/zmk-config-biba40
 `;
 
 /* Other TODOs
 Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
+https://mechkey.org/ergonomics-keyboards
+https://github.com/Cipulot
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -7066,6 +7090,7 @@ https://github.com/george-norton/peacock
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1c3muo0/anu_pncateho_mouse_10key_chord_keyboard/
 https://kbd.news/Beeball-1646.html
 https://github.com/jfedor2/trackbowl-mk2
+https://ergonomictouchpad.com/ergonomic_touchpad.php
 
 Trickery:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
@@ -7074,6 +7099,9 @@ https://new.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyb
 https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
 https://new.reddit.com/r/ErgoMechKeyboards/comments/10kvbqp/keyboard_made_entirely_of_low_force_5_direction/
 https://kbd.news/3D-printed-hotswap-sockets-V4-750.html
+
+Research:
+https://new.reddit.com/r/ErgoMechKeyboards/comments/hudjyt/current_research_on_ergonomics_keyboard_design/
 
 Keypads:
 http://fingerpunch.xyz/product/kucheza/
@@ -7104,7 +7132,7 @@ XVX Horizon
 Tai-Hao Thins
 
 Unreleased:
-https://www.reddit.com/r/olkb/comments/1cz6dmk/my_first_finished_handwire_build_prototyping_an/
+https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/
 Naya Create
 https://www.arrowmechanics.com/produkty
 https://keeb.io/products/chiri-ce-keyboard-kit

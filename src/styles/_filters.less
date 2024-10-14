@@ -16,7 +16,10 @@ div#filter {
     display: flex;
     align-items: start;
     width: 100%;
-    > input,
+    > label > input {
+      margin: 0;
+    }
+    > label,
     > div.name {
       margin: @space * 0.25;
     }

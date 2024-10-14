@@ -83,7 +83,9 @@ class FancyTableFilters {
 				}
 			}
 			column.showCheckbox = cbShow;
-			tr.appendChild(cbShow);
+			var lbShow = document.createLabelElement();
+			lbShow.appendChild(cbShow);
+			tr.appendChild(lbShow);
 			var toShow = new TippyOptions();
 			toShow.content = 'Show "$colName"';
 			Tippy.bind(cbShow, toShow);
@@ -104,7 +106,9 @@ class FancyTableFilters {
 				table.updateFilters();
 			}
 			column.filterCheckbox = cbFilter;
-			tr.appendChild(cbFilter);
+			var lbFilter = document.createLabelElement();
+			lbFilter.appendChild(cbFilter);
+			tr.appendChild(lbFilter);
 			var toFilter = new TippyOptions();
 			toFilter.content = 'Filter "$colName"';
 			Tippy.bind(cbFilter, toFilter);

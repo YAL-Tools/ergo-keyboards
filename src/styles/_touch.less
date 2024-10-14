@@ -1,0 +1,64 @@
+body.touch {
+	@fontSize: 16px;
+	.bigger() {
+		font-size: @fontSize;
+	}
+	.big-checkbox() {
+		transform: scale(1.5);
+		vertical-align: middle;
+	}
+	.big-checkbox-slot() {
+		padding: 0.5em;
+		> input[type="checkbox"] {
+			.big-checkbox();
+		}
+	}
+	.big-checkbox-label() {
+		.big-checkbox-slot();
+		> input[type="checkbox"] {
+			margin-right: 0.5em;
+		}
+	}
+	
+	input[type="text"],
+	input[type="number"],
+	textarea,
+	#filter textarea,
+	#editor textarea,
+	#editor-outer textarea,
+	select {
+		.bigger();
+	}
+	
+	table#data > tr > td:first-child > a {
+		display: inline-block;
+		padding: 0.5em;
+	}
+	
+	div#filter, #editor {
+		.item {
+			> label {
+				.big-checkbox-slot();
+			}
+			.column-name {
+				display: inline-block;
+				padding: 0.5em 0;
+			}
+		}
+		.tag-options {
+			label {
+				.big-checkbox-label();
+				display: block;
+			}
+		}
+		.filters.range {
+			.bigger();
+		}
+		.filters.number {
+			label {
+				.big-checkbox-label();
+				min-width: 6em;
+			}
+		}
+	}
+}

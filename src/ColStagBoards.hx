@@ -1186,6 +1186,8 @@ class ColStagBoards {
 			"[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro",
 			"[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless",
 			"[v:MX] https://www.ergokb.tw/products/phoenix/",
+			"[v:MX] https://www.amazon.com/Apos-ErgoDox-Ergonomic-Mechanical-Keyboard/dp/B0CYV3WFTC/",
+			"[v:MX] https://apos.audio/products/ergodox-76-hot-dox-v2-mechanical-keyboard",
 		];
 		kb.img = "ergodox-ez.avif";
 		kb.notes = [

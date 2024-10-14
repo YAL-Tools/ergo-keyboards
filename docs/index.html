@@ -29,32 +29,51 @@
 	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
 <body>
-	<label>
-		<input type="checkbox" id="cb-night"/>
-		Dark mode
-	</label><script>
+	<div class="toggles">
+		<label>
+			<input type="checkbox" id="cb-night"/>
+			Dark mode
+		</label><label>
+			<input type="checkbox" id="cb-touch"/>
+			Touch-friendly mode
+		</label>
+	</div>
+	<script>
 		(function() {
-			var cb = document.getElementById("cb-night");
-			function set(val) {
-				if (val) document.body.classList.add("night");
-				else document.body.classList.remove("night")
-			}
-			try {
-				var val = localStorage.getItem("yal-ergo-night");
-				if (val == null) {
-					val = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			function addClassCheckbox(name, getDefValue) {
+				var cb = document.querySelector("#cb-" + name);
+				function sync(val) {
+					if (val) document.body.classList.add(name);
+					else document.body.classList.remove(name);
 				}
-				if (val) {
-					val = val == "1";
-					cb.checked = val;
-					set(val);
+				cb.onchange = function() {
+					var val = cb.checked;
+					sync(val);
+					try {
+						localStorage.setItem("yal-ergo-" + name, val ? "1" : "0");
+					} catch (_) {}
 				}
-			} catch (_) {}
-			cb.onchange = function() {
-				var val = cb.checked;
-				set(val);
-				localStorage.setItem("yal-ergo-night", val ? "1" : "0")
+				try {
+					var val = localStorage.getItem("yal-ergo-" + name);
+					if (val == null) {
+						val = getDefValue();
+					} else {
+						val = val == "1";
+					}
+					if (val) {
+						cb.checked = val;
+						sync(val);
+					}
+				} catch (e) {
+					console.error("Load error for " + name, e);
+				}
 			}
+			addClassCheckbox("night", function() {
+				return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			});
+			addClassCheckbox("touch", function() {
+				return window.ontouchstart !== undefined;
+			});
 			
 			//
 			try {

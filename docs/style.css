@@ -16,6 +16,15 @@ body a:visited {
 body .has-notes {
   text-decoration-color: #673ab7;
 }
+.toggles {
+  line-height: 1;
+}
+.toggles label {
+  padding: 1em 0;
+}
+.toggles input {
+  vertical-align: middle;
+}
 body.night {
   background-color: #101418;
   color: #e5eaf2;
@@ -276,7 +285,10 @@ div#filter .item {
   align-items: start;
   width: 100%;
 }
-div#filter .item > input,
+div#filter .item > label > input {
+  margin: 0;
+}
+div#filter .item > label,
 div#filter .item > div.name {
   margin: 2px;
 }
@@ -407,4 +419,63 @@ body.night select {
 .tippy-content input[type="button"] {
   background: rgba(0, 0, 0, 0.9);
   color: white;
+}
+body.touch input[type="text"],
+body.touch input[type="number"],
+body.touch textarea,
+body.touch #filter textarea,
+body.touch #editor textarea,
+body.touch #editor-outer textarea,
+body.touch select {
+  font-size: 16px;
+}
+body.touch table#data > tr > td:first-child > a {
+  display: inline-block;
+  padding: 0.5em;
+}
+body.touch div#filter .item > label,
+body.touch #editor .item > label {
+  padding: 0.5em;
+}
+body.touch div#filter .item > label > input[type="checkbox"],
+body.touch #editor .item > label > input[type="checkbox"] {
+  transform: scale(1.5);
+  vertical-align: middle;
+}
+body.touch div#filter .item .column-name,
+body.touch #editor .item .column-name {
+  display: inline-block;
+  padding: 0.5em 0;
+}
+body.touch div#filter .tag-options label,
+body.touch #editor .tag-options label {
+  padding: 0.5em;
+  display: block;
+}
+body.touch div#filter .tag-options label > input[type="checkbox"],
+body.touch #editor .tag-options label > input[type="checkbox"] {
+  transform: scale(1.5);
+  vertical-align: middle;
+}
+body.touch div#filter .tag-options label > input[type="checkbox"],
+body.touch #editor .tag-options label > input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+body.touch div#filter .filters.range,
+body.touch #editor .filters.range {
+  font-size: 16px;
+}
+body.touch div#filter .filters.number label,
+body.touch #editor .filters.number label {
+  padding: 0.5em;
+  min-width: 6em;
+}
+body.touch div#filter .filters.number label > input[type="checkbox"],
+body.touch #editor .filters.number label > input[type="checkbox"] {
+  transform: scale(1.5);
+  vertical-align: middle;
+}
+body.touch div#filter .filters.number label > input[type="checkbox"],
+body.touch #editor .filters.number label > input[type="checkbox"] {
+  margin-right: 0.5em;
 }

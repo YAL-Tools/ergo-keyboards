@@ -1328,7 +1328,7 @@ window.rowStagTODOs = `
 100%u https://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-keyboard/
 65%u https://ajazzstore.com/products/ajazz-aks068-pro
 65%u https://www.qwertykeys.com/products/neo-ergo
-65%s https://www.nocfree.com/products/nocfree-lite
+65%s https://www.nocfree.com/products/nocfree-lite https://www.amazon.com/NocFree-Lite-Mechanical-Programmable-Hot-swappable/dp/B0D6MT8TYQ/
 60%u https://www.primekb.com/collections/keyboards
 75%s https://nullbits.co/snap/
 60%s https://www.hidergo.fi/shop/disconnect_mk1/
