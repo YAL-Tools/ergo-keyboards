@@ -141,7 +141,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				'Also see "corner keys" for alternative placement ideas'
 			);
 		}
-		navCluster.show = false;
 		navCluster.shortName = "nav";
 		navCluster.filterTags = [NavCluster.Arrows, NavCluster.Duo, NavCluster.Full];
 		navCluster.shortLabels[NavCluster.None] = "";
@@ -149,7 +148,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 	}
 	function initColNum(kb:KB) {
 		var numpad = new TagListColumn("Numpad", mgf(kb.numpad), Numpad);
-		numpad.show = false;
 		numpad.columnCount = 2;
 		numpad.onNotes = function(div) {
 			var p = div.appendParaTextNode("");
@@ -164,6 +162,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 		addFilterHeader("General");
 		mAddColumn(col = new NameColumn("Name & photo", kb.name));
+		col.show = true;
 		
 		mAddColumn(col = new ParentColumn("Parent", kb.parent));
 		col.onEditorNotes = (out) -> {
@@ -173,10 +172,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				"Load the definition of Sofle Choc Wireless for an example."
 			);
 		}
-		col.show = false;
 		
 		var shape = new TagListColumn("Shape", mgf(kb.shape), Shape);
-		shape.show = false;
 		shape.columnCount = 2;
 		//
 		shape.shortLabels[Shape.Monoblock] = "Mono";
@@ -207,7 +204,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		addColumn(shape);
 		
 		var staggerType = new TagListColumn("Stagger type", mgf(kb.stagger), StaggerType);
-		staggerType.show = false;
 		staggerType.shortName = "Stag";
 		staggerType.filterLabels[StaggerType.Column] = "Columnar";
 		staggerType.filterLabels[StaggerType.Ortho] = "Ortholinear";
@@ -376,11 +372,9 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		avail.shortLabels[Availability.PreBuilt] = "PB";
 		avail.filterTags = [Kit, PreBuilt];
 		avail.canEdit = false;
-		avail.show = false;
 		addColumn(avail);
 		
 		mAddColumn(lc = new LinkListColumn("Layout ref", kb.layoutRef));
-		lc.show = false;
 		lc.onNotes = function(div:Element):Void {
 			div.appendParaTextNode("If there's a PDF/etc. that you can print"
 				+ " to check how your fingers would rest on the keyboard,"
@@ -417,7 +411,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		irCol.filterMinDefault = 1;
 		
 		var enct = new TagListColumn("Encoder type", mgf(kb.encoderType), EncoderType);
-		enct.show = false;
 		enct.columnCount = 2;
 		enct.shortName = "EncT";
 		enct.shortLabels[EncoderType.Unknown] = "";
@@ -452,24 +445,19 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		};
 		pds.shortName = "PDs";
 		pds.filterMinDefault = 1;
-		pds.show = false;
 		addColumn(pds);
 		
 		mAddColumn(irCol = new IntRangeColumn("Trackballs", kb.trackballs));
-		irCol.show = false;
 		irCol.filterMinDefault = 1;
 		
 		mAddColumn(fCol = new FloatColumn("Trackball size", kb.trackballSize));
 		fCol.filterName = fCol.name + " (mm)";
-		fCol.show = false;
 		
 		mAddColumn(irCol = new IntRangeColumn("Touchpads", kb.trackpads));
-		irCol.show = false;
 		irCol.filterMinDefault = 1;
 		
 		mAddColumn(fCol = new FloatColumn("Touchpad size", kb.trackpadSize));
 		fCol.filterName = fCol.name + " (mm)";
-		fCol.show = false;
 		
 		mAddColumn(irCol = new IntRangeColumn("Trackpoints", kb.trackpoints));
 		irCol.filterMinDefault = 1;
@@ -478,7 +466,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				"Those little pointing sticks. Usually found somewhere between the keys."
 			);
 		}
-		irCol.show = false;
 		
 		mAddColumn(irCol = new IntRangeColumn("D-pads", kb.dpads));
 		irCol.show = false;
@@ -504,7 +491,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 		var palm = new TagListColumn("Palm/wrist pads", mgf(kb.wristPads), WristPads);
 		palm.shortName = "Pads";
-		palm.show = false;
 		palm.shortLabels[WristPads.None] = "";
 		palm.shortLabels[WristPads.Integrated] = "+";
 		palm.shortLabels[WristPads.Detachable] = "±";
@@ -522,14 +508,12 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		addColumn(palm);
 		
 		var tkCol = new TagListColumn("Tenting", mgf(kb.tenting), Tenting);
-		tkCol.show = false;
 		tkCol.columnCount = 2;
 		addColumn(tkCol);
 		
 		/*var irCol:IntRangeColumn<KB>;
 		mAddColumn(irCol = new IntRangeColumn("Tilt", kb.tilt));
 		irCol.suffix = "°";
-		irCol.show = false;
 		irCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"Measured in degrees, approximately (unless specified by author/manufacturer).",
@@ -544,7 +528,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		
 		mAddColumn(irCol = new IntRangeColumn("Tenting", kb.tenting));
 		irCol.suffix = "°";
-		irCol.show = false;
 		irCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"Some keyboards have an integrated system to raise the middle part of the keyboard"
@@ -575,7 +558,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		ctCol.shortLabels[CaseType.ThirdParty] = "3p";
 		ctCol.filterTags = [CaseType.Included, CaseType.ThirdParty];
 		ctCol.columnCount = 2;
-		ctCol.show = false;
 		addColumn(ctCol);
 		
 		var xCol = new LinkListColumn("Extras", mgf(kb.extras));
@@ -590,12 +572,10 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		var col:FancyColumn<KB>;
 		
 		mAddColumn(col = new IntRangeColumn("Displays", kb.displays));
-		col.show = false;
 		
 		var light = new TagListColumn("Lighting", mgf(kb.lighting), Lighting);
 		light.shortLabels[Lighting.Unknown] = "";
 		light.shortLabels[Lighting.None] = "-";
-		light.show = false;
 		light.columnCount = 2;
 		addColumn(light);
 		
@@ -611,11 +591,9 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		fw.shortLabels[Firmware.Unknown] = "";
 		fw.shortLabels[Firmware.Custom] = "*";
 		fw.columnCount = 2;
-		fw.show = false;
 		addColumn(fw);
 		
 		var sw = new TagListColumn("Software", mgf(kb.software), Software);
-		sw.show = false;
 		sw.columnCount = 2;
 		addColumn(sw);
 		
@@ -651,13 +629,11 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		}
 		//asm.shortLabels[Assembly.Unspecified] = "";
 		asm.shortName = "Assembly";
-		asm.show = false;
 		addColumn(asm);
 	}
 	function initControllers(kb:KB) {
 		addFilterHeader("Controllers");
 		inline function addHidden(col:FancyColumn<KB>) {
-			col.show = false;
 			addColumn(col);
 		}
 		

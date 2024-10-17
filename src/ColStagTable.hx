@@ -32,6 +32,8 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		
 		mAddColumn(col = new IntRangeListColumn("Key count", kb.keys));
 		col.shortName = "#keys";
+		col.show = true;
+		
 		
 		var rowsCol:IntRangeColumn<ColStagKeyboard>;
 		mAddColumn(rowsCol = new IntRangeColumn("Rows", kb.rows));
@@ -98,7 +100,6 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		};
 		var rcolsFd = new FancyField("rcols", rcolsFn);
 		col = new IntRangeColumn("Right-side columns", rcolsFd);
-		col.show = false;
 		col.shortName = "ColsR";
 		col.onNotes = function(div) {
 			div.appendParaTextNode(
@@ -138,7 +139,6 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		irCol = new IntRangeColumn("Inner keys", mgf(kb.innerKeys));
 		irCol.shortName = "#inner";
 		irCol.filterMinDefault = 1;
-		irCol.show = false;
 		irCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"Sometimes keyboards have keys between the two halves that aren't part of the main area, " +
@@ -155,7 +155,6 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		mAddColumn(irCol = new IntRangeColumn("Outer keys", kb.outerKeys));
 		irCol.shortName = "#outer";
 		irCol.filterMinDefault = 1;
-		irCol.show = false;
 		irCol.onNotes = function(div) {
 			div.appendParaTextNode("Sometimes a keyboard has an extra key or two on the outer edges.");
 			addImagePara(div, "outer-keys.png", 450, 150, "Outer keys on an Avalanche keyboard");
@@ -166,7 +165,6 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		mAddColumn(irCol = new IntRangeColumn("Corner keys", kb.cornerKeys));
 		irCol.shortName = "#corner";
 		irCol.filterMinDefault = 1;
-		irCol.show = false;
 		irCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " +

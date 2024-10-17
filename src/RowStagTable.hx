@@ -123,7 +123,6 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 				p.appendElTextNode("code", k2);
 				p.appendTextNode(", and so on.");
 			}
-			col.show = false;
 			addColumn(col);
 		}
 		addColCountCol(0, "1", mgf(kb.dCols), "-_", "=+");
@@ -134,7 +133,6 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 	override function initClusters(kb:RowStagKeyboard):Void {
 		super.initClusters(kb);
 		function addHidden(col:FancyColumn<RowStagKeyboard>) {
-			col.show = false;
 			addColumn(col);
 		}
 		
@@ -236,7 +234,6 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 			div.appendParaTextNode("Just a mouse wheel, not remappable.");
 		};
 		mw.shortName = "wheel";
-		mw.show = false;
 		addColumn(mw);
 	}
 	override public function initKeyboards() {

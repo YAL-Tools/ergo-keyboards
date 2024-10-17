@@ -19,7 +19,7 @@ class FancyColumn<T> {
 	public var shortName:String = null;
 	public var onNotes:Element->Void = null;
 	public var onEditorNotes:Element->Void = null;
-	public var show = true;
+	public var show = false;
 	public var canShow = true;
 	public var canFilter = true;
 	public var canEdit = true;
