@@ -76,10 +76,16 @@ h2 {
 .tag-options[column-count="3"] {
   columns: 3;
 }
+body.rowstag .if-colstag {
+  display: none;
+}
+body.forties .if-colstag {
+  display: none;
+}
 body:not(.rowstag) .if-rowstag {
   display: none;
 }
-body.rowstag .if-colstag {
+body:not(.forties) .if-forties {
   display: none;
 }
 input[invalid] {

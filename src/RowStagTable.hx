@@ -20,6 +20,11 @@ using tools.HtmlTools;
  * @author YellowAfterlife
  */
 class RowStagTable extends KeyboardTable<RowStagKeyboard> {
+	public var isForties:Bool;
+	public function new(isForties) {
+		this.isForties = isForties;
+		super();
+	}
 	override public function collectFilters():DynamicAccess<String> {
 		var result = super.collectFilters();
 		result["row"] = "";
@@ -237,7 +242,11 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		addColumn(mw);
 	}
 	override public function initKeyboards() {
-		var kbs:Array<RowStagKeyboard> = (cast window).rowStagData;
+		var dynWindow = (cast window);
+		var kbs:Array<RowStagKeyboard>;
+		if (isForties) {
+			kbs = dynWindow.fortiesData;
+		} else kbs = dynWindow.rowStagData;
 		for (kb in kbs) {
 			if (kb is String) {
 				document.querySelector("#version").innerText = cast kb;

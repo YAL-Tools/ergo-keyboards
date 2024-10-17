@@ -78,9 +78,13 @@
 			//
 			try {
 				var search = document.location.search;
-				if (/[?&]row\b/.test(search)) {
+				if (/[?&]40s\b/.test(search)) {
+					document.body.classList.add("forties");
+				} else if (/[?&]row\b/.test(search)) {
 					document.body.classList.add("rowstag");
-				} else document.body.classList.add("colstag");
+				} else {
+					document.body.classList.add("colstag");
+				}
 			} catch (_) {}
 		})();
 	</script>
@@ -90,8 +94,6 @@
 	</p><p class="if-colstag">
 		It does not contain <i>every single keyboard</i>,
 		but it's a pretty big sample - especially as far medium/big/interesting keyboards go.
-	</p><p class="if-colstag">
-		See <a href="?row">the other list</a> for row-staggered/standard-layout keyboards.
 	</p>
 	<p class="if-rowstag">
 		This is a collection of row-staggered ergonomic keyboards!<br>
@@ -99,9 +101,19 @@
 	</p><p class="if-rowstag">
 		This one's a mostly-random sample of keyboards - there's not exactly a shortage of places
 		to look for row-staggered keyboards.
-	</p><p class="if-rowstag">
-		See <a href="?">the other list</a> for column-staggered and non-standard-layout keyboards.
 	</p>
+	<p class="if-forties">
+		This is a collection of little keyboards!
+	</p>
+	<p>
+		There are some lists of keyboards now:
+	</p><ul><li>
+		<a href="?">Column-staggered and non-standard-layout keyboards</a> <span class="if-colstag">(you're here)</span>
+	</li><li>
+		<a href="?row">Row-staggered and/or standard-layout keyboards</a> <span class="if-rowstag">(you're here)</span>
+	</li><li>
+		<a href="?40s">40% keyboards</a> <span class="if-forties">(you're here)</span>
+	</li></ul>
 	<details>
 		<summary>"The rules"</summary>
 		<ul>
@@ -287,11 +299,12 @@
 	<script src="lib/popper.min.js"></script>
 	<script src="lib/tippy-bundle.umd.js"></script>
 	
-	<script src="keyboards.js?v=2024-06-24"></script>
-	<script src="rowstag.js?v=2024-05-20"></script>
+	<script src="keyboards.js?v=2024-10-18"></script>
+	<script src="rowstag.js?v=2024-10-18"></script>
+	<script src="forties.js?v=2024-10-18"></script>
 	<script src="mcus.csv.js?v=2024-05-20"></script>
-	<script src="origins.js?v=2024-05-20"></script>
-	<script src="script.js?v=2024-06-24"></script>
+	<script src="origins.js?v=2024-10-18"></script>
+	<script src="script.js?v=2024-10-18"></script>
 	
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4R5QPPHC8M"></script>

@@ -2333,14 +2333,22 @@ Main.main = function() {
 	table_LinkListColumn.countryTags = window.countryTags;
 	var kbTable;
 	var row = window.document.body.classList.contains("rowstag");
-	if(row) {
-		kbTable = new RowStagTable();
+	var forties = window.document.body.classList.contains("forties");
+	if(row || forties) {
+		kbTable = new RowStagTable(forties);
 	} else {
 		kbTable = new ColStagTable();
 	}
 	KeyboardPage.main(kbTable);
 	ToDoList.element = window.document.querySelector("#todo");
-	ToDoList.set(row ? window.rowStagTODOs : window.keyboardTODOs);
+	var dynWindow = window;
+	if(forties) {
+		ToDoList.set(dynWindow.fortiesTODOs);
+	} else if(row) {
+		ToDoList.set(dynWindow.rowStagTODOs);
+	} else {
+		ToDoList.set(dynWindow.keyboardTODOs);
+	}
 };
 Math.__name__ = true;
 var OrthoBoards = function() { };
@@ -2601,13 +2609,15 @@ Reflect.copy = function(o) {
 	}
 	return o2;
 };
-var RowStagTable = function() {
+var RowStagTable = function(isForties) {
+	this.isForties = isForties;
 	KeyboardTable.call(this);
 };
 RowStagTable.__name__ = true;
 RowStagTable.__super__ = KeyboardTable;
 RowStagTable.prototype = $extend(KeyboardTable.prototype,{
-	collectFilters: function() {
+	isForties: null
+	,collectFilters: function() {
 		var result = KeyboardTable.prototype.collectFilters.call(this);
 		result["row"] = "";
 		return result;
@@ -2921,7 +2931,13 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		this.addColumn(mw);
 	}
 	,initKeyboards: function() {
-		var kbs = window.rowStagData;
+		var dynWindow = window;
+		var kbs;
+		if(this.isForties) {
+			kbs = dynWindow.fortiesData;
+		} else {
+			kbs = dynWindow.rowStagData;
+		}
 		var _g = 0;
 		while(_g < kbs.length) {
 			var kb = kbs[_g];
@@ -5671,8 +5687,7 @@ table_number_NumberRangeColumn.prototype = $extend(table_number_NumberColumnBase
 	,buildValue: function(out,kb) {
 		var range = this.field.access(kb);
 		var text = range != null ? type_NumRange.toString(range) + this.suffix : this.nullCaption;
-		out.appendChild(window.document.createTextNode(text));
-		tools_HtmlTools.setTippyTitle(out,[kb.name,this.name + ":",text].join("\n"));
+		tools_HtmlTools.setTippyTitle(tools_HtmlTools.appendElTextNode(out,"span",text),[kb.name,this.name + ":",text].join("\n"));
 	}
 	,matchesFilter: function(kb) {
 		var tmp = this.field.access(kb);
@@ -5816,8 +5831,7 @@ table_number_NumberRangeListColumn.prototype = $extend(table_number_NumberColumn
 	,buildValue: function(out,kb) {
 		var range = this.field.access(kb);
 		var text = range != null ? type_NumRangeList.toString(range) + this.suffix : this.nullCaption;
-		out.appendChild(window.document.createTextNode(text));
-		tools_HtmlTools.setTippyTitle(out,[kb.name,this.name + ":",text].join("\n"));
+		tools_HtmlTools.setTippyTitle(tools_HtmlTools.appendElTextNode(out,"span",text),[kb.name,this.name + ":",text].join("\n"));
 	}
 	,matchesFilter: function(kb) {
 		var tmp = this.field.access(kb);
@@ -6501,8 +6515,7 @@ table_tag_TagLikeColumnTools.buildSingleValue = function(self,out,item) {
 	var val = self.getValue(item);
 	if(val != null) {
 		self.tagToName(val);
-		tools_HtmlTools.appendElTextNode(out,"span",self.getShortLabel(val));
-		tools_HtmlTools.setTippyTitle(out,[table_tag_TagLikeColumnTools.getName(item),self.name + ":",self.getFilterLabel(val)].join("\n"));
+		tools_HtmlTools.setTippyTitle(tools_HtmlTools.appendElTextNode(out,"span",self.getShortLabel(val)),[table_tag_TagLikeColumnTools.getName(item),self.name + ":",self.getFilterLabel(val)].join("\n"));
 	} else {
 		tools_HtmlTools.appendElTextNode(out,"span",self.nullCaption);
 	}

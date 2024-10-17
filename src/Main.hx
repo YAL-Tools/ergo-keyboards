@@ -25,16 +25,21 @@ class Main {
 		
 		var kbTable:KeyboardTable<Keyboard>;
 		var row = document.body.classList.contains("rowstag");
-		if (row) {
-			kbTable = cast new RowStagTable();
+		var forties = document.body.classList.contains("forties");
+		if (row || forties) {
+			kbTable = cast new RowStagTable(forties);
 		} else kbTable = cast new ColStagTable();
 		KeyboardPage.main(kbTable);
 		
 		ToDoList.element = document.querySelectorAuto("#todo");
-		ToDoList.set(row
-			? (cast window).rowStagTODOs
-			: (cast window).keyboardTODOs
-		);
+		var dynWindow = cast window;
+		if (forties) {
+			ToDoList.set(dynWindow.fortiesTODOs);
+		} else if (row) {
+			ToDoList.set(dynWindow.rowStagTODOs);
+		} else {
+			ToDoList.set(dynWindow.keyboardTODOs);
+		}
 	}
 	
 }
