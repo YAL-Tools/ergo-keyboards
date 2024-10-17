@@ -36,6 +36,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		var col:FancyColumn<RowStagKeyboard>;
 		
 		mAddColumn(col = new IntRangeListColumn("Key count", kb.keys));
+		col.show = true;
 		col.shortName = "#keys";
 		col.onEditorNotes = function(div):Void {
 			var extra:InputElement = cast div.appendElTextNode("input");
@@ -96,6 +97,7 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		};
 		
 		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));
+		col.show = true;
 		col.onNotes = function(div) {
 			div.appendParaTextNode("(not counting the modifier row)");
 		};

@@ -1271,6 +1271,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_StaggerType);
 		staggerType.shortName = "Stag";
+		staggerType.columnCount = 2;
 		staggerType.filterLabels.set(type_StaggerType.Column,"Columnar");
 		staggerType.filterLabels.set(type_StaggerType.Ortho,"Ortholinear");
 		staggerType.shortLabels.set(type_StaggerType.Column,"Col");
@@ -2635,6 +2636,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}));
 		this.addColumn(col);
+		col.show = true;
 		col.shortName = "#keys";
 		col.onEditorNotes = function(div) {
 			var extra = tools_HtmlTools.appendElTextNode(div,"input");
@@ -2716,6 +2718,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}));
 		this.addColumn(col);
+		col.show = true;
 		col.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"(not counting the modifier row)");
 		};
@@ -4160,6 +4163,7 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		}
 		out.reset();
 	};
+	table_FancyTableEditorShortcuts.bind(out);
 	var isKB = ((table) instanceof KeyboardTable);
 	var kbs;
 	if(isKB) {
@@ -4231,6 +4235,163 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		table.loadTest(kb);
 	};
 };
+var table_FancyTableEditorShortcuts = function() { };
+table_FancyTableEditorShortcuts.__name__ = true;
+table_FancyTableEditorShortcuts.bind = function(out) {
+	var inputQuery = "input, textarea, select";
+	var shortcutHandler = function(e) {
+		var input = e.target;
+		var isInput = input.tagName == "INPUT";
+		var isCheckbox = isInput && input.type == "checkbox";
+		var mode;
+		switch(e.code) {
+		case "ArrowDown":
+			if(e.ctrlKey) {
+				mode = table_FancyTableEditorShortcutsAction.Next;
+			} else if(isCheckbox) {
+				mode = table_FancyTableEditorShortcutsAction.CbDown;
+			} else {
+				return;
+			}
+			break;
+		case "ArrowLeft":
+			if(isCheckbox) {
+				mode = table_FancyTableEditorShortcutsAction.CbLeft;
+			} else {
+				return;
+			}
+			break;
+		case "ArrowRight":
+			if(isCheckbox) {
+				mode = table_FancyTableEditorShortcutsAction.CbRight;
+			} else {
+				return;
+			}
+			break;
+		case "ArrowUp":
+			if(e.ctrlKey) {
+				mode = table_FancyTableEditorShortcutsAction.Prev;
+			} else if(isCheckbox) {
+				mode = table_FancyTableEditorShortcutsAction.CbUp;
+			} else {
+				return;
+			}
+			break;
+		case "PageDown":
+			mode = table_FancyTableEditorShortcutsAction.Next;
+			break;
+		case "PageUp":
+			mode = table_FancyTableEditorShortcutsAction.Prev;
+			break;
+		default:
+			return;
+		}
+		var item = input.parentElement;
+		var found = false;
+		var _g = 0;
+		while(_g < 8) {
+			++_g;
+			if(item.classList.contains("item")) {
+				found = true;
+				break;
+			}
+			item = item.parentElement;
+		}
+		if(!found) {
+			return;
+		}
+		var focusAndScrollIntoView = function(first) {
+			first.focus();
+			var opt = { };
+			opt.behavior = "smooth";
+			opt.block = "nearest";
+			first.scrollIntoView(opt);
+		};
+		switch(mode._hx_index) {
+		case 0:case 1:
+			e.preventDefault();
+			var isPrev = mode == table_FancyTableEditorShortcutsAction.Prev;
+			var adjItem = isPrev ? item.previousElementSibling : item.nextElementSibling;
+			if(adjItem != null && adjItem.classList.contains("item")) {
+				var first = adjItem.querySelector(inputQuery);
+				if(first != null) {
+					focusAndScrollIntoView(first);
+				}
+				return;
+			}
+			var details = item.parentElement;
+			var adjDetails = isPrev ? details.previousElementSibling : details.nextElementSibling;
+			if(adjDetails == null || adjDetails.tagName != "DETAILS") {
+				return;
+			}
+			adjItem = isPrev ? adjDetails.querySelector(".item:last-child") : adjDetails.querySelector(".item");
+			if(adjItem != null) {
+				var first = adjItem.querySelector(inputQuery);
+				if(first != null) {
+					focusAndScrollIntoView(first);
+				}
+				return;
+			}
+			break;
+		case 2:case 3:case 4:case 5:
+			if(mode == table_FancyTableEditorShortcutsAction.CbLeft || mode == table_FancyTableEditorShortcutsAction.CbRight) {
+				if(item.querySelector(".tag-options[column-count=\"2\"]") == null) {
+					return;
+				}
+			}
+			var inputs = tools_HtmlTools.querySelectorAllAutoArr(item,inputQuery,HTMLElement);
+			var inputCount = inputs.length;
+			var inputHalfC = Math.ceil(inputs.length / 2);
+			var inputInd = inputs.indexOf(input);
+			if(inputInd == -1) {
+				return;
+			}
+			var adjustInputInd = function(delta) {
+				var newInputInd = inputInd + delta;
+				if(newInputInd < 0 || newInputInd >= inputCount) {
+					return;
+				}
+				inputInd = newInputInd;
+			};
+			switch(mode._hx_index) {
+			case 2:
+				adjustInputInd(-1);
+				break;
+			case 3:
+				adjustInputInd(1);
+				break;
+			case 4:
+				adjustInputInd(-inputHalfC);
+				break;
+			case 5:
+				adjustInputInd(inputHalfC);
+				break;
+			default:
+			}
+			if(inputInd < 0) {
+				inputInd += inputCount;
+			}
+			if(inputInd >= inputCount) {
+				inputInd -= inputCount;
+			}
+			focusAndScrollIntoView(inputs[inputInd]);
+			e.preventDefault();
+			break;
+		}
+	};
+	var _g = 0;
+	var _g1 = out.querySelectorAll(inputQuery);
+	while(_g < _g1.length) _g1[_g++].addEventListener("keydown",shortcutHandler);
+};
+var table_FancyTableEditorShortcutsAction = $hxEnums["table.FancyTableEditorShortcutsAction"] = { __ename__:true,__constructs__:null
+	,Prev: {_hx_name:"Prev",_hx_index:0,__enum__:"table.FancyTableEditorShortcutsAction",toString:$estr}
+	,Next: {_hx_name:"Next",_hx_index:1,__enum__:"table.FancyTableEditorShortcutsAction",toString:$estr}
+	,CbUp: {_hx_name:"CbUp",_hx_index:2,__enum__:"table.FancyTableEditorShortcutsAction",toString:$estr}
+	,CbDown: {_hx_name:"CbDown",_hx_index:3,__enum__:"table.FancyTableEditorShortcutsAction",toString:$estr}
+	,CbLeft: {_hx_name:"CbLeft",_hx_index:4,__enum__:"table.FancyTableEditorShortcutsAction",toString:$estr}
+	,CbRight: {_hx_name:"CbRight",_hx_index:5,__enum__:"table.FancyTableEditorShortcutsAction",toString:$estr}
+};
+table_FancyTableEditorShortcutsAction.__constructs__ = [table_FancyTableEditorShortcutsAction.Prev,table_FancyTableEditorShortcutsAction.Next,table_FancyTableEditorShortcutsAction.CbUp,table_FancyTableEditorShortcutsAction.CbDown,table_FancyTableEditorShortcutsAction.CbLeft,table_FancyTableEditorShortcutsAction.CbRight];
 var table_FancyTableFilters = function() { };
 table_FancyTableFilters.__name__ = true;
 table_FancyTableFilters.addNotesFor = function(onNotes,el) {

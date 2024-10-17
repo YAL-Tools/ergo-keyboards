@@ -139,6 +139,9 @@ class FancyTableEditor {
 			out.reset();
 		}
 		
+		// shortcuts
+		FancyTableEditorShortcuts.bind(out);
+		
 		if (true) {
 			var isKB = (table is KeyboardTable);
 			var kbTable:KeyboardTable<Keyboard> = isKB ? cast table : null;
