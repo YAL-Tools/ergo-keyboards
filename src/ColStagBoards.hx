@@ -737,7 +737,6 @@ class ColStagBoards {
 			name: "Djinn",
 			source: "https://github.com/tzarc/djinn",
 			dpads: 2,
-			dpadDirs: 5,
 			displays: 2,
 			img: "djinn.jfif",
 		};

@@ -38,8 +38,8 @@ class NumberRangeColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB, NT
 	override public function buildValue(out:Element, kb:KB):Void {
 		var range = field.access(kb);
 		var text = range != null ? range.toString() + suffix : nullCaption;
-		out.appendTextNode(text);
-		out.title = [kb.name, name + ":", text].join("\n");
+		var span = out.appendElTextNode("span", text);
+		span.setTippyTitle([kb.name, name + ":", text].join("\n"));
 	}
 	override public function matchesFilter(kb:KB):Bool {
 		var val:NumRange<NT> = field.access(kb) ?? defaultValue;

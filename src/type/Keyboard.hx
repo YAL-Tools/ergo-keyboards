@@ -36,9 +36,11 @@ typedef Keyboard = {>NamedThing,
 	
 	/** aka "pointing sticks" */
 	?trackpoints:IntRange,
+	?joysticks:IntRange,
 	
+	?pushButtons:IntRange,
+	?rockerSwitches:IntRange,
 	?dpads:IntRange,
-	?dpadDirs:IntRange,
 	
 	?displays:IntRange,
 	?navCluster:ValList<NavCluster>,

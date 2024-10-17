@@ -45,7 +45,6 @@ class NameColumn<KB:NamedThing> extends StringColumn<KB> {
 			out.appendChild(link);
 			
 			var opts = new TippyOptions();
-			opts.trigger = "click";
 			opts.placement = "top-start";
 			opts.interactive = true;
 			opts.maxWidth = 658;
@@ -64,7 +63,7 @@ class NameColumn<KB:NamedThing> extends StringColumn<KB> {
 				}
 				return div;
 			});
-			Tippy.bind(link, opts);
+			opts.bindClick(link);
 		} else {
 			out.appendTextNode(field.access(kb));
 		}

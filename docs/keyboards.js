@@ -104,8 +104,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 2
 	},
-	"dpads": 2,
-	"dpadDirs": 3,
+	"rockerSwitches": 2,
 	"trackballSize": 34,
 	"trackpads": {
 		"min": 0,
@@ -2149,7 +2148,6 @@ window.keyboardData = [
 	"encoders": 2,
 	"encoderType": "Knob",
 	"dpads": 2,
-	"dpadDirs": 5,
 	"assembly": "Handwired",
 	"caseType": "Included",
 	"source": "https://github.com/dschil138/Fulcrum"
@@ -2174,7 +2172,6 @@ window.keyboardData = [
 		"Choc"
 	],
 	"dpads": 2,
-	"dpadDirs": 5,
 	"assembly": "Handwired",
 	"caseType": "Included",
 	"source": "https://github.com/dschil138/Fulcrum"
@@ -2296,13 +2293,6 @@ window.keyboardData = [
 		"MinChoc",
 		"Other"
 	],
-	"encoders": 0,
-	"trackballs": 0,
-	"trackpads": 0,
-	"trackpoints": 0,
-	"dpads": 0,
-	"dpadDirs": 0,
-	"displays": 0,
 	"firmware": [
 		"QMK",
 		"ZMK"
@@ -2649,7 +2639,6 @@ window.keyboardData = [
 		"KXSwitch"
 	],
 	"dpads": 2,
-	"dpadDirs": 5,
 	"firmware": "QMK",
 	"tilt": {
 		"min": -5,
@@ -4100,6 +4089,8 @@ window.keyboardData = [
 		"max": 3
 	},
 	"pinkyStagger": 1,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
 	"firmware": [
 		"QMK",
 		"ZMK",
@@ -4424,7 +4415,6 @@ window.keyboardData = [
 		"min": 0,
 		"max": 1
 	},
-	"dpadDirs": 4,
 	"assembly": "Adjustable",
 	"caseType": "Included",
 	"source": [
@@ -4570,7 +4560,6 @@ window.keyboardData = [
 		"min": 1,
 		"max": 2
 	},
-	"dpadDirs": 5,
 	"lighting": "RGB",
 	"firmware": "QMK",
 	"software": "Vial",
@@ -5656,7 +5645,6 @@ window.keyboardData = [
 	"encoders": 1,
 	"encoderType": "Wheel",
 	"dpads": 1,
-	"dpadDirs": 5,
 	"firmware": ["QMK", "ZMK"],
 	"prebuilt": [
 		"https://ergomech.store/shop/sofle-hybrid-aluminum-version-exclusive-403",

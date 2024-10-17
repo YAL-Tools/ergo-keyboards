@@ -1354,6 +1354,7 @@ https://github.com/riskable/void_switch_65_pct
 
 Not out yet:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec6zv8/familiar_yet_ergonomic/
+https://hellonuio.com
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111

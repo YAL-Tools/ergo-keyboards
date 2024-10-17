@@ -59,7 +59,7 @@ class FancyTableFilters {
 					continue;
 				case Column(col): col;
 			}
-			if (!column.canFilter) continue;
+			if (!(column.showInFilter ?? column.canFilter)) continue;
 			var colName = column.filterName ?? column.name;
 			var tr = document.createDivElement();
 			tr.classList.add("item");

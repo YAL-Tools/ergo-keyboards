@@ -1,4 +1,6 @@
 -cp src
 -js docs/script.js
 -main Main
+-dce full
+-D analyzer_optimize
 flags.hxml

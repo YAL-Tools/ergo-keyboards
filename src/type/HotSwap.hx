@@ -16,20 +16,28 @@ enum HotSwap {
 	Special;
 }
 class HotSwapColumn<T> extends TagListColumn<T, HotSwap> {
-	override function buildValue(out:Element, item:T) {
+	public function getShortValue(item:T) {
 		var tags = getValue(item);
-		if (tags == null) {
+		if (tags == null) return null;
+		
+		var out = "";
+		if (tags.contains(HotSwap.Yes)) {
+			if (tags.contains(HotSwap.No)) {
+				out = String.fromCharCode(177); // +-
+			} else out = "+";
+		} else if (tags.contains(HotSwap.No)) {
+			out = "-";
+		}
+		if (tags.contains(HotSwap.Special)) out += "*";
+		return out;
+	}
+	override function buildValue(out:Element, item:T) {
+		var short = getShortValue(item);
+		if (short == null) {
 			out.appendTextNode(nullCaption);
 			return;
 		}
-		if (tags.contains(HotSwap.Yes)) {
-			if (tags.contains(HotSwap.No)) {
-				out.appendTextNode(String.fromCharCode(177)); // +-
-			} else out.appendTextNode("+");
-		} else if (tags.contains(HotSwap.No)) {
-			out.appendTextNode("-");
-		}
-		if (tags.contains(HotSwap.Special)) out.appendTextNode("*");
-		out.title = TagLikeListColumnTools.getValueTip(this, item);
+		out.appendTextNode(short);
+		out.setTippyTitle(TagLikeListColumnTools.getValueTip(this, item));
 	}
 }

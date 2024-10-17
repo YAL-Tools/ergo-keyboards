@@ -1,4 +1,5 @@
 package ;
+import tools.Symbols;
 import tools.CsvParser;
 import js.Browser.*;
 import type.*;
@@ -34,6 +35,43 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		col.shortName = "#keys";
 		col.show = true;
 		
+		var form = addColumn(new FuncColumn("Form", kb, function(out, kb) {
+			if (kb.cols == null || kb.rows == null || kb.thumbKeys == null) return null;
+			//
+			var short = "";
+			var tCols = kb.cols.toString();
+			var tRows = kb.rows.toString();
+			var tThumb = kb.thumbKeys.toString();
+			short += tCols + "x" + tRows + "+" + tThumb;
+			//
+			var shape = kb.shape;
+			if (shape != null) {
+				var shapes = [];
+				if (shape.contains(Monoblock)) shapes.push("M");
+				if (shape.contains(Unibody)) shapes.push("U");
+				if (shape.contains(Split)) shapes.push("S");
+				if (shape.contains(Half)) shapes.push("H");
+				if (shape.contains(Keywell)) shapes.push("W");
+				if (shape.contains(Special)) shapes.push("*");
+				if (shapes.length > 0) short += " " + shapes.join("");
+			}
+			//
+			var long = [
+				kb.name,
+				"Columns: " + tCols,
+				"Rows: " + tRows,
+				"Thumb keys: " + tThumb,
+			];
+			if (kb.cornerKeys != null) {
+				long.push("Corner keys: " + kb.cornerKeys.toString());
+			}
+			if (shape != null && shape.length > 0) {
+				long.push(TagLikeListColumnTools.getValueTip(colShape, kb, false));
+			}
+			return { text: short, tip: long.join("\n") };
+		}));
+		form.show = true;
+		form.showInFilter = true;
 		
 		var rowsCol:IntRangeColumn<ColStagKeyboard>;
 		mAddColumn(rowsCol = new IntRangeColumn("Rows", kb.rows));

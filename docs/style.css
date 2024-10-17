@@ -15,6 +15,7 @@ body a:visited {
 }
 body .has-notes {
   text-decoration-color: #673ab7;
+  -webkit-text-decoration-color: #673ab7;
 }
 .toggles {
   line-height: 1;
@@ -38,6 +39,7 @@ body.night a:visited {
 }
 body.night .has-notes {
   text-decoration-color: #8561c5;
+  -webkit-text-decoration-color: #8561c5;
 }
 #filter,
 #editor {
@@ -86,6 +88,7 @@ input[invalid] {
 .has-notes {
   cursor: help;
   text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
 }
 .numrow {
   width: 100%;
@@ -109,10 +112,10 @@ textarea {
   resize: vertical;
 }
 body table#data {
-  width: 100%;
+  max-width: 100%;
   border-radius: 4px;
   border: 1px solid;
-  margin: 8px auto;
+  margin: 8px 0;
   border-spacing: 0;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
 }
@@ -188,6 +191,9 @@ body.night table#data > tr > th {
 body.night table#data > tr > th,
 body.night table#data > tr > td {
   border-bottom-color: #1b2128;
+}
+#table-wrap {
+  overflow-x: auto;
 }
 body table#data.gallery {
   display: block;
@@ -301,6 +307,7 @@ div#filter .filters:not(:empty) {
 .table-counter {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin: 8px 0;
 }

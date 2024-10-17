@@ -26,8 +26,17 @@ abstract TippyOptions(Any) {
 		this = {};
 		theme = Tippy.theme;
 	}
-	public inline function bind(el:Any):Void {
-		Tippy.bind(el, this);
+	public inline function bind(el:Any):Tippy {
+		return Tippy.bind(el, this);
+	}
+	public function bindClick(el:Element) {
+		trigger = "click";
+		var fn; fn = function(e) {
+			var tippy = bind(el);
+			tippy.show();
+			el.removeEventListener("click", fn);
+		}
+		el.addEventListener("click", fn);
 	}
 	public function setLazyContent(fn:Void->Element) {
 		var ready = false;

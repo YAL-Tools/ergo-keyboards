@@ -1,4 +1,5 @@
 package table ;
+import haxe.Rest;
 import externs.TippyOptions;
 import haxe.DynamicAccess;
 import js.html.Element;
@@ -34,10 +35,14 @@ class FancyTable<T> {
 	public function new() {
 		
 	}
-	public function addColumn(col:FancyColumn<T>) {
+	public function addColumn<CT:FancyColumn<T>>(col:CT) {
 		col.table = this;
 		columns.push(col);
 		filterOrder.push(Column(col));
+		return col;
+	}
+	public function addColumns(cols:Rest<FancyColumn<T>>) {
+		for (col in cols) addColumn(col);
 	}
 	
 	public function addFilterHeader(text:String) {

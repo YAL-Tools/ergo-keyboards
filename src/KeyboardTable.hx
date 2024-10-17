@@ -1,4 +1,6 @@
 package;
+import tools.Symbols;
+import type.Availability.AvailabilityColumn;
 import haxe.Constraints.Function;
 import haxe.Json;
 import js.html.Element;
@@ -157,6 +159,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		addColumn(numpad);
 	}
 	
+	public var colShape:TagListColumn<KB, Shape>;
 	function initGeneral(kb:KB) {
 		var col:FancyColumn<KB>;
 		
@@ -202,6 +205,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			shape.appendFilterNotes(div);
 		};
 		addColumn(shape);
+		colShape = shape;
 		
 		var staggerType = new TagListColumn("Stagger type", mgf(kb.stagger), StaggerType);
 		staggerType.shortName = "Stag";
@@ -225,7 +229,6 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		hotswap.shortLabels[HotSwap.No] = "-";
 		hotswap.columnCount = 2;
 		hotswap.filterTags = [Yes];
-		addColumn(hotswap);
 		
 		var switchType = new SwitchProfileColumn("Switch profile", mgf(kb.switchProfile), SwitchProfile);
 		switchType.shortName = "SwP";
@@ -254,38 +257,54 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		switchType.hideInEditor[SwitchProfile.AnySimple] = true;
 		//
 		switchType.columnCount = 2;
-		addColumn(switchType);
 		
-		/*var switchForce = new IntListColumn(
-			"Switch actuation force (if not hotswap)", mgf(kb.switchForce));
-		switchForce.shortName = "gf";
-		switchForce.nullCaption = "*";
-		switchForce.filterIncludeNullLabel = "Include keyboards with hotswap switches";
-		//addColumn(switchForce);
+		var keySpacing = new TagListColumn("Key spacing", mgf(kb.keySpacing), KeySpacing);
+		keySpacing.shortName = "kSp";
+		keySpacing.filterLabels[KeySpacing.MX] = "MX (19mm x 19mm)";
+		keySpacing.filterLabels[KeySpacing.MinMX] = "min. MX (16mm x 16mm)";
+		keySpacing.filterLabels[KeySpacing.Choc] = "Choc (18mm x 17mm)";
+		keySpacing.filterLabels[KeySpacing.CFX] = "CFX (17mm x 17mm)";
+		keySpacing.filterLabels[KeySpacing.MinChoc] = "min. Choc (14.5mm x 14.5mm)";
+		keySpacing.shortLabels[KeySpacing.Unknown] = "?";
+		keySpacing.shortLabels[KeySpacing.MinMX] = "mMX";
+		keySpacing.shortLabels[KeySpacing.MinChoc] = "mChoc";
 		
-		var switchKind = new TagListColumn(
-			"Switch feel (if not hotswap)", mgf(kb.switchKind), SwitchKind);
-		switchKind.defaultValue = null;
-		switchKind.shortName = "SwF";
-		switchKind.shortLabels[SwitchKind.Linear] = "L";
-		switchKind.shortLabels[SwitchKind.Tactile] = "T";
-		switchKind.shortLabels[SwitchKind.Clicky] = "C";
-		switchKind.shortLabels[SwitchKind.Other] = "#";
-		switchKind.nullCaption = "*";
-		//addColumn(switchKind);*/
+		var inf = new FuncColumn("Switch summary", kb, function(out, item) {
+			var short = [];
+			var long = [item.name];
+			
+			//
+			var hs = hotswap.getShortValue(item);
+			if (hs != null) {
+				short.push(hs);
+				long.push(TagLikeListColumnTools.getValueTip(hotswap, item, false));
+			}
+			
+			//
+			var swp = item.switchProfile;
+			if (swp != null) {
+				var more = swp.length > 3;
+				if (more) swp = swp.slice(0, 3);
+				var sws = swp.map(function(sp) {
+					return switchType.shortLabels[sp] ?? sp.getName();
+				});
+				if (more) sws.push("+");
+				short.push(sws.join("," + Symbols.hairSpace));
+				long.push(TagLikeListColumnTools.getValueTip(switchType, item, false));
+			}
+			
+			//
+			if (item.keySpacing != null) {
+				long.push(TagLikeListColumnTools.getValueTip(keySpacing, item, false));
+			}
+			
+			return { text: short.join(" "), tip: long.join("\n") };
+		});
+		inf.showInFilter = true;
+		inf.shortName = "Switches";
+		inf.show = true;
 		
-		var colSpacing = new TagListColumn("Key spacing", mgf(kb.keySpacing), KeySpacing);
-		colSpacing.shortName = "kSp";
-		colSpacing.show = false;
-		colSpacing.filterLabels[KeySpacing.MX] = "MX (19mm x 19mm)";
-		colSpacing.filterLabels[KeySpacing.MinMX] = "min. MX (16mm x 16mm)";
-		colSpacing.filterLabels[KeySpacing.Choc] = "Choc (18mm x 17mm)";
-		colSpacing.filterLabels[KeySpacing.CFX] = "CFX (17mm x 17mm)";
-		colSpacing.filterLabels[KeySpacing.MinChoc] = "min. Choc (14.5mm x 14.5mm)";
-		colSpacing.shortLabels[KeySpacing.Unknown] = "?";
-		colSpacing.shortLabels[KeySpacing.MinMX] = "mMX";
-		colSpacing.shortLabels[KeySpacing.MinChoc] = "mChoc";
-		addColumn(colSpacing);
+		addColumns(inf, hotswap, switchType, keySpacing);
 	}
 	function initLinks(kb:KB) {
 		var header = addFilterHeader("Links");
@@ -335,6 +354,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		mAddColumn(lc = new LinkListColumn("Open-source", kb.source));
 		lc.shortName = "OSH";
 		lc.canShowSingle = true;
+		var source = lc;
 		
 		mAddColumn(lc = new LinkListColumn("Kits", kb.kit));
 		lc.shortName = "Kit";
@@ -344,6 +364,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				+ " and components (controllers, sockets, switches)"
 				+ ", but PCBs are also considered to be kits here");
 		}
+		var kit = lc;
 		
 		mAddColumn(lc = new LinkListColumn("Pre-built", kb.prebuilt));
 		lc.onNotes = function(div:Element):Void {
@@ -354,19 +375,36 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			);
 		}
 		lc.shortName = "PB";
+		var prebuilt = lc;
 		
+		function avail_has(list:ValList<String>) {
+			return list != null && list.length > 0;
+		}
 		var avail_fd = new FancyField("availability", function(obj:KB, ?set, ?val) {
 			if (set) return null;
-			function has(list:ValList<String>) {
-				return list != null && list.length > 0;
-			}
 			var result = [];
-			if (has(obj.source)) result.push(Availability.OpenSource);
-			if (has(obj.kit)) result.push(Availability.Kit);
-			if (has(obj.prebuilt)) result.push(Availability.PreBuilt);
+			if (avail_has(obj.source)) result.push(Availability.OpenSource);
+			if (avail_has(obj.kit)) result.push(Availability.Kit);
+			if (avail_has(obj.prebuilt)) result.push(Availability.PreBuilt);
 			return result;
 		});
-		var avail = new TagListColumn("Availability", avail_fd, Availability);
+		var avail = new AvailabilityColumn("Availability", avail_fd, Availability);
+		avail.shortName = "Links";
+		avail.onBuildValue = function(out, item) {
+			var first = true;
+			inline function add(links:ValList<String>, col, short) {
+				if (avail_has(links)) {
+					if (first) {
+						first = false;
+					} else out.appendTextNode(", ");
+					col.buildValueExt(out, item, short);
+				}
+			}
+			add(item.source, source, "Src");
+			add(item.kit, kit, "Kit");
+			add(item.prebuilt, prebuilt, "PB");
+		}
+		avail.show = true;
 		avail.shortLabels[Availability.OpenSource] = "O";
 		avail.shortLabels[Availability.Kit] = "K";
 		avail.shortLabels[Availability.PreBuilt] = "PB";
@@ -467,21 +505,39 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			);
 		}
 		
-		mAddColumn(irCol = new IntRangeColumn("D-pads", kb.dpads));
-		irCol.show = false;
+		mAddColumn(irCol = new IntRangeColumn("Joysticks", kb.joysticks));
 		irCol.filterMinDefault = 1;
 		irCol.onNotes = function(div) {
-			div.appendTextNode(
-				"Due to component diversity, anything that has 2 or more clicky "+
-				"directional inputs counts as a dpad."
+			div.appendParaTextNode(
+				"Like on a game controller!"
 			);
 		}
 		
-		mAddColumn(col = new IntRangeColumn("D-pad directions", kb.dpadDirs));
-		col.show = false;
-		col.onNotes = function(div) {
-			div.appendTextNode(
-				"If it's 3, it's probably a so-called rocker switch."
+		mAddColumn(irCol = new IntRangeColumn("Push-buttons", kb.dpads));
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
+			div.appendParaTextNode(
+				"[Typically] smaller buttons that aren't regular switches.",
+				"Generally good for one-off actions and less good for typing.",
+			);
+		}
+		
+		mAddColumn(irCol = new IntRangeColumn("2-way swiches", kb.rockerSwitches));
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
+			div.appendParaTextNode(
+				'Also called "rocker switches"',
+				"Usually these can also be pressed down for a third action."
+			);
+		}
+		
+		mAddColumn(irCol = new IntRangeColumn("4-way switches", kb.dpads));
+		irCol.filterMinDefault = 1;
+		irCol.onNotes = function(div) {
+			div.appendParaTextNode(
+				"D-pads and alike.",
+				"Some can also be clicked for a 5th action.",
+				"The click usually takes 200-300g force, so don't count on it.",
 			);
 		}
 	}

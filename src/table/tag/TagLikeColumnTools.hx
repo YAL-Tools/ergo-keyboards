@@ -24,12 +24,12 @@ class TagLikeColumnTools {
 		var val:ET = self.getValue(item);
 		if (val != null) {
 			var name = self.tagToName(val);
-			out.appendElTextNode("span", self.getShortLabel(val));
-			out.title = [
+			var span = out.appendElTextNode("span", self.getShortLabel(val));
+			span.setTippyTitle([
 				getName(item),
 				self.name + ":",
 				self.getFilterLabel(val),
-			].join("\n");
+			].join("\n"));
 		} else {
 			out.appendElTextNode("span", self.nullCaption);
 		}

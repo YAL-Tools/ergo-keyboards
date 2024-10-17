@@ -22,7 +22,6 @@ using StringTools;
 class LinkListColumn<KB> extends FancyColumn<KB> {
 	public static var domainCountries:DynamicAccess<String> = new DynamicAccess();
 	public static var countryTags:DynamicAccess<String> = new DynamicAccess();
-	public var symbolHTML = "➜";
 	public var canShowSingle = false;
 	public var field:FancyField<KB, ValList<String>>;
 	override public function getId():String {
@@ -203,35 +202,45 @@ class LinkListColumn<KB> extends FancyColumn<KB> {
 		}
 		return table;
 	}
-	override public function buildValue(out:Element, kb:KB):Void {
+	public function buildValueExt(out:Element, kb:KB, linkText:String) {
 		var lines = field.access(kb);
 		var link:AnchorElement = null;
 		if (lines == null || lines.length == 0) {
 			// OK!
 		} else if (lines.length == 1 && canShowSingle && !lines[0].startsWith("[")) {
 			link = document.createAnchorElement();
-			link.innerHTML = symbolHTML;
+			link.appendTextNode(linkText);
 			link.href = lines[0];
+			link.target = "_blank";
 			out.appendChild(link);
 		} else {
 			link = document.createAnchorElement();
-			link.innerHTML = symbolHTML;
+			link.appendTextNode(linkText);
 			link.href = "javascript:void(0)";
 			out.appendChild(link);
 			
-			var opts = new TippyOptions();
-			opts.maxWidth = 480;
-			opts.trigger = "click";
-			opts.interactive = true;
-			opts.appendTo = () -> out;
-			opts.setLazyContent(function() return buildPopup(lines, kb));
-			Tippy.bind(link, opts);
+			var fn;
+			fn = (_) -> {
+				var opts = new TippyOptions();
+				opts.maxWidth = 480;
+				opts.trigger = "click";
+				opts.interactive = true;
+				opts.appendTo = () -> out;
+				opts.setLazyContent(function() return buildPopup(lines, kb));
+				Tippy.bind(link, opts).show();
+				link.removeEventListener("click", fn);
+			}
+			link.addEventListener("click", fn);
 		}
 		//out.appendTextNode(lines != null ? "" + lines.length : "");
 		(link ?? out).title = [
 			(cast kb).name,
 			name + " (" + (lines != null ? lines.length : 0) + ")"
 		].join("\n");
+		return link != null;
+	}
+	override public function buildValue(out:Element, kb:KB):Void {
+		buildValueExt(out, kb, tools.Symbols.coolArrow);
 	}
 	override public function buildEditor(out:Element, store:Array<KB->Void>, restore:Array<KB->Void>):Void {
 		var textarea = document.createTextAreaElement();

@@ -156,6 +156,33 @@ class HtmlTools {
 	public static function triggerChange(el:Element):Void {
 		el.dispatchEvent(new CustomEvent("change"));
 	}
+	public static function setTippyTitle(el:Element, tip:String) {
+		el.title = tip;
+		el.classList.add("has-notes");
+		var fn;
+		fn = (e) -> {
+			var opts = new externs.TippyOptions();
+			opts.trigger = "click";
+			opts.interactive = true;
+			opts.appendTo = () -> el.parentElement;
+			opts.maxWidth = 480;
+			opts.setLazyContent(function() {
+				var div = Browser.document.createDivElement();
+				var sep = false;
+				for (line in tip.split("\n")) {
+					if (sep) {
+						div.appendChild(Browser.document.createBRElement());
+					} else sep = true;
+					appendTextNode(div, line);
+				}
+				return div;
+			});
+			var tippy = externs.Tippy.bind(el, opts);
+			el.removeEventListener("click", fn);
+			tippy.show();
+		}
+		el.addEventListener("click", fn);
+	}
 }
 typedef FilePickCallback<T> = (file:T, then:Void->Void)->Void;
 extern class ElementList implements ArrayAccess<Element> {

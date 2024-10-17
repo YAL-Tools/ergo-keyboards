@@ -1,8 +1,8 @@
 body table#data {
-  width: 100%;
+  max-width: 100%;
   border-radius: @border-radius;
   border: 1px solid;
-  margin: @space auto;
+  margin: @space 0;
   border-spacing: 0;
   box-shadow: @elevation-2;
 
@@ -99,6 +99,10 @@ body.night {
       border-bottom-color: @color-border-night;
     }
   }
+}
+
+#table-wrap {
+  overflow-x: auto;
 }
 
 body table#data.gallery {

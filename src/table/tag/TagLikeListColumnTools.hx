@@ -32,15 +32,17 @@ class TagLikeListColumnTools {
 	}
 	
 	public static function getValueTip<T, ET>(
-		column:TagLikeColumnBase<T, ET, Array<ET>>, item:T
+		column:TagLikeColumnBase<T, ET, Array<ET>>, item:T, header = true
 	) {
 		var tags = column.getValue(item);
 		var lines = [column.name + ":"];
 		// really need to require items to have a name sometime
-		var itemName = (cast item).name;
-		if (itemName != null) lines.unshift(itemName);
-		for (i => tag in tags) {
-			lines.push("· " + column.getFilterLabel(tag));
+		if (header) {
+			var itemName = (cast item).name;
+			if (itemName != null) lines.unshift(itemName);
+		}
+		for (tag in tags) {
+			lines.push(tools.Symbols.listDot + " " + column.getFilterLabel(tag));
 		}
 		return lines.join("\n");
 	}
@@ -62,7 +64,7 @@ class TagLikeListColumnTools {
 				}, span);
 			}
 		}
-		out.title = getValueTip(column, item);
+		out.setTippyTitle(getValueTip(column, item));
 	}
 	
 	public static function buildUsedValues<T, ET>(

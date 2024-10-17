@@ -22,6 +22,8 @@ class FancyColumn<T> {
 	public var show = false;
 	public var canShow = true;
 	public var canFilter = true;
+	/** overrides whether to show in Filters block **/
+	public var showInFilter:Null<Bool> = null;
 	public var canEdit = true;
 	public var wantFilter = false;
 	

@@ -24,7 +24,7 @@ class StringTagColumnWithOther<T> extends StringTagColumn<T> {
 		var val = field.access(item);
 		inline function addOther(text:String) {
 			var label = out.appendElTextNode("span", "Other");
-			label.title = text;
+			label.setTippyTitle(text);
 		}
 		if (val != null && val.startsWith("!")) {
 			var label = out.appendElTextNode("span", "Other");

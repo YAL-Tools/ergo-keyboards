@@ -40,8 +40,8 @@ class NumberRangeListColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB
 	override public function buildValue(out:Element, kb:KB):Void {
 		var range = field.access(kb);
 		var text = range != null ? range.toString() + suffix : nullCaption;
-		out.appendTextNode(text);
-		out.title = [kb.name, name + ":", text].join("\n");
+		var span = out.appendElTextNode("span", text);
+		span.setTippyTitle([kb.name, name + ":", text].join("\n"));
 	}
 	override public function matchesFilter(kb:KB):Bool {
 		var vals:NumRangeList<NT> = field.access(kb) ?? defaultValue;
@@ -110,7 +110,7 @@ class NumberRangeListColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB
 		fd.onchange = function() {
 			var ranges = parseLines(fd.value);
 			fd.setAttributeFlag("invalid", ranges == null);
-			fd.title = ranges == null ? parseLinesError : null;
+			fd.setTippyTitle(ranges == null ? parseLinesError : null);
 		}
 		out.appendChild(fd);
 		store.push(function(kb) {
