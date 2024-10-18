@@ -3177,7 +3177,7 @@ window.keyboardData = [
 		"ChocV2"
 	],
 	"keySpacing": "MX",
-	"trackpoints": 1,
+	"joysticks": 1,
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/eggsworks/tamago60"
@@ -3537,7 +3537,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.4,
 	"hotswap": "No",
 	"switchProfile": "MX",
-	"trackpoints": 1,
+	"joysticks": 1,
 	"lighting": [
 		"None",
 		"RGB"
@@ -4607,7 +4607,7 @@ window.keyboardData = [
 		"min": 0,
 		"max": 2
 	},
-	"trackpoints": {
+	"joysticks": {
 		"min": 0,
 		"max": 2
 	},
@@ -5146,7 +5146,7 @@ window.keyboardData = [
 	"encoders": {"min": 0, "max": 6},
 	"encoderType": "Knob",
 	"pointingDevices": {"min": 0, "max": 2},
-	"trackpoints": {"min": 0, "max": 2},
+	"joysticks": {"min": 0, "max": 2},
 	"displays": {"min": 0, "max": 2},
 	"lighting": "Underglow",
 	"firmware": "QMK",
@@ -5485,7 +5485,7 @@ window.keyboardData = [
 	"encoders": 4,
 	"encoderType": ["Knob", "Wheel"],
 	"pointingDevices": 2,
-	"trackpoints": 2,
+	"joysticks": 2,
 	"lighting": "RGB",
 	"firmware": "QMK",
 	"software": "Vial",
@@ -6918,7 +6918,84 @@ window.keyboardData = [
 	"source": "https://github.com/Giraffasax/SpUnLy58",
 	"layoutRef": "SKBC"
 },
-"2024-08-08"
+{
+	"name": "Desolation",
+	"img": "Desolation.webp",
+	"notes": "And 4 pushbuttons!",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "WiredHalf",
+	"keys": [[22], [28], [34]],
+	"rows": 3,
+	"cols": {"min": 3, "max": 5},
+	"thumbKeys": 2,
+	"pushButtons": 4,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "CFX",
+	"displays": {"min": 0, "max": 1},
+	"lighting": "None",
+	"firmware": "ZMK",
+	"ctlCount": 1,
+	"caseType": "Included",
+	"source": "https://github.com/miketronic/Desolation",
+	"prebuilt": "https://tufgek.myshopify.com/"
+},
+{
+	"name": "Inland MK-47",
+	"img": "inland-mk-47.webp",
+	"shape": "Monoblock",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 47,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"caseType": "Included",
+	"prebuilt": "https://www.microcenter.com/product/661264/inland-47-keys-hot-swappable-rgb-wired-mechanical-keyboard"
+},
+{
+	"name": "Tulip62",
+	"img": "Tulip62.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Bluetooth",
+	"keys": 62,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.8,
+	"switchProfile": "MX",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": "Handwired",
+	"ctlCount": 2,
+	"tenting": "Fixed",
+	"web": "https://www.reddit.com/r/ErgoMechKeyboards/comments/1farymh/my_first_keyboard_i_designed_calling_it_the_tulip/",
+	"source": "https://github.com/shardvark1/Tulip62"
+},
+{
+	"name": "reJESK",
+	"img": "reJESK.webp",
+	"parent": "Redox",
+	"shape": "Unibody",
+	"connection": "Wired",
+	"hotswap": "Unspecified",
+	"switchProfile": "MX",
+	"lighting": "None",
+	"firmware": "QMK",
+	"assembly": ["PCB", "Diodeless"],
+	"ctlCount": 1,
+	"tenting": "None",
+	"caseType": "Included",
+	"source": "https://github.com/triliu/reJESK?tab=readme-ov-file"
+},
+"2024-10-18"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -6958,7 +7035,6 @@ https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 42 https://github.com/choubbikeyboards/scaffold
 34s https://github.com/geoffder/dometyl-keyboard/tree/main/things/dartyl_choc
 36s https://github.com/soundmonster/samoklava
-47m Inland MK-47
 58s https://github.com/foureight84/sofle-keyboard-pimoroni
 42s https://github.com/klouderone/cornev4promicroedition
 58s Sofle with caveats! https://www.doioshop.com/products/sofle-split-keyboard-bluetooth-dual-mode-mechanical-keyboard-kit?VariantsId=10249 https://www.reddit.com/r/ErgoMechKeyboards/comments/1d4xeqh/comment/l6k8vu3/
@@ -7020,7 +7096,6 @@ https://www.printables.com/model/314112-dactyl-manuball
 64s https://github.com/siderakb/ergo-snm-keyboard
 30u https://github.com/doesntfazer/Goober
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
-https://github.com/shardvark1/Tulip62 https://new.reddit.com/r/ErgoMechKeyboards/comments/1farymh/my_first_keyboard_i_designed_calling_it_the_tulip/
 https://github.com/flinguenheld/chew
 https://github.com/lapidot/TAP4
 54s https://github.com/Squalius-cephalus/silakka54
@@ -7036,7 +7111,6 @@ https://github.com/fiendie/NomadKeyboard
 KLOR with Choc V1 support https://github.com/sadekbaroudi/KLOR
 42u Treble https://github.com/kkckrnz/treble
 58s Bicycle https://github.com/peej/bicycle-keyboard
-70u https://github.com/triliu/reJESK
 https://github.com/ssbb/tako
 https://github.com/brucedjones/dactyl-stabilized https://photos.app.goo.gl/FvHTLifnzGaTiMUD9
 36s Waterfowl
