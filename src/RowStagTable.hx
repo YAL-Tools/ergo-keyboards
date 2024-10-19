@@ -96,9 +96,12 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 			}
 		};
 		
-		mAddColumn(col = new IntRangeColumn("Rows", kb.rows));
-		col.show = true;
-		col.onNotes = function(div) {
+		var rows;
+		mAddColumn(rows = new IntRangeColumn("Rows", kb.rows));
+		rows.show = true;
+		rows.filterMinDefault = 4;
+		rows.filterMaxDefault = 3;
+		rows.onNotes = function(div) {
 			div.appendParaTextNode("(not counting the modifier row)");
 		};
 		

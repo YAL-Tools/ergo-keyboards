@@ -1192,7 +1192,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		};
 		navCluster.shortName = "nav";
-		navCluster.filterTags = [type_NavCluster.Arrows,type_NavCluster.Duo,type_NavCluster.Full];
+		navCluster.filterTags = [type_NavCluster.Arrows,type_NavCluster.Inline,type_NavCluster.Duo,type_NavCluster.Full];
 		navCluster.shortLabels.set(type_NavCluster.None,"");
 		this.addColumn(navCluster);
 	}
@@ -2709,7 +2709,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				findInput("keys").value = "" + out;
 			};
 		};
-		col = new table_number_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
+		var rows = new table_number_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.rows = setValue;
 				return null;
@@ -2717,9 +2717,11 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.rows;
 			}
 		}));
-		this.addColumn(col);
-		col.show = true;
-		col.onNotes = function(div) {
+		this.addColumn(rows);
+		rows.show = true;
+		rows.filterMinDefault = 4;
+		rows.filterMaxDefault = 3;
+		rows.onNotes = function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"(not counting the modifier row)");
 		};
 		var addColCountCol = function(row,letter,f,k1,k2) {
@@ -6089,7 +6091,11 @@ table_number_NumberRangeListColumn.prototype = $extend(table_number_NumberColumn
 		fd.onchange = function() {
 			var ranges = _gthis.parseLines(fd.value);
 			tools_HtmlTools.setAttributeFlag(fd,"invalid",ranges == null);
-			tools_HtmlTools.setTippyTitle(fd,ranges == null ? table_number_NumberRangeListColumn.parseLinesError : null);
+			if(ranges == null) {
+				fd.title = table_number_NumberRangeListColumn.parseLinesError;
+			} else {
+				fd.removeAttribute("title");
+			}
 		};
 		out.appendChild(fd);
 		store.push(function(kb) {

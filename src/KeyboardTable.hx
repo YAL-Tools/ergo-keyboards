@@ -144,7 +144,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			);
 		}
 		navCluster.shortName = "nav";
-		navCluster.filterTags = [NavCluster.Arrows, NavCluster.Duo, NavCluster.Full];
+		navCluster.filterTags = [Arrows, Inline, Duo, Full];
 		navCluster.shortLabels[NavCluster.None] = "";
 		addColumn(navCluster);
 	}

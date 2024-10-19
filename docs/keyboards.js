@@ -1497,28 +1497,6 @@ window.keyboardData = [
 	"source": "https://github.com/tompi/cheapino"
 },
 {
-	"name": "Klavyl",
-	"img": "klavyl.jpg",
-	"shape": "Split",
-	"stagger": "Column",
-	"connection": "Wired",
-	"keys": 62,
-	"rows": 4,
-	"cols": 7,
-	"thumbKeys": 3,
-	"pinkyStagger": 0.4,
-	"hotswap": "Yes",
-	"switchProfile": [
-		"MX",
-		"Choc"
-	],
-	"keySpacing": "MX",
-	"assembly": "Handwired",
-	"wristPads": "Detachable",
-	"caseType": "Included",
-	"source": "https://github.com/klavgen/klavyl"
-},
-{
 	"name": "Ergo S-1",
 	"img": "S-1.jpg",
 	"shape": [
@@ -1910,49 +1888,6 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/piit79/rev57lp",
 	"kit": "https://42keebs.eu/shop/kits/pro-micro-based/rev57lp-50-low-profile-hotswap-ergo-kit/"
-},
-{
-	"name": "Dactyl Generator",
-	"img": "dactyl-generator.png",
-	"notes": [
-		"Generate your own Dactyl if you know what you want"
-	],
-	"shape": [
-		"Split",
-		"Keywell"
-	],
-	"stagger": "Column",
-	"connection": "Wired",
-	/*"keys": {
-		"min": 20,
-		"max": 100
-	},*/
-	"rows": {
-		"min": 2,
-		"max": 5
-	},
-	"cols": {
-		"min": 4,
-		"max": 7
-	},
-	"thumbKeys": {
-		"min": 2,
-		"max": 6
-	},
-	"innerKeys": {
-		"min": 0,
-		"max": 4
-	},
-	"cornerKeys": {
-		"min": 0,
-		"max": 3
-	},
-	"hotswap": "Yes",
-	"switchProfile": "MX",
-	"assembly": "Handwired",
-	"caseType": "Included",
-	"web": "https://ryanis.cool/dactyl/",
-	"source": "https://github.com/rianadon/dactyl-configurator"
 },
 {
 	"name": "Dactyl Manuform",
@@ -5791,7 +5726,7 @@ window.keyboardData = [
 	"source": "https://github.com/kaihchang/Ascend_splay_split_keyboard"
 },
 {
-	"name": "Cygnus 1.0",
+	"name": "Cygnus",
 	"img": "cygnus.jpg",
 	"notes": [
 		"A few variants of the keyboard exist.",
@@ -5808,6 +5743,16 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"firmware": ["QMK", "ZMK"],
 	"assembly": "Handwired",
+	"source": "https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0"
+},
+{
+	"name": "Cygnus (4x6)",
+	"parent": "Cygnus",
+	"img": "cygnus-4x6.webp",
+	"rows": 4,
+	"keys": 54,
+	"cols": 6,
+	"web": "https://github.com/juhakaup/keyboards/blob/main/Cygnus%20v1.0/4x6_build_notes.md",
 	"source": "https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0"
 },
 {
@@ -6812,6 +6757,13 @@ window.keyboardData = [
 	"source": "https://github.com/phamfoo/form-uno"
 },
 {
+	"name": "Form Neo",
+	"img": "form-neo.webp",
+	"notes": "A low[er]-profile version of Form Uno",
+	"parent": "Form Uno",
+	"source": "https://github.com/phamfoo/form-neo"
+},
+{
 	"name": "Wubbo",
 	"img": "wubbo.webp",
 	"shape": "Split",
@@ -6995,7 +6947,92 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/triliu/reJESK?tab=readme-ov-file"
 },
-"2024-10-18"
+{
+	"name": "Hexatana",
+	"img": "Hexatana.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"lighting": "RGB",
+	"firmware": ["QMK", "ZMK"],
+	"software": "Vial",
+	"ctlCount": 1,
+	"ctlName": "RP2040",
+	"caseType": "None",
+	"source": "https://github.com/ThePurox/Hexatana-RGB"
+},
+{
+	"name": "Caldera",
+	"img": "Caldera.webp",
+	"shape": "Split",
+	"connection": "Bluetooth",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.5,
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"tenting": "Fixed",
+	"source": "https://github.com/christianselig/caldera-keyboard"
+},
+{
+	"name": "Ashwing66",
+	"img": "ashwing66.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {"min": 66, "max": 67},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"outerKeys": 1,
+	"cornerKeys": 2,
+	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": "MX",
+	"encoders": {"min": 0, "max": 1},
+	"encoderType": "Knob",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "VIA",
+	"source": "https://github.com/gzowski/Ashwing66",
+	"kit": "https://www.etsy.com/uk/listing/1765077057/ashwing66-mechanical-keyboard-pcb"
+},
+{
+	"name": "Lagrange",
+	"img": "Lagrange.webp",
+	"notes": "Dactyl-like with a novel thumb cluster",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 70,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 8,
+	"cornerKeys": 1,
+	"pinkyStagger": 0.5,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"lighting": "None",
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"source": "https://github.com/dpapavas/lagrange-keyboard"
+},
+"2024-10-19"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7018,7 +7055,6 @@ GrabShell https://grabshell.site/en/home-en/
 50s https://github.com/JPricey/dactyl-high-profile
 50s Low Profile Dactyl https://github.com/omurovec/dactyl-high-profile
 44s https://github.com/llmerlos/0xLM
-88s DK6 (needs notes on troublesome software) https://www.velocifiretech.com/products/dumang-dk6-ergo-v2
 96s https://github.com/ixxoid/dactyl-keyboard
 40s Stront40 https://github.com/zzeneg/stront
 https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
@@ -7049,13 +7085,9 @@ Svalboard (and how does that map to column-row classification)
 36u https://github.com/dohn-joh/alias
 61m https://github.com/xommmmmmmm/QueueNineChimera
 46s https://mtnkbd.com/products/lets-tango-case
-36u https://github.com/ThePurox/Hexatana-RGB
 36u https://github.com/mikeholscher/zmk-config-mikefive https://new.reddit.com/r/ErgoMechKeyboards/comments/1e4xl8q/3d_cad_file_and_kicad_footprint_of_kailh_pg1316s/
-60s https://github.com/christianselig/caldera-keyboard
-66u https://github.com/gzowski/Ashwing66
 56m https://github.com/eswai/QOL56
 36u https://github.com/rschenk/egret https://github.com/rschenk/re-gret
-68s https://github.com/dpapavas/lagrange-keyboard
 32s https://github.com/dlip/tenshi https://new.reddit.com/r/ErgoMechKeyboards/comments/1ebsjye/tenshi_split_keyboard_with_slideadjustable/
 38u https://github.com/jeffdhooton/jingis38 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec0cyf/38key_columnstagger_board_build/
 34u https://github.com/carrefinho/forager
@@ -7088,7 +7120,6 @@ Svalboard (and how does that map to column-row classification)
 44s https://github.com/focusaurus/kipra-keyboard
 42s https://github.com/Squalius-cephalus/silakka44
 56s https://kbd.news/Tranquility-v2-39.html
-Cygnus 4x6+3
 r-track https://gitlab.com/keyboards1/dm_r_track/-/tree/master/boolean
 https://www.printables.com/model/314112-dactyl-manuball
 50s https://github.com/gargum/Iyada/tree/main/kiraibuilds/iyada
@@ -7175,6 +7206,7 @@ https://github.com/bobbicodes/trochee
 https://github.com/Staacks/inkkeys
 https://github.com/klouderone/SeagullMacropad
 Koolerton macropads
+https://github.com/takashicompany/dogtag
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
@@ -7198,6 +7230,7 @@ https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_p
 Naya Create
 https://www.arrowmechanics.com/produkty
 https://keeb.io/products/chiri-ce-keyboard-kit
+https://www.reddit.com/r/MechanicalKeyboards/comments/1g16rug/jarne_blade_the_lowest_profile_split/
 
 Obsolete:
 TypeMatrix

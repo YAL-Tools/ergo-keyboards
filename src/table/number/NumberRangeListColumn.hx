@@ -110,7 +110,11 @@ class NumberRangeListColumn<KB:NamedThing, NT:Float> extends NumberColumnBase<KB
 		fd.onchange = function() {
 			var ranges = parseLines(fd.value);
 			fd.setAttributeFlag("invalid", ranges == null);
-			fd.setTippyTitle(ranges == null ? parseLinesError : null);
+			if (ranges == null) {
+				fd.title = parseLinesError;
+			} else {
+				fd.removeAttribute("title");
+			}
 		}
 		out.appendChild(fd);
 		store.push(function(kb) {
