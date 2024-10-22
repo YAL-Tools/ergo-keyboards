@@ -11,6 +11,8 @@ enum Availability {
 	OpenSource;
 	Kit;
 	PreBuilt;
+	BuildGuide;
+	LayoutRef;
 }
 class AvailabilityColumn<T> extends TagListColumn<T, Availability> {
 	public var onBuildValue:(out:Element, item:T)->Void;

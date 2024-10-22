@@ -22,9 +22,10 @@ enum SwitchProfile {
 	OutemuLP;
 	CherryULP;
 	Optical;
-	Topre;
 	Simple;
 	SimpleLP;
+	Topre;
+	HallEffect;
 	Other;
 }
 class SwitchProfileTools {

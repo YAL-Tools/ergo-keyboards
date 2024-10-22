@@ -19,6 +19,7 @@ ColStagBoards.init = function(keyboards) {
 		return kb;
 	};
 	var kb = ColStagKeyboard._new("Corne/crkbd");
+	var corne = kb;
 	ColStagKeyboard.setMatrix(kb,[{ min : 36, max : 42}],{ min : 5, max : 6},type_NumRange.fromValue(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(3));
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
@@ -27,91 +28,127 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = [type_CaseType.ThirdParty];
 	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.source = type_ValList.fromValue("https://github.com/foostan/crkbd");
+	kb.buildGuide = ["[US] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_en.md","[JP] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_jp.md"];
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs","https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox","[v:v3 MX] https://falbatech.click/products/Pre-soldered-Corne-p613836639","[v:v3 MX mini] https://falbatech.click/products/Pre-soldered-Corne-mini-p613854160","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-Wireless-p613843630","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-mini-Wireless-p613843878"];
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard","[v:MX] https://falbatech.click/products/Corne-Fully-Assembled-Custom-Mechanical-Keyboard-p630685502","[v:MX mini] https://falbatech.click/products/Corne-mini-Fully-Assembled-Custom-Mechanical-Keyboard-p630813323","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Dark-Bamboo-Keyboard-shipping-in-24h-p613843609","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Natural-Bamboo-Keyboard-with-Tilt-Tent-Set-in-shipping-24h-p613843369","[v:MX BT] https://falbatech.click/products/Corne-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p630685504","[v:MX BT mini] https://falbatech.click/products/Corne-mini-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631346754"];
 	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Unibody tray] https://www.thingiverse.com/thing:4897653","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case","[v:LP Case] https://www.thingiverse.com/thing:4549765 @ https://kbd.news/Corne-LP-case-810.html","[v:Case] https://github.com/kisonecat/corne-case","[v:Tented case] https://www.thingiverse.com/thing:4705667","[v:Magnetic case] https://github.com/Runningtarrens/Mcorne"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
-	kb = ColStagKeyboard._new("Unicorne",kb);
+	kb = ColStagKeyboard._new("Unicorne",corne);
 	kb.trackpoints = type_NumRange.fromArray([0,2]);
 	kb.kit = ["[v:MX] https://new.boardsource.xyz/products/unicorne","[v:Choc] https://new.boardsource.xyz/products/unicorne-LP"];
-	var addSofle = function(kb) {
-		kb.keys = kb.keys != null ? kb.keys : [type_NumRange.fromValue(58)];
-		kb.cols = type_NumRange.fromValue(6);
-		kb.rows = type_NumRange.fromValue(4);
-		ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5));
-		kb.encoders = kb.encoders != null ? kb.encoders : type_NumRange.fromValue(2);
-		kb.displays = kb.displays != null ? kb.displays : type_NumRange.fromArray([0,2]);
-		ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
-		add(kb);
+	kb.buildGuide = type_ValList.fromValue("https://new.boardsource.xyz/docs/build_guides-unicorne");
+	var sofleShared = function() {
+		kb.notes = ["The difference between Sofle V1 and Sofle V2 is in bottom row layout and pinky column stagger.","Sofle Choc uses Sofle V2-like bottom row layout but V1-like pinky column stagger."];
+		kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
+		kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
+		kb.buildGuide = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
 	};
-	kb = ColStagKeyboard._new("Sofle");
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc]);
-	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
-	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
-	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
-	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
-	kb.kit = ["[v:v2] https://keebd.com/en-us/products/sofle-v2-keyboard-kit","[v:v2] https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419","[v:v1, v1 Choc, v2] https://mechboards.co.uk/collections/kits/products/sofle-kit","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2] https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/","[v:v2 RGB] https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit","[v:v2] https://keebd.com/products/sofle-v2-1-choc-keyboard-kit","[v:v2 RGB] https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit","[v:MX, Choc] https://keebmaker.com/collections/kits"];
-	kb.prebuilt = ["[v:MX] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372","[v:MX wireless] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372","[v:v2 RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","[v:v2] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-set/","[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards","[v:v2, v2 RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib="];
-	kb.extras = ["[v:v2 tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/","[v:v2 printable case] https://github.com/kb-elmo/SofleCase"];
+	kb = ColStagKeyboard._new("Sofle V1");
 	kb.img = type_ValList.fromValue("sofle.jpg");
-	ColStagKeyboard.addSKBC(kb);
-	addSofle(kb);
-	var sofle = kb;
-	var addSofleFT = function(kb) {
-		kb.notes = type_ValList.fromValue("Featuring a variety of bamboo cases");
-		kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
-		kb.keys = type_NumRangeList.either(58,60);
-		kb.encoders = type_NumRange.fromArray([0,2]);
-		kb.displays = type_NumRange.fromArray([0,2]);
-		kb.tenting = [type_Tenting.None,type_Tenting.Legs];
-		ColStagKeyboard.setQMK(kb,[type_Software.VIA]);
-		add(kb);
-	};
-	kb = ColStagKeyboard._new("Sofle FT",sofle);
-	kb.img = type_ValList.fromValue("sofle-ft-wireless.webp");
-	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
-	kb.kit = ["[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-p613836129","[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Wireless-p613834138"];
-	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585","[v:Wireless] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585"];
-	addSofleFT(kb);
-	kb = ColStagKeyboard._new("Sofle FT LP",sofle);
-	kb.img = type_ValList.fromValue("sofle-ft-lp.webp");
+	sofleShared();
+	kb.keys = [type_NumRange.fromValue(58)];
+	kb.rows = type_NumRange.fromValue(4);
+	kb.cols = type_NumRange.fromValue(6);
+	kb.thumbKeys = type_NumRange.fromValue(5);
+	kb.pinkyStagger = 0.2;
+	kb.hotswap = [type_HotSwap.Yes];
+	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc];
+	kb.keySpacing = [type_KeySpacing.MX];
+	kb.encoders = type_NumRange.fromValue(2);
+	kb.encoderType = type_ValList.fromValue(type_EncoderType.Knob);
+	kb.displays = type_NumRange.fromArray([0,2]);
+	kb.assembly = [type_Assembly.PCB,type_Assembly.Reversible];
+	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
 	kb.lighting = [type_Lighting.None];
+	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
+	kb.kit = ["[v:MX, Choc] https://mechboards.co.uk/collections/kits/products/sofle-kit","[v:MX only?] https://customkbd.com/collections/split-keyboards","[v:Choc] https://keebd.com/en-gb/products/sofle-v2-1-choc-keyboard-kit"];
+	kb.prebuilt = ["[v:MX only?] https://customkbd.com/collections/split-keyboards"];
+	var sofleV1 = add(kb);
+	kb = ColStagKeyboard._new("Sofle V2",sofleV1);
+	kb.img = type_ValList.fromValue("sofle-rgb.webp");
+	sofleShared();
+	kb.notes.push("Separate unlit and RGB versions exist.");
+	kb.notes.push("Non-hotswap version is unlit.");
+	kb.switchProfile = [type_SwitchProfile.MX];
+	kb.hotswap = [type_HotSwap.Yes,type_HotSwap.No];
+	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
+	kb.pinkyStagger = 0.4;
+	kb.kit = ["[v:Unlit] https://keebd.com/en-us/products/sofle-v2-keyboard-kit","[v:RGB] https://keebd.com/en-gb/products/sofle-v2-1-rgb-keyboard-kit","[v:Unlit?] https://mechboards.co.uk/collections/kits/products/sofle-kit","[v:Unlit] https://customkbd.com/collections/split-keyboards/products/sofle-v2-keyboard-kit","[v:RGB] https://customkbd.com/collections/split-keyboards/products/sofle-keyboard-kit-v2-1-rgb","[v:Unlit?] https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/","[v:RGB] https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit","[v:RGB] https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit","[v:RGB] https://keebmaker.com/collections/kits/products/sofle-rgb-kit","[v:Unlit] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-kit/"];
+	kb.prebuilt = ["[v:RGB] https://keebmaker.com/collections/custom-keyboards/products/sofle-rgb","[v:RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","[v:Unlit] https://shop.beekeeb.com/product/pre-soldered-sofle-v2/","[v:RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/","[v:Unlit] https://customkbd.com/collections/split-keyboards/products/sofle-v2-assembled","[v:RGB] https://customkbd.com/collections/split-keyboards/products/sofle-keyboard-rgb-assembled","[v:Unlit, RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib=","[v:RGB] https://xcmkb.com/products/soflev2"];
+	kb.extras = ["[v:v2 tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/","[v:v2 printable case] https://github.com/kb-elmo/SofleCase"];
+	var sofleV2 = add(kb);
+	kb = ColStagKeyboard._new("Sofle Choc",sofleV1);
+	kb.img = type_ValList.fromValue("sofle-choc.jpg");
+	sofleShared();
+	kb.notes.push("Sometimes also called \"Sofle RGB Choc 2.1\" by vendors.");
+	kb.switchProfile = [type_SwitchProfile.Choc];
+	kb.keySpacing = [type_KeySpacing.MX];
+	kb.kit = ["https://keebmaker.com/collections/kits/products/sofle-low-profile-kit","https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/","https://customkbd.com/collections/split-keyboards/products/sofle-choc-keyboard","https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit"];
+	kb.prebuilt = ["https://keebmaker.com/products/sofle-low-profile","https://shop.beekeeb.com/product/presoldered-sofle-rgb-choc-v2-1/"];
+	var sofleChoc = add(kb);
+	kb = ColStagKeyboard._new("Aurora Sofle V2",sofleV2);
+	kb.img = type_ValList.fromValue("aurora-sofle-v2.webp");
+	kb.connection = [type_Connection.Wired,type_Connection.Wireless];
+	kb.notes = ["Differences from Sofle V2:","- Supports Choc switches","- Supports a pair of additional encoders in place of thumb/top corner keys.","- Supports underglow","- Supports SplitKB tenting pucks","- Supports wireless/ZMK"];
+	kb.switchProfile = [type_SwitchProfile.MX,type_SwitchProfile.Choc];
+	kb.hotswap = [type_HotSwap.Yes,type_HotSwap.No];
+	kb.lighting = [type_Lighting.None,type_Lighting.RGB,type_Lighting.Underglow];
+	kb.tenting = [type_Tenting.Mount];
+	kb.firmware = [type_Firmware.QMK,type_Firmware.ZMK];
+	kb.kit = type_ValList.fromValue("https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2");
+	kb.prebuilt = [];
+	kb.buildGuide = type_ValList.fromValue("https://splitkb.com/aurora-build");
+	add(kb);
+	kb = ColStagKeyboard._new("Sofle FT",sofleV2);
+	kb.img = type_ValList.fromValue("sofle-ft-wireless.webp");
+	kb.notes = ["Differences from Sofle V2:"];
+	kb.notes = kb.notes.concat(["- Key switches can take place of rotary encoders","- Wired/wireless","- Wooden cases with optional tenting legs","- No lighting"]);
+	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+	kb.keys = type_NumRangeList.either(58,60);
+	kb.encoders = type_NumRange.fromArray([0,2]);
+	kb.displays = type_NumRange.fromArray([0,2]);
+	kb.tenting = [type_Tenting.None,type_Tenting.Legs];
+	kb.lighting = [type_Lighting.None];
+	ColStagKeyboard.setQMK(kb,[type_Software.VIA]);
+	kb.kit = ["[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-p613836129","[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Wireless-p613834138"];
+	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372","[v:Wireless] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585"];
+	add(kb);
+	kb = ColStagKeyboard._new("Sofle FT LP",sofleChoc);
+	kb.img = type_ValList.fromValue("sofle-ft-lp.webp");
+	kb.notes = ["Differences from Sofle Choc:"];
+	kb.notes = kb.notes.concat(["- Key switches can take place of rotary encoders","- Wired/wireless","- Wooden cases with optional tenting legs","- No lighting"]);
+	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
+	kb.keys = type_NumRangeList.either(58,60);
+	kb.encoders = type_NumRange.fromArray([0,2]);
+	kb.displays = type_NumRange.fromArray([0,2]);
+	kb.tenting = [type_Tenting.None,type_Tenting.Legs];
+	kb.lighting = [type_Lighting.None];
+	ColStagKeyboard.setQMK(kb,[type_Software.VIA]);
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.kit = ["[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-low-profile-p613843876","[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Low-Profile-Wireless-p613870266"];
 	kb.prebuilt = ["[v:Wired] https://falbatech.click/products/Sofle-Low-profile-Fully-Assembled-Custom-Mechanical-Keyboard-p631773376","[v:Wireless] https://falbatech.click/products/Sofle-Low-profile-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631799062"];
-	addSofleFT(kb);
-	kb = ColStagKeyboard._new("Sofle Choc");
-	kb.notes = ["Sofle Choc, not to be confused with Choc Sofle (which has different pinky stagger)"];
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
-	kb.caseType = [type_CaseType.Included,type_CaseType.ThirdParty];
-	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
-	kb.web = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/");
-	kb.source = type_ValList.fromValue("https://github.com/josefadamcik/SofleKeyboard");
-	kb.kit = ["https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit","https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/"];
-	kb.img = type_ValList.fromValue("sofle-choc.jpg");
-	kb.pinkyStagger = 0.3;
-	addSofle(kb);
-	kb = ColStagKeyboard._new("Sofle PLUS (xcmkb)");
-	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(58)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
-	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5));
-	kb.displays = type_NumRange.fromValue(2);
-	kb.encoders = type_NumRange.fromValue(2);
+	add(kb);
+	kb = ColStagKeyboard._new("XCMKB SoflePLUS2",sofleV2);
+	kb.img = type_ValList.fromValue("xcmkb-sofle-plus2.webp");
+	kb.notes = ["Differences from Sofle V2:","- MX/Choc hotswap","- Trackpad instead of one encoder","- Spinning disk with a 4-way switch or roller wheel instead of other encoder (optional)"];
+	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
+	kb.lighting = [type_Lighting.RGB];
+	kb.encoders = type_NumRange.fromArray([1,2]);
 	kb.encoderType = [type_EncoderType.Knob,type_EncoderType.Wheel];
-	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
-	kb.trackballs = type_NumRange.fromValue(1);
-	kb.trackballSize = 4.4;
-	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.web = type_ValList.fromValue("https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/sofle/sofleplus");
-	kb.prebuilt = ["![n:xcmkb]https://github.com/superxc3/xcmkb"];
-	kb.img = type_ValList.fromValue("xcmkb-sofle-plus.jpg");
-	kb.notes = type_ValList.fromValue("A number of small improvements over regular Sofle.");
+	kb.dpads = type_NumRange.fromArray([0,1]);
+	kb.trackpads = type_NumRange.fromArray([0,1]);
+	kb.web = type_ValList.fromValue("https://xcmkb.com/pages/plus2");
+	kb.prebuilt = type_ValList.fromValue("https://xcmkb.com/products/sofleplus2");
 	add(kb);
 	kb = { name : "Soufflé", pinkyStagger : 0.7, encoders : type_NumRange.fromArray([1,2]), source : type_ValList.fromValue("https://github.com/climent/SouffleKeyboard"), img : type_ValList.fromValue("Soufflé.jpg")};
-	ColStagKeyboard.setMatrix(kb,type_NumRangeList.fromSimpleArray([58,59]),type_NumRange.fromValue(6),type_NumRange.fromValue(4));
+	kb.notes = ["A mix of Sofle V1/V2 with corner keys"];
+	ColStagKeyboard.setMatrix(kb,type_NumRangeList.fromSimpleArray([58,60]),type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromValue(1));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
+	kb.encoders = type_NumRange.fromArray([0,2]);
+	kb.encoderType = [type_EncoderType.Knob];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setQMK(kb,[type_Software.VIA,type_Software.Vial]);
 	add(kb);
@@ -503,29 +540,25 @@ ColStagBoards.init = function(keyboards) {
 	kb.img = type_ValList.fromValue("buzzard.webp");
 	kb.notes = ["Hotswap sockets cannot be used next to the trackpoint(s)"];
 	add(kb);
-	var addReviung41 = function(kb) {
-		ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(41)],type_NumRange.fromValue(6),type_NumRange.fromValue(3));
-		ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(3));
-		kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-		kb.shape = type_ValList.fromValue(type_Shape.Unibody);
-		add(kb);
-	};
 	kb = ColStagKeyboard._new("Reviung41");
 	kb.img = type_ValList.fromValue("REVIUNG41.jpg");
 	kb.source = type_ValList.fromValue("https://github.com/gtips/reviung");
+	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(41)],type_NumRange.fromValue(6),type_NumRange.fromValue(3));
+	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(3));
+	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.kit = ["https://keebd.com/en-us/products/reviung-41-keyboard-kit","https://customkbd.com/collections/split-keyboards/products/reviung-41","https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit","https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/","https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit","https://new.boardsource.xyz/products/Reviung41"];
 	kb.prebuilt = ["https://shop.beekeeb.com/product/pre-soldered-reviung41/","https://new.boardsource.xyz/products/Reviung41","https://customkbd.com/collections/split-keyboards/products/reviung-41"];
 	ColStagKeyboard.addSKBC(kb);
-	addReviung41(kb);
-	kb = ColStagKeyboard._new("Reviung41 with trackball");
+	kb = ColStagKeyboard._new("Reviung41 with trackball",add(kb));
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc));
 	kb.trackballSize = 4.4;
 	kb.trackballs = type_NumRange.fromValue(1);
 	kb.source = type_ValList.fromValue("https://github.com/idank/keyboards/tree/main/reviung");
 	kb.prebuilt = type_ValList.fromValue("!https://holykeebs.com/products/trackball-reviung41-low-profile");
 	kb.img = type_ValList.fromValue("reviung-trackball.jpg");
-	addReviung41(kb);
+	add(kb);
 	kb = ColStagKeyboard._new("Fisk");
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(54)],type_NumRange.fromValue(6),type_NumRange.fromValue(3));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(6),type_NumRange.fromValue(2),type_NumRange.fromValue(1),type_NumRange.fromValue(0));
@@ -1184,7 +1217,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			if(navCluster.usedValues.exists(type_NavCluster.Duo)) {
 				li = tools_HtmlTools.appendElTextNode(ul,"li");
 				tools_HtmlTools.appendElTextNode(li,"b","Duo");
-				li.appendChild(window.document.createTextNode(" means that there are two of those" + " (second commonly being used for home/end/pgup/pgdn)"));
+				li.appendChild(window.document.createTextNode(" means that there are two of those" + " (second commonly being used for Home/End/PgUp/PgDn)"));
 			}
 			tools_HtmlTools.appendElTextNode(ul,"li","\"Full\" means that there's an arrow cluster" + " with a standard 6/9-key cluster roughly above it.");
 			if(corner) {
@@ -1315,6 +1348,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		switchType.filterLabels.set(type_SwitchProfile.ChocMini,"Kailh Choc Mini");
 		switchType.filterLabels.set(type_SwitchProfile.KXSwitch,"Kailh X-Switch");
 		switchType.filterLabels.set(type_SwitchProfile.GateronLP,"Gateron LP");
+		switchType.filterLabels.set(type_SwitchProfile.Topre,"Electrocapacitive");
+		switchType.filterLabels.set(type_SwitchProfile.HallEffect,"Hall Effect");
 		switchType.shortLabels.set(type_SwitchProfile.Unknown,"");
 		switchType.shortLabels.set(type_SwitchProfile.KXSwitch,"KX");
 		switchType.shortLabels.set(type_SwitchProfile.ChocMini,"mChoc");
@@ -1322,6 +1357,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		switchType.shortLabels.set(type_SwitchProfile.OutemuLP,"OLP");
 		switchType.shortLabels.set(type_SwitchProfile.CherryULP,"CULP");
 		switchType.shortLabels.set(type_SwitchProfile.Optical,"Opt");
+		switchType.shortLabels.set(type_SwitchProfile.Topre,"EC");
+		switchType.shortLabels.set(type_SwitchProfile.HallEffect,"HE");
 		switchType.hideInEditor.set(type_SwitchProfile.AnyHP,true);
 		switchType.hideInEditor.set(type_SwitchProfile.AnyLP,true);
 		switchType.hideInEditor.set(type_SwitchProfile.AnyMechanical,true);
@@ -1456,6 +1493,37 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		};
 		lc.shortName = "PB";
 		var prebuilt = lc;
+		lc = new table_LinkListColumn("Build guide (WIP)",new table_FancyField("buildGuide",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.buildGuide = setValue;
+				return null;
+			} else {
+				return q.buildGuide;
+			}
+		}));
+		this.addColumn(lc);
+		lc.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"If the keyboard has a semi-detailed guide for making one yourself from" + " kit or source files, this links to that.");
+		};
+		lc.shortName = "BG";
+		lc.canShowSingle = true;
+		var buildGuide = lc;
+		lc = new table_LinkListColumn("Layout ref",new table_FancyField("layoutRef",function(q,wantSet,setValue) {
+			if(wantSet) {
+				q.layoutRef = setValue;
+				return null;
+			} else {
+				return q.layoutRef;
+			}
+		}));
+		this.addColumn(lc);
+		lc.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"If there's a PDF/etc. that you can print" + " to check how your fingers would rest on the keyboard," + " this links to that.");
+			tools_HtmlTools.appendParaTextNode(div,"For open-source keyboards with PCBs," + " you may also print the .kicad_pcb file from KiCad.");
+		};
+		lc.shortName = "LR";
+		lc.canShowSingle = true;
+		var layoutRef = lc;
 		var avail_has = function(list) {
 			if(list != null) {
 				return list.length > 0;
@@ -1477,6 +1545,12 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			if(avail_has(obj.prebuilt)) {
 				result.push(type_Availability.PreBuilt);
 			}
+			if(avail_has(obj.buildGuide)) {
+				result.push(type_Availability.BuildGuide);
+			}
+			if(avail_has(obj.layoutRef)) {
+				result.push(type_Availability.LayoutRef);
+			}
 			return result;
 		}),type_Availability);
 		avail.shortName = "Links";
@@ -1495,33 +1569,32 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				kit.buildValueExt(out,item,"Kit");
 			}
 			if(avail_has(item.prebuilt)) {
-				if(!first) {
+				if(first) {
+					first = false;
+				} else {
 					out.appendChild(window.document.createTextNode(", "));
 				}
 				prebuilt.buildValueExt(out,item,"PB");
 			}
+			if(avail_has(item.buildGuide)) {
+				if(first) {
+					first = false;
+				} else {
+					out.appendChild(window.document.createTextNode(", "));
+				}
+				buildGuide.buildValueExt(out,item,"BG");
+			}
+			if(avail_has(item.layoutRef)) {
+				if(!first) {
+					out.appendChild(window.document.createTextNode(", "));
+				}
+				layoutRef.buildValueExt(out,item,"LR");
+			}
 		};
 		avail.show = true;
-		avail.shortLabels.set(type_Availability.OpenSource,"O");
-		avail.shortLabels.set(type_Availability.Kit,"K");
-		avail.shortLabels.set(type_Availability.PreBuilt,"PB");
 		avail.filterTags = [type_Availability.Kit,type_Availability.PreBuilt];
 		avail.canEdit = false;
 		this.addColumn(avail);
-		lc = new table_LinkListColumn("Layout ref",new table_FancyField("layoutRef",function(q,wantSet,setValue) {
-			if(wantSet) {
-				q.layoutRef = setValue;
-				return null;
-			} else {
-				return q.layoutRef;
-			}
-		}));
-		this.addColumn(lc);
-		lc.onNotes = function(div) {
-			tools_HtmlTools.appendParaTextNode(div,"If there's a PDF/etc. that you can print" + " to check how your fingers would rest on the keyboard," + " this links to that.");
-			tools_HtmlTools.appendParaTextNode(div,"For open-source keyboards with PCBs," + " you may also print the .kicad_pcb file from KiCad.");
-		};
-		lc.shortName = "LR";
 	}
 	,initInputs: function(kb) {
 		var header = this.addFilterHeader("Other input devices");
@@ -1819,16 +1892,14 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}),type_Assembly);
 		asm.defaultValue = [];
 		asm.columnCount = 2;
+		asm.filterNotes.set(type_Assembly.PCB,"A little less work to build from scratch," + " but you have to order PCB(s) from somewhere.");
+		asm.filterNotes.set(type_Assembly.Handwired,"A little more work to build from scratch," + " but reduces the material list to readily available components and a 3d-printed case." + "\nSome keyboards have separate PCB/handwire versions.");
+		asm.filterLabels.set(type_Assembly.Diodeless,"Diodeless (WIP)");
+		asm.filterNotes.set(type_Assembly.Diodeless,"Means that the keyboard doesn't use diodes, which is a little less soldering." + "\nRecent split keyboards under 42 keys are typically diodeless.");
+		asm.filterLabels.set(type_Assembly.Reversible,"Reversible (WIP)");
+		asm.filterNotes.set(type_Assembly.Reversible,"A keyboard consists of two or more identical PCBs/cases." + "\nMinimum order quantity for PCBs is usually 5," + " so this reduces the number of extra boards you end up with.");
 		asm.onNotes = function(div) {
-			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
-			if(asm.usedValues.exists(type_Assembly.Handwired)) {
-				tools_HtmlTools.appendElMarkupNode(ul,"li","<b>PCB</b> means that the keyboard uses a circuit board." + "<br>This means less soldering, but you have to order a PCB from somewhere.");
-				tools_HtmlTools.appendElMarkupNode(ul,"li","<b>Handwired</b> means that the keyboard is wired by hand," + " usually in a 3d-printed case. This is more work," + " but can make it easier to assemble a keyboard in countries where" + " ordering PCBs might be unreasonably expensive.");
-				tools_HtmlTools.appendElMarkupNode(ul,"li","Some keyboards have separate PCB and Handwired versions.");
-			}
-			if(asm.usedValues.exists(type_Assembly.Diodeless)) {
-				tools_HtmlTools.appendElTextNode(ul,"li").innerHTML = "<b>Diodeless</b> means that the keyboard <i>definitely</i> doesn't use diodes," + " which means a little less soldering.<br>" + "This classification is work-in-progress," + " but keyboards with 36 keys or less are typically diodeless.";
-			}
+			asm.appendFilterNotes(div);
 		};
 		asm.shortName = "Assembly";
 		this.addColumn(asm);
@@ -4785,22 +4856,43 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 			if(vendor == null) {
 				vendor = domain;
 			}
-			var _g1 = [];
-			var _g2 = 0;
-			var _g3 = rows;
-			while(_g2 < _g3.length) {
-				var v = _g3[_g2];
-				++_g2;
-				if(v.label == vendor && v.official == official) {
-					_g1.push(v);
+			var addTo = null;
+			var _g1 = 0;
+			while(_g1 < rows.length) {
+				var row = rows[_g1];
+				++_g1;
+				if(row.label != vendor) {
+					continue;
 				}
+				if(row.official != official) {
+					continue;
+				}
+				if(row.origins.length > 0 && origins.length > 0) {
+					if(row.origins.length != origins.length) {
+						continue;
+					}
+					var mismatch = false;
+					var _g_current1 = 0;
+					var _g_array1 = origins;
+					while(_g_current1 < _g_array1.length) {
+						var _g_value = _g_array1[_g_current1++];
+						if(row.origins[_g_current1 - 1] != _g_value) {
+							mismatch = true;
+							break;
+						}
+					}
+					if(mismatch) {
+						continue;
+					}
+				}
+				addTo = row;
+				break;
 			}
-			var row = _g1[0];
-			if(row == null) {
-				row = new table_LinkListRow(vendor);
-				row.official = official;
-				row.origins = origins;
-				rows.push(row);
+			if(addTo == null) {
+				addTo = new table_LinkListRow(vendor);
+				addTo.official = official;
+				addTo.origins = origins;
+				rows.push(addTo);
 			} else {
 				usesVariants = true;
 			}
@@ -4808,7 +4900,7 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 			rowItem.url = href;
 			rowItem.alt = alt;
 			rowItem.label = variant;
-			row.items.push(rowItem);
+			addTo.items.push(rowItem);
 		}
 		rows.sort(function(a,b) {
 			if(a.official != b.official) {
@@ -5265,9 +5357,23 @@ table_NameColumn.prototype = $extend(table_StringColumn.prototype,{
 					}
 				}
 				if(kb.notes != null) {
+					var list = null;
 					var _g = 0;
 					var _g1 = kb.notes;
-					while(_g < _g1.length) tools_HtmlTools.appendParaTextNode(div,_g1[_g++]);
+					while(_g < _g1.length) {
+						var note = _g1[_g];
+						++_g;
+						if(StringTools.startsWith(note,"-")) {
+							note = StringTools.ltrim(note.substring(1));
+							if(list == null) {
+								list = tools_HtmlTools.appendElTextNode(div,"ul");
+							}
+							tools_HtmlTools.appendElTextNode(list,"li",note);
+						} else {
+							list = null;
+							tools_HtmlTools.appendParaTextNode(div,note);
+						}
+					}
 				}
 				return div;
 			});
@@ -7307,14 +7413,6 @@ tools_HtmlTools.appendElTextNode = function(e,tag,text) {
 	e.appendChild(p);
 	return p;
 };
-tools_HtmlTools.appendElMarkupNode = function(e,tag,html) {
-	var p = window.document.createElement(tag);
-	if(html != null) {
-		p.innerHTML = html;
-	}
-	e.appendChild(p);
-	return p;
-};
 tools_HtmlTools.appendExplainer = function(e,name,desc) {
 	var li = window.document.createElement("li");
 	tools_HtmlTools.appendElTextNode(li,"b",name);
@@ -7443,14 +7541,17 @@ var type_Assembly = $hxEnums["type.Assembly"] = { __ename__:true,__constructs__:
 	,Diodeless: {_hx_name:"Diodeless",_hx_index:3,__enum__:"type.Assembly",toString:$estr}
 	,Handwired: {_hx_name:"Handwired",_hx_index:4,__enum__:"type.Assembly",toString:$estr}
 	,Adjustable: {_hx_name:"Adjustable",_hx_index:5,__enum__:"type.Assembly",toString:$estr}
+	,Reversible: {_hx_name:"Reversible",_hx_index:6,__enum__:"type.Assembly",toString:$estr}
 };
-type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.PCB,type_Assembly.ThroughHole,type_Assembly.Diodeless,type_Assembly.Handwired,type_Assembly.Adjustable];
+type_Assembly.__constructs__ = [type_Assembly.Unspecified,type_Assembly.PCB,type_Assembly.ThroughHole,type_Assembly.Diodeless,type_Assembly.Handwired,type_Assembly.Adjustable,type_Assembly.Reversible];
 var type_Availability = $hxEnums["type.Availability"] = { __ename__:true,__constructs__:null
 	,OpenSource: {_hx_name:"OpenSource",_hx_index:0,__enum__:"type.Availability",toString:$estr}
 	,Kit: {_hx_name:"Kit",_hx_index:1,__enum__:"type.Availability",toString:$estr}
 	,PreBuilt: {_hx_name:"PreBuilt",_hx_index:2,__enum__:"type.Availability",toString:$estr}
+	,BuildGuide: {_hx_name:"BuildGuide",_hx_index:3,__enum__:"type.Availability",toString:$estr}
+	,LayoutRef: {_hx_name:"LayoutRef",_hx_index:4,__enum__:"type.Availability",toString:$estr}
 };
-type_Availability.__constructs__ = [type_Availability.OpenSource,type_Availability.Kit,type_Availability.PreBuilt];
+type_Availability.__constructs__ = [type_Availability.OpenSource,type_Availability.Kit,type_Availability.PreBuilt,type_Availability.BuildGuide,type_Availability.LayoutRef];
 var type_AvailabilityColumn = function(name,field,et) {
 	table_tag_TagListColumn.call(this,name,field,et);
 };
@@ -7921,12 +8022,13 @@ var type_SwitchProfile = $hxEnums["type.SwitchProfile"] = { __ename__:true,__con
 	,OutemuLP: {_hx_name:"OutemuLP",_hx_index:12,__enum__:"type.SwitchProfile",toString:$estr}
 	,CherryULP: {_hx_name:"CherryULP",_hx_index:13,__enum__:"type.SwitchProfile",toString:$estr}
 	,Optical: {_hx_name:"Optical",_hx_index:14,__enum__:"type.SwitchProfile",toString:$estr}
-	,Topre: {_hx_name:"Topre",_hx_index:15,__enum__:"type.SwitchProfile",toString:$estr}
-	,Simple: {_hx_name:"Simple",_hx_index:16,__enum__:"type.SwitchProfile",toString:$estr}
-	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:17,__enum__:"type.SwitchProfile",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:18,__enum__:"type.SwitchProfile",toString:$estr}
+	,Simple: {_hx_name:"Simple",_hx_index:15,__enum__:"type.SwitchProfile",toString:$estr}
+	,SimpleLP: {_hx_name:"SimpleLP",_hx_index:16,__enum__:"type.SwitchProfile",toString:$estr}
+	,Topre: {_hx_name:"Topre",_hx_index:17,__enum__:"type.SwitchProfile",toString:$estr}
+	,HallEffect: {_hx_name:"HallEffect",_hx_index:18,__enum__:"type.SwitchProfile",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:19,__enum__:"type.SwitchProfile",toString:$estr}
 };
-type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.AnyHP,type_SwitchProfile.AnyLP,type_SwitchProfile.AnyMechanical,type_SwitchProfile.AnySimple,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.ChocMini,type_SwitchProfile.KXSwitch,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Topre,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Other];
+type_SwitchProfile.__constructs__ = [type_SwitchProfile.Unknown,type_SwitchProfile.AnyHP,type_SwitchProfile.AnyLP,type_SwitchProfile.AnyMechanical,type_SwitchProfile.AnySimple,type_SwitchProfile.MX,type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.ChocMini,type_SwitchProfile.KXSwitch,type_SwitchProfile.Alps,type_SwitchProfile.GateronLP,type_SwitchProfile.OutemuLP,type_SwitchProfile.CherryULP,type_SwitchProfile.Optical,type_SwitchProfile.Simple,type_SwitchProfile.SimpleLP,type_SwitchProfile.Topre,type_SwitchProfile.HallEffect,type_SwitchProfile.Other];
 var type_SwitchProfileTools = function() { };
 type_SwitchProfileTools.__name__ = true;
 type_SwitchProfileTools.isHP = function(p) {
@@ -7941,7 +8043,7 @@ type_SwitchProfileTools.isHP = function(p) {
 		return true;
 	case 15:
 		return true;
-	case 16:
+	case 17:
 		return true;
 	default:
 		return false;
@@ -7965,7 +8067,7 @@ type_SwitchProfileTools.isLP = function(p) {
 		return true;
 	case 13:
 		return true;
-	case 17:
+	case 16:
 		return true;
 	default:
 		return false;
@@ -7973,9 +8075,9 @@ type_SwitchProfileTools.isLP = function(p) {
 };
 type_SwitchProfileTools.isMech = function(p) {
 	switch(p._hx_index) {
-	case 16:
+	case 15:
 		return false;
-	case 17:
+	case 16:
 		return false;
 	default:
 		return true;

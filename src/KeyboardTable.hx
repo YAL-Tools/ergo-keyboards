@@ -133,7 +133,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 				li = ul.appendElTextNode("li");
 				li.appendElTextNode("b", "Duo");
 				li.appendTextNode(" means that there are two of those"
-					+ ' (second commonly being used for home/end/pgup/pgdn)');
+					+ ' (second commonly being used for Home/End/PgUp/PgDn)');
 			}
 			ul.appendElTextNode("li",
 				'"Full" means that there\'s an arrow cluster'
@@ -243,6 +243,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		switchType.filterLabels[SwitchProfile.ChocMini] = "Kailh Choc Mini";
 		switchType.filterLabels[SwitchProfile.KXSwitch] = "Kailh X-Switch";
 		switchType.filterLabels[SwitchProfile.GateronLP] = "Gateron LP";
+		switchType.filterLabels[SwitchProfile.Topre] = "Electrocapacitive";
+		switchType.filterLabels[SwitchProfile.HallEffect] = "Hall Effect";
 		//
 		switchType.shortLabels[SwitchProfile.Unknown] = "";
 		switchType.shortLabels[SwitchProfile.KXSwitch] = "KX";
@@ -251,6 +253,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		switchType.shortLabels[SwitchProfile.OutemuLP] = "OLP";
 		switchType.shortLabels[SwitchProfile.CherryULP] = "CULP";
 		switchType.shortLabels[SwitchProfile.Optical] = "Opt";
+		switchType.shortLabels[SwitchProfile.Topre] = "EC";
+		switchType.shortLabels[SwitchProfile.HallEffect] = "HE";
 		//
 		switchType.hideInEditor[SwitchProfile.AnyHP] = true;
 		switchType.hideInEditor[SwitchProfile.AnyLP] = true;
@@ -378,6 +382,30 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		lc.shortName = "PB";
 		var prebuilt = lc;
 		
+		mAddColumn(lc = new LinkListColumn("Build guide (WIP)", kb.buildGuide));
+		lc.onNotes = function(div:Element):Void {
+			div.appendParaTextNode(
+				"If the keyboard has a semi-detailed guide for making one yourself from"
+				+" kit or source files, this links to that."
+			);
+		}
+		lc.shortName = "BG";
+		lc.canShowSingle = true;
+		var buildGuide = lc;
+		
+		mAddColumn(lc = new LinkListColumn("Layout ref", kb.layoutRef));
+		lc.onNotes = function(div:Element):Void {
+			div.appendParaTextNode("If there's a PDF/etc. that you can print"
+				+ " to check how your fingers would rest on the keyboard,"
+				+ " this links to that.");
+			div.appendParaTextNode("For open-source keyboards with PCBs,"
+				+ " you may also print the .kicad_pcb file from KiCad.");
+		}
+		lc.shortName = "LR";
+		lc.canShowSingle = true;
+		var layoutRef = lc;
+		
+		//
 		function avail_has(list:ValList<String>) {
 			return list != null && list.length > 0;
 		}
@@ -387,6 +415,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			if (avail_has(obj.source)) result.push(Availability.OpenSource);
 			if (avail_has(obj.kit)) result.push(Availability.Kit);
 			if (avail_has(obj.prebuilt)) result.push(Availability.PreBuilt);
+			if (avail_has(obj.buildGuide)) result.push(Availability.BuildGuide);
+			if (avail_has(obj.layoutRef)) result.push(Availability.LayoutRef);
 			return result;
 		});
 		var avail = new AvailabilityColumn("Availability", avail_fd, Availability);
@@ -404,24 +434,13 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			add(item.source, source, "Src");
 			add(item.kit, kit, "Kit");
 			add(item.prebuilt, prebuilt, "PB");
+			add(item.buildGuide, buildGuide, "BG");
+			add(item.layoutRef, layoutRef, "LR");
 		}
 		avail.show = true;
-		avail.shortLabels[Availability.OpenSource] = "O";
-		avail.shortLabels[Availability.Kit] = "K";
-		avail.shortLabels[Availability.PreBuilt] = "PB";
 		avail.filterTags = [Kit, PreBuilt];
 		avail.canEdit = false;
 		addColumn(avail);
-		
-		mAddColumn(lc = new LinkListColumn("Layout ref", kb.layoutRef));
-		lc.onNotes = function(div:Element):Void {
-			div.appendParaTextNode("If there's a PDF/etc. that you can print"
-				+ " to check how your fingers would rest on the keyboard,"
-				+ " this links to that.");
-			div.appendParaTextNode("For open-source keyboards with PCBs,"
-				+ " you may also print the .kicad_pcb file from KiCad.");
-		}
-		lc.shortName = "LR";
 	}
 	function initInputs(kb:KB) {
 		var header = addFilterHeader("Other input devices");
@@ -657,34 +676,27 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		var asm = new TagListColumn("Assembly specifics", mgf(kb.assembly), Assembly);
 		asm.defaultValue = [];
 		asm.columnCount = 2;
+		asm.filterNotes[PCB] = ("A little less work to build from scratch,"
+			+ " but you have to order PCB(s) from somewhere."
+		);
+		asm.filterNotes[Handwired] = ("A little more work to build from scratch,"
+			+ " but reduces the material list to readily available components and a 3d-printed case."
+			+ "\nSome keyboards have separate PCB/handwire versions."
+		);
+		asm.filterLabels[Diodeless] = "Diodeless (WIP)";
+		asm.filterNotes[Diodeless] = (
+			"Means that the keyboard doesn't use diodes, which is a little less soldering."
+			+ "\nRecent split keyboards under 42 keys are typically diodeless."
+		);
+		asm.filterLabels[Reversible] = "Reversible (WIP)";
+		asm.filterNotes[Reversible] = (
+			"A keyboard consists of two or more identical PCBs/cases."
+			+ "\nMinimum order quantity for PCBs is usually 5,"
+			+ " so this reduces the number of extra boards you end up with."
+		);
 		asm.onNotes = function(div) {
-			var ul = div.appendElTextNode("ul");
-			if (asm.usedValues.exists(Handwired)) {
-				ul.appendElMarkupNode("li",
-					"<b>PCB</b> means that the keyboard uses a circuit board."
-					+ "<br>This means less soldering, but you have to order a PCB from somewhere."
-				);
-				ul.appendElMarkupNode("li",
-					"<b>Handwired</b> means that the keyboard is wired by hand,"
-					+ " usually in a 3d-printed case. This is more work,"
-					+ " but can make it easier to assemble a keyboard in countries where"
-					+ " ordering PCBs might be unreasonably expensive."
-				);
-				ul.appendElMarkupNode("li",
-					"Some keyboards have separate PCB and Handwired versions."
-				);
-			}
-			if (asm.usedValues.exists(Diodeless)) {
-				var li = ul.appendElTextNode("li");
-				li.innerHTML = (
-					"<b>Diodeless</b> means that the keyboard <i>definitely</i> doesn't use diodes,"
-					+ " which means a little less soldering.<br>"
-					+ "This classification is work-in-progress,"
-					+ " but keyboards with 36 keys or less are typically diodeless."
-				);
-			}
+			asm.appendFilterNotes(div);
 		}
-		//asm.shortLabels[Assembly.Unspecified] = "";
 		asm.shortName = "Assembly";
 		addColumn(asm);
 	}

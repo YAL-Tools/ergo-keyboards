@@ -11,4 +11,5 @@ enum Assembly {
 	Diodeless;
 	Handwired;
 	Adjustable;
+	Reversible;
 }

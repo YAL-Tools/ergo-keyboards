@@ -15,6 +15,7 @@ import type.Shape;
 import type.Splay;
 import type.WristPads;
 import type.CaseType;
+import type.*;
 
 /**
  * ...
@@ -41,6 +42,10 @@ class ColStagBoards {
 		kb.caseType = [ThirdParty];
 		kb.lighting = [None, RGB];
 		kb.source = "https://github.com/foostan/crkbd";
+		kb.buildGuide = [
+			"[US] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_en.md",
+			"[JP] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_jp.md",
+		];
 		kb.kit = [
 			"https://splitkb.com/collections/keyboard-kits/products/aurora-corne",
 			"https://holykeebs.com",
@@ -104,77 +109,160 @@ class ColStagBoards {
 			"[v:MX] https://new.boardsource.xyz/products/unicorne",
 			"[v:Choc] https://new.boardsource.xyz/products/unicorne-LP",
 		];
+		kb.buildGuide = "https://new.boardsource.xyz/docs/build_guides-unicorne";
 		
-		function addSofle(kb:ColStagKeyboard) {
-			kb.keys ??= 58;
-			kb.cols = 6;
-			kb.rows = 4;
-			kb.setExtras(5);
-			kb.encoders ??= 2;
-			kb.displays ??= [0, 2];
-			kb.setQMK([VIA, Vial]);
-			add(kb);
+		// Sofle(s):
+		function sofleShared() {
+			kb.notes = [
+				"The difference between Sofle V1 and Sofle V2 is in bottom row layout and pinky column stagger.",
+				"Sofle Choc uses Sofle V2-like bottom row layout but V1-like pinky column stagger.",
+			];
+			kb.web = "https://josefadamcik.github.io/SofleKeyboard/";
+			kb.source = "https://github.com/josefadamcik/SofleKeyboard";
+			kb.buildGuide = "https://josefadamcik.github.io/SofleKeyboard/";
 		}
-		kb = new ColStagKeyboard("Sofle");
-		kb.setHotswap([MX, Choc]);
+		kb = new ColStagKeyboard("Sofle V1");
+		kb.img = "sofle.jpg";
+		sofleShared();
+		kb.keys = 58;
+		kb.rows = 4;
+		kb.cols = 6;
+		kb.thumbKeys = 5;
+		kb.pinkyStagger = 0.2;
+		kb.hotswap = [Yes];
+		kb.switchProfile = [MX, Choc];
+		kb.keySpacing = [MX];
+		kb.encoders = 2;
+		kb.encoderType = Knob;
+		kb.displays = [0, 2];
+		kb.assembly = [PCB, Reversible];
 		kb.caseType = [Included, ThirdParty];
-		kb.lighting = [None, RGB];
-		kb.web = "https://josefadamcik.github.io/SofleKeyboard/";
-		kb.source = "https://github.com/josefadamcik/SofleKeyboard";
+		kb.lighting = [None];
+		kb.setQMK([VIA, Vial]);
 		kb.kit = [
-			"[v:v2] https://keebd.com/en-us/products/sofle-v2-keyboard-kit",
-			"[v:v2] https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405635419",
-			"[v:v1, v1 Choc, v2] https://mechboards.co.uk/collections/kits/products/sofle-kit",
-			"[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards",
-			"[v:v2] https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/",
-			"[v:v2 RGB] https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit",
-			"[v:v2] https://keebd.com/products/sofle-v2-1-choc-keyboard-kit",
-			"[v:v2 RGB] https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit",
-			"[v:MX, Choc] https://keebmaker.com/collections/kits",
+			"[v:MX, Choc] https://mechboards.co.uk/collections/kits/products/sofle-kit",
+			"[v:MX only?] https://customkbd.com/collections/split-keyboards",
+			"[v:Choc] https://keebd.com/en-gb/products/sofle-v2-1-choc-keyboard-kit",
 		];
 		kb.prebuilt = [
-			"[v:MX] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372",
-			"[v:MX wireless] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372",
-			"[v:v2 RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/",
-			"[v:v2] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-set/",
-			"[v:v1, v2, v2 RGB] https://customkbd.com/collections/split-keyboards",
-			"[v:v2, v2 RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib=",
+			"[v:MX only?] https://customkbd.com/collections/split-keyboards",
+		];
+		var sofleV1 = add(kb);
+		
+		kb = new ColStagKeyboard("Sofle V2", sofleV1);
+		kb.img = "sofle-rgb.webp";
+		sofleShared();
+		kb.notes.push("Separate unlit and RGB versions exist.");
+		kb.notes.push("Non-hotswap version is unlit.");
+		kb.switchProfile = [MX];
+		kb.hotswap = [Yes, No];
+		kb.lighting = [None, RGB];
+		kb.pinkyStagger = 0.4;
+		kb.kit = [
+			"[v:Unlit] https://keebd.com/en-us/products/sofle-v2-keyboard-kit",
+			"[v:RGB] https://keebd.com/en-gb/products/sofle-v2-1-rgb-keyboard-kit",
+			"[v:Unlit?] https://mechboards.co.uk/collections/kits/products/sofle-kit",
+			"[v:Unlit] https://customkbd.com/collections/split-keyboards/products/sofle-v2-keyboard-kit",
+			"[v:RGB] https://customkbd.com/collections/split-keyboards/products/sofle-keyboard-kit-v2-1-rgb",
+			"[v:Unlit?] https://42keebs.eu/shop/kits/pro-micro-based/sofle-v2-hotswap-split-ergo-50-kit-black/",
+			"[v:RGB] https://keebd.com/products/sofle-v2-1-rgb-keyboard-kit",
+			"[v:RGB] https://www.littlekeyboards.com/products/sofle-rgb-pcb-kit",
+			"[v:RGB] https://keebmaker.com/collections/kits/products/sofle-rgb-kit",
+			"[v:Unlit] https://shop.beekeeb.com/product/sofle-v2-soflekeyboard-v2-0-1-split-ergonomic-diy-mechanical-keyboard-pcb-kit/",
+		];
+		kb.prebuilt = [
+			"[v:RGB] https://keebmaker.com/collections/custom-keyboards/products/sofle-rgb",
+			"[v:RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/",
+			"[v:Unlit] https://shop.beekeeb.com/product/pre-soldered-sofle-v2/",
+			"[v:RGB] https://shop.beekeeb.com/product/pre-soldered-sofle-rgb-mx/",
+			"[v:Unlit] https://customkbd.com/collections/split-keyboards/products/sofle-v2-assembled",
+			"[v:RGB] https://customkbd.com/collections/split-keyboards/products/sofle-keyboard-rgb-assembled",
+			"[v:Unlit, RGB] https://ergomech.store/shop?search=&order=&attrib=&attrib=&attrib=&attrib=&attrib=11-22&attrib=",
+			"[v:RGB] https://xcmkb.com/products/soflev2",
 		];
 		kb.extras = [
 			"[v:v2 tented case] https://shop.beekeeb.com/product/sofle-2-tented-case/",
 			"[v:v2 printable case] https://github.com/kb-elmo/SofleCase",
 		];
-		kb.img = "sofle.jpg";
-		kb.addSKBC();
-		addSofle(kb);
-		var sofle = kb;
+		var sofleV2 = add(kb);
 		
-		function addSofleFT(kb:ColStagKeyboard) {
-			kb.notes = "Featuring a variety of bamboo cases";
+		kb = new ColStagKeyboard("Sofle Choc", sofleV1);
+		kb.img = "sofle-choc.jpg";
+		sofleShared();
+		kb.notes.push('Sometimes also called "Sofle RGB Choc 2.1" by vendors.');
+		kb.switchProfile = [Choc];
+		kb.keySpacing = [MX];
+		kb.kit = [
+			"https://keebmaker.com/collections/kits/products/sofle-low-profile-kit",
+			"https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/",
+			"https://customkbd.com/collections/split-keyboards/products/sofle-choc-keyboard",
+			"https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/",
+			"https://www.littlekeyboards.com/products/sofle-choc-pcb-kit",
+		];
+		kb.prebuilt = [
+			"https://keebmaker.com/products/sofle-low-profile",
+			"https://shop.beekeeb.com/product/presoldered-sofle-rgb-choc-v2-1/",
+		];
+		var sofleChoc = add(kb);
+		
+		kb = new ColStagKeyboard("Aurora Sofle V2", sofleV2);
+		kb.img = "aurora-sofle-v2.webp";
+		kb.connection = [Wired, Wireless];
+		kb.notes = [
+			"Differences from Sofle V2:",
+			"- Supports Choc switches",
+			"- Supports a pair of additional encoders in place of thumb/top corner keys.",
+			"- Supports underglow",
+			"- Supports SplitKB tenting pucks",
+			"- Supports wireless/ZMK",
+		];
+		kb.switchProfile = [MX, Choc];
+		kb.hotswap = [Yes, No];
+		kb.lighting = [None, RGB, Underglow];
+		kb.tenting = [Tenting.Mount];
+		kb.firmware = [QMK, ZMK];
+		kb.kit = "https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2";
+		kb.prebuilt = [];
+		kb.buildGuide = "https://splitkb.com/aurora-build";
+		add(kb);
+		
+		inline function initSofleFT() {
+			kb.notes = kb.notes.concat([
+				"- Key switches can take place of rotary encoders",
+				"- Wired/wireless",
+				"- Wooden cases with optional tenting legs",
+				"- No lighting"
+			]);
 			kb.connection = [Wired, Bluetooth];
 			kb.keys = IntRangeList.either(58, 60);
 			kb.encoders = [0, 2];
 			kb.displays = [0, 2];
 			kb.tenting = [None, Legs];
+			kb.lighting = [None];
 			kb.setQMK([VIA]);
-			add(kb);
 		}
-		kb = new ColStagKeyboard("Sofle FT", sofle);
+		kb = new ColStagKeyboard("Sofle FT", sofleV2);
 		kb.img = "sofle-ft-wireless.webp";
-		kb.setHotswap([MX]);
+		kb.notes = [
+			"Differences from Sofle V2:"
+		];
+		initSofleFT();
 		kb.kit = [
 			"[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-p613836129",
 			"[v:Wireless] https://falbatech.click/products/Pre-soldered-Sofle-Wireless-p613834138",
 		];
 		kb.prebuilt = [
-			"[v:Wired] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585",
+			"[v:Wired] https://falbatech.click/products/Sofle-Fully-Assembled-Custom-Mechanical-Keyboard-p631773372",
 			"[v:Wireless] https://falbatech.click/products/Sofle-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631781585",
 		];
-		addSofleFT(kb);
+		add(kb);
 		
-		kb = new ColStagKeyboard("Sofle FT LP", sofle);
+		kb = new ColStagKeyboard("Sofle FT LP", sofleChoc);
 		kb.img = "sofle-ft-lp.webp";
-		kb.lighting = [None];
+		kb.notes = [
+			"Differences from Sofle Choc:"
+		];
+		initSofleFT();
 		kb.setHotswap([Choc], MX);
 		kb.kit = [
 			"[v:Wired] https://falbatech.click/products/Pre-soldered-Sofle-low-profile-p613843876",
@@ -184,27 +272,27 @@ class ColStagBoards {
 			"[v:Wired] https://falbatech.click/products/Sofle-Low-profile-Fully-Assembled-Custom-Mechanical-Keyboard-p631773376",
 			"[v:Wireless] https://falbatech.click/products/Sofle-Low-profile-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631799062",
 		];
-		addSofleFT(kb);
+		add(kb);
 		
-		kb = new ColStagKeyboard("Sofle Choc");
+		kb = new ColStagKeyboard("XCMKB SoflePLUS2", sofleV2);
+		kb.img = "xcmkb-sofle-plus2.webp";
 		kb.notes = [
-			"Sofle Choc, not to be confused with Choc Sofle (which has different pinky stagger)"
+			"Differences from Sofle V2:",
+			"- MX/Choc hotswap",
+			"- Trackpad instead of one encoder",
+			"- Spinning disk with a 4-way switch or roller wheel instead of other encoder (optional)",
 		];
-		kb.setHotswap(Choc, MX);
-		kb.caseType = [Included, ThirdParty];
-		kb.lighting = [None, RGB];
-		kb.web = "https://josefadamcik.github.io/SofleKeyboard/";
-		kb.source = "https://github.com/josefadamcik/SofleKeyboard";
-		kb.kit = [
-			"https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/",
-			"https://splitkb.com/collections/keyboard-kits/products/aurora-sofle-v2?variant=46912405668187",
-			"https://www.littlekeyboards.com/products/sofle-choc-pcb-kit",
-			"https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/",
-		];
-		kb.img = "sofle-choc.jpg";
-		kb.pinkyStagger = 0.3;
-		addSofle(kb);
+		kb.setHotswap([MX, Choc], MX);
+		kb.lighting = [RGB];
+		kb.encoders = [1, 2];
+		kb.encoderType = [Knob, Wheel];
+		kb.dpads = [0, 1];
+		kb.trackpads = [0, 1];
+		kb.web = "https://xcmkb.com/pages/plus2";
+		kb.prebuilt = "https://xcmkb.com/products/sofleplus2";
+		add(kb);
 		
+		/*
 		kb = new ColStagKeyboard("Sofle PLUS (xcmkb)");
 		kb.setMatrix(58, 6, 4);
 		kb.setExtras(5);
@@ -222,6 +310,7 @@ class ColStagBoards {
 		kb.img = "xcmkb-sofle-plus.jpg";
 		kb.notes = "A number of small improvements over regular Sofle.";
 		add(kb);
+		*/
 		
 		kb = {
 			name: "Soufflé",
@@ -230,9 +319,12 @@ class ColStagBoards {
 			source: "https://github.com/climent/SouffleKeyboard",
 			img: "Soufflé.jpg"
 		};
-		kb.setMatrix([58, 59], 6, 4);
+		kb.notes = ["A mix of Sofle V1/V2 with corner keys"];
+		kb.setMatrix([58, 60], 6, 4);
 		kb.setExtras(5, 0, 0, 1);
 		kb.setHotswap(MX);
+		kb.encoders = [0, 2];
+		kb.encoderType = [Knob];
 		kb.caseType = Included;
 		kb.setQMK([VIA, Vial]);
 		add(kb);
@@ -1023,16 +1115,13 @@ class ColStagBoards {
 		kb.notes = ["Hotswap sockets cannot be used next to the trackpoint(s)"];
 		add(kb);
 		
-		function addReviung41(kb:ColStagKeyboard) {
-			kb.setMatrix(41, 6, 3);
-			kb.setExtras(3);
-			kb.caseType = Included;
-			kb.shape = Unibody;
-			add(kb);
-		}
 		kb = new ColStagKeyboard("Reviung41");
 		kb.img = "REVIUNG41.jpg";
 		kb.source = "https://github.com/gtips/reviung";
+		kb.setMatrix(41, 6, 3);
+		kb.setExtras(3);
+		kb.caseType = Included;
+		kb.shape = Unibody;
 		kb.setHotswap(MX);
 		kb.kit = [
 			"https://keebd.com/en-us/products/reviung-41-keyboard-kit",
@@ -1048,16 +1137,17 @@ class ColStagBoards {
 			"https://customkbd.com/collections/split-keyboards/products/reviung-41",
 		];
 		kb.addSKBC();
-		addReviung41(kb);
+		var reviung41 = add(kb);
+		// todo: https://customkbd.com/collections/split-keyboards/products/reviung-39
 		
-		kb = new ColStagKeyboard("Reviung41 with trackball");
+		kb = new ColStagKeyboard("Reviung41 with trackball", reviung41);
 		kb.setHotswap(Choc);
 		kb.trackballSize = pimoroniSize;
 		kb.trackballs = 1;
 		kb.source = "https://github.com/idank/keyboards/tree/main/reviung";
 		kb.prebuilt = "!https://holykeebs.com/products/trackball-reviung41-low-profile";
 		kb.img = "reviung-trackball.jpg";
-		addReviung41(kb);
+		add(kb);
 		
 		kb = new ColStagKeyboard("Fisk");
 		kb.setMatrix(54, 6, 3);

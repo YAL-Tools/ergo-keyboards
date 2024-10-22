@@ -65,6 +65,7 @@ typedef Keyboard = {>NamedThing,
 	?source:ValList<String>,
 	?kit:ValList<String>,
 	?prebuilt:ValList<String>,
+	?buildGuide:ValList<String>,
 	?layoutRef:ValList<String>,
 	
 	?assembly:ValList<Assembly>,

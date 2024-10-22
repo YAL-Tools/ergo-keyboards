@@ -3365,25 +3365,6 @@ window.keyboardData = [
 	"source": "https://github.com/peej/lumberjack-keyboard"
 },
 {
-	"name": "Klavgen",
-	"img": "klavgen.png",
-	"notes": "A handwired keyboard generator!",
-	"stagger": "Column",
-	"connection": "Wired",
-	"shape": "Split",
-	"hotswap": "Yes",
-	"switchProfile": [
-		"MX",
-		"Choc"
-	],
-	"assembly": "Handwired",
-	"wristPads": [
-		"None",
-		"Detachable"
-	],
-	"source": "https://github.com/klavgen/klavgen"
-},
-{
 	"name": "Ajisai",
 	"img": "Ajisai.jpg",
 	"shape": "Unibody",
@@ -5959,6 +5940,7 @@ window.keyboardData = [
 {
 	"name": "Cleo",
 	"img": "Cleo.webp",
+	"parent": "Corne/crkbd",
 	"shape": "Split",
 	"notes": "A Corne (V3)-like keyboard with ARM Cortex-M0+ STM32",
 	"connection": "Wired",
@@ -6699,6 +6681,7 @@ window.keyboardData = [
 	"shape": "Unibody",
 	"stagger": "Ortho",
 	"connection": ["Wired", "Bluetooth"],
+	"keys": 36,
 	"rows": 3,
 	"cols": 5,
 	"thumbKeys": 3,
@@ -7032,7 +7015,110 @@ window.keyboardData = [
 	"assembly": "Handwired",
 	"source": "https://github.com/dpapavas/lagrange-keyboard"
 },
-"2024-10-19"
+{
+	"name": "TAP4",
+	"img": "tap4.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 42,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 6,
+	"pinkyStagger": 0.5,
+	"splay": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": "MX",
+	"firmware": ["QMK", "ZMK"],
+	"caseType": "Included",
+	"source": "https://github.com/lapidot/TAP4"
+},
+{
+	"name": "Wren",
+	"img": "wren.webp",
+	"notes": [
+		"Lily58-like with modules. The 4x3/4x4 block can be broken off and turned into a macropad.",
+		"YAL note: it's pretty funny that several crow-themed keyboards are all on the smaller side and Wren is bigger than an average (real-life) wren."
+	],
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": [[56], [66], [72], [82], [88]],
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"navCluster": ["None", "Full"],
+	"numpad": ["None", "Mini"],
+	"pinkyStagger": 0.3,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"lighting": "None",
+	"firmware": "QMK",
+	"ctlCount": 2,
+	"caseType": "Included",
+	"source": "https://github.com/oliviahanley/wren-keyboard"
+},
+{
+	"name": "Moon60",
+	"img": "Moon60.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 5,
+	"thumbKeys": 5,
+	"innerKeys": 1,
+	"pinkyStagger": 0.4,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": "MX",
+	"displays": {"min": 0, "max": 2},
+	"firmware": "QMK",
+	"wristPads": "Detachable",
+	"caseType": "Included",
+	"source": "https://github.com/Tymut/Moon60"
+},
+{
+	"name": "Tako",
+	"img": "Tako.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.7,
+	"hotswap": "No",
+	"switchProfile": "Topre",
+	"caseType": "Included",
+	"firmware": ["QMK", "ZMK"],
+	"source": "https://github.com/ssbb/tako",
+	"buildGuide": "https://github.com/ssbb/tako/blob/main/docs/buildguide.md"
+},
+{
+	"name": "Lucca 58 HE",
+	"img": "lucca58he.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"pinkyStagger": 0.4,
+	"switchProfile": "HallEffect",
+	"displays": {"min": 0, "max": 2},
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "KMK",
+	"caseType": "Included",
+	"source": "https://github.com/Maka8295/Lucca-58HE"
+},
+"2024-10-22"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7079,14 +7165,11 @@ https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 Svalboard (and how does that map to column-row classification)
 42s https://github.com/Vaarai/Cornia https://new.reddit.com/r/ErgoMechKeyboards/comments/1ddoohp/first_ergo_build_from_scratch/
 36s dove36
-75m id75
 42s https://github.com/chelming/swept-crkbd
 58s Sofle Pico https://www.soflepico.com
 36u https://github.com/dohn-joh/alias
-61m https://github.com/xommmmmmmm/QueueNineChimera
 46s https://mtnkbd.com/products/lets-tango-case
 36u https://github.com/mikeholscher/zmk-config-mikefive https://new.reddit.com/r/ErgoMechKeyboards/comments/1e4xl8q/3d_cad_file_and_kicad_footprint_of_kailh_pg1316s/
-56m https://github.com/eswai/QOL56
 36u https://github.com/rschenk/egret https://github.com/rschenk/re-gret
 32s https://github.com/dlip/tenshi https://new.reddit.com/r/ErgoMechKeyboards/comments/1ebsjye/tenshi_split_keyboard_with_slideadjustable/
 38u https://github.com/jeffdhooton/jingis38 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec0cyf/38key_columnstagger_board_build/
@@ -7101,7 +7184,6 @@ Svalboard (and how does that map to column-row classification)
 44s https://github.com/TeXitoi/keyseebee
 42u https://github.com/levitatingpineapple/atreus
 48u https://github.com/tumler/ReviungDash
-64u https://github.com/Geobert/snowslide_site
 32u https://github.com/protieusz/Fanta-Manta/tree/main
 56s https://github.com/gehennaXXIV/Doro56
 32s https://github.com/bennytrouser/NostrumX
@@ -7109,12 +7191,10 @@ Svalboard (and how does that map to column-row classification)
 64s FelixKeeb https://shop.beekeeb.com/product/wireless-felixkeeb-choc/ https://shop.beekeeb.com/product/wireless-felix-keeb/
 64s Snowflake https://github.com/kbranch/snowflake_keyboard
 40u KUSOboard https://github.com/covah901/KUSOboard
-100%s Wren https://github.com/oliviahanley/wren-keyboard
 46s https://github.com/kobakos/Splay46
 50s https://github.com/tewtham/dactyl-typesafe
 60s musashi60 (note: also supports/ed trackpoints?) https://github.com/hamano/musashi60
 56s https://github.com/cosimini/cambkb
-60s https://github.com/Tymut/Moon60
 58s https://kbd.news/SOWGull-2392.html
 42u https://github.com/kapee1/osprey-remix
 44s https://github.com/focusaurus/kipra-keyboard
@@ -7128,7 +7208,6 @@ https://www.printables.com/model/314112-dactyl-manuball
 30u https://github.com/doesntfazer/Goober
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
 https://github.com/flinguenheld/chew
-https://github.com/lapidot/TAP4
 54s https://github.com/Squalius-cephalus/silakka54
 https://github.com/victorlucachi/void40
 https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
@@ -7154,6 +7233,11 @@ Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 https://mechkey.org/ergonomics-keyboards
 https://github.com/Cipulot
+
+Ortho blocks:
+61m https://github.com/xommmmmmmm/QueueNineChimera
+56m https://github.com/eswai/QOL56
+75m id75
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -7207,6 +7291,7 @@ https://github.com/Staacks/inkkeys
 https://github.com/klouderone/SeagullMacropad
 Koolerton macropads
 https://github.com/takashicompany/dogtag
+Aula Excalibur
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
@@ -7231,6 +7316,7 @@ Naya Create
 https://www.arrowmechanics.com/produkty
 https://keeb.io/products/chiri-ce-keyboard-kit
 https://www.reddit.com/r/MechanicalKeyboards/comments/1g16rug/jarne_blade_the_lowest_profile_split/
+https://github.com/Geobert/snowslide_site
 
 Obsolete:
 TypeMatrix

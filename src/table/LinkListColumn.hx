@@ -124,19 +124,33 @@ class LinkListColumn<KB> extends FancyColumn<KB> {
 			
 			if (vendor == null) vendor = domain;
 			
-			var row = rows.filter(row -> row.label == vendor && row.official == official)[0];
-			if (row == null) {
-				row = new LinkListRow(vendor);
-				row.official = official;
-				row.origins = origins;
-				rows.push(row);
+			var addTo:LinkListRow = null;
+			for (row in rows) {
+				if (row.label != vendor) continue;
+				if (row.official != official) continue;
+				if (row.origins.length > 0 && origins.length > 0) {
+					if (row.origins.length != origins.length) continue;
+					var mismatch = false;
+					for (i => origin in origins) {
+						if (row.origins[i] != origin) { mismatch = true; break; }
+					}
+					if (mismatch) continue;
+				}
+				addTo = row;
+				break;
+			}
+			if (addTo == null) {
+				addTo = new LinkListRow(vendor);
+				addTo.official = official;
+				addTo.origins = origins;
+				rows.push(addTo);
 			} else usesVariants = true;
 			
 			var rowItem = new LinkListRowItem();
 			rowItem.url = href;
 			rowItem.alt = alt;
 			rowItem.label = variant;
-			row.items.push(rowItem);
+			addTo.items.push(rowItem);
 		}
 		rows.sort(function(a, b) {
 			if (a.official != b.official) {

@@ -1,4 +1,5 @@
 package table;
+import js.html.UListElement;
 import externs.Tippy;
 import externs.TippyOptions;
 import js.html.DivElement;
@@ -13,6 +14,7 @@ import type.Keyboard;
 import type.NamedThing;
 import js.Browser.*;
 using tools.HtmlTools;
+using StringTools;
 
 
 /**
@@ -58,8 +60,20 @@ class NameColumn<KB:NamedThing> extends StringColumn<KB> {
 					p.appendChild(img);
 					div.appendChild(p);
 				}
-				if (kb.notes != null) for (note in kb.notes) {
-					div.appendParaTextNode(note);
+				if (kb.notes != null) {
+					var list:UListElement = null;
+					for (note in kb.notes) {
+						if (note.startsWith("-")) {
+							note = note.substring(1).ltrim();
+							if (list == null) {
+								list = cast div.appendElTextNode("ul");
+							}
+							list.appendElTextNode("li", note);
+						} else {
+							list = null;
+							div.appendParaTextNode(note);
+						}
+					}
 				}
 				return div;
 			});
