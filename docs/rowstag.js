@@ -1358,4 +1358,8 @@ https://hellonuio.com
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111
+
+Not ergo, but kinda neat
+https://fluxkeyboard.com/
+Every key is an ISO enter https://www.reddit.com/r/MechanicalKeyboards/comments/1d0f7k1/omegaiso_a_tkl_consisting_entirely_of_iso_enters/
 */

@@ -240,7 +240,7 @@ window.keyboardData = [
 	"name": "KLOR",
 	"shape": "Split",
 	"stagger": "Column",
-	"connection": "Wired",
+	"connection": ["Wired", "Bluetooth"],
 	"keys": [[36], [42]],
 	"rows": 3,
 	"cols": {
@@ -274,7 +274,8 @@ window.keyboardData = [
 	},
 	"firmware": [
 		"QMK",
-		"ZMK"
+		"ZMK",
+		"KMK"
 	],
 	"caseType": "Included",
 	"source": "https://github.com/GEIGEIGEIST/KLOR",
@@ -1721,8 +1722,7 @@ window.keyboardData = [
 	],
 	"software": "Vial",
 	"caseType": "Included",
-	"kit": "!https://shop.hazel.cc/products/bad-wings-kit",
-	"prebuilt": "!https://shop.hazel.cc/products/bad-wings"
+	"kit": "!https://shop.hazel.cc/products/bad-wings-v2"
 },
 {
 	"name": "ExtraDox",
@@ -3193,7 +3193,7 @@ window.keyboardData = [
 		"ThroughHole"
 	],
 	"source": "https://github.com/mothdotmonster/OK35",
-	"kit": "!https://shop.moth.monster/product/ok35"
+	//"kit": "!https://shop.moth.monster/product/ok35"
 },
 {
 	"name": "Jaye 44",
@@ -7068,7 +7068,7 @@ window.keyboardData = [
 	"connection": "Wired",
 	"keys": 60,
 	"rows": 4,
-	"cols": 5,
+	"cols": 6,
 	"thumbKeys": 5,
 	"innerKeys": 1,
 	"pinkyStagger": 0.4,
@@ -7117,6 +7117,41 @@ window.keyboardData = [
 	"firmware": "KMK",
 	"caseType": "Included",
 	"source": "https://github.com/Maka8295/Lucca-58HE"
+},
+{
+	"name": "Helix HS Choc",
+	"img": "helixhschoc.webp",
+	"notes": "It's Helix, but with hot-swappable Choc V1 switches",
+	"parent": "Helix",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"source": "https://github.com/cipulot/helixhschoc"
+},
+{
+	"name": "FelixKeeb",
+	"img": "felixkeeb.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth", "Wireless"],
+	"keys": [[50], [64]],
+	"rows": {"min": 3, "max": 4},
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": "MX",
+	"displays": {"min": 0, "max": 2},
+	"firmware": ["QMK", "ZMK"],
+	"software": "Vial",
+	"caseType": "Included",
+	"source": "https://github.com/beekeeb/FelixKeeb",
+	"prebuilt": [
+		"![v:Wired MX] https://shop.beekeeb.com/product/pre-soldered-rp2040-felix-keeb/",
+		"![BT MX] https://shop.beekeeb.com/product/wireless-felix-keeb/",
+		"![BT Choc] https://shop.beekeeb.com/product/wireless-felixkeeb-choc/"
+	]
 },
 "2024-10-22"
 ];
@@ -7188,7 +7223,6 @@ Svalboard (and how does that map to column-row classification)
 56s https://github.com/gehennaXXIV/Doro56
 32s https://github.com/bennytrouser/NostrumX
 48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
-64s FelixKeeb https://shop.beekeeb.com/product/wireless-felixkeeb-choc/ https://shop.beekeeb.com/product/wireless-felix-keeb/
 64s Snowflake https://github.com/kbranch/snowflake_keyboard
 40u KUSOboard https://github.com/covah901/KUSOboard
 46s https://github.com/kobakos/Splay46
@@ -7203,7 +7237,6 @@ Svalboard (and how does that map to column-row classification)
 r-track https://gitlab.com/keyboards1/dm_r_track/-/tree/master/boolean
 https://www.printables.com/model/314112-dactyl-manuball
 50s https://github.com/gargum/Iyada/tree/main/kiraibuilds/iyada
-48m https://github.com/MakerJake01/J46K
 64s https://github.com/siderakb/ergo-snm-keyboard
 30u https://github.com/doesntfazer/Goober
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
@@ -7212,7 +7245,7 @@ https://github.com/flinguenheld/chew
 https://github.com/victorlucachi/void40
 https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
 https://fornellas.github.io/3d_printed_keyboard/
-https://oshwhub.com/joba/works
+that's a lot of keyboards https://oshwhub.com/joba/works
 https://github.com/fiendie/NomadKeyboard
 42s https://github.com/triliu/Heawood42
 36s https://github.com/RasmusKoit/pipar
@@ -7226,6 +7259,10 @@ https://github.com/brucedjones/dactyl-stabilized https://photos.app.goo.gl/FvHTL
 36s Waterfowl
 44s https://new.reddit.com/r/ErgoMechKeyboards/comments/1fyxy85/imperial44_v1_are_now_open_sourced/
 40s https://github.com/danbiba/zmk-config-biba40
+54s https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9ux67/ad_meet_the_kb54_a_fully_wireless_and_magsafe/ https://humancomputing.io
+https://github.com/tanguanhong89/ThePhasmicKeyboard
+https://github.com/jackbrad1ey/thingamaboard_v2
+54s https://github.com/AbeerVaishnav13/Qimera-keyboard
 `;
 
 /* Other TODOs
@@ -7238,6 +7275,8 @@ Ortho blocks:
 61m https://github.com/xommmmmmmm/QueueNineChimera
 56m https://github.com/eswai/QOL56
 75m id75
+62m https://github.com/swift502/Krtkus
+48m https://github.com/MakerJake01/J46K
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -7303,7 +7342,7 @@ lever caps https://github.com/dohn-joh/keycaps
 
 Lower-profile MX switches:
 Tecsee Medium
-OUTEMU medium-low profile
+OUTEMU medium-low profile (same as half-height? no?)
 
 Lower-profile MX keycaps:
 NuPhy
