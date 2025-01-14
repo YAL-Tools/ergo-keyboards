@@ -132,6 +132,7 @@ window.keyboardData = [
 		"max": 6
 	},
 	"thumbKeys": 3,
+	"pinkyStagger": 0.7,
 	"switchProfile": [
 		"MX",
 		"Choc"
@@ -176,10 +177,7 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Ortho",
 	"connection": "Wired",
-	"keys": {
-		"min": 44,
-		"max": 60
-	},
+	"keys": [[44], [60]],
 	"rows": {
 		"min": 3,
 		"max": 4
@@ -1547,10 +1545,11 @@ window.keyboardData = [
 	"rows": 4,
 	"cols": 7,
 	"thumbKeys": 4,
-	"cornerKeys": 4,
+	"cornerKeys": 3,
 	"pinkyStagger": 0.5,
 	"hotswap": "Yes",
 	"switchProfile": "MX",
+	"lighting": "Simple",
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/kai9240/7x5-split-ergo"
@@ -2095,12 +2094,12 @@ window.keyboardData = [
 		"Wired",
 		"Bluetooth"
 	],
-	"keys": 40,
+	"keys": [[34], [40]],
 	"rows": 3,
-	"cols": 6,
+	"cols": [5, 6],
 	"thumbKeys": 2,
-	"pinkyStagger": 0.9,
-	"splay": "Yes",
+	"pinkyStagger": 0.3,
+	"splay": "No",
 	"hotswap": "Yes",
 	"switchProfile": [
 		"MX",
@@ -7132,7 +7131,7 @@ window.keyboardData = [
 	"img": "felixkeeb.webp",
 	"shape": "Split",
 	"stagger": "Column",
-	"connection": ["Wired", "Bluetooth", "Wireless"],
+	"connection": ["Wired", "Bluetooth"],
 	"keys": [[50], [64]],
 	"rows": {"min": 3, "max": 4},
 	"cols": 6,
@@ -7149,17 +7148,39 @@ window.keyboardData = [
 	"source": "https://github.com/beekeeb/FelixKeeb",
 	"prebuilt": [
 		"![v:Wired MX] https://shop.beekeeb.com/product/pre-soldered-rp2040-felix-keeb/",
-		"![BT MX] https://shop.beekeeb.com/product/wireless-felix-keeb/",
-		"![BT Choc] https://shop.beekeeb.com/product/wireless-felixkeeb-choc/"
+		"![v:BT MX] https://shop.beekeeb.com/product/wireless-felix-keeb/",
+		"![v:BT Choc] https://shop.beekeeb.com/product/wireless-felixkeeb-choc/"
 	]
 },
-"2024-10-22"
+{
+	"name": "Nomad",
+	"img": "nomad.webp",
+	"notes": "\"based largely on the Sofle Choc\"",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 68,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 3,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"displays": 2,
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"source": "https://github.com/fiendie/NomadKeyboard"
+},
+"2025-01-14"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
 44s Claw44
 44s Jorne
-GrabShell https://grabshell.site/en/home-en/
 60u https://github.com/ardakilic/woodpecker-keyboard/
 34s https://github.com/aroum/kalmar
 48u https://github.com/foostan/corneliuskbd
@@ -7258,11 +7279,31 @@ https://github.com/ssbb/tako
 https://github.com/brucedjones/dactyl-stabilized https://photos.app.goo.gl/FvHTLifnzGaTiMUD9
 36s Waterfowl
 44s https://new.reddit.com/r/ErgoMechKeyboards/comments/1fyxy85/imperial44_v1_are_now_open_sourced/
-40s https://github.com/danbiba/zmk-config-biba40
+48s https://github.com/danbiba/zmk-config-biba40
 54s https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9ux67/ad_meet_the_kb54_a_fully_wireless_and_magsafe/ https://humancomputing.io
 https://github.com/tanguanhong89/ThePhasmicKeyboard
 https://github.com/jackbrad1ey/thingamaboard_v2
 54s https://github.com/AbeerVaishnav13/Qimera-keyboard
+39u https://github.com/cyril279/keyboards/tree/main/revlp
+56s https://kbdcraft.store/products/israfel
+64s https://github.com/AJGamma/sheriff-keyboard
+36u https://github.com/eggsworks/le-oeuf
+34s https://github.com/randcanary/mkpico/
+46s https://github.com/anywhy-io/flake
+34s https://github.com/anothermimich/k02
+46u delast https://www.reddit.com/r/ErgoMechKeyboards/comments/1hj4xlt/delast_the_last_one_for_me/
+28s https://github.com/ThePurox/zplitzalp
+https://kbd.news/Chunky2040-Rev2-2006.html
+58s https://fingerpunch.xyz/product/ximega-v1/
+42s jarne https://lim.au/#/hardware https://shop.chenonetta.com/product/jarne-the-ultimate-keyboard/
+36s https://github.com/penk/EDC36
+36s Crosses https://gggw-keebs.com/products/crosses-modular-custom-keyboard-kit
+36s https://github.com/DuBento/puffer https://www.reddit.com/r/ErgoMechKeyboards/comments/1htjdbi/puffer/
+36u glitter36 https://shop.yushakobo.jp/products/10301
+85u suika85ergo https://shop.yushakobo.jp/en/products/9015
+36s https://github.com/rmuraglia/menura-kb
+https://github.com/dlip/harite-v2
+https://github.com/OldMan6955/TheEndgame2024/tree/main
 `;
 
 /* Other TODOs
@@ -7270,6 +7311,7 @@ Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 https://mechkey.org/ergonomics-keyboards
 https://github.com/Cipulot
+https://www.thingiverse.com/thing:6841200
 
 Ortho blocks:
 61m https://github.com/xommmmmmmm/QueueNineChimera
@@ -7277,6 +7319,8 @@ Ortho blocks:
 75m id75
 62m https://github.com/swift502/Krtkus
 48m https://github.com/MakerJake01/J46K
+https://keebd.com/products/contra-40-keyboard-kit
+https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit?gid=0#gid=0
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -7284,6 +7328,7 @@ sofle https://new.reddit.com/r/ErgoMechKeyboards/comments/1ej0ngl/my_3d_printed_
 
 Generators:
 https://github.com/pashutk/ergopad
+https://github.com/gicappa/diy-mechanical-keyboard
 
 https://new.reddit.com/r/crkbd/comments/1afrhbn/custom_gasketmount_case_complete/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1dvjcxc/comment/lbox6ab/?utm_source=reddit&utm_medium=web2x&context=3
@@ -7299,6 +7344,7 @@ https://sterling-key.com/
 Laptop keyboard replacements:
 https://github.com/moduloindustries/thinkeys
 https://github.com/saoto28/pineapple60
+https://github.com/Michal-Szczepaniak/thinkpad-w530-olkb
 
 Pointing devices:
 https://kbd.news/aball-a-buttonless-trackball-139.html
@@ -7331,6 +7377,7 @@ https://github.com/klouderone/SeagullMacropad
 Koolerton macropads
 https://github.com/takashicompany/dogtag
 Aula Excalibur
+https://www.hackster.io/news/sherbet-is-a-beautiful-diy-ergonomic-keyboard-for-serious-gaming-11981c53602e
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
@@ -7339,6 +7386,10 @@ https://www.keaworkshop.com/kea-profile-keycaps-project https://github.com/Kneec
 https://ramaworks.store/products/grid-set-a
 https://www.thingiverse.com/thing:5932496
 lever caps https://github.com/dohn-joh/keycaps
+work louder but choc spaced https://www.printables.com/model/1066117-choc-louder-keycaps/files
+https://github.com/braindefender/KLP-Lame-Keycaps
+https://github.com/rmuraglia/printable-keycaps
+sculpted choc caps https://www.printables.com/model/400911-kailh-choc-ergonomic-sculpted-keycaps
 
 Lower-profile MX switches:
 Tecsee Medium
@@ -7356,6 +7407,7 @@ https://www.arrowmechanics.com/produkty
 https://keeb.io/products/chiri-ce-keyboard-kit
 https://www.reddit.com/r/MechanicalKeyboards/comments/1g16rug/jarne_blade_the_lowest_profile_split/
 https://github.com/Geobert/snowslide_site
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1hlaffe/the_mantaray_a_new_open_source_design_based_on/
 
 Obsolete:
 TypeMatrix

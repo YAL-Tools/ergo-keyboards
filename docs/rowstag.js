@@ -1244,7 +1244,7 @@ window.rowStagData = [
 	"ctlCount": 2,
 	"ctlFootprint": "Pro Micro",
 	"caseType": "Included",
-	"kit": "https://shop.yushakobo.jp/en/products/8361"
+	"kit": "https://shop.yushakobo.jp/en/products/9427"
 },
 {
 	"name": "UHK 60 v2",
@@ -1302,7 +1302,150 @@ window.rowStagData = [
 	"caseType": "None",
 	"source": "https://github.com/JellyTitan/ErgoDonk-Zero"
 },
-"2024-08-08"
+{
+	"name": "Sunder E70 HE",
+	"img": "sunder-e70-he.webp",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 70,
+	"rows": 4,
+	"zCols": 1,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Short",
+	"leftMods": 4,
+	"rightMods": 3,
+	"navCluster": "Arrows",
+	"hotswap": "Yes",
+	"switchProfile": "HallEffect",
+	"keySpacing": "MX",
+	"firmware": ["QMK", "Custom"],
+	"software": "Vial",
+	"caseType": "Included",
+	"prebuilt": "https://sunderkeyboards.com/products/sunder-e70-he"
+},
+{
+	"name": "Koolerton AE-SMKD62-S",
+	"img": "Koolerton-AE-SMKD62-S.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 89,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "Multi",
+	"backspace": "Wide",
+	"thumbKeys": 2,
+	"leftMods": 4,
+	"rightMods": 6,
+	"navCluster": "Squished",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"lighting": "Simple",
+	"firmware": "Custom",
+	"software": "Custom",
+	"caseType": "Included",
+	"prebuilt": "https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html"
+},
+{
+	"name": "HP 960",
+	"img": "hp-960.webp",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": ["Bluetooth", "Wireless"],
+	"keys": 91,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "Split",
+	"backspace": "Wide",
+	"fnPos": "AfterLCtl",
+	"leftMods": 3,
+	"rightMods": 4,
+	"navCluster": "Full",
+	"numpad": ["None", "Full"],
+	"hotswap": "No",
+	"switchProfile": "SimpleLP",
+	"lighting": "None",
+	"firmware": "Simple",
+	"wristPads": "Integrated",
+	"tenting": "Legs",
+	"caseType": "Included",
+	"prebuilt": [
+		"!https://www.hp.com/us-en/shop/pdp/hp-960-ergonomic-wireless-keyboard"
+	]
+},
+{
+	"name": "PERIBOARD-512",
+	"img": [
+		"periboard-512-us.webp",
+		"periboard-512-uk.webp"
+	],
+	"notes": "Also known as CHICONY KB-9938",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": {"min": 105, "max": 106},
+	"rows": 5,
+	"lshift": ["ANSI", "ISO"],
+	"rshift": "Normal",
+	"enter": ["ANSI", "ISO"],
+	"space": "Split",
+	"backspace": "Wide",
+	"leftMods": 3,
+	"rightMods": 4,
+	"navCluster": "Full",
+	"numpad": "Full",
+	"hotswap": "No",
+	"switchProfile": "Simple",
+	"lighting": "None",
+	"prebuilt": [
+		"[v:US] https://perixx.com/collections/keyboard/products/periboard-512",
+		"[v:UK] https://perixx.co.uk/products/periboard-512"
+	]
+},
+{
+	"name": "Lintilla",
+	"img": "lintilla.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Bluetooth", "WiredHalf"],
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 3,
+	"outerKeys": 2,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 1,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Other",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "XIAO",
+	"ctlName": "nRF52840",
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "Included",
+	"web": "https://github.com/ctranstrum/lintilla",
+	"source": "https://github.com/ctranstrum/lintilla",
+	"buildGuide": "https://github.com/ctranstrum/lintilla/blob/main/BUILD.md",
+	"layoutRef": "https://github.com/ctranstrum/lintilla/blob/main/pcb/lintilla.kicad_pcb"
+},
+"2025-01-14"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -1313,7 +1456,6 @@ window.rowStagTODOs = `
 40%s Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
 65%u https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
 75%u Perixx PERIBOARD-613 B
-75%u BC Split Ergonomic
 75%s Kinesis Freestyle2
 75%s Core Mechanics Project: 0001
 75%s R-Go Split Break
@@ -1335,8 +1477,6 @@ window.rowStagTODOs = `
 65%s https://github.com/chadbailey59/CB70
 75%u LEOBOG A75
 80%u https://github.com/ecopoesis/nek-type-a
-75%s Koolertron Split https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html
-80%u HP 960 https://www.hp.com/us-en/shop/pdp/hp-960-ergonomic-wireless-keyboard
 98%u Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
 65%s https://github.com/thewinger/winsplit https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
 100% X9 https://www.amazon.com/dp/B08FMMGMPN
@@ -1344,10 +1484,14 @@ window.rowStagTODOs = `
 75%s YDMK Split FL84
 80%s https://github.com/jurassic73/split89
 65%u https://github.com/cassiozen/FatBee/
+65%s Zuoya GMK70
+65%s https://epomaker.com/products/epomaker-split-65
+98%u https://us.macally.com/collections/bluetooth-ergonomic-keyboard-for-mac-and-pc-split-keyboard-naturally-comfortable
 `
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1hmvktg/i_want_to_have_a_list_every_single_tented_alice/
 
 See if someone makes a split based on this:
 https://github.com/riskable/void_switch_65_pct
@@ -1355,9 +1499,13 @@ https://github.com/riskable/void_switch_65_pct
 Not out yet:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec6zv8/familiar_yet_ergonomic/
 https://hellonuio.com
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
+Uhk 80
+https://get.autokeybo.com
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111
+Macally MERGOKEY-DE
 
 Not ergo, but kinda neat
 https://fluxkeyboard.com/

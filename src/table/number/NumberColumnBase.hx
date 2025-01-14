@@ -1,4 +1,5 @@
 package table.number;
+import js.html.KeyboardEvent;
 import haxe.DynamicAccess;
 import js.html.Element;
 import js.html.InputElement;
@@ -40,7 +41,7 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 	public var filterIncludeNullCheckbox:InputElement = null;
 	
 	public var suffix:String = "";
-	public var sliderStep:String = "1";
+	public var sliderStep:Float = 1;
 	
 	public function parseFilterValue(val:String):NT {
 		return null;
@@ -90,8 +91,17 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 					val = "" + (filterMaxDefault ?? knownRange.max);
 				}
 				fd.value = val;
+				fd.onkeydown = function(e:KeyboardEvent) {
+					var delta = switch (e.code) {
+						case "ArrowUp": -1;
+						case "ArrowDown": 1;
+						default: return;
+					}
+					fd.valueAsNumber += delta * sliderStep;
+					e.preventDefault();
+				}
 				slider.value = val;
-				slider.step = sliderStep;
+				slider.step = Std.string(sliderStep);
 				
 				slider.min = "" + knownRange.min;
 				slider.max = "" + knownRange.max;
@@ -102,6 +112,7 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 			}
 			
 			// kind { 0: field, 1: slider, -1: force all }
+			var enforceTimeout = -1;
 			function setValue(val:Null<NT>, kind:Int) {
 				var old = get();
 				if (old != val) {
@@ -111,11 +122,14 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 					}
 					set(val);
 					if (val != null && kind != -1) {
-						if (isMin) {
-							if (filterMax != null && filterMax < filterMin) setValues[1](val, -1);
-						} else {
-							if (filterMin != null && filterMin > filterMax) setValues[0](val, -1);
-						}
+						if (enforceTimeout != -1) window.clearTimeout(enforceTimeout);
+						enforceTimeout = window.setTimeout(function() {
+							if (isMin) {
+								if (filterMax != null && filterMax < filterMin) setValues[1](val, -1);
+							} else {
+								if (filterMin != null && filterMin > filterMax) setValues[0](val, -1);
+							}
+						}, 1000);
 					}
 					table.updateFilters();
 				}
@@ -139,7 +153,7 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 				}
 				setValue(val, 0);
 			}
-			var sliderTimeout:Int = -1;
+			var sliderTimeout = -1;
 			function setSliderValue() {
 				if (sliderTimeout != -1) window.clearTimeout(sliderTimeout);
 				fd.value = slider.value;

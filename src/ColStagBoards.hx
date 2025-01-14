@@ -967,17 +967,19 @@ class ColStagBoards {
 		kb = {
 			name: "articulation80",
 			thumbKeys: 4,
-			navCluster: Full,
 			source: "https://github.com/mylestunglee/articulation80",
 			img: "articulation80.jpg",
-			notes: "Numpad/navigation blocks and top row can be breaken off."
+			notes: "Numpad/navigation blocks and the top row can be broken off."
 		};
 		kb.setHotswap([Choc], KeySpacing.Choc);
-		kb.setMatrix([56, 80], 6, 4);
+		kb.setMatrix(IntRangeList.either(
+			44, 48, 56, 68, 80,
+		), 6, 4);
 		kb.rcols = [6, 9];
 		kb.lcols = [6, 9];
 		kb.splay = true;
 		kb.caseType = Included;
+		kb.navCluster = [None, Full];
 		kb.numpad = [None, Mini];
 		add(kb);
 		

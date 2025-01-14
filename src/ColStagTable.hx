@@ -225,7 +225,7 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		var pinkyStag = new FloatColumn("Pinky stagger", mgf(kb.pinkyStagger));
 		pinkyStag.show = false;
 		pinkyStag.shortName = "pkStag";
-		pinkyStag.sliderStep = "0.05";
+		pinkyStag.sliderStep = 0.05;
 		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
 		pinkyStag.onNotes = function(div) {
 			div.appendParaTextNode(

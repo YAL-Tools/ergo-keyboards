@@ -125,7 +125,7 @@ class OrthoBoards {
 		add(kb);
 		
 		kb = new ColStagKeyboard("ChonkyKong");
-		kb.setMatrix([48, 60], 5, 3);
+		kb.setMatrix(60, 5, 3);
 		kb.setHotswap([MX, Choc], MX);
 		kb.shape = Unibody;
 		kb.mcols = 3;

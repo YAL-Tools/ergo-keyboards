@@ -1,4 +1,2 @@
-- Separate trackpoint and stick
-- Replace tenting angle with tenting type (tented middle, tenting legs)
-- Add a "Reversible PCB" flag to Assembly Specifics
-- Tag ZMK-only keyboards as "only BT" connection since you can't connect the halves together (...yet)
+- Only count extra columns going outwards, count keys over the thumb cluster as inner keys
+- Separate fully ortholinear keyboards into a separate list, put ortho monoblocks there

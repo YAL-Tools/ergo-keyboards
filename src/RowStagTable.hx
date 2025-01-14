@@ -188,6 +188,16 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		}
 		addHidden(bksp);
 		
+		var mkeys = new TagListColumn("Extra keys in the middle", mgf(kb.extraRowKeys), ExtraRowKeys);
+		mkeys.columnCount = 2;
+		mkeys.shortLabels[ExtraRowKeys.ExtraB] = "B";
+		mkeys.shortLabels[ExtraRowKeys.ExtraY] = "Y";
+		mkeys.shortLabels[ExtraRowKeys.Other] = "+";
+		mkeys.filterLabels[ExtraRowKeys.ExtraB] = "Second B";
+		mkeys.filterLabels[ExtraRowKeys.ExtraY] = "Second Y";
+		mkeys.filterLabels[ExtraRowKeys.Other] = "Other";
+		addHidden(mkeys);
+		
 		var thumbKeys = new IntRangeColumn("Thumb keys", mgf(kb.thumbKeys));
 		thumbKeys.defaultValue = 1;
 		addHidden(thumbKeys);

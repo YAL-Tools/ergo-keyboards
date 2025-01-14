@@ -20,6 +20,7 @@ class FancyColumn<T> {
 	public var onNotes:Element->Void = null;
 	public var onEditorNotes:Element->Void = null;
 	public var show = false;
+	public static var defaultShow = false;
 	public var canShow = true;
 	public var canFilter = true;
 	/** overrides whether to show in Filters block **/
@@ -34,6 +35,7 @@ class FancyColumn<T> {
 	public var nullCaption:String = "";
 	public function new(name:String) {
 		this.name = name;
+		show = defaultShow;
 	}
 	public function getId():String {
 		return name;

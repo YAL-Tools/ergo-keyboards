@@ -1,5 +1,6 @@
 package ;
 import type.*;
+import type.ValList;
 import type.row.*;
 import haxe.extern.EitherType;
 
@@ -34,6 +35,7 @@ typedef RowStagKeyboardBase = {> Keyboard,
 	?enter:ValList<EnterShape>,
 	?space:ValList<SpaceShape>,
 	?backspace:ValList<BkspShape>,
+	?extraRowKeys:ValList<ExtraRowKeys>,
 	?thumbKeys:IntRange,
 	?fnPos:FnPos,
 	?leftMods:IntRange,

@@ -19,13 +19,13 @@ class TagLikeColumnTools {
 		}
 	}
 	public static function buildSingleValue<T, ET>(
-		self:TagLikeColumnBase<T, ET, ET>, out:Element, item:T
+		self:TagLikeColumnBase<T, ET, ET>, out:Element, item:T, title = true
 	):Void {
 		var val:ET = self.getValue(item);
 		if (val != null) {
 			var name = self.tagToName(val);
 			var span = out.appendElTextNode("span", self.getShortLabel(val));
-			span.setTippyTitle([
+			if (title) span.setTippyTitle([
 				getName(item),
 				self.name + ":",
 				self.getFilterLabel(val),
