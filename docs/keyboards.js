@@ -7175,6 +7175,106 @@ window.keyboardData = [
 	"ctlCount": 2,
 	"source": "https://github.com/fiendie/NomadKeyboard"
 },
+{
+	"name": "Lintilla",
+	"img": "lintilla.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Bluetooth", "WiredHalf"],
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 3,
+	"outerKeys": 2,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 1,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Other",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "XIAO",
+	"ctlName": "nRF52840",
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "Included",
+	"web": "https://github.com/ctranstrum/lintilla",
+	"source": "https://github.com/ctranstrum/lintilla",
+	"buildGuide": "https://github.com/ctranstrum/lintilla/blob/main/BUILD.md",
+	"layoutRef": "https://github.com/ctranstrum/lintilla/blob/main/pcb/lintilla.kicad_pcb"
+},
+{
+	"name": "Sheriff",
+	"img": "sheriff.webp",
+	"notes": "NB! Top row is MX profile, rest is Gateron LP",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 64,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"outerKeys": 3,
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "GateronLP", "Other"],
+	"encoders": 2,
+	"encoderType": "Wheel",
+	"firmware": ["QMK", "ZMK"],
+	"assembly": ["PCB", "Reversible"],
+	"caseType": "Included",
+	"source": "https://github.com/AJGamma/sheriff-keyboard"
+},
+{
+	"name": "Musashi60",
+	"img": [
+		"musashi60-tented.webp",
+		"musashi60.webp"
+	],
+	"notes": "There are a bunch of distinct versions of this keyboard, including flat, tented, and experiments.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {"min": 58, "max": 60},
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 2,
+	"pinkyStagger": 0.4,
+	"splay": "Yes",
+	"hotswap": ["No", "Yes"],
+	"switchProfile": "MX",
+	"firmware": ["QMK", "KMK"],
+	"tenting": ["None", "Fixed"],
+	"caseType": "Included",
+	"source": "https://github.com/hamano/musashi60"
+},
+{
+	"name": "Ixxoid Dactyl Manuform",
+	"img": "ixxoid-dactyl.webp",
+	"notes": "YAL note: ah, big dactyl. Uses Amoeba PCBs!",
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 86,
+	"rows": 5,
+	"cols": 7,
+	"thumbKeys": 6,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"caseType": "Included",
+	"source": "https://github.com/ixxoid/dactyl-keyboard"
+},
 "2025-01-14"
 ];
 window.keyboardTODOs = `
@@ -7197,7 +7297,6 @@ More Maltron keyboards
 50s https://github.com/JPricey/dactyl-high-profile
 50s Low Profile Dactyl https://github.com/omurovec/dactyl-high-profile
 44s https://github.com/llmerlos/0xLM
-96s https://github.com/ixxoid/dactyl-keyboard
 40s Stront40 https://github.com/zzeneg/stront
 https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 44u https://kbd.news/VColChoc44-1029.html
@@ -7248,7 +7347,6 @@ Svalboard (and how does that map to column-row classification)
 40u KUSOboard https://github.com/covah901/KUSOboard
 46s https://github.com/kobakos/Splay46
 50s https://github.com/tewtham/dactyl-typesafe
-60s musashi60 (note: also supports/ed trackpoints?) https://github.com/hamano/musashi60
 56s https://github.com/cosimini/cambkb
 58s https://kbd.news/SOWGull-2392.html
 42u https://github.com/kapee1/osprey-remix
@@ -7286,7 +7384,6 @@ https://github.com/jackbrad1ey/thingamaboard_v2
 54s https://github.com/AbeerVaishnav13/Qimera-keyboard
 39u https://github.com/cyril279/keyboards/tree/main/revlp
 56s https://kbdcraft.store/products/israfel
-64s https://github.com/AJGamma/sheriff-keyboard
 36u https://github.com/eggsworks/le-oeuf
 34s https://github.com/randcanary/mkpico/
 46s https://github.com/anywhy-io/flake

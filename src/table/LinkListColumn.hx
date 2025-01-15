@@ -102,27 +102,32 @@ class LinkListColumn<KB> extends FancyColumn<KB> {
 				}
 			}
 			
-			var url = new URL(href);
-			var domain = url.hostname;
-			if (domain.startsWith("www.")) domain = domain.substr(4);
-			if (domain.startsWith("new.")) domain = domain.substr(4);
-			if (origins.length == 0) {
-				var origin = domainCountries[domain];
-				if (origin == null) {
-					var parts = domain.split(".");
-					if (parts.length >= 3) origin = domainCountries[parts.slice(1).join(".")];
-				}
-				if (origin == null) {
-					var pos = domain.lastIndexOf(".");
-					if (pos >= 0) {
-						origin = domain.substring(pos + 1).toUpperCase();
-						if (countryTags[origin] == null) origin = null;
+			if (href == "?") {
+				href = null;
+				if (vendor == null) vendor = "?";
+			} else {
+				var url = new URL(href);
+				var domain = url.hostname;
+				if (domain.startsWith("www.")) domain = domain.substr(4);
+				if (domain.startsWith("new.")) domain = domain.substr(4);
+				if (origins.length == 0) {
+					var origin = domainCountries[domain];
+					if (origin == null) {
+						var parts = domain.split(".");
+						if (parts.length >= 3) origin = domainCountries[parts.slice(1).join(".")];
 					}
+					if (origin == null) {
+						var pos = domain.lastIndexOf(".");
+						if (pos >= 0) {
+							origin = domain.substring(pos + 1).toUpperCase();
+							if (countryTags[origin] == null) origin = null;
+						}
+					}
+					if (origin != null) origins.push(origin);
 				}
-				if (origin != null) origins.push(origin);
+				
+				if (vendor == null) vendor = domain;
 			}
-			
-			if (vendor == null) vendor = domain;
 			
 			var addTo:LinkListRow = null;
 			for (row in rows) {
@@ -190,8 +195,9 @@ class LinkListColumn<KB> extends FancyColumn<KB> {
 					//}
 				}
 				
-				var link = document.createAnchorElement();
-				link.href = rowItem.url;
+				var hasURL = rowItem.url != null;
+				var link = hasURL ? document.createAnchorElement() : document.createSpanElement();
+				if (hasURL) (cast link:AnchorElement).href = rowItem.url;
 				if (multi) {
 					link.appendTextNode(rowItem.label ?? ("link" + sep + (1 + i)));
 				} else if (usesVariants) {

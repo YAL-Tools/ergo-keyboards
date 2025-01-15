@@ -1275,7 +1275,7 @@ window.rowStagData = [
 	"tenting": ["Legs", "Mount"],
 	"caseType": "Included",
 	"web": "https://ultimatehackingkeyboard.com/",
-	"prebuilt": "https://ultimatehackingkeyboard.com/product/uhk60v2"
+	"prebuilt": "!https://ultimatehackingkeyboard.com/product/uhk60v2"
 },
 {
 	"name": "Ergodonk Zero",
@@ -1325,7 +1325,7 @@ window.rowStagData = [
 	"firmware": ["QMK", "Custom"],
 	"software": "Vial",
 	"caseType": "Included",
-	"prebuilt": "https://sunderkeyboards.com/products/sunder-e70-he"
+	"prebuilt": "!https://sunderkeyboards.com/products/sunder-e70-he"
 },
 {
 	"name": "Koolerton AE-SMKD62-S",
@@ -1350,7 +1350,7 @@ window.rowStagData = [
 	"firmware": "Custom",
 	"software": "Custom",
 	"caseType": "Included",
-	"prebuilt": "https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html"
+	"prebuilt": "!https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html"
 },
 {
 	"name": "HP 960",
@@ -1406,44 +1406,177 @@ window.rowStagData = [
 	"switchProfile": "Simple",
 	"lighting": "None",
 	"prebuilt": [
-		"[v:US] https://perixx.com/collections/keyboard/products/periboard-512",
-		"[v:UK] https://perixx.co.uk/products/periboard-512"
+		"![v:US] https://perixx.com/collections/keyboard/products/periboard-512",
+		"![v:UK] https://perixx.co.uk/products/periboard-512"
 	]
 },
 {
-	"name": "Lintilla",
-	"img": "lintilla.webp",
+	"name": "CB70",
+	"img": "cb70.webp",
 	"shape": "Split",
-	"stagger": "Column",
-	"connection": ["Bluetooth", "WiredHalf"],
-	"keys": 42,
-	"rows": 3,
-	"cols": 6,
-	"rcols": 6,
-	"thumbKeys": 3,
-	"innerKeys": 3,
-	"outerKeys": 2,
-	"cornerKeys": 0,
-	"navCluster": "None",
-	"numpad": "None",
-	"pinkyStagger": 1,
-	"splay": "Yes",
+	"stagger": "Row",
+	"connection": "Bluetooth",
+	"keys": 69,
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": "LeftCut",
+	"enter": "ANSI",
+	"space": "Multi",
+	"backspace": "Wide",
+	"thumbKeys": 2,
+	"leftMods": 3,
+	"rightMods": 2,
+	"navCluster": "Arrows",
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc"],
+	"firmware": "ZMK",
+	"caseType": "Included",
+	"source": "https://github.com/chadbailey59/CB70"
+},
+{
+	"name": "Zuoya GMK70",
+	"img": "gmk70.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"keys": 70,
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"space": "Multi",
+	"backspace": "Wide",
+	"extraRowKeys": ["ExtraB", "Extra6"],
+	"leftMods": 3,
+	"rightMods": 2,
+	"navCluster": "Arrows",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "VIA",
+	"caseType": "Included",
+	"prebuilt": "[n:Mostly Aliexpress..?] ?"
+},
+{
+	"name": "split89",
+	"img": "split89.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 89,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"leftMods": 4,
+	"rightMods": 4,
+	"navCluster": "Full",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"assembly": "Handwired",
+	"tenting": "Fixed",
+	"caseType": "Included",
+	"source": "https://github.com/jurassic73/split89"
+},
+{
+	"name": "FatBee",
+	"img": "fatbee.webp",
+	"shape": "Monoblock",
+	"keys": 69,
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"navCluster": "Arrows",
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
-	"keySpacing": "Other",
 	"lighting": "None",
 	"firmware": "ZMK",
-	"assembly": ["PCB", "Reversible"],
-	"ctlCount": 2,
-	"ctlFootprint": "XIAO",
-	"ctlName": "nRF52840",
-	"wristPads": "None",
-	"tenting": "None",
+	"source": "https://github.com/cassiozen/FatBee/"
+},
+{
+	"name": "NEK Type A",
+	"img": "nek-type-a.webp",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 88,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"leftMods": 3,
+	"rightMods": 4,
+	"navCluster": "Full",
+	"switchProfile": "MX",
+	"lighting": "None",
+	"firmware": "QMK",
+	"wristPads": "Integrated",
+	"tenting": "Fixed",
 	"caseType": "Included",
-	"web": "https://github.com/ctranstrum/lintilla",
-	"source": "https://github.com/ctranstrum/lintilla",
-	"buildGuide": "https://github.com/ctranstrum/lintilla/blob/main/BUILD.md",
-	"layoutRef": "https://github.com/ctranstrum/lintilla/blob/main/pcb/lintilla.kicad_pcb"
+	"source": "https://github.com/ecopoesis/nek-type-a"
+},
+{
+	"name": "Winsplit",
+	"img": "winsplit.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 73,
+	"rows": 4,
+	"dCols": 2,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"extraRowKeys": ["ExtraB", "Other"],
+	"leftMods": 3,
+	"rightMods": 3,
+	"navCluster": "Arrows",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"displays": 2,
+	"firmware": "QMK",
+	"caseType": "Included",
+	"web": "https://www.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/",
+	"source": "https://github.com/thewinger/winsplit"
+},
+{
+	"name": "R-Go Split Break",
+	"img": [
+		"r-go-split-break-v2-us.webp",
+		"r-go-split-break-v2-uk.webp"
+	],
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": {"min": 87, "max": 88},
+	"rows": 5,
+	"lshift": ["ANSI", "ISO"],
+	"rshift": ["Normal", "RightCut"],
+	"enter": ["ANSI", "ISO"],
+	"space": "Split",
+	"backspace": "Wide",
+	"fnPos": "AfterLCtl",
+	"leftMods": 3,
+	"rightMods": 2,
+	"navCluster": "Squished",
+	"hotswap": "No",
+	"switchProfile": "SimpleLP",
+	"lighting": "None",
+	"caseType": "Included",
+	"prebuilt": "!https://www.r-go-tools.com/ergonomic-keyboard/r-go-split-break/"
 },
 "2025-01-14"
 ];
@@ -1458,7 +1591,6 @@ window.rowStagTODOs = `
 75%u Perixx PERIBOARD-613 B
 75%s Kinesis Freestyle2
 75%s Core Mechanics Project: 0001
-75%s R-Go Split Break
 65%s Keebio keyboards
 65%s CIDOO ABM066
 65%s CIDOO V68
@@ -1474,19 +1606,15 @@ window.rowStagTODOs = `
 60%u https://www.primekb.com/collections/keyboards
 75%s https://nullbits.co/snap/
 60%s https://www.hidergo.fi/shop/disconnect_mk1/
-65%s https://github.com/chadbailey59/CB70
 75%u LEOBOG A75
-80%u https://github.com/ecopoesis/nek-type-a
 98%u Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
-65%s https://github.com/thewinger/winsplit https://new.reddit.com/r/ErgoMechKeyboards/comments/1d0gq30/winsplit_aliceish_columnar_keyboard/
 100% X9 https://www.amazon.com/dp/B08FMMGMPN
 40%u Cisne
 75%s YDMK Split FL84
-80%s https://github.com/jurassic73/split89
-65%u https://github.com/cassiozen/FatBee/
-65%s Zuoya GMK70
 65%s https://epomaker.com/products/epomaker-split-65
 98%u https://us.macally.com/collections/bluetooth-ergonomic-keyboard-for-mac-and-pc-split-keyboard-naturally-comfortable
+100%u Hama "EKC-400" https://www.amazon.de/-/en/Ergonomic-Keyboard-Wrist-Wired-Removable/dp/B0C2PDKM8R/ https://www.amazon.com/Hama-Ergonomic-Keyboard-Wrist-Removable/dp/B0C2PDKM8R https://nordics.hama.com/00182630/hama-ekc-400-ergonomic-keyboard-with-wrist-rest-black https://nordics.hama.com/products/pc-laptop-accessories/keyboard?page=3&pagesize=24&infiniteScrolling=true&fetchAllBefore=true
+100%u Digitus https://www.amazon.de/-/en/DIGITUS-Ergonomic-Wireless-Keyboard-Receiver/dp/B08932QLJ6/
 `
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case

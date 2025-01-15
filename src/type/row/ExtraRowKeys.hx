@@ -7,5 +7,6 @@ package type.row;
 enum ExtraRowKeys {
 	ExtraB;
 	ExtraY;
+	Extra6;
 	Other;
 }

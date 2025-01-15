@@ -5175,37 +5175,44 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 				alt = StringTools.trim(href.substring(pos1 + 1));
 				href = StringTools.trim(href.substring(0,pos1));
 			}
-			var url = new URL(href);
-			var domain = url.hostname;
-			if(StringTools.startsWith(domain,"www.")) {
-				domain = HxOverrides.substr(domain,4,null);
-			}
-			if(StringTools.startsWith(domain,"new.")) {
-				domain = HxOverrides.substr(domain,4,null);
-			}
-			if(origins.length == 0) {
-				var origin = table_LinkListColumn.domainCountries[domain];
-				if(origin == null) {
-					var parts = domain.split(".");
-					if(parts.length >= 3) {
-						origin = table_LinkListColumn.domainCountries[parts.slice(1).join(".")];
-					}
+			if(href == "?") {
+				href = null;
+				if(vendor == null) {
+					vendor = "?";
 				}
-				if(origin == null) {
-					var pos2 = domain.lastIndexOf(".");
-					if(pos2 >= 0) {
-						origin = domain.substring(pos2 + 1).toUpperCase();
-						if(table_LinkListColumn.countryTags[origin] == null) {
-							origin = null;
+			} else {
+				var url = new URL(href);
+				var domain = url.hostname;
+				if(StringTools.startsWith(domain,"www.")) {
+					domain = HxOverrides.substr(domain,4,null);
+				}
+				if(StringTools.startsWith(domain,"new.")) {
+					domain = HxOverrides.substr(domain,4,null);
+				}
+				if(origins.length == 0) {
+					var origin = table_LinkListColumn.domainCountries[domain];
+					if(origin == null) {
+						var parts = domain.split(".");
+						if(parts.length >= 3) {
+							origin = table_LinkListColumn.domainCountries[parts.slice(1).join(".")];
 						}
 					}
+					if(origin == null) {
+						var pos2 = domain.lastIndexOf(".");
+						if(pos2 >= 0) {
+							origin = domain.substring(pos2 + 1).toUpperCase();
+							if(table_LinkListColumn.countryTags[origin] == null) {
+								origin = null;
+							}
+						}
+					}
+					if(origin != null) {
+						origins.push(origin);
+					}
 				}
-				if(origin != null) {
-					origins.push(origin);
+				if(vendor == null) {
+					vendor = domain;
 				}
-			}
-			if(vendor == null) {
-				vendor = domain;
 			}
 			var addTo = null;
 			var _g1 = 0;
@@ -5310,8 +5317,11 @@ table_LinkListColumn.prototype = $extend(table_FancyColumn.prototype,{
 						cell.appendChild(window.document.createTextNode("," + sep));
 					}
 				}
-				var link = window.document.createElement("a");
-				link.href = rowItem.url;
+				var hasURL = rowItem.url != null;
+				var link = hasURL ? window.document.createElement("a") : window.document.createElement("span");
+				if(hasURL) {
+					link.href = rowItem.url;
+				}
 				if(multi) {
 					var tmp = rowItem.label;
 					link.appendChild(window.document.createTextNode(tmp != null ? tmp : "link" + sep + (1 + i)));
@@ -8853,9 +8863,10 @@ type_row_EnterShape.__constructs__ = [type_row_EnterShape.ANSI,type_row_EnterSha
 var type_row_ExtraRowKeys = $hxEnums["type.row.ExtraRowKeys"] = { __ename__:true,__constructs__:null
 	,ExtraB: {_hx_name:"ExtraB",_hx_index:0,__enum__:"type.row.ExtraRowKeys",toString:$estr}
 	,ExtraY: {_hx_name:"ExtraY",_hx_index:1,__enum__:"type.row.ExtraRowKeys",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:2,__enum__:"type.row.ExtraRowKeys",toString:$estr}
+	,Extra6: {_hx_name:"Extra6",_hx_index:2,__enum__:"type.row.ExtraRowKeys",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:3,__enum__:"type.row.ExtraRowKeys",toString:$estr}
 };
-type_row_ExtraRowKeys.__constructs__ = [type_row_ExtraRowKeys.ExtraB,type_row_ExtraRowKeys.ExtraY,type_row_ExtraRowKeys.Other];
+type_row_ExtraRowKeys.__constructs__ = [type_row_ExtraRowKeys.ExtraB,type_row_ExtraRowKeys.ExtraY,type_row_ExtraRowKeys.Extra6,type_row_ExtraRowKeys.Other];
 var type_row_FnPos = $hxEnums["type.row.FnPos"] = { __ename__:true,__constructs__:null
 	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.row.FnPos",toString:$estr}
 	,LeftMost: {_hx_name:"LeftMost",_hx_index:1,__enum__:"type.row.FnPos",toString:$estr}
