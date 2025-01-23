@@ -2256,6 +2256,10 @@ window.keyboardData = [
 	"thumbKeys": 2,
 	"outerKeys": -1,
 	"pinkyStagger": 0.8,
+	"switchProfile": [
+		"MX",
+		"Choc"
+	],
 	"firmware": "KMK",
 	"caseType": "None",
 	"source": "https://github.com/Easontons/Apodiformbird"
@@ -5924,7 +5928,7 @@ window.keyboardData = [
 	"name": "Lea",
 	"img": "Lea.webp",
 	"notes": "A Sofle V2-like keyboard with underglow and an ARM Cortex-M0+ STM32 controller.",
-	"parent": "Sofle",
+	"parent": "Sofle V2",
 	"connection": "Wired",
 	"hotswap": "Yes",
 	"switchProfile": "MX",
@@ -7275,6 +7279,29 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/ixxoid/dactyl-keyboard"
 },
+{
+	"name": "akohekohe",
+	"img": "akohekohe.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 26,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 1,
+	"innerKeys": -1,
+	"outerKeys": -2,
+	"splay": "Yes",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": ["Choc", "MinChoc"],
+	"firmware": "ZMK",
+	"assembly": "PCB",
+	"ctlCount": 1,
+	"ctlFootprint": "XIAO",
+	"ctlName": ["RP2040", "nRF52840"],
+	"source": "https://github.com/grassfedreeve/akohekohe"
+},
 "2025-01-14"
 ];
 window.keyboardTODOs = `
@@ -7369,7 +7396,6 @@ https://github.com/fiendie/NomadKeyboard
 42s https://github.com/triliu/Heawood42
 36s https://github.com/RasmusKoit/pipar
 34s https://github.com/eggsworks/solanum
-26u https://github.com/grassfedreeve/akohekohe
 KLOR with Choc V1 support https://github.com/sadekbaroudi/KLOR
 42u Treble https://github.com/kkckrnz/treble
 58s Bicycle https://github.com/peej/bicycle-keyboard
@@ -7401,6 +7427,15 @@ https://kbd.news/Chunky2040-Rev2-2006.html
 36s https://github.com/rmuraglia/menura-kb
 https://github.com/dlip/harite-v2
 https://github.com/OldMan6955/TheEndgame2024/tree/main
+36u https://github.com/penk/Haori36-MX
+58s https://makerworld.com/en/models/671684
+24s https://kbd.news/Diamond-2418.html
+20s https://github.com/miketronic/10x2?tab=readme-ov-file
+36u https://github.com/TeXitoi/keymini/
+56s https://shop.yushakobo.jp/products/9455
+61u https://github.com/floookay/barnacle
+42s roBa https://kbd.news/roBa-2550.html
+60s Dodo https://kbd.news/Dodo-2547.html
 `;
 
 /* Other TODOs
@@ -7418,6 +7453,7 @@ Ortho blocks:
 48m https://github.com/MakerJake01/J46K
 https://keebd.com/products/contra-40-keyboard-kit
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit?gid=0#gid=0
+48m https://github.com/skarrmann/tackle
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -7475,6 +7511,7 @@ Koolerton macropads
 https://github.com/takashicompany/dogtag
 Aula Excalibur
 https://www.hackster.io/news/sherbet-is-a-beautiful-diy-ergonomic-keyboard-for-serious-gaming-11981c53602e
+RedThunder RGB
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
@@ -7505,6 +7542,8 @@ https://keeb.io/products/chiri-ce-keyboard-kit
 https://www.reddit.com/r/MechanicalKeyboards/comments/1g16rug/jarne_blade_the_lowest_profile_split/
 https://github.com/Geobert/snowslide_site
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hlaffe/the_mantaray_a_new_open_source_design_based_on/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1i3an3j/first_keyboard_builddesign_magpie/
+https://old.reddit.com/r/ErgoMechKeyboards/comments/1i7vztv/nury_mini_color/
 
 Obsolete:
 TypeMatrix

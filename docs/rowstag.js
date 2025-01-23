@@ -934,9 +934,9 @@ window.rowStagData = [
 	"connection": "Wired",
 	"keys": 89,
 	"rows": 5,
-	"lshift": "ANSI",
+	"lshift": ["ANSI", "ISO"],
 	"rshift": "RightCut",
-	"enter": "ANSI",
+	"enter": ["ANSI", "ISO"],
 	"space": "SplitDistinct",
 	"backspace": "Wide",
 	"leftMods": 4,
@@ -948,7 +948,10 @@ window.rowStagData = [
 	"encoderType": "Knob",
 	"firmware": "QMK",
 	"software": "VIA",
-	"prebuilt": "!https://www.keychron.com/products/keychron-q11-qmk-custom-mechanical-keyboard"
+	"prebuilt": [
+		"!https://www.keychron.com/products/keychron-q11-qmk-custom-mechanical-keyboard",
+		"!https://www.keychron.com/products/keychron-q11-qmk-custom-mechanical-keyboard-iso-layout-collection",
+	]
 },
 {
 	"name": "Keychron Q14",
@@ -1328,7 +1331,7 @@ window.rowStagData = [
 	"prebuilt": "!https://sunderkeyboards.com/products/sunder-e70-he"
 },
 {
-	"name": "Koolerton AE-SMKD62-S",
+	"name": "Smartyao LY092",
 	"img": "Koolerton-AE-SMKD62-S.webp",
 	"shape": "Split",
 	"stagger": "Row",
@@ -1350,7 +1353,9 @@ window.rowStagData = [
 	"firmware": "Custom",
 	"software": "Custom",
 	"caseType": "Included",
-	"prebuilt": "!https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html"
+	"prebuilt": [
+		"https://www.koolertron.com/koolertron-programmable-split-mechanical-keyboard-all-89-keys-programmable-ergonomic-keypad-with-oem-gateron-black-switch-8-macro-keys.html",
+	]
 },
 {
 	"name": "HP 960",
@@ -1434,7 +1439,7 @@ window.rowStagData = [
 	"source": "https://github.com/chadbailey59/CB70"
 },
 {
-	"name": "Zuoya GMK70",
+	"name": "GMK70",
 	"img": "gmk70.webp",
 	"shape": "Split",
 	"stagger": "Row",
@@ -1615,6 +1620,8 @@ window.rowStagTODOs = `
 98%u https://us.macally.com/collections/bluetooth-ergonomic-keyboard-for-mac-and-pc-split-keyboard-naturally-comfortable
 100%u Hama "EKC-400" https://www.amazon.de/-/en/Ergonomic-Keyboard-Wrist-Wired-Removable/dp/B0C2PDKM8R/ https://www.amazon.com/Hama-Ergonomic-Keyboard-Wrist-Removable/dp/B0C2PDKM8R https://nordics.hama.com/00182630/hama-ekc-400-ergonomic-keyboard-with-wrist-rest-black https://nordics.hama.com/products/pc-laptop-accessories/keyboard?page=3&pagesize=24&infiniteScrolling=true&fetchAllBefore=true
 100%u Digitus https://www.amazon.de/-/en/DIGITUS-Ergonomic-Wireless-Keyboard-Receiver/dp/B08932QLJ6/
+Keychron Q13, Q14, Q10, V10, Q8, V8
+40%u https://github.com/ElKinoflop/Vozvan
 `
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case
