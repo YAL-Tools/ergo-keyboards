@@ -66,6 +66,11 @@ class FancyTableFilters {
 			tr.setAttribute("data-id", column.getId());
 			tr.setAttribute("data-name", column.name);
 			
+			// Create toggles container
+			var togglesContainer = document.createDivElement();
+			togglesContainer.classList.add("toggles");
+			
+			// Show/hide toggle
 			var cbShow = document.createInputElement();
 			cbShow.disabled = !column.canShow;
 			cbShow.type = "checkbox";
@@ -84,22 +89,19 @@ class FancyTableFilters {
 			}
 			column.showCheckbox = cbShow;
 			var lbShow = document.createLabelElement();
+			lbShow.classList.add("visibility-toggle", "icon-toggle");
 			lbShow.appendChild(cbShow);
-			tr.appendChild(lbShow);
-			var toShow = new TippyOptions();
-			toShow.content = 'Show "$colName"';
-			Tippy.bind(cbShow, toShow);
+			var showIcon = document.createSpanElement();
+			showIcon.classList.add("material-icons");
+			lbShow.appendChild(showIcon);
+			togglesContainer.appendChild(lbShow);
 			
-			var divFilters = document.createDivElement();
-			column.buildFilter(divFilters);
-			divFilters.setDisplayFlag(false);
-			divFilters.classList.add("filters");
-			
+			// Filter toggle
 			var cbFilter = document.createInputElement();
 			cbFilter.type = "checkbox";
 			cbFilter.classList.add("cb-filter");
 			cbFilter.checked = false;
-			cbFilter.disabled = !column.canFilter; //divFilters.children.length == 0;
+			cbFilter.disabled = !column.canFilter;
 			cbFilter.onchange = function(_) {
 				column.wantFilter = cbFilter.checked;
 				divFilters.setDisplayFlag(cbFilter.checked);
@@ -107,22 +109,27 @@ class FancyTableFilters {
 			}
 			column.filterCheckbox = cbFilter;
 			var lbFilter = document.createLabelElement();
+			lbFilter.classList.add("filter-toggle", "icon-toggle");
 			lbFilter.appendChild(cbFilter);
-			tr.appendChild(lbFilter);
-			var toFilter = new TippyOptions();
-			toFilter.content = 'Filter "$colName"';
-			Tippy.bind(cbFilter, toFilter);
+			var filterIcon = document.createSpanElement();
+			filterIcon.classList.add("material-icons");
+			lbFilter.appendChild(filterIcon);
+			togglesContainer.appendChild(lbFilter);
 			
+			tr.appendChild(togglesContainer);
+			
+			// Name section
 			var meta = document.createDivElement();
 			meta.classList.add("name");
-			
-			var colNameEl = document.createSpanElement();
-			colNameEl.appendTextNode(colName);
-			colNameEl.classList.add("column-name");
-			addNotes(column, colNameEl);
-			meta.appendChild(colNameEl);
-			meta.appendChild(divFilters);
+			meta.appendTextNode(colName);
+			addNotes(column, meta);
 			tr.appendChild(meta);
+			
+			var divFilters = document.createDivElement();
+			column.buildFilter(divFilters);
+			divFilters.setDisplayFlag(false);
+			divFilters.classList.add("filters");
+			tr.appendChild(divFilters);
 			
 			dest.appendChild(tr);
 		}
