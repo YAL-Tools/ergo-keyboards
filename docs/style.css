@@ -113,6 +113,36 @@ input[invalid] {
   flex-grow: 1;
   max-width: 10em;
 }
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+}
+.material-icons--small {
+  font-size: 18px;
+}
+.material-icons--large {
+  font-size: 36px;
+}
+.material-icons--inline {
+  margin: -0.2em 0.2em 0;
+}
 textarea {
   width: 100%;
   resize: vertical;
@@ -316,6 +346,44 @@ div#filter .filters:not(:empty) {
   flex-wrap: wrap;
   gap: 8px;
   margin: 8px 0;
+}
+.visibility-toggle {
+  position: relative;
+  cursor: pointer;
+}
+.visibility-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.visibility-toggle .material-icons {
+  color: #40444b;
+  transition: all 0.2s ease-in-out;
+  font-size: 20px;
+}
+.visibility-toggle .material-icons:after {
+  content: 'visibility_off';
+  font-family: 'Material Icons';
+}
+.visibility-toggle input:checked + .material-icons {
+  color: #673ab7;
+}
+.visibility-toggle input:checked + .material-icons:after {
+  content: 'visibility';
+}
+.night .visibility-toggle input:checked + .material-icons {
+  color: #8561c5;
+}
+.visibility-toggle:hover .material-icons {
+  color: #32353b;
+}
+.visibility-toggle:hover input:checked + .material-icons {
+  color: #5c34a4;
+}
+.night .visibility-toggle:hover input:checked + .material-icons {
+  color: #9374cc;
 }
 details#editor-outer details {
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);

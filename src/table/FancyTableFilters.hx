@@ -84,11 +84,15 @@ class FancyTableFilters {
 			}
 			column.showCheckbox = cbShow;
 			var lbShow = document.createLabelElement();
+			lbShow.classList.add("visibility-toggle");
 			lbShow.appendChild(cbShow);
+			var icon = document.createSpanElement();
+			icon.classList.add("material-icons");
+			lbShow.appendChild(icon);
 			tr.appendChild(lbShow);
 			var toShow = new TippyOptions();
 			toShow.content = 'Show "$colName"';
-			Tippy.bind(cbShow, toShow);
+			Tippy.bind(lbShow, toShow);
 			
 			var divFilters = document.createDivElement();
 			column.buildFilter(divFilters);

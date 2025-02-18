@@ -47,3 +47,59 @@ div#filter {
   gap: @space;
   margin: @space 0;
 }
+
+// Visibility toggle
+.visibility-toggle {
+  position: relative;
+  cursor: pointer;
+  
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .material-icons {
+    color: @color-gray-06;
+    transition: @transition-base;
+    font-size: 20px;
+    
+    // Show different icon based on checkbox state
+    &:after {
+      content: 'visibility_off';
+      font-family: 'Material Icons';
+    }
+  }
+  
+  // When checkbox is checked
+  input:checked + .material-icons {
+    color: @color-product-day;
+    
+    &:after {
+      content: 'visibility';
+    }
+  }
+  
+  // Dark mode
+  .night & {
+    input:checked + .material-icons {
+      color: @color-product-night;
+    }
+  }
+  
+  &:hover {
+    .material-icons {
+      color: @color-gray-04;
+    }
+    
+    input:checked + .material-icons {
+      color: darken(@color-product-day, 5%);
+    }
+    
+    .night & input:checked + .material-icons {
+      color: lighten(@color-product-night, 5%);
+    }
+  }
+}
