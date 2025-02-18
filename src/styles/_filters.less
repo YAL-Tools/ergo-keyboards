@@ -18,6 +18,14 @@ div#filter {
     padding: @space * 0.25;
     position: relative; // For absolute positioning of filters
     
+    &:hover {
+      background: @color-hover-day;
+      
+      .night & {
+        background: @color-hover-night;
+      }
+    }
+    
     // Icon toggles container
     .toggles {
       display: flex;
@@ -43,6 +51,13 @@ div#filter {
   .filters:not(:empty) {
     margin: @space * 0.5 0;
     margin-left: @space * 4; // Align with the label
+    padding: @space;
+    background: @color-foreground-day-2;
+    border-radius: @border-radius;
+    
+    .night & {
+      background: @color-foreground-night-2;
+    }
   }
 }
 
@@ -68,7 +83,7 @@ div#filter {
   }
   
   .material-icons {
-    color: @color-gray-06;
+    color: @color-inactive-day;
     transition: @transition-base;
     font-size: 20px;
   }
@@ -78,24 +93,41 @@ div#filter {
     color: @color-product-day;
   }
   
-  // Dark mode
-  .night & {
+  // Hover states
+  &:hover {
+    .material-icons {
+      color: @color-text-day;
+    }
+    
     input:checked + .material-icons {
-      color: @color-product-night;
+      filter: brightness(110%);
     }
   }
   
-  &:hover {
+  // Disabled state
+  input:disabled + .material-icons {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  // Dark mode
+  .night & {
     .material-icons {
-      color: @color-gray-04;
+      color: @color-inactive-night;
     }
     
     input:checked + .material-icons {
-      color: darken(@color-product-day, 5%);
+      color: @color-product-night;
     }
     
-    .night & input:checked + .material-icons {
-      color: lighten(@color-product-night, 5%);
+    &:hover {
+      .material-icons {
+        color: @color-text-night;
+      }
+      
+      input:checked + .material-icons {
+        filter: brightness(110%);
+      }
     }
   }
 }
