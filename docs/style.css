@@ -20,11 +20,88 @@ body .has-notes {
 .toggles {
   line-height: 1;
 }
-.toggles label {
-  padding: 1em 0;
-}
 .toggles input {
   vertical-align: middle;
+}
+.header {
+  margin-bottom: 24px;
+}
+.header__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__title {
+  font-size: 24px;
+  margin: 0;
+  order: 1;
+}
+.toggles {
+  display: flex;
+  gap: 16px;
+  order: 2;
+}
+@media (max-width: 800px) {
+  .toggles {
+    order: 0;
+    width: 100%;
+  }
+}
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3.2px 9.6px;
+  cursor: pointer;
+  transition: background 150ms, border 150ms;
+  user-select: none;
+  border-radius: 4px;
+  background: none;
+  border: 1px solid #6d28d9;
+}
+.mode-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.mode-toggle .material-icons {
+  font-size: 20px;
+  color: #6d28d9;
+  transition: all 0.2s ease-in-out;
+}
+.mode-toggle__text {
+  color: #6d28d9;
+  font-size: 12px;
+}
+.mode-toggle.dark-toggle .material-icons:after {
+  content: "light_mode";
+  font-family: "Material Icons";
+}
+.mode-toggle.dark-toggle input:checked + .material-icons:after {
+  content: "dark_mode";
+}
+.mode-toggle.touch-toggle .material-icons:after {
+  content: "mouse";
+  font-family: "Material Icons";
+}
+.mode-toggle.touch-toggle input:checked + .material-icons:after {
+  content: "touch_app";
+}
+.mode-toggle:hover {
+  background: #8561c530;
+}
+.night .mode-toggle {
+  border-color: #8b5cf6;
+}
+.night .mode-toggle .material-icons {
+  color: #8b5cf6;
+}
+.night .mode-toggle__text {
+  color: #8b5cf6;
 }
 body.night {
   background-color: #0f1419;
@@ -114,7 +191,7 @@ input[invalid] {
   max-width: 10em;
 }
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;

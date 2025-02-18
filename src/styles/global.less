@@ -23,11 +23,111 @@ body {
 
 .toggles {
   line-height: 1;
-  label {
-    padding: 1em 0;
-  }
   input {
     vertical-align: middle;
+  }
+}
+
+.header {
+  margin-bottom: @space * 3;
+  
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: @space * 2;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__title {
+    font-size: @font-size * 2;
+    margin: 0;
+    order: 1;
+  }
+}
+
+.toggles {
+  display: flex;
+  gap: @space * 2;
+  order: 2;
+  
+  @media (max-width: 800px) {
+    order: 0;
+    width: 100%;
+  }
+}
+
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: @space;
+  padding: @space * 0.4 @space * 1.2;
+  cursor: pointer;
+  transition: background 150ms, border 150ms;
+  user-select: none;
+  border-radius: @border-radius;
+  background: none;
+  border: 1px solid @color-product-day;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .material-icons {
+    font-size: 20px;
+    color: @color-product-day;
+    transition: @transition-base;
+  }
+
+  &__text {
+    color: @color-product-day;
+    font-size: @font-size;
+  }
+
+  // Dark mode toggle
+  &.dark-toggle {
+    .material-icons:after {
+      content: "light_mode";
+      font-family: "Material Icons";
+    }
+
+    input:checked + .material-icons:after {
+      content: "dark_mode";
+    }
+  }
+
+  // Touch mode toggle
+  &.touch-toggle {
+    .material-icons:after {
+      content: "mouse";
+      font-family: "Material Icons";
+    }
+
+    input:checked + .material-icons:after {
+      content: "touch_app";
+    }
+  }
+
+  // Hover state
+  &:hover {
+    background: #8561c530;
+  }
+
+  // Dark mode styles
+  .night & {
+    border-color: @color-product-night;
+
+    .material-icons {
+      color: @color-product-night;
+    }
+
+    &__text {
+      color: @color-product-night;
+    }
   }
 }
 
@@ -49,23 +149,27 @@ body.night {
   }
 }
 
-#filter, #editor {
-    columns: 1;
+#filter,
+#editor {
+  columns: 1;
 }
 @media only screen and (min-width: 600px) {
-  #filter, #editor {
+  #filter,
+  #editor {
     columns: 2;
   }
 }
 
 @media only screen and (min-width: 1000px) {
-  #filter, #editor {
+  #filter,
+  #editor {
     columns: 3;
   }
 }
 
 @media only screen and (min-width: 1400px) {
-  #filter, #editor {
+  #filter,
+  #editor {
     columns: 4;
   }
 }
@@ -132,10 +236,10 @@ input[invalid] {
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -144,262 +248,28 @@ input[invalid] {
   white-space: nowrap;
   direction: ltr;
   vertical-align: middle;
-  
+
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
   /* Support for Safari and Chrome. */
   text-rendering: optimizeLegibility;
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-  
+
   &--small {
     font-size: 18px;
   }
-  
+
   &--large {
     font-size: 36px;
   }
-  
+
   &--inline {
     margin: -0.2em 0.2em 0;
   }
 }
 
-// #filter,
-// #editor {
-//   columns: 1;
-//   margin-bottom: 0.5em;
-
-//   > details {
-//     border: 1px solid #ddd;
-//     border-radius: @border-radius;
-//     padding: @space;
-//     margin-bottom: @space;
-//     break-inside: avoid;
-//   }
-
-//   summary {
-//     cursor: pointer;
-//   }
-
-//   details[open] summary {
-//     margin-bottom: @space;
-//   }
-
-//   .note {
-//     line-height: 1.25;
-//   }
-
-//   .item {
-//     display: flex;
-//     align-items: start;
-//     width: 100%;
-
-//     > div {
-//       flex-grow: 1;
-//     }
-//   }
-// }
-
-// #filter {
-//   .numrow {
-//     display: flex;
-//     flex-wrap: wrap;
-
-//     > label {
-//       min-width: 5em;
-//     }
-
-//     input[type="number"] {
-//       width: 4em;
-//       margin: 0 0.3em;
-//     }
-
-//     input[type="range"] {
-//       width: 3em;
-//       flex-grow: 1;
-//       max-width: 10em;
-//     }
-//   }
-// }
-
-// @media only screen and (min-width: 600px) {
-//   #filter,
-//   #editor {
-//     columns: 2;
-//   }
-// }
-
-// @media only screen and (min-width: 1000px) {
-//   #filter,
-//   #editor {
-//     columns: 3;
-//   }
-// }
-
-// @media only screen and (min-width: 1400px) {
-//   #filter,
-//   #editor {
-//     columns: 4;
-//   }
-// }
-
-// #editor-outer {
-//   margin-top: 1em;
-
-//   & > summary {
-//     font-size: 125%;
-//     font-weight: bold;
-//   }
-
-//   & > input {
-//     margin: 0.5em 0;
-//   }
-
-//   .item {
-//     margin: 0.25em 0;
-//     width: 100%;
-
-//     > .name {
-//       flex-grow: 1;
-//     }
-//   }
-
 textarea {
   width: 100%;
   resize: vertical;
 }
-
-//   .filters.range {
-//     display: flex;
-//     width: 100%;
-//     margin-top: 0.15em;
-
-//     > input {
-//       flex-grow: 1;
-//       max-width: 4em;
-//     }
-//   }
-// }
-
-// #data {
-//   border: 1px solid #ddd;
-//   position: relative;
-//   margin-top: 0.5em;
-//   border-spacing: 0;
-
-//   th.can-sort {
-//     cursor: pointer;
-
-//     /*position: relative;*/
-//     &.sort-column:after {
-//       position: absolute;
-//       right: 0.2em;
-//       bottom: 0.2em;
-//       content: "↓";
-//     }
-
-//     &.sort-column.sort-ascending:after {
-//       content: "↑";
-//     }
-//   }
-
-//   > tr {
-//     > td,
-//     > th {
-//       padding: 2px;
-//       border-bottom: 1px solid #ddd;
-//     }
-
-//     > th {
-//       line-height: 1.5;
-//       position: sticky;
-//       top: 0;
-//       background-color: #f6f8fa;
-//     }
-//   }
-
-//   > tr:last-child {
-//     > td,
-//     > th {
-//       border-bottom: none;
-//     }
-//   }
-
-//   tr.latest {
-//     background-color: #374bff10;
-//   }
-
-//   tr:hover {
-//     background-color: #ffe03730;
-//   }
-
-//   a.preview img {
-//     margin-top: 0.3em;
-//     display: block;
-//     width: 100%;
-//     max-width: 320px;
-//   }
-// }
-
-// body.night,
-// .tippy-content {
-//   @border: @color-border-night;
-
-//   a {
-//     color: #4eb2ff;
-
-//     &:visited {
-//       color: #7ef0ff;
-//     }
-//   }
-
-//   #filter {
-//     details {
-//       border-color: @border;
-//       border-radius: @border-radius;
-//     }
-//   }
-
-//   #data {
-//     border-color: @border;
-//     border-radius: @border-radius;
-
-//     td {
-//       border-color: @border;
-//     }
-
-//     tr.latest {
-//       background-color: #37ff6919;
-//     }
-
-//     tr:hover {
-//       background-color: #3794ff30;
-//     }
-
-//     // table header
-//     > tr > th {
-//       background-color: #13171b;
-//     }
-//   }
-// }
-
-// body.night {
-//   background-color: @color-background-night;
-//   color: @color-text-night;
-
-//   details {
-//     background-color: @color-foreground-night;
-//   }
-// }
-
-// #share-field {
-//   flex-grow: 1;
-//   margin-left: 0.25em;
-//   display: none;
-// }
-
-// img.flag {
-//   vertical-align: middle;
-//   margin-top: -1px;
-// }
