@@ -347,43 +347,66 @@ div#filter .filters:not(:empty) {
   gap: 8px;
   margin: 8px 0;
 }
-.visibility-toggle {
+.icon-toggle,
+.visibility-toggle,
+.filter-toggle {
   position: relative;
   cursor: pointer;
 }
-.visibility-toggle input[type="checkbox"] {
+.icon-toggle input[type="checkbox"],
+.visibility-toggle input[type="checkbox"],
+.filter-toggle input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-.visibility-toggle .material-icons {
+.icon-toggle .material-icons,
+.visibility-toggle .material-icons,
+.filter-toggle .material-icons {
   color: #40444b;
   transition: all 0.2s ease-in-out;
   font-size: 20px;
+}
+.icon-toggle input:checked + .material-icons,
+.visibility-toggle input:checked + .material-icons,
+.filter-toggle input:checked + .material-icons {
+  color: #673ab7;
+}
+.night .icon-toggle input:checked + .material-icons,
+.night .visibility-toggle input:checked + .material-icons,
+.night .filter-toggle input:checked + .material-icons {
+  color: #8561c5;
+}
+.icon-toggle:hover .material-icons,
+.visibility-toggle:hover .material-icons,
+.filter-toggle:hover .material-icons {
+  color: #32353b;
+}
+.icon-toggle:hover input:checked + .material-icons,
+.visibility-toggle:hover input:checked + .material-icons,
+.filter-toggle:hover input:checked + .material-icons {
+  color: #5c34a4;
+}
+.night .icon-toggle:hover input:checked + .material-icons,
+.night .visibility-toggle:hover input:checked + .material-icons,
+.night .filter-toggle:hover input:checked + .material-icons {
+  color: #9374cc;
 }
 .visibility-toggle .material-icons:after {
   content: 'visibility_off';
   font-family: 'Material Icons';
 }
-.visibility-toggle input:checked + .material-icons {
-  color: #673ab7;
-}
 .visibility-toggle input:checked + .material-icons:after {
   content: 'visibility';
 }
-.night .visibility-toggle input:checked + .material-icons {
-  color: #8561c5;
+.filter-toggle .material-icons:after {
+  content: 'filter_list_off';
+  font-family: 'Material Icons';
 }
-.visibility-toggle:hover .material-icons {
-  color: #32353b;
-}
-.visibility-toggle:hover input:checked + .material-icons {
-  color: #5c34a4;
-}
-.night .visibility-toggle:hover input:checked + .material-icons {
-  color: #9374cc;
+.filter-toggle input:checked + .material-icons:after {
+  content: 'filter_list';
 }
 details#editor-outer details {
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);

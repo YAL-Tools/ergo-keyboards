@@ -103,7 +103,7 @@ class FancyTableFilters {
 			cbFilter.type = "checkbox";
 			cbFilter.classList.add("cb-filter");
 			cbFilter.checked = false;
-			cbFilter.disabled = !column.canFilter; //divFilters.children.length == 0;
+			cbFilter.disabled = !column.canFilter;
 			cbFilter.onchange = function(_) {
 				column.wantFilter = cbFilter.checked;
 				divFilters.setDisplayFlag(cbFilter.checked);
@@ -111,11 +111,17 @@ class FancyTableFilters {
 			}
 			column.filterCheckbox = cbFilter;
 			var lbFilter = document.createLabelElement();
+			lbFilter.classList.add("filter-toggle");
 			lbFilter.appendChild(cbFilter);
+			
+			var filterIcon = document.createSpanElement();
+			filterIcon.classList.add("material-icons");
+			lbFilter.appendChild(filterIcon);
+			
 			tr.appendChild(lbFilter);
 			var toFilter = new TippyOptions();
 			toFilter.content = 'Filter "$colName"';
-			Tippy.bind(cbFilter, toFilter);
+			Tippy.bind(lbFilter, toFilter);
 			
 			var meta = document.createDivElement();
 			meta.classList.add("name");

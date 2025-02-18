@@ -48,8 +48,8 @@ div#filter {
   margin: @space 0;
 }
 
-// Visibility toggle
-.visibility-toggle {
+// Icon toggle base styles
+.icon-toggle {
   position: relative;
   cursor: pointer;
   
@@ -65,21 +65,11 @@ div#filter {
     color: @color-gray-06;
     transition: @transition-base;
     font-size: 20px;
-    
-    // Show different icon based on checkbox state
-    &:after {
-      content: 'visibility_off';
-      font-family: 'Material Icons';
-    }
   }
   
   // When checkbox is checked
   input:checked + .material-icons {
     color: @color-product-day;
-    
-    &:after {
-      content: 'visibility';
-    }
   }
   
   // Dark mode
@@ -100,6 +90,42 @@ div#filter {
     
     .night & input:checked + .material-icons {
       color: lighten(@color-product-night, 5%);
+    }
+  }
+}
+
+// Visibility toggle
+.visibility-toggle {
+  &:extend(.icon-toggle all);
+  
+  .material-icons {
+    &:after {
+      content: 'visibility_off';
+      font-family: 'Material Icons';
+    }
+  }
+  
+  input:checked + .material-icons {
+    &:after {
+      content: 'visibility';
+    }
+  }
+}
+
+// Filter toggle
+.filter-toggle {
+  &:extend(.icon-toggle all);
+  
+  .material-icons {
+    &:after {
+      content: 'filter_list_off';
+      font-family: 'Material Icons';
+    }
+  }
+  
+  input:checked + .material-icons {
+    &:after {
+      content: 'filter_list';
     }
   }
 }

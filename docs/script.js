@@ -4624,13 +4624,17 @@ table_FancyTableFilters.build = function(table,out) {
 		})(cbFilter,divFilters,column1);
 		column1[0].filterCheckbox = cbFilter[0];
 		var lbFilter = window.document.createElement("label");
+		lbFilter.classList.add("filter-toggle");
 		lbFilter.appendChild(cbFilter[0]);
+		var filterIcon = window.document.createElement("span");
+		filterIcon.classList.add("material-icons");
+		lbFilter.appendChild(filterIcon);
 		tr.appendChild(lbFilter);
 		var this2 = { };
 		this2["theme"] = "translucent";
 		var toFilter = this2;
 		toFilter["content"] = ("Filter \"" + colName + "\"");
-		Tippy(cbFilter[0],toFilter);
+		Tippy(lbFilter,toFilter);
 		var meta = window.document.createElement("div");
 		meta.classList.add("name");
 		var colNameEl = window.document.createElement("span");
