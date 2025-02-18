@@ -164,13 +164,24 @@
 	<h2>What to show and what to filter</h2>
 	<details>
 		<summary>Filter legend</summary>
+		<p>Each column has two controls:</p>
+		<div class="filter-legend">
+			<div class="filter-legend__item">
+				<label class="visibility-toggle">
+					<input type="checkbox" checked disabled/>
+					<span class="material-icons">visibility</span>
+				</label>
+				<span class="filter-legend__text">Show/hide column</span>
+			</div>
+			<div class="filter-legend__item">
+				<label class="filter-toggle">
+					<input type="checkbox" checked disabled/>
+					<span class="material-icons">filter_list</span>
+				</label>
+				<span class="filter-legend__text">Filter column</span>
+			</div>
+		</div>
 		<p>
-			Each column is structured as following:
-		</p><p>
-			<label>(<input type="checkbox"/>Show column)</label>
-			<label>(<input type="checkbox"/>Filter column)</label>
-			Column name
-		</p><p>
 			If something is <span class="has-notes">underlined</span>, you can click/tap it to read notes.
 		</p>
 	</details>
