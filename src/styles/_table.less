@@ -69,7 +69,7 @@ body:not(.night) {
       }
     }
     >tr>th {
-      background-color: @color-gray-09;
+      background-color: @color-foreground-day-2;
     }
     >tr>th,
     >tr>td {
@@ -92,11 +92,63 @@ body.night {
       }
     }
     >tr>th {
-      background-color: @color-gray-02;
+      background-color: @color-foreground-night-2;
     }
     >tr>th,
     >tr>td {
       border-bottom-color: @color-border-night;
+    }
+  }
+}
+
+body:not(.night) {
+  table#data {
+    background-color: @color-foreground-day;
+    border-color: @color-border-day;
+    
+    > tr:first-child {
+      background-color: @color-foreground-day-2;
+      border-bottom: 1px solid @color-border-day;
+    }
+    
+    > tr:not(:first-child) {
+      &.latest {
+        background-color: fade(@color-latest-day, 7%);
+      }
+      
+      &:hover {
+        background-color: @color-hover-day;
+      }
+    }
+    
+    > tr > td {
+      border-bottom-color: fade(@color-border-day, 50%);
+    }
+  }
+}
+
+body.night {
+  table#data {
+    background-color: @color-foreground-night;
+    border-color: @color-border-night;
+    
+    > tr:first-child {
+      background-color: @color-foreground-night-2;
+      border-bottom: 1px solid @color-border-night;
+    }
+    
+    > tr:not(:first-child) {
+      &.latest {
+        background-color: fade(@color-latest-night, 10%);
+      }
+      
+      &:hover {
+        background-color: @color-hover-night;
+      }
+    }
+    
+    > tr > td {
+      border-bottom-color: fade(@color-border-night, 50%);
     }
   }
 }

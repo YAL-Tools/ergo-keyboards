@@ -1,9 +1,25 @@
 select {
   &:not([size]) {
-    background: @color-gray-09;
-    border-radius: @border-radius @border-radius 0 0;
-    border: none;
-    padding: @space * 0.5 @space * 1.2;
+    background: @color-foreground-day-2;
+    border: 1px solid @color-border-day;
+    border-radius: @border-radius;
+    padding: @space * 0.5;
+    cursor: pointer;
+    transition: @transition-base;
+    
+    &:hover {
+        background: @color-hover-day;
+    }
+    
+    .night & {
+        background: @color-foreground-night-2;
+        border-color: @color-border-night;
+        color: @color-text-night;
+        
+        &:hover {
+            background: @color-hover-night;
+        }
+    }
   }
   &[size] {
     overflow: auto;
@@ -12,9 +28,6 @@ select {
     }
   }
   margin: @space * 0.5 0;
-  // border-radius: @border-radius;
-  transition: background 150ms, border 150ms;
-  cursor: pointer;
 
   option {
     color: unset;
@@ -24,13 +37,10 @@ select {
 body:not(.night) {
   select {
     color: @color-text-day;
-    border-bottom: 1px solid @color-text-day;
   }
 }
 body.night {
   select {
     color: @color-text-night;
-    background: @color-foreground-night-2;
-    border: @border-night;
   }
 }
