@@ -1034,6 +1034,11 @@ class ColStagBoards {
 				//"https://keyclicks.ca/products/w-ergolite-2-4g-wireless-split-keyboard-2", // off sale?
 				"https://www.ergokbd.com/products/if-ergolite-wireless2-4g-hotswap-split-mechanical-keyboard-low-profile-pre-soldered-acrylic-vial-programmable-ergodox-ergodone-if-ergo"
 			],
+			extras: [
+				"[v:Case R] https://www.thingiverse.com/thing:6338947",
+				"[v:Case L] https://www.thingiverse.com/thing:6338940",
+				"[v:Wrist rests] https://www.thingiverse.com/thing:6338952",
+			],
 			img: "W-Ergolite.webp",
 		});
 		
@@ -1333,6 +1338,9 @@ class ColStagBoards {
 		kb.prebuilt = "!https://www.zsa.io/moonlander/";
 		kb.img = "zsa-moonlander.avif";
 		kb.layoutRef = "https://www.zsa.io/1-1.pdf";
+		kb.extras = [
+			"https://www.thingiverse.com/thing:6962191",
+		];
 		kb.addSKBC();
 		add(kb);
 		
@@ -1363,6 +1371,7 @@ class ColStagBoards {
 		kb.img = "dygma-defy.webp";
 		kb.layoutRef = ["https://support.dygma.com/hc/en-us/articles/15110448574621-How-can-I-visualize-the-Dygma-Defy-or-the-Dygma-Raise-on-my-desk"];
 		add(kb);
+		// https://www.youtube.com/watch?v=9-h5RVu_HBA
 		
 		kb = new ColStagKeyboard("Osprey");
 		kb.setMatrix(74, 7, 4);

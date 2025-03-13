@@ -83,6 +83,7 @@ class OrthoBoards {
 		add(kb);
 		
 		kb = new ColStagKeyboard("ChonkV");
+		kb.connection = [Wired, Wireless];
 		kb.setMatrix(58, 6, 4);
 		kb.setExtras(5);
 		kb.setHotswap(Choc, Choc);

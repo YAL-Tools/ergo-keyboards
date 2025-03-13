@@ -1036,7 +1036,8 @@ window.keyboardData = [
 		"https://new.reddit.com/user/ak66666/submitted/",
 		"https://thumbsupkeyboards.etsy.com"
 	],
-	"prebuilt": "!https://thumbsupkeyboards.etsy.com"
+	"prebuilt": "!https://thumbsupkeyboards.etsy.com",
+	"source": "https://github.com/ak66666"
 },
 {
 	"name": "Planeta",
@@ -1775,8 +1776,7 @@ window.keyboardData = [
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": [
-		"Wired",
-		"Bluetooth"
+		"Wired"
 	],
 	"keys": 76,
 	"rows": 4,
@@ -7436,6 +7436,21 @@ https://github.com/OldMan6955/TheEndgame2024/tree/main
 61u https://github.com/floookay/barnacle
 42s roBa https://kbd.news/roBa-2550.html
 60s Dodo https://kbd.news/Dodo-2547.html
+48s Blank https://shop.beekeeb.com/product/pre-soldered-blank-split-keyboard-with-trackpad-rotary/
+36s https://github.com/n1tsu/n36tsu
+42s https://github.com/Dooez/thoren-build
+36u https://github.com/tamago324/nowt36
+54s https://github.com/im-AMS/StackOverChonk
+36u https://github.com/penk/LoremIpsum36
+44s https://keeb.io/products/chiri-ce-keyboard-kit
+a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
+40s https://github.com/RaphCoder13/Porg40
+62s https://github.com/HellSingCoder/LimeKeyboard/tree/main
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1ios33a/3d_printed_ergonomic_split_keyboard/
+64s https://github.com/kbranch/snowflake_keyboard
+32u https://github.com/TvrdRadKeyboards/orasnica
+50s https://github.com/Nick-Munnich/apiaster
+44s https://github.com/erikpeyronson/erkbd
 `;
 
 /* Other TODOs
@@ -7454,10 +7469,14 @@ Ortho blocks:
 https://keebd.com/products/contra-40-keyboard-kit
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit?gid=0#gid=0
 48m https://github.com/skarrmann/tackle
+https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
+https://github.com/certainly1182/MoonBoard
+https://www.reddit.com/r/olkb/comments/1iq4bly/kheops70_ortholinear_analog_he_keyboard/
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
 sofle https://new.reddit.com/r/ErgoMechKeyboards/comments/1ej0ngl/my_3d_printed_sofle_v1_case_wireless_and_modular/
+urchin https://www.reddit.com/r/ErgoMechKeyboards/comments/1ipdsmb/presenting_coral_a_case_for_the_urchin_keyboard/
 
 Generators:
 https://github.com/pashutk/ergopad
@@ -7486,6 +7505,7 @@ https://new.reddit.com/r/ErgoMechKeyboards/comments/1c3muo0/anu_pncateho_mouse_1
 https://kbd.news/Beeball-1646.html
 https://github.com/jfedor2/trackbowl-mk2
 https://ergonomictouchpad.com/ergonomic_touchpad.php
+https://github.com/badjeff/moudabella
 
 Trickery:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
@@ -7512,6 +7532,9 @@ https://github.com/takashicompany/dogtag
 Aula Excalibur
 https://www.hackster.io/news/sherbet-is-a-beautiful-diy-ergonomic-keyboard-for-serious-gaming-11981c53602e
 RedThunder RGB
+Azeron Cyborg
+https://haute42.com/haute-board-mini/
+keeb supply stress
 
 Knobs & Caps:
 https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
@@ -7524,6 +7547,7 @@ work louder but choc spaced https://www.printables.com/model/1066117-choc-louder
 https://github.com/braindefender/KLP-Lame-Keycaps
 https://github.com/rmuraglia/printable-keycaps
 sculpted choc caps https://www.printables.com/model/400911-kailh-choc-ergonomic-sculpted-keycaps
+parametric tilter https://makerworld.com/en/models/809248-parametric-mx-keycap-spacer-riser-tilter?from=search#profileId-750244
 
 Lower-profile MX switches:
 Tecsee Medium
@@ -7534,16 +7558,22 @@ NuPhy
 XVX Horizon
 Tai-Hao Thins
 
+Rarer thigns:
+https://github.com/Baranowski/Viosuo
+https://adamleblanc.page/portfolio/schist01/
+
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/
 Naya Create
 https://www.arrowmechanics.com/produkty
-https://keeb.io/products/chiri-ce-keyboard-kit
 https://www.reddit.com/r/MechanicalKeyboards/comments/1g16rug/jarne_blade_the_lowest_profile_split/
 https://github.com/Geobert/snowslide_site
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hlaffe/the_mantaray_a_new_open_source_design_based_on/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i3an3j/first_keyboard_builddesign_magpie/
 https://old.reddit.com/r/ErgoMechKeyboards/comments/1i7vztv/nury_mini_color/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1id23wr/cases_for_a_tiny_keyboard_i_am_working_on_not_yet/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1idaqxf/meet_merlin_v1/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1j3985i/bayleaf_a_wireless_split_keyboard/ https://www.graz.io/articles/bayleaf-wireless-keyboard
 
 Obsolete:
 TypeMatrix

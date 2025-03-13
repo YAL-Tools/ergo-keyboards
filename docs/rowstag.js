@@ -1622,11 +1622,16 @@ window.rowStagTODOs = `
 100%u Digitus https://www.amazon.de/-/en/DIGITUS-Ergonomic-Wireless-Keyboard-Receiver/dp/B08932QLJ6/
 Keychron Q13, Q14, Q10, V10, Q8, V8
 40%u https://github.com/ElKinoflop/Vozvan
+65%u https://nicoandstephstudios.com/products/arisu
+65%u MAJA V2
+60%s https://shop.yushakobo.jp/en/products/7spro/
+100%u https://www.meetion.com/wireless-ergonomic-keyboard.html https://www.amazon.com/MEETION-Ergonomic-Wireless-Cushioned-Rechargeable/dp/B0BZCCXJJ4?th=1
+75%u http://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-mini-keyboard/
 `
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case
-https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hmvktg/i_want_to_have_a_list_every_single_tented_alice/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9b5ul/can_anyone_recommend_me_a_good_alice_layout/
 
 See if someone makes a split based on this:
 https://github.com/riskable/void_switch_65_pct
@@ -1637,12 +1642,16 @@ https://hellonuio.com
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
 Uhk 80
 https://get.autokeybo.com
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9e0j3/blasphemy/
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111
 Macally MERGOKEY-DE
+https://keyclicks.ca/products/split-65
 
 Not ergo, but kinda neat
 https://fluxkeyboard.com/
+CLVX 1 Gesture Keyboard
+RollerMouse
 Every key is an ISO enter https://www.reddit.com/r/MechanicalKeyboards/comments/1d0f7k1/omegaiso_a_tkl_consisting_entirely_of_iso_enters/
 */
