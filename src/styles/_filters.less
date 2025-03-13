@@ -12,32 +12,53 @@ div:has(> #clear-filters) {
 // Styles for the single filter atom
 div#filter {
   .item {
-    padding: @space * 0.2;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     width: 100%;
-    > label > input {
-      margin: 0;
+    padding: @space * 0.25;
+    position: relative; // For absolute positioning of filters
+    
+    &:hover {
+      background: @color-hover-day;
+      
+      .night & {
+        background: @color-hover-night;
+      }
     }
-    > label,
-    > div.name {
-      margin: @space * 0.25;
+    
+    // Icon toggles container
+    .toggles {
+      display: flex;
+      gap: @space * 0.5;
+      position: sticky;
+      top: 0;
+      
+      .icon-toggle {
+        display: flex;
+        align-items: center;
+      }
     }
+    
+    // Name section
     > div.name {
       flex-grow: 1;
+      margin-left: @space;
+      padding: @space * 0.25 0;
     }
   }
 
+  // Filter content
   .filters:not(:empty) {
-    margin: @space 0;
+    margin: @space * 0.5 0;
+    margin-left: @space * 4; // Align with the label
+    padding: @space;
+    background: @color-foreground-day-2;
+    border-radius: @border-radius;
+    
+    .night & {
+      background: @color-foreground-night-2;
+    }
   }
-
-  // .numrow {
-  //   label {
-  //     display: flex;
-  //     align-items: center;
-  //   }
-  // }
 }
 
 .table-counter {
@@ -46,4 +67,141 @@ div#filter {
   flex-wrap: wrap;
   gap: @space;
   margin: @space 0;
+}
+
+// Icon toggle base styles
+.icon-toggle {
+  position: relative;
+  cursor: pointer;
+  
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .material-icons {
+    color: @color-inactive-day;
+    transition: @transition-base;
+    font-size: 20px;
+  }
+  
+  // When checkbox is checked
+  input:checked + .material-icons {
+    color: @color-product-day;
+  }
+  
+  // Hover states
+  &:hover {
+    .material-icons {
+      color: @color-text-day;
+    }
+    
+    input:checked + .material-icons {
+      filter: brightness(110%);
+    }
+  }
+  
+  // Disabled state
+  input:disabled + .material-icons {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  // Dark mode
+  .night & {
+    .material-icons {
+      color: @color-inactive-night;
+    }
+    
+    input:checked + .material-icons {
+      color: @color-product-night;
+    }
+    
+    &:hover {
+      .material-icons {
+        color: @color-text-night;
+      }
+      
+      input:checked + .material-icons {
+        filter: brightness(110%);
+      }
+    }
+  }
+}
+
+// Visibility toggle
+.visibility-toggle {
+  &:extend(.icon-toggle all);
+  
+  .material-icons {
+    &:after {
+      content: 'visibility_off';
+      font-family: 'Material Icons';
+    }
+  }
+  
+  input:checked + .material-icons {
+    &:after {
+      content: 'visibility';
+    }
+  }
+}
+
+// Filter toggle
+.filter-toggle {
+  &:extend(.icon-toggle all);
+  
+  .material-icons {
+    &:after {
+      content: 'filter_list_off';
+      font-family: 'Material Icons';
+    }
+  }
+  
+  input:checked + .material-icons {
+    &:after {
+      content: 'filter_list';
+    }
+  }
+}
+
+// Filter legend
+.filter-legend {
+  display: flex;
+  flex-direction: column;
+  gap: @space;
+  margin: @space 0;
+  padding: @space;
+  background: fade(@color-product-day, 2%);
+  border-radius: @border-radius;
+  
+  .night & {
+    background: fade(@color-product-night, 5%);
+  }
+  
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: @space * 1.5;
+  }
+  
+  &__text {
+    font-size: @font-size;
+  }
+  
+  // Make the example toggles look active but non-interactive
+  .icon-toggle {
+    cursor: default;
+    
+    input:disabled + .material-icons {
+      color: @color-product-day;
+      
+      .night & {
+        color: @color-product-night;
+      }
+    }
+  }
 }
