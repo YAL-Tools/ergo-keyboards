@@ -7302,7 +7302,54 @@ window.keyboardData = [
 	"ctlName": ["RP2040", "nRF52840"],
 	"source": "https://github.com/grassfedreeve/akohekohe"
 },
-"2025-01-14"
+{
+	"name": "Wilson26",
+	"img": "wilson26.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 26,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": 1,
+	"innerKeys": -1,
+	"outerKeys": -2,
+	"cornerKeys": 0,
+	"pinkyStagger": 0.5,
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"firmware": "QMK",
+	"ctlFootprint": "!xiao rp2040",
+	"source": "https://github.com/StephanMoeller/wilson26"
+},
+{
+	"name": "Smallcat",
+	"img": "smallcat.webp",
+	"notes": "A 26-key split keyboard, featuring the purr-fect code reviewer",
+	"shape": "Split",
+	"stagger": ["Row", "Column"],
+	"connection": "Wired",
+	"keys": 26,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"innerKeys": -2,
+	"outerKeys": -2,
+	"navCluster": "None",
+	"numpad": "None",
+	"splay": "Yes",
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlFootprint": "RP2040-Zero",
+	"source": "https://github.com/smallwat3r/smallcat"
+},
+"2025-03-16"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7462,6 +7509,9 @@ Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 https://mechkey.org/ergonomics-keyboards
 https://github.com/Cipulot
+
+Vendors:
+https://keyboard-hoarders.com/products/sofle-choc-wireless-split-mechanical-keyboard-shadowseries?variant=42590143086680
 
 Ortho blocks:
 61m https://github.com/xommmmmmmm/QueueNineChimera
