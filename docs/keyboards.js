@@ -7451,6 +7451,10 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1ios33a/3d_printed_ergonomic
 32u https://github.com/TvrdRadKeyboards/orasnica
 50s https://github.com/Nick-Munnich/apiaster
 44s https://github.com/erikpeyronson/erkbd
+36s https://github.com/GroooveBob/DASBOB
+36s swweeep https://github.com/sadekbaroudi/sweep36#swweeep
+58s https://github.com/Bastardkb/Scylla
+https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manuform
 `;
 
 /* Other TODOs
