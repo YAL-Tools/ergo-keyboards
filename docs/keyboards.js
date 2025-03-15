@@ -7458,7 +7458,6 @@ Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 https://mechkey.org/ergonomics-keyboards
 https://github.com/Cipulot
-https://www.thingiverse.com/thing:6841200
 
 Ortho blocks:
 61m https://github.com/xommmmmmmm/QueueNineChimera
@@ -7475,7 +7474,6 @@ https://www.reddit.com/r/olkb/comments/1iq4bly/kheops70_ortholinear_analog_he_ke
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
-sofle https://new.reddit.com/r/ErgoMechKeyboards/comments/1ej0ngl/my_3d_printed_sofle_v1_case_wireless_and_modular/
 urchin https://www.reddit.com/r/ErgoMechKeyboards/comments/1ipdsmb/presenting_coral_a_case_for_the_urchin_keyboard/
 
 Generators:
@@ -7489,31 +7487,12 @@ https://github.com/petejohanson/mk-family-tree
 https://www.slicemk.com/collections/all
 todo: Helix can have encoders?
 
-Wired-Wireless converter
-https://new.reddit.com/r/olkb/comments/1ahxfed/gb_sterlingkey_a_bluetooth_adapter_to_turn_your/
-https://sterling-key.com/
-
-Laptop keyboard replacements:
-https://github.com/moduloindustries/thinkeys
-https://github.com/saoto28/pineapple60
-https://github.com/Michal-Szczepaniak/thinkpad-w530-olkb
-
-Pointing devices:
-https://kbd.news/aball-a-buttonless-trackball-139.html
-https://github.com/george-norton/peacock
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1c3muo0/anu_pncateho_mouse_10key_chord_keyboard/
-https://kbd.news/Beeball-1646.html
-https://github.com/jfedor2/trackbowl-mk2
-https://ergonomictouchpad.com/ergonomic_touchpad.php
-https://github.com/badjeff/moudabella
-
 Trickery:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
 https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyboard_v20/aaaa
 https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
-https://new.reddit.com/r/ErgoMechKeyboards/comments/10kvbqp/keyboard_made_entirely_of_low_force_5_direction/
 https://kbd.news/3D-printed-hotswap-sockets-V4-750.html
+https://kbd.news/Hot-swap-socket-holders-1669.html
 
 Research:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/hudjyt/current_research_on_ergonomics_keyboard_design/
@@ -7535,32 +7514,6 @@ RedThunder RGB
 Azeron Cyborg
 https://haute42.com/haute-board-mini/
 keeb supply stress
-
-Knobs & Caps:
-https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs
-17_EC12_-_Part_4_1.stl https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731
-https://www.keaworkshop.com/kea-profile-keycaps-project https://github.com/Kneecrust/keycaps
-https://ramaworks.store/products/grid-set-a
-https://www.thingiverse.com/thing:5932496
-lever caps https://github.com/dohn-joh/keycaps
-work louder but choc spaced https://www.printables.com/model/1066117-choc-louder-keycaps/files
-https://github.com/braindefender/KLP-Lame-Keycaps
-https://github.com/rmuraglia/printable-keycaps
-sculpted choc caps https://www.printables.com/model/400911-kailh-choc-ergonomic-sculpted-keycaps
-parametric tilter https://makerworld.com/en/models/809248-parametric-mx-keycap-spacer-riser-tilter?from=search#profileId-750244
-
-Lower-profile MX switches:
-Tecsee Medium
-OUTEMU medium-low profile (same as half-height? no?)
-
-Lower-profile MX keycaps:
-NuPhy
-XVX Horizon
-Tai-Hao Thins
-
-Rarer thigns:
-https://github.com/Baranowski/Viosuo
-https://adamleblanc.page/portfolio/schist01/
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/

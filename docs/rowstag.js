@@ -1627,6 +1627,7 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 60%s https://shop.yushakobo.jp/en/products/7spro/
 100%u https://www.meetion.com/wireless-ergonomic-keyboard.html https://www.amazon.com/MEETION-Ergonomic-Wireless-Cushioned-Rechargeable/dp/B0BZCCXJJ4?th=1
 75%u http://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-mini-keyboard/
+100%u  https://www.adesso.com/products/wired-wireless-bluetooth-ergonomic-multi-os-illuminated-mechanical-via-keyboard-with-copilot-ai-hotkey/
 `
 /* TODO
 https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case

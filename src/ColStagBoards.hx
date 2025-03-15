@@ -147,6 +147,11 @@ class ColStagBoards {
 		kb.prebuilt = [
 			"[v:MX only?] https://customkbd.com/collections/split-keyboards",
 		];
+		kb.extras = [
+			"[v:Case] https://www.thingiverse.com/thing:6841200",
+			"[v:Modular case] https://www.thingiverse.com/thing:6717711",
+			"[v:Modular case] https://github.com/itsdmd/sofle-v1-modular-case/?tab=readme-ov-file",
+		];
 		var sofleV1 = add(kb);
 		
 		kb = new ColStagKeyboard("Sofle V2", sofleV1);
