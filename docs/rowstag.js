@@ -1583,7 +1583,259 @@ window.rowStagData = [
 	"caseType": "Included",
 	"prebuilt": "!https://www.r-go-tools.com/ergonomic-keyboard/r-go-split-break/"
 },
-"2025-03-16"
+{
+	"name": "NocFree Lite",
+	"img": "NocFree-Lite.webp",
+	"notes": "Note the displaced `/?` key",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": ["Wired", "Wireless"],
+	"keys": 65,
+	"rows": 4,
+	"zCols": -1,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"thumbKeys": 2,
+	"leftMods": 4,
+	"rightMods": 2,
+	"navCluster": "Arrows",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"wristPads": "Detachable",
+	"tenting": "Legs",
+	"caseType": "Included",
+	"prebuilt": [
+		"!https://www.nocfree.com/products/nocfree-lite",
+		"!https://www.amazon.com/NocFree-Lite-Mechanical-Hot-swappable-Programmable/dp/B0D6MFJ5ZM/",
+		"!https://www.amazon.com/NocFree-Lite-Mechanical-Programmable-Hot-swappable/dp/B0D6MT8TYQ/"
+	]
+},
+{
+	"name": "Quefrency",
+	"img": "Quefrency.webp",
+	"notes": "Plenty of layout options",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": [{"min": 69, "max": 75}, {"min": 78, "max": 85}],
+	"rows": 4,
+	"lshift": ["ANSI", "ISO"],
+	"rshift": ["Normal", "RightCut"],
+	"enter": ["ANSI", "ISO"],
+	"space": "SplitDistinct",
+	"backspace": ["Wide", "Split"],
+	"leftMods": {"min": 4, "max": 5},
+	"rightMods": {"min": 2, "max": 3},
+	"navCluster": "Inline",
+	"hotswap": "Special",
+	"switchProfile": "MX",
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": "Knob",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "VIA",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "!Onboard/SMD",
+	"ctlName": "!STM32G431",
+	"caseType": "Included",
+	"web": "https://keeb.io/collections/quefrency-split-staggered-65-keyboard",
+	"kit": "!https://keeb.io/products/quefrency-rev-6-pcbs-hotswap-65-65xt-split-staggered-keyboard",
+	"prebuilt": "!https://keeb.io/products/quefrency-keyboard-pre-built",
+	"buildGuide": "https://docs.keeb.io/quefrency-hotswap-build-guide"
+},
+{
+	"name": "Sinc",
+	"img": "Sinc.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": [{"min": 82, "max": 89}, {"min": 92, "max": 100}],
+	"rows": 5,
+	"lshift": ["ANSI", "ISO"],
+	"rshift": ["Normal", "RightCut"],
+	"enter": ["ANSI", "ISO"],
+	"space": "SplitDistinct",
+	"backspace": ["Wide", "Split"],
+	"thumbKeys": {"min": 1, "max": 2},
+	"leftMods": 4,
+	"rightMods": {"min": 2, "max": 3},
+	"navCluster": "Inline",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": "Knob",
+	"firmware": "QMK",
+	"software": "VIA",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"caseType": "Included",
+	"extras": "https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case",
+	"web": "https://keeb.io/collections/sinc",
+	"kit": "!https://keeb.io/products/sinc-rev-4-split-staggered-75-keyboard",
+	"prebuilt": "!https://keeb.io/products/sinc-keyboard-pre-built",
+	"buildGuide": "https://docs.keeb.io/sinc-rev3-build-guide"
+},
+{
+	"name": "FoldKB",
+	"img": "FoldKB.webp",
+	"notes": "Ortho keyboard with standard keycap sizes",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": {"min": 67, "max": 73},
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": ["Normal", "RightCut"],
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": ["Wide", "Split"],
+	"thumbKeys": {"min": 1, "max": 2},
+	"leftMods": 4,
+	"rightMods": 4,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": {"min": 0, "max": 2},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "VIA",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"caseType": "Included",
+	"web": "https://keeb.io/collections/foldkb",
+	"kit": "!https://keeb.io/products/foldkb",
+	"prebuilt": "!https://keeb.io/products/foldkb-keyboard-pre-built-ortholinear",
+	"buildGuide": "https://docs.keeb.io/foldkb-build-guide"
+},
+{
+	"name": "YMDK FL84",
+	"img": "ymdk-fl84.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 96,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinctFn",
+	"backspace": "Wide",
+	"thumbKeys": {"min": 1, "max": 2},
+	"leftMods": 3,
+	"rightMods": 3,
+	"navCluster": "Inline",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "!Onboard/SMD",
+	"caseType": "Included",
+	"kit": "!https://ymdkey.com/products/ymdk-split-75-fl84-forever-love-84-cnc-aluminum-case-plate-hotswap-rgb-fully-programmable-pcb-stabilizers-diy-kit-via-vial-supported-mechanical-keyboard",
+	"prebuilt": "https://ymdkey.com/products/ymdk-split-75-fl84-forever-love-84-cnc-aluminum-case-plate-hotswap-rgb-fully-programmable-pcb-stabilizers-diy-kit-via-vial-supported-mechanical-keyboard"
+},
+{
+	"name": "Epomaker Split 65",
+	"img": "epomaker-split-65.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": ["Wired", "Bluetooth", "Wireless"],
+	"keys": 68,
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"thumbKeys": 1,
+	"navCluster": "Inline",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "VIA",
+	"assembly": "PCB",
+	"caseType": "Included",
+	"prebuilt": [
+		"!https://epomaker.com/products/epomaker-split-65",
+		"https://www.amazon.co.uk/EPOMAKER-Programmable-Mechanical-Bluetooth-Ergonomic/dp/B0DP48WWGB"
+	]
+},
+{
+	"name": "Snap",
+	"img": "Snap.webp",
+	"shape": ["Monoblock", "Split"],
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": {"min": 86, "max": 90},
+	"rows": 5,
+	"lshift": ["ANSI", "ISO"],
+	"rshift": ["Normal", "RightCut"],
+	"enter": ["ANSI", "ISO"],
+	"space": "SplitDistinctFn",
+	"backspace": ["Wide", "Split"],
+	"leftMods": {"min": 3, "max": 4},
+	"rightMods": {"min": 3, "max": 4},
+	"navCluster": "Inline",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"displays": {"min": 0, "max": 2},
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "QMK",
+	"software": "VIA",
+	"assembly": ["PCB", "ThroughHole"],
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"caseType": "Included",
+	"kit": [
+		"!https://nullbits.co/snap/",
+		"https://www.amazon.co.uk/SNAP-75-Mechanical-Keyboard-Black/dp/B09RSH38PF"
+	],
+	"buildGuide": "https://github.com/nullbitsco/docs/blob/main/snap/build_guide_en.md"
+},
+/* // 09.10.2023 NOTE: Out of stock
+{
+	"name": "Disconnect MK1",
+	"img": "Disconnect-MK1.webp",
+	"shape": "Split",
+	"stagger": "Row",
+	"connection": "Bluetooth",
+	"keys": {"min": 67, "max": 68},
+	"rows": 4,
+	"lshift": ["ANSI", "ISO"],
+	"rshift": "Normal",
+	"enter": ["ANSI", "ISO"],
+	"space": "Multi",
+	"backspace": "Wide",
+	"thumbKeys": 2,
+	"leftMods": 4,
+	"rightMods": 5,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"trackpads": 1,
+	"displays": 2,
+	"lighting": "None",
+	"firmware": "Custom",
+	"ctlCount": 2,
+	"caseType": "Included",
+	"kit": "!https://www.hidergo.fi/shop/disconnect_mk1/",
+	"prebuilt": "!https://www.hidergo.fi/shop/disconnect_mk1/",
+	"pointingDevices": 1
+},
+*/
+"2025-03-19"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -1596,9 +1848,8 @@ window.rowStagTODOs = `
 75%u Perixx PERIBOARD-613 B
 75%s Kinesis Freestyle2
 75%s Core Mechanics Project: 0001
-65%s Keebio keyboards
-65%s CIDOO ABM066
-65%s CIDOO V68
+65%u CIDOO ABM066
+65%u CIDOO V68
 60%u https://kbd.news/Amano-1886.html
 40%u https://kbd.news/Feather-40-1733.html
 65%u YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
@@ -1609,14 +1860,10 @@ window.rowStagTODOs = `
 65%u https://www.qwertykeys.com/products/neo-ergo
 65%s https://www.nocfree.com/products/nocfree-lite https://www.amazon.com/NocFree-Lite-Mechanical-Programmable-Hot-swappable/dp/B0D6MT8TYQ/
 60%u https://www.primekb.com/collections/keyboards
-75%s https://nullbits.co/snap/
-60%s https://www.hidergo.fi/shop/disconnect_mk1/
 75%u LEOBOG A75
 98%u Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
 100% X9 https://www.amazon.com/dp/B08FMMGMPN
 40%u Cisne
-75%s YDMK Split FL84
-65%s https://epomaker.com/products/epomaker-split-65
 98%u https://us.macally.com/collections/bluetooth-ergonomic-keyboard-for-mac-and-pc-split-keyboard-naturally-comfortable
 100%u Hama "EKC-400" https://www.amazon.de/-/en/Ergonomic-Keyboard-Wrist-Wired-Removable/dp/B0C2PDKM8R/ https://www.amazon.com/Hama-Ergonomic-Keyboard-Wrist-Removable/dp/B0C2PDKM8R https://nordics.hama.com/00182630/hama-ekc-400-ergonomic-keyboard-with-wrist-rest-black https://nordics.hama.com/products/pc-laptop-accessories/keyboard?page=3&pagesize=24&infiniteScrolling=true&fetchAllBefore=true
 100%u Digitus https://www.amazon.de/-/en/DIGITUS-Ergonomic-Wireless-Keyboard-Receiver/dp/B08932QLJ6/
@@ -1627,10 +1874,10 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 60%s https://shop.yushakobo.jp/en/products/7spro/
 100%u https://www.meetion.com/wireless-ergonomic-keyboard.html https://www.amazon.com/MEETION-Ergonomic-Wireless-Cushioned-Rechargeable/dp/B0BZCCXJJ4?th=1
 75%u http://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-mini-keyboard/
-100%u  https://www.adesso.com/products/wired-wireless-bluetooth-ergonomic-multi-os-illuminated-mechanical-via-keyboard-with-copilot-ai-hotkey/
+100%u https://www.adesso.com/products/wired-wireless-bluetooth-ergonomic-multi-os-illuminated-mechanical-via-keyboard-with-copilot-ai-hotkey/ 
+100%u https://ragnok.com/products/split-ergonomic-mechanical-keyword-for-gaming-business
 `
 /* TODO
-https://smkeyboards.com/collections/split-keyboards/products/sinc-acrylic-case
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hmvktg/i_want_to_have_a_list_every_single_tented_alice/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9b5ul/can_anyone_recommend_me_a_good_alice_layout/
 

@@ -7546,6 +7546,9 @@ https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
 https://kbd.news/3D-printed-hotswap-sockets-V4-750.html
 https://kbd.news/Hot-swap-socket-holders-1669.html
 
+Conversions:
+https://github.com/dcpedit/pillzmod
+
 Research:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/hudjyt/current_research_on_ergonomics_keyboard_design/
 
