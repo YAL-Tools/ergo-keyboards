@@ -7347,7 +7347,31 @@ window.keyboardData = [
 	"ctlFootprint": "RP2040-Zero",
 	"source": "https://github.com/smallwat3r/smallcat"
 },
-"2025-03-16"
+{
+	"name": "Forager",
+	"img": "Forager.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Bluetooth", "WiredHalf"],
+	"keys": 34,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 2,
+	"pinkyStagger": 0.4,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "XIAO",
+	"ctlName": "nRF52840",
+	"wristPads": "None",
+	"tenting": ["None", "Legs"],
+	"caseType": "Included",
+	"source": "https://github.com/carrefinho/forager"
+},
+"2025-03-19"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7400,7 +7424,6 @@ Svalboard (and how does that map to column-row classification)
 36u https://github.com/rschenk/egret https://github.com/rschenk/re-gret
 32s https://github.com/dlip/tenshi https://new.reddit.com/r/ErgoMechKeyboards/comments/1ebsjye/tenshi_split_keyboard_with_slideadjustable/
 38u https://github.com/jeffdhooton/jingis38 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec0cyf/38key_columnstagger_board_build/
-34u https://github.com/carrefinho/forager
 58s Sofle Choc with V2 pinky stagger https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit/
 58s https://github.com/Maka8295/Lucca-58HE https://new.reddit.com/r/ErgoMechKeyboards/comments/1dk3fhk/introducing_the_lucca_58he_a_hall_effect_split/
 18s https://github.com/Aodrulez/zenFlow
