@@ -1,4 +1,5 @@
 package table;
+import js.html.DivElement;
 import table.FancyTable;
 import externs.Tippy;
 import externs.TippyOptions;
@@ -97,6 +98,7 @@ class FancyTableFilters {
 			togglesContainer.appendChild(lbShow);
 			
 			// Filter toggle
+			var divFilters:DivElement = null;
 			var cbFilter = document.createInputElement();
 			cbFilter.type = "checkbox";
 			cbFilter.classList.add("cb-filter");
@@ -125,7 +127,7 @@ class FancyTableFilters {
 			addNotes(column, meta);
 			tr.appendChild(meta);
 			
-			var divFilters = document.createDivElement();
+			divFilters = document.createDivElement();
 			column.buildFilter(divFilters);
 			divFilters.setDisplayFlag(false);
 			divFilters.classList.add("filters");

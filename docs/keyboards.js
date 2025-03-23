@@ -7480,7 +7480,7 @@ https://github.com/jackbrad1ey/thingamaboard_v2
 56s https://kbdcraft.store/products/israfel
 36u https://github.com/eggsworks/le-oeuf
 34s https://github.com/randcanary/mkpico/
-46s https://github.com/anywhy-io/flake
+46s https://github.com/anywhy-io/flake https://github.com/tangbonze/zmk-config-flake/tree/main/mx_case
 34s https://github.com/anothermimich/k02
 46u delast https://www.reddit.com/r/ErgoMechKeyboards/comments/1hj4xlt/delast_the_last_one_for_me/
 28s https://github.com/ThePurox/zplitzalp
@@ -7523,6 +7523,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1ios33a/3d_printed_ergonomic
 36s swweeep https://github.com/sadekbaroudi/sweep36#swweeep
 58s https://github.com/Bastardkb/Scylla
 https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manuform
+42s https://github.com/Magnum-Monk/KeebIsSplit/tree/v1.0
 `;
 
 /* Other TODOs

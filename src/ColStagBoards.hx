@@ -24,8 +24,6 @@ import type.*;
 class ColStagBoards {
 	public static function init(keyboards:Array<ColStagKeyboard>) {
 		function add(kb:ColStagKeyboard) {
-			if (kb.stagger == null) kb.stagger = [Column];
-			kb.shape ??= Split;
 			keyboards.push(kb);
 			return kb;
 		}
