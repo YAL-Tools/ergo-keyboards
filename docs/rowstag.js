@@ -1285,7 +1285,7 @@ window.rowStagData = [
 	"img": "ergodonk-zero.webp",
 	"notes": "Column-staggered with emphasis on using standard-sized keys",
 	"shape": "Split",
-	"stagger": "Row",
+	"stagger": "Column",
 	"keys": 101,
 	"rows": 5,
 	"lshift": "ANSI",
