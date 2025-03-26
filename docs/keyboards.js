@@ -4847,7 +4847,7 @@ window.keyboardData = [
 	"outerKeys": 1,
 	"navCluster": "None",
 	"numpad": "None",
-	"pinkyStagger": 0.6,
+	"pinkyStagger": 0.7,
 	"splay": "No",
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
