@@ -1131,6 +1131,7 @@ window.keyboardData = [
 		"ZMK"
 	],
 	"caseType": "Included",
+	"pinkyStagger": 0.7,
 	"source": "https://github.com/davidphilipbarr/Sweep",
 	"kit": [
 		"https://holykeebs.com",
