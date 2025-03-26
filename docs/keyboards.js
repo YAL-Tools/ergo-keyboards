@@ -1131,6 +1131,7 @@ window.keyboardData = [
 		"ZMK"
 	],
 	"caseType": "Included",
+	"pinkyStagger": 0.7,
 	"source": "https://github.com/davidphilipbarr/Sweep",
 	"kit": [
 		"https://holykeebs.com",
@@ -4833,25 +4834,38 @@ window.keyboardData = [
 {
 	"name": "Urchin",
 	"img": "urchin.webp",
+	"notes": "A wireless-first keyboard inspired by the Sweep.",
+	"parent": "Sweep",
 	"shape": "Split",
 	"stagger": "Column",
-	"connection": [
-		"Wired",
-		"Bluetooth"
-	],
+	"connection": ["Bluetooth", "WiredHalf"],
 	"keys": 34,
 	"rows": 3,
 	"cols": 5,
 	"rcols": 5,
 	"thumbKeys": 2,
+	"innerKeys": 1,
+	"outerKeys": 1,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.7,
 	"splay": "No",
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
 	"keySpacing": "Choc",
+	"lighting": "None",
 	"firmware": "ZMK",
 	"assembly": "PCB",
-	"caseType": "Included",
-	"source": "https://github.com/duckyb/urchin"
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"ctlPinCount": 24,
+	"ctlName": "nRF52840",
+	"tenting": ["Legs", "Mount"],
+	"caseType": ["Included", "ThirdParty"],
+	"source": "https://github.com/duckyb/urchin",
+	"kit": "https://shop.beekeeb.com/product/urchin-diy-kit/",
+	"prebuilt": "https://shop.beekeeb.com/product/soldered-urchin-wireless-split-keyboard/",
+	"buildGuide": "https://www.youtube.com/watch?v=CHSh1-dJq24&t=462s"
 },
 {
 	"name": "IK",
