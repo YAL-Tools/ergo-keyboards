@@ -1876,6 +1876,7 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 75%u http://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-mini-keyboard/
 100%u https://www.adesso.com/products/wired-wireless-bluetooth-ergonomic-multi-os-illuminated-mechanical-via-keyboard-with-copilot-ai-hotkey/ 
 100%u https://ragnok.com/products/split-ergonomic-mechanical-keyword-for-gaming-business
+60%u https://github.com/karnadii/geulis
 `
 /* TODO
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hmvktg/i_want_to_have_a_list_every_single_tented_alice/

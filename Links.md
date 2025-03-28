@@ -11,7 +11,7 @@ but maybe you'd like these too
 - [aball](https://kbd.news/aball-a-buttonless-trackball-139.html)
 - [Beeball](https://kbd.news/Beeball-1646.html)
 - [Trackbowl Mk2](https://github.com/jfedor2/trackbowl-mk2)\
-	It's a trackball, bu
+	It's a trackball, but there's a catch
 
 ### Touchpads/trackpads
 

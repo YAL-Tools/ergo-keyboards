@@ -1744,7 +1744,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"caseType": "Included",
 	"source": "https://github.com/blastrock/ExtraDox",
-	"prebuilt": "!https://github.com/blastrock/ExtraDox#buying-one"
+	//"prebuilt": "!https://github.com/blastrock/ExtraDox#buying-one" // all gone!
 },
 {
 	"name": "Aether",
@@ -3679,7 +3679,7 @@ window.keyboardData = [
 	"assembly": "Handwired",
 	"source": "https://github.com/jsallan/flow"
 },
-{
+/*{
 	"name": "KeyMouse Alpha",
 	"img": "keymouse-alpha.webp",
 	"notes": "Featuring a handful of smaller buttons that aren't keys.",
@@ -3748,7 +3748,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"prebuilt": "https://controller.works/products/city42-ergonomic-keyboard",
 	"pointingDevices": 1
-},
+},*/
 {
 	"name": "Sugar Glider",
 	"shape": "Unibody",
@@ -6501,7 +6501,7 @@ window.keyboardData = [
 	"caseType": "None",
 	"source": "https://github.com/hazels-garage/dust"
 },
-{
+/*{
 	"name": "mini42",
 	"img": "mini42.webp",
 	"notes": "A Corne-like keyboard with Choc spacing",
@@ -6522,7 +6522,7 @@ window.keyboardData = [
 	"ctlFootprint": "Pro Micro",
 	"caseType": "Included",
 	"prebuilt": "https://controller.works/products/mini42-low-profile-ergonomic-keyboard"
-},
+},*/
 {
 	"name": "BR/KN",
 	"img": "brkn.webp",
@@ -7524,6 +7524,8 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1ios33a/3d_printed_ergonomic
 58s https://github.com/Bastardkb/Scylla
 https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manuform
 42s https://github.com/Magnum-Monk/KeebIsSplit/tree/v1.0
+44s https://github.com/crolbar/yuki
+46s Geulis https://www.tokopedia.com/kbdksp/geulis-40-split-keyboard-full-built-6-kolom-24707
 `;
 
 /* Other TODOs
