@@ -7385,7 +7385,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/carrefinho/forager"
 },
-"2025-03-19"
+"2025-04-10"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7508,7 +7508,7 @@ https://kbd.news/Chunky2040-Rev2-2006.html
 85u suika85ergo https://shop.yushakobo.jp/en/products/9015
 36s https://github.com/rmuraglia/menura-kb
 https://github.com/dlip/harite-v2
-https://github.com/OldMan6955/TheEndgame2024/tree/main
+https://github.com/OldMan6955/TheEndgame2024/tree/main https://github.com/quark-works/TheEndgame2024-BLE
 36u https://github.com/penk/Haori36-MX
 58s https://makerworld.com/en/models/671684
 24s https://kbd.news/Diamond-2418.html
@@ -7540,6 +7540,8 @@ https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manu
 42s https://github.com/Magnum-Monk/KeebIsSplit/tree/v1.0
 44s https://github.com/crolbar/yuki
 46s Geulis https://www.tokopedia.com/kbdksp/geulis-40-split-keyboard-full-built-6-kolom-24707
+34u https://github.com/subottimale/Claudia
+56s https://github.com/Squalius-cephalus/muikku_keyboards
 `;
 
 /* Other TODOs
@@ -7563,6 +7565,7 @@ https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0
 https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0Tbc/edit#gid=0
 https://github.com/certainly1182/MoonBoard
 https://www.reddit.com/r/olkb/comments/1iq4bly/kheops70_ortholinear_analog_he_keyboard/
+https://vi.aliexpress.com/item/1005008051327383.html
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -7585,6 +7588,7 @@ https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_k
 https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
 https://kbd.news/3D-printed-hotswap-sockets-V4-750.html
 https://kbd.news/Hot-swap-socket-holders-1669.html
+https://epomaker.com/products/epomaker-vial-adapter
 
 Conversions:
 https://github.com/dcpedit/pillzmod
@@ -7609,6 +7613,7 @@ RedThunder RGB
 Azeron Cyborg
 https://haute42.com/haute-board-mini/
 keeb supply stress
+ZUOYA HE30
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/

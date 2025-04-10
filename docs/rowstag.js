@@ -25,6 +25,7 @@ window.rowStagData = [
 	"fnPos": "AfterLGui",
 	"leftMods": 3,
 	"rightMods": 3,
+	"navCluster": "Inline",
 	"space": "Split",
 	"hotswap": "No",
 	"switchProfile": "SimpleLP",
@@ -1835,7 +1836,7 @@ window.rowStagData = [
 	"pointingDevices": 1
 },
 */
-"2025-03-19"
+"2025-04-10"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -1877,8 +1878,16 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 100%u https://www.adesso.com/products/wired-wireless-bluetooth-ergonomic-multi-os-illuminated-mechanical-via-keyboard-with-copilot-ai-hotkey/ 
 100%u https://ragnok.com/products/split-ergonomic-mechanical-keyword-for-gaming-business
 60%u https://github.com/karnadii/geulis
+75% FEKER Alice75
 `
 /* TODO
+ali keyboards
+https://www.alibaba.com/product-detail/Ergonomic-Keyboard-Wired-Split-Keyboard-with_1601133053971.html
+https://www.alibaba.com/product-detail/Mechanical-Ergonomic-Keyboard-Butterfly-Layout-Mech_1601193273269.html
+https://www.alibaba.com/product-detail/Neo-Ergo-Ergonomic-Aluminum-Split-Keyboard_1601387916140.html
+https://www.alibaba.com/product-detail/Hot-Sale-Ergonomic-Split-Wired-87keys_1600656905000.html
+https://vi.aliexpress.com/item/1005008051327383.html
+
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hmvktg/i_want_to_have_a_list_every_single_tented_alice/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9b5ul/can_anyone_recommend_me_a_good_alice_layout/
 

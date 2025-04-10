@@ -8859,12 +8859,13 @@ var type_row_EnterShape = $hxEnums["type.row.EnterShape"] = { __ename__:true,__c
 };
 type_row_EnterShape.__constructs__ = [type_row_EnterShape.ANSI,type_row_EnterShape.ISO,type_row_EnterShape.Mini];
 var type_row_ExtraRowKeys = $hxEnums["type.row.ExtraRowKeys"] = { __ename__:true,__constructs__:null
-	,ExtraB: {_hx_name:"ExtraB",_hx_index:0,__enum__:"type.row.ExtraRowKeys",toString:$estr}
-	,ExtraY: {_hx_name:"ExtraY",_hx_index:1,__enum__:"type.row.ExtraRowKeys",toString:$estr}
-	,Extra6: {_hx_name:"Extra6",_hx_index:2,__enum__:"type.row.ExtraRowKeys",toString:$estr}
-	,Other: {_hx_name:"Other",_hx_index:3,__enum__:"type.row.ExtraRowKeys",toString:$estr}
+	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.row.ExtraRowKeys",toString:$estr}
+	,ExtraB: {_hx_name:"ExtraB",_hx_index:1,__enum__:"type.row.ExtraRowKeys",toString:$estr}
+	,ExtraY: {_hx_name:"ExtraY",_hx_index:2,__enum__:"type.row.ExtraRowKeys",toString:$estr}
+	,Extra6: {_hx_name:"Extra6",_hx_index:3,__enum__:"type.row.ExtraRowKeys",toString:$estr}
+	,Other: {_hx_name:"Other",_hx_index:4,__enum__:"type.row.ExtraRowKeys",toString:$estr}
 };
-type_row_ExtraRowKeys.__constructs__ = [type_row_ExtraRowKeys.ExtraB,type_row_ExtraRowKeys.ExtraY,type_row_ExtraRowKeys.Extra6,type_row_ExtraRowKeys.Other];
+type_row_ExtraRowKeys.__constructs__ = [type_row_ExtraRowKeys.None,type_row_ExtraRowKeys.ExtraB,type_row_ExtraRowKeys.ExtraY,type_row_ExtraRowKeys.Extra6,type_row_ExtraRowKeys.Other];
 var type_row_FnPos = $hxEnums["type.row.FnPos"] = { __ename__:true,__constructs__:null
 	,None: {_hx_name:"None",_hx_index:0,__enum__:"type.row.FnPos",toString:$estr}
 	,LeftMost: {_hx_name:"LeftMost",_hx_index:1,__enum__:"type.row.FnPos",toString:$estr}
