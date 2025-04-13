@@ -91,15 +91,15 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 					val = "" + (filterMaxDefault ?? knownRange.max);
 				}
 				fd.value = val;
-				fd.onkeydown = function(e:KeyboardEvent) {
+				fd.addEventListener("keydown", function(e:KeyboardEvent) {
 					var delta = switch (e.code) {
-						case "ArrowUp": -1;
-						case "ArrowDown": 1;
+						case "ArrowUp": 1;
+						case "ArrowDown": -1;
 						default: return;
 					}
 					fd.valueAsNumber += delta * sliderStep;
 					e.preventDefault();
-				}
+				});
 				slider.value = val;
 				slider.step = Std.string(sliderStep);
 				
@@ -164,12 +164,12 @@ class NumberColumnBase<VT, NT:Float, FT> extends FancyColumn<VT> {
 					setValue(val, 1);
 				}, 250);
 			}
-			fd.onchange = function(_) setFdValue();
-			fd.onkeydown = function(_) setFdValue();
-			fd.onkeyup = function(_) setFdValue();
+			fd.addEventListener("change", function(_) setFdValue());
+			fd.addEventListener("keydown", function(_) setFdValue());
+			fd.addEventListener("keyup", function(_) setFdValue());
 			
-			slider.onchange = function(_) setSliderValue();
-			slider.oninput = function(_) setSliderValue();
+			slider.addEventListener("change", function(_) setSliderValue());
+			slider.addEventListener("input", function(_) setSliderValue());
 			
 			var cb = document.createCheckboxElement();
 			cb.checked = startVal != null;

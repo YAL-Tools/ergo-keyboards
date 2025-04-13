@@ -7542,6 +7542,7 @@ https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manu
 46s Geulis https://www.tokopedia.com/kbdksp/geulis-40-split-keyboard-full-built-6-kolom-24707
 34u https://github.com/subottimale/Claudia
 56s https://github.com/Squalius-cephalus/muikku_keyboards
+62u https://github.com/tahnok/harkonnen
 `;
 
 /* Other TODOs

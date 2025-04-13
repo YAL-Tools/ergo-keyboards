@@ -179,7 +179,7 @@ ColStagBoards.init = function(keyboards) {
 		kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 		add(kb);
 	};
-	addEgg({ name : "Egg58", switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), connection : type_ValList.fromValue(type_Connection.Wired), firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.VIA), source : type_ValList.fromValue("https://github.com/eggsworks/egg58"), kit : type_ValList.fromValue("!https://eggs.works/products/egg58-diy-kit"), prebuilt : type_ValList.fromValue("!https://eggs.works/products/egg58"), img : type_ValList.fromValue("egg58.jpg")});
+	addEgg({ name : "Egg58", switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), connection : type_ValList.fromValue(type_Connection.Wired), firmware : type_ValList.fromValue(type_Firmware.QMK), software : type_ValList.fromValue(type_Software.VIA), source : type_ValList.fromValue("https://github.com/eggsworks/egg58"), img : type_ValList.fromValue("egg58.jpg")});
 	addEgg({ name : "Egg58bt", switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), connection : type_ValList.fromValue(type_Connection.Bluetooth), firmware : type_ValList.fromValue(type_Firmware.ZMK), source : type_ValList.fromValue("https://github.com/eggsworks/egg58/blob/master/egg58bt"), img : type_ValList.fromValue("egg58bt.jpg")});
 	kb = { name : "Eskarp", assembly : type_ValList.fromValue(type_Assembly.Handwired), switchProfile : type_ValList.fromValue(type_SwitchProfile.MX), firmware : type_ValList.fromValue(type_Firmware.Custom), trackpads : type_NumRange.fromArray([0,1]), source : type_ValList.fromValue("https://github.com/rwalkr/eskarp"), img : type_ValList.fromValue("eskarp.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -5958,15 +5958,15 @@ table_number_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 					val = "" + Std.string(tmp1 != null ? tmp1 : knownRange.max);
 				}
 				fd[0].value = val;
-				fd[0].onkeydown = (function(fd) {
+				fd[0].addEventListener("keydown",(function(fd) {
 					return function(e) {
 						var delta;
 						switch(e.code) {
 						case "ArrowDown":
-							delta = 1;
+							delta = -1;
 							break;
 						case "ArrowUp":
-							delta = -1;
+							delta = 1;
 							break;
 						default:
 							return;
@@ -5974,7 +5974,7 @@ table_number_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 						fd[0].valueAsNumber += delta * _gthis.sliderStep;
 						e.preventDefault();
 					};
-				})(fd);
+				})(fd));
 				slider[0].value = val;
 				slider[0].step = Std.string(this.sliderStep);
 				slider[0].min = "" + Std.string(knownRange.min);
@@ -6058,31 +6058,31 @@ table_number_NumberColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 					})(sliderTimeout,setValue,slider,fd),250);
 				};
 			})(sliderTimeout,setValue,slider,fd)];
-			fd[0].onchange = (function(setFdValue) {
+			fd[0].addEventListener("change",(function(setFdValue) {
 				return function(_) {
 					setFdValue[0]();
 				};
-			})(setFdValue);
-			fd[0].onkeydown = (function(setFdValue) {
+			})(setFdValue));
+			fd[0].addEventListener("keydown",(function(setFdValue) {
 				return function(_) {
 					setFdValue[0]();
 				};
-			})(setFdValue);
-			fd[0].onkeyup = (function(setFdValue) {
+			})(setFdValue));
+			fd[0].addEventListener("keyup",(function(setFdValue) {
 				return function(_) {
 					setFdValue[0]();
 				};
-			})(setFdValue);
-			slider[0].onchange = (function(setSliderValue) {
+			})(setFdValue));
+			slider[0].addEventListener("change",(function(setSliderValue) {
 				return function(_) {
 					setSliderValue[0]();
 				};
-			})(setSliderValue);
-			slider[0].oninput = (function(setSliderValue) {
+			})(setSliderValue));
+			slider[0].addEventListener("input",(function(setSliderValue) {
 				return function(_) {
 					setSliderValue[0]();
 				};
-			})(setSliderValue);
+			})(setSliderValue));
 			var cb = [tools_HtmlTools.createCheckboxElement(window.document)];
 			cb[0].checked = startVal != null;
 			cb[0].onchange = (function(cb,setFdValue,setValue,slider,fd) {

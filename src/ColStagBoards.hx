@@ -399,8 +399,8 @@ class ColStagBoards {
 			firmware: QMK,
 			software: VIA,
 			source: "https://github.com/eggsworks/egg58",
-			kit: "!https://eggs.works/products/egg58-diy-kit",
-			prebuilt: "!https://eggs.works/products/egg58",
+			//kit: "!https://eggs.works/products/egg58-diy-kit",
+			//prebuilt: "!https://eggs.works/products/egg58",
 			img: "egg58.jpg",
 		});
 		addEgg({
