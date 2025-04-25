@@ -7411,7 +7411,7 @@ window.keyboardData = [
 	"tenting": "Legs",
 	"caseType": "Included",
 	"source": "https://github.com/WibblyGhost/southerly-split-keeb"
-}
+},
 "2025-04-25"
 ];
 window.keyboardTODOs = `
@@ -7575,7 +7575,7 @@ https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manu
 68s nomad v2 https://www.reddit.com/r/ErgoMechKeyboards/comments/1k25sv0/nomad_opensource_diy_lowprofile_split_ergo/
 36u https://github.com/unspecworks/gamma-omega
 60s https://github.com/DreaM117er/Explorer-Keyboard-Blank
-Southerly.webp
+58s https://clicketysplit.ca/pages/leeloo
 `;
 
 /* Other TODOs
