@@ -27,6 +27,7 @@ but maybe you'd like these too
 ## Wired-wireless adapters
 
 - SterlingKey
+- https://handheldsci.com/kb/
 
 ## Laptop keyboard replacements
 
@@ -42,7 +43,7 @@ Such as
 
 - Two numpads ([A](https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/), [B](https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/))
 - [One and half membrane keyboards](https://www.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyboard_v20/) (oh no)
-- [Every key is a 5-way switch](https://new.reddit.com/r/ErgoMechKeyboards/comments/10kvbqp/keyboard_made_entirely_of_low_force_5_direction/)
+- [Every key is a 5-way switch](https://www.reddit.com/r/ErgoMechKeyboards/comments/10kvbqp/keyboard_made_entirely_of_low_force_5_direction/)
 - Hand/wrist-mounted ([A](https://github.com/Baranowski/Viosuo), [B](https://adamleblanc.page/portfolio/schist01/))
 
 ## Lower-profile MX

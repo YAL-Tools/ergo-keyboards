@@ -1836,7 +1836,7 @@ window.rowStagData = [
 	"pointingDevices": 1
 },
 */
-"2025-04-10"
+"2025-04-25"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -1901,6 +1901,8 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofil
 Uhk 80
 https://get.autokeybo.com
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9e0j3/blasphemy/
+Adesso Easytouch 1500
+Ragnok RK104 / SANWA Mechanical keyboard
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111

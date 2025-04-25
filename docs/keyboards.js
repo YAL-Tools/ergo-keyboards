@@ -5243,7 +5243,8 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"caseType": "Included",
-	"kit": "https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6"
+	"kit": "https://keycapsss.com/keyboard-parts/pcbs/265/kimiko-rev2-split-keyboard-pcb?c=6",
+	"buildGuide": "https://github.com/Keycapsss/Kimiko"
 },
 {
 	"name": "Anglerfish",
@@ -7385,7 +7386,33 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/carrefinho/forager"
 },
-"2025-04-10"
+{
+	"name": "The Southerly",
+	"img": "Southerly.webp",
+	"notes": "Home built split keyboard which is based on the ZSA Voyager keyboard, using ergogen, kicad & fusion360 tools for keyboard design. ",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.235,
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Other",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"wristPads": "None",
+	"tenting": "Legs",
+	"caseType": "Included",
+	"source": "https://github.com/WibblyGhost/southerly-split-keeb"
+}
+"2025-04-25"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7543,9 +7570,16 @@ https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manu
 34u https://github.com/subottimale/Claudia
 56s https://github.com/Squalius-cephalus/muikku_keyboards
 62u https://github.com/tahnok/harkonnen
+40u https://github.com/ChrisChrisLoLo/keezyboost40
+36s https://github.com/braindefender/lapka
+68s nomad v2 https://www.reddit.com/r/ErgoMechKeyboards/comments/1k25sv0/nomad_opensource_diy_lowprofile_split_ergo/
+36u https://github.com/unspecworks/gamma-omega
+60s https://github.com/DreaM117er/Explorer-Keyboard-Blank
+Southerly.webp
 `;
 
 /* Other TODOs
+choc-spaced lily58? https://keebd.com/products/lily58-choc-asembled-keyboard
 Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 https://mechkey.org/ergonomics-keyboards
@@ -7590,6 +7624,7 @@ https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
 https://kbd.news/3D-printed-hotswap-sockets-V4-750.html
 https://kbd.news/Hot-swap-socket-holders-1669.html
 https://epomaker.com/products/epomaker-vial-adapter
+https://github.com/rschenk/zmk-component-raytac-dongle
 
 Conversions:
 https://github.com/dcpedit/pillzmod
@@ -7631,4 +7666,5 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1j3985i/bayleaf_a_wireless_s
 
 Obsolete:
 TypeMatrix
+Datadesk SmartBoard
 */
