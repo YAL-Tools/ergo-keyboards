@@ -38,6 +38,7 @@ window.domainCountries = {
 	"keeb.supply": "eu",
 	"kriscables.com": "pt",
 	"aliexpress.com": "cn",
+	"alibaba.com": "cn",
 	"xcmkb.com": "my",
 	"splitted.space": "ua",
 };

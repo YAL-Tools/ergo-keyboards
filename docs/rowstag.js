@@ -83,7 +83,10 @@ window.rowStagData = [
 {
 	"name": "Folding Keyboard A",
 	"img": "protoarc-xk03.jpg",
-	"notes": "This one's kind of splayed!",
+	"notes": [
+		"This one's kind of splayed!",
+		"But still not very durable.",
+	],
 	"shape": [
 		"Unibody",
 		"Special"
@@ -145,7 +148,8 @@ window.rowStagData = [
 		"[v:MoKo] https://www.amazon.com/MoKo-Ultra-Thin-Rechargeable-Compatible-Smartphones/dp/B07BNB6R7G",
 		"[v:BOW A] https://www.aliexpress.com/item/1005006168174548.html",
 		"[v:BOW B] https://www.aliexpress.com/item/1005005609260936.html",
-		"[v:SeenDa] https://www.aliexpress.com/item/1005005429203001.html"
+		"[v:SeenDa] https://www.aliexpress.com/item/1005005429203001.html",
+		"[v:Manufacturer?] https://www.alibaba.com/product-detail/Foldable-Latop-Keyboard-Multi-Device-Portable_62320560603.html",
 	]
 },
 {
@@ -1887,6 +1891,8 @@ https://www.alibaba.com/product-detail/Mechanical-Ergonomic-Keyboard-Butterfly-L
 https://www.alibaba.com/product-detail/Neo-Ergo-Ergonomic-Aluminum-Split-Keyboard_1601387916140.html
 https://www.alibaba.com/product-detail/Hot-Sale-Ergonomic-Split-Wired-87keys_1600656905000.html
 https://vi.aliexpress.com/item/1005008051327383.html
+https://www.alibaba.com/product-detail/Wireless-Split-68-Keys-Multi-Media_1600937544476.html
+x-bows..? https://www.alibaba.com/product-detail/Mechanical-Ergonomic-Keyboard-Butterfly-Layout-Mech_1601193273269.html?
 
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hmvktg/i_want_to_have_a_list_every_single_tented_alice/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9b5ul/can_anyone_recommend_me_a_good_alice_layout/

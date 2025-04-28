@@ -7412,7 +7412,35 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/WibblyGhost/southerly-split-keeb"
 },
-"2025-04-25"
+{
+	"name": "Hephaestes38",
+	"img": "Hephaestes38.webp",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 38,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 2,
+	"outerKeys": -1,
+	"cornerKeys": 0,
+	"pinkyStagger": 0.6,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"displays": 1,
+	"lighting": "None",
+	"firmware": "ZMK",
+	"software": "Remap",
+	"assembly": "PCB",
+	"ctlCount": 1,
+	"ctlFootprint": "Nice!Nano",
+	"ctlName": "nRF52840",
+	"caseType": "ThirdParty",
+	"source": "https://github.com/DeppressedCabbage/Hephaestes38-zmk/tree/main"
+},
+"2025-04-28"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
