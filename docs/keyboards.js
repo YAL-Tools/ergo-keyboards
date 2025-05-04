@@ -966,6 +966,9 @@ window.keyboardData = [
 	"firmware": "Custom",
 	"wristPads": "Integrated",
 	"caseType": "Included",
+	"extras": [
+		"[v:Carry case] https://www.thingiverse.com/thing:6634504",
+	],
 	"prebuilt": "!https://kinesis-ergo.com/products/#adv360"
 },
 {
@@ -5873,14 +5876,21 @@ window.keyboardData = [
 	"shape": ["Unibody", "Keywell", "Special"],
 	"stagger": "Column",
 	"connection": "Wired",
-	"keys": 58,
+	"keys": 56,
 	"rows": 4,
 	"cols": 6,
-	"thumbKeys": 5,
+	"thumbKeys": 4,
 	"hotswap": "No",
 	"switchProfile": "Choc",
 	"assembly": "PCB",
 	"caseType": "Included",
+	"source": "https://github.com/Sneftel/gull"
+},
+{
+	"name": "SOWGull",
+	"parent": "Gull",
+	"img": "SOWGull.webp",
+	"shape": ["Split", "Keywell", "Special"],
 	"source": "https://github.com/Sneftel/gull"
 },
 {
@@ -7440,7 +7450,52 @@ window.keyboardData = [
 	"caseType": "ThirdParty",
 	"source": "https://github.com/DeppressedCabbage/Hephaestes38-zmk/tree/main"
 },
-"2025-04-28"
+{
+	"name": "cambkb",
+	"img": "cambkb.webp",
+	"shape": "Split",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 1,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "GateronLP",
+	"firmware": "Custom",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"caseType": "None",
+	"source": "https://github.com/cosimini/cambkb"
+},
+{
+	"name": "Doro56",
+	"img": "Doro56.webp",
+	"notes": "Uses standard keycap sizes!",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 1,
+	"pinkyStagger": 0.1,
+	"splay": "PinkyOnly",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"caseType": "Included",
+	"source": "https://github.com/gehennaXXIV/Doro56"
+},
+"2025-05-03"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7504,15 +7559,12 @@ Svalboard (and how does that map to column-row classification)
 42u https://github.com/levitatingpineapple/atreus
 48u https://github.com/tumler/ReviungDash
 32u https://github.com/protieusz/Fanta-Manta/tree/main
-56s https://github.com/gehennaXXIV/Doro56
 32s https://github.com/bennytrouser/NostrumX
 48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
 64s Snowflake https://github.com/kbranch/snowflake_keyboard
 40u KUSOboard https://github.com/covah901/KUSOboard
 46s https://github.com/kobakos/Splay46
 50s https://github.com/tewtham/dactyl-typesafe
-56s https://github.com/cosimini/cambkb
-58s https://kbd.news/SOWGull-2392.html
 42u https://github.com/kapee1/osprey-remix
 44s https://github.com/focusaurus/kipra-keyboard
 42s https://github.com/Squalius-cephalus/silakka44
@@ -7604,6 +7656,7 @@ https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manu
 36u https://github.com/unspecworks/gamma-omega
 60s https://github.com/DreaM117er/Explorer-Keyboard-Blank
 58s https://clicketysplit.ca/pages/leeloo
+34u https://github.com/kilipan/lobotomy
 `;
 
 /* Other TODOs
