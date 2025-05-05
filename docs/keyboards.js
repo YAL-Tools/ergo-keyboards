@@ -7495,7 +7495,260 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/gehennaXXIV/Doro56"
 },
-"2025-05-03"
+{
+	"name": "Snowflake",
+	"img": "Snowflake.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 64,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 2,
+	"outerKeys": 1,
+	"cornerKeys": 1,
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "Other",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "Onboard/SMD",
+	"wristPads": "Detachable",
+	"caseType": "Included",
+	"source": "https://github.com/kbranch/snowflake_keyboard"
+},
+{
+	"name": "ErgoSNM",
+	"img": "ErgoSNM.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth", "WiredHalf"],
+	"keys": 64,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": {"min": 0, "max": 6},
+	"cornerKeys": 5,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"trackballs": 1,
+	"trackballSize": 40,
+	"lighting": "None",
+	"firmware": ["QMK", "ZMK"],
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "Onboard/SMD",
+	"ctlName": ["RP2040", "nRF52840"],
+	"tenting": "Fixed",
+	"caseType": "Included",
+	"source": "https://github.com/siderakb/ergo-snm-keyboard",
+	"buildGuide": "https://siderakb.ziteh.dev/docs/ergosnm/intro"
+},
+{
+	"name": "ximega",
+	"img": "ximega.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"pinkyStagger": 0.8,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc", "GateronLP"],
+	"pointingDevices": {"min": 0, "max": 2},
+	"trackballs": {"min": 0, "max": 2},
+	"trackpads": {"min": 0, "max": 2},
+	"trackpoints": {"min": 0, "max": 2},
+	"rockerSwitches": 2,
+	"displays": {"min": 0, "max": 2},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlFootprint": "Onboard/SMD",
+	"ctlName": "RP2040",
+	"caseType": "Included",
+	"kit": "https://fingerpunch.xyz/product/ximega-v1/"
+},
+{
+	"name": "tranquility",
+	"img": "tranquility.webp",
+	"notes": "No published firmware?",
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.8,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "Unknown",
+	"assembly": "Handwired",
+	"ctlFootprint": "Elite-C",
+	"caseType": "Included",
+	"source": "https://github.com/cyanophage/tranquility"
+},
+{
+	"name": "Silakka54",
+	"img": "Silakka54.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 54,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "RP2040-Zero",
+	"ctlName": "RP2040",
+	"caseType": "Included",
+	"extras": "[v: Tenting platform] https://www.printables.com/model/1128583-silakka54-tenting-platform",
+	"web": "https://squalius-cephalus.github.io/silakka54/",
+	"source": "https://github.com/Squalius-cephalus/silakka54",
+	"prebuilt": "As of 2025 the keyboard is sold by numerous Chinese sellers.",
+	"buildGuide": "https://squalius-cephalus.github.io/silakka54/buildguide.html"
+},
+{
+	"name": "Dodo",
+	"img": "Dodo.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 6,
+	"pinkyStagger": 0.5,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"displays": 2,
+	"firmware": "Unknown",
+	"ctlFootprint": "XIAO",
+	"source": "https://github.com/gorbit99/dodo-keyboard"
+},
+{
+	"name": "Iyada",
+	"img": "Iyada.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 50,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 2,
+	"cornerKeys": 2,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc", "GateronLP"],
+	"keySpacing": "MX",
+	"encoders": 4,
+	"encoderType": ["Knob", "Wheel"],
+	"trackpads": 2,
+	"trackpadSize": 40,
+	"displays": 2,
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"source": "https://github.com/gargum/Iyada",
+	"pointingDevices": 2
+},
+{
+	"name": "Qimera",
+	"img": "Qimera.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 54,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.5,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"firmware": "ZMK",
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"caseType": "Included",
+	"source": "https://github.com/AbeerVaishnav13/Qimera-keyboard"
+},
+{
+	"name": "Scylla",
+	"img": "Scylla.webp",
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"pinkyStagger": 0.5,
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": ["PCB", "Handwired"],
+	"caseType": "Included",
+	"web": "https://bastardkb.com/dactyls/",
+	"source": "!https://github.com/Bastardkb/Scylla",
+	"kit": "!https://bastardkb.com/product/scylla-kit/",
+	"prebuilt": "!https://bastardkb.com/product/scylla-prebuilt-preorder-2/",
+	"buildGuide": "https://docs.bastardkb.com/bg_scylla/01index.html"
+},
+{
+	"name": "Phasmic Keyboard",
+	"img": "PhasmicKeyboard.webp",
+	"notes": "Featuring adjustable columns and thumb clusters!",
+	"shape": ["Split", "Keywell"],
+	"stagger": ["Column", "Ortho"],
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 6,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"firmware": "QMK",
+	"assembly": ["Handwired", "Adjustable"],
+	"ctlCount": 2,
+	"ctlFootprint": "Pi Pico",
+	"source": "https://github.com/tanguanhong89/ThePhasmicKeyboard"
+},
+{
+	"name": "Unsplitted ergo Keyberon V1",
+	"img": "keyberon-f4.webp",
+	"notes": "Parametric!",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"pinkyStagger": 0.4,
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc"],
+	"firmware": "Custom",
+	"assembly": ["Handwired", "Parametric"],
+	"caseType": "Included",
+	"source": "https://github.com/TeXitoi/keyberon-f4",
+	"buildGuide": "https://github.com/TeXitoi/keyberon-grid/blob/master/BUILDING.md"
+},
+"2025-05-06"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -7554,29 +7807,23 @@ Svalboard (and how does that map to column-row classification)
 30u https://github.com/AlaaSaadAbdo/battoota/tree/main/boards/30keys/Ghazal https://new.reddit.com/r/ErgoMechKeyboards/comments/1eibqxn/ghazal_a_30_key_wireless_unibody_with_integrated/
 42s https://github.com/yangit/flactyl https://new.reddit.com/r/ErgoMechKeyboards/comments/13qep4y/after_4_year_lurking_and_2_years_building_my_own/
 36s https://fingerpunch.xyz/product/baby-yoda-keyboard/
-56u https://github.com/TeXitoi/keyberon-f4
 44s https://github.com/TeXitoi/keyseebee
 42u https://github.com/levitatingpineapple/atreus
 48u https://github.com/tumler/ReviungDash
 32u https://github.com/protieusz/Fanta-Manta/tree/main
 32s https://github.com/bennytrouser/NostrumX
 48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
-64s Snowflake https://github.com/kbranch/snowflake_keyboard
 40u KUSOboard https://github.com/covah901/KUSOboard
 46s https://github.com/kobakos/Splay46
 50s https://github.com/tewtham/dactyl-typesafe
 42u https://github.com/kapee1/osprey-remix
 44s https://github.com/focusaurus/kipra-keyboard
 42s https://github.com/Squalius-cephalus/silakka44
-56s https://kbd.news/Tranquility-v2-39.html
 r-track https://gitlab.com/keyboards1/dm_r_track/-/tree/master/boolean
 https://www.printables.com/model/314112-dactyl-manuball
-50s https://github.com/gargum/Iyada/tree/main/kiraibuilds/iyada
-64s https://github.com/siderakb/ergo-snm-keyboard
 30u https://github.com/doesntfazer/Goober
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
 https://github.com/flinguenheld/chew
-54s https://github.com/Squalius-cephalus/silakka54
 https://github.com/victorlucachi/void40
 https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
 https://fornellas.github.io/3d_printed_keyboard/
@@ -7587,16 +7834,11 @@ https://github.com/fiendie/NomadKeyboard
 34s https://github.com/eggsworks/solanum
 KLOR with Choc V1 support https://github.com/sadekbaroudi/KLOR
 42u Treble https://github.com/kkckrnz/treble
-58s Bicycle https://github.com/peej/bicycle-keyboard
-https://github.com/ssbb/tako
 https://github.com/brucedjones/dactyl-stabilized https://photos.app.goo.gl/FvHTLifnzGaTiMUD9
 36s Waterfowl
 44s https://new.reddit.com/r/ErgoMechKeyboards/comments/1fyxy85/imperial44_v1_are_now_open_sourced/
 48s https://github.com/danbiba/zmk-config-biba40
-54s https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9ux67/ad_meet_the_kb54_a_fully_wireless_and_magsafe/ https://humancomputing.io
-https://github.com/tanguanhong89/ThePhasmicKeyboard
 https://github.com/jackbrad1ey/thingamaboard_v2
-54s https://github.com/AbeerVaishnav13/Qimera-keyboard
 39u https://github.com/cyril279/keyboards/tree/main/revlp
 56s https://kbdcraft.store/products/israfel
 36u https://github.com/eggsworks/le-oeuf
@@ -7606,25 +7848,20 @@ https://github.com/jackbrad1ey/thingamaboard_v2
 46u delast https://www.reddit.com/r/ErgoMechKeyboards/comments/1hj4xlt/delast_the_last_one_for_me/
 28s https://github.com/ThePurox/zplitzalp
 https://kbd.news/Chunky2040-Rev2-2006.html
-58s https://fingerpunch.xyz/product/ximega-v1/
 42s jarne https://lim.au/#/hardware https://shop.chenonetta.com/product/jarne-the-ultimate-keyboard/
 36s https://github.com/penk/EDC36
 36s Crosses https://gggw-keebs.com/products/crosses-modular-custom-keyboard-kit
 36s https://github.com/DuBento/puffer https://www.reddit.com/r/ErgoMechKeyboards/comments/1htjdbi/puffer/
 36u glitter36 https://shop.yushakobo.jp/products/10301
-85u suika85ergo https://shop.yushakobo.jp/en/products/9015
 36s https://github.com/rmuraglia/menura-kb
 https://github.com/dlip/harite-v2
 https://github.com/OldMan6955/TheEndgame2024/tree/main https://github.com/quark-works/TheEndgame2024-BLE
 36u https://github.com/penk/Haori36-MX
-58s https://makerworld.com/en/models/671684
 24s https://kbd.news/Diamond-2418.html
 20s https://github.com/miketronic/10x2?tab=readme-ov-file
 36u https://github.com/TeXitoi/keymini/
-56s https://shop.yushakobo.jp/products/9455
 61u https://github.com/floookay/barnacle
 42s roBa https://kbd.news/roBa-2550.html
-60s Dodo https://kbd.news/Dodo-2547.html
 48s Blank https://shop.beekeeb.com/product/pre-soldered-blank-split-keyboard-with-trackpad-rotary/
 36s https://github.com/n1tsu/n36tsu
 42s https://github.com/Dooez/thoren-build
@@ -7642,7 +7879,6 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1ios33a/3d_printed_ergonomic
 44s https://github.com/erikpeyronson/erkbd
 36s https://github.com/GroooveBob/DASBOB
 36s swweeep https://github.com/sadekbaroudi/sweep36#swweeep
-58s https://github.com/Bastardkb/Scylla
 https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manuform
 42s https://github.com/Magnum-Monk/KeebIsSplit/tree/v1.0
 44s https://github.com/crolbar/yuki
@@ -7657,6 +7893,7 @@ https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manu
 60s https://github.com/DreaM117er/Explorer-Keyboard-Blank
 58s https://clicketysplit.ca/pages/leeloo
 34u https://github.com/kilipan/lobotomy
+58s https://github.com/kissetfall/Lily58-Pro-RE
 `;
 
 /* Other TODOs
@@ -7665,6 +7902,10 @@ Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
 https://mechkey.org/ergonomics-keyboards
 https://github.com/Cipulot
+
+aliexpress
+Sofle with inner keys
+https://www.aliexpress.us/item/3256808570920954.html
 
 Vendors:
 https://keyboard-hoarders.com/products/sofle-choc-wireless-split-mechanical-keyboard-shadowseries?variant=42590143086680
@@ -7682,6 +7923,7 @@ https://docs.google.com/spreadsheets/d/1kOHXAKuxkYMWo0s8xzkoVLM_iViYXjoVfkY-oCm0
 https://github.com/certainly1182/MoonBoard
 https://www.reddit.com/r/olkb/comments/1iq4bly/kheops70_ortholinear_analog_he_keyboard/
 https://vi.aliexpress.com/item/1005008051327383.html
+75m https://github.com/peej/orthgyle-keyboard
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -7744,6 +7986,14 @@ https://old.reddit.com/r/ErgoMechKeyboards/comments/1i7vztv/nury_mini_color/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1id23wr/cases_for_a_tiny_keyboard_i_am_working_on_not_yet/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1idaqxf/meet_merlin_v1/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1j3985i/bayleaf_a_wireless_split_keyboard/ https://www.graz.io/articles/bayleaf-wireless-keyboard
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1hd48z5/pg1316s_prototype/
+https://humancomputing.io/
+
+WIP:
+https://github.com/peej/bicycle-keyboard
+
+Gone / out of stock for now?
+85u suika85ergo https://shop.yushakobo.jp/en/products/9015
 
 Obsolete:
 TypeMatrix

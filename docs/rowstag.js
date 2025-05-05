@@ -1840,7 +1840,7 @@ window.rowStagData = [
 	"pointingDevices": 1
 },
 */
-"2025-04-25"
+"2025-05-06"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -1883,6 +1883,7 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 60%u https://github.com/karnadii/geulis
 75% FEKER Alice75
 100%u https://github.com/dcpedit/adelheid-xt
+65% https://shop.yushakobo.jp/products/9455
 `
 /* TODO
 ali keyboards
