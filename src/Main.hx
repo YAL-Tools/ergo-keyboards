@@ -31,7 +31,6 @@ class Main {
 		} else kbTable = cast new ColStagTable();
 		KeyboardPage.main(kbTable);
 		
-		ToDoList.element = document.querySelectorAuto("#todo");
 		var dynWindow = cast window;
 		if (forties) {
 			ToDoList.set(dynWindow.fortiesTODOs);

@@ -12,4 +12,5 @@ enum Assembly {
 	Handwired;
 	Adjustable;
 	Reversible;
+	Parametric;
 }

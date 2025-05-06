@@ -10,28 +10,49 @@ using StringTools;
  * @author YellowAfterlife
  */
 class ToDoList {
-	public static var element:Element;
 	public static function set(text:String) {
 		text = StringTools.trim(text);
-		var rxKeyCount = new RegExp("^(\\d+)(%)?([usm])?\\s+(.*)");
-		var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 		var rxURL = new RegExp("^(https?://\\S+)\\s*(.*)");
+		var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 		var rxLinkSuffix = new RegExp("^.+/(.+?)(?:/)?(?:\\?.*)?$");
+		#if keyboards
+		var rxKeyCount = new RegExp("^(\\d+)(%)?([usm])?\\s+(.*)");
 		var rxKbdNews = new RegExp("^https://kbd.news/(.+)-\\d+.html");
 		var rxEraseEnd = new RegExp("^(.+)[-_](?:keyboard|kbd|kit|pcb)$", "i");
+		#end
+		
+		var element = Browser.document.querySelectorAuto("#todo");
 		element.innerHTML = "";
+		
+		#if keyboards
+		var element_bigger = Browser.document.querySelectorAuto("#todo-bigger");
+		element_bigger.innerHTML = "";
+		var element_smaller = Browser.document.querySelectorAuto("#todo-smaller");
+		element_smaller.innerHTML = "";
+		var small_threshold = 50;
+		#end
+		
 		for (line in text.split("\n")) {
 			line = line.trim();
 			if (line == "") continue;
+			var mt, addTo = element;
 			
+			#if keyboards
 			var formFactor:String = null;
 			var mt = rxKeyCount.exec(line);
 			if (mt != null) {
 				formFactor = mt[1];
 				//
+				if (Std.parseInt(mt[1]) < small_threshold) { // 50 keys or 50%
+					addTo = element_smaller;
+				} else {
+					addTo = element_bigger;
+				}
 				if (mt[2] == null) {
 					formFactor += "-key";
-				} else formFactor += "%";
+				} else {
+					formFactor += "%";
+				}
 				//
 				if (mt[3] != null) {
 					formFactor += " " + switch (mt[3]) {
@@ -44,6 +65,7 @@ class ToDoList {
 				//
 				line = mt[4];
 			}
+			#end
 			
 			var smt;
 			var label:String = null;
@@ -76,9 +98,11 @@ class ToDoList {
 			}
 			
 			var li = Browser.document.createLIElement();
+			#if keyboards
 			if (formFactor != null) {
 				li.appendTextNode('[$formFactor] ');
 			}
+			#end
 			if (mt != null) {
 				var a = Browser.document.createAnchorElement();
 				a.appendTextNode(label);
@@ -99,7 +123,7 @@ class ToDoList {
 			} else {
 				li.appendTextNode(label);
 			}
-			element.appendChild(li);
+			addTo.appendChild(li);
 		}
 	}
 }

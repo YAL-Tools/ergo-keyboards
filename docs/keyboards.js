@@ -4559,7 +4559,7 @@ window.keyboardData = [
 	"hotswap": "No",
 	"switchProfile": "GateronLP",
 	"lighting": "None",
-	"assembly": "Handwired",
+	"assembly": ["Handwired", "Parametric"],
 	"source": "https://github.com/luke-schutt/keyboards/tree/main/Churn"
 },
 {
@@ -5109,7 +5109,7 @@ window.keyboardData = [
 	"keySpacing": "Choc",
 	"lighting": "None",
 	"firmware": "ZMK",
-	"assembly": "Handwired",
+	"assembly": ["Handwired", "Parametric"],
 	"web": "https://feierabendprojekte.wordpress.com/2024/01/13/my-new-travel-companion/",
 	"source": [
 		"[v:case] https://github.com/Azel4231/scad-keyboards",
@@ -7748,6 +7748,139 @@ window.keyboardData = [
 	"source": "https://github.com/TeXitoi/keyberon-f4",
 	"buildGuide": "https://github.com/TeXitoi/keyberon-grid/blob/master/BUILDING.md"
 },
+{
+	"name": "REVIUNGDASH47",
+	"img": "REVIUNGDASH47.webp",
+	"notes": "Inspired by the Reviung41 (& ERGODASH) hence the name!",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": {"min": 47, "max": 48},
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": "Underglow",
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlCount": 1,
+	"ctlFootprint": "Pro Micro",
+	"caseType": "Included",
+	"source": "https://github.com/tumler/ReviungDash/tree/master/reviungdash47",
+	"buildGuide": "https://reviung.com/build-guide/391/"
+},
+{
+	"name": "REVIUNGDASH52",
+	"parent": "REVIUNGDASH47",
+	"img": "REVIUNGDASH52.webp",
+	"notes": "Inspired by the Reviung41 (& ERGODASH) hence the name!",
+	"keys": 52,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 4,
+	"source": "https://github.com/tumler/ReviungDash/tree/master/reviungdash52",
+	"buildGuide": "https://reviung.com/build-guide/391/"
+},
+{
+	"name": "Israfel",
+	"img": "Israfel.webp",
+	"notes": "A 50%-ish ortho keyboard with standard keycap sizes and LEGO-compatible frame",
+	"shape": ["Unibody", "Split"],
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 56,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"outerKeys": -1,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": "ChocV2",
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlCount": 2,
+	"ctlFootprint": "Onboard/SMD",
+	"caseType": "Included",
+	"prebuilt": "https://kbdcraft.store/products/israfel",
+	"buildGuide": "https://kbdcraft.store/pages/opensource"
+},
+{
+	"name": "Thingamaboard V2",
+	"img": "Thingamaboard-v2.webp",
+	"notes": "Limited information in the repository",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 50,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.1,
+	"hotswap": "No",
+	"switchProfile": "Choc",
+	"firmware": "Custom",
+	"ctlCount": 1,
+	"ctlFootprint": "Onboard/SMD",
+	"ctlName": "RP2040",
+	"caseType": "Included",
+	"source": "https://github.com/jackbrad1ey/thingamaboard_v2"
+},
+{
+	"name": "Sofle Pico",
+	"img": "sofle-pico.webp",
+	"notes": "Most similar to Sofle Choc in layout stagger, but uses hotswap MX switches and RP2040 controllers.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"pinkyStagger": 0.25,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"trackballs": {"min": 0, "max": 1},
+	"trackballSize": 4.4,
+	"displays": {"min": 0, "max": 2},
+	"lighting": "RGB",
+	"firmware": "QMK",
+	"software": "VIA",
+	"ctlFootprint": "!RP2040",
+	"ctlName": "RP2040",
+	"web": "https://www.soflepico.com/",
+	"source": "https://github.com/JellyTitan/Sofle-Pico",
+	"buildGuide": "https://www.soflepico.com/build/build-guide"
+},
+{
+	"name": "Apiaster",
+	"img": "Apiaster.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 50,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"outerKeys": -1,
+	"pinkyStagger": 0.5,
+	"hotswap": "No",
+	"switchProfile": ["MX", "Choc", "ChocV2"],
+	"keySpacing": "MX",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "RP2040-Zero",
+	"caseType": "Included",
+	"source": "https://github.com/nmunnich/apiaster"
+},
 "2025-05-06"
 ];
 window.keyboardTODOs = `
@@ -7771,7 +7904,7 @@ More Maltron keyboards
 50s Low Profile Dactyl https://github.com/omurovec/dactyl-high-profile
 44s https://github.com/llmerlos/0xLM
 40s Stront40 https://github.com/zzeneg/stront
-https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
+BrownSugar Flex modular keyboard https://www.reddit.com/r/MechanicalKeyboards/comments/mqncao/modular_keyboard/
 44u https://kbd.news/VColChoc44-1029.html
 40s https://github.com/ChrisChrisLoLo/beyblock20
 40u https://new.reddit.com/r/ErgoMechKeyboards/comments/1cr2kk1/ad_scottowing_pcb_edition_available_now/
@@ -7794,7 +7927,6 @@ Svalboard (and how does that map to column-row classification)
 42s https://github.com/Vaarai/Cornia https://new.reddit.com/r/ErgoMechKeyboards/comments/1ddoohp/first_ergo_build_from_scratch/
 36s dove36
 42s https://github.com/chelming/swept-crkbd
-58s Sofle Pico https://www.soflepico.com
 36u https://github.com/dohn-joh/alias
 46s https://mtnkbd.com/products/lets-tango-case
 36u https://github.com/mikeholscher/zmk-config-mikefive https://new.reddit.com/r/ErgoMechKeyboards/comments/1e4xl8q/3d_cad_file_and_kicad_footprint_of_kailh_pg1316s/
@@ -7802,52 +7934,45 @@ Svalboard (and how does that map to column-row classification)
 32s https://github.com/dlip/tenshi https://new.reddit.com/r/ErgoMechKeyboards/comments/1ebsjye/tenshi_split_keyboard_with_slideadjustable/
 38u https://github.com/jeffdhooton/jingis38 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec0cyf/38key_columnstagger_board_build/
 58s Sofle Choc with V2 pinky stagger https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit/
-58s https://github.com/Maka8295/Lucca-58HE https://new.reddit.com/r/ErgoMechKeyboards/comments/1dk3fhk/introducing_the_lucca_58he_a_hall_effect_split/
 18s https://github.com/Aodrulez/zenFlow
 30u https://github.com/AlaaSaadAbdo/battoota/tree/main/boards/30keys/Ghazal https://new.reddit.com/r/ErgoMechKeyboards/comments/1eibqxn/ghazal_a_30_key_wireless_unibody_with_integrated/
 42s https://github.com/yangit/flactyl https://new.reddit.com/r/ErgoMechKeyboards/comments/13qep4y/after_4_year_lurking_and_2_years_building_my_own/
 36s https://fingerpunch.xyz/product/baby-yoda-keyboard/
 44s https://github.com/TeXitoi/keyseebee
 42u https://github.com/levitatingpineapple/atreus
-48u https://github.com/tumler/ReviungDash
 32u https://github.com/protieusz/Fanta-Manta/tree/main
 32s https://github.com/bennytrouser/NostrumX
-48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
 40u KUSOboard https://github.com/covah901/KUSOboard
 46s https://github.com/kobakos/Splay46
 50s https://github.com/tewtham/dactyl-typesafe
 42u https://github.com/kapee1/osprey-remix
 44s https://github.com/focusaurus/kipra-keyboard
 42s https://github.com/Squalius-cephalus/silakka44
-r-track https://gitlab.com/keyboards1/dm_r_track/-/tree/master/boolean
-https://www.printables.com/model/314112-dactyl-manuball
+62s r-track https://gitlab.com/keyboards1/dm_r_track/-/tree/master/boolean
+76s https://www.printables.com/model/314112-dactyl-manuball
 30u https://github.com/doesntfazer/Goober
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
-https://github.com/flinguenheld/chew
-https://github.com/victorlucachi/void40
-https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
-https://fornellas.github.io/3d_printed_keyboard/
+66s https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
+34s https://github.com/flinguenheld/chew
+65%u https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
+75%s https://fornellas.github.io/3d_printed_keyboard/
 that's a lot of keyboards https://oshwhub.com/joba/works
-https://github.com/fiendie/NomadKeyboard
 42s https://github.com/triliu/Heawood42
 36s https://github.com/RasmusKoit/pipar
 34s https://github.com/eggsworks/solanum
-KLOR with Choc V1 support https://github.com/sadekbaroudi/KLOR
+42s KLOR with Choc V1 support https://github.com/sadekbaroudi/KLOR
 42u Treble https://github.com/kkckrnz/treble
-https://github.com/brucedjones/dactyl-stabilized https://photos.app.goo.gl/FvHTLifnzGaTiMUD9
+66s https://github.com/brucedjones/dactyl-stabilized https://photos.app.goo.gl/FvHTLifnzGaTiMUD9
 36s Waterfowl
 44s https://new.reddit.com/r/ErgoMechKeyboards/comments/1fyxy85/imperial44_v1_are_now_open_sourced/
 48s https://github.com/danbiba/zmk-config-biba40
-https://github.com/jackbrad1ey/thingamaboard_v2
 39u https://github.com/cyril279/keyboards/tree/main/revlp
-56s https://kbdcraft.store/products/israfel
 36u https://github.com/eggsworks/le-oeuf
 34s https://github.com/randcanary/mkpico/
 46s https://github.com/anywhy-io/flake https://github.com/tangbonze/zmk-config-flake/tree/main/mx_case
 34s https://github.com/anothermimich/k02
 46u delast https://www.reddit.com/r/ErgoMechKeyboards/comments/1hj4xlt/delast_the_last_one_for_me/
 28s https://github.com/ThePurox/zplitzalp
-https://kbd.news/Chunky2040-Rev2-2006.html
+66s https://kbd.news/Chunky2040-Rev2-2006.html
 42s jarne https://lim.au/#/hardware https://shop.chenonetta.com/product/jarne-the-ultimate-keyboard/
 36s https://github.com/penk/EDC36
 36s Crosses https://gggw-keebs.com/products/crosses-modular-custom-keyboard-kit
@@ -7855,7 +7980,7 @@ https://kbd.news/Chunky2040-Rev2-2006.html
 36u glitter36 https://shop.yushakobo.jp/products/10301
 36s https://github.com/rmuraglia/menura-kb
 https://github.com/dlip/harite-v2
-https://github.com/OldMan6955/TheEndgame2024/tree/main https://github.com/quark-works/TheEndgame2024-BLE
+36u https://github.com/OldMan6955/TheEndgame2024 https://github.com/quark-works/TheEndgame2024-BLE
 36u https://github.com/penk/Haori36-MX
 24s https://kbd.news/Diamond-2418.html
 20s https://github.com/miketronic/10x2?tab=readme-ov-file
@@ -7872,14 +7997,13 @@ https://github.com/OldMan6955/TheEndgame2024/tree/main https://github.com/quark-
 a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 40s https://github.com/RaphCoder13/Porg40
 62s https://github.com/HellSingCoder/LimeKeyboard/tree/main
-https://www.reddit.com/r/ErgoMechKeyboards/comments/1ios33a/3d_printed_ergonomic_split_keyboard/
+42s https://www.reddit.com/r/ErgoMechKeyboards/comments/1ios33a/3d_printed_ergonomic_split_keyboard/
 64s https://github.com/kbranch/snowflake_keyboard
 32u https://github.com/TvrdRadKeyboards/orasnica
-50s https://github.com/Nick-Munnich/apiaster
 44s https://github.com/erikpeyronson/erkbd
 36s https://github.com/GroooveBob/DASBOB
 36s swweeep https://github.com/sadekbaroudi/sweep36#swweeep
-https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manuform
+62s https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manuform
 42s https://github.com/Magnum-Monk/KeebIsSplit/tree/v1.0
 44s https://github.com/crolbar/yuki
 46s Geulis https://www.tokopedia.com/kbdksp/geulis-40-split-keyboard-full-built-6-kolom-24707
@@ -7890,6 +8014,7 @@ https://github.com/qmk/qmk_firmware/tree/master/keyboards/handwired/tractyl_manu
 36s https://github.com/braindefender/lapka
 68s nomad v2 https://www.reddit.com/r/ErgoMechKeyboards/comments/1k25sv0/nomad_opensource_diy_lowprofile_split_ergo/
 36u https://github.com/unspecworks/gamma-omega
+48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
 60s https://github.com/DreaM117er/Explorer-Keyboard-Blank
 58s https://clicketysplit.ca/pages/leeloo
 34u https://github.com/kilipan/lobotomy
@@ -7924,6 +8049,7 @@ https://github.com/certainly1182/MoonBoard
 https://www.reddit.com/r/olkb/comments/1iq4bly/kheops70_ortholinear_analog_he_keyboard/
 https://vi.aliexpress.com/item/1005008051327383.html
 75m https://github.com/peej/orthgyle-keyboard
+40m https://github.com/victorlucachi/void40
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main

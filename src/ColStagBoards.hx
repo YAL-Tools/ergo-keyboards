@@ -361,6 +361,7 @@ class ColStagBoards {
 			extras: [
 				"[US][v:Case files] https://capsuledeluxe.com/tag/manta58/",
 				"[v:Case with palmrest] https://github.com/AgentCosmic/lily58_case",
+				"[v:Case] https://makerworld.com/en/models/671684-manta58-s-split-keyboard-case-for-lily58-pcbs",
 			],
 			img: "lily58.jpg",
 		};

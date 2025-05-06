@@ -694,6 +694,11 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			+ "\nMinimum order quantity for PCBs is usually 5,"
 			+ " so this reduces the number of extra boards you end up with."
 		);
+		asm.filterLabels[Parametric] = "Parametric (WIP)";
+		asm.filterNotes[Parametric] = (
+			"Case and/or PCB are generated using a script"
+			+ " that allows to adjust key positions/count to some extent"
+		);
 		asm.onNotes = function(div) {
 			asm.appendFilterNotes(div);
 		}

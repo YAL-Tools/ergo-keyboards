@@ -1946,6 +1946,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		asm.filterLabels.set(type_Assembly.Reversible,"Reversible (WIP)");
 		var v = "A keyboard consists of two or more identical PCBs/cases." + "\nMinimum order quantity for PCBs is usually 5," + " so this reduces the number of extra boards you end up with.";
 		asm.filterNotes.set(type_Assembly.Reversible,v);
+		asm.filterLabels.set(type_Assembly.Parametric,"Parametric (WIP)");
+		var v = "Case and/or PCB are generated using a script" + " that allows to adjust key positions/count to some extent";
+		asm.filterNotes.set(type_Assembly.Parametric,v);
 		asm.onNotes = function(div) {
 			asm.appendFilterNotes(div);
 		};
@@ -2516,7 +2519,6 @@ Main.main = function() {
 		kbTable = new ColStagTable();
 	}
 	KeyboardPage.main(kbTable);
-	ToDoList.element = window.document.querySelector("#todo");
 	var dynWindow = window;
 	if(forties) {
 		ToDoList.set(dynWindow.fortiesTODOs);
@@ -3314,13 +3316,19 @@ var ToDoList = function() { };
 ToDoList.__name__ = true;
 ToDoList.set = function(text) {
 	text = StringTools.trim(text);
-	var rxKeyCount = new RegExp("^(\\d+)(%)?([usm])?\\s+(.*)");
-	var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 	var rxURL = new RegExp("^(https?://\\S+)\\s*(.*)");
+	var rxAfterText = new RegExp("^(.+?)\\s*(https?://.*)");
 	var rxLinkSuffix = new RegExp("^.+/(.+?)(?:/)?(?:\\?.*)?$");
+	var rxKeyCount = new RegExp("^(\\d+)(%)?([usm])?\\s+(.*)");
 	var rxKbdNews = new RegExp("^https://kbd.news/(.+)-\\d+.html");
 	var rxEraseEnd = new RegExp("^(.+)[-_](?:keyboard|kbd|kit|pcb)$","i");
-	ToDoList.element.innerHTML = "";
+	var element = window.document.querySelector("#todo");
+	element.innerHTML = "";
+	var element_bigger = window.document.querySelector("#todo-bigger");
+	element_bigger.innerHTML = "";
+	var element_smaller = window.document.querySelector("#todo-smaller");
+	element_smaller.innerHTML = "";
+	var small_threshold = 50;
 	var _g = 0;
 	var _g1 = text.split("\n");
 	while(_g < _g1.length) {
@@ -3330,18 +3338,25 @@ ToDoList.set = function(text) {
 		if(line == "") {
 			continue;
 		}
+		var mt;
+		var addTo = element;
 		var formFactor = null;
-		var mt = rxKeyCount.exec(line);
-		if(mt != null) {
-			formFactor = mt[1];
-			if(mt[2] == null) {
+		var mt1 = rxKeyCount.exec(line);
+		if(mt1 != null) {
+			formFactor = mt1[1];
+			if(Std.parseInt(mt1[1]) < small_threshold) {
+				addTo = element_smaller;
+			} else {
+				addTo = element_bigger;
+			}
+			if(mt1[2] == null) {
 				formFactor += "-key";
 			} else {
 				formFactor += "%";
 			}
-			if(mt[3] != null) {
+			if(mt1[3] != null) {
 				var formFactor1;
-				switch(mt[3]) {
+				switch(mt1[3]) {
 				case "m":
 					formFactor1 = "monoblock";
 					break;
@@ -3356,28 +3371,28 @@ ToDoList.set = function(text) {
 				}
 				formFactor += " " + formFactor1;
 			}
-			line = mt[4];
+			line = mt1[4];
 		}
 		var smt;
 		var label = null;
-		mt = rxURL.exec(line);
-		if(mt == null) {
-			mt = rxAfterText.exec(line);
-			if(mt == null) {
+		mt1 = rxURL.exec(line);
+		if(mt1 == null) {
+			mt1 = rxAfterText.exec(line);
+			if(mt1 == null) {
 				label = line;
 			} else {
-				label = mt[1];
-				line = mt[2];
-				mt = rxURL.exec(line);
+				label = mt1[1];
+				line = mt1[2];
+				mt1 = rxURL.exec(line);
 			}
 		} else {
 			var isKbdNews = false;
-			smt = rxKbdNews.exec(mt[1]);
+			smt = rxKbdNews.exec(mt1[1]);
 			if(smt != null) {
 				isKbdNews = true;
 				label = smt[1];
 			} else {
-				smt = rxLinkSuffix.exec(mt[1]);
+				smt = rxLinkSuffix.exec(mt1[1]);
 				if(smt != null) {
 					label = smt[1];
 				} else {
@@ -3401,22 +3416,22 @@ ToDoList.set = function(text) {
 		if(formFactor != null) {
 			li.appendChild(window.document.createTextNode("[" + formFactor + "] "));
 		}
-		if(mt != null) {
+		if(mt1 != null) {
 			var a = window.document.createElement("a");
 			a.appendChild(window.document.createTextNode(label));
-			a.href = mt[1];
+			a.href = mt1[1];
 			li.appendChild(a);
-			line = mt[2];
+			line = mt1[2];
 			var _g3 = 2;
 			while(_g3 < 16) {
 				var i = _g3++;
-				mt = rxURL.exec(line);
-				if(mt == null) {
+				mt1 = rxURL.exec(line);
+				if(mt1 == null) {
 					break;
 				}
 				a = window.document.createElement("a");
-				a.href = mt[1];
-				line = mt[2];
+				a.href = mt1[1];
+				line = mt1[2];
 				li.appendChild(window.document.createTextNode(" · "));
 				a.appendChild(window.document.createTextNode("link " + i));
 				li.appendChild(a);
@@ -3424,7 +3439,7 @@ ToDoList.set = function(text) {
 		} else {
 			li.appendChild(window.document.createTextNode(label));
 		}
-		ToDoList.element.appendChild(li);
+		addTo.appendChild(li);
 	}
 };
 var ValueType = $hxEnums["ValueType"] = { __ename__:true,__constructs__:null

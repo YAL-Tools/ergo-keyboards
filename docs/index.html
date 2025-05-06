@@ -6,7 +6,7 @@
 	<meta property="theme-color" content="#FFF037" />
 	<title>YAL's Ergo Keyboard List</title>
 	<meta name="description" content="A sortable and filterable list of ergonomic keyboards!" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	
 	<meta property="og:image" content="https://yal-tools.github.io/ergo-keyboards/img/og.png" />
 	<meta property="og:image:width" content="1080" />
@@ -24,367 +24,376 @@
 	<meta property="twitter:image:width" content="1080" />
 	<meta property="twitter:image:height" content="600" />
 	<meta property="twitter:url" content="https://yal-tools.github.io/ergo-keyboards/" />
-    
-    <!-- Material Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    
+	
+	<!-- Material Icons -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	
 	<link rel="stylesheet" href="style.css?v=2024-04-16" /> 
 	<link rel="stylesheet" href="lib/translucent.css" />
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header__content">
-                <div class="toggles">
-                    <label class="mode-toggle dark-toggle">
-                        <input type="checkbox" id="cb-night"/>
-                        <span class="material-icons"></span>
-                        <span class="mode-toggle__text" data-text-off="Light mode" data-text-on="Dark mode">Light mode</span>
-                    </label>
-                    <label class="mode-toggle touch-toggle">
-                        <input type="checkbox" id="cb-touch"/>
-                        <span class="material-icons"></span>
-                        <span class="mode-toggle__text" data-text-off="Mouse mode" data-text-on="Touch mode">Mouse mode</span>
-                    </label>
-                </div>
-                <h1 class="header__title">YellowAfterlife's ergonomic keyboard list</h1>
-            </div>
-        </header>
-        <script>
-            (function() {
-                function addClassCheckbox(name, getDefValue) {
-                    var cb = document.querySelector("#cb-" + name);
-                    var textEl = cb.parentElement.querySelector('.mode-toggle__text');
-                    
-                    function sync(val) {
-                        if (val) document.body.classList.add(name);
-                        else document.body.classList.remove(name);
-                        
-                        if (textEl) {
-                            textEl.textContent = val ? textEl.dataset.textOn : textEl.dataset.textOff;
-                        }
-                    }
-                    
-                    cb.onchange = function() {
-                        var val = cb.checked;
-                        sync(val);
-                        try {
-                            localStorage.setItem("yal-ergo-" + name, val ? "1" : "0");
-                        } catch (_) {}
-                    }
-                    
-                    try {
-                        var val = localStorage.getItem("yal-ergo-" + name);
-                        if (val == null) {
-                            val = getDefValue();
-                        } else {
-                            val = val == "1";
-                        }
-                        if (val) {
-                            cb.checked = val;
-                            sync(val);
-                        }
-                    } catch (e) {
-                        console.error("Load error for " + name, e);
-                    }
-                }
-                addClassCheckbox("night", function() {
-                    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                });
-                addClassCheckbox("touch", function() {
-                    return window.ontouchstart !== undefined;
-                });
-                
-                //
-                try {
-                    var search = document.location.search;
-                    if (/[?&]40s\b/.test(search)) {
-                        document.body.classList.add("forties");
-                    } else if (/[?&]row\b/.test(search)) {
-                        document.body.classList.add("rowstag");
-                    } else {
-                        document.body.classList.add("colstag");
-                    }
-                } catch (_) {}
-            })();
-        </script>
-        <p class="if-colstag">
-            This is a collection of column-staggered and ortholinear ergonomic keyboards!
-        </p><p class="if-colstag">
-            It does not contain <i>every single keyboard</i>,
-            but it's a pretty big sample - especially as far medium/big/interesting keyboards go.
-        </p>
-        <p class="if-rowstag">
-            This is a collection of row-staggered ergonomic keyboards!<br>
-            ... and also other keyboards that are shaped liked row-staggered ones.
-        </p><p class="if-rowstag">
-            This one's a mostly-random sample of keyboards - there's not exactly a shortage of places
-            to look for row-staggered keyboards.
-        </p>
-        <p class="if-forties">
-            This is a collection of little keyboards!
-        </p>
-        <p>
-            There are some lists of keyboards now:
-        </p><ul><li>
-            <a href="?">Column-staggered and non-standard-layout keyboards</a> <span class="if-colstag">(you're here)</span>
-        </li><li>
-            <a href="?row">Row-staggered and/or standard-layout keyboards</a> <span class="if-rowstag">(you're here)</span>
-        </li><!--<li>
-            <a href="?40s">40% keyboards</a> <span class="if-forties">(you're here)</span>
-        </li>--></ul>
-        <details>
-            <summary>"The rules"</summary>
-            <ul>
-                <li class="if-colstag">
-                    Ortholinear monoblock keyboards aren't explicitly ergonomic, but are included
-                    here for novelty and a situational opportunity to turn them into split unibody keyboards
-                    by covering the middle two columns.
-                </li><li class="if-rowstag">
-                    Keyboards need to have some ergonomic quality to them - typically
-                    a split, tented middle, or keys being arranged in some kind of a wave/fan.<br/>
-                    Keyboards that are only ergonomic by extent of being compact are best left for other lists.
-                </li><li>
-                    Keyboards have to be buildable or immediately obtainable in some way -
-                    no teasers / pre-orders / group buys.
-                </li>
-            </ul>
-        </details>
-        <details>
-            <summary>Where else to look for keyboards</summary>
-            <ul>
-                <li><a href="https://golem.hu/board/">golem.hu</a></li>
-                <li><a href="https://kbd.news/column/project/">kbd.news</a></li>
-                <li><a href="https://mechdb.net/keyboards/">MechDB</a></li>
-                <li><a href="https://keebfolio.netlify.app/en/split/">Keebfolio</a></li>
-                <!--
-                    https://aposymbiont.github.io/split-keyboards/
-                    https://github.com/topics/ergonomic-keyboard
-                -->
-            </ul>
-        </details>
-        <details>
-            <summary>A note on vendors</summary>
-            <p>
-                The landscape is ever-changing and it is hard to impossible to keep tabs on
-                what's going on with every vendor.
-            </p><p>
-                Please research vendor reputation and status
-                (read: whether they're currently shipping orders)
-                before spending money on the internet.
-            </p>
-        </details>
-        <p>
-            List last updated at <span id="version" title="ISO YYYY-MM-DD">?</span>.
-        </p>
-        <h2>What to show and what to filter</h2>
-        <details>
-            <summary>Filter legend</summary>
-            <p>Each column has two controls:</p>
-            <div class="filter-legend">
-                <div class="filter-legend__item">
-                    <label class="visibility-toggle">
-                        <input type="checkbox" checked disabled/>
-                        <span class="material-icons"></span>
-                    </label>
-                    <span class="filter-legend__text">Show/hide column</span>
-                </div>
-                <div class="filter-legend__item">
-                    <label class="filter-toggle">
-                        <input type="checkbox" checked disabled/>
-                        <span class="material-icons"></span>
-                    </label>
-                    <span class="filter-legend__text">Filter column</span>
-                </div>
-            </div>
-            <p>
-                If something is <span class="has-notes">underlined</span>, you can click/tap it to read notes.
-            </p>
-        </details>
-        <div class="filters-toolbar" style="margin-top: 0.25em; margin-bottom: 0.75em; display: flex">
-            <input type="button" id="clear-filters" value="Clear filters" />
-            <input type="button" id="copy-share-url" value="Share filters" style="margin-left: 0.3em" />
-            <label><input type="checkbox" id="auto-update-url" checked/>
-                Auto-update page address
-            </label>
-            <input type="text" id="share-field" />
-        </div>
-        <div id="filter"></div>
-        <div class="table-counter">
-            <span class="table-counter__text">
-                Showing <span id="count">0</span> keyboard(s)
-            </span>
-            <input type="button" value="Shuffle" id="shuffle"/>
-            <input type="button" value="Copy table" id="copy-md" style="display:none" />
-            Display mode:
-            <select id="display-mode">
-                <option value="0">Table</option>
-                <option value="1">Table with images</option>
-                <option value="2">Compact</option>
-                <option value="3">Gallery</option>
-            </select>
-            <a href="#after-table">Scroll to bottom</a>
-        </div>
-        <div id="gallery-note" style="display: none;">
-            <b>Note:</b> click on an item to expand it
-        </div>
-        <div id="table-wrap"><table id="data">
-            
-        </table></div>
-        <div id="after-table">
-            <a href="#filter">Scroll to top</a>
-        </div>
-        <details id="gens-outer" style="margin-top: 0.5em">
-            <summary>Haven't found the keyboard of your dreams?</summary>
-            There are some tools to help you with designing a custom keyboard:
-            <ol id="gens"><li>
-                <a href="https://github.com/ergogen/ergogen">Ergogen</a><br>
-                Takes configurations and generates PCB files for KiCad. You have to do routes yourself, but still it's help.
-            </li><li>
-                <a href="https://github.com/klavgen/klavgen">Klavgen</a><br>
-                Takes configurations and generates STL files for flat hand-wired keyboards.
-            </li><li>
-                <a href="https://github.com/adereth/dactyl-keyboard">Dactyl</a><br>
-                Parametrized keywell keyboard. Generates new SCAD files for hand-wiring.
-            </li><li>
-                <a href="https://github.com/abstracthat/dactyl-manuform">Dactyl Manuform</a><br>
-                Also a Dactyl, but with a different thumb cluster.
-            </li><li>
-                <a href="https://ryanis.cool/dactyl/">Dactyl generator</a><br>
-                A visual generator for hand-wired Dactyl-style keyboards.
-            </li><li>
-                <a href="https://ryanis.cool/cosmos/">Cosmos generator</a><br>
-                A visual generator for all sorts of keywell keyboards.
-            </li></ol>
-            <!--
-            https://github.com/pashutk/ergopad
-            -->
-            And non-tools:<ol><li>
-                <a href="https://www.velocifiretech.com/products/dumang-dk6-ergo-v2">Dumang Dk6</a><br>
-                You can move keys around on the magnetic base of this keyboard!<br>
-                <strong>Note:</strong> requires custom driver/software that only works on Windows
-            </li></ol>
-        </details>
-        <details id="todo-outer" style="margin-top: 0.5em">
-            <summary>Unsorted keyboards</summary>
-            Feel free to fill out and submit these if you have a moment.
-            <ol id="todo"><li>
-                Nothing here at the moment!
-            </li></ol>
-        </details>
-        <details id="editor-outer">
-            <summary>Submit a keyboard?</summary>
-            <input type="button" id="editor-reset" value="Reset form"/>
-            <select id="editor-load" open>
-                <option selected value="">Load an existing keyboard?</option>
-            </select>
-            <details>
-                <summary>Notes</summary>
-                <ul><li>
-                    The only obligatory fields are Name and Image URL(s).<br>
-                    Anything that is not filled out will default to 0 (for numbers)
-                    or the first option (for checkboxes)<br>
-                    So, for example, if a keyboard doesn't have any pointing devices,
-                    you don't have to fill out a bunch of 0s.
-                </li><li>
-                    "Right-side columns" is auto-filled to "Columns" if not set.
-                </li><li>
-                    If a keyboard supports <em>either</em> trackballs or touchpads
-                    (as seen on Ximi), you'll need to fill out the "pointing devices"
-                    field (or the numbers will be added up).
-                </li><li>
-                    The editor supports a few keyboard shortcuts!
-                    <ul><li>
-                        Page Up, Ctrl+Up: Previous section
-                    </li><li>
-                        Page Down, Ctrl+Down: Next section
-                    </li><li>
-                        Arrow keys: Switch between checkboxes in the group
-                    </li></ul>
-                </li></ul>
-            </details>
-            <form id="editor"></form>
-            <input type="button" id="editor-test" value="Test"/>
-            <input type="button" id="editor-build" value="Generate JSON"/>
-            (that you'll need to submit via
-            <a href="https://github.com/YAL-Tools/ergo-keyboards/issues" target="_blank">GitHub</a>
-            or <a href="https://yal.cc/about/" target="_blank">otherwise</a>)<br>
-            <textarea id="editor-output" rows="10"></textarea>
-        </details>
-        <h2>Frequently asked questions</h2>
-        <details>
-            <summary>A keyboard is missing!</summary>
-            <p>
-                Please fill out and submit keyboards using the above editor -
-                I try to add interesting keyboards when I encounter them,
-                but there are hundreds of open-source keyboards alone so help is always welcome.
-            </p><p>
-                Generally it takes a few minutes (or even less if you made the thing and know the specifics) to fill out the metadata for a keyboard.
-            </p>
-        </details>
-        <details>
-            <summary>Something's wrong / amiss about a keyboard</summary>
-            <p>
-                You can submit corrections as simple notes
-                or by loading an existing keyboard in the above editor, making edits, and submitting the updated JSON.
-            </p><p>
-                Personally I tend to go over 5-10 keyboards at a time based on readily available information,
-                so if something cannot be derived from the description, photos, or part list, I won't be filling that out.
-            </p><p>
-                And if you make open-source hardware and are reading this,
-                if you do not have a part list/feature list in your repo,
-                please at least mention whether the keyboard is made for hotswap sockets or not,
-                and the switch type(s) if it's not just MX.
-                The reader shouldn't have to look at the KiCAD files.
-            </p>
-        </details>
-        <details>
-            <summary>Can you add a column?</summary>
-            <p>
-                I can generally add additional columns to the table so long as it's something that:
-            </p><ul><li>
-                Can be easily derived
-            </li><li>
-                Is of value to the average reader
-            </li><li>
-                Appears on more than just a couple keyboards
-            </li></ul><p>
-                Bonus points if you're willing to go over the existing keyboards
-                and add a new bit of metadata to them yourself.
-            </p></ul>
-        </details>
-        <h2>Credits</h2>
-        <p>
-            A tool by <a href="https://yal.cc">YellowAfterlife</a>.<br/>
-            Open-source! (<a href="https://github.com/YAL-Tools/ergo-keyboards">GitHub</a>)<br/>
-            With some CSS help from <a href="https://www.reddit.com/user/Kyek">u/Kyek</a>.<br/>
-            Written in <a href="https://haxe.org">Haxe</a>.<br/>
-            Uses flag icons by famfamfam.</br>
-            Uses <a href="https://atomiks.github.io/tippyjs/">Tippy</a>
-            &amp; <a href="https://popper.js.org/">Popper</a> for "tooltips".</br>
-            Special thanks to people on the <a href="https://discord.gg/69UM9sQF8q">low-profile keyboard Discord server</a>
-            for answering my questions about classifying keyboards.
-        </p>
-        
-        <script src="lib/popper.min.js"></script>
-        <script src="lib/tippy-bundle.umd.js"></script>
-        
-        <script src="keyboards.js?v=2025-01-14"></script>
-        <script src="rowstag.js?v=2025-01-14"></script>
-        <script src="forties.js?v=2024-10-18"></script>
-        <script src="mcus.csv.js?v=2024-05-20"></script>
-        <script src="origins.js?v=2024-10-18"></script>
-        <script src="script.js?v=2025-01-14"></script>
-        
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4R5QPPHC8M"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+	<div class="container">
+		<header class="header">
+			<div class="header__content">
+				<div class="toggles">
+					<label class="mode-toggle dark-toggle">
+						<input type="checkbox" id="cb-night"/>
+						<span class="material-icons"></span>
+						<span class="mode-toggle__text" data-text-off="Light mode" data-text-on="Dark mode">Light mode</span>
+					</label>
+					<label class="mode-toggle touch-toggle">
+						<input type="checkbox" id="cb-touch"/>
+						<span class="material-icons"></span>
+						<span class="mode-toggle__text" data-text-off="Mouse mode" data-text-on="Touch mode">Mouse mode</span>
+					</label>
+				</div>
+				<h1 class="header__title">YellowAfterlife's ergonomic keyboard list</h1>
+			</div>
+		</header>
+		<script>
+			(function() {
+				function addClassCheckbox(name, getDefValue) {
+					var cb = document.querySelector("#cb-" + name);
+					var textEl = cb.parentElement.querySelector('.mode-toggle__text');
+					
+					function sync(val) {
+						if (val) document.body.classList.add(name);
+						else document.body.classList.remove(name);
+						
+						if (textEl) {
+							textEl.textContent = val ? textEl.dataset.textOn : textEl.dataset.textOff;
+						}
+					}
+					
+					cb.onchange = function() {
+						var val = cb.checked;
+						sync(val);
+						try {
+							localStorage.setItem("yal-ergo-" + name, val ? "1" : "0");
+						} catch (_) {}
+					}
+					
+					try {
+						var val = localStorage.getItem("yal-ergo-" + name);
+						if (val == null) {
+							val = getDefValue();
+						} else {
+							val = val == "1";
+						}
+						if (val) {
+							cb.checked = val;
+							sync(val);
+						}
+					} catch (e) {
+						console.error("Load error for " + name, e);
+					}
+				}
+				addClassCheckbox("night", function() {
+					return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+				});
+				addClassCheckbox("touch", function() {
+					return window.ontouchstart !== undefined;
+				});
+				
+				//
+				try {
+					var search = document.location.search;
+					if (/[?&]40s\b/.test(search)) {
+						document.body.classList.add("forties");
+					} else if (/[?&]row\b/.test(search)) {
+						document.body.classList.add("rowstag");
+					} else {
+						document.body.classList.add("colstag");
+					}
+				} catch (_) {}
+			})();
+		</script>
+		<p class="if-colstag">
+			This is a collection of column-staggered and ortholinear ergonomic keyboards!
+		</p><p class="if-colstag">
+			It does not contain <i>every single keyboard</i>,
+			but it's a pretty big sample - especially as far medium/big/interesting keyboards go.
+		</p>
+		<p class="if-rowstag">
+			This is a collection of row-staggered ergonomic keyboards!<br>
+			... and also other keyboards that are shaped liked row-staggered ones.
+		</p><p class="if-rowstag">
+			This one's a mostly-random sample of keyboards - there's not exactly a shortage of places
+			to look for row-staggered keyboards.
+		</p>
+		<p class="if-forties">
+			This is a collection of little keyboards!
+		</p>
+		<p>
+			There are some lists of keyboards now:
+		</p><ul><li>
+			<a href="?">Column-staggered and non-standard-layout keyboards</a> <span class="if-colstag">(you're here)</span>
+		</li><li>
+			<a href="?row">Row-staggered and/or standard-layout keyboards</a> <span class="if-rowstag">(you're here)</span>
+		</li><!--<li>
+			<a href="?40s">40% keyboards</a> <span class="if-forties">(you're here)</span>
+		</li>--></ul>
+		<details>
+			<summary>"The rules"</summary>
+			<ul>
+				<li class="if-colstag">
+					Ortholinear monoblock keyboards aren't explicitly ergonomic, but are included
+					here for novelty and a situational opportunity to turn them into split unibody keyboards
+					by covering the middle two columns.
+				</li><li class="if-rowstag">
+					Keyboards need to have some ergonomic quality to them - typically
+					a split, tented middle, or keys being arranged in some kind of a wave/fan.<br/>
+					Keyboards that are only ergonomic by extent of being compact are best left for other lists.
+				</li><li>
+					Keyboards have to be buildable or immediately obtainable in some way -
+					no teasers / pre-orders / group buys.
+				</li>
+			</ul>
+		</details>
+		<details>
+			<summary>Where else to look for keyboards</summary>
+			<ul>
+				<li><a href="https://golem.hu/board/">golem.hu</a></li>
+				<li><a href="https://kbd.news/column/project/">kbd.news</a></li>
+				<li><a href="https://mechdb.net/keyboards/">MechDB</a></li>
+				<li><a href="https://keebfolio.netlify.app/en/split/">Keebfolio</a></li>
+				<!--
+					https://aposymbiont.github.io/split-keyboards/
+					https://github.com/topics/ergonomic-keyboard
+				-->
+			</ul>
+		</details>
+		<details>
+			<summary>A note on vendors</summary>
+			<p>
+				The landscape is ever-changing and it is hard to impossible to keep tabs on
+				what's going on with every vendor.
+			</p><p>
+				Please research vendor reputation and status
+				(read: whether they're currently shipping orders)
+				before spending money on the internet.
+			</p>
+		</details>
+		<p>
+			List last updated at <span id="version" title="ISO YYYY-MM-DD">?</span>.
+		</p>
+		<h2>What to show and what to filter</h2>
+		<details>
+			<summary>Filter legend</summary>
+			<p>Each column has two controls:</p>
+			<div class="filter-legend">
+				<div class="filter-legend__item">
+					<label class="visibility-toggle">
+						<input type="checkbox" checked disabled/>
+						<span class="material-icons"></span>
+					</label>
+					<span class="filter-legend__text">Show/hide column</span>
+				</div>
+				<div class="filter-legend__item">
+					<label class="filter-toggle">
+						<input type="checkbox" checked disabled/>
+						<span class="material-icons"></span>
+					</label>
+					<span class="filter-legend__text">Filter column</span>
+				</div>
+			</div>
+			<p>
+				If something is <span class="has-notes">underlined</span>, you can click/tap it to read notes.
+			</p>
+		</details>
+		<div class="filters-toolbar" style="margin-top: 0.25em; margin-bottom: 0.75em; display: flex">
+			<input type="button" id="clear-filters" value="Clear filters" />
+			<input type="button" id="copy-share-url" value="Share filters" style="margin-left: 0.3em" />
+			<label><input type="checkbox" id="auto-update-url" checked/>
+				Auto-update page address
+			</label>
+			<input type="text" id="share-field" />
+		</div>
+		<div id="filter"></div>
+		<div class="table-counter">
+			<span class="table-counter__text">
+				Showing <span id="count">0</span> keyboard(s)
+			</span>
+			<input type="button" value="Shuffle" id="shuffle"/>
+			<input type="button" value="Copy table" id="copy-md" style="display:none" />
+			Display mode:
+			<select id="display-mode">
+				<option value="0">Table</option>
+				<option value="1">Table with images</option>
+				<option value="2">Compact</option>
+				<option value="3">Gallery</option>
+			</select>
+			<a href="#after-table">Scroll to bottom</a>
+		</div>
+		<div id="gallery-note" style="display: none;">
+			<b>Note:</b> click on an item to expand it
+		</div>
+		<div id="table-wrap"><table id="data">
+			
+		</table></div>
+		<div id="after-table">
+			<a href="#filter">Scroll to top</a>
+		</div>
+		<details id="gens-outer" style="margin-top: 0.5em">
+			<summary>Haven't found the keyboard of your dreams?</summary>
+			There are some tools to help you with designing a custom keyboard:
+			<ol id="gens"><li>
+				<a href="https://github.com/ergogen/ergogen">Ergogen</a><br>
+				Takes configurations and generates PCB files for KiCad. You have to do routes yourself, but still it's help.
+			</li><li>
+				<a href="https://github.com/klavgen/klavgen">Klavgen</a><br>
+				Takes configurations and generates STL files for flat hand-wired keyboards.
+			</li><li>
+				<a href="https://github.com/adereth/dactyl-keyboard">Dactyl</a><br>
+				Parametrized keywell keyboard. Generates new SCAD files for hand-wiring.
+			</li><li>
+				<a href="https://github.com/abstracthat/dactyl-manuform">Dactyl Manuform</a><br>
+				Also a Dactyl, but with a different thumb cluster.
+			</li><li>
+				<a href="https://ryanis.cool/dactyl/">Dactyl generator</a><br>
+				A visual generator for hand-wired Dactyl-style keyboards.
+			</li><li>
+				<a href="https://ryanis.cool/cosmos/">Cosmos generator</a><br>
+				A visual generator for all sorts of keywell keyboards.
+			</li></ol>
+			<!--
+			https://github.com/pashutk/ergopad
+			-->
+			And non-tools:<ol><li>
+				<a href="https://www.velocifiretech.com/products/dumang-dk6-ergo-v2">Dumang Dk6</a><br>
+				You can move keys around on the magnetic base of this keyboard!<br>
+				<strong>Note:</strong> requires custom driver/software that only works on Windows
+			</li></ol>
+		</details>
+		<details id="todo-outer" style="margin-top: 0.5em">
+			<summary>Unsorted keyboards</summary>
+			The following have 50 keys or more:
+			<ol id="todo-bigger"><li>
+				Nothing here at the moment!
+			</li></ol>
+			The following are on the smaller side:
+			<ol id="todo-smaller"><li>
+				Nothing here at the moment!
+			</li></ol>
+			The following have no key count specified (e.g. multiple sizes or stranger keyboards):
+			<ol id="todo"><li>
+				Nothing here at the moment!
+			</li></ol>
+			If you have a moment, feel free to submit keyboard(s) using the editor below - this helps a lot.
+		</details>
+		<details id="editor-outer">
+			<summary>Submit a keyboard?</summary>
+			<input type="button" id="editor-reset" value="Reset form"/>
+			<select id="editor-load" open>
+				<option selected value="">Load an existing keyboard?</option>
+			</select>
+			<details>
+				<summary>Notes</summary>
+				<ul><li>
+					The only obligatory fields are Name and Image URL(s).<br>
+					Anything that is not filled out will default to 0 (for numbers)
+					or the first option (for checkboxes)<br>
+					So, for example, if a keyboard doesn't have any pointing devices,
+					you don't have to fill out a bunch of 0s.
+				</li><li>
+					"Right-side columns" is auto-filled to "Columns" if not set.
+				</li><li>
+					If a keyboard supports <em>either</em> trackballs or touchpads
+					(as seen on Ximi), you'll need to fill out the "pointing devices"
+					field (or the numbers will be added up).
+				</li><li>
+					The editor supports a few keyboard shortcuts!
+					<ul><li>
+						Page Up, Ctrl+Up: Previous section
+					</li><li>
+						Page Down, Ctrl+Down: Next section
+					</li><li>
+						Arrow keys: Switch between checkboxes in the group
+					</li></ul>
+				</li></ul>
+			</details>
+			<form id="editor"></form>
+			<input type="button" id="editor-test" value="Test"/>
+			<input type="button" id="editor-build" value="Generate JSON"/>
+			(that you'll need to submit via
+			<a href="https://github.com/YAL-Tools/ergo-keyboards/issues" target="_blank">GitHub</a>
+			or <a href="https://yal.cc/about/" target="_blank">otherwise</a>)<br>
+			<textarea id="editor-output" rows="10"></textarea>
+		</details>
+		<h2>Frequently asked questions</h2>
+		<details>
+			<summary>A keyboard is missing!</summary>
+			<p>
+				Please fill out and submit keyboards using the above editor -
+				I try to add interesting keyboards when I encounter them,
+				but there are hundreds of open-source keyboards alone so help is always welcome.
+			</p><p>
+				Generally it takes a few minutes (or even less if you made the thing and know the specifics) to fill out the metadata for a keyboard.
+			</p>
+		</details>
+		<details>
+			<summary>Something's wrong / amiss about a keyboard</summary>
+			<p>
+				You can submit corrections as simple notes
+				or by loading an existing keyboard in the above editor, making edits, and submitting the updated JSON.
+			</p><p>
+				Personally I tend to go over 5-10 keyboards at a time based on readily available information,
+				so if something cannot be derived from the description, photos, or part list, I won't be filling that out.
+			</p><p>
+				And if you make open-source hardware and are reading this,
+				if you do not have a part list/feature list in your repo,
+				please at least mention whether the keyboard is made for hotswap sockets or not,
+				and the switch type(s) if it's not just MX.
+				The reader shouldn't have to look at the KiCAD files.
+			</p>
+		</details>
+		<details>
+			<summary>Can you add a column?</summary>
+			<p>
+				I can generally add additional columns to the table so long as it's something that:
+			</p><ul><li>
+				Can be easily derived
+			</li><li>
+				Is of value to the average reader
+			</li><li>
+				Appears on more than just a couple keyboards
+			</li></ul><p>
+				Bonus points if you're willing to go over the existing keyboards
+				and add a new bit of metadata to them yourself.
+			</p></ul>
+		</details>
+		<h2>Credits</h2>
+		<p>
+			A tool by <a href="https://yal.cc">YellowAfterlife</a>.<br/>
+			Open-source! (<a href="https://github.com/YAL-Tools/ergo-keyboards">GitHub</a>)<br/>
+			With some CSS help from <a href="https://www.reddit.com/user/Kyek">u/Kyek</a>.<br/>
+			Written in <a href="https://haxe.org">Haxe</a>.<br/>
+			Uses flag icons by famfamfam.</br>
+			Uses <a href="https://atomiks.github.io/tippyjs/">Tippy</a>
+			&amp; <a href="https://popper.js.org/">Popper</a> for "tooltips".</br>
+			Special thanks to people on the <a href="https://discord.gg/69UM9sQF8q">low-profile keyboard Discord server</a>
+			for answering my questions about classifying keyboards.
+		</p>
+		
+		<script src="lib/popper.min.js"></script>
+		<script src="lib/tippy-bundle.umd.js"></script>
+		
+		<script src="keyboards.js?v=2025-01-14"></script>
+		<script src="rowstag.js?v=2025-01-14"></script>
+		<script src="forties.js?v=2024-10-18"></script>
+		<script src="mcus.csv.js?v=2024-05-20"></script>
+		<script src="origins.js?v=2024-10-18"></script>
+		<script src="script.js?v=2025-01-14"></script>
+		
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4R5QPPHC8M"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
 
-          gtag('config', 'G-4R5QPPHC8M');
-        </script>
-    </div>
+		  gtag('config', 'G-4R5QPPHC8M');
+		</script>
+	</div>
 </body>
 </html>
