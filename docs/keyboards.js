@@ -7881,6 +7881,35 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/nmunnich/apiaster"
 },
+{
+	"name": "lapka",
+	"img": "lapka.jpg",
+	"notes": "Wireless ergonomic split keyboard for those who have paws (:",
+	"shape": "Split",
+	"connection": "Bluetooth",
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"numpad": "None",
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": ["Choc", "ChocV2"],
+	"encoders": 0,
+	"displays": 0,
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Diodeless"],
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"ctlName": "nRF52840",
+	"caseType": "Included",
+	"web": "https://github.com/braindefender/lapka",
+	"source": "https://github.com/braindefender/lapka",
+	"buildGuide": [
+		"https://github.com/braindefender/lapka/blob/master/Guide/build-guide-en.md",
+		"https://github.com/braindefender/lapka/blob/master/Guide/build-guide-ru.md"
+	]
+},
 "2025-05-06"
 ];
 window.keyboardTODOs = `
@@ -8011,7 +8040,6 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 56s https://github.com/Squalius-cephalus/muikku_keyboards
 62u https://github.com/tahnok/harkonnen
 40u https://github.com/ChrisChrisLoLo/keezyboost40
-36s https://github.com/braindefender/lapka
 68s nomad v2 https://www.reddit.com/r/ErgoMechKeyboards/comments/1k25sv0/nomad_opensource_diy_lowprofile_split_ergo/
 36u https://github.com/unspecworks/gamma-omega
 48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
