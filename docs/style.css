@@ -42,6 +42,12 @@ body .has-notes {
   display: flex;
   gap: 16px;
 }
+.header .toggles {
+  order: 2;
+}
+.header__title {
+  transform: skewX(-5deg);
+}
 .mode-toggle {
   display: inline-flex;
   align-items: center;
