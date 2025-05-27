@@ -12,8 +12,6 @@ div:has(> #clear-filters) {
 // Styles for the single filter atom
 div#filter {
   .item {
-    display: flex;
-    align-items: flex-start;
     width: 100%;
     padding: @space * 0.25;
     position: relative; // For absolute positioning of filters
@@ -29,6 +27,7 @@ div#filter {
     // Icon toggles container
     .toggles {
       display: flex;
+      float: right;
       gap: @space * 0.5;
       position: sticky;
       top: 0;
@@ -49,8 +48,8 @@ div#filter {
 
   // Filter content
   .filters:not(:empty) {
+    clear: both;
     margin: @space * 0.5 0;
-    margin-left: @space * 4; // Align with the label
     padding: @space;
     background: @color-foreground-day-2;
     border-radius: @border-radius;

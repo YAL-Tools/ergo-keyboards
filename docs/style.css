@@ -41,13 +41,6 @@ body .has-notes {
 .toggles {
   display: flex;
   gap: 16px;
-  order: 2;
-}
-@media (max-width: 800px) {
-  .toggles {
-    order: 0;
-    width: 100%;
-  }
 }
 .mode-toggle {
   display: inline-flex;
@@ -433,8 +426,6 @@ div:has(> #clear-filters) {
   gap: 4px;
 }
 div#filter .item {
-  display: flex;
-  align-items: flex-start;
   width: 100%;
   padding: 2px;
   position: relative;
@@ -447,6 +438,7 @@ div#filter .item:hover {
 }
 div#filter .item .toggles {
   display: flex;
+  float: right;
   gap: 4px;
   position: sticky;
   top: 0;
@@ -463,8 +455,8 @@ div#filter .item > div.name {
   padding: 2px 0;
 }
 div#filter .filters:not(:empty) {
+  clear: both;
   margin: 4px 0;
-  margin-left: 32px;
   padding: 8px;
   background: #f9fafb;
   border-radius: 4px;
