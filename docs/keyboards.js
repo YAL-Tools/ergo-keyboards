@@ -7159,7 +7159,7 @@ window.keyboardData = [
 	"name": "FelixKeeb",
 	"img": "felixkeeb.webp",
 	"shape": "Split",
-	"stagger": "Column",
+	"stagger": "Ortho",
 	"connection": ["Wired", "Bluetooth"],
 	"keys": [[50], [64]],
 	"rows": {"min": 3, "max": 4},
@@ -8019,6 +8019,10 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 58s https://clicketysplit.ca/pages/leeloo
 34u https://github.com/kilipan/lobotomy
 58s https://github.com/kissetfall/Lily58-Pro-RE
+34s https://www.jogmekeebs.com/?product=yetis-keyboard
+70% http://www.hck.sk/k80cs/
+60% https://github.com/LSChyi/ex-dactyl-keyboard
+40% https://www.thingiverse.com/thing:4828205
 `;
 
 /* Other TODOs
@@ -8029,8 +8033,8 @@ https://mechkey.org/ergonomics-keyboards
 https://github.com/Cipulot
 
 aliexpress
-Sofle with inner keys
-https://www.aliexpress.us/item/3256808570920954.html
+Sofle with inner keys https://www.aliexpress.us/item/3256808570920954.html
+Kpax Mote V3
 
 Vendors:
 https://keyboard-hoarders.com/products/sofle-choc-wireless-split-mechanical-keyboard-shadowseries?variant=42590143086680
@@ -8099,6 +8103,7 @@ Azeron Cyborg
 https://haute42.com/haute-board-mini/
 keeb supply stress
 ZUOYA HE30
+Delux T9, T11
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/
@@ -8114,6 +8119,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1idaqxf/meet_merlin_v1/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1j3985i/bayleaf_a_wireless_split_keyboard/ https://www.graz.io/articles/bayleaf-wireless-keyboard
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hd48z5/pg1316s_prototype/
 https://humancomputing.io/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1kqvws7/serenity/
 
 WIP:
 https://github.com/peej/bicycle-keyboard

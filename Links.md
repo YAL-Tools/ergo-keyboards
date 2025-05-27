@@ -17,7 +17,8 @@ but maybe you'd like these too
 
 - [Peacock](https://github.com/george-norton/peacock)
 - [Ergonomic Touchpad](https://ergonomictouchpad.com/ergonomic_touchpad.php)\
-	Slightly pricy, pre-built, various sizes
+	Slightly pricy, pre-built, various sizes\
+	([example use](https://www.reddit.com/r/ErgoMechKeyboards/comments/1faspa7/ifkb_sofle/))
 
 ### Other stuff
 

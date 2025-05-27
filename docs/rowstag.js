@@ -1188,7 +1188,7 @@ window.rowStagData = [
 	"leftMods": 3,
 	"rightMods": 2,
 	"navCluster": "None",
-	"hotswap": "Yes",
+	"hotswap": "No",
 	"switchProfile": "MX",
 	"lighting": ["None", "RGB"],
 	"firmware": "Custom",
@@ -1447,6 +1447,7 @@ window.rowStagData = [
 	"name": "GMK70",
 	"img": "gmk70.webp",
 	"shape": "Split",
+	"connection": ["Wired", "Bluetooth", "Wireless"],
 	"stagger": "Row",
 	"keys": 70,
 	"rows": 4,
@@ -1637,7 +1638,7 @@ window.rowStagData = [
 	"leftMods": {"min": 4, "max": 5},
 	"rightMods": {"min": 2, "max": 3},
 	"navCluster": "Inline",
-	"hotswap": "Special",
+	"hotswap": "Yes",
 	"switchProfile": "MX",
 	"encoders": {"min": 0, "max": 2},
 	"encoderType": "Knob",
@@ -1884,6 +1885,9 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 75% FEKER Alice75
 100%u https://github.com/dcpedit/adelheid-xt
 65% https://shop.yushakobo.jp/products/9455
+100%u https://nopunin10did.com/jabberwocky/
+65%s https://www.qwertykeys.com/products/qk-alice-duo
+65%s Zornher ST68
 `
 /* TODO
 ali keyboards
@@ -1893,6 +1897,7 @@ sculpt-ish https://www.alibaba.com/product-detail/Hot-Sale-Ergonomic-Split-Wired
 big ortho https://vi.aliexpress.com/item/1005008051327383.html
 65% alice https://www.alibaba.com/product-detail/Wireless-Split-68-Keys-Multi-Media_1600937544476.html
 x-bows..? https://www.alibaba.com/product-detail/Mechanical-Ergonomic-Keyboard-Butterfly-Layout-Mech_1601193273269.html?
+Scorpio 68 keys https://www.aliexpress.com/item/1005007988524328.html
 
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9b5ul/can_anyone_recommend_me_a_good_alice_layout/
 
