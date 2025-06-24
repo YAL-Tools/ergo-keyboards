@@ -16,6 +16,7 @@ but maybe you'd like these too
 ### Touchpads/trackpads
 
 - [Peacock](https://github.com/george-norton/peacock)
+- Cirque
 - [Ergonomic Touchpad](https://ergonomictouchpad.com/ergonomic_touchpad.php)\
 	Slightly pricy, pre-built, various sizes\
 	([example use](https://www.reddit.com/r/ErgoMechKeyboards/comments/1faspa7/ifkb_sofle/))
@@ -87,3 +88,5 @@ EC12:
 - [Knurled](https://www.printables.com/model/547440-ec12-knurled-encoder-knob/files)
 - [Low-profile](https://www.printables.com/model/297363-ec12-low-profile-encoder-knobs)\
 	(todo: theres [an even lower-profile edit](https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731) on [Low Profile Keyboards discord](https://discord.gg/69UM9sQF8q))
+
+[Roller encoder](https://github.com/kumamuk-git/CKW12)

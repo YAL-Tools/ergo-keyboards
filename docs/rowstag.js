@@ -1888,6 +1888,8 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 100%u https://nopunin10did.com/jabberwocky/
 65%s https://www.qwertykeys.com/products/qk-alice-duo
 65%s Zornher ST68
+65%u topre alice..? https://www.amazon.com/SZRKBD%E3%85%A4-Ergonomic-Capacitive-Keyboard-Programmable/dp/B0DFV9M5X7?th=1
+75%s https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/
 `
 /* TODO
 ali keyboards
@@ -1912,7 +1914,7 @@ Uhk 80
 https://get.autokeybo.com
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9e0j3/blasphemy/
 Adesso Easytouch 1500
-Ragnok RK104 / SANWA Mechanical keyboard
+Ragnok RK104 / SANWA Mechanical keyboard / https://deltonstudio.com/products/delton-kb450-bluetooth-mechanical-keyboard
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111

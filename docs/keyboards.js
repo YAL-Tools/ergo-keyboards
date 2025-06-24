@@ -4450,6 +4450,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.8,
 	"hotswap": "No",
 	"switchProfile": "MX",
+	"displays": { "min": 0, "max": 2 },
 	"lighting": [
 		"None",
 		"RGB"
@@ -7910,6 +7911,44 @@ window.keyboardData = [
 		"https://github.com/braindefender/lapka/blob/master/Guide/build-guide-ru.md"
 	]
 },
+{
+	"name": "Charlieflex",
+	"img": "Charlieflex.webp",
+	"notes": "Choc unibody splayed ergo keyboard with 30-32 keys and an encoder using a xiao",
+	"shape": "Unibody",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": [[30], [31], [32]],
+	"rows": 3,
+	"cols": 5,
+	"rcols": 5,
+	"thumbKeys": {"min": 1, "max": 2},
+	"innerKeys": 2,
+	"outerKeys": 0,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.75,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": ["Choc", "ChocV2"],
+	"keySpacing": "MX",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": "PCB",
+	"ctlCount": 1,
+	"ctlFootprint": "XIAO",
+	"ctlPinCount": 10,
+	"ctlName": ["RP2040", "nRF52840"],
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "Included",
+	"source": "https://github.com/ctranstrum/chuck",
+	"buildGuide": "https://github.com/ctranstrum/chuck/blob/main/BUILD.md",
+	"layoutRef": "https://github.com/ctranstrum/chuck/raw/main/images/chuck.png"
+},
 "2025-05-06"
 ];
 window.keyboardTODOs = `
@@ -8005,6 +8044,7 @@ that's a lot of keyboards https://oshwhub.com/joba/works
 42s jarne https://lim.au/#/hardware https://shop.chenonetta.com/product/jarne-the-ultimate-keyboard/
 36s https://github.com/penk/EDC36
 36s Crosses https://gggw-keebs.com/products/crosses-modular-custom-keyboard-kit
+54s Crosses https://ergokeyboards.com/products/crosses-modular-keyboard?variant=50272542228762
 36s https://github.com/DuBento/puffer https://www.reddit.com/r/ErgoMechKeyboards/comments/1htjdbi/puffer/
 36u glitter36 https://shop.yushakobo.jp/products/10301
 36s https://github.com/rmuraglia/menura-kb
@@ -8051,9 +8091,23 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 70% http://www.hck.sk/k80cs/
 60% https://github.com/LSChyi/ex-dactyl-keyboard
 40% https://www.thingiverse.com/thing:4828205
+40u crowkb_wing https://github.com/c-botz/crowkb
+34s rkbrd https://github.com/prepor/rkbrd/tree/main/3
+54s bug54 https://github.com/ogruendel/bug54-zmk-config
+64s mtk64 https://mentako-ya.myshopify.com
+36s https://github.com/thrly/tempest
+34s zaphod (EC) https://gitlab.com/lpgalaxy/zaphod-ecbrox https://github.com/petejohanson/zaphod-ecbrox-zmk-module
+36s https://github.com/flhps/splaybreak-keyboard
+48s Cornix
+80s https://github.com/tstrube/SplittoDogu
+54s https://github.com/lordxax/sildactyl54
+36s https://github.com/fooker/mnhttn
+48s https://github.com/venc0r/mnhttn
 `;
 
 /* Other TODOs
+https://keyboardfinder.click
+
 choc-spaced lily58? https://keebd.com/products/lily58-choc-asembled-keyboard
 Note to self: add a separate "this keyboard is a mouse" tag
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dgxxf6/interesting_idea_maybe_what_if_the_keyboard_was/
@@ -8082,6 +8136,7 @@ https://www.reddit.com/r/olkb/comments/1iq4bly/kheops70_ortholinear_analog_he_ke
 https://vi.aliexpress.com/item/1005008051327383.html
 75m https://github.com/peej/orthgyle-keyboard
 40m https://github.com/victorlucachi/void40
+80% https://github.com/dcpedit/tklish
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main

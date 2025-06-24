@@ -379,7 +379,9 @@ class ColStagBoards {
 		kb.encoders = 2;
 		kb.pinkyStagger = 0.6;
 		kb.caseType = Included;
-		kb.source = "https://github.com/splitkb/kyria";
+		kb.displays = new IntRange(0, 2);
+		kb.lighting = [RGB, Underglow];
+		kb.extras = "https://github.com/splitkb/kyria";
 		kb.kit = "!https://splitkb.com/products/kyria-rev3-pcb-kit";
 		kb.img = "Kyria.jpg";
 		kb.addSKBC();

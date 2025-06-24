@@ -166,7 +166,9 @@ ColStagBoards.init = function(keyboards) {
 	kb.encoders = type_NumRange.fromValue(2);
 	kb.pinkyStagger = 0.6;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
-	kb.source = type_ValList.fromValue("https://github.com/splitkb/kyria");
+	kb.displays = { min : 0, max : 2};
+	kb.lighting = [type_Lighting.RGB,type_Lighting.Underglow];
+	kb.extras = type_ValList.fromValue("https://github.com/splitkb/kyria");
 	kb.kit = type_ValList.fromValue("!https://splitkb.com/products/kyria-rev3-pcb-kit");
 	kb.img = type_ValList.fromValue("Kyria.jpg");
 	ColStagKeyboard.addSKBC(kb);
