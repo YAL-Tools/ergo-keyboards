@@ -1890,6 +1890,7 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 65%s Zornher ST68
 65%u topre alice..? https://www.amazon.com/SZRKBD%E3%85%A4-Ergonomic-Capacitive-Keyboard-Programmable/dp/B0DFV9M5X7?th=1
 75%s https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/
+40% Maglit40
 `
 /* TODO
 ali keyboards
@@ -1926,5 +1927,6 @@ Cherry ULP https://www.corsair.com/de/en/p/keyboards/ch-913a01u-de/k100-air-wire
 https://fluxkeyboard.com/
 CLVX 1 Gesture Keyboard
 RollerMouse
+Leap Motion
 Every key is an ISO enter https://www.reddit.com/r/MechanicalKeyboards/comments/1d0f7k1/omegaiso_a_tkl_consisting_entirely_of_iso_enters/
 */

@@ -8103,6 +8103,12 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 54s https://github.com/lordxax/sildactyl54
 36s https://github.com/fooker/mnhttn
 48s https://github.com/venc0r/mnhttn
+54u https://github.com/swaziloo/cinque
+36u aronia https://www.reddit.com/r/ErgoMechKeyboards/comments/1loilwj/aronia_keyboard_ultracompact_36key_foldable/
+36u https://github.com/dohn-joh/heatwave
+36s https://github.com/Palpatineli/slimkeeb36
+44s https://github.com/thewickest/smash-b
+42s PartialGauss https://www.reddit.com/r/ErgoMechKeyboards/comments/1ls8iq4/partialgauss_designed_my_first_keyboard_a/
 `;
 
 /* Other TODOs
@@ -8187,6 +8193,7 @@ https://haute42.com/haute-board-mini/
 keeb supply stress
 ZUOYA HE30
 Delux T9, T11
+https://github.com/htx-studio/One-Handed-Keyboard
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/
@@ -8203,6 +8210,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1j3985i/bayleaf_a_wireless_s
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hd48z5/pg1316s_prototype/
 https://humancomputing.io/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1kqvws7/serenity/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1lp6bxr/kaizen_a_split_ergo_unibody/
 
 WIP:
 https://github.com/peej/bicycle-keyboard

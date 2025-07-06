@@ -82,7 +82,7 @@ Tricks:
 -	[Lever keycaps](https://github.com/dohn-joh/keycaps)\
 	You can press these sideways
 
-## Knobs
+## Knobs, encoders
 
 EC12:
 - [Knurled](https://www.printables.com/model/547440-ec12-knurled-encoder-knob/files)
@@ -90,3 +90,4 @@ EC12:
 	(todo: theres [an even lower-profile edit](https://discord.com/channels/669011382284451861/669011382859202576/1221267218021744731) on [Low Profile Keyboards discord](https://discord.gg/69UM9sQF8q))
 
 [Roller encoder](https://github.com/kumamuk-git/CKW12)
+[Another roller encoder](https://www.reddit.com/r/ErgoMechKeyboards/comments/1lk5dev/lets_build_yet_another_encoder/)
