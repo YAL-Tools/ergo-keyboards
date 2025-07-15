@@ -2432,7 +2432,7 @@ KeyboardPage.main = function(kbTable) {
 	var btShare = window.document.querySelector("#copy-share-url");
 	table_FancyTableControls.createShareButton(kbTable,btShare);
 	var shuffler = new table_FancyTableShuffler("");
-	if($global.location.hostname == "localhost") {
+	if($global.location.hostname == "localhost" || $global.location.protocol == "file:" && $global.location.href.indexOf("/ColStagDB/") >= 0) {
 		var editorDetails = window.document.querySelector("#editor-outer");
 		editorDetails.open = true;
 	} else {

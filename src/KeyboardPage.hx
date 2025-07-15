@@ -63,7 +63,9 @@ class KeyboardPage {
 		
 		//
 		var shuffler = new FancyTableShuffler<T>("");
-		if (location.hostname == "localhost") {
+		if (location.hostname == "localhost"
+		|| location.protocol == "file:" && location.href.indexOf("/ColStagDB/") >= 0
+		) {
 			var editorDetails:DetailsElement = document.querySelectorAuto("#editor-outer");
 			editorDetails.open = true;
 		} else {

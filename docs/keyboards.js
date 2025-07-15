@@ -7888,6 +7888,7 @@ window.keyboardData = [
 	"notes": "Wireless ergonomic split keyboard for those who have paws (:",
 	"shape": "Split",
 	"connection": "Bluetooth",
+	"keys": 36,
 	"rows": 3,
 	"cols": 5,
 	"thumbKeys": 3,
@@ -7949,7 +7950,115 @@ window.keyboardData = [
 	"buildGuide": "https://github.com/ctranstrum/chuck/blob/main/BUILD.md",
 	"layoutRef": "https://github.com/ctranstrum/chuck/raw/main/images/chuck.png"
 },
-"2025-05-06"
+{
+	"name": "Crosses 4x6",
+	"img": "crosses-54.webp",
+	"shape": ["Split", "Special"],
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 54,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"pinkyStagger": 0.6,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"trackballs": {"min": 0, "max": 2},
+	"displays": {"min": 0, "max": 2},
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlName": "RP2040",
+	"tenting": "Fixed",
+	"caseType": ["Included", "ThirdParty"],
+	"kit": "https://ergokeyboards.com/products/crosses-modular-keyboard",
+	"prebuilt": "https://ergokeyboards.com/products/crosses-modular-keyboard"
+},
+{
+	"name": "Crosses 3x6",
+	"img": "crosses-42.webp",
+	"parent": "Crosses 4x6",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"kit": "https://ergokeyboards.com/products/crosses-modular-keyboard",
+	"prebuilt": "https://ergokeyboards.com/products/crosses-modular-keyboard"
+},
+{
+	"name": "Crosses 3x5",
+	"img": "crosses-36.webp",
+	"parent": "Crosses 4x6",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"kit": "https://ergokeyboards.com/products/crosses-modular-keyboard",
+	"prebuilt": "https://ergokeyboards.com/products/crosses-modular-keyboard"
+},
+{
+	"name": "minikbd",
+	"img": [
+		"mini-kbd.webp",
+		"mini-kbd-aux.webp",
+	],
+	"notes": "Focusing on an easy to build columnar, diodeless split keyboard. Different options for TRRS or 4 pin mini-DIN. Supports Choc v1 and Choc Mini.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.5,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": ["Choc", "ChocMini"],
+	"keySpacing": "Choc",
+	"firmware": ["QMK", "ZMK", "KMK"],
+	"assembly": ["PCB", "ThroughHole", "Diodeless", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "RP2040-Zero",
+	"ctlName": "RP2040",
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "None",
+	"web": "https://github.com/axhixh/mini-kbd",
+	"source": "https://github.com/axhixh/mini-kbd/blob/main/license",
+	"layoutRef": "https://github.com/axhixh/mini-kbd/blob/main/images/choc-v1-pcb.png"
+},
+{
+	"name": "Explorer Blank",
+	"img": [
+		"explorer-blank-4.webp",
+		"explorer-blank-5.webp"
+	],
+	"notes": "Featuring a Pretty Big knob and a trackpad",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": [[48], [60]],
+	"rows": {"min": 3, "max": 4},
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 4,
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"encoders": 1,
+	"encoderType": "Knob",
+	"trackpads": 1,
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlName": "RP2040",
+	"caseType": "Included",
+	"source": "https://github.com/DreaM117er/Explorer-Keyboard-Blank",
+	"prebuilt": "https://shop.beekeeb.com/product/pre-soldered-blank-split-keyboard-with-trackpad-rotary/",
+	"pointingDevices": 1
+},
+"2025-07-16"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8021,7 +8130,6 @@ Svalboard (and how does that map to column-row classification)
 30u https://github.com/doesntfazer/Goober
 66s https://new.reddit.com/r/ErgoMechKeyboards/comments/1f9kvsl/zodiarkpi_new_build/
 34s https://github.com/flinguenheld/chew
-65%u https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
 75%s https://fornellas.github.io/3d_printed_keyboard/
 that's a lot of keyboards https://oshwhub.com/joba/works
 42s https://github.com/triliu/Heawood42
@@ -8043,8 +8151,6 @@ that's a lot of keyboards https://oshwhub.com/joba/works
 66s https://kbd.news/Chunky2040-Rev2-2006.html
 42s jarne https://lim.au/#/hardware https://shop.chenonetta.com/product/jarne-the-ultimate-keyboard/
 36s https://github.com/penk/EDC36
-36s Crosses https://gggw-keebs.com/products/crosses-modular-custom-keyboard-kit
-54s Crosses https://ergokeyboards.com/products/crosses-modular-keyboard?variant=50272542228762
 36s https://github.com/DuBento/puffer https://www.reddit.com/r/ErgoMechKeyboards/comments/1htjdbi/puffer/
 36u glitter36 https://shop.yushakobo.jp/products/10301
 36s https://github.com/rmuraglia/menura-kb
@@ -8056,7 +8162,6 @@ https://github.com/dlip/harite-v2
 36u https://github.com/TeXitoi/keymini/
 61u https://github.com/floookay/barnacle
 42s roBa https://kbd.news/roBa-2550.html
-48s Blank https://shop.beekeeb.com/product/pre-soldered-blank-split-keyboard-with-trackpad-rotary/
 36s https://github.com/n1tsu/n36tsu
 42s https://github.com/Dooez/thoren-build
 36u https://github.com/tamago324/nowt36
@@ -8082,8 +8187,6 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 40u https://github.com/ChrisChrisLoLo/keezyboost40
 68s nomad v2 https://www.reddit.com/r/ErgoMechKeyboards/comments/1k25sv0/nomad_opensource_diy_lowprofile_split_ergo/
 36u https://github.com/unspecworks/gamma-omega
-48s https://github.com/DreaM117er/Explorer-Keyboard-Blank
-60s https://github.com/DreaM117er/Explorer-Keyboard-Blank
 58s https://clicketysplit.ca/pages/leeloo
 34u https://github.com/kilipan/lobotomy
 58s https://github.com/kissetfall/Lily58-Pro-RE
@@ -8109,6 +8212,7 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 36s https://github.com/Palpatineli/slimkeeb36
 44s https://github.com/thewickest/smash-b
 42s PartialGauss https://www.reddit.com/r/ErgoMechKeyboards/comments/1ls8iq4/partialgauss_designed_my_first_keyboard_a/
+60% Dactyl Lynx https://www.reddit.com/r/ErgoMechKeyboards/comments/1lua90r/the_dactyl_lynx/
 `;
 
 /* Other TODOs
@@ -8143,6 +8247,7 @@ https://vi.aliexpress.com/item/1005008051327383.html
 75m https://github.com/peej/orthgyle-keyboard
 40m https://github.com/victorlucachi/void40
 80% https://github.com/dcpedit/tklish
+65% https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main
@@ -8211,6 +8316,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1hd48z5/pg1316s_prototype/
 https://humancomputing.io/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1kqvws7/serenity/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1lp6bxr/kaizen_a_split_ergo_unibody/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1lruphf/couldnt_buy_a_mikefive_so_i_made_my_own/
 
 WIP:
 https://github.com/peej/bicycle-keyboard
