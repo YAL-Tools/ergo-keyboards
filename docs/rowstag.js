@@ -1704,7 +1704,7 @@ window.rowStagData = [
 	"thumbKeys": {"min": 1, "max": 2},
 	"leftMods": 4,
 	"rightMods": 4,
-	"hotswap": "Yes",
+	"hotswap": "No",
 	"switchProfile": "MX",
 	"encoders": {"min": 0, "max": 2},
 	"lighting": "RGB",

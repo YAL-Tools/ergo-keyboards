@@ -8058,7 +8058,43 @@ window.keyboardData = [
 	"prebuilt": "https://shop.beekeeb.com/product/pre-soldered-blank-split-keyboard-with-trackpad-rotary/",
 	"pointingDevices": 1
 },
-"2025-07-16"
+{
+	"name": "Hillside Dactyl 50",
+	"img": "Hillside-Dactyl-50.webp",
+	"notes": [
+		"A small contoured-keywell ergonomic keyboard with three choc-spaced rows of six.",
+		"- Connection: It can be wired (QMK or ZMK) or wireless (ZMK) with RP2040 or Nice!Nano as the intended boards",
+		"- Hotswap is with Mill-Max sockets, not easier Kailh ones.",
+		"- Controller: I'm describing using the Hillside shield."
+	],
+	"shape": ["Split", "Keywell"],
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth", "WiredHalf"],
+	"keys": 50,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 5,
+	"cornerKeys": 2,
+	"pinkyStagger": 0.6,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"pointingDevices": 0,
+	"displays": 2,
+	"lighting": ["Simple", "Underglow"],
+	"firmware": ["QMK", "ZMK"],
+	"assembly": "Handwired",
+	"ctlCount": 2,
+	"ctlFootprint": "Pro Micro",
+	"ctlPinCount": 24,
+	"ctlName": ["RP2040", "nRF52840"],
+	"tenting": ["Fixed", "Mount"],
+	"caseType": "Included",
+	"source": "https://github.com/mmccoyd/hillside_dactyl_50",
+	"buildGuide": "https://github.com/mmccoyd/hillside_dactyl_50/wiki"
+},
+"2025-07-23"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8213,6 +8249,11 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 44s https://github.com/thewickest/smash-b
 42s PartialGauss https://www.reddit.com/r/ErgoMechKeyboards/comments/1ls8iq4/partialgauss_designed_my_first_keyboard_a/
 60% Dactyl Lynx https://www.reddit.com/r/ErgoMechKeyboards/comments/1lua90r/the_dactyl_lynx/
+56s Iris LM https://keeb.io/products/iris-lm-keyboard-kit
+42s https://www.reddit.com/r/ErgoMechKeyboards/comments/1m4dbpw/raven_my_second_keyboard_design_3d_printed_kicad/
+42s https://github.com/Cipulot/CorneECRevival
+42s https://github.com/buztard/kyrne/
+36s https://github.com/davidphilipbarr/popcorn
 `;
 
 /* Other TODOs
@@ -8317,6 +8358,7 @@ https://humancomputing.io/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1kqvws7/serenity/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1lp6bxr/kaizen_a_split_ergo_unibody/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1lruphf/couldnt_buy_a_mikefive_so_i_made_my_own/
+https://www.kickstarter.com/projects/1866868344/wing-45-true-wireless-ergo-columnar-split-keyboard
 
 WIP:
 https://github.com/peej/bicycle-keyboard

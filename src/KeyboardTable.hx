@@ -171,7 +171,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		col.onEditorNotes = (out) -> {
 			out.appendParaTextNode(
 				"Inherits any missing fields (except lists of links) from the specified keyboard.",
-				"This primarily exists for distinct variations of the same design",
+				"This is not shown in user interface and primarily exists for distinct variations of the same design",
 				"Load the definition of Sofle Choc Wireless for an example."
 			);
 		}

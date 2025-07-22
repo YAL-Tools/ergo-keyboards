@@ -43,9 +43,14 @@ For ThinkPad laptops:
 
 Such as
 
-- Two numpads ([A](https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/), [B](https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/))
+- Two numpads (
+	[A](https://www.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/),
+	[B](https://www.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/),
+	[C](https://www.reddit.com/r/ErgoMechKeyboards/comments/1m3vy4m/cheap_ultra_profile_split_keyboard_solution_36/)
+	)
 - [One and half membrane keyboards](https://www.reddit.com/r/ErgoMechKeyboards/comments/1b96jyd/poor_mans_split_keyboard_v20/) (oh no)
 - [Every key is a 5-way switch](https://www.reddit.com/r/ErgoMechKeyboards/comments/10kvbqp/keyboard_made_entirely_of_low_force_5_direction/)
+- [Every key is a rotary encoder](https://www.reddit.com/r/MechanicalKeyboards/comments/1cpmw1r/oops_all_rotary_encoders/)
 - Hand/wrist-mounted ([A](https://github.com/Baranowski/Viosuo), [B](https://adamleblanc.page/portfolio/schist01/))
 
 ## Lower-profile MX
