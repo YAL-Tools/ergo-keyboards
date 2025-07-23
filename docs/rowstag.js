@@ -1014,7 +1014,7 @@ window.rowStagData = [
 	"caseType": "Included",
 	"prebuilt": "!https://www.whatgeek.com/products/feker-alice-80-mechanical-keyboard"
 },
-{
+/*{
 	"name": "Cepstrum",
 	"img": "Cepstrum.webp",
 	"shape": "Split",
@@ -1039,7 +1039,7 @@ window.rowStagData = [
 	"caseType": "Included",
 	"kit": "https://keeb.io/products/cepstrum-choc-low-profile-65-65xt-split-staggered-keyboard",
 	"prebuilt": "https://keeb.io/products/cepstrum-keyboard-pre-built"
-},
+},*/
 {
 	"name": "Logitech K860",
 	"img": "k860.webp",

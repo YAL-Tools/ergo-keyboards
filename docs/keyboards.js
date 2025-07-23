@@ -561,7 +561,7 @@ window.keyboardData = [
 	"firmware": "ZMK",
 	"caseType": "Included",
 	"source": "https://github.com/compressionKeyboards/compression4c",
-	"prebuilt": "!https://compressionkeyboards.com/collections/all"
+	//"prebuilt": "!https://compressionkeyboards.com/collections/all"
 },
 {
 	"name": "Charybdis",
