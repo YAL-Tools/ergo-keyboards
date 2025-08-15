@@ -710,6 +710,9 @@ class ColStagBoards {
 		kb.setHotswap(Choc, MX);
 		kb.setMatrix(66, 6, 4);
 		kb.setExtras([5, 6], 0, 0, [3, 4]);
+		kb.extras = [
+			"[v:Case] https://www.thingiverse.com/thing:7108673",
+		];
 		add(kb);
 		
 		kb = {

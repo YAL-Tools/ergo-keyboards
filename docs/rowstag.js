@@ -1841,7 +1841,7 @@ window.rowStagData = [
 	"pointingDevices": 1
 },
 */
-"2025-07-16"
+"2025-08-15"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -1891,6 +1891,8 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 65%u topre alice..? https://www.amazon.com/SZRKBD%E3%85%A4-Ergonomic-Capacitive-Keyboard-Programmable/dp/B0DFV9M5X7?th=1
 75%s https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/
 40% Maglit40
+75% SP75 (on Ali)
+40% https://github.com/aroum/yolochka
 `
 /* TODO
 ali keyboards
@@ -1917,6 +1919,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9e0j3/blasphemy/
 Adesso Easytouch 1500
 Ragnok RK104 / SANWA Mechanical keyboard / https://deltonstudio.com/products/delton-kb450-bluetooth-mechanical-keyboard
 75% ROG Falcata https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/gallery/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111
@@ -1926,6 +1929,7 @@ https://keyclicks.ca/products/split-65
 Not ergo, but kinda neat
 Cherry ULP https://www.corsair.com/de/en/p/keyboards/ch-913a01u-de/k100-air-wireless-rgb-ultra-thin-mechanical-gaming-keyboard-cherry-mx-ultra-low-profile-tactile-ch-913a01u-de
 https://fluxkeyboard.com/
+and https://github.com/InkboxSoftware/all-screen-keyboard
 CLVX 1 Gesture Keyboard
 RollerMouse
 Leap Motion

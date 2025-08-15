@@ -8094,7 +8094,56 @@ window.keyboardData = [
 	"source": "https://github.com/mmccoyd/hillside_dactyl_50",
 	"buildGuide": "https://github.com/mmccoyd/hillside_dactyl_50/wiki"
 },
-"2025-07-23"
+{
+	"name": "Turing Split",
+	"img": "turing-split-keyboard.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 52,
+	"rows": 4,
+	"cols": 5,
+	"thumbKeys": 6,
+	"pinkyStagger": 0.5,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": "Knob",
+	"displays": {"min": 0, "max": 2},
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"caseType": "Included",
+	"web": "https://www.reddit.com/r/ErgoMechKeyboards/comments/1mqhgm0/i_designed_a_fully_custom_split_ergo_keyboard_at/",
+	"source": "https://github.com/lordbagel42/turing-split-keyboard"
+},
+{
+	"name": "https://github.com/tstrube/SplittoDogu",
+	"img": "SplittoDogu.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 74,
+	"rows": 4,
+	"cols": 7,
+	"thumbKeys": 4,
+	"innerKeys": 3,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.6,
+	"switchProfile": "MX",
+	"encoders": 6,
+	"encoderType": "Knob",
+	"displays": 2,
+	"firmware": "QMK",
+	"ctlCount": 2,
+	"ctlFootprint": "Elite-C",
+	"caseType": "Included",
+	"source": "https://github.com/tstrube/SplittoDogu"
+},
+"2025-08-15"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8238,7 +8287,6 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 34s zaphod (EC) https://gitlab.com/lpgalaxy/zaphod-ecbrox https://github.com/petejohanson/zaphod-ecbrox-zmk-module
 36s https://github.com/flhps/splaybreak-keyboard
 48s Cornix
-80s https://github.com/tstrube/SplittoDogu
 54s https://github.com/lordxax/sildactyl54
 36s https://github.com/fooker/mnhttn
 48s https://github.com/venc0r/mnhttn
@@ -8254,6 +8302,11 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 42s https://github.com/Cipulot/CorneECRevival
 42s https://github.com/buztard/kyrne/
 36s https://github.com/davidphilipbarr/popcorn
+36u https://github.com/vuoz/chalk
+54s https://github.com/TheEternalComrade/The-Prince54
+26u https://github.com/smallwat3r/smallcat
+54u https://github.com/tuxedocurly/mantaray_keyboard
+38s https://github.com/Hex-4/glyph/blob/main/JOURNAL.md
 `;
 
 /* Other TODOs
@@ -8309,6 +8362,7 @@ Trickery:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1agtge9/wireless_split_ortho_setup_with_two_numpads/
 https://new.reddit.com/r/olkb/comments/kho4do/poor_mans_40_planck_two_wireless_keypads_deltaco/
 https://github.com/JanLunge/keyboards/tree/main/hotswap_socket
+https://ryanis.cool/cosmos/plum-twist/
 https://kbd.news/3D-printed-hotswap-sockets-V4-750.html
 https://kbd.news/Hot-swap-socket-holders-1669.html
 https://epomaker.com/products/epomaker-vial-adapter
@@ -8359,6 +8413,8 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1kqvws7/serenity/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1lp6bxr/kaizen_a_split_ergo_unibody/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1lruphf/couldnt_buy_a_mikefive_so_i_made_my_own/
 https://www.kickstarter.com/projects/1866868344/wing-45-true-wireless-ergo-columnar-split-keyboard
+https://posture.works/baseform/
+TAIKO-01
 
 WIP:
 https://github.com/peej/bicycle-keyboard
@@ -8369,4 +8425,7 @@ Gone / out of stock for now?
 Obsolete:
 TypeMatrix
 Datadesk SmartBoard
+
+things to be aware of:
+glue dactyl/charybdis https://www.reddit.com/r/ErgoMechKeyboards/comments/1jg791x/is_it_good/
 */
