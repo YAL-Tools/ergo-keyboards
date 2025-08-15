@@ -66,7 +66,7 @@ window.keyboardData = [
 	],
 	"source": "https://github.com/TweetyDaBird/Lotus-Keyboard",
 	"kit": "![se] https://lectronz.com/stores/tweetys-wild-thinking",
-	"prebuilt": "![se] https://lectronz.com/stores/tweetys-wild-thinking",
+	//"prebuilt": "![se] https://lectronz.com/stores/tweetys-wild-thinking",
 	"layoutRef": "SKBC",
 },
 {
@@ -5914,7 +5914,7 @@ window.keyboardData = [
 	"assembly": "Handwired",
 	"source": "https://from2d.com/freebies/cornepad/"
 },
-{
+/*{
 	"name": "SoflePLUS Trackpad",
 	"img": "sofle-plus-tp.webp",
 	"shape": "Split",
@@ -5949,7 +5949,7 @@ window.keyboardData = [
 		"!https://xcmkb.com/products/sofleplus-trackpad-mx",
 		"!https://xcmkb.com/products/sofleplus-trackpad-lp"
 	]
-},
+},*/
 {
 	"name": "Lea",
 	"img": "Lea.webp",
@@ -6903,7 +6903,7 @@ window.keyboardData = [
 	"ctlCount": 1,
 	"caseType": "Included",
 	"source": "https://github.com/miketronic/Desolation",
-	"prebuilt": "https://tufgek.myshopify.com/"
+	//"prebuilt": "https://tufgek.myshopify.com/"
 },
 {
 	"name": "Inland MK-47",
@@ -7617,7 +7617,7 @@ window.keyboardData = [
 	"extras": "[v: Tenting platform] https://www.printables.com/model/1128583-silakka54-tenting-platform",
 	"web": "https://squalius-cephalus.github.io/silakka54/",
 	"source": "https://github.com/Squalius-cephalus/silakka54",
-	"prebuilt": "As of 2025 the keyboard is sold by numerous Chinese sellers.",
+	"prebuilt": ["[n:As of 2025 the keyboard is sold by numerous Chinese sellers] ?"],
 	"buildGuide": "https://squalius-cephalus.github.io/silakka54/buildguide.html"
 },
 {
@@ -8121,7 +8121,7 @@ window.keyboardData = [
 	"source": "https://github.com/lordbagel42/turing-split-keyboard"
 },
 {
-	"name": "https://github.com/tstrube/SplittoDogu",
+	"name": "SplittoDogu",
 	"img": "SplittoDogu.webp",
 	"shape": "Split",
 	"stagger": "Column",
