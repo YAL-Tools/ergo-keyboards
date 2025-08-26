@@ -29,7 +29,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.buildGuide = ["[US] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_en.md","[JP] https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_jp.md"];
 	kb.kit = ["https://splitkb.com/collections/keyboard-kits/products/aurora-corne","https://holykeebs.com","[v:MX] https://new.boardsource.xyz/products/Corne","[v:Choc] https://new.boardsource.xyz/products/Corne_LP","[v:MX] https://nextkeyboard.club/product-tag/corne-v3-0-1-mx/","[v:MX] https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:Choc] https://42keebs.eu/shop/kits/pro-micro-based/corne-chocolate-low-profile-hotswap-split-ergo-40-kit/","[v:MX] https://www.diykeyboards.com/keyboards/keyboard-kits/product/corne-keyboard-kit","[v:MX] https://keebd.com/products/corne-cherry-v3-rgb-keyboard-kit","[v:Choc] https://keebd.com/products/corne-choc-low-profile-rgb-keyboard-kit","[v:MX] https://keyhive.xyz/shop/corne-v3","https://mechboards.co.uk/collections/kits/products/helidox-corne-kit","[v:Choc] https://shop.yushakobo.jp/en/products/corne-chocolate","https://www.littlekeyboards.com/collections/corne-pcb-kits","https://keebmaker.com/collections/kits","[v:MX] https://shop.beekeeb.com/product/corne-cherry-v3-0-1-crkbd-hotswap-split-keyboard-pcb-set/","[v:Choc] https://shop.beekeeb.com/product/crkbd-v3-corne-keyboard-choc-chocolate-low-profile-lp-pcb-kit/","[US] [n:WeirdLittleKeebs] https://www.etsy.com/listing/1113750577/corne-light-v2-pcb @ https://www.etsy.com/shop/WeirdLittleKeebs","https://keycapsss.com/keyboard-parts/pcbs/53/crkbd-split-keyboard-pcb-corne-helidox","[v:v3 MX] https://falbatech.click/products/Pre-soldered-Corne-p613836639","[v:v3 MX mini] https://falbatech.click/products/Pre-soldered-Corne-mini-p613854160","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-Wireless-p613843630","[v:v3 MX BT] https://falbatech.click/products/Pre-soldered-Corne-mini-Wireless-p613843878"];
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard","[v:MX] https://falbatech.click/products/Corne-Fully-Assembled-Custom-Mechanical-Keyboard-p630685502","[v:MX mini] https://falbatech.click/products/Corne-mini-Fully-Assembled-Custom-Mechanical-Keyboard-p630813323","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Dark-Bamboo-Keyboard-shipping-in-24h-p613843609","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Natural-Bamboo-Keyboard-with-Tilt-Tent-Set-in-shipping-24h-p613843369","[v:MX BT] https://falbatech.click/products/Corne-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p630685504","[v:MX BT mini] https://falbatech.click/products/Corne-mini-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631346754"];
-	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Unibody tray] https://www.thingiverse.com/thing:4897653","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case","[v:LP Case] https://www.thingiverse.com/thing:4549765 @ https://kbd.news/Corne-LP-case-810.html","[v:Case] https://github.com/kisonecat/corne-case","[v:Tented case] https://www.thingiverse.com/thing:4705667","[v:Magnetic case] https://github.com/Runningtarrens/Mcorne"];
+	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Unibody tray] https://www.thingiverse.com/thing:4897653","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case","[v:LP Case] https://www.thingiverse.com/thing:4549765 @ https://kbd.news/Corne-LP-case-810.html","[v:Case] https://github.com/kisonecat/corne-case","[v:Tented case] https://www.thingiverse.com/thing:4705667","[v:Magnetic case] https://github.com/Runningtarrens/Mcorne","[v:Magnetic case] https://www.printables.com/model/400373-bluetooth-corne-mini-choc-w-magnetic-travel-mode"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
@@ -299,6 +299,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Alps],type_KeySpacing.MX);
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(70)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([2,4]),type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(4));
+	kb.extras = ["[v:Enclosed case] https://github.com/prilosac/ErgoDashEnclosedCase"];
 	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash","https://keycapsss.com/keyboard-parts/pcbs/63/ergodash-split-keyboard-pcb"];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.addSKBC(kb);
@@ -342,6 +343,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.MX);
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(66)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromArray([5,6]),type_NumRange.fromValue(0),type_NumRange.fromValue(0),type_NumRange.fromArray([3,4]));
+	kb.extras = ["[v:Case] https://www.thingiverse.com/thing:7108673"];
 	add(kb);
 	kb = { name : "Breeze", navCluster : type_ValList.fromValue(type_NavCluster.Full), thumbKeys : type_NumRange.fromValue(4), web : type_ValList.fromValue("https://www.afternoonlabs.com/breeze/"), source : type_ValList.fromValue("https://github.com/afternoonlabs/BreezeKeyboard"), kit : type_ValList.fromValue("!https://keeb.io/products/afternoon-labs-breeze-keyboard-kit/?afmc=yal"), img : type_ValList.fromValue("breeze.avif")};
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(66)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
@@ -3119,6 +3121,9 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.leftMods;
 			}
 		}));
+		leftMods.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Counts the common modifier keys (Shift/Ctrl/Alt/Gui) as well as " + "situational keys that output a keycode and can be remapped.");
+		};
 		leftMods.shortName = "#lm";
 		addHidden(leftMods);
 		var rightMods = new table_number_IntRangeColumn("Right-side mods",new table_FancyField("rightMods",function(q,wantSet,setValue) {
@@ -3129,7 +3134,10 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.rightMods;
 			}
 		}));
-		leftMods.shortName = "#rm";
+		rightMods.onNotes = function(div) {
+			tools_HtmlTools.appendParaTextNode(div,"Counts the common modifier keys (Shift/Ctrl/Alt/Gui), Menu, and " + "situational keys that output a keycode and can be remapped.");
+		};
+		rightMods.shortName = "#rm";
 		addHidden(rightMods);
 		this.initColNav(kb,false);
 		this.initColNum(kb);
@@ -8181,10 +8189,12 @@ type_CaseType.__constructs__ = [type_CaseType.Unknown,type_CaseType.None,type_Ca
 var type_Connection = $hxEnums["type.Connection"] = { __ename__:true,__constructs__:null
 	,Wired: {_hx_name:"Wired",_hx_index:0,__enum__:"type.Connection",toString:$estr}
 	,Bluetooth: {_hx_name:"Bluetooth",_hx_index:1,__enum__:"type.Connection",toString:$estr}
-	,Wireless: {_hx_name:"Wireless",_hx_index:2,__enum__:"type.Connection",toString:$estr}
-	,WiredHalf: {_hx_name:"WiredHalf",_hx_index:3,__enum__:"type.Connection",toString:$estr}
+	,BluetoothWithCable: {_hx_name:"BluetoothWithCable",_hx_index:2,__enum__:"type.Connection",toString:$estr}
+	,Wireless: {_hx_name:"Wireless",_hx_index:3,__enum__:"type.Connection",toString:$estr}
+	,WirelessWithCable: {_hx_name:"WirelessWithCable",_hx_index:4,__enum__:"type.Connection",toString:$estr}
+	,WiredHalf: {_hx_name:"WiredHalf",_hx_index:5,__enum__:"type.Connection",toString:$estr}
 };
-type_Connection.__constructs__ = [type_Connection.Wired,type_Connection.Bluetooth,type_Connection.Wireless,type_Connection.WiredHalf];
+type_Connection.__constructs__ = [type_Connection.Wired,type_Connection.Bluetooth,type_Connection.BluetoothWithCable,type_Connection.Wireless,type_Connection.WirelessWithCable,type_Connection.WiredHalf];
 var type_ControllerColumn = function(name,field,tags) {
 	table_tag_StringTagListColumn.call(this,name,field,tags);
 };

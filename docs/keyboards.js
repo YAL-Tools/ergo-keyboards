@@ -8307,6 +8307,13 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 26u https://github.com/smallwat3r/smallcat
 54u https://github.com/tuxedocurly/mantaray_keyboard
 38s https://github.com/Hex-4/glyph/blob/main/JOURNAL.md
+36s https://github.com/tobiasarndt/Kuniboard
+64s YMDK Sofle https://ymdkey.com/products/ymdk-sofle-wireless-split-keyboard-2-4ghz-64-keys-ergonomic-hotswappable-60-layout-3d-pla-vial-all-key-programmable-mini-independent-gaming-keyboard-kit
+60u https://github.com/Glitch860/Num64
+62s https://github.com/mzizzi/mzizzi-split62
+32u https://github.com/carrefinho/visorbearer
+30u https://github.com/StephanMoeller/mike-typeson
+42s https://ergomech.store/shop/zenith-executive-edition-524#attr=1109,1111
 `;
 
 /* Other TODOs
@@ -8394,6 +8401,7 @@ keeb supply stress
 ZUOYA HE30
 Delux T9, T11
 https://github.com/htx-studio/One-Handed-Keyboard
+10 https://github.com/turtle-bazon/PNCATEHO/tree/master/light/pcb
 
 Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/
