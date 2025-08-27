@@ -1,5 +1,6 @@
 package table;
 import haxe.DynamicAccess;
+import haxe.extern.EitherType;
 import js.html.DivElement;
 import js.html.Element;
 import js.html.InputElement;
@@ -17,8 +18,8 @@ class FancyColumn<T> {
 	public var name:String;
 	public var filterName:String = null;
 	public var shortName:String = null;
-	public var onNotes:Element->Void = null;
-	public var onEditorNotes:Element->Void = null;
+	public var onNotes:FancyTableOnNotes = null;
+	public var onEditorNotes:FancyTableOnNotes = null;
 	public var show = false;
 	public static var defaultShow = false;
 	public var canShow = true;

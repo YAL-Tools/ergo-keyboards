@@ -7,6 +7,8 @@ package type;
 enum Connection {
 	Wired;
 	Bluetooth;
+	BluetoothWithCable;
 	Wireless;
+	WirelessWithCable;
 	WiredHalf;
 }

@@ -97,19 +97,35 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		conType.shortLabels[Connection.Wired] = "W";
 		
 		conType.shortLabels[Connection.WiredHalf] = "W+BT";
-		conType.filterLabels[Connection.WiredHalf] = "Wired+Bluetooth";
-		conType.filterNotes[Connection.WiredHalf] = "For ZMK keyboards, one half can be connected to the computer (and communicate over USB) while the other talks to it over air";
+		conType.filterLabels[Connection.WiredHalf] = "Wired+BT";
+		conType.filterNotes[Connection.WiredHalf] = (
+			"For ZMK keyboards, one half can be connected to the computer (and communicate over USB)"
+			+ " while the other half talks to it over air"
+		);
 		
 		conType.shortLabels[Connection.Bluetooth] = "BT";
 		
 		conType.shortLabels[Connection.Wireless] = "P";
 		conType.filterLabels[Connection.Wireless] = "Other wireless";
-		conType.filterNotes[Connection.Wireless] = "2.4G dongles and alike";
+		conType.filterNotes[Connection.Wireless] = "2.4GHz dongles and alike";
 		
-		conType.filterTags = [Bluetooth, Wireless];
+		conType.shortLabels[Connection.BluetoothWithCable] = "BTw";
+		conType.filterLabels[Connection.BluetoothWithCable] = "BT with cable";
+		conType.filterNotes[Connection.BluetoothWithCable] = (
+			"Means that the keyboard connects to the computer over Bluetooth,"
+			+ " but the halves talk to each other over wire"
+		);
+		
+		conType.shortLabels[Connection.WirelessWithCable] = "Pw";
+		conType.filterLabels[Connection.WirelessWithCable] = "Other with cable";
+		conType.filterNotes[Connection.WirelessWithCable] = (
+			"Same as \"" + conType.filterLabels[Connection.BluetoothWithCable] + "\", but for 2.4GHz/etc."
+		);
+		
+		conType.filterTags = [Bluetooth, Wireless, BluetoothWithCable, WirelessWithCable];
 		conType.columnCount = 2;
-		conType.onNotes = function(div) {
-			conType.appendFilterNotes(div);
+		conType.onNotes = function(div, fe) {
+			conType.appendFilterNotes(div, fe);
 		};
 		addColumn(conType);
 	}
@@ -201,8 +217,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			"Something interesting - folding keyboards, layered keyboards, and so on."
 		);
 		//
-		shape.onNotes = function(div) {
-			shape.appendFilterNotes(div);
+		shape.onNotes = function(div, fe) {
+			shape.appendFilterNotes(div, fe);
 		};
 		addColumn(shape);
 		colShape = shape;
@@ -699,8 +715,8 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			"Case and/or PCB are generated using a script"
 			+ " that allows to adjust key positions/count to some extent"
 		);
-		asm.onNotes = function(div) {
-			asm.appendFilterNotes(div);
+		asm.onNotes = function(div, fe) {
+			asm.appendFilterNotes(div, fe);
 		}
 		asm.shortName = "Assembly";
 		addColumn(asm);

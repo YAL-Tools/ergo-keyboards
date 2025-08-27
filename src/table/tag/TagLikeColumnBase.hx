@@ -66,11 +66,11 @@ abstract class TagLikeColumnBase<T, VT, FT> extends FancyColumn<T> {
 	public function getFilterNotes(val:VT):String {
 		return null;
 	}
-	public function appendFilterNotes(out:Element) {
+	public function appendFilterNotes(out:Element, forEditor:Bool) {
 		var ul:Element = null;
 		for (name in getTagNames()) {
 			var tag = nameToTag(name);
-			if (!showInFilters(tag)) continue;
+			if (!forEditor && !showInFilters(tag)) continue;
 			var notes = getFilterNotes(tag);
 			if (notes == null) continue;
 			if (ul == null) {

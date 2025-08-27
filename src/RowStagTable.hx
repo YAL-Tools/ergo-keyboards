@@ -235,16 +235,27 @@ class RowStagTable extends KeyboardTable<RowStagKeyboard> {
 		addHidden(fnPos);
 		
 		var leftMods = new IntRangeColumn("Left-side mods", mgf(kb.leftMods));
+		leftMods.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Counts the common modifier keys (Shift/Ctrl/Alt/Gui) as well as "
+				+ "situational keys that output a keycode and can be remapped."
+			);
+		}
 		leftMods.shortName = "#lm";
 		addHidden(leftMods);
 		
 		var rightMods = new IntRangeColumn("Right-side mods", mgf(kb.rightMods));
-		leftMods.shortName = "#rm";
+		rightMods.onNotes = function(div) {
+			div.appendParaTextNode(
+				"Counts the common modifier keys (Shift/Ctrl/Alt/Gui), Menu, and "
+				+ "situational keys that output a keycode and can be remapped."
+			);
+		}
+		rightMods.shortName = "#rm";
 		addHidden(rightMods);
 		
 		initColNav(kb, false);
 		initColNum(kb);
-		
 	}
 	override function initInputs(kb:RowStagKeyboard):Void {
 		super.initInputs(kb);

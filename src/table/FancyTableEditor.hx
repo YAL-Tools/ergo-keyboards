@@ -91,7 +91,7 @@ class FancyTableEditor {
 						var div = details.appendElTextNode("div", "");
 						div.classList.add("note");
 						var notice = div.appendElTextNode("span", note.text);
-						FancyTableFilters.addNotesFor(note.func, notice);
+						FancyTableFilters.addNotesFor(note.func, notice, true);
 					}
 					continue;
 				case Column(col): col;
@@ -114,7 +114,7 @@ class FancyTableEditor {
 			var colNameEl = document.createSpanElement();
 			colNameEl.appendTextNode(colName);
 			colNameEl.classList.add("column-name");
-			FancyTableFilters.addNotesFor(column.onEditorNotes ?? column.onNotes, colNameEl);
+			FancyTableFilters.addNotesFor(column.onEditorNotes ?? column.onNotes, colNameEl, true);
 			
 			meta.appendChild(colNameEl);
 			meta.appendChild(divFilters);

@@ -1211,16 +1211,26 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		conType.shortName = "Con";
 		conType.shortLabels.set(type_Connection.Wired,"W");
 		conType.shortLabels.set(type_Connection.WiredHalf,"W+BT");
-		conType.filterLabels.set(type_Connection.WiredHalf,"Wired+Bluetooth");
-		conType.filterNotes.set(type_Connection.WiredHalf,"For ZMK keyboards, one half can be connected to the computer (and communicate over USB) while the other talks to it over air");
+		conType.filterLabels.set(type_Connection.WiredHalf,"Wired+BT");
+		var v = "For ZMK keyboards, one half can be connected to the computer (and communicate over USB)" + " while the other half talks to it over air";
+		conType.filterNotes.set(type_Connection.WiredHalf,v);
 		conType.shortLabels.set(type_Connection.Bluetooth,"BT");
 		conType.shortLabels.set(type_Connection.Wireless,"P");
 		conType.filterLabels.set(type_Connection.Wireless,"Other wireless");
-		conType.filterNotes.set(type_Connection.Wireless,"2.4G dongles and alike");
-		conType.filterTags = [type_Connection.Bluetooth,type_Connection.Wireless];
+		conType.filterNotes.set(type_Connection.Wireless,"2.4GHz dongles and alike");
+		conType.shortLabels.set(type_Connection.BluetoothWithCable,"BTw");
+		conType.filterLabels.set(type_Connection.BluetoothWithCable,"BT with cable");
+		var v = "Means that the keyboard connects to the computer over Bluetooth," + " but the halves talk to each other over wire";
+		conType.filterNotes.set(type_Connection.BluetoothWithCable,v);
+		conType.shortLabels.set(type_Connection.WirelessWithCable,"Pw");
+		conType.filterLabels.set(type_Connection.WirelessWithCable,"Other with cable");
+		var this1 = conType.filterNotes;
+		var v = "Same as \"" + conType.filterLabels.get(type_Connection.BluetoothWithCable) + "\", but for 2.4GHz/etc.";
+		this1.set(type_Connection.WirelessWithCable,v);
+		conType.filterTags = [type_Connection.Bluetooth,type_Connection.Wireless,type_Connection.BluetoothWithCable,type_Connection.WirelessWithCable];
 		conType.columnCount = 2;
-		conType.onNotes = function(div) {
-			conType.appendFilterNotes(div);
+		conType.onNotes = function(div,fe) {
+			conType.appendFilterNotes(div,fe);
 		};
 		this.addColumn(conType);
 	}
@@ -1234,7 +1244,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_NavCluster);
 		navCluster.columnCount = 2;
-		navCluster.onNotes = function(div) {
+		navCluster.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Arrow keys and such.");
 			var ul = tools_HtmlTools.appendElTextNode(div,"ul","");
 			var li;
@@ -1253,7 +1263,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			if(corner) {
 				tools_HtmlTools.appendParaTextNode(div,"Also see \"corner keys\" for alternative placement ideas");
 			}
-		};
+		});
 		navCluster.shortName = "nav";
 		navCluster.filterTags = [type_NavCluster.Arrows,type_NavCluster.Inline,type_NavCluster.Duo,type_NavCluster.Full];
 		navCluster.shortLabels.set(type_NavCluster.None,"");
@@ -1269,11 +1279,11 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}),type_Numpad);
 		numpad.columnCount = 2;
-		numpad.onNotes = function(div) {
+		numpad.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			var p = tools_HtmlTools.appendParaTextNode(div,"");
 			tools_HtmlTools.appendElTextNode(p,"b","Mini");
 			p.appendChild(window.document.createTextNode(" means that it has the digit keys, but not a full set."));
-		};
+		});
 		this.addColumn(numpad);
 	}
 	,colShape: null
@@ -1298,9 +1308,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(col);
-		col.onEditorNotes = function(out) {
+		col.onEditorNotes = table_FancyTableOnNotes.fromSimple(function(out) {
 			tools_HtmlTools.appendParaTextNode(out,"Inherits any missing fields (except lists of links) from the specified keyboard.","This is not shown in user interface and primarily exists for distinct variations of the same design","Load the definition of Sofle Choc Wireless for an example.");
-		};
+		});
 		var shape = new table_tag_TagListColumn("Shape",new table_FancyField("shape",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.shape = setValue;
@@ -1322,8 +1332,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		shape.filterNotes.set(type_Shape.Split,v);
 		shape.filterNotes.set(type_Shape.Half,"Keypads and alike, some work may be necessary to combine two of these.");
 		shape.filterNotes.set(type_Shape.Special,"Something interesting - folding keyboards, layered keyboards, and so on.");
-		shape.onNotes = function(div) {
-			shape.appendFilterNotes(div);
+		shape.onNotes = function(div,fe) {
+			shape.appendFilterNotes(div,fe);
 		};
 		this.addColumn(shape);
 		this.colShape = shape;
@@ -1456,7 +1466,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 	}
 	,initLinks: function(kb) {
 		var header = this.addFilterHeader("Links");
-		header.editorNotes.push(new table_FancyHeaderNote("Notes on link lists",function(el) {
+		header.editorNotes.push(new table_FancyHeaderNote("Notes on link lists",table_FancyTableOnNotes.fromSimple(function(el) {
 			var p = tools_HtmlTools.appendParaTextNode(el,"Links can be prefixed with a ");
 			tools_HtmlTools.appendElTextNode(p,"code","[country code]");
 			p.appendChild(window.document.createTextNode(" to indicate where a keyboard ships from - e.g."));
@@ -1473,7 +1483,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			p = tools_HtmlTools.appendParaTextNode(el,"If the designer/company behind the keyboard" + " sells pre-builts/kits themselves OR endorses a specific vendor" + " on the project's page, such vendor links can be prefixed with a ");
 			tools_HtmlTools.appendElTextNode(p,"code","!");
 			p.appendChild(window.document.createTextNode(" to mark them accordingly and display them on top of the shuffled list."));
-		}));
+		})));
 		var lc = new table_LinkListColumn("Website",new table_FancyField("web",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.web = setValue;
@@ -1483,9 +1493,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(lc);
-		lc.onNotes = function(div) {
+		lc.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a separate page/website/post explaining the project motivation/etc." + " that's different from the rest of the links, that goes here.");
-		};
+		});
 		lc.shortName = "web";
 		lc.canShowSingle = true;
 		lc = new table_LinkListColumn("Open-source",new table_FancyField("source",function(q,wantSet,setValue) {
@@ -1510,10 +1520,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(lc);
 		lc.shortName = "Kit";
-		lc.onNotes = function(div) {
+		lc.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"A keyboard sold in a state that requires soldering.");
 			tools_HtmlTools.appendParaTextNode(div,"A kit typically consists a PCB, case," + " and components (controllers, sockets, switches)" + ", but PCBs are also considered to be kits here");
-		};
+		});
 		var kit = lc;
 		lc = new table_LinkListColumn("Pre-built",new table_FancyField("prebuilt",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1524,10 +1534,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(lc);
-		lc.onNotes = function(div) {
+		lc.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"A keyboard sold in a state that does not require soldering.");
 			tools_HtmlTools.appendParaTextNode(div,"This includes pre-soldered keyboards" + " (that you only need to put your switches/keycaps onto)" + " and fully built keyboards.");
-		};
+		});
 		lc.shortName = "PB";
 		var prebuilt = lc;
 		lc = new table_LinkListColumn("Build guide (WIP)",new table_FancyField("buildGuide",function(q,wantSet,setValue) {
@@ -1539,9 +1549,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(lc);
-		lc.onNotes = function(div) {
+		lc.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"If the keyboard has a semi-detailed guide for making one yourself from" + " kit or source files, this links to that.");
-		};
+		});
 		lc.shortName = "BG";
 		lc.canShowSingle = true;
 		var buildGuide = lc;
@@ -1554,10 +1564,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			}
 		}));
 		this.addColumn(lc);
-		lc.onNotes = function(div) {
+		lc.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"If there's a PDF/etc. that you can print" + " to check how your fingers would rest on the keyboard," + " this links to that.");
 			tools_HtmlTools.appendParaTextNode(div,"For open-source keyboards with PCBs," + " you may also print the .kicad_pcb file from KiCad.");
-		};
+		});
 		lc.shortName = "LR";
 		lc.canShowSingle = true;
 		var layoutRef = lc;
@@ -1645,10 +1655,10 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		var noteTotal = new table_FancyHeaderNote("NB! Counted total rather than per half");
 		header.editorNotes.push(noteTotal);
 		header.filterNotes.push(noteTotal);
-		header.filterNotes.push(new table_FancyHeaderNote("NB! ZMK + Wireless",function(div) {
+		header.filterNotes.push(new table_FancyHeaderNote("NB! ZMK + Wireless",table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"As of Nov 2023, ZMK firmware has limited support for pointing devices," + " therefore wireless keyboards with pointing devices typically only support them" + " in (wired) QMK mode.");
 			tools_HtmlTools.appendParaTextNode(div,"Please double-check documentation for keyboards to avoid disappointment.");
-		}));
+		})));
 		var col;
 		var irCol = new table_number_IntRangeColumn("Encoders",new table_FancyField("encoders",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1701,9 +1711,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			return range;
 		});
 		var pds = new table_number_IntRangeColumn("Pointing devices",pds_fd);
-		pds.onNotes = function(div) {
+		pds.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"By default, this adds up all pointing device types.");
-		};
+		});
 		pds.shortName = "PDs";
 		pds.filterMinDefault = 1;
 		this.addColumn(pds);
@@ -1757,9 +1767,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(irCol);
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Those little pointing sticks. Usually found somewhere between the keys.");
-		};
+		});
 		irCol = new table_number_IntRangeColumn("Joysticks",new table_FancyField("joysticks",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.joysticks = setValue;
@@ -1770,9 +1780,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(irCol);
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Like on a game controller!");
-		};
+		});
 		irCol = new table_number_IntRangeColumn("Push-buttons",new table_FancyField("dpads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.dpads = setValue;
@@ -1783,9 +1793,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(irCol);
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"[Typically] smaller buttons that aren't regular switches.","Generally good for one-off actions and less good for typing.");
-		};
+		});
 		irCol = new table_number_IntRangeColumn("2-way swiches",new table_FancyField("rockerSwitches",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.rockerSwitches = setValue;
@@ -1796,9 +1806,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(irCol);
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Also called \"rocker switches\"","Usually these can also be pressed down for a third action.");
-		};
+		});
 		irCol = new table_number_IntRangeColumn("4-way switches",new table_FancyField("dpads",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.dpads = setValue;
@@ -1809,9 +1819,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		}));
 		this.addColumn(irCol);
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"D-pads and alike.","Some can also be clicked for a 5th action.","The click usually takes 200-300g force, so don't count on it.");
-		};
+		});
 	}
 	,initConveniences: function(kb) {
 		var header = this.addFilterHeader("Conveniences");
@@ -1830,9 +1840,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		palm.shortLabels.set(type_WristPads.Detachable,"±");
 		palm.columnCount = 2;
 		palm.filterTags = [type_WristPads.Integrated,type_WristPads.Detachable];
-		palm.onNotes = function(div) {
+		palm.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Palm/wrist pads aren't very common on custom keyboards, but you can always buy them" + " separately, or use any other semi-soft object of your choice" + " (such as a folded little towel or a Purple Squishy)","Some people argue that making your own palm rest is often preferable as you can" + " pick the height/firmness.");
-		};
+		});
 		this.addColumn(palm);
 		var tkCol = new table_tag_TagListColumn("Tenting",new table_FancyField("tenting",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -1852,9 +1862,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.caseType;
 			}
 		}),type_CaseType);
-		ctCol.onNotes = function(div) {
+		ctCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"For pre-built/kit keyboards, Included means that it comes with the keyboard.","For open-source keyboards, Included means that case files can be found in the repo.","Third-party means that cases can be found or bought elsewhere.");
-		};
+		});
 		ctCol.shortName = "Case";
 		ctCol.shortLabels.set(type_CaseType.Unknown,"");
 		ctCol.shortLabels.set(type_CaseType.None,"-");
@@ -1871,9 +1881,9 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.extras;
 			}
 		}));
-		xCol.onNotes = function(div) {
+		xCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Cases, tenting kits, and so on");
-		};
+		});
 		xCol.shortName = "+";
 		this.addColumn(xCol);
 	}
@@ -1908,14 +1918,14 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.firmware;
 			}
 		}),type_Firmware);
-		fw.onNotes = function(div) {
+		fw.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Mostly determines your ability to use open-source configurators to customize the keyboard.");
 			if(fw.usedValues.exists(type_Firmware.Simple)) {
 				var p = tools_HtmlTools.appendParaTextNode(div,"");
 				tools_HtmlTools.appendElTextNode(p,"b","Simple");
 				p.appendChild(window.document.createTextNode(" means that firmware is non-re-flashable and cannot be configured."));
 			}
-		};
+		});
 		fw.shortLabels.set(type_Firmware.Unknown,"");
 		fw.shortLabels.set(type_Firmware.Custom,"*");
 		fw.columnCount = 2;
@@ -1953,8 +1963,8 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		asm.filterLabels.set(type_Assembly.Parametric,"Parametric (WIP)");
 		var v = "Case and/or PCB are generated using a script" + " that allows to adjust key positions/count to some extent";
 		asm.filterNotes.set(type_Assembly.Parametric,v);
-		asm.onNotes = function(div) {
-			asm.appendFilterNotes(div);
+		asm.onNotes = function(div,fe) {
+			asm.appendFilterNotes(div,fe);
 		};
 		asm.shortName = "Assembly";
 		this.addColumn(asm);
@@ -2159,11 +2169,11 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}));
 		this.addColumn(rowsCol);
-		rowsCol.onNotes = function(div) {
+		rowsCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard half's main area," + " not counting the thumb-keys row.");
 			_gthis.addImagePara(div,"matrix.png",450,250,"Key matrix on a Redox keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"Conventionally, 4th row is typically used for digit keys" + " and 5th row is typically used for F-key," + " but don't let anyone tell you what to do" + " - most of these keyboards are reprogrammable.");
-		};
+		});
 		rowsCol.filterMinDefault = 4;
 		rowsCol.filterMaxDefault = 3;
 		col = new table_number_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
@@ -2175,7 +2185,7 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}));
 		this.addColumn(col);
-		col.onNotes = function(div) {
+		col.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"The number of columns in a keyboard half's main area," + " not counting the extension columns.");
 			tools_HtmlTools.appendParaTextNode(div,"To avoid some classification oddities," + " let's assume non-chorded keyboards to intend to have at least 5 columns" + " and evaluate edge columns based on their layout, completeness," + " and suitability for common main-area mappings.");
 			tools_HtmlTools.appendParaTextNode(div,"For example:");
@@ -2185,7 +2195,7 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			li = tools_HtmlTools.appendElTextNode(ul,"li","ErgoDash's inner columns are extension columns since they are offset by half a key.");
 			li = tools_HtmlTools.appendElTextNode(ul,"li","Spleeb's and Drift's outer columns aren't extension columns" + " as only a single key is missing.");
 			tools_HtmlTools.appendParaTextNode(div,"This system isn't perfect and some keyboards don't fit well at all," + " in which case \"outer keys\" may have to be used to roughly annotate" + " total number of extra/missing keys across multiple columns.");
-		};
+		});
 		col.shortName = "Cols";
 		var rcolsFn = function(kb,set,val) {
 			if(set) {
@@ -2203,11 +2213,11 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		var rcolsFd = new table_FancyField("rcols",rcolsFn);
 		col = new table_number_IntRangeColumn("Right-side columns",rcolsFd);
 		col.shortName = "ColsR";
-		col.onNotes = function(div) {
+		col.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has more columns on the right side than on the left. " + "This can be handy to imitate a standard 65%/75% layout better, " + "or to make space for language-specific keys.");
 			_gthis.addImagePara(div,"rcols.png",450,150,"Additional columns on Articulation80");
 			tools_HtmlTools.appendParaTextNode(div,"Depending on the keyboard, not all of these might be fully filled with keys.");
-		};
+		});
 		this.addColumn(col);
 	}
 	,initClusters: function(kb) {
@@ -2225,12 +2235,12 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		}));
 		irCol.shortName = "#thumb";
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Keys below the main area that are (mostly) intended to be pressed with a thumb. " + "Counted per keyboard half.");
 			_gthis.addImagePara(div,"thumb-keys.png",450,120,"Thumb keys on a Breeze keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"On wider keyboards thumb keys tend to smoothly transition into a key row" + " so we'll assume the keys under the inner-most 4 main area columns to be thumb-accessible:");
 			_gthis.addImagePara(div,"thumb-keys-2.png",450,200,"Thumb keys on a Redox keyboard");
-		};
+		});
 		this.addColumn(irCol);
 		irCol = new table_number_IntRangeColumn("Inner keys",new table_FancyField("innerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2242,11 +2252,11 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		}));
 		irCol.shortName = "#inner";
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Sometimes keyboards have keys between the two halves that aren't part of the main area, " + "but still convenient enough to access.");
 			_gthis.addImagePara(div,"inner-keys.png",450,200,"Inner keys on a Redox keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"If the inner row is missing keys (such as on hummingbird-type keyboards)," + " this can be negative.");
-		};
+		});
 		this.addColumn(irCol);
 		irCol = new table_number_IntRangeColumn("Outer keys",new table_FancyField("outerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2259,12 +2269,12 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		this.addColumn(irCol);
 		irCol.shortName = "#outer";
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Sometimes a keyboard has an extra key or two on the outer edges.");
 			_gthis.addImagePara(div,"outer-keys.png",450,150,"Outer keys on an Avalanche keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"And if it's missing keys on the outer columns, this can be negative.");
 			_gthis.addImagePara(div,"outer-keys-2.png",450,150,"A missing outer key on a Drift keyboard");
-		};
+		});
 		irCol = new table_number_IntRangeColumn("Corner keys",new table_FancyField("cornerKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.cornerKeys = setValue;
@@ -2276,13 +2286,13 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		this.addColumn(irCol);
 		irCol.shortName = "#corner";
 		irCol.filterMinDefault = 1;
-		irCol.onNotes = function(div) {
+		irCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"If a keyboard has keys in bottom-left/bottom-right corners below the main area, " + "this is the number of such keys that are positioned in a convenient row.");
 			_gthis.addImagePara(div,"corner-keys.png",450,150,"Corner keys on an ErgoNICE keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"Such keys are often used for modifiers (on the left half) or " + "65%-style inline arrow key cluster / arrow key row (on the right half).");
 			tools_HtmlTools.appendParaTextNode(div,"If corner keys transition into thumb keys, this is capped at 5.");
 			_gthis.addImagePara(div,"corner-keys-2.png",450,200,"A continuous bottom row of keys on a Kapl keyboard");
-		};
+		});
 		this.initColNav(kb,true);
 		this.initColNum(kb);
 		var pinkyStag = new table_number_FloatColumn("Pinky stagger",new table_FancyField("pinkyStagger",function(q,wantSet,setValue) {
@@ -2297,9 +2307,9 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 		pinkyStag.shortName = "pkStag";
 		pinkyStag.sliderStep = 0.05;
 		pinkyStag.filterIncludeNullLabel = "Include keyboards without listed stagger";
-		pinkyStag.onNotes = function(div) {
+		pinkyStag.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Stagger between pinky finger column(s) and the ring finger column, " + "measured in key-size units (0.5 is half a key step down).");
-		};
+		});
 		this.addColumn(pinkyStag);
 		var splay = new table_tag_TagColumn("Splay",new table_FancyField("splay",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -2310,10 +2320,10 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}),type_SplayBase);
 		splay.show = false;
-		splay.onNotes = function(div) {
+		splay.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Most keyboards have columns of keys parallel to each other, " + "but you can also have them at a slight angle for convenience.");
 			tools_HtmlTools.appendParaTextNode(div,"\"Optional\" usually means that there are two versions of the keyboard - " + "one with parallel columns and one with angled columns.");
-		};
+		});
 		splay.filterLabels.set(type_SplayBase.PinkyOnly,"Pinky columns only");
 		splay.shortLabels.set(type_SplayBase.No,"-");
 		splay.shortLabels.set(type_SplayBase.Yes,"+");
@@ -2833,7 +2843,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		this.addColumn(col);
 		col.show = true;
 		col.shortName = "#keys";
-		col.onEditorNotes = function(div) {
+		col.onEditorNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			var extra = tools_HtmlTools.appendElTextNode(div,"input");
 			extra.placeholder = "extra";
 			var p = tools_HtmlTools.appendParaTextNode(div,"");
@@ -2908,7 +2918,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				}
 				findInput("keys").value = "" + out;
 			};
-		};
+		});
 		var rows = new table_number_IntRangeColumn("Rows",new table_FancyField("rows",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.rows = setValue;
@@ -2921,14 +2931,14 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		rows.show = true;
 		rows.filterMinDefault = 4;
 		rows.filterMaxDefault = 3;
-		rows.onNotes = function(div) {
+		rows.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"(not counting the modifier row)");
-		};
+		});
 		var addColCountCol = function(row,letter,f,k1,k2) {
 			var name = "Columns Δ " + row + " (\"" + letter + "\")";
 			col = new table_number_IntRangeColumn(name,f);
 			col.shortName = "Δ" + letter;
-			col.onNotes = function(div) {
+			col.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 				if(row == 0) {
 					tools_HtmlTools.appendParaTextNode(div,"Number of columns in digit row " + " (if keyboard has one)" + " relative to a standard keyboard layout.");
 				} else {
@@ -2941,7 +2951,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				p.appendChild(window.document.createTextNode(" and "));
 				tools_HtmlTools.appendElTextNode(p,"code",k2);
 				p.appendChild(window.document.createTextNode(", and so on."));
-			};
+			});
 			_gthis.addColumn(col);
 		};
 		addColCountCol(0,"1",new table_FancyField("dCols",function(q,wantSet,setValue) {
@@ -3022,7 +3032,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}),type_row_SpaceShape);
 		space.columnCount = 2;
-		space.onNotes = function(div) {
+		space.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
 			var li = tools_HtmlTools.appendElTextNode(ul,"li");
 			tools_HtmlTools.appendElTextNode(li,"b","SplitDistinct");
@@ -3033,7 +3043,7 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 			li = tools_HtmlTools.appendElTextNode(ul,"li");
 			tools_HtmlTools.appendElTextNode(li,"b","Multi");
 			li.appendChild(window.document.createTextNode(" means that both spacebars are split into two or more keys" + " (see Thumb Keys)"));
-		};
+		});
 		addHidden(space);
 		var bksp = new table_tag_TagListColumn("Backspace",new table_FancyField("backspace",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -3045,12 +3055,12 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		}),type_row_BkspShape);
 		bksp.columnCount = 2;
 		bksp.shortName = "Bksp";
-		bksp.onNotes = function(div) {
+		bksp.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			var ul = tools_HtmlTools.appendElTextNode(div,"ul");
 			tools_HtmlTools.appendExplainer(ul,"Wide","is the standard size, usually 2u");
 			tools_HtmlTools.appendExplainer(ul,"Split","is two (usually 1u) keys, commonly seen in CJK keyboards");
 			tools_HtmlTools.appendExplainer(ul,"Short","is a shorter (1.5u or less) key without another key to keep it company");
-		};
+		});
 		addHidden(bksp);
 		var mkeys = new table_tag_TagListColumn("Extra keys in the middle",new table_FancyField("extraRowKeys",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -3107,11 +3117,11 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 		fnPos.filterLabels.set(type_row_FnPos.ReplaceRGui,"Replaces Right Gui (Win/Cmd/Meta)");
 		fnPos.filterLabels.set(type_row_FnPos.BeforeRGui,"Before Right Gui (Win/Cmd/Meta)");
 		fnPos.filterLabels.set(type_row_FnPos.BeforeRCtl,"Before Right Control");
-		fnPos.onNotes = function(div) {
+		fnPos.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			var p = tools_HtmlTools.appendParaTextNode(div,"If a keyboard has a ");
 			tools_HtmlTools.appendElTextNode(p,"i","non-remappable");
 			p.appendChild(window.document.createTextNode(" Fn key, this indicates where's that"));
-		};
+		});
 		addHidden(fnPos);
 		var leftMods = new table_number_IntRangeColumn("Left-side mods",new table_FancyField("leftMods",function(q,wantSet,setValue) {
 			if(wantSet) {
@@ -3121,9 +3131,9 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.leftMods;
 			}
 		}));
-		leftMods.onNotes = function(div) {
+		leftMods.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Counts the common modifier keys (Shift/Ctrl/Alt/Gui) as well as " + "situational keys that output a keycode and can be remapped.");
-		};
+		});
 		leftMods.shortName = "#lm";
 		addHidden(leftMods);
 		var rightMods = new table_number_IntRangeColumn("Right-side mods",new table_FancyField("rightMods",function(q,wantSet,setValue) {
@@ -3134,9 +3144,9 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.rightMods;
 			}
 		}));
-		rightMods.onNotes = function(div) {
+		rightMods.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Counts the common modifier keys (Shift/Ctrl/Alt/Gui), Menu, and " + "situational keys that output a keycode and can be remapped.");
-		};
+		});
 		rightMods.shortName = "#rm";
 		addHidden(rightMods);
 		this.initColNav(kb,false);
@@ -3152,9 +3162,9 @@ RowStagTable.prototype = $extend(KeyboardTable.prototype,{
 				return q.mouseWheel;
 			}
 		}),type_row_MouseWheel);
-		mw.onNotes = function(div) {
+		mw.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Just a mouse wheel, not remappable.");
-		};
+		});
 		mw.shortName = "wheel";
 		this.addColumn(mw);
 	}
@@ -4507,7 +4517,7 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 				var div = tools_HtmlTools.appendElTextNode(details,"div","");
 				div.classList.add("note");
 				var notice = tools_HtmlTools.appendElTextNode(div,"span",note.text);
-				table_FancyTableFilters.addNotesFor(note.func,notice);
+				table_FancyTableFilters.addNotesFor(note.func,notice,true);
 			}
 			continue;
 		}
@@ -4529,7 +4539,7 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 		colNameEl.appendChild(window.document.createTextNode(colName));
 		colNameEl.classList.add("column-name");
 		var tmp1 = column.onEditorNotes;
-		table_FancyTableFilters.addNotesFor(tmp1 != null ? tmp1 : column.onNotes,colNameEl);
+		table_FancyTableFilters.addNotesFor(tmp1 != null ? tmp1 : column.onNotes,colNameEl,true);
 		meta.appendChild(colNameEl);
 		meta.appendChild(divFilters);
 		tr.appendChild(meta);
@@ -4815,7 +4825,7 @@ var table_FancyTableEditorShortcutsAction = $hxEnums["table.FancyTableEditorShor
 table_FancyTableEditorShortcutsAction.__constructs__ = [table_FancyTableEditorShortcutsAction.Prev,table_FancyTableEditorShortcutsAction.Next,table_FancyTableEditorShortcutsAction.CbUp,table_FancyTableEditorShortcutsAction.CbDown,table_FancyTableEditorShortcutsAction.CbLeft,table_FancyTableEditorShortcutsAction.CbRight];
 var table_FancyTableFilters = function() { };
 table_FancyTableFilters.__name__ = true;
-table_FancyTableFilters.addNotesFor = function(onNotes,el) {
+table_FancyTableFilters.addNotesFor = function(onNotes,el,forEditor) {
 	if(onNotes != null) {
 		el.classList.add("has-notes");
 		el.title = "(click to view notes)";
@@ -4831,14 +4841,14 @@ table_FancyTableFilters.addNotesFor = function(onNotes,el) {
 		opts["maxWidth"] = 480;
 		externs_TippyOptions.setLazyContent(opts,function() {
 			var div = window.document.createElement("div");
-			onNotes(div);
+			onNotes(div,forEditor);
 			return div;
 		});
 		Tippy(el,opts);
 	}
 };
-table_FancyTableFilters.addNotes = function(column,el) {
-	table_FancyTableFilters.addNotesFor(column.onNotes,el);
+table_FancyTableFilters.addNotes = function(column,el,forEditor) {
+	table_FancyTableFilters.addNotesFor(column.onNotes,el,forEditor);
 };
 table_FancyTableFilters.build = function(table,out) {
 	var dest = out;
@@ -4871,7 +4881,7 @@ table_FancyTableFilters.build = function(table,out) {
 				var div = tools_HtmlTools.appendElTextNode(details,"div","");
 				div.classList.add("note");
 				var notice = tools_HtmlTools.appendElTextNode(div,"span",note.text);
-				table_FancyTableFilters.addNotesFor(note.func,notice);
+				table_FancyTableFilters.addNotesFor(note.func,notice,false);
 			}
 			continue;
 		}
@@ -4971,7 +4981,7 @@ table_FancyTableFilters.build = function(table,out) {
 		var meta = window.document.createElement("div");
 		meta.classList.add("name");
 		meta.appendChild(window.document.createTextNode(colName));
-		table_FancyTableFilters.addNotes(column1[0],meta);
+		table_FancyTableFilters.addNotes(column1[0],meta,false);
 		tr.appendChild(meta);
 		divFilters[0] = window.document.createElement("div");
 		column1[0].buildFilter(divFilters[0]);
@@ -4980,6 +4990,15 @@ table_FancyTableFilters.build = function(table,out) {
 		tr.appendChild(divFilters[0]);
 		dest.appendChild(tr);
 	}
+};
+var table_FancyTableOnNotes = {};
+table_FancyTableOnNotes.fromSimple = function(fn) {
+	return function(el,_) {
+		fn(el);
+	};
+};
+table_FancyTableOnNotes.get_call = function(this1) {
+	return this1;
 };
 var table_FancyTableShuffler = function(name) {
 	table_FancyColumn.call(this,name);
@@ -6798,7 +6817,7 @@ table_tag_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 	,getFilterNotes: function(val) {
 		return null;
 	}
-	,appendFilterNotes: function(out) {
+	,appendFilterNotes: function(out,forEditor) {
 		var ul = null;
 		var _g = 0;
 		var _g1 = this.getTagNames();
@@ -6806,7 +6825,7 @@ table_tag_TagLikeColumnBase.prototype = $extend(table_FancyColumn.prototype,{
 			var name = _g1[_g];
 			++_g;
 			var tag = this.nameToTag(name);
-			if(!this.showInFilters(tag)) {
+			if(!forEditor && !this.showInFilters(tag)) {
 				continue;
 			}
 			var notes = this.getFilterNotes(tag);
@@ -7450,11 +7469,11 @@ table_tag_TagLikeListColumnTools.buildValue = function(column,out,item) {
 		var span = tools_HtmlTools.appendElTextNode(out,"span",column.getShortLabel(tag));
 		var notes = [column.getShortNotes(item,tag)];
 		if(notes[0] != null) {
-			table_FancyTableFilters.addNotesFor((function(notes) {
+			table_FancyTableFilters.addNotesFor(table_FancyTableOnNotes.fromSimple((function(notes) {
 				return function(ne) {
 					ne.appendChild(window.document.createTextNode(notes[0]));
 				};
-			})(notes),span);
+			})(notes)),span,false);
 		}
 	}
 	tools_HtmlTools.setTippyTitle(out,table_tag_TagLikeListColumnTools.getValueTip(column,item));

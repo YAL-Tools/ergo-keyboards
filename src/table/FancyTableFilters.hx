@@ -18,7 +18,7 @@ import js.Browser.*;
  * @author YellowAfterlife
  */
 class FancyTableFilters {
-	public static function addNotesFor(onNotes:Element->Void, el:Element) {
+	public static function addNotesFor(onNotes:FancyTableOnNotes, el:Element, forEditor:Bool) {
 		if (onNotes != null) {
 			el.classList.add("has-notes");
 			el.title = "(click to view notes)";
@@ -29,14 +29,14 @@ class FancyTableFilters {
 			opts.maxWidth = 480;
 			opts.setLazyContent(function() {
 				var div = document.createDivElement();
-				onNotes(div);
+				onNotes.call(div, forEditor);
 				return div;
 			});
 			Tippy.bind(el, opts);
 		}
 	}
-	public static function addNotes<T>(column:FancyColumn<T>, el:Element) {
-		addNotesFor(column.onNotes, el);
+	public static function addNotes<T>(column:FancyColumn<T>, el:Element, forEditor:Bool) {
+		addNotesFor(column.onNotes, el, forEditor);
 	}
 	public static function build<T>(table:FancyTable<T>, out:Element) {
 		var dest:Element = out;
@@ -55,7 +55,7 @@ class FancyTableFilters {
 						var div = details.appendElTextNode("div", "");
 						div.classList.add("note");
 						var notice = div.appendElTextNode("span", note.text);
-						addNotesFor(note.func, notice);
+						addNotesFor(note.func, notice, false);
 					}
 					continue;
 				case Column(col): col;
@@ -124,7 +124,7 @@ class FancyTableFilters {
 			var meta = document.createDivElement();
 			meta.classList.add("name");
 			meta.appendTextNode(colName);
-			addNotes(column, meta);
+			addNotes(column, meta, false);
 			tr.appendChild(meta);
 			
 			divFilters = document.createDivElement();

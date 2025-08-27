@@ -690,8 +690,8 @@ window.rowStagData = [
 	"stagger": "Row",
 	"connection": [
 		"Wired",
-		"Bluetooth",
-		"Wireless"
+		"BluetoothWithCable",
+		"WirelessWithCable"
 	],
 	"keys": 74,
 	"rows": 4,
@@ -709,7 +709,7 @@ window.rowStagData = [
 	"software": "Custom",
 	"wristPads": "Integrated",
 	"prebuilt": [
-		"!http://en.rkgaming.com/product/41/",
+		//"!http://en.rkgaming.com/product/41/",
 		"!https://www.amazon.com/RK-ROYAL-KLUDGE-Bluetooth-Mechanical/dp/B0C88WHV2W?th=1"
 	]
 },
@@ -913,7 +913,7 @@ window.rowStagData = [
 	"stagger": "Row",
 	"connection": [
 		"Wired",
-		"Bluetooth"
+		"BluetoothWithCable"
 	],
 	"keys": 83,
 	"rows": 5,
@@ -1450,7 +1450,7 @@ window.rowStagData = [
 	"name": "GMK70",
 	"img": "gmk70.webp",
 	"shape": "Split",
-	"connection": ["Wired", "Bluetooth", "Wireless"],
+	"connection": ["Wired", "BluetoothWithCable", "WirelessWithCable"],
 	"stagger": "Row",
 	"keys": 70,
 	"rows": 4,
@@ -1576,7 +1576,7 @@ window.rowStagData = [
 	],
 	"shape": "Split",
 	"stagger": "Row",
-	"connection": ["Wired", "Bluetooth"],
+	"connection": ["Wired", "BluetoothWithCable"],
 	"keys": {"min": 87, "max": 88},
 	"rows": 5,
 	"lshift": ["ANSI", "ISO"],
@@ -1600,7 +1600,7 @@ window.rowStagData = [
 	"notes": "Note the displaced `/?` key. I'd recommend swapping it with RShift in configurator.",
 	"shape": "Split",
 	"stagger": "Row",
-	"connection": ["Wired", "Wireless"],
+	"connection": ["Wired", "WirelessWithCable"],
 	"keys": 65,
 	"rows": 4,
 	"zCols": -1,
@@ -1757,7 +1757,7 @@ window.rowStagData = [
 	"img": "epomaker-split-65.webp",
 	"shape": "Split",
 	"stagger": "Row",
-	"connection": ["Wired", "Bluetooth", "Wireless"],
+	"connection": ["Wired", "BluetoothWithCable", "WirelessWithCable"],
 	"keys": 68,
 	"rows": 4,
 	"lshift": "ANSI",

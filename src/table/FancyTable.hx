@@ -11,6 +11,7 @@ import js.lib.Object;
 import table.FancyColumn;
 import table.FancyTableEditor;
 import table.FancyRow;
+import table.FancyTableOnNotes;
 import table.LinkListColumn;
 import type.IntRange;
 import type.Keyboard;
@@ -259,8 +260,8 @@ class FancyFilterHeader {
 }
 class FancyHeaderNote {
 	public var text:String;
-	public var func:Element->Void;
-	public function new(text:String, ?func:Element->Void) {
+	public var func:FancyTableOnNotes;
+	public function new(text:String, ?func:FancyTableOnNotes) {
 		this.text = text;
 		this.func = func;
 	}

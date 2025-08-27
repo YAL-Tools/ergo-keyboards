@@ -7963,6 +7963,7 @@ window.keyboardData = [
 	"pinkyStagger": 0.6,
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
+	"keySpacing": "Choc",
 	"trackballs": {"min": 0, "max": 2},
 	"displays": {"min": 0, "max": 2},
 	"firmware": "QMK",
@@ -8143,7 +8144,79 @@ window.keyboardData = [
 	"caseType": "Included",
 	"source": "https://github.com/tstrube/SplittoDogu"
 },
-"2025-08-15"
+{
+	"name": "Tempest",
+	"img": "tempest.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": {"min": 36, "max": 38},
+	"rows": 3,
+	"cols": 5,
+	"thumbKeys": 3,
+	"outerKeys": {"min": 0, "max": 1},
+	"pinkyStagger": 0.4,
+	"splay": "Yes",
+	"hotswap": "Yes",
+	"switchProfile": "Choc",
+	"keySpacing": "Choc",
+	"displays": {"min": 0, "max": 2},
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": ["Pro Micro", "Nice!Nano"],
+	"caseType": "Included",
+	"source": "https://github.com/thrly/tempest"
+},
+{
+	"name": "ZenFlow",
+	"img": "zenflow.webp",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"keys": 18,
+	"rows": 2,
+	"cols": 4,
+	"thumbKeys": 2,
+	"pinkyStagger": 1,
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc"],
+	"keySpacing": ["MX", "Choc"],
+	"displays": {"min": 0, "max": 2},
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Handwired", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"caseType": "Included",
+	"source": "https://github.com/Aodrulez/zenFlow"
+},
+{
+	"name": "mtk64e",
+	"img": "mtk64e.webp",
+	"notes": "The author sells various revisions of the keyboard and related accessories.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 64,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"cornerKeys": 2,
+	"pinkyStagger": 0.3,
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"encoders": 2,
+	"pointingDevices": 1,
+	"trackballs": 1,
+	"firmware": ["QMK", "ZMK"],
+	"software": ["Vial", "Remap"],
+	"ctlCount": 2,
+	"caseType": "Included",
+	"kit": "https://mentako-ya.myshopify.com/",
+	"prebuilt": "https://mentako-ya.myshopify.com/"
+},
+"2025-08-28"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8196,7 +8269,6 @@ Svalboard (and how does that map to column-row classification)
 32s https://github.com/dlip/tenshi https://new.reddit.com/r/ErgoMechKeyboards/comments/1ebsjye/tenshi_split_keyboard_with_slideadjustable/
 38u https://github.com/jeffdhooton/jingis38 https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec0cyf/38key_columnstagger_board_build/
 58s Sofle Choc with V2 pinky stagger https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit/
-18s https://github.com/Aodrulez/zenFlow
 30u https://github.com/AlaaSaadAbdo/battoota/tree/main/boards/30keys/Ghazal https://new.reddit.com/r/ErgoMechKeyboards/comments/1eibqxn/ghazal_a_30_key_wireless_unibody_with_integrated/
 42s https://github.com/yangit/flactyl https://new.reddit.com/r/ErgoMechKeyboards/comments/13qep4y/after_4_year_lurking_and_2_years_building_my_own/
 36s https://fingerpunch.xyz/product/baby-yoda-keyboard/
@@ -8282,8 +8354,6 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 40u crowkb_wing https://github.com/c-botz/crowkb
 34s rkbrd https://github.com/prepor/rkbrd/tree/main/3
 54s bug54 https://github.com/ogruendel/bug54-zmk-config
-64s mtk64 https://mentako-ya.myshopify.com
-36s https://github.com/thrly/tempest
 34s zaphod (EC) https://gitlab.com/lpgalaxy/zaphod-ecbrox https://github.com/petejohanson/zaphod-ecbrox-zmk-module
 36s https://github.com/flhps/splaybreak-keyboard
 48s Cornix

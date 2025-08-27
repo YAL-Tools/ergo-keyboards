@@ -61,7 +61,7 @@ class TagLikeListColumnTools {
 			if (notes != null) {
 				FancyTableFilters.addNotesFor(function(ne) {
 					ne.appendTextNode(notes);
-				}, span);
+				}, span, false);
 			}
 		}
 		out.setTippyTitle(getValueTip(column, item));

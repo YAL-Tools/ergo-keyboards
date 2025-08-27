@@ -96,6 +96,7 @@ class ColStagBoards {
 			"[v:Case] https://github.com/kisonecat/corne-case",
 			"[v:Tented case] https://www.thingiverse.com/thing:4705667",
 			"[v:Magnetic case] https://github.com/Runningtarrens/Mcorne",
+			"[v:Magnetic case] https://www.printables.com/model/400373-bluetooth-corne-mini-choc-w-magnetic-travel-mode",
 		];
 		kb.img = "crkbd.jpg";
 		kb.addSKBC();
@@ -638,6 +639,9 @@ class ColStagBoards {
 		kb.setNotswap([MX, Alps], MX);
 		kb.setMatrix(70, 6, 4);
 		kb.setExtras([2, 4], 3, 0, 4);
+		kb.extras = [
+			"[v:Enclosed case] https://github.com/prilosac/ErgoDashEnclosedCase",
+		];
 		kb.kit = [
 			"https://keebd.com/products/ergodash-keyboard-kit",
 			"https://shop.yushakobo.jp/en/products/ergodash",
