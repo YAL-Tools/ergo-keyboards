@@ -96,3 +96,4 @@ EC12:
 
 [Roller encoder](https://github.com/kumamuk-git/CKW12)
 [Another roller encoder](https://www.reddit.com/r/ErgoMechKeyboards/comments/1lk5dev/lets_build_yet_another_encoder/)
+[And another roller encoder](https://github.com/EverydayErgo/MEH01) / [r](https://www.reddit.com/r/ErgoMechKeyboards/comments/1n34znm/meh01_substitute_horizontal_encoder_for_evqwgd001/)

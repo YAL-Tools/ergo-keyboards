@@ -8491,6 +8491,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1kqvws7/serenity/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1lp6bxr/kaizen_a_split_ergo_unibody/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1lruphf/couldnt_buy_a_mikefive_so_i_made_my_own/
 https://www.kickstarter.com/projects/1866868344/wing-45-true-wireless-ergo-columnar-split-keyboard
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1n22qeg/nata_keyboard_project_part_2_big_update_case/
 https://posture.works/baseform/
 TAIKO-01
 
