@@ -8216,7 +8216,66 @@ window.keyboardData = [
 	"kit": "https://mentako-ya.myshopify.com/",
 	"prebuilt": "https://mentako-ya.myshopify.com/"
 },
-"2025-08-28"
+{
+	"name": "zwerg",
+	"img": "zwerg.webp",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 50,
+	"rows": 4,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 4,
+	"navCluster": ["None", "Squished"],
+	"numpad": "None",
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"firmware": "QMK",
+	"assembly": "PCB",
+	"ctlCount": 2,
+	"ctlFootprint": "!0xCB Gemini",
+	"ctlName": "RP2040",
+	"wristPads": "None",
+	"tenting": "Fixed",
+	"caseType": "Included",
+	"web": "https://floookay.de/zwerg",
+	"source": "https://github.com/floookay/zwerg"
+},
+{
+	"name": "barnacle",
+	"img": "barnacle.webp",
+	"shape": "Unibody",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 61,
+	"rows": 5,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 4,
+	"navCluster": "None",
+	"numpad": ["None", "Mini"],
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"encoders": {"min": 0, "max": 2},
+	"encoderType": "Knob",
+	"displays": {"min": 0, "max": 1},
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": "PCB",
+	"ctlCount": 1,
+	"ctlFootprint": "!0xCB Helios",
+	"ctlName": "RP2040",
+	"wristPads": "None",
+	"tenting": "Fixed",
+	"caseType": "Included",
+	"web": "https://floookay.de/barnacle",
+	"source": "https://github.com/floookay/barnacle"
+},
+"2025-08-29"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8317,7 +8376,6 @@ https://github.com/dlip/harite-v2
 24s https://kbd.news/Diamond-2418.html
 20s https://github.com/miketronic/10x2?tab=readme-ov-file
 36u https://github.com/TeXitoi/keymini/
-61u https://github.com/floookay/barnacle
 42s roBa https://kbd.news/roBa-2550.html
 36s https://github.com/n1tsu/n36tsu
 42s https://github.com/Dooez/thoren-build
