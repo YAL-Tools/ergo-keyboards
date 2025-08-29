@@ -1611,7 +1611,7 @@ window.keyboardData = [
 	"kit": "!https://holykeebs.com/products/span",
 	"prebuilt": "!https://holykeebs.com/products/span"
 },
-{
+/*{
 	"name": "Ergodonk",
 	"img": "ergodonk.jpg",
 	"shape": ["Split", "Half"],
@@ -1631,7 +1631,7 @@ window.keyboardData = [
 		"https://imgur.com/a/Lt5Mwwv",
 		"https://www.thingiverse.com/thing:4892740"
 	]
-},
+},*/
 {
 	"name": "Pluckey",
 	"img": "pluckey.jpg",
@@ -4459,7 +4459,7 @@ window.keyboardData = [
 	"source": "https://github.com/illness072/elephant42",
 	"layoutRef": "SKBC"
 },
-{
+/*{
 	"name": "gameboard",
 	"img": "gameboard.jpg",
 	"shape": [
@@ -4488,7 +4488,7 @@ window.keyboardData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"source": "https://github.com/zzeneg/gameboard"
-},
+},*/
 {
 	"name": "Lynx",
 	"img": [
@@ -4577,7 +4577,7 @@ window.keyboardData = [
 	"splay": "PinkyOnly",
 	"source": "inherit"
 },
-{
+/*{
 	"name": "ETERNAL Keypad",
 	"img": "ETERNAL-keypad.jpg",
 	"shape": [
@@ -4603,7 +4603,7 @@ window.keyboardData = [
 	],
 	"software": "VIA",
 	"source": "https://github.com/duckyb/eternal-keypad"
-},
+},*/
 {
 	"name": "articulation70",
 	"img": [
@@ -8529,6 +8529,13 @@ keeb supply stress
 ZUOYA HE30
 Delux T9, T11
 https://github.com/htx-studio/One-Handed-Keyboard
+
+Colstag (note: commented out above):
+27 Ergodonk https://www.thingiverse.com/thing:4892740 https://imgur.com/a/ergodonk-Lt5Mwwv
+31 https://github.com/zzeneg/gameboard
+36 https://github.com/duckyb/eternal-keypad
+
+Ortho:
 10 https://github.com/turtle-bazon/PNCATEHO/tree/master/light/pcb
 
 Unreleased:

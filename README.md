@@ -24,6 +24,10 @@ add the new keyboard to `docs/keyboards.js`,
 add its photo to `docs/img` (try to keep it below 1280x960 / 350KB),
 and submit a pull request.
 
+If you have ImageMagick installed, you might run `create-small.bat` (Windows) or `create-small.sh` (Linux; untested on Mac)
+in `docs/` to generate the smaller WEBPs that are used for "Table with images" and "Gallery" display modes.
+Otherwise I will do so after merging the PR - no biggie.
+
 ## Building
 
 You'll need [Haxe](https://haxe.org) installed.
