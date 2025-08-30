@@ -1967,17 +1967,122 @@ window.rowStagData = [
 	"lighting": ["RGB", "Underglow"],
 	"firmware": ["QMK", "ZMK"],
 	"caseType": "Included",
-	"kit": "https://shop.yushakobo.jp/en/products/7spro",
+	"kit": "!https://shop.yushakobo.jp/en/products/7spro",
 	"buildGuide": "https://salicylic-acid3.hatenablog.com/entry/7spro-build-guide"
 },
-"2025-08-26"
+{
+	"name": "Orange Boy Ergo",
+	"img": "orange-boy-ergo.webp",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": {"min": 67, "max": 70},
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": ["Normal", "LeftCut"],
+	"enter": "ANSI",
+	"space": "SplitDistinctFn",
+	"backspace": ["Wide", "Split"],
+	"extraRowKeys": "ExtraB",
+	"thumbKeys": 1,
+	"leftMods": 4,
+	"rightMods": {"min": 2, "max": 4},
+	"navCluster": ["None", "Arrows"],
+	"hotswap": "No",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"encoders": {"min": 0, "max": 1},
+	"encoderType": "Knob",
+	"firmware": "QMK",
+	"software": ["VIA", "Vial"],
+	"caseType": "Included",
+	"kit": "!https://mechwild.com/product/orange-boy-ergo/",
+	"buildGuide": "https://mechwild.com/guides/build-guides/obe-build-guide/"
+},
+{
+	"name": "YMDK Wings",
+	"img": "ymdk-wings.webp",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": "Wired",
+	"keys": 67,
+	"rows": 4,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinctFn",
+	"backspace": ["Wide", "Split"],
+	"thumbKeys": 1,
+	"leftMods": 3,
+	"rightMods": 2,
+	"navCluster": "Inline",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "QMK",
+	"software": "VIA",
+	"kit": "!https://ymdkey.com/products/gb-ymdk-wings-aluminum-cnc-top-bottom-qmk-rgb-hotswap-v1-pcb-diy-kit",
+	"prebuilt": "!https://ymdkey.com/products/ymdk-wings-full-keyboard-south-facing-rgb-hotswap-alice"
+},
+{
+	"name": "LEOBOG A75",
+	"img": "leobog-a75.webp",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": ["Wired", "Bluetooth", "Wireless"],
+	"keys": 82,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "Normal",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"thumbKeys": 1,
+	"leftMods": 4,
+	"rightMods": 4,
+	"navCluster": "Inline",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"lighting": ["RGB", "Underglow"],
+	"firmware": "Custom",
+	"software": "Custom",
+	"caseType": "Included",
+	"prebuilt": "!https://leobogtech.com/products/leobog-a75"
+},
+{
+	"name": "FEKER Alice75",
+	"img": "feker-alice-75.webp",
+	"shape": "Unibody",
+	"stagger": "Row",
+	"connection": ["Wired", "Bluetooth", "Wireless"],
+	"keys": 83,
+	"rows": 5,
+	"lshift": "ANSI",
+	"rshift": "RightCut",
+	"enter": "ANSI",
+	"space": "SplitDistinct",
+	"backspace": "Wide",
+	"extraRowKeys": "ExtraB",
+	"thumbKeys": 1,
+	"leftMods": 4,
+	"rightMods": 3,
+	"navCluster": "Inline",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"encoders": 1,
+	"lighting": "RGB",
+	"firmware": "Custom",
+	"software": "VIA",
+	"caseType": "Included",
+	"prebuilt": "https://fekertech.com/products/feker-alice75-qmk-via"
+},
+"2025-08-30"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
 75%u Keychron V10
 65%u Keychron V8
-65%u Epomaker Alice Kit https://epomaker.com/products/epomaker-alice-via-diy-kit
-65%u Orange Boy Ergo https://mechwild.com/product/orange-boy-ergo/
 40%s Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
 65%u https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
 75%u Perixx PERIBOARD-613 B
@@ -1987,21 +2092,19 @@ window.rowStagTODOs = `
 65%u CIDOO V68
 60%u https://kbd.news/Amano-1886.html
 40%u https://kbd.news/Feather-40-1733.html
-65%u YMDK Wings https://ymdkey.com/products/ymdk-wings-aluminum-cnc-top-bottom-qmk-pcb-full-assembly-keyboard-jade-navy-cream-switches
 65%u https://kbd.news/Kolibri-keyboard-1093.html
 100%u https://www.adesso.com/products/tru-form-ergonomic-touchpad-keyboard/
 100%u https://www.adesso.com/products/2-4-ghz-wireless-ergonomic-trackball-keyboard/
 65%u https://ajazzstore.com/products/ajazz-aks068-pro
 65%u https://www.qwertykeys.com/products/neo-ergo
 60%u https://www.primekb.com/collections/keyboards
-75%u LEOBOG A75
 98%u Delux GM902pro https://deluxworld.com/en-pro-detail-GM902pro.html
 100% X9 https://www.amazon.com/dp/B08FMMGMPN
 40%u Cisne
 98%u https://us.macally.com/collections/bluetooth-ergonomic-keyboard-for-mac-and-pc-split-keyboard-naturally-comfortable
 100%u Hama "EKC-400" https://www.amazon.de/-/en/Ergonomic-Keyboard-Wrist-Wired-Removable/dp/B0C2PDKM8R/ https://www.amazon.com/Hama-Ergonomic-Keyboard-Wrist-Removable/dp/B0C2PDKM8R https://nordics.hama.com/00182630/hama-ekc-400-ergonomic-keyboard-with-wrist-rest-black https://nordics.hama.com/products/pc-laptop-accessories/keyboard?page=3&pagesize=24&infiniteScrolling=true&fetchAllBefore=true
 100%u Digitus https://www.amazon.de/-/en/DIGITUS-Ergonomic-Wireless-Keyboard-Receiver/dp/B08932QLJ6/
-Keychron Q13, Q14, Q10, V10, Q8, V8
+Keychron Q13, Q14, Q10, V10, Q8
 40%u https://github.com/ElKinoflop/Vozvan
 65%u https://nicoandstephstudios.com/products/arisu
 65%u MAJA V2
@@ -2010,7 +2113,6 @@ Keychron Q13, Q14, Q10, V10, Q8, V8
 100%u https://www.adesso.com/products/wired-wireless-bluetooth-ergonomic-multi-os-illuminated-mechanical-via-keyboard-with-copilot-ai-hotkey/ 
 100%u https://ragnok.com/products/split-ergonomic-mechanical-keyword-for-gaming-business
 60%u https://github.com/karnadii/geulis
-75% FEKER Alice75
 100%u https://github.com/dcpedit/adelheid-xt
 65% https://shop.yushakobo.jp/products/9455
 100%u https://nopunin10did.com/jabberwocky/

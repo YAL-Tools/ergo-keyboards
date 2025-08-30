@@ -8275,7 +8275,40 @@ window.keyboardData = [
 	"web": "https://floookay.de/barnacle",
 	"source": "https://github.com/floookay/barnacle"
 },
-"2025-08-29"
+{
+	"name": "Cornix",
+	"img": "cornix.webp",
+	"notes": [
+		"Photo from kbd.news review",
+		"https://kbd.news/Cornix-review-2715.html"
+	],
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": 48,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"cornerKeys": 3,
+	"pinkyStagger": 0.2,
+	"hotswap": "Yes",
+	"switchProfile": "ChocV2",
+	"keySpacing": "MX",
+	"encoders": 2,
+	"encoderType": "Knob",
+	"displays": 2,
+	"lighting": "None",
+	"firmware": "QMK",
+	"software": "Vial",
+	"ctlCount": 2,
+	"tenting": "Legs",
+	"caseType": "Included",
+	"prebuilt": [
+		"!https://metakeebs.com/products/pre-order-jezail-cornix-split-keyboard",
+		"https://www.aliexpress.com/item/1005009384037659.html"
+	]
+},
+"2025-08-30"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8414,7 +8447,6 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 54s bug54 https://github.com/ogruendel/bug54-zmk-config
 34s zaphod (EC) https://gitlab.com/lpgalaxy/zaphod-ecbrox https://github.com/petejohanson/zaphod-ecbrox-zmk-module
 36s https://github.com/flhps/splaybreak-keyboard
-48s Cornix
 54s https://github.com/lordxax/sildactyl54
 36s https://github.com/fooker/mnhttn
 48s https://github.com/venc0r/mnhttn
