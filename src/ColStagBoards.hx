@@ -1290,7 +1290,7 @@ class ColStagBoards {
 			"[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone",
 			"[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard",
 			"[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415",
-			"[v:Choc+legs] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388",
+			"[v:Choc+legs] https://falbatech.click/products/ergodox-ft-low-profile-fully-assembled-custom-mechanical-keyboard",
 			"[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite",
 			"[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro",
 			"[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless",

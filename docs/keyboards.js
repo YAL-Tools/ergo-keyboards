@@ -4541,7 +4541,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"web": "https://www.lynxware.org",
 	"source": "https://www.lynxware.org/diy",
-	"prebuilt": "https://lynxware.shop/"
+	//"prebuilt": "https://lynxware.shop/"
 },
 {
 	"name": "Churn",
@@ -4602,7 +4602,8 @@ window.keyboardData = [
 		"ZMK"
 	],
 	"software": "VIA",
-	"source": "https://github.com/duckyb/eternal-keypad"
+	"source": "https://github.com/duckyb/eternal-keypad",
+	"prebuilt": "https://shop.beekeeb.com/product/pre-soldered-eternal-keypad/"
 },*/
 {
 	"name": "articulation70",
@@ -5791,7 +5792,7 @@ window.keyboardData = [
 	"cols": 5,
 	"thumbKeys": 3,
 	"hotswap": "No",
-	"switchProfile": "Other",
+	"switchProfile": "HallEffect",
 	"assembly": "Handwired",
 	"source": "https://github.com/geoffder/dometyl-keyboard/tree/main/things/niztyl"
 },
@@ -8308,7 +8309,7 @@ window.keyboardData = [
 		"https://www.aliexpress.com/item/1005009384037659.html"
 	]
 },
-"2025-08-30"
+"2025-09-12"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8474,6 +8475,13 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 32u https://github.com/carrefinho/visorbearer
 30u https://github.com/StephanMoeller/mike-typeson
 42s https://ergomech.store/shop/zenith-executive-edition-524#attr=1109,1111
+38s velvet https://kbd.news/Velvet-keyboard-1802.html
+40s aurora40 https://github.com/merrittlj/aurora40 https://merrittlj.github.io/the-aurora40-keyboard/
+42s https://github.com/DynamicWhiteHat/Corneucopia/
+42s chalk pg1316s https://github.com/vuoz/chalk
+36s https://github.com/achyudh/karma
+36u https://github.com/greengrocer98/keyatura_pcb https://github.com/greengrocer98/keyatura_zmk
+60s https://github.com/weekinro/CCK-BALL
 `;
 
 /* Other TODOs
@@ -8561,6 +8569,8 @@ keeb supply stress
 ZUOYA HE30
 Delux T9, T11
 https://github.com/htx-studio/One-Handed-Keyboard
+Doio KB16-01
+Lemokey L0 HE
 
 Colstag (note: commented out above):
 27 Ergodonk https://www.thingiverse.com/thing:4892740 https://imgur.com/a/ergodonk-Lt5Mwwv

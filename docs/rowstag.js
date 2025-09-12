@@ -35,6 +35,7 @@ window.rowStagData = [
 	"firmware": "Simple",
 	"wristPads": "Integrated",
 	"caseType": "Included",
+	"tenting": "Fixed",
 	"prebuilt": [
 		"![v:ANSI] https://perixx.com/products/11660",
 		"![v:ISO] https://perixx.eu/products/11660",
@@ -603,6 +604,7 @@ window.rowStagData = [
 	"firmware": "Simple",
 	"wristPads": "Integrated",
 	"caseType": "Included",
+	"tenting": "Fixed",
 	"prebuilt": [
 		"![v:wired] https://www.kensington.com/p/products/electronic-control-solutions/wireless-ergonomic-keyboards/pro-fit-ergo-wired-keyboard/",
 		"![v:wireless] https://www.kensington.com/p/products/electronic-control-solutions/wireless-ergonomic-keyboards/pro-fit-ergo-wireless-keyboard/"
@@ -631,6 +633,7 @@ window.rowStagData = [
 	"firmware": "Simple",
 	"wristPads": "Integrated",
 	"caseType": "Included",
+	"tenting": "Fixed",
 	"prebuilt": "!https://www.backcs.co.uk/bc-split-ergonomic-keyboard/"
 },
 {
@@ -749,6 +752,7 @@ window.rowStagData = [
 	"lighting": "RGB",
 	"firmware": "Custom",
 	"software": "Custom",
+	"tenting": "Fixed",
 	"kit": "https://epomaker.com/products/feker-alice98",
 	"prebuilt": "https://epomaker.com/products/feker-alice98"
 },
@@ -873,15 +877,19 @@ window.rowStagData = [
 	"switchProfile": "Choc",
 	"software": "Custom",
 	"wristPads": "Integrated",
+	"tenting": "Fixed",
 	"prebuilt": [
 		"!https://perixx.com/products/px-ergonomic-mechanical-keyboard?variant=43501541916931",
 		"!https://eu.perixx.com/collections/keyboards/products/perixx-ergo-mechanical-keyboard?variant=44205121634569"
 	]
 },
 {
-	"name": "PERIBOARD-524B",
-	"img": "PERIBOARD-524B.webp",
-	"notes": "Allegedly there's an ISO layout of this keyboard, but I could not find a photo of it.",
+	"name": "PERIBOARD-524",
+	"img": [
+		"PERIBOARD-524B.webp",
+		"periboard-624-iso.webp",
+	],
+	"notes": "The ISO version of this keyboard is considerably cursed.",
 	"shape": "Split",
 	"stagger": "Row",
 	"connection": "Wired",
@@ -892,6 +900,10 @@ window.rowStagData = [
 		"ISO"
 	],
 	"rshift": "RightCut",
+	"enter": [
+		"ANSI",
+		"ISO"
+	],
 	"space": "Split",
 	"backspace": "Wide",
 	"fnPos": "AfterLCtl",
@@ -902,8 +914,21 @@ window.rowStagData = [
 	"switchProfile": "SimpleLP",
 	"firmware": "Simple",
 	"prebuilt": [
-		"!https://perixx.com/products/perixx-periboard-524b-us-wired-ergonomic-split-keyboard-adjustable-tilt-angle-low-profile-membrane-keys-black-us-english",
-		"!https://eu.perixx.com/products/12286"
+		"!https://perixx.com/products/periboard-524",
+		"!https://eu.perixx.com/products/periboard-524"
+	]
+},
+{
+	"name": "PERIBOARD-624",
+	"parent": "PERIBOARD-524",
+	"img": [
+		"periboard-624.webp",
+		"periboard-624-iso.webp",
+	],
+	"connection": ["Wireless"],
+	"prebuilt": [
+		"!https://eu.perixx.com/products/periboard-624",
+		"!https://perixx.com/products/periboard-624",
 	]
 },
 {
@@ -1012,6 +1037,7 @@ window.rowStagData = [
 	"switchProfile": "MX",
 	"encoders": 1,
 	"encoderType": "Knob",
+	"tenting": "Fixed",
 	"firmware": "QMK",
 	"software": "VIA",
 	"caseType": "Included",
@@ -1071,6 +1097,7 @@ window.rowStagData = [
 	"assembly": "PCB",
 	"wristPads": "Integrated",
 	"caseType": "Included",
+	"tenting": "Fixed",
 	"prebuilt": "![v:wireless] https://www.logitech.com/en-us/products/keyboards/k860-split-ergonomic.920-009166.html"
 },
 {
@@ -1388,7 +1415,7 @@ window.rowStagData = [
 	"lighting": "None",
 	"firmware": "Simple",
 	"wristPads": "Integrated",
-	"tenting": "Legs",
+	"tenting": "Fixed",
 	"caseType": "Included",
 	"prebuilt": [
 		"!https://www.hp.com/us-en/shop/pdp/hp-960-ergonomic-wireless-keyboard"
@@ -2045,6 +2072,7 @@ window.rowStagData = [
 	"switchProfile": "MX",
 	"encoders": 1,
 	"lighting": ["RGB", "Underglow"],
+	"tenting": "Fixed",
 	"firmware": "Custom",
 	"software": "Custom",
 	"caseType": "Included",
@@ -2075,9 +2103,10 @@ window.rowStagData = [
 	"firmware": "Custom",
 	"software": "VIA",
 	"caseType": "Included",
+	"tenting": "Fixed",
 	"prebuilt": "https://fekertech.com/products/feker-alice75-qmk-via"
 },
-"2025-08-30"
+"2025-09-12"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
