@@ -8309,7 +8309,50 @@ window.keyboardData = [
 		"https://www.aliexpress.com/item/1005009384037659.html"
 	]
 },
-"2025-09-12"
+{
+	"name": "Sunder C60 HE",
+	"img": "sunder-c60-he.webp",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 3,
+	"innerKeys": 3,
+	"outerKeys": 0,
+	"cornerKeys": 0,
+	"numpad": "None",
+	"hotswap": "Yes",
+	"switchProfile": "HallEffect",
+	"keySpacing": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "Included",
+	"prebuilt": "https://sunderkeyboards.com/products/sunder-c60-he"
+},
+{
+	"name": "Sunder E60 HE",
+	"img": "sunder-e60-he.webp",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 60,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 4,
+	"cornerKeys": 5,
+	"hotswap": "Yes",
+	"switchProfile": "HallEffect",
+	"keySpacing": "MX",
+	"firmware": "QMK",
+	"software": "Vial",
+	"caseType": "Included",
+	"prebuilt": "https://sunderkeyboards.com/products/sunder-e60-he"
+},
+"2025-09-19"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8482,6 +8525,7 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 36s https://github.com/achyudh/karma
 36u https://github.com/greengrocer98/keyatura_pcb https://github.com/greengrocer98/keyatura_zmk
 60s https://github.com/weekinro/CCK-BALL
+36s https://github.com/perseus333/daedalus-keyboard
 `;
 
 /* Other TODOs

@@ -25,6 +25,7 @@ but maybe you'd like these too
 
 - [Anu](https://github.com/aroum/anu), a compact mouse with an analog stick
 - [moudabella](https://github.com/badjeff/moudabella), a regular-shaped open-source mouse
+- PUSOKEI USB Keyboard Trackpoint: small enough to integrate on a side of an existing keyboard..?
 
 ## Wired-wireless adapters
 
