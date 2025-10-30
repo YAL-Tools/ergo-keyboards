@@ -2106,7 +2106,7 @@ window.rowStagData = [
 	"tenting": "Fixed",
 	"prebuilt": "https://fekertech.com/products/feker-alice75-qmk-via"
 },
-"2025-09-12"
+"2025-10-30"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -2151,13 +2151,17 @@ Keychron Q13, Q14, Q10, V10, Q8
 40% Maglit40
 75% SP75 (on Ali)
 40% https://github.com/aroum/yolochka
+40% https://github.com/dohn-joh/heatwave
 `
 /* TODO
 ali keyboards
 regular 100% uni https://www.alibaba.com/product-detail/Ergonomic-Keyboard-Wired-Split-Keyboard-with_1601133053971.html
 neo ergo https://www.alibaba.com/product-detail/Neo-Ergo-Ergonomic-Aluminum-Split-Keyboard_1601387916140.html
 sculpt-ish https://www.alibaba.com/product-detail/Hot-Sale-Ergonomic-Split-Wired-87keys_1600656905000.html
-big ortho https://vi.aliexpress.com/item/1005008051327383.html
+100% ortho https://vi.aliexpress.com/item/1005008051327383.html
+75% ortho 1005008051582410
+80% ortho 1005008046940624
+125% ortho 1005008045507132
 65% alice https://www.alibaba.com/product-detail/Wireless-Split-68-Keys-Multi-Media_1600937544476.html
 x-bows..? https://www.alibaba.com/product-detail/Mechanical-Ergonomic-Keyboard-Butterfly-Layout-Mech_1601193273269.html?
 Scorpio 68 keys https://www.aliexpress.com/item/1005007988524328.html
@@ -2168,7 +2172,6 @@ See if someone makes a split based on this:
 https://github.com/riskable/void_switch_65_pct
 
 Not out yet:
-https://new.reddit.com/r/ErgoMechKeyboards/comments/1ec6zv8/familiar_yet_ergonomic/
 https://hellonuio.com
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
 https://get.autokeybo.com
@@ -2177,6 +2180,7 @@ Adesso Easytouch 1500
 Ragnok RK104 / SANWA Mechanical keyboard / https://deltonstudio.com/products/delton-kb450-bluetooth-mechanical-keyboard
 75% ROG Falcata https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/gallery/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
+Nocfree &
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111

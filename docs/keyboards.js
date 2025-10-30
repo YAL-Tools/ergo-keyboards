@@ -7873,7 +7873,7 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"outerKeys": -1,
 	"pinkyStagger": 0.5,
-	"hotswap": "No",
+	"hotswap": "Yes",
 	"switchProfile": ["MX", "Choc", "ChocV2"],
 	"keySpacing": "MX",
 	"firmware": "ZMK",
@@ -8352,7 +8352,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"prebuilt": "https://sunderkeyboards.com/products/sunder-e60-he"
 },
-"2025-09-19"
+"2025-10-30"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8526,6 +8526,9 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 36u https://github.com/greengrocer98/keyatura_pcb https://github.com/greengrocer98/keyatura_zmk
 60s https://github.com/weekinro/CCK-BALL
 36s https://github.com/perseus333/daedalus-keyboard
+42s https://github.com/Goga64/ULK
+34s https://github.com/unspecworks/delta-omega
+44s https://github.com/secersh/etzee
 `;
 
 /* Other TODOs
@@ -8658,4 +8661,7 @@ Datadesk SmartBoard
 
 things to be aware of:
 glue dactyl/charybdis https://www.reddit.com/r/ErgoMechKeyboards/comments/1jg791x/is_it_good/
+
+cardboard tenting
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1ofmvlq/designed_the_cardboard_tenting_stands_for_my_corne/
 */

@@ -12,6 +12,10 @@ but maybe you'd like these too
 - [Beeball](https://kbd.news/Beeball-1646.html)
 - [Trackbowl Mk2](https://github.com/jfedor2/trackbowl-mk2)\
 	It's a trackball, but there's a catch
+- [efog.tech Endgame](https://efog.tech/products/endgame-trackball-complete-diy-kit)
+- [ThumbsUp Trackball](https://github.com/ak66666/ThumbsUp-Trackball-v4)
+- [Adept BLE](https://github.com/lunchbox-computer/adept-go)
+- [PointaBella](https://github.com/badjeff/pointabella)
 
 ### Touchpads/trackpads
 
