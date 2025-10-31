@@ -1645,6 +1645,7 @@ window.rowStagData = [
 	"firmware": "QMK",
 	"software": "Vial",
 	"wristPads": "Detachable",
+	"lighting": ["None", "RGB"],
 	"tenting": "Legs",
 	"caseType": "Included",
 	"prebuilt": [
@@ -2106,7 +2107,7 @@ window.rowStagData = [
 	"tenting": "Fixed",
 	"prebuilt": "https://fekertech.com/products/feker-alice75-qmk-via"
 },
-"2025-10-30"
+"2025-10-31"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus

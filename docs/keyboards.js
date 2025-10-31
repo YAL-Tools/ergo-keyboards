@@ -7734,7 +7734,7 @@ window.keyboardData = [
 	"name": "Unsplitted ergo Keyberon V1",
 	"img": "keyberon-f4.webp",
 	"notes": "Parametric!",
-	"shape": "Split",
+	"shape": "Unibody",
 	"stagger": "Column",
 	"connection": "Wired",
 	"keys": 56,
@@ -8352,7 +8352,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"prebuilt": "https://sunderkeyboards.com/products/sunder-e60-he"
 },
-"2025-10-30"
+"2025-10-31"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
