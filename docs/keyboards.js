@@ -2501,8 +2501,8 @@ window.keyboardData = [
 	"layoutRef": "SKBC"
 },
 {
-	"name": "chocofifi",
-	"img": "chocofifi.jpeg",
+	"name": "Chocofi",
+	"img": "chocofi.jpeg",
 	"shape": "Split",
 	"stagger": "Column",
 	"connection": [
@@ -8529,6 +8529,8 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 42s https://github.com/Goga64/ULK
 34s https://github.com/unspecworks/delta-omega
 44s https://github.com/secersh/etzee
+38s https://github.com/yuburoll/KeeNoard
+42s toucan https://beekeeb.com/toucan-keyboard/
 `;
 
 /* Other TODOs
