@@ -91,6 +91,7 @@ Tricks:
 -	[Parametric tilters](https://makerworld.com/en/models/809248-parametric-mx-keycap-spacer-riser-tilter)
 -	[Lever keycaps](https://github.com/dohn-joh/keycaps)\
 	You can press these sideways
+-	[Row-staggered to ortholinear adapter keycaps](https://www.reddit.com/r/olkb/comments/1m8ir1d/ortholinearized_idobao_id80_using_3d_printed/)
 
 ## Knobs, encoders
 

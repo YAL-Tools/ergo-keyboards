@@ -242,7 +242,7 @@ ColStagBoards.init = function(keyboards) {
 		add(kb);
 	};
 	addAvalanche({ name : "Avalanche 40%", keys : type_NumRangeList.fromSimpleArray([48,52]), rows : type_NumRange.fromValue(3), cols : type_NumRange.fromValue(6)});
-	addAvalanche({ name : "Avalanche 60%", keys : type_NumRangeList.fromSimpleArray([60,64]), rows : type_NumRange.fromValue(4), cols : type_NumRange.fromValue(6), prebuilt : ["[n:xcmkb] https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/avalanche/v4 @ https://github.com/superxc3/xcmkb","https://shop.beekeeb.com/product/pre-soldered-avalanche-v4/"]});
+	addAvalanche({ name : "Avalanche 60%", keys : type_NumRangeList.fromSimpleArray([60,64]), rows : type_NumRange.fromValue(4), cols : type_NumRange.fromValue(6)});
 	kb = ColStagKeyboard._new("Redox");
 	var redox = kb;
 	kb.img = type_ValList.fromValue("redox-1.jpg");
@@ -281,7 +281,9 @@ ColStagBoards.init = function(keyboards) {
 	kb.assembly = [type_Assembly.PCB];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	kb.encoders = type_NumRange.fromArray([0,2]);
+	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.prebuilt = ["https://ergomech.store/shop/neodox-52","https://ergomech.store/shop/neodox-sandwich-style-exclusive-418"];
+	kb.displays = type_NumRange.fromArray([0,2]);
 	kb.img = type_ValList.fromValue("NeoDox.jpg");
 	kb.notes = type_ValList.fromValue("Like Redox, but with 1u edge keys and optional rotary encoders");
 	add(kb);
@@ -317,12 +319,6 @@ ColStagBoards.init = function(keyboards) {
 	kb.connection = [type_Connection.Wired,type_Connection.Bluetooth];
 	kb.kit = ["[v:wired] https://falbatech.click/products/Pre-soldered-ErgoDash-p613842367","[v:wireless] https://falbatech.click/products/Pre-soldered-ErgoDash-Wireless-p613839936"];
 	kb.prebuilt = ["https://falbatech.click/products/ErgoDash-Fully-Assembled-Custom-Mechanical-Keyboard-p630613785"];
-	add(kb);
-	kb = ColStagKeyboard._new("ErgoDash_FT Blue",ergodash);
-	kb.img = type_ValList.fromValue("ergodash-ft.webp");
-	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX],type_KeySpacing.MX);
-	kb.lighting = [type_Lighting.Simple];
-	kb.prebuilt = type_ValList.fromValue("https://falbatech.click/products/ErgoDash-Blue-backlite-Shipping-in-24-hours-p613853121");
 	add(kb);
 	kb = { name : "ErgoMax", source : type_ValList.fromValue("https://github.com/LouWii/ErgoMax"), img : type_ValList.fromValue("ergomax.jpg")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
@@ -651,7 +647,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setQMK(kb);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.kit = ["[v:MX] https://drop.com/buy/infinity-ergodox","[v:MX] https://mechanicalkeyboards.com/products/mk-ergodox-pcb-dual-layer-electrical-boards-set-of-2","[v:MX] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-p613836128","[v:MX half] https://falbatech.click/products/Pre-Soldered-ErgoDox_FT-Gaming-p613836460","[v:Choc] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-p613843614"];
-	kb.prebuilt = ["[v:MX, legs, mount] https://ergodox-ez.com/","[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415","[v:Choc+legs] https://falbatech.click/products/Pre-soldered-ErgoDox_FT-Low-Profile-Gaming-Version-One-Hand-p619550388","[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite","[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro","[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless","[v:MX] https://www.ergokb.tw/products/phoenix/","[v:MX] https://www.amazon.com/Apos-ErgoDox-Ergonomic-Mechanical-Keyboard/dp/B0CYV3WFTC/","[v:MX] https://apos.audio/products/ergodox-76-hot-dox-v2-mechanical-keyboard"];
+	kb.prebuilt = ["[v:MX, legs, mount] https://ergodox-ez.com/","[v:2.4G] https://www.ergokbd.com/products/if-ergo-wireless2-4g-hotswap-split-mechanical-keyboard-pre-soldered-acrylic-vial-programmable-ergodox-ergodone","[v:2.4G] https://keyclicks.ca/collections/keyboards/products/w-ergo-2-4g-wireless-split-ergonomic-mechanical-keyboard","[v:MX+legs] https://falbatech.click/products/Ergodox_FT-Fully-Assembled-Custom-Mechanical-Keyboard-p630813415","[v:Choc+legs] https://falbatech.click/products/ergodox-ft-low-profile-fully-assembled-custom-mechanical-keyboard","[v:MX BT/2.4G] https://www.slicemk.com/products/ergodox-wireless-lite","[v:MX BT/2.4G CNC] https://www.slicemk.com/products/ergodox-wireless-pro","[v:Choc BT/2.4G CNC] https://www.slicemk.com/products/ergodoxlp-wireless","[v:MX] https://www.ergokb.tw/products/phoenix/","[v:MX] https://www.amazon.com/Apos-ErgoDox-Ergonomic-Mechanical-Keyboard/dp/B0CYV3WFTC/","[v:MX] https://apos.audio/products/ergodox-76-hot-dox-v2-mechanical-keyboard"];
 	kb.img = type_ValList.fromValue("ergodox-ez.avif");
 	kb.notes = ["There are multiple keyboards using an Ergodox[-like] layout"];
 	var ergodoxy = add(kb);
@@ -2169,23 +2165,25 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			}
 		}));
 		this.addColumn(rowsCol);
+		rowsCol.filterMinDefault = 4;
+		rowsCol.filterMaxDefault = 3;
 		rowsCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"The number of rows in a keyboard half's main area," + " not counting the thumb-keys row.");
 			_gthis.addImagePara(div,"matrix.png",450,250,"Key matrix on a Redox keyboard");
 			tools_HtmlTools.appendParaTextNode(div,"Conventionally, 4th row is typically used for digit keys" + " and 5th row is typically used for F-key," + " but don't let anyone tell you what to do" + " - most of these keyboards are reprogrammable.");
 		});
-		rowsCol.filterMinDefault = 4;
-		rowsCol.filterMaxDefault = 3;
-		col = new table_number_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
+		var colsCol = this.addColumn(new table_number_IntRangeColumn("Columns",new table_FancyField("cols",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.cols = setValue;
 				return null;
 			} else {
 				return q.cols;
 			}
-		}));
-		this.addColumn(col);
-		col.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
+		})));
+		colsCol.shortName = "Cols";
+		colsCol.filterMinDefault = 6;
+		colsCol.filterMaxDefault = 5;
+		colsCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"The number of columns in a keyboard half's main area," + " not counting the extension columns.");
 			tools_HtmlTools.appendParaTextNode(div,"To avoid some classification oddities," + " let's assume non-chorded keyboards to intend to have at least 5 columns" + " and evaluate edge columns based on their layout, completeness," + " and suitability for common main-area mappings.");
 			tools_HtmlTools.appendParaTextNode(div,"For example:");
@@ -2196,7 +2194,6 @@ ColStagTable.prototype = $extend(KeyboardTable.prototype,{
 			li = tools_HtmlTools.appendElTextNode(ul,"li","Spleeb's and Drift's outer columns aren't extension columns" + " as only a single key is missing.");
 			tools_HtmlTools.appendParaTextNode(div,"This system isn't perfect and some keyboards don't fit well at all," + " in which case \"outer keys\" may have to be used to roughly annotate" + " total number of extra/missing keys across multiple columns.");
 		});
-		col.shortName = "Cols";
 		var rcolsFn = function(kb,set,val) {
 			if(set) {
 				kb.rcols = val;

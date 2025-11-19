@@ -5961,6 +5961,7 @@ window.keyboardData = [
 	"switchProfile": "MX",
 	"keySpacing": "MX",
 	"lighting": ["RGB", "Underglow"],
+	"displays": 0,
 	"firmware": "QMK",
 	"software": "Vial",
 	"ctlName": "Other",
@@ -8352,7 +8353,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"prebuilt": "https://sunderkeyboards.com/products/sunder-e60-he"
 },
-"2025-10-31"
+"2025-11-19"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8531,6 +8532,7 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 44s https://github.com/secersh/etzee
 38s https://github.com/yuburoll/KeeNoard
 42s toucan https://beekeeb.com/toucan-keyboard/
+36u 36ribs https://www.reddit.com/r/ErgoMechKeyboards/comments/1ox4h6q/36ribs/
 `;
 
 /* Other TODOs
@@ -8566,6 +8568,9 @@ https://vi.aliexpress.com/item/1005008051327383.html
 40m https://github.com/victorlucachi/void40
 80% https://github.com/dcpedit/tklish
 65% https://www.printables.com/model/619164-the-typem-custom-ortholinear-keyboard
+TKL https://github.com/galile0-designs/glyphkbd
+TKL https://eyeohdesigns.com/products/mortho
+varies https://kradoindustries.bigcartel.com
 
 Cases
 rev41 https://github.com/Boom123bam/reviung41-Acrylic-case/tree/main

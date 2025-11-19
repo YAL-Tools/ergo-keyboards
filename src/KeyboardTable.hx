@@ -663,9 +663,11 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		addFilterHeader("Other curiosities");
 		var col:FancyColumn<KB>;
 		
-		mAddColumn(col = new IntRangeColumn("Displays", kb.displays));
+		var displays = mAddColumn(new IntRangeColumn("Displays", kb.displays));
+		displays.filterMinDefault = 1;
 		
 		var light = new TagListColumn("Lighting", mgf(kb.lighting), Lighting);
+		light.defaultValue = [Lighting.RGB, Lighting.Simple];
 		light.shortLabels[Lighting.Unknown] = "";
 		light.shortLabels[Lighting.None] = "-";
 		light.columnCount = 2;

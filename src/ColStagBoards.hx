@@ -541,10 +541,6 @@ class ColStagBoards {
 			name: "Avalanche 60%",
 			keys: [60, 64],
 			rows: 4, cols: 6,
-			prebuilt: [
-				"[n:xcmkb] https://github.com/superxc3/xcmkb/tree/main/list%20of%20items/list%20of%20keyboards/60percent/avalanche/v4 @ https://github.com/superxc3/xcmkb",
-				"https://shop.beekeeb.com/product/pre-soldered-avalanche-v4/"
-			],
 		});
 		
 		var redox = kb = new ColStagKeyboard("Redox");
@@ -617,10 +613,12 @@ class ColStagBoards {
 		kb.assembly = [PCB];
 		kb.setHotswap([MX, Choc], MX);
 		kb.encoders = [0, 2];
+		kb.lighting = [None, RGB];
 		kb.prebuilt = [
 			"https://ergomech.store/shop/neodox-52",
 			"https://ergomech.store/shop/neodox-sandwich-style-exclusive-418",
 		];
+		kb.displays = [0, 2];
 		kb.img = "NeoDox.jpg";
 		kb.notes = "Like Redox, but with 1u edge keys and optional rotary encoders";
 		add(kb);
@@ -672,12 +670,12 @@ class ColStagBoards {
 		];
 		add(kb);
 		
-		kb = new ColStagKeyboard("ErgoDash_FT Blue", ergodash);
+		/*kb = new ColStagKeyboard("ErgoDash_FT Blue", ergodash);
 		kb.img = "ergodash-ft.webp";
 		kb.setNotswap([MX], MX);
 		kb.lighting = [Simple];
 		kb.prebuilt = "https://falbatech.click/products/ErgoDash-Blue-backlite-Shipping-in-24-hours-p613853121";
-		add(kb);
+		add(kb);*/
 		
 		kb = {
 			name: "ErgoMax",

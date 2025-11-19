@@ -75,6 +75,8 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 		
 		var rowsCol:IntRangeColumn<ColStagKeyboard>;
 		mAddColumn(rowsCol = new IntRangeColumn("Rows", kb.rows));
+		rowsCol.filterMinDefault = 4;
+		rowsCol.filterMaxDefault = 3;
 		rowsCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"The number of rows in a keyboard half's main area,"
@@ -88,11 +90,12 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 				+ " - most of these keyboards are reprogrammable."
 			);
 		};
-		rowsCol.filterMinDefault = 4;
-		rowsCol.filterMaxDefault = 3;
 		
-		mAddColumn(col = new IntRangeColumn("Columns", kb.cols));
-		col.onNotes = function(div) {
+		var colsCol = mAddColumn(new IntRangeColumn("Columns", kb.cols));
+		colsCol.shortName = "Cols";
+		colsCol.filterMinDefault = 6;
+		colsCol.filterMaxDefault = 5;
+		colsCol.onNotes = function(div) {
 			div.appendParaTextNode(
 				"The number of columns in a keyboard half's main area,"
 				+ " not counting the extension columns."
@@ -126,7 +129,6 @@ class ColStagTable extends KeyboardTable<ColStagKeyboard> {
 				+ " total number of extra/missing keys across multiple columns."
 			);
 		};
-		col.shortName = "Cols";
 		
 		var rcolsFn = function(kb:ColStagKeyboard, ?set, ?val) {
 			if (set) {
