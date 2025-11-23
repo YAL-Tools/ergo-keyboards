@@ -6579,7 +6579,7 @@ window.keyboardData = [
 	"img": "vfk-001.webp",
 	"notes": "A folding vertical dactyl-style keyboard with removable stabilizer in the middle",
 	"shape": ["Split", "Keywell", "Special"],
-	"stagger": "Row",
+	"stagger": "Column",
 	"connection": "Wired",
 	"keys": 36,
 	"rows": 3,
@@ -7189,14 +7189,14 @@ window.keyboardData = [
 	"img": "nomad.webp",
 	"notes": "\"based largely on the Sofle Choc\"",
 	"shape": "Split",
-	"stagger": "Row",
+	"stagger": "Column",
 	"connection": "Wired",
 	"keys": 68,
 	"rows": 4,
 	"cols": 6,
 	"thumbKeys": 4,
 	"innerKeys": 3,
-	"cornerKeys": 4,
+	"cornerKeys": 5,
 	"pinkyStagger": 0.2,
 	"hotswap": "Yes",
 	"switchProfile": "Choc",
@@ -8353,7 +8353,7 @@ window.keyboardData = [
 	"caseType": "Included",
 	"prebuilt": "https://sunderkeyboards.com/products/sunder-e60-he"
 },
-"2025-11-19"
+"2025-11-23"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8533,6 +8533,10 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 38s https://github.com/yuburoll/KeeNoard
 42s toucan https://beekeeb.com/toucan-keyboard/
 36u 36ribs https://www.reddit.com/r/ErgoMechKeyboards/comments/1ox4h6q/36ribs/
+40s totem+ https://github.com/Atila-M-Schrieber/TOTEM-Plus-1/
+40u https://github.com/ChrisChrisLoLo/loongcat40
+36s https://github.com/yuburoll/Boardloaf
+38s https://github.com/yuburoll/modubu
 `;
 
 /* Other TODOs
