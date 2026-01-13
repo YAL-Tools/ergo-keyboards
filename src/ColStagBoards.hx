@@ -99,6 +99,9 @@ class ColStagBoards {
 			"[v:Magnetic case] https://www.printables.com/model/400373-bluetooth-corne-mini-choc-w-magnetic-travel-mode",
 		];
 		kb.img = "crkbd.jpg";
+		kb.firmware = QMK;
+		kb.software = [VIA, Vial];
+		kb.buildGuide = "https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_en.md";
 		kb.addSKBC();
 		add(kb);
 		
@@ -196,6 +199,7 @@ class ColStagBoards {
 		kb.notes.push('Sometimes also called "Sofle RGB Choc 2.1" by vendors.');
 		kb.switchProfile = [Choc];
 		kb.keySpacing = [MX];
+		kb.lighting = [None, RGB];
 		kb.kit = [
 			"https://keebmaker.com/collections/kits/products/sofle-low-profile-kit",
 			"https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/",
@@ -207,6 +211,7 @@ class ColStagBoards {
 			"https://keebmaker.com/products/sofle-low-profile",
 			"https://shop.beekeeb.com/product/presoldered-sofle-rgb-choc-v2-1/",
 		];
+		kb.buildGuide = "https://josefadamcik.github.io/SofleKeyboard/build_guide_choc.html";
 		var sofleChoc = add(kb);
 		
 		kb = new ColStagKeyboard("Aurora Sofle V2", sofleV2);
@@ -369,6 +374,10 @@ class ColStagBoards {
 		kb.setMatrix(58, 6, 4);
 		kb.setExtras(4, 1, 0, 0);
 		kb.caseType = Included;
+		kb.firmware = QMK;
+		kb.buildGuide = [
+			"https://github.com/kata0510/Lily58/blob/master/Pro/Doc/buildguide_en.md"
+		];
 		kb.setHotswap([MX, Choc], MX);
 		kb.addSKBC();
 		add(kb);
@@ -382,6 +391,7 @@ class ColStagBoards {
 		kb.caseType = Included;
 		kb.displays = new IntRange(0, 2);
 		kb.lighting = [RGB, Underglow];
+		kb.firmware = QMK;
 		kb.extras = "https://github.com/splitkb/kyria";
 		kb.kit = "!https://splitkb.com/products/kyria-rev3-pcb-kit";
 		kb.img = "Kyria.jpg";
@@ -440,6 +450,8 @@ class ColStagBoards {
 		};
 		kb.setHotswap([MX]);
 		kb.splay = Optional;
+		kb.firmware = QMK;
+		kb.software = [Vial];
 		kb.setMatrix([58, 60], 6, 4);
 		kb.setExtras(5);
 		add(kb);
@@ -465,6 +477,7 @@ class ColStagBoards {
 		};
 		kb.caseType = Included;
 		kb.setMatrix([42, 44], 6, 3);
+		kb.firmware = [ZMK];
 		kb.setHotswap(Choc, Choc);
 		add(kb);
 		
@@ -507,6 +520,7 @@ class ColStagBoards {
 		kb.setMatrix(64, 6, 4);
 		kb.innerKeys = 4;
 		kb.caseType = [Included];
+		kb.firmware = [QMK];
 		kb.setHotswap(MX);
 		add(kb);
 		
@@ -646,6 +660,7 @@ class ColStagBoards {
 			"https://keycapsss.com/keyboard-parts/pcbs/63/ergodash-split-keyboard-pcb",
 		];
 		kb.caseType = Included;
+		kb.firmware = QMK;
 		kb.addSKBC();
 		add(kb);
 		
@@ -778,7 +793,9 @@ class ColStagBoards {
 		kb.pointingDevices = 2;
 		kb.setMatrix(66, 6, 4);
 		kb.setExtras(7, 3, 0, 0);
+		kb.firmware = [Custom];
 		kb.caseType = [Included];
+		kb.extras = ["[v:firmware] https://github.com/Durburz/interphase-firmware"];
 		add(kb);
 		
 		kb = {
@@ -969,6 +986,7 @@ class ColStagBoards {
 			switchProfile: Choc,
 			keySpacing: [MX],
 			assembly: [Handwired, PCB],
+			firmware: [QMK],
 			source: "https://github.com/markstory/ursa-minor-keyboard/",
 		};
 		kb.caseType = [Included];
@@ -980,6 +998,7 @@ class ColStagBoards {
 			thumbKeys: 4,
 			source: "https://github.com/mylestunglee/articulation80",
 			img: "articulation80.jpg",
+			firmware: [QMK],
 			notes: "Numpad/navigation blocks and the top row can be broken off."
 		};
 		kb.setHotswap([Choc], KeySpacing.Choc);
@@ -1154,6 +1173,7 @@ class ColStagBoards {
 			"https://new.boardsource.xyz/products/Reviung41",
 			"https://customkbd.com/collections/split-keyboards/products/reviung-41",
 		];
+		kb.firmware = [QMK];
 		kb.addSKBC();
 		var reviung41 = add(kb);
 		// todo: https://customkbd.com/collections/split-keyboards/products/reviung-39
@@ -1182,6 +1202,8 @@ class ColStagBoards {
 			kb.setMatrix(56, 6, 4);
 			kb.setExtras(4);
 			kb.caseType = Included;
+			kb.firmware = [QMK];
+			kb.software = [VIA];
 			add(kb);
 		}
 		
@@ -1321,6 +1343,8 @@ class ColStagBoards {
 		kb.wristPads = Integrated;
 		kb.tenting = [Legs, Mount];
 		kb.caseType = Included;
+		kb.firmware = [Custom];
+		kb.software = [Custom];
 		kb.prebuilt = "!https://shop.keyboard.io/products/model-100";
 		kb.img = "keyboardio-m100.webp";
 		add(kb);
@@ -1378,6 +1402,8 @@ class ColStagBoards {
 		kb.tenting = [None, Legs, Mount];
 		kb.tilt = [ -10, 0];
 		kb.caseType = Included;
+		kb.firmware = [Custom];
+		kb.software = [Custom];
 		kb.prebuilt = "!https://dygma.com/pages/defy";
 		kb.img = "dygma-defy.webp";
 		kb.layoutRef = ["https://support.dygma.com/hc/en-us/articles/15110448574621-How-can-I-visualize-the-Dygma-Defy-or-the-Dygma-Raise-on-my-desk"];
@@ -1392,6 +1418,7 @@ class ColStagBoards {
 		kb.shape = Unibody;
 		kb.pinkyStagger = 0.5;
 		kb.caseType = Included;
+		kb.firmware = [QMK];
 		kb.source = "https://github.com/nshie/osprey";
 		kb.img = "osprey.jpg";
 		add(kb);

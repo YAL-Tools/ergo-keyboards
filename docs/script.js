@@ -31,6 +31,9 @@ ColStagBoards.init = function(keyboards) {
 	kb.prebuilt = ["https://customkbd.com/collections/split-keyboards/products/corne-classic-kit","[v:BT MX] https://shop.beekeeb.com/product/pre-soldered-wireless-corne-mx-keyboard/","[v:BT Choc] https://shop.beekeeb.com/product/presoldered-wireless-corne-keyboard/","[v:v3 MX] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-mx-corne-keyboard/","[v:v3 Choc] https://shop.beekeeb.com/product/pre-soldered-crkbd-v3-choc-corne-keyboard-low-profile/","[v:BT Choc] https://keyclicks.ca/products/choc-corne","[v:BT MX] https://keyclicks.ca/products/w-corne-40-2-4g-wireless-split-keyboard","[v:MX] https://falbatech.click/products/Corne-Fully-Assembled-Custom-Mechanical-Keyboard-p630685502","[v:MX mini] https://falbatech.click/products/Corne-mini-Fully-Assembled-Custom-Mechanical-Keyboard-p630813323","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Dark-Bamboo-Keyboard-shipping-in-24h-p613843609","[v:MX mini] https://falbatech.click/products/Corne-Mini-Ergonomic-Natural-Bamboo-Keyboard-with-Tilt-Tent-Set-in-shipping-24h-p613843369","[v:MX BT] https://falbatech.click/products/Corne-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p630685504","[v:MX BT mini] https://falbatech.click/products/Corne-mini-Wireless-Fully-Assembled-Custom-Mechanical-Keyboard-p631346754"];
 	kb.extras = ["[v:Aluminium case] https://keyhive.xyz/shop/aluminum-corne-helidox-case","[v:Unibody case] https://www.thingiverse.com/thing:6455098","[v:Unibody tray] https://www.thingiverse.com/thing:4897653","[v:Trackpad module] https://www.thingiverse.com/thing:5425081","[v:Case] https://www.printables.com/model/763144-nusumu-corne-keyboard-case","[v:LP Case] https://www.thingiverse.com/thing:4549765 @ https://kbd.news/Corne-LP-case-810.html","[v:Case] https://github.com/kisonecat/corne-case","[v:Tented case] https://www.thingiverse.com/thing:4705667","[v:Magnetic case] https://github.com/Runningtarrens/Mcorne","[v:Magnetic case] https://www.printables.com/model/400373-bluetooth-corne-mini-choc-w-magnetic-travel-mode"];
 	kb.img = type_ValList.fromValue("crkbd.jpg");
+	kb.firmware = type_ValList.fromValue(type_Firmware.QMK);
+	kb.software = [type_Software.VIA,type_Software.Vial];
+	kb.buildGuide = type_ValList.fromValue("https://github.com/foostan/crkbd/blob/main/docs/corne-cherry/v4/buildguide_en.md");
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
 	kb = ColStagKeyboard._new("Unicorne",corne);
@@ -85,8 +88,10 @@ ColStagBoards.init = function(keyboards) {
 	kb.notes.push("Sometimes also called \"Sofle RGB Choc 2.1\" by vendors.");
 	kb.switchProfile = [type_SwitchProfile.Choc];
 	kb.keySpacing = [type_KeySpacing.MX];
+	kb.lighting = [type_Lighting.None,type_Lighting.RGB];
 	kb.kit = ["https://keebmaker.com/collections/kits/products/sofle-low-profile-kit","https://shop.beekeeb.com/product/sofle-rgb-choc-chocolate-v2-1-low-profile-soflekeyboard-split-ergonomic-diy-pcb-kit/","https://customkbd.com/collections/split-keyboards/products/sofle-choc-keyboard","https://42keebs.eu/shop/kits/pro-micro-based/sofle-choc-hotswap-split-ergo-50-kit-black/","https://www.littlekeyboards.com/products/sofle-choc-pcb-kit"];
 	kb.prebuilt = ["https://keebmaker.com/products/sofle-low-profile","https://shop.beekeeb.com/product/presoldered-sofle-rgb-choc-v2-1/"];
+	kb.buildGuide = type_ValList.fromValue("https://josefadamcik.github.io/SofleKeyboard/build_guide_choc.html");
 	var sofleChoc = add(kb);
 	kb = ColStagKeyboard._new("Aurora Sofle V2",sofleV2);
 	kb.img = type_ValList.fromValue("aurora-sofle-v2.webp");
@@ -156,6 +161,8 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(58)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(4),type_NumRange.fromValue(1),type_NumRange.fromValue(0),type_NumRange.fromValue(0));
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+	kb.firmware = type_ValList.fromValue(type_Firmware.QMK);
+	kb.buildGuide = ["https://github.com/kata0510/Lily58/blob/master/Pro/Doc/buildguide_en.md"];
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX,type_SwitchProfile.Choc],type_KeySpacing.MX);
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
@@ -168,6 +175,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	kb.displays = { min : 0, max : 2};
 	kb.lighting = [type_Lighting.RGB,type_Lighting.Underglow];
+	kb.firmware = type_ValList.fromValue(type_Firmware.QMK);
 	kb.extras = type_ValList.fromValue("https://github.com/splitkb/kyria");
 	kb.kit = type_ValList.fromValue("!https://splitkb.com/products/kyria-rev3-pcb-kit");
 	kb.img = type_ValList.fromValue("Kyria.jpg");
@@ -191,6 +199,8 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Pangaea", assembly : [type_Assembly.PCB,type_Assembly.Adjustable], encoders : type_NumRange.fromArray([0,2]), source : type_ValList.fromValue("https://github.com/e3w2q/Pangaea-keyboard"), img : type_ValList.fromValue("Pangaea.jpg"), notes : type_ValList.fromValue("Pinky columns and thumb row can be moved and rotated.")};
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.MX]);
 	kb.splay = type_SplayBase.Optional;
+	kb.firmware = type_ValList.fromValue(type_Firmware.QMK);
+	kb.software = [type_Software.Vial];
 	ColStagKeyboard.setMatrix(kb,type_NumRangeList.fromSimpleArray([58,60]),type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(5));
 	add(kb);
@@ -201,6 +211,7 @@ ColStagBoards.init = function(keyboards) {
 	kb = { name : "Dao Choc BLE", thumbKeys : type_NumRange.fromArray([2,3]), connection : [type_Connection.Wired,type_Connection.Bluetooth], source : type_ValList.fromValue("https://github.com/yumagulovrn/dao-choc-ble"), prebuilt : type_ValList.fromValue("https://shop.beekeeb.com/product/pre-soldered-wireless-dao-choc-ble-keyboard/"), img : type_ValList.fromValue("dao-choc-ble.jfif")};
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
 	ColStagKeyboard.setMatrix(kb,type_NumRangeList.fromSimpleArray([42,44]),type_NumRange.fromValue(6),type_NumRange.fromValue(3));
+	kb.firmware = [type_Firmware.ZMK];
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.Choc),type_KeySpacing.Choc);
 	add(kb);
 	kb = { name : "Cantaloupe", thumbKeys : type_NumRange.fromValue(3), cornerKeys : type_NumRange.fromValue(3), encoders : type_NumRange.fromValue(2), source : type_ValList.fromValue("https://github.com/Ariamelon/Cantaloupe"), img : type_ValList.fromValue("Cantaloupe.jpg")};
@@ -218,6 +229,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(64)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	kb.innerKeys = type_NumRange.fromValue(4);
 	kb.caseType = [type_CaseType.Included];
+	kb.firmware = [type_Firmware.QMK];
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	add(kb);
 	kb = ColStagKeyboard._new("Pinky3","Pinky4");
@@ -304,6 +316,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.extras = ["[v:Enclosed case] https://github.com/prilosac/ErgoDashEnclosedCase"];
 	kb.kit = ["https://keebd.com/products/ergodash-keyboard-kit","https://shop.yushakobo.jp/en/products/ergodash","https://keycapsss.com/keyboard-parts/pcbs/63/ergodash-split-keyboard-pcb"];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+	kb.firmware = type_ValList.fromValue(type_Firmware.QMK);
 	ColStagKeyboard.addSKBC(kb);
 	add(kb);
 	kb = ColStagKeyboard._new("ErgoDash LP",ergodash);
@@ -367,7 +380,9 @@ ColStagBoards.init = function(keyboards) {
 	kb.pointingDevices = type_NumRange.fromValue(2);
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(66)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(7),type_NumRange.fromValue(3),type_NumRange.fromValue(0),type_NumRange.fromValue(0));
+	kb.firmware = [type_Firmware.Custom];
 	kb.caseType = [type_CaseType.Included];
+	kb.extras = ["[v:firmware] https://github.com/Durburz/interphase-firmware"];
 	add(kb);
 	kb = { name : "JiaEX", source : type_ValList.fromValue("https://github.com/osenchenko/jiaex"), img : type_ValList.fromValue("jiaex.jpg"), notes : type_ValList.fromValue("This keyboard is hard to classify due to its uncommon key placement")};
 	ColStagKeyboard.setNotswap(kb,[type_SwitchProfile.MX]);
@@ -475,11 +490,11 @@ ColStagBoards.init = function(keyboards) {
 	};
 	addDilemma({ name : "Dilemma", keys : type_NumRangeList.fromSimpleArray([34,36]), cols : type_NumRange.fromValue(5), rows : type_NumRange.fromValue(3), thumbKeys : type_NumRange.fromArray([2,3]), source : type_ValList.fromValue("https://github.com/Bastardkb/Dilemma"), kit : type_ValList.fromValue("!https://bastardkb.com/product/dilemma/"), prebuilt : type_ValList.fromValue("!https://bastardkb.com/product/dilemma-prebuilt-preorder/"), img : type_ValList.fromValue("Dilemma.jpg")});
 	addDilemma({ name : "Dilemma Max", keys : type_NumRangeList.fromSimpleArray([54,56]), cols : type_NumRange.fromValue(6), rows : type_NumRange.fromValue(4), thumbKeys : type_NumRange.fromArray([3,4]), source : type_ValList.fromValue("https://github.com/Bastardkb/Dilemma"), kit : type_ValList.fromValue("!https://bastardkb.com/product/dilemma-max/"), prebuilt : type_ValList.fromValue("!https://bastardkb.com/product/dilemma-max-prebuilt-preorder/"), img : type_ValList.fromValue("Dilemma-Max.jpg")});
-	kb = { name : "Ursa Minor", img : type_ValList.fromValue("ursa-minor.webp"), thumbKeys : type_NumRange.fromValue(3), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : [type_KeySpacing.MX], assembly : [type_Assembly.Handwired,type_Assembly.PCB], source : type_ValList.fromValue("https://github.com/markstory/ursa-minor-keyboard/")};
+	kb = { name : "Ursa Minor", img : type_ValList.fromValue("ursa-minor.webp"), thumbKeys : type_NumRange.fromValue(3), switchProfile : type_ValList.fromValue(type_SwitchProfile.Choc), keySpacing : [type_KeySpacing.MX], assembly : [type_Assembly.Handwired,type_Assembly.PCB], firmware : [type_Firmware.QMK], source : type_ValList.fromValue("https://github.com/markstory/ursa-minor-keyboard/")};
 	kb.caseType = [type_CaseType.Included];
 	ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(54)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	add(kb);
-	kb = { name : "articulation80", thumbKeys : type_NumRange.fromValue(4), source : type_ValList.fromValue("https://github.com/mylestunglee/articulation80"), img : type_ValList.fromValue("articulation80.jpg"), notes : type_ValList.fromValue("Numpad/navigation blocks and the top row can be broken off.")};
+	kb = { name : "articulation80", thumbKeys : type_NumRange.fromValue(4), source : type_ValList.fromValue("https://github.com/mylestunglee/articulation80"), img : type_ValList.fromValue("articulation80.jpg"), firmware : [type_Firmware.QMK], notes : type_ValList.fromValue("Numpad/navigation blocks and the top row can be broken off.")};
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc],type_KeySpacing.Choc);
 	ColStagKeyboard.setMatrix(kb,type_NumRangeList.either(44,48,56,68,80),type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 	kb.rcols = type_NumRange.fromArray([6,9]);
@@ -552,6 +567,7 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,type_ValList.fromValue(type_SwitchProfile.MX));
 	kb.kit = ["https://keebd.com/en-us/products/reviung-41-keyboard-kit","https://customkbd.com/collections/split-keyboards/products/reviung-41","https://www.littlekeyboards.com/products/reviung41-analyst-keyboard-kit","https://shop.beekeeb.com/product/reviung41-hotswap-diy-mechanical-keyboard-pcb-set-kit/","https://keycapsss.com/diy-kits/140/reviung41-keyboard-kit","https://new.boardsource.xyz/products/Reviung41"];
 	kb.prebuilt = ["https://shop.beekeeb.com/product/pre-soldered-reviung41/","https://new.boardsource.xyz/products/Reviung41","https://customkbd.com/collections/split-keyboards/products/reviung-41"];
+	kb.firmware = [type_Firmware.QMK];
 	ColStagKeyboard.addSKBC(kb);
 	var reviung41 = add(kb);
 	kb = ColStagKeyboard._new("Reviung41 with trackball",reviung41);
@@ -576,6 +592,8 @@ ColStagBoards.init = function(keyboards) {
 		ColStagKeyboard.setMatrix(kb,[type_NumRange.fromValue(56)],type_NumRange.fromValue(6),type_NumRange.fromValue(4));
 		ColStagKeyboard.setExtras(kb,type_NumRange.fromValue(4));
 		kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+		kb.firmware = [type_Firmware.QMK];
+		kb.software = [type_Software.VIA];
 		add(kb);
 	};
 	kb = ColStagKeyboard._new("Iris");
@@ -670,6 +688,8 @@ ColStagBoards.init = function(keyboards) {
 	kb.wristPads = type_ValList.fromValue(type_WristPads.Integrated);
 	kb.tenting = [type_Tenting.Legs,type_Tenting.Mount];
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+	kb.firmware = [type_Firmware.Custom];
+	kb.software = [type_Software.Custom];
 	kb.prebuilt = type_ValList.fromValue("!https://shop.keyboard.io/products/model-100");
 	kb.img = type_ValList.fromValue("keyboardio-m100.webp");
 	add(kb);
@@ -708,6 +728,8 @@ ColStagBoards.init = function(keyboards) {
 	kb.tenting = [type_Tenting.None,type_Tenting.Legs,type_Tenting.Mount];
 	kb.tilt = type_NumRange.fromArray([-10,0]);
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+	kb.firmware = [type_Firmware.Custom];
+	kb.software = [type_Software.Custom];
 	kb.prebuilt = type_ValList.fromValue("!https://dygma.com/pages/defy");
 	kb.img = type_ValList.fromValue("dygma-defy.webp");
 	kb.layoutRef = ["https://support.dygma.com/hc/en-us/articles/15110448574621-How-can-I-visualize-the-Dygma-Defy-or-the-Dygma-Raise-on-my-desk"];
@@ -720,6 +742,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.shape = type_ValList.fromValue(type_Shape.Unibody);
 	kb.pinkyStagger = 0.5;
 	kb.caseType = type_ValList.fromValue(type_CaseType.Included);
+	kb.firmware = [type_Firmware.QMK];
 	kb.source = type_ValList.fromValue("https://github.com/nshie/osprey");
 	kb.img = type_ValList.fromValue("osprey.jpg");
 	add(kb);
@@ -1885,15 +1908,16 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 	}
 	,initCuriosities: function(kb) {
 		this.addFilterHeader("Other curiosities");
-		var col = new table_number_IntRangeColumn("Displays",new table_FancyField("displays",function(q,wantSet,setValue) {
+		var col;
+		var displays = this.addColumn(new table_number_IntRangeColumn("Displays",new table_FancyField("displays",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.displays = setValue;
 				return null;
 			} else {
 				return q.displays;
 			}
-		}));
-		this.addColumn(col);
+		})));
+		displays.filterMinDefault = 1;
 		var light = new table_tag_TagListColumn("Lighting",new table_FancyField("lighting",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.lighting = setValue;
@@ -1902,6 +1926,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.lighting;
 			}
 		}),type_Lighting);
+		light.defaultValue = [type_Lighting.RGB,type_Lighting.Simple];
 		light.shortLabels.set(type_Lighting.Unknown,"");
 		light.shortLabels.set(type_Lighting.None,"-");
 		light.columnCount = 2;

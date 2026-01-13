@@ -2153,6 +2153,7 @@ Keychron Q13, Q14, Q10, V10, Q8
 75% SP75 (on Ali)
 40% https://github.com/aroum/yolochka
 40% https://github.com/dohn-joh/heatwave
+68s https://shop.yushakobo.jp/products/10858
 `
 /* TODO
 ali keyboards
@@ -2178,7 +2179,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofil
 https://get.autokeybo.com
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9e0j3/blasphemy/
 Adesso Easytouch 1500
-Ragnok RK104 / SANWA Mechanical keyboard / https://deltonstudio.com/products/delton-kb450-bluetooth-mechanical-keyboard
+Ragnok RK104 / Sanwa SUPPLY Ergonomic Mechanical Keyboard / Delton KB450 
 75% ROG Falcata https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/gallery/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
 Nocfree &

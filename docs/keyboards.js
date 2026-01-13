@@ -7434,9 +7434,12 @@ window.keyboardData = [
 	"keys": 38,
 	"rows": 3,
 	"cols": 6,
+	"rcols": 6,
 	"thumbKeys": 2,
 	"outerKeys": -1,
 	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
 	"pinkyStagger": 0.6,
 	"splay": "Yes",
 	"hotswap": "Yes",
@@ -7450,8 +7453,10 @@ window.keyboardData = [
 	"ctlCount": 1,
 	"ctlFootprint": "Nice!Nano",
 	"ctlName": "nRF52840",
-	"caseType": "ThirdParty",
-	"source": "https://github.com/DeppressedCabbage/Hephaestes38-zmk/tree/main"
+	"caseType": "Included",
+	"web": "https://www.conturakeyboards.com/",
+	"source": "https://github.com/DeppressedCabbage/Hephaestes38-zmk/tree/main",
+	"prebuilt": "https://www.conturakeyboards.com/product-page/hephaestes38-keyboard"
 },
 {
 	"name": "cambkb",
@@ -8537,9 +8542,16 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 40u https://github.com/ChrisChrisLoLo/loongcat40
 36s https://github.com/yuburoll/Boardloaf
 38s https://github.com/yuburoll/modubu
+40% moNa2 https://booth.pm/ja/items/6376654
+70% Cyboard Imprint
+60% Ergo V-1 https://www.reddit.com/r/ErgoMechKeyboards/comments/1putvsp/introducing_ergov1/
+42s TrueStrike42 (Hall Effect) https://github.com/byungyoonc/TrueStrike42
+36s https://github.com/lander03xD/zmk-config-cheap03xD
+64u https://github.com/gzowski/ashwing64
 `;
 
 /* Other TODOs
+https://cocotkeebs.com/en
 https://keyboardfinder.click
 
 choc-spaced lily58? https://keebd.com/products/lily58-choc-asembled-keyboard
@@ -8629,6 +8641,7 @@ Delux T9, T11
 https://github.com/htx-studio/One-Handed-Keyboard
 Doio KB16-01
 Lemokey L0 HE
+moimate creatorpad
 
 Colstag (note: commented out above):
 27 Ergodonk https://www.thingiverse.com/thing:4892740 https://imgur.com/a/ergodonk-Lt5Mwwv
