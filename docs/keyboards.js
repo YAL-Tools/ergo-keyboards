@@ -8671,6 +8671,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1lruphf/couldnt_buy_a_mikefi
 https://www.kickstarter.com/projects/1866868344/wing-45-true-wireless-ergo-columnar-split-keyboard
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1n22qeg/nata_keyboard_project_part_2_big_update_case/
 https://posture.works/baseform/
+https://www.reddit.com/r/crkbd/comments/1qs9uby/prototyping_the_ekgo/
 TAIKO-01
 
 WIP:
