@@ -2154,6 +2154,7 @@ Keychron Q13, Q14, Q10, V10, Q8
 40% https://github.com/aroum/yolochka
 40% https://github.com/dohn-joh/heatwave
 68s https://shop.yushakobo.jp/products/10858
+40% https://github.com/yuburoll/ANSIC
 `
 /* TODO
 ali keyboards
