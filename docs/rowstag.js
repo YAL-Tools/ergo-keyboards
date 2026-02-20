@@ -260,7 +260,7 @@ window.rowStagData = [
 	"img": "dygma-raise.jpg",
 	"notes": "(image from IGN review)",
 	"shape": "Split",
-	"connection": "Wired",
+	"connection": ["Wired", "Bluetooth", "Wireless"],
 	"keys": 68,
 	"rows": 4,
 	"lshift": [
@@ -2183,6 +2183,7 @@ Ragnok RK104 / Sanwa SUPPLY Ergonomic Mechanical Keyboard / Delton KB450
 75% ROG Falcata https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/gallery/
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
 Nocfree &
+theseus75
 
 Gone?:
 100%s https://spaceholdings.net/collections/keyboards/products/sp-111

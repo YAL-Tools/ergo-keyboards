@@ -5975,6 +5975,9 @@ window.keyboardData = [
 	"shape": "Split",
 	"notes": "A Corne (V3)-like keyboard with ARM Cortex-M0+ STM32",
 	"connection": "Wired",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
 	"hotswap": "Yes",
 	"switchProfile": "MX",
 	"keySpacing": "MX",
@@ -7890,8 +7893,8 @@ window.keyboardData = [
 	"source": "https://github.com/nmunnich/apiaster"
 },
 {
-	"name": "lapka",
-	"img": "lapka.jpg",
+	"name": "Lapka",
+	"img": "lapka-r1.webp",
 	"notes": "Wireless ergonomic split keyboard for those who have paws (:",
 	"shape": "Split",
 	"connection": "Bluetooth",
@@ -7901,13 +7904,15 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"numpad": "None",
 	"splay": "Yes",
-	"hotswap": "Yes",
+	"pinkyStagger": 0.7,
+	"hotswap": "No",
 	"switchProfile": ["Choc", "ChocV2"],
+	"keySpacing": "Choc",
 	"encoders": 0,
 	"displays": 0,
 	"lighting": "None",
 	"firmware": "ZMK",
-	"assembly": ["PCB", "Diodeless"],
+	"assembly": ["PCB", "Diodeless", "Reversible"],
 	"ctlCount": 2,
 	"ctlFootprint": "Nice!Nano",
 	"ctlName": "nRF52840",
@@ -7917,6 +7922,38 @@ window.keyboardData = [
 	"buildGuide": [
 		"https://github.com/braindefender/lapka/blob/master/Guide/build-guide-en.md",
 		"https://github.com/braindefender/lapka/blob/master/Guide/build-guide-ru.md"
+	]
+},
+{
+	"name": "Lapka 42",
+	"img": "lapka-42.webp",
+	"notes": "Wireless ergonomic split keyboard for those who have paws (:",
+	"shape": "Split",
+	"connection": "Bluetooth",
+	"keys": 42,
+	"rows": 3,
+	"cols": 6,
+	"thumbKeys": 3,
+	"numpad": "None",
+	"splay": "Yes",
+	"pinkyStagger": 0.7,
+	"hotswap": "Yes",
+	"switchProfile": ["Choc", "ChocV2"],
+	"keySpacing": "Choc",
+	"encoders": 0,
+	"displays": 0,
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": ["PCB"],
+	"ctlCount": 2,
+	"ctlFootprint": "Nice!Nano",
+	"ctlName": "nRF52840",
+	"caseType": "Included",
+	"web": "https://github.com/braindefender/lapka-42",
+	"source": "https://github.com/braindefender/lapka-42",
+	"buildGuide": [
+		"https://github.com/braindefender/lapka-42/blob/master/Build/BUILD_GUIDE_EN.md",
+		"https://github.com/braindefender/lapka-42/blob/master/Build/BUILD_GUIDE_RU.md"
 	]
 },
 {
@@ -8548,6 +8585,7 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 42s TrueStrike42 (Hall Effect) https://github.com/byungyoonc/TrueStrike42
 36s https://github.com/lander03xD/zmk-config-cheap03xD
 64u https://github.com/gzowski/ashwing64
+57s https://github.com/Scybin/chitin
 `;
 
 /* Other TODOs
