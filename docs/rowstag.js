@@ -1876,18 +1876,18 @@ window.rowStagData = [
 	"pointingDevices": 1
 },
 */
-/*
 {
 	"name": "ROG Falcata",
 	"img": "rog-falcata.webp",
 	"notes": "NB! Hot-swappable but only ASUS switches match the pin layout.",
-	"shape": "Split",
+	"shape": ["Monoblock", "Split"],
 	"stagger": "Row",
+	"connection": ["Wired", "Bluetooth", "Wireless"],
 	"keys": 85,
 	"rows": 5,
-	"lshift": "ANSI",
+	"lshift": ["ANSI", "ISO"],
 	"rshift": "RightCut",
-	"enter": "ANSI",
+	"enter": ["ANSI", "ISO"],
 	"space": "SplitDistinct",
 	"backspace": "Wide",
 	"thumbKeys": 2,
@@ -1899,6 +1899,7 @@ window.rowStagData = [
 	"keySpacing": "MX",
 	"encoders": 1,
 	"encoderType": "Wheel",
+	"displays": 1,
 	"lighting": "RGB",
 	"firmware": "Custom",
 	"software": "Custom",
@@ -1907,7 +1908,6 @@ window.rowStagData = [
 	"caseType": "Included",
 	"web": "https://rog.asus.com/us/keyboards/keyboards/compact/rog-falcata/"
 },
-*/
 {
 	"name": "UHK 80",
 	"img": "uhk80.webp",
@@ -2148,13 +2148,15 @@ Keychron Q13, Q14, Q10, V10, Q8
 100%u https://nopunin10did.com/jabberwocky/
 65%s Zornher ST68
 65%u topre alice..? https://www.amazon.com/SZRKBD%E3%85%A4-Ergonomic-Capacitive-Keyboard-Programmable/dp/B0DFV9M5X7?th=1
-75%s https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/
 40% Maglit40
 75% SP75 (on Ali)
 40% https://github.com/aroum/yolochka
 40% https://github.com/dohn-joh/heatwave
 68s https://shop.yushakobo.jp/products/10858
 40% https://github.com/yuburoll/ANSIC
+100% Mod MMM https://github.com/dcpedit/mod-mmm
+100%s Weekin WK Alice 3
+40% y40 alice https://oshwhub.com/weekin/y40-alice-fen-ti-weekin
 `
 /* TODO
 ali keyboards
@@ -2180,8 +2182,7 @@ https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofil
 https://get.autokeybo.com
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1i9e0j3/blasphemy/
 Adesso Easytouch 1500
-Ragnok RK104 / Sanwa SUPPLY Ergonomic Mechanical Keyboard / Delton KB450 
-75% ROG Falcata https://rog.asus.com/keyboards/keyboards/compact/rog-falcata/gallery/
+Ragnok RK104 / Sanwa SUPPLY Ergonomic Mechanical Keyboard / Delton KB450
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hhk9ru/crater75_a_lowprofile_rowstaggered_wireless_split/
 Nocfree &
 theseus75

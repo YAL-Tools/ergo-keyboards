@@ -8586,6 +8586,11 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 36s https://github.com/lander03xD/zmk-config-cheap03xD
 64u https://github.com/gzowski/ashwing64
 57s https://github.com/Scybin/chitin
+52s https://codeberg.org/humanplayer2/underset
+42u https://adm42.dev
+46s https://github.com/te9no/zmk-config-MKB2
+54s https://github.com/shoedler/effiddy/tree/main
+36s http://github.com/schuay/cirrus40
 `;
 
 /* Other TODOs
