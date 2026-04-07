@@ -8395,7 +8395,41 @@ window.keyboardData = [
 	"caseType": "Included",
 	"prebuilt": "https://sunderkeyboards.com/products/sunder-e60-he"
 },
-"2025-11-23"
+{
+	"name": "Pando58",
+	"img": [
+		"Pando58.jpg",
+	],
+	"notes": "Pando58 is a modern RP2040 Zero-based 58-key column staggered split keyboard. The PCB supports hotswap sockets OR soldered switches. The interconnect uses RJ45 ports as opposed to TRRS, which improves reliability and allows for hotplugging.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"navCluster": "Arrows",
+	"numpad": "None",
+	"splay": "No",
+	"hotswap": ["Yes", "No"],
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"lighting": "None",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": ["PCB", "ThroughHole"],
+	"ctlCount": 2,
+	"ctlFootprint": "RP2040-Zero",
+	"ctlName": "RP2040",
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "Included",
+	"web": "https://jyap808.github.io/pando58/",
+	"source": "https://github.com/jyap808/pando58",
+	"kit": "https://www.etsy.com/listing/4478359437/",
+	"buildGuide": "https://jyap808.github.io/pando58/build/"
+},
+"2026-04-07"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
