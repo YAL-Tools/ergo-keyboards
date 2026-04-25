@@ -1239,6 +1239,36 @@ class ColStagBoards {
 		];
 		kb.prebuilt = [];
 		addIris(kb);
+
+		kb = new ColStagKeyboard("Iris LM");
+		kb.setHotswap([Choc, ChocV2, GateronLP], MX);
+		kb.lighting = [RGB, Underglow];
+		kb.ctlCount = 2;
+		kb.ctlFootprint = "Onboard/SMD";
+		kb.ctlPinCount = 0;
+		kb.ctlName = "STM32G431";
+		kb.web = [
+			"!https://keeb.io/collections/iris-split-ergonomic-keyboard"
+		];
+		kb.kit = [
+			"![v:Kit] https://keeb.io/products/iris-lm-kit",
+			"![v:Kailh PCB Kit] https://keeb.io/products/iris-lm-k-pcb-kit",
+			"![v:Gateron PCB Kit] https://keeb.io/products/iris-lm-g-pcb-kit"
+		];
+		kb.buildGuide = [
+			"!https://docs.keeb.io/iris-lm-build-guide"
+		];
+		kb.prebuilt = [
+			"!https://keeb.io/products/iris-lm"
+		];
+		kb.extras = [
+			"[v:MagSafe Tenting Kit] https://keeb.io/products/magnetic-magsafe-tenting-stand-kit-for-split-keyboard-r2"
+		];
+		kb.notes = [
+			"Kailh Choc V1 & Kailh Choc V2 are only supported on the Iris LM-K PCB.",
+			"Gateron LP KS-33 switches are only supported on the Iris LM-G PCB."
+		];
+		addIris(kb);
 		
 		kb = new ColStagKeyboard("Atreis");
 		kb.shape = Unibody;

@@ -8578,7 +8578,6 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 44s https://github.com/thewickest/smash-b
 42s PartialGauss https://www.reddit.com/r/ErgoMechKeyboards/comments/1ls8iq4/partialgauss_designed_my_first_keyboard_a/
 60% Dactyl Lynx https://www.reddit.com/r/ErgoMechKeyboards/comments/1lua90r/the_dactyl_lynx/
-56s Iris LM https://keeb.io/products/iris-lm-keyboard-kit
 42s https://www.reddit.com/r/ErgoMechKeyboards/comments/1m4dbpw/raven_my_second_keyboard_design_3d_printed_kicad/
 42s https://github.com/Cipulot/CorneECRevival
 42s https://github.com/buztard/kyrne/
