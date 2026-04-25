@@ -596,7 +596,7 @@ ColStagBoards.init = function(keyboards) {
 	kb.hotswap = [type_HotSwap.No,type_HotSwap.Yes];
 	kb.keySpacing = [type_KeySpacing.MX];
 	kb.img = type_ValList.fromValue("iris.webp");
-	kb.kit = ["![v:r7] https://keeb.io/collections/iris-split-ergonomic-keyboard","![v:r5] https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
+	kb.kit = ["![v:r7] https://keeb.io/collections/iris-split-ergonomic-keyboard","![v:r8 PCB] https://keeb.io/products/iris-rev-8-keyboard-split-ergonomic-keyboard","![v:r5 PCB] https://keeb.io/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard","https://mechboards.co.uk/collections/kits/products/iris-kit","https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0"];
 	kb.extras = ["[v:Case with palm rests] https://github.com/elentok/iris-case"];
 	kb.prebuilt = ["![v:Multiple revisions] https://keeb.io/collections/iris-split-ergonomic-keyboard"];
 	kb.notes = ["NB! Choc/Alps switches are only available in Rev5, which isn't hotswap"];
@@ -606,8 +606,10 @@ ColStagBoards.init = function(keyboards) {
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc]);
 	kb.keySpacing = [type_KeySpacing.Choc];
 	kb.img = type_ValList.fromValue("iris-ce-left_860x.webp");
-	kb.kit = ["!https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard"];
-	kb.prebuilt = [];
+	kb.lighting = [type_Lighting.RGB,type_Lighting.Underglow];
+	kb.kit = ["!https://keeb.io/products/iris-ce-kit"];
+	kb.buildGuide = ["!https://docs.keeb.io/iris-ce-build-guide"];
+	kb.prebuilt = ["!https://keeb.io/products/iris-ce"];
 	addIris(kb);
 	kb = ColStagKeyboard._new("Iris LM");
 	ColStagKeyboard.setHotswap(kb,[type_SwitchProfile.Choc,type_SwitchProfile.ChocV2,type_SwitchProfile.GateronLP],type_KeySpacing.MX);

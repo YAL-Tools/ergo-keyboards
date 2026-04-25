@@ -1214,7 +1214,8 @@ class ColStagBoards {
 		kb.img = "iris.webp";
 		kb.kit = [
 			"![v:r7] https://keeb.io/collections/iris-split-ergonomic-keyboard",
-			"![v:r5] https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard",
+			"![v:r8 PCB] https://keeb.io/products/iris-rev-8-keyboard-split-ergonomic-keyboard",
+			"![v:r5 PCB] https://keeb.io/products/iris-rev-5-keyboard-pcbs-for-split-ergonomic-keyboard",
 			"https://mechboards.co.uk/collections/kits/products/iris-kit",
 			"https://splitkb.com/collections/keyboard-kits/products/iris-rev-7-0",
 		];
@@ -1234,10 +1235,16 @@ class ColStagBoards {
 		kb.setHotswap([Choc]);
 		kb.keySpacing = [Choc];
 		kb.img = "iris-ce-left_860x.webp";
+		kb.lighting = [RGB, Underglow];
 		kb.kit = [
-			"!https://keeb.io/collections/iris-split-ergonomic-keyboard/products/iris-ce-low-profile-choc-hotswap-pcbs-for-split-ergonomic-keyboard",
+			"!https://keeb.io/products/iris-ce-kit"
 		];
-		kb.prebuilt = [];
+		kb.buildGuide = [
+			"!https://docs.keeb.io/iris-ce-build-guide"
+		];
+		kb.prebuilt = [
+			"!https://keeb.io/products/iris-ce"
+		];
 		addIris(kb);
 
 		kb = new ColStagKeyboard("Iris LM");
