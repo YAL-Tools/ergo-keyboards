@@ -57,6 +57,7 @@ Such as
 - [Every key is a 5-way switch](https://www.reddit.com/r/ErgoMechKeyboards/comments/10kvbqp/keyboard_made_entirely_of_low_force_5_direction/)
 - [Every key is a rotary encoder](https://www.reddit.com/r/MechanicalKeyboards/comments/1cpmw1r/oops_all_rotary_encoders/)
 - Hand/wrist-mounted ([A](https://github.com/Baranowski/Viosuo), [B](https://adamleblanc.page/portfolio/schist01/))
+- [Modular](https://github.com/e3w2q/su120-keyboard)
 
 ## Lower-profile MX
 
