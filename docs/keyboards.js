@@ -8089,7 +8089,7 @@ window.keyboardData = [
 	"thumbKeys": 3,
 	"cornerKeys": 4,
 	"hotswap": "Yes",
-	"switchProfile": "Choc",
+	"switchProfile": ["Choc", "ChocV2", "GateronLP"],
 	"encoders": 1,
 	"encoderType": "Knob",
 	"trackpads": 1,
@@ -8429,7 +8429,37 @@ window.keyboardData = [
 	"kit": "https://www.etsy.com/listing/4478359437/",
 	"buildGuide": "https://jyap808.github.io/pando58/build/"
 },
-"2026-04-07"
+{
+	"name": "AnyWhy Flake v2 S/M/L",
+	"img": [
+		"flake.webp"
+	],
+	"notes": [
+		"A low-profile keyboard in three sizes and with hybrid hot-swap (MX / Choc V1 / Choc V2)",
+	],
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Bluetooth"],
+	"keys": [[40], [46], [58]],
+	"rows": {"min": 4, "max": 5},
+	"cols": {"min": 5, "max": 6},
+	"thumbKeys": 5,
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "Choc", "ChocV2", "GateronLP"],
+	"keySpacing": "MX",
+	"lighting": "None",
+	"firmware": "ZMK",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": "XIAO",
+	"ctlName": "nRF52840",
+	"caseType": "Included",
+	"web": "https://github.com/anywhy-io/flake",
+	"source": "https://github.com/anywhy-io/flake",
+	"buildGuide": "https://github.com/anywhy-io/flake/blob/main/docs/build_guide.md"
+},
+"2026-06-05"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8625,6 +8655,9 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 46s https://github.com/te9no/zmk-config-MKB2
 54s https://github.com/shoedler/effiddy/tree/main
 36s http://github.com/schuay/cirrus40
+64s Scylla 4x7 mod https://github.com/ADJ-DHD/Scylla_Mod/tree/main
+76s Tiwaz https://github.com/tstrube/Tiwaz
+60% Chrumm w/ trackball https://github.com/mroukema/chrumm-keyboard-trackball
 `;
 
 /* Other TODOs
@@ -8698,27 +8731,36 @@ https://new.reddit.com/r/ErgoMechKeyboards/comments/hudjyt/current_research_on_e
 
 Keypads:
 http://fingerpunch.xyz/product/kucheza/
-https://www.lemokey.com/products/lemokey-x0-qmk-wired-mechanical-gaming-keypad
-https://www.amazon.com/dp/B0BRFSB1LN/ref=sbl_dpx_pc-accessories-keyboards_B00ZR7POQQ_0
-https://github.com/kb-elmo/GameHand
-https://gitlab.com/to1ne/marconi16
 https://github.com/bobbicodes/trochee
-https://github.com/Staacks/inkkeys
-https://github.com/klouderone/SeagullMacropad
 Koolerton macropads
-https://github.com/takashicompany/dogtag
 Aula Excalibur
 https://www.hackster.io/news/sherbet-is-a-beautiful-diy-ergonomic-keyboard-for-serious-gaming-11981c53602e
-RedThunder RGB
 Azeron Cyborg
+Delux T9
+60% https://github.com/htx-studio/One-Handed-Keyboard
+https://github.com/ergohaven/sm30
+
+Half a rowstag
+https://github.com/kb-elmo/GameHand
+ZUOYA HE30
+Lemokey L0 HE
+Delux T11
+same as T11 https://www.amazon.com/dp/B0BRFSB1LN/ref=sbl_dpx_pc-accessories-keyboards_B00ZR7POQQ_0
+RedThunder RGB
+Redragon K585 PRO
+https://www.lemokey.com/products/lemokey-x0-qmk-wired-mechanical-gaming-keypad
+
+Fightpads
 https://haute42.com/haute-board-mini/
 keeb supply stress
-ZUOYA HE30
-Delux T9, T11
-https://github.com/htx-studio/One-Handed-Keyboard
-Doio KB16-01
-Lemokey L0 HE
-moimate creatorpad
+
+True macropads
+17 moimate creatorpad
+8 https://github.com/takashicompany/dogtag
+16 Doio KB16-01
+16 https://github.com/klouderone/SeagullMacropad
+16 https://gitlab.com/to1ne/marconi16
+8 https://github.com/Staacks/inkkeys
 
 Colstag (note: commented out above):
 27 Ergodonk https://www.thingiverse.com/thing:4892740 https://imgur.com/a/ergodonk-Lt5Mwwv

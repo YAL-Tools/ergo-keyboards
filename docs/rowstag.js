@@ -2107,7 +2107,7 @@ window.rowStagData = [
 	"tenting": "Fixed",
 	"prebuilt": "https://fekertech.com/products/feker-alice75-qmk-via"
 },
-"2025-10-31"
+"2026-06-05"
 ];
 window.rowStagTODOs = `
 65%u Akko ACR Pro Alice Plus
@@ -2116,7 +2116,6 @@ window.rowStagTODOs = `
 40%s Fourier https://github.com/keebio/fourier https://keeb.io/products/fourier-40-split-staggered-keyboard https://keebd.com/products/fourier-v1-3-40-split-staggered-keyboard-kit
 65%u https://mechkeys.com/products/weikav-record-wired-alice-gasket-kit?rfsn=6645989.1d09ea&variant=44524032131295 https://kbd.news/Weikav-Record-Alice-review-2270.html
 75%u Perixx PERIBOARD-613 B
-75%s Kinesis Freestyle2
 75%s Core Mechanics Project: 0001
 65%u CIDOO ABM066
 65%u CIDOO V68
