@@ -1254,6 +1254,7 @@ class ColStagBoards {
 		kb.ctlFootprint = "Onboard/SMD";
 		kb.ctlPinCount = 0;
 		kb.ctlName = "STM32G431";
+		kb.img = "iris-lm.webp";
 		kb.web = [
 			"!https://keeb.io/collections/iris-split-ergonomic-keyboard"
 		];

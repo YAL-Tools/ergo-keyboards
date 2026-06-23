@@ -30,7 +30,7 @@ class FancyTableDisplayMode {
 				continue;
 			}
 			//
-			for (src in row.value.img) {
+			if (row.value.img != null) for (src in row.value.img) {
 				var small = "img-small/" + haxe.io.Path.withExtension(src, "webp");
 				var img = document.createImageElement();
 				img.src = small;

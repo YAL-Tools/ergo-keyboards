@@ -2156,6 +2156,9 @@ Keychron Q13, Q14, Q10, V10, Q8
 100% Mod MMM https://github.com/dcpedit/mod-mmm
 100%s Weekin WK Alice 3
 40% y40 alice https://oshwhub.com/weekin/y40-alice-fen-ti-weekin
+65% Jiffy75 https://kbd.news/Jiffy75-review-2818.html
+60% https://github.com/yuburoll/ilwol
+60% https://github.com/yuburoll/phalwol
 `
 /* TODO
 ali keyboards

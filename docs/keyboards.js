@@ -8657,6 +8657,9 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 64s Scylla 4x7 mod https://github.com/ADJ-DHD/Scylla_Mod/tree/main
 76s Tiwaz https://github.com/tstrube/Tiwaz
 60% Chrumm w/ trackball https://github.com/mroukema/chrumm-keyboard-trackball
+42s Toucan 2 https://beekeeb.com/introducing-toucan2/
+58s Haili58 https://github.com/Squalius-cephalus/haili58
+44s https://github.com/juncho26/LP44_Split
 `;
 
 /* Other TODOs
