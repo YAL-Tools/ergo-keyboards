@@ -8459,7 +8459,39 @@ window.keyboardData = [
 	"source": "https://github.com/anywhy-io/flake",
 	"buildGuide": "https://github.com/anywhy-io/flake/blob/main/docs/build_guide.md"
 },
-"2026-06-05"
+{
+	"name": "Pando",
+	"img": "pando.webp",
+	"notes": "Pando is a wired 58-key column-staggered split keyboard. It uses an integrated MCU design on the STM32 platform (STM32G0B1) with an IO expander (PCA9555) on the secondary half, connected over USB-C.",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": "Wired",
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"thumbKeys": 5,
+	"navCluster": "Arrows",
+	"numpad": "None",
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"lighting": "None",
+	"firmware": "QMK",
+	"software": "Vial",
+	"assembly": "PCB",
+	"ctlCount": 1,
+	"ctlName": "!STM32G0B1",
+	"wristPads": "None",
+	"tenting": "None",
+	"caseType": "Included",
+	"web": "https://jyap808.github.io/pando/",
+	"source": "https://github.com/jyap808/pando/",
+	"prebuilt": "https://www.etsy.com/listing/4567044197/",
+	"buildGuide": "https://jyap808.github.io/pando/build/",
+	"layoutRef": "http://jyap808.github.io/pando/assets/pando-layout.pdf"
+},
+"2026-09-05"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8660,6 +8692,8 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 42s Toucan 2 https://beekeeb.com/introducing-toucan2/
 58s Haili58 https://github.com/Squalius-cephalus/haili58
 44s https://github.com/juncho26/LP44_Split
+54s https://github.com/Hanthebot/silakka54-HE https://www.reddit.com/r/ErgoMechKeyboards/comments/1vltval/silakka54he_cantorhe_yet_another_hall_effect/
+42s https://github.com/Hanthebot/cantor-HE https://www.reddit.com/r/ErgoMechKeyboards/comments/1vltval/silakka54he_cantorhe_yet_another_hall_effect/
 `;
 
 /* Other TODOs
@@ -8776,6 +8810,7 @@ Unreleased:
 https://new.reddit.com/r/ErgoMechKeyboards/comments/1dltr3y/hammerhead42_final_prototype_for_a_unibody_split/
 Naya Create
 https://www.arrowmechanics.com/produkty
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1hu4mgr/plentiful_of_elements/
 https://www.reddit.com/r/MechanicalKeyboards/comments/1g16rug/jarne_blade_the_lowest_profile_split/
 https://github.com/Geobert/snowslide_site
 https://www.reddit.com/r/ErgoMechKeyboards/comments/1hlaffe/the_mantaray_a_new_open_source_design_based_on/

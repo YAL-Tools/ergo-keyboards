@@ -90,7 +90,7 @@ Keycaps:
 Tricks:
 -	[Tilters for Choc V1 1350](https://www.thingiverse.com/thing:5932496)
 -	[Parametric tilters](https://makerworld.com/en/models/809248-parametric-mx-keycap-spacer-riser-tilter)
--	[Lever keycaps](https://github.com/dohn-joh/keycaps)\
+-	[Lever keycaps](https://github.com/dohn-joh/keycaps) / [alt](https://www.reddit.com/r/ErgoMechKeyboards/comments/1cs2vdv/leveret_v1/)\
 	You can press these sideways
 -	[Row-staggered to ortholinear adapter keycaps](https://www.reddit.com/r/olkb/comments/1m8ir1d/ortholinearized_idobao_id80_using_3d_printed/)
 
@@ -104,3 +104,7 @@ EC12:
 [Roller encoder](https://github.com/kumamuk-git/CKW12)
 [Another roller encoder](https://www.reddit.com/r/ErgoMechKeyboards/comments/1lk5dev/lets_build_yet_another_encoder/)
 [And another roller encoder](https://github.com/EverydayErgo/MEH01) / [r](https://www.reddit.com/r/ErgoMechKeyboards/comments/1n34znm/meh01_substitute_horizontal_encoder_for_evqwgd001/)
+
+## Other things
+
+- [Cherry MX ULP switch force tuning mod](https://github.com/dyad-keeb/Cherry-MX-ULP-Spring-Tuner/tree/main) ([reddit](https://www.reddit.com/r/ErgoMechKeyboards/comments/1v7qwer/cherry_mx_ulp_operating_force_tuning_mod/))

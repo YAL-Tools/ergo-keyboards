@@ -2159,6 +2159,7 @@ Keychron Q13, Q14, Q10, V10, Q8
 65% Jiffy75 https://kbd.news/Jiffy75-review-2818.html
 60% https://github.com/yuburoll/ilwol
 60% https://github.com/yuburoll/phalwol
+45% https://github.com/theb0b12/caeseura
 `
 /* TODO
 ali keyboards
