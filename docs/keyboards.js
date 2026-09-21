@@ -8491,7 +8491,46 @@ window.keyboardData = [
 	"buildGuide": "https://jyap808.github.io/pando/build/",
 	"layoutRef": "http://jyap808.github.io/pando/assets/pando-layout.pdf"
 },
-"2026-09-05"
+{
+	"name": "Haili58",
+	"img": [
+		"Haili58.webp"
+	],
+	"notes": "Haili58 is a 58-key column staggered split keyboard. PCB uses hotswap sockets for both MX and Gateron low profile key switches. The keyboard is designed to be used with a USB dongle, but a Bluetooth fork is offered too.",
+	"parent": "Corne/crkbd V4",
+	"shape": "Split",
+	"stagger": "Column",
+	"connection": ["Wired", "Wireless"],
+	"keys": 58,
+	"rows": 4,
+	"cols": 6,
+	"rcols": 6,
+	"thumbKeys": 4,
+	"innerKeys": 1,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0.75,
+	"splay": "No",
+	"hotswap": "Yes",
+	"switchProfile": ["MX", "GateronLP"],
+	"keySpacing": ["MX", "Other"],
+	"encoders": 2,
+	"encoderType": "Knob",
+	"firmware": ["ZMK", "Custom"],
+	"software": "Vial",
+	"assembly": ["PCB", "Reversible"],
+	"ctlCount": 2,
+	"ctlFootprint": ["Nice!Nano", "!nRF52840"],
+	"ctlName": "nRF52840",
+	"caseType": "Included",
+	"extras": "[v: Case] https://makerworld.com/zh/models/2824958-haili58-case",
+	"web": "https://github.com/Squalius-cephalus/haili58",
+	"source": "https://github.com/Squalius-cephalus/haili58",
+	"prebuilt": "As of 2026Q3 the keyboard is hardly sold by few Chinese sellers.",
+	"buildGuide": "https://github.com/Squalius-cephalus/haili58/wiki/Build-Guide",
+	"layoutRef": "https://editor.keyboard-tools.xyz/?s=51eqwjWrNi"
+},
+"2026-09-21"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards
@@ -8690,7 +8729,6 @@ a bunch of keyboards https://github.com/MakerJake01/MakerJakes-keyboards
 76s Tiwaz https://github.com/tstrube/Tiwaz
 60% Chrumm w/ trackball https://github.com/mroukema/chrumm-keyboard-trackball
 42s Toucan 2 https://beekeeb.com/introducing-toucan2/
-58s Haili58 https://github.com/Squalius-cephalus/haili58
 44s https://github.com/juncho26/LP44_Split
 54s https://github.com/Hanthebot/silakka54-HE https://www.reddit.com/r/ErgoMechKeyboards/comments/1vltval/silakka54he_cantorhe_yet_another_hall_effect/
 42s https://github.com/Hanthebot/cantor-HE https://www.reddit.com/r/ErgoMechKeyboards/comments/1vltval/silakka54he_cantorhe_yet_another_hall_effect/
