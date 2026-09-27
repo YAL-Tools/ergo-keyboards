@@ -1501,6 +1501,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		this.addColumns(inf,hotswap,switchType,keySpacing);
 	}
 	,initLinks: function(kb) {
+		var _gthis = this;
 		var header = this.addFilterHeader("Links");
 		header.editorNotes.push(new table_FancyHeaderNote("Notes on link lists",table_FancyTableOnNotes.fromSimple(function(el) {
 			var p = tools_HtmlTools.appendParaTextNode(el,"Links can be prefixed with a ");
@@ -1679,6 +1680,15 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 					out.appendChild(window.document.createTextNode(", "));
 				}
 				layoutRef.buildValueExt(out,item,"LR");
+			}
+			var col = _gthis.colExtras;
+			if(avail_has(item.extras)) {
+				if(first) {
+					first = false;
+				} else {
+					out.appendChild(window.document.createTextNode(", "));
+				}
+				col.buildValueExt(out,item,"+");
 			}
 		};
 		avail.show = true;
@@ -1859,6 +1869,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 			tools_HtmlTools.appendParaTextNode(div,"D-pads and alike.","Some can also be clicked for a 5th action.","The click usually takes 200-300g force, so don't count on it.");
 		});
 	}
+	,colExtras: null
 	,initConveniences: function(kb) {
 		var header = this.addFilterHeader("Conveniences");
 		var col;
@@ -1909,7 +1920,7 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 		ctCol.filterTags = [type_CaseType.Included,type_CaseType.ThirdParty];
 		ctCol.columnCount = 2;
 		this.addColumn(ctCol);
-		var xCol = new table_LinkListColumn("Extras",new table_FancyField("extras",function(q,wantSet,setValue) {
+		this.colExtras = new table_LinkListColumn("Extras",new table_FancyField("extras",function(q,wantSet,setValue) {
 			if(wantSet) {
 				q.extras = setValue;
 				return null;
@@ -1917,11 +1928,11 @@ KeyboardTable.prototype = $extend(table_FancyTable.prototype,{
 				return q.extras;
 			}
 		}));
-		xCol.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
+		this.colExtras.onNotes = table_FancyTableOnNotes.fromSimple(function(div) {
 			tools_HtmlTools.appendParaTextNode(div,"Cases, tenting kits, and so on");
 		});
-		xCol.shortName = "+";
-		this.addColumn(xCol);
+		this.colExtras.shortName = "+";
+		this.addColumn(this.colExtras);
 	}
 	,initCuriosities: function(kb) {
 		this.addFilterHeader("Other curiosities");

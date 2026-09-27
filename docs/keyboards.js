@@ -88,33 +88,27 @@ window.keyboardData = [
 	"connection": "Wired",
 	"keys": [[36], [42]],
 	"rows": 3,
-	"cols": {
-		"min": 5,
-		"max": 6
-	},
+	"cols": {"min": 5, "max": 6},
+	"rcols": {"min": 5, "max": 6},
 	"thumbKeys": 3,
 	"pinkyStagger": 0.7,
 	"hotswap": "Yes",
-	"switchProfile": [
-		"MX",
-		"Choc"
-	],
+	"switchProfile": ["MX", "Choc"],
 	"encoders": 2,
-	"trackballs": {
-		"min": 0,
-		"max": 2
-	},
-	"rockerSwitches": 2,
-	"trackballSize": 34,
-	"trackpads": {
-		"min": 0,
-		"max": 2
-	},
 	"pointingDevices": 2,
+	"trackballs": {"min": 0, "max": 2},
+	"trackballSize": 34,
+	"trackpads": {"min": 0, "max": 2},
+	"rockerSwitches": 2,
+	"assembly": ["PCB", "ThroughHole"],
+	"ctlCount": 2,
+	"ctlFootprint": "Onboard/SMD",
+	"ctlPinCount": 0,
+	"ctlName": "RP2040",
 	"caseType": "Included",
-	"kit": [
-		"!https://fingerpunch.xyz/product/ximi/"
-	]
+	"source": "https://github.com/sadekbaroudi/fingerpunch",
+	"kit": "!https://fingerpunch.xyz/product/ximi/",
+	"extras": "[v:Firmware, cases] https://github.com/sadekbaroudi/fingerpunch",
 },
 {
 	"name": "faux fox keyboard (ffkb) v3",
@@ -8530,7 +8524,7 @@ window.keyboardData = [
 	"buildGuide": "https://github.com/Squalius-cephalus/haili58/wiki/Build-Guide",
 	"layoutRef": "https://editor.keyboard-tools.xyz/?s=51eqwjWrNi"
 },
-"2026-09-21"
+"2026-09-27"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards

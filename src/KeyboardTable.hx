@@ -452,6 +452,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			add(item.prebuilt, prebuilt, "PB");
 			add(item.buildGuide, buildGuide, "BG");
 			add(item.layoutRef, layoutRef, "LR");
+			add(item.extras, colExtras, "+");
 		}
 		avail.show = true;
 		avail.filterTags = [Kit, PreBuilt];
@@ -577,6 +578,7 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 			);
 		}
 	}
+	public var colExtras:LinkListColumn<KB>;
 	function initConveniences(kb:KB) {
 		var header = addFilterHeader("Conveniences");
 		var col:FancyColumn<KB>;
@@ -652,12 +654,12 @@ class KeyboardTable<KB:Keyboard> extends FancyTable<KB> {
 		ctCol.columnCount = 2;
 		addColumn(ctCol);
 		
-		var xCol = new LinkListColumn("Extras", mgf(kb.extras));
-		xCol.onNotes = function(div) {
+		colExtras = new LinkListColumn("Extras", mgf(kb.extras));
+		colExtras.onNotes = function(div) {
 			div.appendParaTextNode("Cases, tenting kits, and so on");
 		}
-		xCol.shortName = "+";
-		addColumn(xCol);
+		colExtras.shortName = "+";
+		addColumn(colExtras);
 	}
 	function initCuriosities(kb:KB) {
 		addFilterHeader("Other curiosities");
