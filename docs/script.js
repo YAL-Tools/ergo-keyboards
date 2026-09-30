@@ -2477,7 +2477,7 @@ KeyboardPage.main = function(kbTable) {
 	kbTable.countElement = tmp;
 	kbTable.buildFilters(divFilters);
 	kbTable.buildTable(window.document.querySelector("#data"));
-	table_FancyTableEditor.build(kbTable,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-output"),window.document.querySelector("#editor-load-json"));
+	table_FancyTableEditor.build(kbTable,window.document.querySelector("#editor"),window.document.querySelector("#editor-load"),window.document.querySelector("#editor-reset"),window.document.querySelector("#editor-build"),window.document.querySelector("#editor-test"),window.document.querySelector("#editor-as-md"),window.document.querySelector("#editor-output"),window.document.querySelector("#editor-load-json"));
 	var loc = window.document.location;
 	if(loc.protocol != "file:") {
 		kbTable.baseURL = loc.origin + loc.pathname;
@@ -4536,7 +4536,7 @@ table_FancyTableEditor.print = function(table,kb) {
 	buf_b += "\n}";
 	return buf_b;
 };
-table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,fdJSON,btLoadJSON) {
+table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,cbAsMarkdown,fdJSON,btLoadJSON) {
 	var dest = out;
 	var store = [];
 	var restore = [];
@@ -4616,8 +4616,11 @@ table_FancyTableEditor.build = function(table,out,ddLoad,btReset,btBuild,btTest,
 	};
 	btBuild.onclick = function() {
 		var kb = buildKeyboard();
-		var tmp = table_FancyTableEditor.print(table,kb);
-		fdJSON.value = tmp + ",";
+		var md = table_FancyTableEditor.print(table,kb) + ",";
+		if(cbAsMarkdown.checked) {
+			md = "```\n" + md + "\n```";
+		}
+		fdJSON.value = md;
 	};
 	btReset.onclick = function() {
 		if(!window.confirm("Are you sure that you want to reset all fields? This cannot be undone!")) {

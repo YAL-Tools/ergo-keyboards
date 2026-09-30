@@ -8524,7 +8524,45 @@ window.keyboardData = [
 	"buildGuide": "https://github.com/Squalius-cephalus/haili58/wiki/Build-Guide",
 	"layoutRef": "https://editor.keyboard-tools.xyz/?s=51eqwjWrNi"
 },
-"2026-09-27"
+{
+	"name": "Translator",
+	"img": "translator.webp",
+	"notes": "It's mouse and keyboard at the same time and is great at both while not compromising on ergonomics.",
+	"shape": "Split",
+	"stagger": "Ortho",
+	"connection": "Wired",
+	"keys": 36,
+	"rows": 3,
+	"cols": 5,
+	"rcols": 0,
+	"thumbKeys": 3,
+	"innerKeys": 0,
+	"outerKeys": 0,
+	"cornerKeys": 0,
+	"navCluster": "None",
+	"numpad": "None",
+	"pinkyStagger": 0,
+	"splay": "No",
+	"hotswap": "Unspecified",
+	"switchProfile": "MX",
+	"keySpacing": "MX",
+	"encoders": 0,
+	"pointingDevices": {"min": 0, "max": 2},
+	"trackballs": 0,
+	"displays": 0,
+	"lighting": "Unknown",
+	"firmware": "QMK",
+	"software": "Custom",
+	"assembly": "Handwired",
+	"ctlCount": 2,
+	"ctlFootprint": ["Pro Micro", "Pi Pico", "RP2040-Zero"],
+	"wristPads": "Integrated",
+	"tenting": "Fixed",
+	"caseType": "Included",
+	"source": "https://github.com/Feeflak/translator-keeb",
+	"buildGuide": "https://www.youtube.com/watch?v=Ng-JrAY0m8s"
+},
+"2026-09-30"
 ];
 window.keyboardTODOs = `
 More Maltron keyboards

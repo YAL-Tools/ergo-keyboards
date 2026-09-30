@@ -71,6 +71,7 @@ class FancyTableEditor {
 		btReset:InputElement,
 		btBuild:InputElement,
 		btTest:InputElement,
+		cbAsMarkdown:InputElement,
 		fdJSON:TextAreaElement,
 		btLoadJSON:InputElement,
 	) {
@@ -130,7 +131,11 @@ class FancyTableEditor {
 		}
 		btBuild.onclick = function() {
 			var kb = buildKeyboard();
-			fdJSON.value = print(table, kb) + ",";
+			var md = print(table, kb) + ",";
+			if (cbAsMarkdown.checked) {
+				md = '```\n$md\n```';
+			}
+			fdJSON.value = md;
 		}
 		btReset.onclick = function() {
 			if (!window.confirm(

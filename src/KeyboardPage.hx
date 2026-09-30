@@ -35,6 +35,7 @@ class KeyboardPage {
 			document.querySelectorAuto("#editor-reset"),
 			document.querySelectorAuto("#editor-build"),
 			document.querySelectorAuto("#editor-test"),
+			document.querySelectorAuto("#editor-as-md"),
 			document.querySelectorAuto("#editor-output"),
 			document.querySelectorAuto("#editor-load-json")
 		);
