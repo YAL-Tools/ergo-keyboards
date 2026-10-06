@@ -108,3 +108,7 @@ EC12:
 ## Other things
 
 - [Cherry MX ULP switch force tuning mod](https://github.com/dyad-keeb/Cherry-MX-ULP-Spring-Tuner/tree/main) ([reddit](https://www.reddit.com/r/ErgoMechKeyboards/comments/1v7qwer/cherry_mx_ulp_operating_force_tuning_mod/))
+
+## 3dp hotswap
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1wvszwn/comment/pditezs/
+https://www.reddit.com/r/ErgoMechKeyboards/comments/1wr0u10/eden_a_large_20_split_keyboard/

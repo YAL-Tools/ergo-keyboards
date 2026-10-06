@@ -1298,6 +1298,7 @@ window.rowStagData = [
 	"enter": "ANSI",
 	"space": "Multi",
 	"backspace": "Wide",
+	"thumbKeys": {"min": 2, "max": 5},
 	"leftMods": 4,
 	"rightMods": 4,
 	"hotswap": "Yes",
